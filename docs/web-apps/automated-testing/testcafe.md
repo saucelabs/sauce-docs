@@ -16,8 +16,10 @@ you can use to test your web apps remotely on Sauce Labs cloud using the [`sauce
 Supported OS:
 
 - Windows 10 / Windows 11
-- macOS 10.15+
+- macOS 11+*
 - Linux
+
+*macOS 14+ requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/testcafe/yaml#armrequired)
 
 ## Supported Languages
 
@@ -38,19 +40,73 @@ Sauce Labs supports the following test configurations for TestCafe:
   </tr>
   <tbody>
     <tr>
-      <td rowspan='3'>3.6.2</td>
-      <td rowspan='3'>20</td>
+      <td rowspan='3'>3.7.2</td>
+      <td rowspan='3'>22</td>
       <td rowspan='3'>✅</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td><b>macOS:</b> 11.00, 12, 13, 14</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>August 28, 2025</td>
+      <td rowspan='3'>July 8th, 2026</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
       <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1, 16.2</td>
+      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>3.7.1</td>
+      <td rowspan='3'>22</td>
+      <td rowspan='3'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>February 06, 2026</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>3.7.0</td>
+      <td rowspan='3'>22</td>
+      <td rowspan='3'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>November 13, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>3.6.2</td>
+      <td rowspan='3'>20</td>
+      <td rowspan='3'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>November 05, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
       <td>Safari</td>
     </tr>
   </tbody>
@@ -68,7 +124,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1, 16.2</td>
+      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
       <td>Safari</td>
     </tr>
   </tbody>
@@ -86,79 +142,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1, 16.2</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>3.5.0</td>
-      <td rowspan='3'>20</td>
-      <td rowspan='3'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>April 15, 2025</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1, 16.2</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>3.4.0</td>
-      <td rowspan='3'>20</td>
-      <td rowspan='3'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>December 6, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1, 16.2</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>3.3.0</td>
-      <td rowspan='3'>18</td>
-      <td rowspan='3'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>September 28, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>3.2.0</td>
-      <td rowspan='3'>18</td>
-      <td rowspan='3'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>August 31, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
       <td>Safari</td>
     </tr>
   </tbody>

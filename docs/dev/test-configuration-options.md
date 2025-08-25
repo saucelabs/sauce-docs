@@ -93,7 +93,7 @@ This setting cannot be used for mobile browsers, as your test will use the defau
 Identifies the name of the operating system the browser or mobile device should be running on. You can use this for [dynamic device allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation). Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
 
 ```java
-"platformName": "macOS 10.13"
+"platformName": "macOS 11"
 ```
 
 ---
@@ -670,7 +670,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) will be pre-installed on the device during the testing of the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
-Dependent apps inherit the configuration of the main app under test for [`Device Language`](/mobile-apps/live-testing/live-mobile-app-testing/#default-app-settings), [`Device Orientation`](/mobile-apps/live-testing/live-mobile-app-testing/#default-app-settings), and [`Proxy`](/mobile-apps/live-testing/live-mobile-app-testing/#default-app-settings), regardless of the settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+Dependent apps inherit the configuration of the main app under test for [`Device Language`](/mobile-apps/live-testing/live-mobile-app-testing/#device-settings), [`Device Orientation`](/mobile-apps/live-testing/live-mobile-app-testing/#device-settings), and [`Proxy`](/mobile-apps/live-testing/live-mobile-app-testing/#device-settings), regardless of the settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 
 Android-dependent apps will not be instrumented or modified. iOS-dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a third party app), the test will not work as intended.
 
@@ -880,8 +880,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 Defines the custom time zone override for the application under test.
 You can use `UTC`, `PST`, `EST`, as well as place-based timezone names such as `America/Los_Angeles`.
-See [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) f
-or more details. The same behavior could be achieved by providing a custom
+See [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more details. The same behavior could be achieved by providing a custom
 value to the `TZ` environment variable via the `appium:processArguments` capability.
 
 :::note
@@ -1098,7 +1097,7 @@ capabilities.setCapability("appium:options", appiumOptions);
 // `appium:options` will only work with Appium 2 or later
 // This can be set in the `sauce:options` block
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("appiumVersion", "2.0.0");
+sauceOptions.setCapability("appiumVersion", "stable");
 sauceOptions.setCapability("build", "<your build id>");
 sauceOptions.setCapability("name", "<your test name>");
 capabilities.setCapability("sauce:options", sauceOptions);
@@ -1124,17 +1123,13 @@ Optional, Sauce-specific capabilities that you can use in your Appium tests. The
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
-Specifies the Appium driver version you want to use. For most use cases, setting the `appiumVersion` is unnecessary because Sauce Labs defaults to the version that supports the broadest number of device combinations. Sauce Labs advises against setting this property unless you need to test a particular Appium feature or patch.
-
-:::note
-If you want to use Appium 2.0, see the [Migration Guide](/mobile-apps/automated-testing/appium/appium-2-migration/).
-:::
+Specifies the Appium driver version you want to use. Sauce Labs advises to set this capability to 'latest' or 'stable'. [You can read more on our available appium images here.](/docs/mobile-apps/automated-testing/appium/appium-versions.md)
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("appiumVersion", "1.22.0");
+sauceOptions.setCapability("appiumVersion", "stable");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -1419,9 +1414,11 @@ Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobi
 
 When set to `true`, Sauce Labs will resign the app under test with its own signature. This is required for iOS apps to be installed on our devices, but also to support features like:
 
+- [Vitals](#vitals)
 - [Network Capture](#networkcapture)
-- [Image Injection](#saucelabsimageinjectionenabled)
-- [Biometrics interception](#allowtouchidenroll)
+- [Image Injection](#imageinjection)
+- [Biometrics interception](#biometricsinterception)
+- [Crash Reporting](#crashreporting)
 
 And many more. This value can be set to `false` to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) for more information. This capability can only be set to `false` for iOS private devices.
 
@@ -1429,9 +1426,11 @@ And many more. This value can be set to `false` to allow testing of specific beh
 
 When set to `true`, Sauce Labs will instrument the app under test with its own signature. This is required for Android apps if you want to use features like:
 
+- [Vitals](#vitals)
 - [Network Capture](#networkcapture)
-- [Image Injection](#saucelabsimageinjectionenabled)
-- [Biometrics interception](#allowtouchidenroll)
+- [Image Injection](#imageinjection)
+- [Biometrics interception](#biometricsinterception)
+- [Crash Reporting](#crashreporting)
 
 and many more. This value can be set to `false` and can be used for private and public devices.
 
@@ -1449,7 +1448,24 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
-### `sauceLabsImageInjectionEnabled`
+### `vitals`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Vitals enables memory, cpu, performance stats alongside UI interactions during the session. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
+sauceOptions.setCapability("vitals", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `imageInjection`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
@@ -1459,13 +1475,14 @@ Enables the [camera image injection](/mobile-apps/features/camera-image-injectio
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("sauceLabsImageInjectionEnabled", true);
+sauceOptions.setCapability("resigningEnabled", true);
+sauceOptions.setCapability("imageInjection", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
-### `sauceLabsBypassScreenshotRestriction`
+### `bypassScreenshotRestriction`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
@@ -1475,13 +1492,14 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("sauceLabsBypassScreenshotRestriction", true);
+sauceOptions.setCapability("resigningEnabled", true);
+sauceOptions.setCapability("bypassScreenshotRestriction", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
-### `allowTouchIdEnroll`
+### `biometricsInterception`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
@@ -1491,7 +1509,25 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("allowTouchIdEnroll", true);
+sauceOptions.setCapability("resigningEnabled", true);
+sauceOptions.setCapability("biometricsInterception", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `crashReporting`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Enables capturing and inclusion of detailed stack traces in the test results, providing insights into any application crashes that occur during testing. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
+sauceOptions.setCapability("crashReporting", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -1517,7 +1553,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> |</p>
 
-Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
+Enables recording of HTTP/HTTPS network traffic for debugging purposes. Regardless of the framework in use (Native, Hybrid, Web), system-wide capture from all Android and iOS apps as well as browsers are supported. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1666,6 +1702,49 @@ Each network condition has a supported value range:
 
 ---
 
+### `logFilters`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set custom filters for Appium server logs. This will allow you to mask sensitive data from your test report.
+
+For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
+
+:::note
+The `logFilters` capability is supported in Appium version 2.5.2 and later. To use this feature, ensure your test script specifies a compatible Appium version using the Sauce-specific [`appiumVersion`](/dev/test-configuration-options/#appiumversion) capability. You can view the list of [available Appium versions](/docs/mobile-apps/automated-testing/appium/appium-versions.md) here.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("logFilters", List.of(
+	ImmutableMap.of("text","text-to-be-replaced")));
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `filterSendKeys`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Filters the `SendKeys` Appium command from the Appium commands log in the tests report. In case your test sends sensitive information (such as credentials) through a form this will prevent to leak them in the test report, replacing the request of the command by a placeholder.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("filterSendKeys", true);
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `sauce: network-profile`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
@@ -1782,6 +1861,8 @@ You can either set `"username"` in capabilities or specify it in the Sauce URL a
 
 :::tip
 You can find your `username` value under **Account** > **User Settings**.
+
+Alternatively, you can use the `username` of a [service account](/basics/acct-team-mgmt/managing-service-accounts) for running tests.
 :::
 
 :::warning
@@ -1808,6 +1889,8 @@ You can either set `"accessKey"` in capabilities or specify it in the Sauce URL 
 
 :::tip
 You can find your `accessKey` value under **Account** > **User Settings**.
+
+Alternatively, you can use the `accessKey` of a [service account](/basics/acct-team-mgmt/managing-service-accounts) for running tests.
 :::
 
 :::warning
@@ -1880,9 +1963,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | </small></p>
 
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
-
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
+Specify a [Sauce Connect](/secure-connections/sauce-connect-5/) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1898,7 +1979,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
+Specify a [Sauce Connect tunnel name](/dev/cli/sauce-connect-5/run/#tunnel-name) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
 
 :::caution Deprecation notice
 `tunnelIdentifier` is being deprecated in favor of `tunnelName`.
@@ -1907,8 +1988,6 @@ Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-co
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
-
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1931,8 +2010,6 @@ If the [tunnelName](#tunnelname) you've specified to establish connectivity with
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
-
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1967,38 +2044,6 @@ capabilities.setCapability("sauce:options", sauceOptions);
 :::warning Breaking Change
 Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier` **and** `tunnelOwner` instead of `parentTunnel`.
 :::
-
----
-
-### `recordVideo`
-
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
-
-```java
-MutableCapabilities capabilities = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("recordVideo", false);
-capabilities.setCapability("sauce:options", sauceOptions);
-```
-
----
-
-### `videoUploadOnPass`
-
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
-
-```java
-MutableCapabilities capabilities = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("videoUploadOnPass", false);
-capabilities.setCapability("sauce:options", sauceOptions);
-```
 
 ---
 
@@ -2103,6 +2148,22 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `recordVideo`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("recordVideo", false);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `timeZone`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
@@ -2137,16 +2198,32 @@ Provide a valid time zone identifier to `appium:timeZone` capability.
 The time zone identifier must be a valid name from the list of
 [available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
 for example `America/New_York`.
-The time zone is changed instantly on the *per-device* basis and is preserved until the next change.
+The time zone is changed instantly on the _per-device_ basis and is preserved until the next change.
 
 **iOS Devices**
 
 Provide a valid time zone identifier to `appium:appTimeZone` capability.
 The time zone identifier must be a valid name from the list of
 [available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), for example `America/New_York`.
-The time zone is changed on the *per-application* basis and is only valid for the application under test.
+The time zone is changed on the _per-application_ basis and is only valid for the application under test.
 The same behavior could be achieved by providing a custom value to the
 [TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
+
+---
+
+### `videoUploadOnPass`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("videoUploadOnPass", false);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 

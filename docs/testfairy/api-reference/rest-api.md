@@ -8,17 +8,33 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In this document you can find the reference for the TestFairy REST API. This API allows the developer to access and interact with TestFairy data remotely.
+In this document you can find the reference for the Sauce Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Mobile App Distribution data remotely.
 
 ## Getting Started
 
 Getting started with the REST API can be done via the command line with any programming language. Let's begin with an example: by listing all our projects.
 
-A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
+Supported Public Cloud endpoints:
+
+### US-East-1
+
+```bash
+curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
+```
+
+### EU-Central-1 (Access keys are different in each Data Center)
+
+```bash
+curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
+```
+
+## Previous Sauce Mobile App Distribution US-East endpoint:
 
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
 ```
+
+A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
 
 In the example above, you can see that our user is `john@example.com` and the API key is `0001234cafecafe`. This user authentication token is required for all requests to the REST server.
 
@@ -55,7 +71,8 @@ Returns a list of all projects (iOS and Android apps) in this account.
             "name":"GroupShot",
             "packageName":"com.groupshot",
             "platform":"Android",
-            "icon":"[URL TO APP ICON]"
+            "icon":"[URL TO APP ICON]",
+            "landingPageMode": "open"
         }
     ]
 }
@@ -71,7 +88,7 @@ Returns a list of all projects (iOS and Android apps) in this account.
 <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
 <p></p>
 
-Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the TestFairy SDK.
+Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the Sauce Mobile App Distribution SDK.
 
 #### Responses
 
@@ -98,6 +115,7 @@ Get all builds in a specific project. Each build is a distinct version that is e
             "appDisplayName":"My Application - DemoApp (20)",
             "iconUrl":"[APP ICON URL]",
             "appUrl":"[URL TO APK OR IPA FILE]",
+            "landingPageMode": "closed",
             "sessions":6,
             "crashes":0,
             "testers":0,
@@ -149,6 +167,7 @@ Get a specific build of a specific project. Query the /api/1/projects/&#123;proj
         "appDisplayName":"My Application - DemoApp (20)",
         "iconUrl":"[APP ICON URL]",
         "appUrl":"[URL TO APK OR IPA FILE]",
+        "landingPageMode": "closed",
         "sessions":6,
         "crashes":0,
         "testers":0,
@@ -196,13 +215,74 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 ---
 
+### Copy a Specific Build to a Folder
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/copy</code></summary>
+<p></p>
+
+Use this endpoint to copy a specific build to a specified folder. You can either create a new folder or copy the build to an existing one.
+
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>folder_name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name or path of the target folder. Examples: Folder1 or /Project1/Folder1.</p></td>
+		</tr>
+        <tr>
+			<td><code>app_name</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Defines a new name for the application when copying the build to the target folder.<br /> If specified, the build is renamed to the given <code>app_name</code>.
+                <br />If not specified, the original application name is preserved.</p></td>
+		</tr>
+        <tr>
+			<td><code>groups</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "build_id": "1000",
+    "folder_path": "/Project1/Folder1",
+    "app_name": "My Application",
+    "assigned_groups": [
+      "13",
+      "14",
+      "12"
+    ],
+    "invalid_groups": [
+      "abcd",
+      "efgd"
+    ]
+}
+```
+
+</details>
+
+---
+
 ### Download the Uploaded Artifact
 
 <details>
     <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/download/</code></summary>
 <p></p>
 
-Downloads the binary file uploaded to TestFairy.
+Downloads the binary file uploaded to Sauce Mobile App Distribution.
 
 #### Responses
 
@@ -233,7 +313,7 @@ Invite one or more tester groups to this specific build. You can optionally send
 	<tbody>
 		<tr>
 			<td><code>groups</code></td>
-			<td><p><small>| REQUIRED | STRING |</small></p><p>Comma separated list of tester group names or id.</p></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
 		</tr>
 		<tr>
 			<td><code>comment</code></td>
@@ -241,7 +321,8 @@ Invite one or more tester groups to this specific build. You can optionally send
 		</tr>
 		<tr>
 			<td><code>notify</code></td>
-            <td><p><small>| OPTIONAL | STRING |</small></p><p>Set to <code>on</code> to send out an email to each tester. Default value is <code>off</code>.</p></td>
+			<td><p><small>| OPTIONAL | STRING | INTEGER </small></p><p>Pass <code>notify=on</code> or <code>notify=1</code> to send out an email to each tester.
+            <br />By default, email sending is disabled.</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -258,7 +339,6 @@ Invite one or more tester groups to this specific build. You can optionally send
 </table>
 
 </details>
-
 
 ---
 
@@ -435,7 +515,8 @@ Add a new tester to account. Optionally can add them to a group.
 	<tbody>
 		<tr>
 			<td><code>notify</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>Pass <code>notify=on</code> to send out a welcome email when inviting this tester. The email sent is the "Tester Welcome Email" template and can be configured. Default value is <code>off</code>.</p></td>
+			<td><p><small>| OPTIONAL | STRING | INTEGER </small></p><p>Pass <code>notify=on</code> or <code>notify=1</code> to send a welcome email when inviting this tester.
+                <br /> The email will use the "Tester Welcome Email" template, which can be customized.<br /> By default, email sending is disabled.</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -545,6 +626,208 @@ Delete a single tester, remove them from any tester-groups they might be in, and
 ```
 
 </details>
+
+---
+
+### Add a Tester to a Group
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Add a single or multiple testers to a specific group.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be added to a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Remove a Tester from a Group
+
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Remove a single or multiple testers from a specific group.
+
+<p></p>
+**Note:** Groups without any members will be discarded.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be removed from a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### List All Tester groups
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/testers/groups</code></summary>
+<p></p>
+
+List all tester groups in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "groups": [
+    {
+      "id": 14,
+      "name": "group1",
+      "testers": [
+        [
+          {
+            "email": "tester1@saucelabs.com"
+          },
+          {
+            "email": "tester2@saucelabs.com"
+          },
+          {
+            "email": "tester3@saucelabs.com"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 39,
+      "name": "group2",
+      "testers": [
+        [
+          {
+            "email": "tester1@saucelabs.com"
+          }
+        ]
+      ]
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Create a Tester Group
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups</code></summary>
+<p></p>
+
+Create a new tester group
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>groupName</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>Specify a group name.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "id": "40",
+    "name": "group3"
+}
+```
+
+</details>
+
+---
 
 ## Feedbacks
 
@@ -909,6 +1192,134 @@ Modifies a single webhook.
 <p></p>
 
 Deletes a single webhook.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok"
+}
+```
+
+</details>
+
+## Sites
+
+### List All Sites
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/site/</code></summary>
+<p></p>
+
+List all sites in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "site": {
+    "accounts": [
+      {
+        "id": "1",
+        "name": "Site 1",
+        "buildsCount": 0,
+        "users": [
+          {
+            "email": "[site-subaccount-682ae46476f9f]",
+            "role": "Account Owner"
+          },
+          {
+            "email": "sitemanager@saucelabs.com",
+            "role": "Account Manager"
+          }
+        ]
+      }
+    ],
+    "managers": [
+      {
+        "email": "accountmanager@saucelabs.com"
+      }
+    ]
+  }
+}
+```
+
+</details>
+
+---
+
+### Create a New Site
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/site/</code></summary>
+<p></p>
+
+Add a new site to the organization.
+
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name of the account. The string accepts numbers, letters, <code>-</code>, and <code>_</code>. The length has to be more than 3 characters.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>loginMethod</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Specify how users can log in to account. Pass <code>0</code> for SSO or <code>1</code> for credentials</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok"
+}
+```
+
+</details>
+
+---
+
+### Delete a Site
+
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/site/&#123;site-id&#125;/</code></summary>
+<p></p>
+
+Deletes an account .
 
 #### Responses
 

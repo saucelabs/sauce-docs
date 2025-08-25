@@ -27,7 +27,7 @@ You can upload the mapping file by using the API provided by Sauce Labs. Here's 
 Android:
 
 ```bash
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
  -F api_key='your_api_key' \
  -F file=@sample.apk \
  -F symbols_file=@mappings.txt
@@ -36,7 +36,7 @@ curl https://upload.testfairy.com/api/upload \
 IOS:
 
 ```bash
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
  -F api_key='your_api_key' \
  -F file=@sample.ipa \
  -F symbols_file=@sample.dSYM.zip
@@ -59,7 +59,7 @@ Here’s an example of the relevant portion of the API response:
 
 ## Accessing Symbols File Through the Dashboard
 
-To download your symbols file through the TestFairy dashboard, follow these steps:
+To download your symbols file through the Sauce Mobile App Distribution dashboard, follow these steps:
 
 1. **Log In to Your Dashboard**
 

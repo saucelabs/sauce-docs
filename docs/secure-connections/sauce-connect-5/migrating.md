@@ -20,7 +20,7 @@ You can now install or upgrade Sauce Connect version 5 with a package manager sy
 * `sc run` is now used to start a tunnel, as there are now other subcommands that can be used.
 * `--tunnel-name` is now required.
 * `--region` is now required.
-* [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is now **OFF** by default, and is called TLS Resigning.
+* [SSL Certificate Bumping](/secure-connections/sauce-connect-4/security-authentication#ssl-certificate-bumping) is now called TLS Resigning. SC 5.2 or newer defaults to **ON**, SC 5.1 or older defaults to **OFF**. Sauce Connect 4 defaulted to **ON**.
 * Domain matching for deny/direct/tunnel domains now uses the standard regex format.
 
 ## Unsupported Features
@@ -104,22 +104,22 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
 
 ### Removed Flags
 
-| Version 4.x | Version 5.x |
-| ----------- | ----------- |
-| `--autodetect` | removed |
-| `--doctor` | removed |
-| `--experimental` | removed |
-| `--extra-info` | removed |
-| `--log-stats` | removed |
-| `--max-logsize` | removed |
-| `--no-autodetect` | removed |
-| `--ocsp` | removed |
-| `--output-format` | removed |
-| `--pidfile` | removed |
-| `--readyfile` | see [Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks/) |
-| `--se-port` | removed |
-| `--tunnel-cainfo` | removed |
-| `--vm-version` | removed |
+| Version 4.x | Version 5.x                                                                          |
+| ----------- |--------------------------------------------------------------------------------------|
+| `--autodetect` | removed                                                                              |
+| `--doctor` | removed                                                                              |
+| `--experimental` | removed                                                                              |
+| `--extra-info` | removed                                                                              |
+| `--log-stats` | removed                                                                              |
+| `--max-logsize` | removed                                                                              |
+| `--no-autodetect` | removed                                                                              |
+| `--ocsp` | removed                                                                              |
+| `--output-format` | removed                                                                              |
+| `--pidfile` | removed                                                                              |
+| `--readyfile` | see [Readiness Checks](/secure-connections/sauce-connect-5/guides/readiness-checks/) |
+| `--se-port` | removed                                                                              |
+| `--tunnel-cainfo` | removed                                                                              |
+| `--vm-version` | removed                                                                              |
 
 ## New Behavior in Sauce Connect 5
 
@@ -167,7 +167,7 @@ You can also prefix the option with a `-` character to remove it from the list, 
 
 ### Readiness Checks
 
-SC5 has been designed to integrate with Kubernetes and other container management systems. The `readyfile` and `status-address` options have been replaced by the `api-address` option. See [Readiness Checks](https://docs.saucelabs.com/secure-connections/sauce-connect-5/operation/readiness-checks/) for more details.
+SC5 has been designed to integrate with Kubernetes and other container management systems. The `readyfile` and `status-address` options have been replaced by the `api-address` option. See [Readiness Checks](/secure-connections/sauce-connect-5/guides/readiness-checks/) for more details.
 
 ### PID Files
 
@@ -176,6 +176,12 @@ Tracking process state through a PID file is error-prone and no longer recommend
 ### Log Rotation
 
 SC5 leaves log management to third party tools such as journald. It can log to stdout or a single file.
+
+### Selenium Relay
+
+Selenium Relay was introduced as a reverse proxy for development environments. Over time, enterprise customers adopted it for production scenarios where more robust communication channels with the Sauce Labs WebDriver endpoint were needed.
+
+With established alternatives like Envoy, Nginx, and HAProxy offering better security, performance, and support, we have deprecated Selenium Relay. We recommend adopting one of these solutions for a more robust and maintainable setup.
 
 ## Proxy Updates
 
@@ -204,7 +210,3 @@ function FindProxyForURL(url, host) {
   return "PROXY localhost:3128";
 }
 ```
-
-## Transition Timeline
-
-Sauce Connect version 5 was released January 16, 2024 and Sauce Connect version 4 is now in maintenance mode until its scheduled End of Life on December 31, 2024. During this period, other than security patches and bug fixes, all new features for Sauce Connect will be released on version 5 only.

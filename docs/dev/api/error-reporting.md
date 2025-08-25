@@ -148,7 +148,7 @@ Submits crash object to Backtrace instance.
                       <li><code>sourceCode</code> - A string value that identifies the ID of the source code file the stack frame is contained in.</li>
                       <li><code>library</code> - A string value that identifies the shared object, the library or the module name.</li>
                       <li><code>debug_identifier</code> - A string value that identifies the debug identifier for the library associated with this frame.</li>
-                      <li><code>faulted</code> - A boolean value that indicates if this frame is known to to the faulting frame.</li>
+                      <li><code>faulted</code> - A boolean value that indicates if this frame is known to be the faulting frame.</li>
                       <li><code>registers</code> - In this object the keys are the register names. Use any names that make sense for the architecture. These must correspond to the values in the <code>arch</code> definition. JSON does not support 64 bit integers, so you must set the correct type and then encode the 64 bit integers as a string.</li>
                     </ul>
               </ul>

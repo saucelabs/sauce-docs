@@ -37,9 +37,64 @@ services that can otherwise create unnecessary noise.
 On iOS/iPadOS devices, this feature works seamlessly without requiring any [resigning](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements)
 or changes to the app, making it simple and efficient to use.
 
-For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. This means no
-complete resigning or additional instrumentation is needed, ensuring a smooth feature enablement.
+For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. The app will be patched to circumvent SSL pinning if it is used.
 
+## Using system-wide Network Capture
+
+1. In Sauce Labs, from the left navigation, click **App Management**.
+   <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="750"/>
+2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#upload-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api).
+   <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="750"/>
+3. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
+   <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="750"/>
+4. Under **Real Device Settings** enable **Network Capture**.
+   <img src={useBaseUrl('img/mobile-apps/network-capture-app-settings.png')} alt="Network Capture App Setting" width="750"/>
+
+Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as during a Live Testing session with the Developer Options window.
+
+:::note All platforms
+
+In order to be able to see network traffic in your test report and ensure a smooth and error free testing experience, please make sure:
+
+- Network protection features in 3rd party networking SDKs and Secure SDKs are disabled.
+- All runtime checks for SSL pinning ([iOS](https://developer.apple.com/news/?id=g9ejcf8y)/[Android](https://developer.android.com/privacy-and-security/security-ssl)) are disabled.
+- Upload a debug build of your application. ([iOS](https://developer.apple.com/documentation/xcode/customizing-the-build-schemes-for-a-project)/[Android](https://developer.android.com/build/build-variants))
+
+Otherwise your app will accidentally mark Sauce's capture as untrustworthy and internet access for HTTPS will be limited.
+
+:::
+
+:::note Android Only
+
+For Android applications, a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically on the fly, right before we install the app to the target device. 
+
+:::
+
+
+### Automated Testing
+
+The [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-and-device-settings) act as default configurations, but can be overridden by the capabilities specified in your test script.
+To control whether network capture is enabled or disabled, add the **networkCapture** capability to your test script.
+
+#### Appium
+
+Enable the following capability when you execute your tests.
+
+- [Sauce-specific Appium capability networkCapture](/dev/test-configuration-options/#networkcapture)
+
+#### Native Tests (Espresso/XCUITest)
+
+Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#upload-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api).
+
+Navigate to **App Management** and locate your app's settings to enable the feature by default for all tests.
+
+<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600" />
+<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr2.png')} alt="Mobile app settings navigation" width="800" />
+
+Alternatively, define it in your **saucectl** configuration the following way:
+
+- [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
+- [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
 
 ### Accessing Network Traffic in real-time (Live Testing)
 
@@ -55,21 +110,82 @@ To be able to observe network traffic in real-time:
    
 <img src={useBaseUrl('img/mobile-apps/network-capture-2.png')} alt="Start capture" width="700"/>
 
-5. Inspect network logs as they arrive.
+5. Inspect network logs in the [Sauce Labs Network Viewer](/mobile-apps/features/network-capture/#sauce-labs-network-viewer) as they arrive.
  
 <img src={useBaseUrl('img/mobile-apps/network-capture-3.png')} alt="Inspect network logs" width="700"/>
+
+#### Cross Browser 
+
+To enable System-wide network capture for cross-browser tests, click on **Developer Options** during a Live Testing session on the sidebar.
+
+If you need to localize the capture context with just the browser and omit all network calls from the system entirely, then prefer 
+ using our [DevTools](/web-apps/live-testing/dev-tools/) solution. It will allow you to isolate network calls from individual browser tabs and provide a richer debugging experience.
+
+### Limitations
+:::note Limitations
+
+- iOS network capture is supported on iOS/iPadOS 14.0 and above.
+- Android network capture is supported on Android 10 and above.
+- Flutter applications are not supported at the moment.
+- Only HTTP/HTTPS network traffic is captured.
+- Android Emulators are not supported.
+- iOS Simulators are not supported.
+- SSL pinning, e.g. when using a self-signed certificate, your custom trust manager must not trust only your certificate.
+- Some common domains are excluded, like those used by system services and analytics providers
+> Excluded domains: `apple.com`, `google.com`, `googleapis.com`, `gstatic.com`, `crashlytics.com`, `doubleclick.net`, `app-measurement.com`, `facebook.com`, `xiaomi.com`, `xiaomi.net`, `miui.com` 
+
+:::
+
+## Accessing HAR Files (Live and Automated Testing)
+
+To download HAR files from Sauce Labs:
+
+1. Navigate to **Test Results**.
+2. Select the applicable test.
+3. Click the **Network** tab on the right panel to preview all captured network requests.
+
+You can also download a HAR file programmatically using the following API request:
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/{JOB_ID}/network.har'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/{JOB_ID}/network.har'
+```
+
+</TabItem>
+</Tabs>
 
 ### Sauce Labs Network Viewer
 The [Sauce Labs Network Viewer](https://github.com/saucelabs/network-viewer) is a visualization tool for HAR files that presents requests
 in a table view with a range of advanced filtering options.
 
 #### Pause / Resume
+<p><small><span className="sauceGreen">Live Testing Only</span></small></p>
 Pause and resume the display of new network traffic without affecting the **network.har** test asset.
 The final **network.har** file contains all network traffic from the moment the network capture was initiated and will be available after the
 session is closed.
 <img src={useBaseUrl('img/mobile-apps/network-capture-pause-resume.png')} alt="Inspect network logs" width="700"/>
 
 #### Reset
+<p><small><span className="sauceGreen">Live Testing Only</span></small></p>
 Clear the current state of network logs from the inspector. This does not affect the final **network.har** test asset.
 <img src={useBaseUrl('img/mobile-apps/network-capture-reset.png')} alt="Inspect network logs" width="700"/>
 
@@ -115,85 +231,21 @@ Clicking on a specific request opens the Request Details view, which includes ge
 response headers, and the request and response payloads.
 <img src={useBaseUrl('img/mobile-apps/network-capture-request-details.png')} alt="Inspect network logs" width="700"/>
 
+#### Failed requests
+Some requests will fail before even sending any HTTP data, and will appear in the requests table in red, with a status of "failed" (instead of a legitimate HTTP status code). They are usually caused by SSL errors, which in turn may be a sign of:
+- A misconfigured or expired SSL certificate
+- The usage of [SSL pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) in a mobile app
+
+<img src={useBaseUrl('img/mobile-apps/network-capture-failed-requests.png')} alt="Network capture failed requests" width="700"/>
+
+When an app uses SSL pinning, encrypted traffic will not work while network capture is active, because outgoing requests will be signed using a Sauce Labs certificate instead of the one included with the app.
+
+If you see failed network requests to domains you're trying to test, try to rule out (and remove) SSL pinning from the app first. Even if it was not implemented deliberately, SSL pinning may sometimes come included out-of-the-box with some mobile SDKs or libraries.
+
 #### Stats Row
 The Stats row in the footer provides details on the number of requests, transferred data size, resource sizes, and time metrics such as
 Page Load, DOMContentLoaded, and Finished time.
 <img src={useBaseUrl('img/mobile-apps/network-capture-stats-row.png')} alt="Inspect network logs" width="700"/>
-
-### Limitations
-:::note Limitations
-
-- iOS network capture is supported on iOS/iPadOS 14.0 and above.
-- Android network capture is supported on Android 10 and above.
-- Only HTTP/HTTPS network traffic is captured.
-
-:::
-
-## Accessing HAR Files (Live and Automated Testing)
-
-To download HAR files from Sauce Labs:
-
-1. Navigate to **Test Results**.
-2. Select the applicable test.
-3. Click the **Network** tab on the right panel to preview all captured network requests.
-
-You can also download a HAR file programmatically using the following API request:
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/{JOB_ID}/network.har'
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/{JOB_ID}/network.har'
-```
-
-</TabItem>
-</Tabs>
-
-## Instrumented Network Traffic Capture
-
-:::note Android Only
-
-For Android applications, a minor modification in the manifest is necessary to disable SSL pinning and accept our own certificate by your application.
-In addition, we require the debug version of the application. If your application includes SecureSDK, please ensure the repackaging prevention feature is disabled.
-
-:::
-
-To enable network traffic capturing in your tests:
-
-1. On Sauce Labs, click **Live** > **Mobile App**.
-2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
-3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600"/>
-4. Under **Default Settings**, toggle Instrumentation and Network Capture to enable the feature.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr2.png')} alt="Mobile app settings navigation" width="800"/>
-5. For Automated Testing only: add the networkCapture capability to your test script. Click the link below corresponding to your framework:
-
-    - [Appium](/dev/test-configuration-options/#networkcapture)
-    - [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
-    - [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
-
-:::note Coming soon
-
-System-wide network capture for Automated Testing will be available soon.
-
-:::
-
-Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as during a Live Testing session with the Developer Options window.
 
 ### Limitations
 
@@ -202,37 +254,8 @@ Now you can start your live or automated testing session. Your network logs will
 
 - Android Emulators
 - iOS Simulators
-- Android Chrome Browser in automated tests
-- iOS Safari Browser in automated tests
 
 :::
-
-#### Android
-
-Our network capture feature depends on the fact that these classes are not obfuscated:
-
-[OkHTTP](https://square.github.io/okhttp/)
-
-- okhttp3.Interceptor
-- okhttp3.OkHttpClient
-- okhttp3.Request
-- okhttp3.Response
-- okhttp3.ResponseBody
-- okio.Buffer
-
-[Volley](https://github.com/google/volley)
-
-- com.android.volley.AuthFailureError
-- com.android.volley.NetworkResponse
-- com.android.volley.Request
-- com.android.volley.RequestQueue
-- com.android.volley.Response
-
-#### iOS
-
-- Network capture works if the app uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) or a library (like [Alamofire](https://github.com/Alamofire/Alamofire) or [AFNetworking](https://github.com/AFNetworking/AFNetworking)) that uses NSURLSession inside.
-- Calls made by [NSURLConnection](https://developer.apple.com/documentation/foundation/nsurlconnection) (deprecated by Apple), will not be captured.
-
 
 ## More Information
 

@@ -29,7 +29,7 @@ For additional security, we recommend setting this as an environment variable.
 * Value Format: `<data center>`
 
 Sauce Labs region name, ex.
-us-west or eu-central.
+us-west, us-east, or eu-central.
 More details [here](/basics/data-center-endpoints).
 
 ### `-i, --tunnel-name` {#tunnel-name}
@@ -39,7 +39,7 @@ More details [here](/basics/data-center-endpoints).
 
 Name of the tunnel or tunnel pool.
 You can run tests using this tunnel by specifying the tunnelName value in your test capabilities, see [here](/dev/test-configuration-options/).
-It can also assign a name to a group of tunnels in the same high availability pool, see [here](/secure-connections/sauce-connect/setup-configuration/high-availability/).
+It can also assign a name to a group of tunnels in the same tunnel pool, see [here](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 ### `-u, --username` {#username}
 
@@ -66,7 +66,7 @@ This flag is, primarily, used by Sauce Labs to assign custom properties to the t
 
 Share the tunnel within the same org unit.
 Only the 'all' option is currently supported.
-See [here](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/).
+See [here](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).
 
 ### `-t, --tunnel-pool` {#tunnel-pool}
 
@@ -74,8 +74,8 @@ See [here](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/).
 * Value Format: `<value>`
 * Default value: `false`
 
-Denotes a tunnel as part of a high availability tunnel pool.
-See [here](/secure-connections/sauce-connect/setup-configuration/high-availability/).
+Denotes a tunnel as part of a tunnel pool.
+See [here](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 ## Tunnel traffic
 
@@ -135,6 +135,7 @@ The following example passes requests to *.example.com and *.google.com through 
 
 * Environment variable: `SAUCE_TLS_RESIGN_DOMAINS`
 * Value Format: `[-]<regexp>,...`
+* Default value: `[.*]`
 
 Resign SSL/TLS certificates for matching requests.
 You can specify --tls-resign-domains or --tls-passthrough-domains, but not both.
@@ -166,6 +167,27 @@ The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
 --tunnel-domains .*\.myorg\.dev,-abc\.myorg\.com
 ```
 
+## Tunnel capacity
+
+### `--tunnel-connections` {#tunnel-connections}
+
+* Environment variable: `SAUCE_TUNNEL_CONNECTIONS`
+* Value Format: `<count>`
+* Default value: `16`
+
+Number of connections to the Sauce Connect server.
+By default it is set to the number of CPUs on the machine.
+Total number of concurrent requests that can be handled is limited by the number of connections multiplied by the number of streams, see --tunnel-max-concurrent-streams flag.
+For example with 4 connections and 256 streams, the total number of concurrent requests is 1024.
+
+### `--tunnel-max-concurrent-streams` {#tunnel-max-concurrent-streams}
+
+* Environment variable: `SAUCE_TUNNEL_MAX_CONCURRENT_STREAMS`
+* Value Format: `<count>`
+* Default value: `256`
+
+Maximal number of concurrent HTTP/2 streams per TCP connection.
+
 ## Proxy
 
 ### `-a, --auth` {#auth}
@@ -183,6 +205,14 @@ Example:
 ```
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```
+
+### `--debug-address` {#debug-address}
+
+* Environment variable: `SAUCE_DEBUG_ADDRESS`
+* Value Format: `<host:port>`
+
+Address for the built-in HTTP proxy to listen on.
+Allows exposing the proxy port for connectivity debugging.
 
 ### `-H, --header` {#header}
 
@@ -299,11 +329,27 @@ Syntax:
 - File: `/path/to/file.pac`
 - Embed: `data:base64,<base64 encoded data>`
 
+### `--http-dial-attempts` {#http-dial-attempts}
+
+* Environment variable: `SAUCE_HTTP_DIAL_ATTEMPTS`
+* Value Format: `<int>`
+* Default value: `3`
+
+The number of attempts to dial the network address.
+
+### `--http-dial-backoff` {#http-dial-backoff}
+
+* Environment variable: `SAUCE_HTTP_DIAL_BACKOFF`
+* Value Format: `<duration>`
+* Default value: `1s`
+
+The amount of time to wait between dial attempts.
+
 ### `--http-dial-timeout` {#http-dial-timeout}
 
 * Environment variable: `SAUCE_HTTP_DIAL_TIMEOUT`
 * Value Format: `<duration>`
-* Default value: `30s`
+* Default value: `25s`
 
 The maximum amount of time a dial will wait for a connect to complete.
 With or without a timeout, the operating system may impose its own earlier timeout.
@@ -335,6 +381,15 @@ Zero means no limit.
 
 The maximum amount of time waiting to wait for a TLS handshake.
 Zero means no limit.
+
+### `--http-tls-keylog-file` {#http-tls-keylog-file}
+
+* Environment variable: `SAUCE_HTTP_TLS_KEYLOG_FILE`
+* Value Format: `<path>`
+
+File to log TLS master secrets in NSS key log format.
+By default, the value is taken from the SSLKEYLOGFILE environment variable.
+It can be used to allow external programs such as Wireshark to decrypt TLS connections.
 
 ## API server
 
@@ -369,6 +424,15 @@ The maximum amount of time to wait for the next request before closing connectio
 * Value Format: `<path>`
 
 Path to the log file, if empty, logs to stdout.
+The file is reopened on SIGHUP to allow log rotation using external tools.
+
+### `--log-format` {#log-format}
+
+* Environment variable: `SAUCE_LOG_FORMAT`
+* Value Format: `<text, json>`
+* Default value: `text`
+
+Use json for production workload logs and text for more human-readable output.
 
 ### `--log-http` {#log-http}
 

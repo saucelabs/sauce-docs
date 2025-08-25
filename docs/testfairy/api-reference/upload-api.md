@@ -8,13 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Streamline your build process and upload APKs or IPAs directly to TestFairy.
+Streamline your build process and upload APKs or IPAs directly to Sauce Mobile App Distribution.
 
 ### Usage
-
-[Command line uploader](https://github.com/testfairy/command-line-uploader/blob/master/testfairy-uploader.sh)
-
-[Jenkins](https://plugins.jenkins.io/TestFairy)
 
 [Gradle](https://github.com/testfairy/testfairy-gradle-plugin)
 
@@ -24,22 +20,16 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 [Bitrise](https://www.bitrise.io/integrations/steps/testfairy-deploy)
 
-[Visual Studio Team Services](/testfairy/ci-tools/vs-team)
-
 [NetBeans](http://plugins.netbeans.org/plugin/52087/)
-
-[Bamboo](/testfairy/ci-tools/bamboo)
 
 [TeamCity](/testfairy/ci-tools/team-city)
 
 [GitLab](/testfairy/ci-tools/gitlab)
 
-[Lumberyard](/testfairy/platforms/lumberyard)
-
 ### Upload API
 
 <details>
-<summary><span className="api post">POST</span><code>https://upload.testfairy.com/api/upload/</code></summary>
+<summary><span className="api post">POST</span><code>https://app.testfairy.com/api/upload/</code></summary>
 <p></p>
 
 #### Parameters
@@ -57,6 +47,21 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
  <td><p><small>| REQUIRED |</small></p><p>Android Package Kit (APK), Android App Bundle (AAB), iOS package App Store (IPA), or ZIP (MacOS) file data.</p></td>
  </tr>
  </tbody>
+<tbody>
+  <tr>
+    <td><code>app_name</code></td>
+    <td>
+      <p><small>| OPTIONAL |</small></p>
+      <p>
+        Use this parameter to customize the app name displayed on the dashboard.
+      </p>
+      <p>
+        <strong>Note:</strong> If not provided, the app name will be automatically extracted from the uploaded file.
+        To change the app name before uploading, see the [App Versioning: Display Name](/testfairy/app-distribution/app-versioning/#display-name) documentation.
+      </p>
+    </td>
+  </tr>
+</tbody>
  <tbody>
  <tr>
  <td><code>symbols_file</code></td>
@@ -130,7 +135,7 @@ values={[
 <TabItem value="required">
 
 ```bash title="Sample Request with Required Params"
-curl https://upload.testfairy.com/api/upload -F api_key='your_api_key' -F file=@sample.apk
+curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@sample.apk
 ```
 
 </TabItem>
@@ -138,14 +143,14 @@ curl https://upload.testfairy.com/api/upload -F api_key='your_api_key' -F file=@
 <TabItem value="optional">
 
 ```bash title="Sample Request with Optional Params"
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
  -F api_key='your_api_key' \
  -F file=@sample.apk \
  -F symbols_file=@sample_mapping.txt \
  -F groups='friends,beta' \
  -F notify='on' \
  -F release_notes='stabilitty fixes, improvement in ui' \
- -F tags='production, english
+ -F tags='production, english'
 ```
 
 </TabItem>
@@ -153,7 +158,7 @@ curl https://upload.testfairy.com/api/upload \
 
 #### Responses
 
-In the case of an error, TestFairy returns a JSON with `status` => `fail` and `code` with one of the values listed below. TestFairy supplies an additional human-readable error message to detail the cause of the specific error.
+In the case of an error, Sauce Mobile App Distribution returns a JSON with `status` => `fail` and `code` with one of the values listed below. Sauce Mobile App Distribution supplies an additional human-readable error message to detail the cause of the specific error.
 
 <table id="table-api">
  <tbody>
@@ -203,7 +208,9 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
     "has_testfairy_sdk": true,
     "symbols_download_url": "https://app.testfairy.com/api/1/projects/61545/builds/106410/symbols/download/",
     "attachments": null,
-    "landing_page_url": "https://tsfr.io/31thr2"
+    "landing_page_url": "https://app.testfairy.com/join/31thr2",
+    "build_specific_landing_page_url": "https://app.testfairy.com/join/31thr2?id=106410",
+    "landing_page_mode": "closed"
 }
 ```
 
@@ -211,22 +218,22 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
 
 ### Where Can I Find My API Key?
 
-To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **Upload API Key**.
+To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **TestFairy Access Key**.
 
 ### How Can I Create a New API Key?
 
-To create a new API KEY, click on **Regenerate API Key** on your account preferences page.
+To create a new API KEY, click on **Regenerate** on your account preferences page.
 
 ### Why Is My API Key Empty?
 
-In cases TestFairy identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, TestFairy automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
+In cases Sauce Mobile App Distribution identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, Sauce Mobile App Distribution automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
 
 ### Can I Add Custom Metadata?
 
 Yes. Any POST parameter prefixed with "metadata." in the name is considered custom data and stored along with the upload. For example, consider this command:
 
 ```bash
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
  -F api_key='your_api_key' \
  -F file=@sample.apk \
  -F metadata.branch=master \

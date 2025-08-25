@@ -50,7 +50,7 @@ Here are some tips for configuring your Appium tests:
 ### Set the Location of Your Mobile App
 
 Set the value of `app` to the location for where it can be accessed. This can be a full URL, or it can use
-[Sauce Labs App Storage](/mobile-apps/app-storage/#using-application-storage-with-automated-test-builds)
+[Sauce Labs App Storage](/mobile-apps/app-storage/#using-app-storage-with-automated-test-builds)
 
 :::note
 Sauce Labs only allows you to set either `browserName` or `app`. If you have a value set for `browserName` Sauce will
@@ -80,7 +80,7 @@ If this value is not set, an older default value may be used instead.
 
 ## iOS Code Examples
 
-Below are examples of an iPhone 8 project using iOS version 12.2:
+Below are examples of an iPhone 8 project using iOS version 14.0:
 
 <Tabs
 defaultValue="Java"
@@ -99,7 +99,7 @@ DesiredCapabilities caps = DesiredCapabilities.iphone();
     caps.setCapability("appiumVersion", "1.13.0");
     caps.setCapability("deviceName","iPhone 8 Simulator");
     caps.setCapability("deviceOrientation", "portrait");
-    caps.setCapability("platformVersion","12.2");
+    caps.setCapability("platformVersion","14.0");
     caps.setCapability("platformName", "iOS");
     caps.setCapability("browserName", "");
     caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.0/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.0.zip");

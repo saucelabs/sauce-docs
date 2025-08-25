@@ -222,7 +222,7 @@ saucectl run --retries 1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect-5/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -232,7 +232,7 @@ sauce:
 ```
 
 :::caution
-[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect-5/guides/localhost-proxying/#special-cases) are proxied by the tunnel when accessing localhost.
 :::
 
 ---
@@ -423,7 +423,7 @@ npm:
       auth: base64SecretToken
       username: myUsername
       password: myPassword
-      email: myEmail 
+      email: myEmail
 ```
 
 ---
@@ -578,6 +578,31 @@ Do not use `dependencies` and `packages` at the same time.
 
 ---
 
+### `usePackageLock`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Playwright 1.48.2+</span> | <span className="sauceGreen">saucectl 0.187.0+</span> |</small></p>
+
+Specifies whether to use the project's package-lock.json when installing npm
+dependencies. If true, package-lock.json will be used during package
+installation which can improve the speed of installation.
+
+To use this feature, additional pre-requisites must be met:
+* A package-lock.json must be present in your project.
+* The `@playwright/test` version in your package.json must **exactly** match
+the version defined in your saucectl config.
+
+```yaml
+npm:
+  usePackageLock: true
+```
+
+:::tip
+You can use this option with `packages` to define packages to install in
+addition to those defined in your `package-lock.json`.
+:::
+
+---
+
 ### `strictSSL`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -718,7 +743,7 @@ artifacts:
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Define directories to archive and retain as a test asset at the end of a test run. Archived test assets can
-be downloaded automatically using the `download` configuration, via the 
+be downloaded automatically using the `download` configuration, via the
 [REST API](/dev/api/jobs/#get-a-job-asset-file), or through the test details page.
 
 ```yaml

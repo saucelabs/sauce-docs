@@ -19,7 +19,7 @@ To use the Metric Export feature, a Project Admin user needs to define:
 
 - Metric Sets, which are collections of different Metrics that will be shared with one of more Metric Stores.
 - Metrics, each defined as an aggregate query in Backtrace with scalar values (i.e. unique or count or min or max) in the results.
-- Metric Stores, that Backtrace will share metric information with. Metric Sets are associated with one or more Metrics Sets.
+- Metric Stores, that Backtrace will share metric information with. Metric Sets are associated with one or more Metrics Stores.
 
 This guide will show admin users how to use the Backtrace UI to define Metric Sets and Metrics, configure Metric Stores, and guide you to documentation of supported third party systems so you can further configure those integrations.
 

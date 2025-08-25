@@ -1,5 +1,9 @@
-const unwrapJsx = require('./src/plugins/unwrap-jsx');
+// Load default export (must be a function)
+const unwrapJsx = require('./src/plugins/unwrap-jsx').default;
 
+if (typeof unwrapJsx !== 'function') {
+    throw new Error('unwrapJsx plugin is not a function');
+}
 // Enabling PR previews
 let siteBaseUrl = '/';
 if (process.env.PREVIEW_PATH) siteBaseUrl += process.env.PREVIEW_PATH;
@@ -112,7 +116,7 @@ const docusaurusConfig = {
                     to: '/visual-testing',
                 },
                 {
-                    label: 'Beta Testing',
+                    label: 'App Distribution',
                     position: 'left',
                     to: '/testfairy',
                 },

@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Integrating the TestFairy SDK into your app can help you better understand how your app performs on real devices. It tells you when and how people use your app and provides any metrics you may need to optimize your user experience and code.
+Integrating the Sauce Mobile App Distribution SDK into your app can help you better understand how your app performs on real devices. It tells you when and how people use your app and provides any metrics you may need to optimize your user experience and code.
 
 Both Java and Kotlin apps are supported.
 
@@ -22,9 +22,9 @@ dependencies {
 }
 ```
 
-2. Add the TestFairy Maven Repository to Your Project
+2. Add the Sauce Mobile App Distribution Maven Repository to Your Project
 
-Depending on how you build your project, there are multiple options to add the TestFairy Maven.
+Depending on how you build your project, there are multiple options to add the Sauce Mobile App Distribution Maven.
 
 The most popular option is to add to build.gradle (eg. `PROJECT_ROOT/build.gradle`)
 
@@ -38,7 +38,7 @@ buildscript {
 
 **OR**
 
-Add the TestFairy maven to `settings.gradle` if you create projects with the newer versions of Android Studio.
+Add the Sauce Mobile App Distribution maven to `settings.gradle` if you create projects with the newer versions of Android Studio.
 
 ```java
 dependencyResolutionManagement {
@@ -52,7 +52,7 @@ dependencyResolutionManagement {
 }
 ```
 
-3. Add TestFairy to Your Main Activity's `onCreate`:
+3. Add Sauce Mobile App Distribution to Your Main Activity's `onCreate`:
 
 ```js
 import com.testfairy.TestFairy;
@@ -80,9 +80,9 @@ If you have `Proguard` enabled, add this snippet to your proguard rules file (th
 
 ## Upgrading
 
-TestFairy is constantly improving and updating the Android SDK. Generally, it's a good idea always to use the latest SDK.
+Sauce Mobile App Distribution is constantly improving and updating the Android SDK. Generally, it's a good idea always to use the latest SDK.
 
-Using version wildcards like `1.+@aar`, automatically upgrade your TestFairy to the latest version. To refresh dependency and force Gradle to download the latest version, run the command: `gradlew --refresh-dependencies`
+Using version wildcards like `1.+@aar`, automatically upgrade your Sauce Mobile App Distribution to the latest version. To refresh dependency and force Gradle to download the latest version, run the command: `gradlew --refresh-dependencies`
 
 You must manually update the version if you use a fixed version, such as `testfairy:testfairy-android-sdk:1.2.4@aar`.
 
@@ -98,7 +98,7 @@ Read Identifying your Users /testfairy/sdk/identifying-users for more identifica
 
 ## Additional Permissions (Optional)
 
-TestFairy can record additional insights that require specific permissions. Below is a list of permissions required for each metric:
+Sauce Mobile App Distribution can record additional insights that require specific permissions. Below is a list of permissions required for each metric:
 
 ### Logs - `android.permission.READ_LOGS` (Optional)
 
@@ -121,7 +121,7 @@ To automatically upload the wifi status to your account, add the `android.permis
 
 ## File Size
 
-The size of the TestFairy SDK is 500KB.
+The size of the Sauce Mobile App Distribution SDK is 500KB.
 
 You might also like to read Manual Integration with Eclipse and Ant http://docs.testfairy.com/Android/Manual_integration_with_Eclipse_and_Ant.html.
 
@@ -139,5 +139,5 @@ Could not GET 'https://jcenter.bintray.com/testfairy/testfairy-android-sdk/1.11.
 Could not GET 'https://jcenter.bintray.com/testfairy/testfairy-android-sdk/1.11.45/testfairy-android-sdk-1.11.45.pom'. Received status code 407
 ```
 
-If you see one of these errors when you include TestFairy SDK in your project, follow step 2 in the installation section on this page.
-TestFairy is no longer on Jcenter, and you must switch to `maven.testfairy.com`.
+If you see one of these errors when you include Sauce Mobile App Distribution SDK in your project, follow step 2 in the installation section on this page.
+Sauce Mobile App Distribution is no longer on Jcenter, and you must switch to `maven.testfairy.com`.

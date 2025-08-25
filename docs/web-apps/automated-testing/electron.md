@@ -16,25 +16,28 @@ Sauce Labs currently supports the following test configurations for Electron.
 - Platforms
   - Windows 10 
   - Windows 11
-  - MacOS 10.15
   - MacOS 11
   - MacOS 12
   - MacOS 13
   - (Linux support to be decided)
 - Electron versions
-  - versions 5 - 31 inclusive
+  - versions 5 - 32 inclusive
 
 ## How to Get Started
 
 ### App management
 
-Upload a zip file containing your Electron app via [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api). You can refer to uploaded apps by either the file ID or file name. Note that as with mobile apps, Electron apps are accessible only to members of the same team, and retained for 60 days.
+Upload a zip or dmg archive file containing your Electron app via [REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api). You can refer to uploaded apps by either the file ID or filename. Note that as with mobile apps, Electron apps are accessible only to members of the same team, and retained for 60 days.
 
 ### Binary location
 
-The `binary_location` is the folderpath and filename of your Electron executable within your zip file structure.
+The `binary_location` is the folderpath and filename of your Electron executable in your archive file structure.
 
-For example, if your zip file is structured like this:
+You don't normally need to provide this field. If you omit it, our systems will do their best to find the executable in the file you uploaded.
+
+If that fails, provide the binary path as described below.
+
+If your archive file is structured like this:
 ```
 SauceLabsElectronAppv1.zip
 -- [ Sauce Labs Test ]
@@ -78,6 +81,6 @@ Test results are visible on the UI under “Automated Tests > Test Results.’ Y
 
 ## Limitations
 
-- Electron support is currently enabled only for automated testing on Windows 10 and 11, and MacOS 10.15, 11, 12 and 13. 
+- Electron support is only enabled for automated testing on Windows 10 and 11, and MacOS 11, 12 and 13.
 - Electron apps uploaded via REST API are not currently visible within the App Management of the UI. 
 - Live testing and UI enhancements to come in a future release.

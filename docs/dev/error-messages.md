@@ -489,3 +489,26 @@ Your account is not verified. This means that the email associated with the acco
 - Check your spam folder in case you couldn't find the email in your inbox.
 - Sign in to [Sauce Labs](https://app.saucelabs.com/), try to re-send the email and check your inbox/spam folder again.
 - Once you've done all of the above, raise a support ticket.
+
+### Session not created from unknown error: com.android.chrome is not installed on device 
+
+**Description**
+
+ChromeDriver may incorrectly determine that Chrome is not installed on our Android 10 Real Devices.
+
+**Cause(s)**
+
+This issue affects Android 10 devices when using ChromeDriver 137 or newer with Chrome browser version 137 or newer.
+
+When ChromeDriver starts, it checks if Chrome is installed by running the `adb shell pm path --user cur com.android.chrome command`. A regression was introduced in ChromeDriver 137 that causes this command to fail on Android 10, making ChromeDriver incorrectly assume the browser isn't installed.
+
+We have filed a bug report with the Chromium team. You can follow its progress here: https://issues.chromium.org/issues/433885051
+
+**How to Resolve**
+
+Since Chrome is a system app, most Android devices don't allow it to be downgraded. Once a Real Device is updated to an affected Chrome version, we cannot revert it.
+
+We recommend the following temporary solutions:
+- Use the US-West data center, as most devices there still have older, unaffected versions of Chrome.
+- Run tests in our Virtual Cloud, which uses device snapshots with compatible Android 10 and Chrome combinations that don't have this issue.
+- Wait for a fix in an upcoming ChromeDriver release.

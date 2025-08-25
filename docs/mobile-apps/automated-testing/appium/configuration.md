@@ -410,14 +410,16 @@ import org.junit.jupiter.api.Assertions.assertEquals;
 public class SampleSauceTest {
 
     public static void  main() throws MalformedURLException {
-        desiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "Android GoogleAPI Emulator");
-        capabilities.setCapability("platformVersion", "10.0");
+        var capabilities = new DesiredCapabilities();
+        capabilities.setCapability("appium:platformName", "Android");
+        capabilities.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        capabilities.setCapability("appium:platformVersion", "10.0");
         capabilities.setCapability("app", "storage:filename=swag-labs.apk");
-        capabilities.setCapability("browserName", "");
-        capabilities.setCapability("deviceOrientation", "portrait");
-        capabilities.setCapability("appiumVersion", "1.16.0");
+
+        var sauceOptions = new DesiredCapabilities();
+        sauceOptions.setCapability("appiumVersion", "stable");
+        capabilities.setCapability("sauce:options", sauceOptions);
+
         WebDriver driver = new AndroidDriver<WebElement>( new URL("http://SAUCE_USERNAME:SAUCE_ACCESS_KEY@ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 
         try {

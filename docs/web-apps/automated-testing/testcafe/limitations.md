@@ -1,5 +1,5 @@
 ---
-id: limitations 
+id: limitations
 title: Limitations for TestCafe
 sidebar_label: Limitations
 ---
@@ -9,9 +9,17 @@ sidebar_label: Limitations
 
 We recommend that you avoid using special characters when naming your tests. If your test name contains any special characters, your test may not run, or its artifacts may not be visible on our platform.
 
-### TestCafe 3.0.1 + Chrome/Edge + Sauce Connect
+### Chrome 130+
 
-When using Sauce-Connect, Chrome, and Edge browsers cannot load any website through the tunnel. It will behave as if there is no tunnel defined.
+TestCafe 3.6.2 and lower [do not work](https://github.com/DevExpress/testcafe/issues/8286)
+with Chrome 130+. [Disable native automation](#disable-native-automation) as a
+workaround.
+
+### Chrome/Edge + Sauce Connect
+
+When using Sauce-Connect, the browsers Chrome and Edge will not make use of the
+tunnel when browsing a website. They will behave as if there is no tunnel
+defined.
 
 ### TestCafe Native Automation + Chrome + Sauce Connect
 

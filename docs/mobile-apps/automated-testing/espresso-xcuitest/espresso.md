@@ -196,7 +196,7 @@ saucectl run --retries 1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect-5/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -1304,6 +1304,21 @@ appSettings:
 
 ---
 
+#### `resigningEnabled`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Enables resigning of the app so that it can run on RDC devices when instrumentation features are in use. Set to `true` by default. It must be kept as `true` in order for instrumentation features or AAB builds to work. Can be set to `false` for private and public devices to install the APK to the device as is.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    appSettings:
+      resigningEnabled: true
+```
+
+---
+
 #### `audioCapture`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -1329,6 +1344,18 @@ Instrumentation settings for real device tests.
 
 ---
 
+##### `vitals`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Configure app settings for real device to enable vitals.
+
+```yaml
+    vitals: true
+```
+
+---
+
 ##### `networkCapture`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -1337,6 +1364,42 @@ Record network traffic for HTTP/HTTPS requests during app tests on real devices.
 
 ```yaml
     networkCapture: true
+```
+
+---
+
+##### `biometrics`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Configure app settings for real device to intercept biometric authentication.
+
+```yaml
+    biometrics: true
+```
+
+---
+
+##### `bypassScreenshotRestriction`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Configure app settings for real device to enable bypassing of screenshot restriction.
+
+```yaml
+    bypassScreenshotRestriction: true
+```
+
+---
+
+##### `imageInjection`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Configure app settings for real device to inject provided images in the user app.
+
+```yaml
+    imageInjection: true
 ```
 
 ## Advanced Configuration Considerations
