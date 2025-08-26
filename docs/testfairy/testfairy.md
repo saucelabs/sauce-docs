@@ -37,7 +37,7 @@ For more information, see [SSO](/testfairy/security/sso/sso-intro/), or [Private
 
 ## SAML Authentication Integration with Custom Group Attributes
 
-In modern enterprise environments, Single Sign-On (SSO) via SAML is a crucial component for secure, centralized access control. SAML Authentication with Custom Group Attributes, allows granular user role and site-level access management via your identity provider.
+In modern enterprise environments, Single Sign-On (SSO) using SAML is a crucial component for secure, centralized access control. SAML Authentication with Custom Group Attributes allows granular user role and site-level access management via your identity provider.
 
 With this feature, authentication is managed through a SAML 2.0 identity provider, and user access is defined using custom group attributes passed in the SAML response. These attributes can be used to:
 
