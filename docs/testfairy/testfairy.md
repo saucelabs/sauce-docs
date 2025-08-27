@@ -142,7 +142,7 @@ This layered model ensures that powerful roles don’t get assigned lightly.
 
 ## Important Rules to Follow
 To ensure your SAML attributes work as expected, keep these rules in mind:
-* Case sensitivity is enforced. Site1 and Site1 are treated as different entities.
+* Case sensitivity is enforced. `site1` and `Site1` are treated as different entities.
 * Roles must be declared. Don’t assume a user will get default access just by belonging to a group.
 * Testers must be explicitly assigned. If a user should only test, use site:tester.
 * If multiple roles are defined for one site, they will be evaluated in combination, but only one global role will be honored.
