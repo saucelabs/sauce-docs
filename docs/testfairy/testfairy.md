@@ -135,7 +135,7 @@ Once we receive and process these group attributes, they directly affect what th
 
 There’s also an approval system in place:
 
-* If a Site Manager tries to promote someone to global admin, the Account Owner must approve.
+* If a Site Manager tries to promote someone to global admin, the Account Owner must approve it.
 * Only the Account Owner can remove a Site Manager.
 
 This layered model ensures that powerful roles don’t get assigned lightly.
