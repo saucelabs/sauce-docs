@@ -76,7 +76,7 @@ To avoid ambiguity, we use a set of predefined, case-sensitive keywords to ident
 * admin
 * account_manager
 * member
-* Tester
+* tester
 
 Any other string will be treated as a group, not a role, so double-check your attribute values to avoid unexpected access behavior.
 
