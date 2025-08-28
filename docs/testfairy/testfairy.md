@@ -83,6 +83,7 @@ Any other string will be treated as a group, not a role, so double-check your at
 Below you can find a real-world SAML XML snippet to see how these roles and groups are passed:
 
 ### Multi-site
+In the following example, the user is an admin on site-a, an account_manager on site-b, and a global admin. They also belong to group1 on site-a. The system links the admin account to the tester group, so if the user views the account in tester mode, they will have the same permissions as a tester in that group.
 Sample SAML XML Example 1:
 
 ```
