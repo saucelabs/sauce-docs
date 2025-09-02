@@ -1148,6 +1148,7 @@ module.exports = {
                                 'testfairy/security/sso/google',
                                 'testfairy/security/sso/okta',
                                 'testfairy/security/sso/onelogin',
+                                'testfairy/security/sso/saml',
                                 'testfairy/security/sso/ping-id',
                             ],
                         },
