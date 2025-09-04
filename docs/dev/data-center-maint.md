@@ -28,8 +28,8 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 | US East    | August 9, 2025      | 10 AM - 12 PM PDT (1700-1900 UTC) |
 | EU Central | August 16, 2025      | 7 PM - 9 PM CEST (1700-1900 UTC) |
 | US West    | August 23, 2025      | 10 AM - 12 PM PDT (1700-1900 UTC) |
-| EU Central | September 27, 2025      | 3 PM - 5 PM CEST (1300-1500 UTC) |
-| US East    | September 27, 2025      | 11 AM - 1 PM EDT (1500-1700 UTC) |
+| US East    | September 27, 2025      | 9 AM - 11 AM EDT (1300-1500 UTC) |
+| EU Central | September 27, 2025      | 5 PM - 7 PM CEST (1500-1700 UTC) |
 | US West    | September 27, 2025      | 10 AM - 12 PM PDT (1700-1900 UTC) |
 
 
