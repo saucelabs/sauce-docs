@@ -1,7 +1,7 @@
 ---
 id: saml
 title: SAML
-sidebar_label: SAML Authentication
+sidebar_label: SAML custom roles
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
