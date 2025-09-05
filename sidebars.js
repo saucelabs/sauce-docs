@@ -609,6 +609,7 @@ module.exports = {
                     items: [
                         'error-reporting/org-settings/user-mgmnt',
                         'error-reporting/org-settings/team-mgmnt',
+                        'error-reporting/org-settings/project-management',
                         'error-reporting/org-settings/saml-sso',
                     ],
                 },
