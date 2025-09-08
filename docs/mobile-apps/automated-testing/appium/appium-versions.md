@@ -153,7 +153,7 @@ The release strategy for Appium images in RDC is the following:
 
 :::info Supported Custom Appium Plugins:
 The following list of custom Appium plugins are supported:
-- [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin will now be included by default with Appium version `latest` and all subsequent versions released after April 1st 2024.
+- [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin is included by default in all the appium versions we offer.
 :::
 
 ### Appium 2.x
