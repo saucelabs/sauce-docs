@@ -115,7 +115,7 @@ Create a `.backtracejsrc` configuration file in the root of your project with th
 ```
 
 - Replace `<build output>` with the path to the directory where your transpiled scripts are stored.
-- Follow [&ltthese instructions>](/error-reporting/project-setup/submission-url) to create the `<symbol submission URL>` with a `symbol:post` token for the `sourcemap` endpoint.
+- Follow [these instructions](/error-reporting/project-setup/submission-url) to create the `<symbol submission URL>` with a `symbol:post` token for the `sourcemap` endpoint.
 
 :::info Source Code Upload
   Source files can be embedded in source maps and included in the upload to Backtrace. The configuration above is constructed to do this.
