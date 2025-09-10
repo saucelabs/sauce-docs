@@ -246,7 +246,7 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 		</tr>
         <tr>
 			<td><code>allowAllTesters</code></td>
-			<td><p><small>| OPTIONAL | BOOLEAN |</small></p><p>Value `1` allows all other user to access the copied build, `0` to not allow.<br />If not specified, the original assigned value will be copied over to the project.</p></td>
+			<td><p><small>| OPTIONAL | BOOLEAN |</small></p><p>Value `1` allows all other users to access the copied build, while `0` prevents access.<br />If not specified, the original assigned value will be copied over to the project.</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -278,7 +278,7 @@ Use this endpoint to copy a specific build to a specified folder. You can either
       "efgd"
     ],
     "assigned_project_groups": [
-      "group13", 
+      "group13",
       "14",
       "12"
     ],
