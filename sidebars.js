@@ -1599,6 +1599,7 @@ module.exports = {
                         'python-robot-framework',
                         'playwright',
                         'espresso',
+                        'figma',
                         'pdf',
                     ]
                         .sort()
