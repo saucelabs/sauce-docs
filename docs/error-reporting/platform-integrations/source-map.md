@@ -14,7 +14,7 @@ The Backtrace debugger can highlight specific lines in your source code associat
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- A symbol submission URL with a `symbol:post` token for the `sourcemap` endpoint. [&ltdetailed instructions>](/error-reporting/project-setup/submission-url)
+- A symbol submission URL with a `symbol:post` token for the `sourcemap` endpoint ([detailed instructions](/error-reporting/project-setup/submission-url)).
 
 ## Creating and Uploading Source Maps
 
@@ -138,7 +138,7 @@ Create a `.backtracejsrc` configuration file in the root of your project with th
 ```
 :::
 
-See `backtrace-js --help` or go to [`@backtrace/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/blob/dev/tools/cli) for additional command line and configuration options.
+See `backtrace-js --help` or go to [`@backtrace/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/tree/main/tools/cli) for additional command line and configuration options.
 
 :::note Troubleshooting
   Source map processing will halt on error with a description. Use a --verbose command line switch to output extended information for troubleshooting.
