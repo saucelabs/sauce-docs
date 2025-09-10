@@ -238,7 +238,15 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 		</tr>
         <tr>
 			<td><code>groups</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs for the build. <br />If not specified, the original assigned groups will be copied over to the build.</p></td>
+		</tr>
+        <tr>
+			<td><code>projectGroups</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs for the project. <br />If not specified, the original assigned groups will be copied over to the project.</p></td>
+		</tr>
+        <tr>
+			<td><code>allowAllTesters</code></td>
+			<td><p><small>| OPTIONAL | BOOLEAN |</small></p><p>Value `1` allows all other user to access the copied build, `0` to not allow.<br />If not specified, the original assigned value will be copied over to the project.</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -262,10 +270,19 @@ Use this endpoint to copy a specific build to a specified folder. You can either
     "app_name": "My Application",
     "assigned_groups": [
       "13",
-      "14",
+      "group14",
       "12"
     ],
     "invalid_groups": [
+      "abcd",
+      "efgd"
+    ],
+    "assigned_project_groups": [
+      "group13", 
+      "14",
+      "12"
+    ],
+    "invalid_project_groups": [
       "abcd",
       "efgd"
     ]
