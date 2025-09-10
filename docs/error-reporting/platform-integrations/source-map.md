@@ -18,7 +18,7 @@ The Backtrace debugger can highlight specific lines in your source code associat
 
 ## Creating and Uploading Source Maps
 
-Follow these steps to create and upload source maps with every build of your application:
+Source maps are matched 1:1 to each unique build of your app. Follow these steps to create and upload source maps with every build of your application:
 1. [Enable source maps](#step-1-enable-source-maps-for-your-application)
 1. [Install the `backtrace-js` command line tool](#step-2-install-backtrace-js)
 1. [Create a configuration file for `backtrace-js`](#step-3-create-a-backtracejsrc-configuration-file)
@@ -190,7 +190,7 @@ values={[
 
 If you're using Webpack as your project bundler, you can use `@backtrace/webpack-plugin` to automate working with sourcemaps.
 
-**Step 1: Enable Source Maps for Your Application**
+### Step 1: Enable Source Maps for Your Application
 
 Set `devtool` to `source-map` in your `webpack.config.js`:
 
@@ -203,7 +203,7 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
-**Step 2: Set up `@backtrace/webpack-plugin`**
+### Step 2: Set up `@backtrace/webpack-plugin`
 
 1. Install `@backtrace/webpack-plugin` as a developer dependency:
 
@@ -233,7 +233,7 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 
 If you're using Rollup as your project bundler, you can use `@backtrace/rollup-plugin` to automate working with sourcemaps.
 
-**Step 1: Enable Source Maps for Your Application**
+### Step 1: Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `rollup.config.js`:
 
@@ -247,7 +247,7 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
-**Step 2: Set up `@backtrace/rollup-plugin`**
+### Step 2: Set up `@backtrace/rollup-plugin`
 
 1. Install `@backtrace/rollup-plugin` as a developer dependency:
 
@@ -277,7 +277,7 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 
 If you're using Vite as your project bundler, you can use `@backtrace/vite-plugin` to automate working with sourcemaps.
 
-**Step 1: Enable Source Maps for Your Application**
+### Step 1: Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `vite.config.js`:
 
@@ -291,7 +291,7 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
-**Step 2: Set up `@backtrace/vite-plugin`**
+### Step 2: Set up `@backtrace/vite-plugin`
 
 1. Install `@backtrace/vite-plugin` as a developer dependency:
 
