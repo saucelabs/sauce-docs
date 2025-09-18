@@ -134,7 +134,7 @@ See this [Microsoft guide](https://docs.microsoft.com/en-us/windows/win32/debug/
    - Popular options include nginx, AWS, and Google Cloud buckets
 - Network access from Backtrace to the symbol server
    - Firewall and network rules may need adjustments
-- If compressing files, must use CAB mechanism
+- If compressing files, use any of the [supported archive formats](#supported-archive-formats)
 - [Optional] HTTP compression is also supported
 
 ### Feature details
