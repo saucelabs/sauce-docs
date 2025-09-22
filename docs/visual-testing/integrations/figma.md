@@ -23,7 +23,7 @@ Before using the Sauce Visual Figma plugin, you'll need:
 ### Step 1: Install plugin
 
 :::note
-If the plugin isn't available, contact your Figma organization admin to [enable the plugin](https://help.figma.com/hc/en-us/articles/4404228724759-Manage-plugins-and-widgets-in-an-organization)
+If the plugin isn't available, contact your Figma organization admin to [enable the plugin](https://help.figma.com/hc/en-us/articles/4404228724759-Manage-plugins-and-widgets-in-an-organization).
 :::
 
 [//]: # (TODO: Update the plugin link)
