@@ -13,8 +13,8 @@ You can use the Sauce Visual Figma plugin to set your Figma designs as baselines
 Sauce Visual integrates with Figma through a community plugin that allows you to export design screenshots directly from the plugin's UI.
 
 Before using the Sauce Visual Figma plugin, you'll need:
-- A Figma account with access to your design files
-- A Sauce Labs account with Visual Testing enabled
+- a Figma account with access to your design files,
+- a Sauce Labs account with Visual Testing enabled.
 
 [//]: # (TODO: Link to examples)
 
