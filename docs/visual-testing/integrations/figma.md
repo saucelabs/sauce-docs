@@ -75,7 +75,7 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
     alt="Figma visual build in Sauce Labs"
 />
 
-5. [Review](https://docs.saucelabs.com/visual-testing/workflows/review/) your exported designs in the Sauce Labs
+5. [Review](https://docs.saucelabs.com/visual-testing/workflows/review/) your exported designs in Sauce Labs.
 
 
 
