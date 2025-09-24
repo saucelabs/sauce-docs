@@ -59,7 +59,7 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
         alt="Select Figma frames and components"
     />
 
-3. Wait for the export to complete
+3. Wait for the export to complete:
 
 <img
   style={{ border: '1px solid var(--dark-200)' }}
