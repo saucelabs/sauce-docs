@@ -13,7 +13,7 @@ You can use the Sauce Visual Figma plugin to set your Figma designs as baselines
 Sauce Visual integrates with Figma through a community plugin that allows you to export design screenshots directly from the plugin's UI.
 
 Before using the Sauce Visual Figma plugin, you'll need:
-- a Figma account with access to your design files,
+- a Figma account with access to your design files.
 - a Sauce Labs account with Visual Testing enabled.
 
 [//]: # (TODO: Link to examples)
@@ -98,8 +98,12 @@ To update snapshot metadata, click **Update metadata** and repeat the following 
 
 1. Select a design element (frame or component).
 2. Configure the snapshot metadata:
-    - **Snapshot name**: Unique identifier for this specific design element,
-    - **Test name**: Name of the test that will compare against this baseline,
+    - **Snapshot name**: Unique identifier for this specific design element.
+    - **Test name**: Name of the test that will compare against this baseline.
     - **Suite name**: Test suite or group this snapshot belongs to.
+3. Click **Update** to save the snapshot to the Figma file.
+    - This action finalizes the baseline and ensures it will be used in all future test runs and shared with other users.
+    - Alternatively, click **Clear** to erase the snapshot from the file, removing it from future tests and visibility for other users.
+
 
 This metadata ensures your exported Figma designs are properly organized and can be matched with the corresponding tests in your visual testing workflow.
