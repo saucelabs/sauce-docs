@@ -43,11 +43,11 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 1. Enter your Sauce Labs credentials [Username and Access Key](https://app.saucelabs.com/user-settings).
 2. Select your Sauce Labs data center region.
 
-<img
-    style={{ border: '1px solid var(--dark-200)' }}
-    src={useBaseUrl('/img/sauce-visual/figma-connect.jpg')}
-    alt="Sauce Labs Connect form"
-/>
+    <img
+        style={{ border: '1px solid var(--dark-200)' }}
+        src={useBaseUrl('/img/sauce-visual/figma-connect.jpg')}
+        alt="Sauce Labs Connect form"
+    />
 
 ### Step 3: Export
 1. Select the frames and components you want to export as visual baselines.
