@@ -61,11 +61,11 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 
 3. Wait for the export to complete:
 
-<img
-  style={{ border: '1px solid var(--dark-200)' }}
-  src={useBaseUrl('/img/sauce-visual/figma-export-uploading.jpg')}
-  alt="Uploading selected Figma frames and components to Sauce Labs"
-/>
+    <img
+      style={{ border: '1px solid var(--dark-200)' }}
+      src={useBaseUrl('/img/sauce-visual/figma-export-uploading.jpg')}
+      alt="Uploading selected Figma frames and components to Sauce Labs"
+    />
 
 4. Find your build in the [Sauce Labs Visual app](https://app.saucelabs.com/visual/builds/)
 
