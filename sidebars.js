@@ -609,6 +609,7 @@ module.exports = {
                     items: [
                         'error-reporting/org-settings/user-mgmnt',
                         'error-reporting/org-settings/team-mgmnt',
+                        'error-reporting/org-settings/project-management',
                         'error-reporting/org-settings/saml-sso',
                     ],
                 },
@@ -1148,6 +1149,7 @@ module.exports = {
                                 'testfairy/security/sso/google',
                                 'testfairy/security/sso/okta',
                                 'testfairy/security/sso/onelogin',
+                                'testfairy/security/sso/saml',
                                 'testfairy/security/sso/ping-id',
                             ],
                         },
