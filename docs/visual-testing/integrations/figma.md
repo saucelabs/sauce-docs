@@ -69,11 +69,11 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 
 4. Find your build in the [Sauce Labs Visual app](https://app.saucelabs.com/visual/builds/):
 
-<img
-    style={{ border: '1px solid var(--dark-200)' }}
-    src={useBaseUrl('/img/sauce-visual/figma-export-builds.jpg')}
-    alt="Figma visual build in Sauce Labs"
-/>
+    <img
+        style={{ border: '1px solid var(--dark-200)' }}
+        src={useBaseUrl('/img/sauce-visual/figma-export-builds.jpg')}
+        alt="Figma visual build in Sauce Labs"
+    />
 
 5. [Review](https://docs.saucelabs.com/visual-testing/workflows/review/) your exported designs in Sauce Labs.
 
