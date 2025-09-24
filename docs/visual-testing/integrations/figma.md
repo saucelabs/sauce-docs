@@ -27,9 +27,9 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 :::
 
 [//]: # (TODO: Update the plugin link)
-1. Install the Sauce Visual plugin from the [Figma Community](https://www.figma.com/community/plugins)
-2. Run installed plugin
-3. Click "Get started"
+1. Install the Sauce Visual plugin from the [Figma Community](https://www.figma.com/community/plugins).
+2. Run the installed plugin.
+3. Click "Get started":
 
 <img
     style={{ border: '1px solid var(--dark-200)' }}
