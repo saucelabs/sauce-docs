@@ -67,7 +67,7 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
       alt="Uploading selected Figma frames and components to Sauce Labs"
     />
 
-4. Find your build in the [Sauce Labs Visual app](https://app.saucelabs.com/visual/builds/)
+4. Find your build in the [Sauce Labs Visual app](https://app.saucelabs.com/visual/builds/):
 
 <img
     style={{ border: '1px solid var(--dark-200)' }}
