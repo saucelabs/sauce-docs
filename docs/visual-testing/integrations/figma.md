@@ -85,7 +85,7 @@ You can specify metadata to control how your designs are organized and exported 
 
 ### Build metadata
 
-Build metadata is configured once on the **Export** page and applies to the entire export:
+Build metadata is configured once on the **Export** page and is applied to the entire export:
 - **Branch**: The branch name to associate this build with (e.g., `main`, `feature/new-design`)
 - **Project**: The project or label to organize this build under (e.g., `web-app`, `mobile-redesign`)
 
