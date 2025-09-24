@@ -31,11 +31,11 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 2. Run the installed plugin.
 3. Click "Get started":
 
-<img
-    style={{ border: '1px solid var(--dark-200)' }}
-    src={useBaseUrl('/img/sauce-visual/figma-splash.jpg')} 
-    alt="Get started page from Sauce Visual Figma plugin" 
-/>
+    <img
+        style={{ border: '1px solid var(--dark-200)' }}
+        src={useBaseUrl('/img/sauce-visual/figma-splash.jpg')} 
+        alt="Get started page from Sauce Visual Figma plugin" 
+    />
 
 
 ### Step 2: Setup credentials
