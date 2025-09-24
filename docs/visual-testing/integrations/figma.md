@@ -40,8 +40,8 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 
 ### Step 2: Setup credentials
 
-1. Enter your Sauce Labs credentials [Username and Access Key](https://app.saucelabs.com/user-settings)
-2. Select your Sauce Labs data center region
+1. Enter your Sauce Labs credentials [Username and Access Key](https://app.saucelabs.com/user-settings).
+2. Select your Sauce Labs data center region.
 
 <img
     style={{ border: '1px solid var(--dark-200)' }}
