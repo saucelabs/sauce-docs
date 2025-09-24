@@ -96,7 +96,7 @@ Snapshot metadata is defined per design element and helps organize test results 
 
 To update snapshot metadata, click **Update metadata** and repeat the following steps for each element:
 
-1. Select a design element (frame or component)
+1. Select a design element (frame or component).
 2. Configure the snapshot metadata:
     - **Snapshot name**: Unique identifier for this specific design element,
     - **Test name**: Name of the test that will compare against this baseline,
