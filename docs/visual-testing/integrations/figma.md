@@ -98,8 +98,8 @@ To update snapshot metadata, click **Update metadata** and repeat the following 
 
 1. Select a design element (frame or component)
 2. Configure the snapshot metadata:
-    - **Snapshot name**: Unique identifier for this specific design element
-    - **Test name**: Name of the test that will compare against this baseline
-    - **Suite name**: Test suite or group this snapshot belongs to
+    - **Snapshot name**: Unique identifier for this specific design element,
+    - **Test name**: Name of the test that will compare against this baseline,
+    - **Suite name**: Test suite or group this snapshot belongs to.
 
 This metadata ensures your exported Figma designs are properly organized and can be matched with the corresponding tests in your visual testing workflow.
