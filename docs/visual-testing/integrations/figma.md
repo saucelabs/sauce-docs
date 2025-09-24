@@ -53,11 +53,11 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 1. Select the frames and components you want to export as visual baselines.
 2. Click **Export to Sauce Labs** to begin the upload process.
 
-<img
-    style={{ border: '1px solid var(--dark-200)' }}
-    src={useBaseUrl('/img/sauce-visual/figma-export-select.jpg')}
-    alt="Select Figma frames and components"
-/>
+    <img
+        style={{ border: '1px solid var(--dark-200)' }}
+        src={useBaseUrl('/img/sauce-visual/figma-export-select.jpg')}
+        alt="Select Figma frames and components"
+    />
 
 3. Wait for the export to complete
 
