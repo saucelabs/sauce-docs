@@ -27,7 +27,7 @@ If the plugin isn't available, contact your Figma organization admin to [enable 
 :::
 
 [//]: # (TODO: Update the plugin link)
-1. Install the Sauce Visual plugin from the [Figma Community](https://www.figma.com/community/plugins).
+1. Install the Sauce Visual plugin from the [Figma Community](https://www.figma.com/community/plugin/1552015177501558356/sauce-labs-visual-testing).
 2. Run the installed plugin.
 3. Click "Get started":
 
@@ -92,9 +92,9 @@ Build metadata is configured once on the **Export** page and is applied to the e
 
 ### Snapshot metadata
 
-Snapshot metadata is defined per design element and helps organize test results and match them with the correct baselines.
+Snapshot metadata is defined per one design element and helps to organize test results and match them with the correct visual baselines.
 
-To update snapshot metadata, click **Update metadata** and repeat the following steps for each element:
+To update the snapshot metadata, click **Update metadata** icon at the top and repeat the following steps for each element:
 
 1. Select a design element (frame or component).
 2. Configure the snapshot metadata:
