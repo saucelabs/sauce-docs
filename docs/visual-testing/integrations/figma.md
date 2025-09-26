@@ -1,5 +1,5 @@
 ---
-sidebar_label: Figma
+sidebar_label: Figma (Beta)
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
