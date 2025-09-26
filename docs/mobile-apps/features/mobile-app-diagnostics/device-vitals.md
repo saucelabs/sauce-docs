@@ -88,6 +88,7 @@ You can also download the results using the API call below:
 
 - Emulators and Simulators are not supported.
 - Cross-browser testing is not available.
+- Your app must remain installed on the device until the end of the session. Uninstalling the app prematurely may cause loss of vitals data.
 
 :::
 
