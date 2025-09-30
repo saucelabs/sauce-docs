@@ -9,7 +9,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migration Guide: Sauce Labs Appium `stable` to `latest`
 
 This guide provides the necessary steps to migrate your automated mobile tests from the Sauce Labs `stable` Appium image to the `latest` image. This update involves major version bumps for the core Appium drivers, which unlocks new features and requires some script updates.
 
@@ -88,7 +87,7 @@ actions.w3c_actions.perform()
 ```
 
 
-###3. Android: UIAutomator2 Driver (`v2.43.4` → `v3.9.6`)
+### 3. Android: UIAutomator2 Driver (`v2.43.4` → `v3.9.6`)
 
 Beyond the W3C Actions requirement, the upgrade to UIAutomator2 v3 includes these breaking changes.
 
@@ -131,14 +130,14 @@ Migration also unlocks new, helpful features. Consider adopting them to improve 
 
 Follow these steps to structure your migration process:
 
-    [ ] Update Client Library: Ensure your project's Appium client library is updated to at least the minimum version specified in section 1.
+- [ ] Update Client Library: Ensure your project's Appium client library is updated to at least the minimum version specified in section 1.
 
-    [ ] Switch to W3C Actions: Globally search your entire test suite for TouchAction and MultiTouchAction. Replace every instance with the equivalent W3C Actions sequence.
+- [ ] Switch to W3C Actions: Globally search your entire test suite for TouchAction and MultiTouchAction. Replace every instance with the equivalent W3C Actions sequence.
 
-    [ ] Update Android Scripts: Search for pressKey, longPressKey, and mobile:performEditorAction and update them to the new W3C Actions and object-based argument formats.
+- [ ] Update Android Scripts: Search for pressKey, longPressKey, and mobile:performEditorAction and update them to the new W3C Actions and object-based argument formats.
 
-    [ ] Update iOS Scripts: Review all uses of mobile:selectPickerWheelValue for single-wheel pickers and adjust the order parameter if needed. Remove any uses of mobile:siri.
+- [ ] Update iOS Scripts: Review all uses of mobile:selectPickerWheelValue for single-wheel pickers and adjust the order parameter if needed. Remove any uses of mobile:siri.
 
-    [ ] Clean Capabilities: Remove the webkitResponseTimeout capability from your iOS session configurations.
+- [ ] Clean Capabilities: Remove the webkitResponseTimeout capability from your iOS session configurations.
 
-    [ ] Test and Refine: Run your full test suite against the latest image and address any failures, paying close attention to gesture-based interactions.
+- [ ] Test and Refine: Run your full test suite against the latest image and address any failures, paying close attention to gesture-based interactions.
