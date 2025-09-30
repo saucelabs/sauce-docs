@@ -10,9 +10,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This guide provides the necessary steps to migrate your automated mobile tests from the Sauce Labs `stable` Appium image to the `latest` image. This update involves major version bumps for the core Appium drivers, which unlocks new features and requires some script updates.
+This guide provides the necessary steps to migrate your automated mobile tests from the Sauce Labs `stable` Appium image to the `latest` image. This update involves major version bumps for the core Appium drivers. 
 
-The primary benefit of migrating is access to the latest driver features, performance improvements, bug fixes, and stricter adherence to the W3C WebDriver standard, leading to more robust and reliable tests.
+**Namely, the Touch API was deprecated. Should you use this API, you will need to update your scripts**. If you are not using this API, then the migration should be seamless for you.
 
 ---
 
@@ -30,7 +30,7 @@ The `latest` image includes major version updates to the Appium server and its p
 
 ### 1. Prerequisites: Update Your Client Library
 
-The most important first step is to ensure your project's Appium client library is up-to-date. Newer versions contain the necessary support for the W3C Actions API used by the `latest` drivers. Using an older library will cause your gesture commands to fail.
+The first step is to ensure your project's Appium client library is up-to-date. Newer versions contain the necessary support for the W3C Actions API used by the `latest` drivers. Using an older library will cause your gesture commands to fail.
 
 We recommend using **at least** the following versions:
 
