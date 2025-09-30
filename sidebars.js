@@ -1265,9 +1265,18 @@ module.exports = {
                             label: 'Appium',
                             collapsed: true,
                             items: [
+                                {
+                                    type: 'category',
+                                    label: 'Migration Guides',
+                                    collapsed: true,
+                                    items: [
+                                        'mobile-apps/automated-testing/appium/migration-guides/appium-2-migration',
+                                        'mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration',
+                                    ],
+                                },
+
                                 'mobile-apps/automated-testing/appium',
                                 'mobile-apps/automated-testing/appium/appium-versions',
-                                'mobile-apps/automated-testing/appium/appium-2-migration',
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',
                                 'mobile-apps/automated-testing/appium/virtual-devices',
