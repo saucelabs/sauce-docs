@@ -16,6 +16,18 @@ The primary benefit of migrating is access to the latest driver features, perfor
 
 ---
 
+### What's Changed? Version Overview
+
+The `latest` image includes major version updates to the Appium server and its primary drivers. Here's a summary of the version changes you can expect:
+
+| Component | `stable` Version | `latest` Version | Changelog |
+|---|---|---|---|
+| Appium Server | `2.4.1` | `2.13.1` | [View Releases](https://github.com/appium/appium/releases) |
+| UIAutomator2 Driver (Android) | `2.43.4` | `3.9.6` | [View Releases](https://github.com/appium/appium-uiautomator2-driver/releases) |
+| XCUITest Driver (iOS) | `5.15.1` | `7.35.0` | [View Releases](https://github.com/appium/appium-xcuitest-driver/releases) |
+
+---
+
 ### 1. Prerequisites: Update Your Client Library
 
 The most important first step is to ensure your project's Appium client library is up-to-date. Newer versions contain the necessary support for the W3C Actions API used by the `latest` drivers. Using an older library will cause your gesture commands to fail.
