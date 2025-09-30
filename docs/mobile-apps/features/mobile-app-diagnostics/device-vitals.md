@@ -88,7 +88,8 @@ You can also download the results using the API call below:
 
 - Emulators and Simulators are not supported.
 - Cross-browser testing is not available.
-- Your app must remain installed on the device until the end of the session. Uninstalling the app prematurely may cause loss of vitals data.
+- The app must remain installed for the duration of the session. Uninstalling it prematurely will cause a complete loss of vitals data.
+  Note: Manual cleanup is not required, as Sauce Labs automatically uninstalls the app after each session. However, for persistent scenarios (e.g., whitelisted apps or Appium's `usePreinstalledCache`), you should manage cleanup at the start of your next session to ensure a pristine test environment.
 
 :::
 
