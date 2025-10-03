@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::note Enterprise feature only
 
-This is an enterprise feature. Contact support@backtrace.io to request it to be enabled for your account.
+This is an enterprise feature. Contact our [Support team](https://support.saucelabs.com/) to request that it be enabled for your account.
 
 :::
 

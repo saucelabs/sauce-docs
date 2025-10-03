@@ -12,10 +12,10 @@ import TabItem from '@theme/TabItem';
 :::warning Appium 1 End-of-life
 The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). This means that:
 
-- bugfixes will not be released for Appium 1.x anymore and require you to [migrate to Appium 2](./appium-2-migration.md)
+- bugfixes will not be released for Appium 1.x anymore and require you to [migrate to Appium 2](./migration-guides/appium-2-migration.md)
 - Appium 1 and its packaged drivers are no longer 100% compatible with Android 13/iOS 16 and higher and require Appium 2 to run stably.
 
-Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migrating to Appium 2](./appium-2-migration.md) to keep your tests up-to-date and compatible with the latest platform versions.
+Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migrating to Appium 2](./migration-guides/appium-2-migration.md) to keep your tests up-to-date and compatible with the latest platform versions.
 :::
 
 ## Selecting Appium Versions
