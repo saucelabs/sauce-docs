@@ -16,6 +16,7 @@ These API endpoints allow you to interact with the Error Reporting (Backtrace) p
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and an API token generated with the corresponding scope(s).
+<br/>
 
 ### Accessing the APIs
 
@@ -91,6 +92,7 @@ Base URL for all submission APIs when running an <strong>On-Premise</strong> ins
 
 </TabItem>
 </Tabs>
+<br/>
 
 ### API Tokens
 
@@ -136,6 +138,7 @@ Base URL for all submission APIs when running an <strong>On-Premise</strong> ins
     </tr>
   </tbody>
 </table>
+<br/>
 
 ### Supported Format Types
 The <code>&#123;format&#125;</code> parameter in the request URL specifies the format of the data being submitted. Different formats are used for different types of submissions, such as JSON for generic error reports or minidump for native crash files. Below are the primary format types supported by Backtrace:
@@ -191,6 +194,14 @@ The <code>&#123;format&#125;</code> parameter in the request URL specifies the f
     </tr>
   </tbody>
 </table>
+
+---
+
+<p>
+:::note NOTE
+This APIs below are intended for hosted Backtrace instances. If you are an on-premise user, please use the appropriate endpoint format: <code>https://&#123;onpremHost&#125;/api/post?&#123;format&#125;&amp;token=&#123;apiToken&#125;</code>.
+:::
+</p>
 
 ## Errors
 
@@ -355,166 +366,7 @@ A successful response contains an <code>_rxid</code>, which is the unique identi
 
 </details>
 
-### Submit Error (On-Premise)
-
-<details>
-<summary><span className="api post">POST</span><code>https://&#123;onpremHost&#125;/api/post?&#123;format&#125;&amp;token=&#123;apiToken&#125;</code></summary>
-<p/>
-
-Submits Error Object to Backtrace. For large files, include the header flag <code>-H "Expect:"</code> to override some default curl behavior, which can cause issues when uploading to Backtrace.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>onpremHost</code></td>
-      <td>
-        <p><small>| QUERY | REQUIRED | STRING |</small></p>
-        <p>The Backtrace universe name for your on-premise instance.</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>format</code></td>
-      <td>
-        <p><small>| QUERY | REQUIRED | STRING |</small></p>
-        <p>The format of the error object being submitted.</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>apiToken</code></td>
-      <td>
-        <p><small>| QUERY | REQUIRED | STRING |</small></p>
-        <p>
-          API token with the necessary scope(s) generated in your Backtrace
-          project settings.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>upload_file</code></td>
-      <td>
-        <p><small>| BODY | REQUIRED | STRING |</small></p>
-        <p>
-          The error data file (minidump or core dump) containing the crash
-          information.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>attachment.&#123;extension&#125;</code></td>
-      <td>
-        <p><small>| BODY | OPTIONAL | STRING |</small></p>
-        <p>
-          Attach additional files (logs, etc.) with the error data file. The
-          field name is dynamic, consisting of a required prefix and a file
-          extension:
-        </p>
-        <ul>
-          <li>
-            <strong>Field Name:</strong> Must start with
-            <code>attachment.</code> followed by the file extension (
-            attachment.log, attachment.json).
-          </li>
-          <li><strong>Supported Extensions:</strong> JSON, log, and txt.</li>
-          <li>
-            <strong>Note:</strong> Files with the txt & log extension require
-            the type to be set to <code>text/plain</code>.
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>&#123;attribute&#125;</code></td>
-      <td>
-        <p><small>| BODY | OPTIONAL | STRING |</small></p>
-        <p>
-          User-defined key-value metadata to attach to the crash report, where
-          <code>&#123;attribute&#125;</code> is the key and the value is the data.
-          Example:
-        </p>
-        <code>-F "version=1.0"</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-#### Sample Requests
-
-```jsx title="Sample Request"
-curl -v \
--F "upload_file=@example_error.json" \
--F "version=1.0.1" \
--F "platform=Windows" \
--H "Expect:" \
-"https://sauceOnPrem.sp.backtrace.io/api/post?json&token=685f2e33a75f0f4623584389...6f34a46a84b3ec64e482b"
-```
-
-```jsx title="Sample Request w/ Attachments"
-curl -v \
--F "upload_file=@example_error.json" \
--F "attachment_test.json=@test.json; type=application/json" \
--F "version=1.0.1" \
--F "platform=Windows" \
--H "Expect: " \
-"https://sauceOnPrem.sp.backtrace.io/api/post?json&token=685f2e33a75f0f4623584389...6f34a46a84b3ec64e482b"
-```
-
-#### Responses
-
-<table id="table-responses">
-  <thead>
-    <tr>
-      <th>Status Code</th>
-      <th colspan="2">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>200</code></td>
-      <td colspan="2">Success</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>400</code></td>
-      <td colspan="2">Malformed Request</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>403</code></td>
-      <td colspan="2">Invalid Token</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>503</code></td>
-      <td colspan="2">Invalid Subdomain or Missing Format</td>
-    </tr>
-  </tbody>
-</table>
-
-#### Sample Response
-
-A successful response contains an <code>_rxid</code>, which is the unique identifier for the received error object.
-
-```jsx title="Sample Response"
-{"response":"ok","_rxid":"01000000-7e23-7a1e-0000-000000000000"}
-```
-
-</details>
+---
 
 ## Symbols
 
@@ -634,118 +486,7 @@ A successful response contains an <code>_rxid</code>, which is the unique identi
 
 </details>
 
-### Submit Symbol (On-Premise)
-
-<details>
-<summary><span className="api post">POST</span><code>https://&#123;onpremHost&#125;/api/post?symbols&amp;token=&#123;apiToken&#125;</code></summary>
-<p/>
-
-Submits debug symbol files to Backtrace. The symbol archive must contain both the executable and symbol files for proper symbolication. Any archive format supported by libarchive 3.2.3 is supported, such as <code>.tar</code>, <code>.tar.gz</code>, <code>.zip</code>. Archives should be pre-compressed and should not exceed 10GB in size, where possible.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>onpremHost</code></td>
-      <td>
-        <p><small>| QUERY | REQUIRED | STRING |</small></p>
-        <p>The Backtrace universe name for your on-premise instance.</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>apiToken</code></td>
-      <td>
-        <p><small>| QUERY | REQUIRED | STRING |</small></p>
-        <p>
-          API token with the necessary scope(s) generated in your Backtrace project settings.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>upload_file</code></td>
-      <td>
-        <p><small>| BODY | REQUIRED | STRING |</small></p>
-        <p>
-          The archive file (compressed ZIP) containing the symbol and binary files for symbolication.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>&#123;tag&#125;</code></td>
-      <td>
-        <p><small>| BODY | OPTIONAL | STRING |</small></p>
-        <p>
-          User-defined key-value tags to attach to the symbols, where
-          <code>&#123;tag&#125;</code> is the tag key and the value is the tag data.
-          Example:
-        </p>
-        <code>-F "tag=test"</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-#### Sample Request
-
-```jsx title="Sample Request"
-curl -v \
--F "upload_file=@symbols.zip" \
--F "tag=test" \
--H "Expect:" \
-"https://sauceOnPrem.sp.backtrace.io/api/post?symbols&token=685f2e33a75f0f4623584389...6f34a46a84b3ec64e482b"
-```
-
-#### Responses
-
-<table id="table-responses">
-  <thead>
-    <tr>
-      <th>Status Code</th>
-      <th colspan="2">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>200</code></td>
-      <td colspan="2">Success</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>400</code></td>
-      <td colspan="2">Malformed Request</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>403</code></td>
-      <td colspan="2">Invalid Token</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>503</code></td>
-      <td colspan="2">Invalid Subdomain or Missing Format</td>
-    </tr>
-  </tbody>
-</table>
-
-#### Sample Response
-
-A successful response contains an <code>_rxid</code>, which is the unique identifier for the received object.
-
-```jsx title="Sample Response"
-{"response":"ok","_rxid":"01000000-7e23-7a1e-0000-000000000000"}
-```
-
-</details>
+---
 
 ## Source Map
 
@@ -821,121 +562,6 @@ curl -v \
 ```
 
 #### Responses
-
-<table id="table-responses">
-  <thead>
-    <tr>
-      <th>Status Code</th>
-      <th colspan="2">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>200</code></td>
-      <td colspan="2">Success</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>400</code></td>
-      <td colspan="2">Malformed Request</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>403</code></td>
-      <td colspan="2">Invalid Token</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>503</code></td>
-      <td colspan="2">Invalid Subdomain or Missing Format</td>
-    </tr>
-  </tbody>
-</table>
-
-#### Sample Response
-
-A successful response contains an <code>_rxid</code>, which is the unique identifier for the received object.
-
-```jsx title="Sample Response"
-{"response":"ok","_rxid":"01000000-7e23-7a1e-0000-000000000000"}
-```
-
-</details>
-
-### Submit Source Map (On-Premise)
-
-<details>
-<summary><span className="api post">POST</span><code>https://&#123;onpremHost&#125;/api/post?sourcemap&amp;token=&#123;apiToken&#125;</code></summary>
-<p/>
-
-Upload source maps to symbolicate ES6/JavaScript errors.
-
-##### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>onpremHost</code></td>
-      <td>
-        <p><small>| QUERY | REQUIRED | STRING |</small></p>
-        <p>The Backtrace universe name for your on-premise instance.</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>apiToken</code></td>
-      <td>
-        <p><small>| QUERY | REQUIRED | STRING |</small></p>
-        <p>
-          API token with the necessary scope(s) generated in your Backtrace
-          project settings.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>upload_file</code></td>
-      <td>
-        <p><small>| BODY | REQUIRED | STRING |</small></p>
-        <p>
-          The source map file or compressed archive containing debugging
-          information.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td><code>&#123;tag&#125;</code></td>
-      <td>
-        <p><small>| BODY | OPTIONAL | STRING |</small></p>
-        <p>
-          User-defined key-value tags to attach to the source maps, where
-          <code>&#123;tag&#125;</code> is the tag key and the value is the tag data.
-          Example:
-        </p>
-        <code>-F "tag=test"</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-#### Sample Request
-
-```jsx title="Sample Request"
-curl -v \
--F "upload_file=@test.js.map" \
--F "tag=test" \
--H "Expect:" \
-"https://sauceOnPrem.sp.backtrace.io/api/post?sourcemap&token=685f2e33a75f0f4623584389...6f34a46a84b3ec64e482b"
-```
-
-##### Responses
 
 <table id="table-responses">
   <thead>
