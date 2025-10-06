@@ -52,6 +52,17 @@ A range of settings can be configured to serve as the default for **manual** tes
 | [Biometrics Interception](/mobile-apps/features/biometric-authentication/)                                                                    | Enable/disable Biometrics Interception. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps.                                                                                                                                                                                                                                |
 | Group Folder Redirect <br/><p><span className="sauceGreen">iOS Only</span></p>                                                       | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible.                                                                                                                                                                                                                                                                                     |
 
+##### Android App Resigning and Certificate Fingerprint
+When resigningEnabled is set to true (which is required for instrumentation features), Sauce Labs resigns your application. This re-signing process changes the app's signing certificate.
+
+If your application uses services that rely on the app's signing certificate fingerprint (e.g., "Sign In With Google"), these services will only work correctly if the new signing certificate's fingerprint is registered with the respective service provider. You will need to add the Sauce Labs signing certificate fingerprint to your service's configuration (e.g., in your Google Cloud Project for "Sign In With Google").
+
+The SHA1 fingerprint of the signing certificate used by Sauce Labs for resigning is:
+
+```
+A9:09:F1:59:45:35:08:C2:D8:52:6B:87:32:F6:75:D2:82:36:86:19
+```
+
 #### Device Settings
 
 | Setting                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
