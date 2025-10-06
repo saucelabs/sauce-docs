@@ -609,6 +609,7 @@ module.exports = {
                     items: [
                         'error-reporting/org-settings/user-mgmnt',
                         'error-reporting/org-settings/team-mgmnt',
+                        'error-reporting/org-settings/project-management',
                         'error-reporting/org-settings/saml-sso',
                     ],
                 },
@@ -1206,6 +1207,7 @@ module.exports = {
                     items: [
                         'mobile-apps/supported-devices',
                         'mobile-apps/virtual-apple-silicon',
+                        'mobile-apps/android-emulators',
                         'mobile-apps/real-device-cleaning',
                         'mobile-apps/mdm-support',
                     ],
@@ -1264,9 +1266,18 @@ module.exports = {
                             label: 'Appium',
                             collapsed: true,
                             items: [
+                                {
+                                    type: 'category',
+                                    label: 'Migration Guides',
+                                    collapsed: true,
+                                    items: [
+                                        'mobile-apps/automated-testing/appium/migration-guides/appium-2-migration',
+                                        'mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration',
+                                    ],
+                                },
+
                                 'mobile-apps/automated-testing/appium',
                                 'mobile-apps/automated-testing/appium/appium-versions',
-                                'mobile-apps/automated-testing/appium/appium-2-migration',
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',
                                 'mobile-apps/automated-testing/appium/virtual-devices',
@@ -1598,6 +1609,7 @@ module.exports = {
                         'python-robot-framework',
                         'playwright',
                         'espresso',
+                        'figma',
                         'pdf',
                     ]
                         .sort()
