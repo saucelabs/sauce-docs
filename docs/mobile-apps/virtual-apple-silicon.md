@@ -182,7 +182,7 @@ Appium commands `TouchActions` and `MultiTouchActions` have been deprecated in X
 
 **Solution**: Refer to [Appium Documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/gestures/) for additional implementation options.
 
-More details ➡️ [Migrating to Appium 2](./automated-testing/appium/appium-2-migration.md)
+More details ➡️ [Migrating to Appium 2](./automated-testing/appium/migration-guides/appium-2-migration.md)
 
 ---
 

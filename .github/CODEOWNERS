@@ -14,7 +14,7 @@
 # The folders are ordered as follows:
 
 # Dev/API:
-/docs/dev/api/error-reporting/ @rick-bt @peter-shao
+/docs/dev/api/error-reporting/ @rick-bt @sararasmussen
 /docs/dev/api/rdc/ @saucelabs/rdcdev
 /docs/dev/api/storage/ @saucelabs/rdcdev
 
@@ -22,7 +22,7 @@
 /docs/dev/cli/ @saucelabs/devx
 
 # Backtrace/Error Reporting
-/docs/error-reporting/ @rick-bt @peter-shao
+/docs/error-reporting/ @rick-bt @sararasmussen
 
 # Sauce Orchestrate
 /docs/orchestrate/ @saucelabs/sauce-orchestrate-team
