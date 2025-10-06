@@ -23,7 +23,7 @@ A clean device:
 
 ## Public Devices
 
-Every 5th cleaning session includes a device reboot. This ensures that the system remains
+Every 10th cleaning session includes a device reboot. This ensures that the system remains
 performant and any stray processes are stopped.
 
 :::caution
