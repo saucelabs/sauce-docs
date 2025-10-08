@@ -1438,6 +1438,7 @@ module.exports = {
                         },
                     ],
                 },
+                'web-apps/macos-apple-silicon',
                 'web-apps/automated-testing/web-automated-faq',
             ],
         },
