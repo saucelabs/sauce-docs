@@ -252,7 +252,7 @@ Submits Error Object to Backtrace. For large files, include the header flag <cod
       <td>
         <p><small>| BODY | REQUIRED | STRING |</small></p>
         <p>
-          The error data file (minidump or core dump) containing the crash
+          The error data file containing the crash
           information.
         </p>
       </td>
