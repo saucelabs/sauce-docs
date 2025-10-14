@@ -17,4 +17,4 @@ Authorized Nintendo developers can access details in our Nintendo Switch Detaile
 
 ## Publication Date
 
-The latest publication date of our Nintendo Switch Detailed Integration Guide is 2025-02-06.
+The latest publication date of our Nintendo Switch Detailed Integration Guide is 2025-10-07.
