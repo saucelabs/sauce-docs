@@ -15,9 +15,6 @@ Sauce Labs now supports **macOS 14 Sonoma and macOS 15 Sequoia** on Apple Silico
 macOS 14 and 15 are only available to Enterprise customers with the appropriate Premium plan. Contact your account manager to discuss upgrading.
 :::
 
-
-## Getting Started with Apple Silicon on Sauce Labs
-
 ## Browsers available on macOS 14/15
 
 | OS Version | Browser | Versions|
@@ -45,9 +42,5 @@ Tests on macOS 14 and newer require the `armRequired` parameter to be passed wit
 See the [Platform Configurator](https://saucelabs.com/products/platform-configurator) for full example configurations
 
 ---
-
-## Known Issues and Migration Notes
-
-TK TK
 
 Have questions? Visit the [Sauce Labs Community](https://support.saucelabs.com/hc/en-us/community/topics) or contact our support team.
