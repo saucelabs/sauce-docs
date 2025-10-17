@@ -146,14 +146,20 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 The release strategy for Appium images in RDC is the following:
 
-- We provide a `stable` image, which is our Long-Term Support (LTS) image. We update this image as conservatively as possible. Our regular update schedule is every 12 months. We will notify you when we update this image and provide a migration guide for any breaking changes from the previous `stable` image to the new one. The stable image is subject to change to ensure continuous support for the latest OS versions and device models with the latest Appium drivers. When we release a new `stable` image, we will first issue a preview, such as `stable-2025`. You can adjust to this new stable image before we officially promote it to the new `stable` image.
-
-- Additionally, we offer the `latest` version. The regular update schedule for this image is every 3 months. However, we may update this image on demand if a device-OS update introduces a widespread breaking change that can only be resolved by updating Appium drivers. This version includes the most recent Appium 2 server and drivers available at the time of release. This image does not have an EOL since it is updated regularly. You can use this image to take advantage of the latest Appium bug fixes and features in your tests, but be aware that your tests may break if you use deprecated Appium functionality.
-
+- We provide a `latest` image, which serves as our Long-Term Support (LTS) image. We update this image conservatively, with a regular schedule of every 12 months. When we do update this image, we will notify you and provide a migration guide to address any breaking changes from the previous `latest` image to the new one.
 
 :::info Supported Custom Appium Plugins:
 The following list of custom Appium plugins are supported:
 - [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin is included by default in all the appium versions we offer.
+:::
+
+:::warning Appium Stable Version:
+The `stable` appium version is deprecated and will be retired on January 26th, 2026. 
+After this date, any test session requesting `stable` appium version **will fail**. 
+This may introduce breaking changes due to major version updates. 
+To prevent test failures, please follow the 
+- [Migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) to update your configuration. 
+- For more details on supported versions, see our [Appium Versions documentation](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/).
 :::
 
 ### Appium 2.x
@@ -172,7 +178,7 @@ The following list of custom Appium plugins are supported:
         <code>stable</code>
       </td>
       <td>
-        <span className="sauceGreen">Active</span>
+        <span className="sauceGold">January 26th, 2026</span>
       </td>
       <td>
         This is a our LTS (Long-time support) image with drivers that we only change when major functionality breaks or after 31.09.2025.<br />
