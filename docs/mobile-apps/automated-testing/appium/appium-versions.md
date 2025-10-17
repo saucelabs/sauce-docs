@@ -153,13 +153,15 @@ The following list of custom Appium plugins are supported:
 - [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin is included by default in all the appium versions we offer.
 :::
 
-:::warning Appium Stable Version:
-The `stable` appium version is deprecated and will be retired on January 26th, 2026. 
-After this date, any test session requesting `stable` appium version **will fail**. 
-This may introduce breaking changes due to major version updates. 
-To prevent test failures, please follow the 
-- [Migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) to update your configuration. 
-- For more details on supported versions, see our [Appium Versions documentation](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/).
+:::warning Appium Stable Version is Being Retired
+  The `stable` appium version is deprecated and will be retired on **January 26th, 2026**.
+
+**Why We Made This Decision**
+We are retiring the `stable` image to simplify our versioning model and align with the industry standard. We believe that the **`latest`** tag should be considered the primary stable, Long-Term Support (LTS) version, which makes version selection more straightforward and consistent.
+
+After the EOL date, any test session requesting the `stable` appium version **will fail**. This may introduce breaking changes due to major version updates. To prevent test failures, please follow the:
+- [Migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) to update your configuration.
+- For more details, see the supported versions for [Real Devices](#appium-2x) below.
 :::
 
 ### Appium 2.x
