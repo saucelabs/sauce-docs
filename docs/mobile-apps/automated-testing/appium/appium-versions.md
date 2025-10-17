@@ -146,7 +146,7 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 The release strategy for Appium images in RDC is the following:
 
-- We provide a `latest` image, which serves as our Long-Term Support (LTS) image. We update this image conservatively, with a regular schedule of every 12 months. When we do update this image, we will notify you and provide a migration guide to address any breaking changes from the previous `latest` image to the new one.
+- We provide a `latest` image, which serves as our Long-Term Support (LTS) image. When we do update this image, we will notify you and provide a migration guide to address any breaking changes from the previous `latest` image to the new one.
 
 :::info Supported Custom Appium Plugins:
 The following list of custom Appium plugins are supported:
