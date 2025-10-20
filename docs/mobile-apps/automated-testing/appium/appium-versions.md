@@ -144,10 +144,8 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 ### Real Device Appium Images
 
-The release strategy for Appium images in RDC is the following:
-
-- We provide several specific, dated Appium versions (e.g., `appium2-20250901`). We highly recommend using one of these versions for your tests.
-- The `latest` image will not be updated with new drivers. We encourage you to select a specific version from the table below to prevent unexpected changes to your test environment.
+We provide several specific, dated Appium versions (e.g., `appium2-20250901`). We highly recommend using one of these versions for your tests. 
+For more details, see the supported versions for [Real Devices](#appium-2x) below.
 
 :::info Supported Custom Appium Plugins:
 The following list of custom Appium plugins are supported:
@@ -162,7 +160,10 @@ We are retiring the `stable` image to simplify our versioning model and align wi
 
 After the EOL date, any test session requesting the `stable` appium version **will fail**. This may introduce breaking changes due to major version updates. To prevent test failures, please follow the:
 - [Migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) to update your configuration.
-- For more details, see the supported versions for [Real Devices](#appium-2x) below.
+:::
+
+:::warning Important Update on `latest` Version
+The `latest` image will not be updated with new drivers. We encourage you to select a specific version from the table below to prevent unexpected changes to your test environment.
 :::
 
 ### Appium 2.x
