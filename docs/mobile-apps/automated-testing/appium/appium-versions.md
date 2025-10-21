@@ -144,7 +144,7 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 ### Real Device Appium Images
 
-We provide several specific, dated Appium versions (e.g., `appium2-20250901`). We highly recommend using one of these versions for your tests. 
+We provide several specific, dated Appium versions (e.g., `appium2-20250901`). Please check details of available versions below and choose one according to your requirements.
 For more details, see the supported versions for [Real Devices](#appium-2x) below.
 
 :::info Supported Custom Appium Plugins:
