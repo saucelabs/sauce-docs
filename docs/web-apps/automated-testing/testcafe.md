@@ -108,42 +108,6 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td>Safari</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>3.6.1</td>
-      <td rowspan='3'>20</td>
-      <td rowspan='3'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>June 26, 2025</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>3.6.0</td>
-      <td rowspan='3'>20</td>
-      <td rowspan='3'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>May 28, 2025</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 14.0, 14.3, 14.4, 14.5, 15.4, 15.5, 16.0, 16.1, 16.2</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
 </table>
 
 *macOS 14+ requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/testcafe/yaml#armrequired)
