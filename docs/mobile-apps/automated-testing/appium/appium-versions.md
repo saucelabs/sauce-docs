@@ -153,7 +153,7 @@ The following list of custom Appium plugins are supported:
 :::
 
 :::warning Appium Stable Version is Being Retired
-  The `stable` appium version is deprecated and will be retired on **January 26th, 2026**.
+  The `stable` appium version is deprecated and will be retired on **February 16th, 2026**.
 
 **Why We Made This Decision:**
 We are retiring the `stable` image to simplify our versioning model and align with the industry standard. We believe that using specific, dated versions (like `appium2-20250901`) is the best way to have a stable, Long-Term Support (LTS) environment. This makes version selection more straightforward and consistent.
@@ -182,7 +182,7 @@ The `latest` image will not be updated with new drivers. We encourage you to sel
         <code>stable</code>
       </td>
       <td>
-        <span className="sauceGold">January 26th, 2026</span>
+        <span className="sauceGold">February 16th, 2026</span>
       </td>
       <td>
         This is a our LTS (Long-time support) image with drivers that we only change when major functionality breaks or after 31.09.2025.<br />
