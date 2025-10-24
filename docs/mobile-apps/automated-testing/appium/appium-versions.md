@@ -144,27 +144,14 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 ### Real Device Appium Images
 
-We provide several specific, dated Appium versions (e.g., `appium2-20250901`). Please check the supported versions for Real Devices in the
+We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
 [table below](#appium-2x) and choose the one that fits your requirements.
 
-:::info Supported Custom Appium Plugins:
-The following list of custom Appium plugins are supported:
-- [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin is included by default in all the appium versions we offer.
-:::
-
 :::warning Appium Stable Version is Being Retired
-  The `stable` appium version is deprecated and will be retired on **February 16th, 2026**.
-
 **Why We Made This Decision:**
-We are retiring the `stable` image to simplify our versioning model and align with the industry standard. We believe that using specific, dated versions (like `appium2-20250901`) is the best way to have a stable, Long-Term Support (LTS) environment. This makes version selection more straightforward and consistent.
-
-After the EOL date, any test session requesting the `stable` appium version **will fail**. This may introduce breaking changes due to major version updates. To prevent test failures, please follow the:
-- [Migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) to update your configuration.
+We are retiring the `stable` image to simplify our versioning model and align with the industry standard. We believe that using specific, dated versions (like `appium2-20250901`) is the best way to have a stable environment. This makes version selection more straightforward and consistent.
 :::
 
-:::warning Important Update on `latest` Version
-The `latest` image will not be updated with new drivers. We encourage you to select a specific version from the table below to prevent unexpected changes to your test environment.
-:::
 
 ### Appium 2.x
 
@@ -185,8 +172,8 @@ The `latest` image will not be updated with new drivers. We encourage you to sel
         <span className="sauceGold">February 16th, 2026</span>
       </td>
       <td>
-        This is a our LTS (Long-time support) image with drivers that we only change when major functionality breaks or after 31.09.2025.<br />
-        Please note: This image currently supports the deprecated /touch API. This API is deprecated in future driver releases and replaced by the W3C Action API. We strongly recommend that you migrate to the new API to avoid your tests breaking in the future. <a href="https://github.com/appium/appium-uiautomator2-driver/pull/738" target="_blank">See here for more details.</a> <br />
+        The `stable` appium version **is deprecated and will be retired on February 16th, 2026**.
+        Please follow the [Migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) to update your configuration. <br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.4.1" target="_blank">
@@ -219,7 +206,7 @@ The `latest` image will not be updated with new drivers. We encourage you to sel
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-        This will hold a collection of drivers that are compatible with the latest Appium server and driver versions that are installed in our cloud.<br />
+        We update this image conservatively. When we do update this image, we will notify you and provide a migration guide to address any breaking changes from the previous "latest" image to the new one.<br />
         This is a collection of drivers that were released in this version <br />
        <ul>
           <li>
