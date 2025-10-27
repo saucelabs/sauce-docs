@@ -16,10 +16,8 @@ you can use to test your web apps remotely on Sauce Labs cloud using the [`sauce
 Supported OS:
 
 - Windows 10 / Windows 11
-- macOS 11+*
+- macOS 11+
 - Linux
-
-*macOS 14+ requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/testcafe/yaml#armrequired)
 
 ## Supported Languages
 
@@ -43,7 +41,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td rowspan='3'>3.7.2</td>
       <td rowspan='3'>22</td>
       <td rowspan='3'>✅</td>
-      <td><b>macOS:</b> 11.00, 12, 13, 14</td>
+      <td><b>macOS:</b> 11.00, 12, 13, 14*</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>July 8th, 2026</td>
     </tr>
@@ -147,6 +145,8 @@ Sauce Labs supports the following test configurations for TestCafe:
     </tr>
   </tbody>
 </table>
+
+*macOS 14+ requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/testcafe/yaml#armrequired)
 
 ## How to Get Started
 

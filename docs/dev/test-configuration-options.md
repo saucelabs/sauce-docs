@@ -848,7 +848,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:timeZone`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
 Overrides the current device's time zone. This change is done on per-device basis and is
 preserved for the whole duration of the test session. The time zone identifier must be a
