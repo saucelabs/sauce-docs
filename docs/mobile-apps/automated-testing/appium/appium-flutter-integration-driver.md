@@ -9,6 +9,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceGreen">Real Devices</span></p>
+
 Sauce Labs supports testing Flutter apps on Android and iOS real devices with Appium by utilizing the [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver). 
 The process to test Flutter apps with Appium involves an additional and crucial step: [Prepare the app with Flutter Integration Server](#prepare-the-app-with-flutter-integration-server). 
 This step includes instructions on how to prepare and build your app for both Android and iOS platforms. After preparing your app, 
@@ -48,8 +50,11 @@ This driver is built using [Flutter Integration Test](https://docs.flutter.dev/c
 
 ## What You'll Need
 
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 - Familiarity with creating, signing and building [Flutter apps](https://docs.flutter.dev/).
 - Familiarity writing and running [Appium tests](/mobile-apps/automated-testing/appium/).
+- Note: The Appium Flutter Integration Driver is only available for real devices on Sauce Labs.
 
 ## Use Sauce Labs `My Demo App Flutter`
 
@@ -128,7 +133,7 @@ Bingo! You are ready to run your tests using Appium Flutter Integration Driver.
 
 ## Uploading your Flutter App to Sauce Labs
 
-You can now upload the built apps with our [REST API](/dev/api/storage/#upload-file-to-app-storage), or manually upload them to the preferred Data Center. See [Manually Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app) for more information.
+You can now upload the built apps with our [REST API](/dev/api/storage/#upload-file-to-app-storage), or manually upload them to the preferred Data Center. See [Manually Uploading an App](/mobile-apps/app-storage/#uploading-apps) for more information.
 
 ## Configuring your Appium Capabilities
 
@@ -137,7 +142,8 @@ More information on how to write Appium tests for Flutter apps can be found in t
 :::info APPIUM FLUTTER INTEGRATION DRIVER SUPPORT :
 [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver). This driver will now be included by default with Appium version latest and all subsequent versions released after July 1st.
 
-More information regarding the available [appium versions](/mobile-apps/automated-testing/appium/appium-versions/#Real-Devices) we support at Sauce Sabs.
+More information regarding the available [appium versions](/mobile-apps/automated-testing/appium/appium-versions/#real-devices)
+we support at Sauce Labs.
 :::
 
 ### Real Devices
@@ -173,7 +179,7 @@ capabilities.setCapability("appium:app", "storage:filename=sl_my_demo_flutter_ap
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-sauceOptions.put("appiumVersion", "appium-20240701");
+sauceOptions.put("appiumVersion", "stable");
 sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
 sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
 capabilities.setCapability("sauce:options", sauceOptions);
@@ -196,7 +202,7 @@ capabilities.setCapability("appium:app", "storage:filename=sl_my_demo_flutter_ap
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-sauceOptions.put("appiumVersion", "appium-20240701");
+sauceOptions.put("appiumVersion", "stable");
 sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
 sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
 capabilities.setCapability("sauce:options", sauceOptions);
@@ -228,7 +234,7 @@ const capabilities = {
     'appium:app': 'storage:filename=sl_my_demo_flutter_app.apk',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        appiumVersion: 'appium-20240701'
+        appiumVersion: 'stable'
     }
 }
 ```
@@ -248,7 +254,7 @@ const capabilities = {
     'appium:app': 'storage:filename=sl_my_demo_flutter_app.ipa',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        appiumVersion: 'appium-20240701'
+        appiumVersion: 'stable'
     }
 }
 ```

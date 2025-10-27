@@ -22,7 +22,7 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - Allow access to the following from your Jenkins server:
   - IP ranges located [here](https://docs.saucelabs.com/basics/data-center-endpoints/)
   - `saucelabs.com`
@@ -385,7 +385,8 @@ node('mac') {
 
 ### Creating the Sauce Publisher Snippet
 
-The `{saucePublisher}` function lets you send test result data to Sauce Labs. See [Publishing Test Status to Sauce Labs](#publishing-test-status-to-sauce-labs).
+The `{saucePublisher}` function lets you send test result data to Sauce Labs.
+See [Publishing Test Status to Sauce Labs](#publish-test-status-to-sauce-labs).
 
 1. Enable the **Snippet Generator** in Jenkins Pipeline.
 1. Select **saucePublisher: Run Sauce Labs Test Publisher** and **Generate Groovy**.

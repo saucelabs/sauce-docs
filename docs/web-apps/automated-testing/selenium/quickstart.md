@@ -29,5 +29,4 @@ For additional guidance on setting up Selenium tests, please refer to our [Getti
 - [Using Selenium 4 with Sauce Labs](/web-apps/automated-testing/selenium/selenium4/)
 - [Viewing Your Test Results](/test-results/viewing-test-results/)
 - [Sauce Training | W3C Code Examples](https://github.com/saucelabs-training/w3c-examples)
-- [Sauce Labs Language Bindings](https://opensource.saucelabs.com/sauce_bindings/)
 - [Java SE 8 Documentation](https://docs.oracle.com/javase/8/)

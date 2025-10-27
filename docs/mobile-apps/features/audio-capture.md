@@ -14,23 +14,31 @@ Audio Capture is a functionality that gives you the ability to record the audio 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - A native Android, iOS, or iPadOS mobile app.
 
+## Supported Platforms and Frameworks
+
+|                                                                                          | Android 9 and below |   Android 10   |   Android 11   | Android  12 and above | iOS (all versions) |
+|------------------------------------------------------------------------------------------|:-------------------:|:--------------:|:--------------:|:---------------------:|:----------------:|
+| Audio streaming during Live Testing                                                      |          ❌          |        ❌       |        ❌       |           ✅           |         ✅        |
+| Audio recording in Live and Automated Test Reports                                       |          ❌          | Automated only | Automated only |           ✅           |         ❌        |
+| Text to speech audio streaming during Live Testing via Talkback/VoiceOver                |          ❌          |        ✅       |        ✅       |           ✅           |         ✅        |
+| Text to speech audio recording in Live and Automated Test Reports via Talkback/VoiceOver |          ❌          |        ❌       |        ❌       |           ❌           |         ❌        |
+
 ## Using Audio Capture for Automated Tests on Real Devices
 
-To enable Audio Capture in your automated tests, you need to use the following capabilities:
+Audio capture works out of box for automated tests on iOS. On Android, if the app does not define any restrictions in its manifest, then it will also work out of box. 
 
-Click the link below that corresponds to your framework:
+To bypass audio capture restrictions defined in manifests of Android apps, you need to use the following capabilities:
 
 - [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#audiocapture)
-- [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#audiocapture)
 - [Appium](/dev/test-configuration-options/#audiocapture)
 
 Now you can start your automated testing session. Your audio recording will be captured and be part of the video recording on the Test Results page.
 
-### Using Audio Streaming during a Live Testing session on Real Devices
+### Using Live Audio Streaming during a Live Testing session on Real Devices
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
-You just need to launch a Live Testing session on a real device, and the audio will be streamed automatically without any configuration.
+You need to launch a Live Testing session on a real device, and the audio will be streamed to your browser automatically without any configuration. If it doesn't launch for you, you can manually launch it by clicking **Performance Mode** button under **Device Settings** menu in the live testing toolbar.
 
 The Audio Streaming feature ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle.
 
@@ -41,14 +49,15 @@ You will be able to mute and unmute the sound during your session by clicking on
 <img src={useBaseUrl('img/audio.png')} alt="Mobile app settings navigation" width="300"/>
 :::
 
-## Streaming Limitations
+:::caution Network Requirements
+We are using Twilio's webrtc service in order to stream audio from a Real Device to your computer. If audio can't be heard, make sure the [network requirements](https://www.twilio.com/docs/video/ip-addresses) from Twilio are respected. It is possible to check compliance using the following [network test](https://networktest.twilio.com/).
+:::
+
+## Live Streaming Limitations
 
 :::note Limitations
 
-- TalkBack Audio is ONLY supported on Private devices, reach out to our Support Team or your Sauce Labs representative to get this configured.
-- Audio Streaming is supported on iOS/iPadOS 13.2 and above.
-- Audio Streaming is supported on Android 10 and above.
-- When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends.
+- Android TalkBack is ONLY supported on Private devices, reach out to our Support Team or your Sauce Labs representative to get this configured.
 - Website testing is not yet available on Android.
 
 :::
@@ -85,16 +94,22 @@ Follow these steps:
 
 4. Skip with OK or Cancel the native Talkback/VoiceOver guide.
 
-5. On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element.
+5. Keyboard navigation:
+  * On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element.
+  * On iOS Keyboard navigation **is not supported** for VoiceOver.
 
 For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
 
 <img src={useBaseUrl('/img/mobile-apps/talkBack-live.png')} alt="Sauce Labs TalkBack" width="751"/>
 <img src={useBaseUrl('/img/mobile-apps/voiceOver-live.png')} alt="Sauce Labs Voiceover" width="751"/>
 
+### Text to Speech
+
+Text to speech audio of the focused element will be streamed to your browser as you interact with the devices. Text to speech audio will not be available for download once the session is over.
+
 ## Using Audio Capture on iOS/iPadOS
 
-You will be able to capture audio from iOS 10 and above. Additionally, you can validate the sounds produced by your application, enable VoiceOver, and verify its output.
+Audio capture is supported on all our iOS devices. Additionally, you can validate the sounds produced by your application, enable VoiceOver, and verify its output.
 
 ## Accessing the Audio in Your Test Tesults for Automated Test
 
@@ -110,12 +125,9 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 
 :::note Limitations
 
-- iOS Audio capture for automated test results is supported on iOS/iPadOS 10.1 and above.
-- Android Audio capture for test results is supported on Android 10 and above.
-- When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends.
-- Accessibility and TalkBack on Android are not supported.
 - Emulators and simulators are not supported.
 - Website testing is not yet available on Android.
+- Streaming and recording audio from phone calls is not supported.
 
 :::
 

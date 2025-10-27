@@ -36,6 +36,7 @@ and easy, after which you can explore the rich set of Backtrace features.
     - [BacktraceClient Options](#backtraceclient)
     - [Manually send an error](#manually-send-an-error)
     - [Modify/skip error reports](#modifyskip-error-reports)
+    - [Automatically upload source maps](#automatically-upload-source-maps)
     - [SDK Method Overrides](#sdk-method-overrides)
 
 ## Basic Integration
@@ -402,8 +403,8 @@ The following options are available for the BacktraceClientOptions passed when i
 
 ### Manually send an error
 
-There are several ways to send an error to Backtrace. For more details on the definition of `client.send()` see
-[Methods](#methods) below.
+There are several ways to send an error to Backtrace. For more details on the
+definition of `client.send()` see methods below.
 
 ```ts
 // send as a string
@@ -439,6 +440,81 @@ const client = BacktraceClient.initialize({
     },
 });
 ```
+
+### Automatically upload source maps
+
+@Backtrace/react provides CI tooling to easily post source maps to Backtrace. Posting source maps enables Backtrace to symbolicate minified code, allowing error reports to be displayed with the original source code highlighting the correct faulting line.
+
+To integrate an application source maps in react-native with Backtrace you need:
+- create a `.backtracejsrc` file in the main application folder,
+- install the `@backtrace/javascript-cli` and `@backtrace/sourcemap-tools` packages,
+- modify `metro.config.js` to attach debug identifier to the generated javascript code,
+- modify the build system in the android or xcode project.
+
+#### Modifying `metro.config.js` 
+
+Backtrace is compatible with the metro build system. To enable source map support, set a `customSerializer` method in the `metro.config.js` file to the `processSourceMap` function available in `@backtrace/react-native/scripts/processSourceMap`.
+
+```
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const backtraceSourceMapProcessor = require('@backtrace/react-native/scripts/processSourceMap');
+
+const config = {
+    serializer: {
+        customSerializer: backtraceSourceMapProcessor.processSourceMap
+    },
+};
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+
+```
+
+Add Backtrace to build automation to ensure every build has source map support.
+
+In order to upload source maps to Backtrace, you can:
+
+**On Android:**
+
+Enable source map support in `app/build.gradle` by uncommenting hermes source map flags. With additional parameters, source maps will be generated. To automatically upload them to Backtrace, you can use the gradle task available the @backtrace/react-native library.
+
+`apply from: "$rootDir/../node_modules/@backtrace/react-native/android/upload-sourcemaps.gradle"`
+
+Once you import the gradle task, you can simply add it to your flow for any build/assemble tasks.
+
+```gradle
+tasks.matching {
+    it.name.startsWith("assemble") || it.name.startsWith("build")
+}.configureEach { task ->
+     task.finalizedBy("uploadSourceMapsToBacktrace")
+}
+```
+
+**On iOS.**
+
+Modify the code in the `Bundle React Native code and images` step in the `Build Phases` of your xcode project setting. In the end of the script, you can include the code below, to upload source maps directly to Backtrace after generating the applicaiton.
+
+```bash
+project_directory="$(pwd)/.."
+# enable source map support
+export SOURCEMAP_FILE="$project_directory/main.jsbundle.map"
+
+...
+
+# upload source maps to Backtrace
+source_map_upload="$project_directory/node_modules/@backtrace/react-native/scripts/ios-sourcemap-upload.sh"
+backtrace_js_config="$project_directory/.backtracejsrc"
+
+/bin/sh -c "$source_map_upload $SOURCEMAP_FILE $TARGET_BUILD_DIR/.backtrace-sourcemap-id $backtrace_js_config $project_directory"
+
+```
+
+#### Advanced use cases
+
+Backtrace generates `.backtrace-sourcemap-id` in the application build directory. The file contains debug-id attached to each source file and source file. The debug id file path can be modified by setting an environment variable `DEBUG_ID_PATH` to the path to the file. For example:
+
+```
+DEBUG_ID_PATH=/path/to/backtrace/debug/id/backtrace-javascript/.debug_id
+```
+The file directory should be created before building the application. 
 
 ### SDK Method Overrides
 

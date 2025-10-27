@@ -4,12 +4,13 @@ sidebar_label: C#/.Net
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ClippingDescription from '../_partials/_clipping-description.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
-import FullPageLimit from '../_partials/_fullpage-limit.md';
-import SelectiveDiffing from '../_partials/_selective-diffing.md';
-import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
-import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import ClippingDescription from '../\_partials/\_clipping-description.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
+import FullPageLimit from '../\_partials/\_fullpage-limit.md';
+import SelectiveDiffing from '../\_partials/\_selective-diffing.md';
+import SelectiveDiffingGlobal from '../\_partials/\_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../\_partials/\_selective-diffing-region.md';
+import Frames from '../\_partials/\_frames.md';
 
 # C#/.Net WebDriver Integration
 
@@ -24,7 +25,6 @@ Sauce Visual plugin provides a library exposing a `VisualClient` class that prov
 
 - `VisualCheck`: Takes a screenshot and sends it to Sauce Visual for comparison.
 - `VisualResults`: Waits for all diff calculations to complete and returns a summary of results.
-  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
@@ -53,7 +53,6 @@ dotnet add package SauceLabs.Visual
 
   </TabItem>
 </Tabs>
-
 
 _Note: You can find the latest versions available [here](https://www.nuget.org/packages/SauceLabs.Visual#readme-body-tab)._
 
@@ -136,12 +135,11 @@ defaultValue="NUnit"
     }
   }
 ```
+
   </TabItem>
 </Tabs>
 
 To enhance efficiency in managing tests, it's important to provide a specific test name and suite name for each test. This practice allows Sauce Visual to effectively organize snapshots into coherent groups. As a result, it simplifies the review process, saving time and effort in navigating through test results and understanding the context of each snapshot.
-
-
 
 Don't forget to quit the WebDriver and Dispose VisualClient.
 <Tabs
@@ -277,6 +275,7 @@ When creating the service in `VisualClient`, extra fields can be set to define t
 It needs to be defined through a `CreateBuildOptions` object.
 
 Properties available:
+
 - `string? Name`: The name of the build
 - `string? Project`: The name of the project
 - `string? Branch`: The name of the branch
@@ -343,6 +342,7 @@ await VisualClient.VisualCheck("C# capture",
 Example:
 
 Ignoring only one kind:
+
 ```csharp
   await VisualClient.VisualCheck("login-page",
       new VisualCheckOptions()
@@ -353,6 +353,7 @@ Ignoring only one kind:
 ```
 
 Ignoring all kinds except one:
+
 ```csharp
   await VisualClient.VisualCheck("login-page",
       new VisualCheckOptions()
@@ -369,6 +370,7 @@ Ignoring all kinds except one:
 <SelectiveDiffingRegion />
 
 Example:
+
 ```csharp
   var usernameElement = Driver.FindElement(By.CssSelector("#user-name"));
   var passwordElement = Driver.FindElement(By.CssSelector("#password"));
@@ -393,6 +395,7 @@ Example:
 Sauce Visual does not capture dom snapshot by default. It can be changed when creating the `VisualClient` object.
 
 Example:
+
 ```csharp
 VisualClient = VisualClient.Create(Driver, Region.UsWest1, sauceUsername, sauceAccessKey);
 VisualClient.CaptureDom = true;
@@ -400,7 +403,7 @@ VisualClient.CaptureDom = true;
 
 ### Full page screenshots
 
-By default, only the current viewport is captured when `.VisualCheck` is used. You can opt in to capturing the entire page by using the `FullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
+By default, only the viewport is captured when `.VisualCheck` is used. You can opt in to capturing the entire page by using the `FullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
 Additionally, you have the option to configure full page settings using the `FullPageConfig` option.
 
 :::note
@@ -408,10 +411,11 @@ It's recommended to use the `HideAfterFirstScroll` option for fixed or sticky po
 :::
 
 Options:
+
 - `DelayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `DisableCSSAnimation`: Disable CSS animations and the input caret in the app. The default value is true.
 - `HideAfterFirstScroll`: One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
-- `HideScrollBars`: Hide all scrollbars in the app. The default value is true.
+- `HideScrollBars`: <span className="sauceGold">Deprecated</span> Use `HideScrollBars` from `VisualCheckOptions` instead
 - `ScrollLimit`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 Examples:
@@ -434,7 +438,6 @@ await VisualClient.VisualCheck("C# full page config",
                 DelayAfterScrollMs = 500,
                 DisableCSSAnimation = false,
                 HideAfterFirstScroll = new List<string> { ".header" },
-                HideScrollBars = false,
                 ScrollLimit = 5
             }
     });
@@ -456,6 +459,199 @@ await VisualClient.VisualCheck("Visible Sale Banner",
         ClipElement = element,
     });
 ```
+
+### Frames
+
+<Frames/>
+
+Example:
+
+```csharp
+Driver.SwitchTo().Frame(0);
+await VisualClient.VisualCheck("Frame capture",
+    new VisualCheckOptions()
+    {
+        FullPage = true,
+    });
+```
+
+### Parallel Testing
+
+If you want to run tests in parallel using multiple `WebDriver` instances, create a single `VisualClient` instance for all parallel tests without passing `WebDriver`, and pass `WebDriver` to the `VisualClient.VisualCheck` method directly.
+
+<Tabs
+defaultValue="NUnit"
+  values={[
+    {label: 'NUnit', value: 'NUnit'},
+    {label: 'xUnit', value: 'xUnit'},
+  ]}>
+<TabItem value="NUnit">
+
+```csharp
+[Parallelizable(ParallelScope.Children)]
+class ConcurrentTests
+{
+  private VisualClient? VisualClient { get; set; }
+
+  [OneTimeSetUp]
+  public async Task Setup()
+  {
+    VisualClient = await VisualClient.Create(Region.UsWest1, new CreateBuildOptions()
+    {
+        Name = "My Visual Build",
+        Project = "csharp-project",
+        Branch = "csharp-branch"
+    });
+  }
+
+  [OneTimeTearDown]
+  public async Task Teardown()
+  {
+      await VisualClient.Finish();
+      VisualClient.Dispose();
+  }
+
+  [Test]
+  public async Task SauceDemoHomePage_ConcurrentTest1()
+  {
+    var driver = CreateWebDriver();
+    try
+    {
+      driver.Navigate().GoToUrl("https://www.saucedemo.com");
+      await VisualClient.VisualCheck(driver, "Sauce Demo Homepage 1");
+    }
+    finally
+    {
+      driver.Quit();
+    }
+  }
+
+  [Test]
+  public async Task SauceDemoHomePage_ConcurrentTest2()
+  {
+    var driver = CreateWebDriver();
+    try
+    {
+      driver.Navigate().GoToUrl("https://www.saucedemo.com");
+      await VisualClient.VisualCheck(driver, "Sauce Demo Homepage 2");
+    }
+    finally
+    {
+      driver.Quit();
+    }
+  }
+
+  private WebDriver CreateWebDriver()
+  {
+    var sauceUsername = "YOUR_USERNAME";
+    var sauceAccessKey = "YOUR_ACCESS_KEY";
+    var sauceUrl = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub";
+
+    var browserOptions = new ChromeOptions();
+    browserOptions.PlatformName = "Windows 11";
+    browserOptions.BrowserVersion = "latest";
+
+    var sauceOptions = new Dictionary<string, string>();
+    sauceOptions.Add("username", sauceUsername);
+    sauceOptions.Add("accessKey", sauceAccessKey);
+    browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
+
+    return new RemoteWebDriver(sauceUrl, browserOptions);
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="xUnit">
+
+:::note
+`AssemblyFixture` is available only since XUnit v3.
+:::
+
+```csharp
+[assembly: AssemblyFixture(typeof(VisualClientFixture))]
+class VisualClientFixture : IAsyncLifetime
+{
+  public VisualClient? VisualClient { get; private set; }
+
+  public async ValueTask InitializeAsync()
+  {
+    VisualClient = await VisualClient.Create(Region.UsWest1, new CreateBuildOptions()
+    {
+        Name = "My Visual Build",
+        Project = "csharp-project",
+        Branch = "csharp-branch"
+    });
+  }
+
+  public async ValueTask DisposeAsync()
+  {
+    VisualClient?.Dispose();
+    await VisualClient.Finish();
+  }
+}
+
+class MyTestClass
+{
+  private VisualClient VisualClient { get; set; }
+
+  public MyTestClass(VisualClientFixture visualClientFixture)
+  {
+      VisualClient = visualClientFixture.VisualClient!;
+  }
+
+  [Fact]
+  public async Task SauceDemoHomePage_ConcurrentTest1()
+  {
+    var driver = CreateWebDriver();
+    try
+    {
+      driver.Navigate().GoToUrl("https://www.saucedemo.com");
+      await VisualClient.VisualCheck(driver, "Sauce Demo Homepage 1");
+    }
+    finally
+    {
+      driver.Quit();
+    }
+  }
+
+  [Fact]
+  public async Task SauceDemoHomePage_ConcurrentTest2()
+  {
+    var driver = CreateWebDriver();
+    try
+    {
+      driver.Navigate().GoToUrl("https://www.saucedemo.com");
+      await VisualClient.VisualCheck(driver, "Sauce Demo Homepage 2");
+    }
+    finally
+    {
+      driver.Quit();
+    }
+  }
+
+  private WebDriver CreateWebDriver()
+  {
+    var sauceUsername = "YOUR_USERNAME";
+    var sauceAccessKey = "YOUR_ACCESS_KEY";
+    var sauceUrl = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub";
+
+    var browserOptions = new ChromeOptions();
+    browserOptions.PlatformName = "Windows 11";
+    browserOptions.BrowserVersion = "latest";
+
+    var sauceOptions = new Dictionary<string, string>();
+    sauceOptions.Add("username", sauceUsername);
+    sauceOptions.Add("accessKey", sauceAccessKey);
+    browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
+
+    return new RemoteWebDriver(sauceUrl, browserOptions);
+  }
+}
+```
+
+  </TabItem>
+</Tabs>
 
 ## Examples
 

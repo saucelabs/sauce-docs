@@ -22,13 +22,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported Platforms
 
-- iOS 11+
+- iOS 12+
 - macOS 10.13+
-- tvOS 11+
+- tvOS 12+
 
 ### Privacy manifest
 
-The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Please refer to this [source document](https://github.com/backtrace-labs/backtrace-cocoa/blob/master/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
+The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Refer to this [source document](https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Sources/Resources/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
 
 ## What You'll Need
 
@@ -103,7 +103,7 @@ BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc] initW
 
 After compiling your application with the new backtrace-cocoa library, make sure symbol files are generated in dSYM format and are uploaded to Backtrace to symbolicate incoming crashes.
 
-For information on how to upload debug symbols, see [Symbol Formats and Upload Methods](/error-reporting/project-setup/symbolication/#symbol-formats-and-upload-methods).
+For information on how to upload debug symbols, see [Symbol Formats and Upload Methods](/error-reporting/project-setup/symbolication).
 
 ### Set Debug Symbol Format
 

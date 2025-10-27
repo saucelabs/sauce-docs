@@ -27,7 +27,7 @@ Below is a list of commands available with your Sauce Connect Proxy application.
 
 ### `sc run`
 
-The [sc run](/dev/cli/sauce-connect-5/run/) command is a main Sauce Connect Proxy 5 command that allows provisioning a Sauce Connect Proxy server and establishing a secure connection between the Sauce Connect Proxy client and the server.
+The [sc run](/dev/cli/sauce-connect-5/run/) command is the main Sauce Connect Proxy 5 command that allows provisioning a Sauce Connect Proxy server and establishing a secure connection between the Sauce Connect Proxy client and the server.
 
 ### `sc legacy`
 
@@ -39,7 +39,7 @@ The [sc completion](/dev/cli/sauce-connect-5/completion/) command generates an a
 
 ### `sc version`
 
-The `sc version` command output detailed version info.
+The `sc version` command outputs detailed version info.
 
 ```bash
 sc version
@@ -53,7 +53,7 @@ sc version
 
 ### `sc help`
 
-The `sc help` command allows getting usage for other commands
+The `sc help` command shows usage information for other commands
 
 ```bash
 sc help
@@ -82,4 +82,4 @@ Use "sc <command> --help" for more information about a given command.
 ## Additional Resources
 
 - [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect-5/installation/).
-- [Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables/).
+- [Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect-5/guides/configuration/#environment-variables).

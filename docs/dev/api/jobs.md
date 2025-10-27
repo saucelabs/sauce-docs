@@ -19,7 +19,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 
 ## Jobs
 
@@ -317,7 +317,7 @@ This call is specific to jobs running in simulation. To update a job for real de
                Specifies the level of visibility permitted for the job. Valid values are:
          <ul>
            <li><code>public</code> - Visibility is unrestricted and available to anyone on the internet.</li>
-           <li><code>public restricted</code> - Visibility is limited to the results page and video/screenshot assets. Logs and other metadata is hidden from unauthorized viewers.</li>
+           <li><code>public restricted</code> - Visibility is limited to the results page and video/screenshot assets. Logs and other metadata are hidden from unauthorized viewers.</li>
            <li><code>share</code> - You can share your test using a dedicated link, but it is not listed publicly or indexed by search engines.</li>
            <li><code>team</code> - Only members of the same team as the job owner can view the job.</li>
            <li><code>private</code> - The owner of the job is the only person who is allowed to view it.</li>
@@ -608,7 +608,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
 ```
 
 </TabItem>
@@ -617,7 +617,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
+--request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
 ```
 
 </TabItem>

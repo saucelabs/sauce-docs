@@ -53,17 +53,17 @@ If you have set up your tests to report whether they have passed or failed, thos
 
 <img src={useBaseUrl('img/test-results/test-results-auto-filters-updated.png')} alt="Automated test results filters" width="750"/>
 
-| Filter         | Description                                                                                                                                                                                                 |
-| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Search by name | Filter test results by name.                                                                                                                                                                                |
-| Device Type    | Filter test results by: <ul><li>Virtual Devices</li><li>Real Devices</li></ul>                                                                                                                              |
-| Time Range     | Filter test results by: <ul><li>Today</li><li>Last 7 days</li><li>Last 14 days</li><li>Last 30 days</li><li>All Time</li></ul>                                                                              |
-| Owner          | Filter test results by: <ul><li>Tests that you have run</li><li>Tests your team has run</li><li>Tests your organization has run</li><li>Tests run by another user or team from your organization</li></ul>  |
-| Status         | Filter tests by: <ul><li>Passed</li><li>Failed</li><li>Completed (the test completed but was not assigned a Pass/Fail status)</li><li>In Progress</li><li>Errored</li><li>Queued</li></ul>                  |
-| Build          | Filter test results by tests that belong to a specific build.                                                                                                                                               |
-| Platform       | Filter test results by tests that ran on one or multiple operating systems.                                                                                                                                 |
-| Browser        | Filter test results by browser (Only for Virtual Devices).                                                                                                                                                  |
-| Device         | Filter test results by tests that ran on a specific device.                                                                                                                                                 |
+| Filter         | Description                                                                                                                                                                                                                                                           |
+| :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Search by name | Filter test results by name.                                                                                                                                                                                                                                          |
+| Device Type    | Filter test results by: <ul><li>Virtual Devices</li><li>Real Devices</li></ul>                                                                                                                                                                                        |
+| Time Range     | Filter test results by: <ul><li>Today</li><li>Last 7 days</li><li>Last 14 days</li><li>Last 30 days</li><li>All Time</li></ul>                                                                                                                                        |
+| Owner          | Filter test results by: <ul><li>Tests that you have run</li><li>Tests your team has run</li><li>Tests your organization has run</li><li>Tests run by another user</li><li>Tests run by a service account</li><li>Tests run by accounts from a specific team</li></ul> |
+| Status         | Filter tests by: <ul><li>Passed</li><li>Failed</li><li>Completed (the test completed but was not assigned a Pass/Fail status)</li><li>In Progress</li><li>Errored</li><li>Queued</li></ul>                                                                            |
+| Build          | Filter test results by tests that belong to a specific build.                                                                                                                                                                                                         |
+| Platform       | Filter test results by tests that ran on one or multiple operating systems.                                                                                                                                                                                           |
+| Browser        | Filter test results by browser (Only for Virtual Devices).                                                                                                                                                                                                            |
+| Device         | Filter test results by tests that ran on a specific device.                                                                                                                                                                                                           |
 
 ## Automated Builds Results
 
@@ -77,10 +77,10 @@ To view automated build results, follow these steps:
 
 You can use the following filters to narrow down the build results:
 
-| Filter | Description                                                                                                                                                            |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Owner  | Filter builds by: <ul><li>Builds that you have run</li><li>All the builds for your organization</li><li>Builds run by one of your selected sub-accounts</li></ul>      |
-| Status | Filter builds by: <ul><li>Success</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>Running</li><li>Error</li></ul> |
+| Filter | Description                                                                                                                                                                        |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owner  | Filter builds by: <ul><li>Builds that you have run</li><li>All the builds for your organization</li><li>Tests run by another user</li><li>Tests run by a service account</li></ul> |
+| Status | Filter builds by: <ul><li>Success</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>Running</li><li>Error</li></ul>             |
 
 ## Screenshots, Commands, Logs, and Metadata
 
@@ -99,6 +99,8 @@ Your test assets, including videos, screenshots, and logs, are retained for 30 d
 - Click the **Video** tab to view the video of the test. You can download the video from this tab. Audio is available for automated tests on real devices. Additional configurations are required to record audio with your tests. For more information, see [Audio Capture](/mobile-apps/features/audio-capture/).
 - Click the **Screenshots** tab to view screenshots. You can download the screenshots from this tab and view them in full screen.
 - Click the **Logs** tab to see the logs generated by your test. The logs you can view are determined by the type of test you ran. For example, web app tests will include a Selenium log, while mobile app tests will contain an Appium log.
+  - Only the following file types will be visible in the logs viewer: .zip, .log, .json, .xml, .txt, .yml, and .har. Assets of other types
+    can be accessed via the [Sauce REST API](/dev/api/jobs/#get-a-job-asset-file).
 
 ### Appium Logs
 
@@ -108,3 +110,28 @@ To find logging specific to your OS:
 
 - For iOS: The iOS Simulator log is embedded in the Appium log. The information from the iOS Simulator is grayed out throughout the Appium log and has the tag name `info: [IOS_SYSLOG_ROW]`.
 - For Android: Android Emulator logs are in the `Logcat.log` file. This file contains all the information from the Android Emulator log.
+
+### CI Tags
+
+You can find information about CI Tags in the Metadata Beta tab. When running tests on a supported CI platform,
+such as GitHub Actions, GitLab CI/CD, Jenkins, or CircleCI, `saucectl` can automatically detect the CI environment
+and tag your tests with relevant information.
+
+<img src={useBaseUrl('/img/test-results/ci-tags.png')} alt="CI Tags on Metadata Beta Tab" width="600" />
+
+| Field      | Description             | Tag Pattern           |
+| ---------- | ----------------------- | --------------------- |
+| URL        | URL of the repository   | `ci:url:{repo_url}`   |
+| Repo       | Name of the repository  | `ci:repo:{repo_name}` |
+| Ref        | Branch or tag           | `ci:ref:{ref}`        |
+| Commit SHA | Short SHA of the commit | `ci:ssha:{short_sha}` |
+
+:::note
+`saucectl` supports automatic detection on a variety of CI platforms, including: AppVeyor, AWS, Azure, Bamboo, Bitbucket, BuildKite, Buddy, CircleCI, Codeship, Drone, GitHub, GitLab, Gitpod, Jenkins, Semaphore, Travis, and TeamCity.
+
+Tags that follow the CI tag patterns can be parsed and displayed in the Metadata Beta tab, even for platforms not listed above.
+:::
+
+:::note
+If you are running WebDriver or Appium tests, you need to manually add tags to your tests using the specified CI tag pattern.
+:::

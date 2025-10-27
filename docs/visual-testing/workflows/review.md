@@ -171,8 +171,8 @@ Check our integration documentation to learn how to get started.
 
 [Cypress](../../integrations/cypress/#ignored-regions), [C#/.Net](../../integrations/csharp/#ignored-regions),
 [Java](../../integrations/java/#ignored-regions), [Nightwatch](../../integrations/nightwatch/#ignored-regions),
-[WebdriverIO](../../integrations/webdriverio/#ignored-regions), [Python](../../integrations/python/#ignored-regions),
-[Python (Robot Framework)](../../integrations/python-robot-framework/#ignored-regions)
+[WebdriverIO](../../integrations/webdriverio/#ignored-regions), [Python](../../integrations/python/#ignore-regions),
+[Python (Robot Framework)](../../integrations/python-robot-framework/#ignore-regions)
 
 ### UI ignored regions
 

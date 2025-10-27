@@ -858,13 +858,94 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Download a Specific Real Device Job's Device Logs File
+### Download a Specific Real Device Job's Asset
 
 <details>
-<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/deviceLogs</code></summary>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/&#123;asset_type&#125;</code></summary>
 <p/>
 
-Download the device logs file for a specific job after it finished running on a real device at the data center.
+Download a specific asset for a job after it has completed running on a real device at the data center. The available assets for a specific job depend on the test framework and whether the corresponding feature was enabled during the test.
+
+#### Assets
+
+<table id="table-api">
+  <thead>
+    <tr>
+     <td>Asset Type</td>
+     <td>Path</td>
+     <td>Test Framework</td>
+     <td>Feature</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td>Device Logs</td>
+     <td>deviceLogs</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Appium Logs</td>
+     <td>appiumLogs</td>
+     <td>Appium</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Appium Requests</td>
+     <td>appiumRequests</td>
+     <td>Appium</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>JUnit XML</td>
+     <td>junit.xml</td>
+     <td>Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>XCUITest Logs</td>
+     <td>xcuitestLogs</td>
+     <td>XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Video</td>
+     <td>video.mp4</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Screenshots</td>
+     <td>screenshots.zip</td>
+     <td>Appium, Espresso</td>
+     <td><a href="/mobile-apps/automated-testing/espresso-xcuitest/espresso-capture/">Espresso Screenshot Capture</a></td>
+    </tr>
+    <tr>
+     <td>App Logs</td>
+     <td>deviceLogs</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/app-logs/">App Logs</a></td>
+    </tr>
+    <tr>
+     <td>Network Logs</td>
+     <td>network.har</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/network-capture/">Network Capture</a></td>
+    </tr>
+    <tr>
+     <td>Device Vitals</td>
+     <td>insights.json</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/device-vitals/">Device Vitals</a></td>
+    </tr>
+    <tr>
+     <td>Crash Logs</td>
+     <td>crash.json</td>
+     <td>Appium</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/crash-error-reporting/">Crash/Error Reporting</a></td>
+    </tr>
+  </tbody>
+</table>
 
 #### Parameters
 
@@ -873,6 +954,10 @@ Download the device logs file for a specific job after it finished running on a 
     <tr>
      <td><code>job_id</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+    <tr>
+     <td><code>asset_type</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The specific file path for the asset.</p></td>
     </tr>
     <tr>
      <td><code>download</code></td>
@@ -924,6 +1009,156 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   </tr>
 </tbody>
 </table>
+
+</details>
+
+---
+
+### Start a XCTest, XCUITest or Espresso Job
+
+<details>
+<summary><span className="api post">POST</span> <code>/v1/rdc/native-composer/tests</code></summary>
+<p/>
+
+Start a XCTest.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>test_framework</code></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The type of 'native' test you want to run, either 'XCUITEST', 'XCTEST', or 'ANDROID_INSTRUMENTATION' (Espresso).</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>app_id</code></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The id of the app you want to test. The app must be uploaded to Sauce Labs AppStorage. Format: `storage://filename=AnApp.ipa`, or `storage://{file_id}`, or just `{file_id}`.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>xc_test_run_file</code></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The id of the `xctestrun` file (the xctest config). The file must be uploaded to Sauce Labs AppStorage. Format: `storage://filename=Runner.xctestrun`, or `storage://{file_id}`, or just `{file_id}`.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_query</code></td>
+       <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>Defines on which device you want to run you test. The available attributes are:<ul><li><code>type</code> - <small>String of 'DynamicDeviceQuery'</small></li><li><code>device_name</code> - <small>String - regular expression to select a device.</small></li><li><code>os_version</code> - <small>String - regular expression to select a device version.</small></li></ul></p><p>The <code>type</code> parameter is required..</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnel_name</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Assign a sauce connect tunnel to the job.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnel_owner</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Define the name of the tunnel owner of the sauce connect tunnel you want to use.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>settings_overwrite</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Define instrumentations settings you want to apply to your app.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>test_name</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Assign a name to the job, to be displayed in the UI.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Assign the job to a build. You can specify an existing build name or create a new one.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tags</code></td>
+       <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The set of tags to apply to the job.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/rdc/native-composer/tests' \
+--header 'Content-Type: application/json'
+--data-raw '{
+    "test_framework": "XCTEST",
+    "test_name": "Your XCTest POC",
+    "app_id": "9349d683-5d26-46eb-a943-267cbe8b4deb",
+    "xc_test_run_file": "37eef454-a7f8-4a6d-a340-d39865ad6db3",
+    "device_query": {
+      "type": "DynamicDeviceQuery"
+    }
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/rdc/native-composer/tests' \
+--header 'Content-Type: application/json'
+--data-raw '{
+    "test_framework": "XCTEST",
+    "test_name": "Your XCTest POC",
+    "app_id": "9349d683-5d26-46eb-a943-267cbe8b4deb",
+    "xc_test_run_file": "37eef454-a7f8-4a6d-a340-d39865ad6db3",
+    "device_query": {
+      "type": "DynamicDeviceQuery"
+    }
+}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad Request.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "test_report": {
+    "id": "ef6058735d8d4dfa9e0077d250757aac",
+    "url": "https://api.eu-central-1.saucelabs.com/tests/ef6058735d8d4dfa9e0077d250757aac"
+  }
+}
+```
 
 </details>
 
@@ -1415,12 +1650,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Assign Device to a Team
+### Manage Device Assignment to Teams
 <details>
-<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/teams</code></summary>
 <p/>
 
-Assign a private device to a specific team.
+Assign a private device to specified teams, or remove its assignment by providing an empty list or a new set of teams.
 
 #### Parameters
 
@@ -1433,8 +1668,8 @@ Assign a private device to a specific team.
   </tbody>
   <tbody>
     <tr>
-     <td><code>id</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique identifier of a team in the Sauce Labs organization.</p></td>
+     <td><code>ids</code></td>
+     <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>List of unique identifiers of teams in the Sauce Labs organization. New team assignments will replace the existing ones.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1451,10 +1686,10 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/teams' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id": "8f0444d7762548bd81ae46722a14e1c6"
+"ids": ["8f0444d7762548bd81ae46722a14e1c6, 1ae46722a14e1c68f0444d7762548bd8"]
 }'
 ```
 
@@ -1464,10 +1699,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/teams' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id": "8f0444d7762548bd81ae46722a14e1c6"
+"ids": ["8f0444d7762548bd81ae46722a14e1c6, 1ae46722a14e1c68f0444d7762548bd8"]
 }'
 ```
 
@@ -1503,81 +1738,13 @@ No payload is returned with the successful assignment.
 
 ---
 
-### Remove Device Assignment from Team
-<details>
-<summary><span className="api delete">DELETE</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
-<p/>
-
-Remove the private device assignment from a team.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>device_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint. (Example: <code>iPhone_12_17_sl</code>)</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Device successfully removed from team.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Device not found.</td>
-  </tr>
-</tbody>
-</table>
-
-No payload is returned with the successful removal.
-
-</details>
-
----
-
 ### Update Device Settings
 <details>
 <summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/settings</code></summary>
 <p/>
 
 Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
-[available device settings](/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) for more information on each setting.
+[available device settings](/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) for more information on each setting. The old values will be replaced with the new ones.
 
 #### Parameters
 

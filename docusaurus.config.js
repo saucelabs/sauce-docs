@@ -1,5 +1,9 @@
-const unwrapJsx = require('./src/plugins/unwrap-jsx');
+// Load default export (must be a function)
+const unwrapJsx = require('./src/plugins/unwrap-jsx').default;
 
+if (typeof unwrapJsx !== 'function') {
+    throw new Error('unwrapJsx plugin is not a function');
+}
 // Enabling PR previews
 let siteBaseUrl = '/';
 if (process.env.PREVIEW_PATH) siteBaseUrl += process.env.PREVIEW_PATH;
@@ -11,6 +15,7 @@ const docusaurusConfig = {
     noIndex: process.env.NO_INDEX,
     trailingSlash: true,
     baseUrl: siteBaseUrl,
+    onBrokenAnchors: 'throw',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
     organizationName: 'saucelabs',
@@ -106,12 +111,12 @@ const docusaurusConfig = {
                     to: '/dev/cli',
                 },
                 {
-                    label: 'Visual (New)',
+                    label: 'Visual',
                     position: 'left',
                     to: '/visual-testing',
                 },
                 {
-                    label: 'Beta Testing',
+                    label: 'App Distribution',
                     position: 'left',
                     to: '/testfairy',
                 },

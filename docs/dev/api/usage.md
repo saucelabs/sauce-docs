@@ -8,7 +8,7 @@ description: Retrieve Sauce Labs raw usage analytics data.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use the Usage Analytics API methods to retrieve information about your concurrency usage that you can then use to populate a dashboard that is meaningful for your organization.
+Use the Usage Analytics API methods to retrieve information about your concurrency and usage that you can then use to populate a dashboard that is meaningful for your organization.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
@@ -413,4 +413,254 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   ]
 }
 ```
+</details>
+
+---
+
+### Organization Visual Snapshot Usage
+
+<details>
+    <summary>
+        <span className="api get">GET</span>
+        <code>/usage-analytics/v1/visual/usage/org</code>
+    </summary>
+<p/>
+Return information about visual snapshot usage for organization:
+<ul>
+<li>visual snapshot usage by daily granularity</li>
+</ul>
+
+#### Parameters
+
+:::note
+This call requires <code>org_id</code>, <code>start_date</code>, and <code>end_date</code> parameters.
+:::
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
+    </tr>
+  </tbody>
+ <tbody>
+    <tr>
+     <td><code>start_date</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE | </small></p><p>The starting date of the period during which the visual snapshots were consumed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end_date</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE | </small></p><p>The ending date of the period during which the visual snapshots were consumed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+    <tbody>
+    <tr>
+        <td><code>granularity</code></td>
+        <td>
+            <p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p>
+            <p>
+                <ul>
+                    <li><code>daily</code></li>
+                </ul>
+            </p>
+            Default value is: <code>daily</code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/usage-analytics/v1/visual/org?org_id=<org_id>&start_date=<start_date>&end_date=<end_date>" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/usage-analytics/v1/visual/org?org_id=<org_id>&start_date=<start_date>&end_date=<end_date>" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "by_org": {
+    "org_id": "string",
+    "data": [
+      {
+        "time": "string",
+        "usage": 0
+      }
+    ]
+  },
+  "by_team": [
+    {
+      "team_id": "string",
+      "data": [
+        {
+          "time": "string",
+          "usage": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Teams Visual Snapshot Usage
+
+<details>
+    <summary>
+        <span className="api get">GET</span>
+        <code>/usage-analytics/v1/visual/usage/teams</code>
+    </summary>
+<p/>
+Return information about visual snapshot usage for teams:
+<ul>
+<li>visual snapshot usage by daily granularity</li>
+</ul>
+
+#### Parameters
+
+:::note
+This call requires <code>org_id</code>, <code>team_id</code>, <code>start_date</code>, and <code>end_date</code> parameters.
+:::
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
+    </tr>
+  </tbody>
+<tbody>
+    <tr>
+     <td><code>team_id</code></td>
+       <td><p><small>| QUERY | REQUIRED | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
+    </tr>
+  </tbody>
+ <tbody>
+    <tr>
+     <td><code>start_date</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE | </small></p><p>The starting date of the period during which the visual snapshots were consumed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end_date</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE | </small></p><p>The ending date of the period during which the visual snapshots were consumed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+    <tbody>
+    <tr>
+        <td><code>granularity</code></td>
+        <td>
+            <p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p>
+            <p>
+                <ul>
+                    <li><code>daily</code></li>
+                </ul>
+            </p>
+            Default value is: <code>daily</code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/usage-analytics/v1/visual/org?org_id=<org_id>&team_id=<team_id>&start_date=<start_date>&end_date=<end_date>" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/usage-analytics/v1/visual/org?org_id=<org_id>&team_id=<team_id>&start_date=<start_date>&end_date=<end_date>" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "by_team": [
+    {
+      "team_id": "string",
+      "data": [
+        {
+          "time": "string",
+          "usage": 0
+        }
+      ]
+    }
+  ]
+}
+
+```
+
 </details>

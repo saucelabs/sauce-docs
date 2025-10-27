@@ -13,7 +13,7 @@ These examples can apply to virtually any GitHub deployment, provided that you a
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - A [GitHub Account](https://github.com/join)
 - The following permissions in GitHub:
   - ability to create and manage workflows
@@ -57,7 +57,7 @@ env:
 ## Create the Test Job
 
 In the examples below, we illustrate how `saucectl` executes tests on Sauce Cloud (i.e., Sauce Labs infrastructure).
-You will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
+You will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect-5/).
 
 :::note
 For more detailed information on setting event-driven actions and jobs, visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).

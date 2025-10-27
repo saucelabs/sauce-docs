@@ -11,6 +11,10 @@ description: A glossary of terminology used across Sauce Labs products.
 
 ## **A**
 
+### Account
+
+An account in Sauce Labs refers to an entity that allows access to Sauce Labs services. It can represent either a [user account](#user-user-account) (associated with an individual) or a [service account](#service-account) (a non-human account designed for automated processes).
+
 ### Action RPG (ARPG)
 
 This is typically a smaller role-playing game, usually small parties of 1-10 players, without all the depth of play offered by a full-fledged RPG. ARPGs will have tight, compact game experiences, where you have characters and loot that "persist" from session to session, but where the world the user plays in will be auto-generated at run-time.
@@ -103,9 +107,9 @@ See: _[Playtest](#playtest)_.
 
 ### Colliding Tunnels
 
-A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [High Availability Mode](/secure-connections/sauce-connect/setup-configuration/high-availability).
+A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [Tunnel Pool Mode](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 By default, duplicated (already running) tunnels are halted unless a Sauce Connect Proxy is started with the `--tunnel-pool` option.
-More information: [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+More information: [Tunnel Pool Setup](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel name](#tunnel-name)_.
 
@@ -123,7 +127,7 @@ See also: [http client](#http-client).
 
 ### Concurrency Limit
 
-The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user accounts within your organization. Concurrency limits vary according to pricing plan. Once you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
+The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user and service accounts in your organization. Concurrency limits vary according to pricing plan. After you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 
 ### Continuous Deployment (CD)
 
@@ -145,7 +149,7 @@ See also: _[CI/CD pipeline](#cicd-pipeline)_.
 
 ### Continuous Testing Benchmark
 
-See: _[Sauce Labs Continuous Testing Benchmark](#sauce-continuous-testing-benchmark)_.
+See: _[Continuous Testing Benchmark](#continuous-testing-benchmark)_.
 
 ### Cross-Browser Compatibility
 
@@ -338,7 +342,7 @@ See: _[enterprise customer](#enterprise)_.
 
 ### Manual Testing
 
-See:[live testing](#live-testing).
+See:[live testing](#live-testing-lt).
 
 ### MMORPG
 
@@ -378,9 +382,9 @@ See: _[Playtest](#playtest)_.
 
 ### Organization Admin
 
-The Sauce Labs account admin role that can manage permissions levels for all users, oversee Sauce Labs test settings and activity for their organization, create Teams and Team Admins, designate other Organization Admins, and set concurrency allocations among different Teams. More information: [Account and Organization Management](/basics/acct-team-mgmt-hub).
+The Sauce Labs account admin role that can manage permissions levels for all users and service accounts, oversee Sauce Labs test settings and activity for their organization, create Teams and Team Admins, designate other Organization Admins, and set concurrency allocations among different Teams. More information: [Account and Organization Management](/basics/acct-team-mgmt-hub).
 
-See also: _[team admin](#team-admin), [team management](#team-management)_.
+See also: _[team admin](#team-admin)_.
 
 ## **P**
 
@@ -388,17 +392,13 @@ See also: _[team admin](#team-admin), [team management](#team-management)_.
 
 1. The practice of running multiple tests simultaneously.
 
-2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#using-frameworks-to-run-tests-in-parallel).
+2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-5/system-requirements/), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#scaling-tests).
 
    See also: _[concurrency limit](#concurrency-limit)_.
 
 ### Parallelization
 
 See: _[parallel testing](#parallel-testing)_.
-
-### Performance Metrics
-
-The data that developers and QA teams use to capture and address performance regressions early in the development cycle. More information: [Sauce Connect Proxy Performance Metrics](/secure-connections/sauce-connect/proxy-tunnels#performance-metrics).
 
 ### Performance Testing
 
@@ -412,7 +412,13 @@ A persistent online world that supports hundreds or thousands of players simulta
 
 ### pidfile
 
-A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (PID). Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a tunnel any time by sending a kill signal to the PID recorded in pidfile. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
+A text file generated by Sauce Connect Proxy that records your tunnel's process
+identification number (PID). Unless otherwise specified, the file will be
+cleaned up on exit or overwritten at startup. If needed, you can terminate a
+tunnel any time by sending a kill signal to the PID recorded in pidfile.
+More information:
+[How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect-5/quickstart),
+[Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-5).
 
 ### Piestry
 
@@ -424,7 +430,7 @@ See [API Mocking](#api-mocking) to learn more about the concept.
 
 A Sauce Labs tool where you can select your capabilities and generate code snippets to copy and paste into your automated testing scripts. More information: [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
 
-See also: _[capabilities](#capabilities)_.
+See also: _[capabilities](#capabilities-caps)_.
 
 ### Platform-dependent
 
@@ -455,7 +461,7 @@ It is a method of creating data algorithmically as opposed to manually, typicall
 ### Proxy Auto-Configuration File (PAC)
 
 An optional file you can use in your Sauce Connect Proxy tests to define how web browsers and other user agents automatically choose the appropriate proxy server for fetching a given URL.
-To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
 
 ## **R**
 
@@ -473,9 +479,9 @@ See also: _[rdc on sauce](#rdc-on-sauce)._
 
 ### Real Device Testing
 
-An automated web or mobile app test performed on real, physical devices hosted on the Sauce Labs Real Device Cloud. Real device tests yield accurate results on user interactions and display how your app will appear in real life. More information: [Real Device Testing Admin Guide](/mobile-apps/supported-devices), [Sauce Connect Proxy Setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments#real-device-cloud-setup), [Sauce Labs website: Real Device Cloud](https://saucelabs.com/platform/real-device-cloud).
+An automated web or mobile app test performed on real, physical devices hosted on the Sauce Labs Real Device Cloud. Real device tests yield accurate results on user interactions and display how your app will appear in real life. More information: [Real Device Testing Admin Guide](/mobile-apps/supported-devices), [Sauce Connect Overview](/secure-connections/sauce-connect-5/), [Sauce Connect Localhost](/secure-connections/sauce-connect-5/guides/localhost-proxying/#configuring-mobile-devices-for-testing-localhost), [Sauce Labs website: Real Device Cloud](https://saucelabs.com/platform/real-device-cloud).
 
-See also: _[real device cloud](#real-device-cloud)_.
+See also: _[real device cloud](#real-device-cloud-rdc)_.
 
 ### Real-time Strategy (RTS)
 
@@ -508,7 +514,7 @@ It is a phase of a computer program in which the program is run or executed on a
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy client is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/#setup-and-configuration).
+The machine in your network on which the Sauce Connect Proxy client is running, with a direct connection to the internet. More information: [Sauce Connect Architecture](/secure-connections/sauce-connect-5/architecture/).
 
 ### Sauce Connect Proxy
 
@@ -516,27 +522,27 @@ A built-in HTTP proxy server that opens a secure tunnel connection for testing b
 
 ### Sauce Connect Proxy Setup, Additional Proxy
 
-A Sauce Connect Proxy network configuration for users with an existing internal network proxy or proxies through which outbound communication is routed from their network to the public internet. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+A Sauce Connect Proxy network configuration for users with an existing internal network proxy or proxies through which outbound communication is routed from their network to the public internet. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
 
 ### Sauce Connect Proxy Setup, Basic
 
-A Sauce Connect Proxy configuration for users with a network configuration requiring a proxy to open up communication between Sauce Labs and their web or mobile app in testing that is hosted on a local machine or behind a firewall. More information: [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+A Sauce Connect Proxy configuration for users with a network configuration requiring a proxy to open up communication between Sauce Labs and their web or mobile app in testing that is hosted on a local machine or behind a firewall. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
-### Sauce Connect Proxy Setup, High Availability (HA)
+### Sauce Connect Proxy Setup, Tunnel Pool
 
-A Sauce Connect Proxy configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
+A Sauce Connect configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
 From an end user or test runner perspective, a pool functions the same as a single Sauce Connect instance.
-More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+More information: [Sauce Connect Tunnel Pool Setup](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 See also: _[tunnel pool](#tunnel-pool)_.
 
 ### Sauce Connect Proxy Startup
 
-The process of configuring and launching a Sauce Connect Proxy tunnel to run your tests. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels).
+The process of configuring and launching a Sauce Connect Proxy tunnel to run your tests. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
 ### Sauce Connect Proxy Teardown
 
-The process of gracefully shutting down and decommissioning a Sauce Connect Proxy tunnel. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels).
+The process of gracefully shutting down and decommissioning a Sauce Connect Proxy tunnel. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
 ### saucectl
 
@@ -544,7 +550,9 @@ The Sauce Labs framework agnostic test orchestrator CLI (command line interface)
 
 ### Sauce Labs Access Key
 
-A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable.
+A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Both [user accounts](#user-user-account) and [service accounts](#service-account) have an access key.
+
+Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable.
 
 ### Sauce Labs Continuous Testing Benchmark
 
@@ -552,7 +560,9 @@ A Sauce Labs white paper – compiled periodically – that leverages anonymized
 
 ### Sauce Labs User Name
 
-An ID name that you define when you create your Sauce Labs account. You must include this (along with your Sauce Labs Access Key) in your test scripts to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Username in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_USERNAME` as an environment variable.
+An ID name assigned to your Sauce Labs account, used alongside your Sauce Labs Access Key to authenticate requests and access account resources. For [user accounts](#user-user-account), this username is defined during account creation. For [service accounts](#service-account), the username is automatically generated based on the display name provided during account creation.
+
+Also known as Username in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_USERNAME` as an environment variable.
 
 ### Selenium
 
@@ -565,10 +575,6 @@ A part of the Selenium suite that specializes in running multiple tests across d
 ### Selenium IDE
 
 An integrated development environment for Selenium scripts – implemented as an extension for Chrome and Firefox – that allows you to record, playback, and debug tests in the browser. More information: [Selenium Projects](https://www.selenium.dev/projects/).
-
-### Selenium Relay
-
-A listener for Selenium commands built into Sauce Connect Proxy that enables inbound and outbound test traffic to be sent through an encrypted tunnel. More information: [Using the Selenium Relay with Sauce Connect Proxy](/secure-connections/sauce-connect/proxy-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 ### Selenium Server
 
@@ -586,17 +592,21 @@ More information: [Sauce Labs Pricing](https://saucelabs.com/pricing).
 
 See also: _[unmanaged customer](#unmanaged-customer)_.
 
+### Service Account
+
+A service account is a non-human account designed for automated processes, such as CI/CD pipelines and integrations. Service accounts are not associated with a specific user or email address and cannot sign in to the Sauce Labs UI. They are used primarily for running tests and API access using a username and access key.
+
 ### Simulator
 
 A virtual machine environment used to mimic the overall behavior (i.e., software variables, configurations) of the iOS mobile app you're testing in Sauce Labs.
 
-See also: _[Emulator](#emulator), [real device testing](#real-device-test)_.
+See also: _[Emulator](#emulator), [real device testing](#real-device-testing)_.
 
 ### Site Under Test (SUT)
 
 A website in the test phase of the development cycle, following the planning, coding, and building phases. When testing in Sauce Connect Proxy, the Site Under Test will be on the same local network as the Sauce Connect Host machine.
 
-See also: _[app under test](#app-under-test), [CI/CD pipeline](#cicd-pipeline)_.
+See also: _[app under test](#app-under-test-aut), [CI/CD pipeline](#cicd-pipeline)_.
 
 ### Software Development Lifecycle (SDLC)
 
@@ -604,7 +614,7 @@ An end-to-end process used to develop, plan, design, build, test, and deploy sof
 
 ### SSL Bumping
 
-A feature of Sauce Connect Proxy that automatically re-signs self-signed and invalid SSL certificates, which are not trusted by stock browsers like those installed on the Sauce Labs infrastructure. With SSL Bumping, your tests will not be interrupted with security warnings that can't be dismissed by Selenium. More information: [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping).
+A feature of Sauce Connect Proxy that automatically re-signs self-signed and invalid SSL certificates, which are not trusted by stock browsers like those installed on the Sauce Labs infrastructure. With SSL Bumping, your tests will not be interrupted with security warnings that can't be dismissed by Selenium. More information: [SSL Certificate Bumping](/secure-connections/sauce-connect-5/guides/tls-resigning/).
 
 ### Stacktrace
 
@@ -618,7 +628,7 @@ A test method where you purposely put your system under extreme conditions – a
 
 ### systemd
 
-A Linux service management tool that facilitates Sauce Connect Proxy tunnel monitoring, system startup and shutdown. More information: [Monitoring Sauce Connect Proxy with Service Management Tools](/secure-connections/sauce-connect/proxy-tunnels#service-management-tools).
+A Linux service management tool that facilitates Sauce Connect Proxy tunnel monitoring, system startup and shutdown. More information: [Sauce Connect Installation](/secure-connections/sauce-connect-5/installation/linux/#install-package).
 
 ### Sharding
 
@@ -645,13 +655,15 @@ See also: _[organization admin](#organization-admin), [team admin](#team-admin),
 
 A Sauce Labs user with permission to edit their own user info, run tests, and view tests run by teammates. Depending on their Organization Admin's Team Job Sharing settings, they can also view jobs that were run by members of other teams.
 
-See also: _[organization admin](#organization-admin), [team admin](#team-admin), [team management](#team-management)_.
+[Service accounts](#service-account) assigned to the team have the same visibility permissions as Team Members but, among other limitations, cannot access the Sauce Labs UI.
+
+See also: _[organization admin](#organization-admin), [team admin](#team-admin)_.
 
 ### Test Runner
 
 A library or tool for writing and/or executing code for automated tests; often part of a UI test framework.
 
-See also: _[framework](#Framework), [UI automation library](#ui-automation-library)_.
+See also: _[framework](#framework), [UI automation library](#ui-automation-library)_.
 
 ### Testing Annotation
 
@@ -663,7 +675,7 @@ The number of minutes allotted to a Sauce Labs account for its subscription.
 
 ### Transparent Proxy
 
-A server that sits between your computer and the Internet and redirects your requests and responses without modifying them. If your organization has one, please refer to Sauce Connect Proxy Setup with Additional Proxies. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+A server that sits between your computer and the Internet and redirects your requests and responses without modifying them. If your organization has one, please refer to Sauce Connect Proxy Setup with Additional Proxies. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
 
 ### Tunnel
 
@@ -677,15 +689,15 @@ See: [Tunnel Name](#tunnel-name)
 
 ### Tunnel Name
 
-The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names).
+The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel.
 
 See also: _[colliding tunnels](#colliding-tunnels)_.
 
 ### Tunnel Pool
 
-A set of tunnels that share the same tunnel identifier and function as a single tunnel in high availability mode.
+A set of tunnels that share the same tunnel identifier and function as a single tunnel in a tunnel pool mode.
 
-See also: _[sauce connect proxy setup (high availability)](#sauce-connect-proxy-setup-high-availability-ha)_.
+See also: _[sauce connect proxy setup tunnel pool](#sauce-connect-proxy-setup-tunnel-pool)_.
 
 ### Tunnel Virtual Machine (Tunnel VM)
 
@@ -729,6 +741,10 @@ See also: _[Game Engine](#game-engine)_.
 
 See: _[systemd](#systemd)_.
 
+### User (User Account)
+
+A user account is an account tied to an individual person and linked to an email address. User accounts are used to access the Sauce Labs UI, manage settings, run tests, and perform administrative tasks depending on the assigned role.
+
 ## **V**
 
 ### Vault
@@ -745,11 +761,11 @@ Also known as game developers, are responsible for designing and developing vide
 
 A Sauce Labs cloud service that provides an infrastructure to virtually test your desktop websites and mobile device apps on thousands of browser, operating system, and device combinations. More information: [Sauce Labs Pricing](https://saucelabs.com/pricing).
 
-See also:_ [real device cloud](#real-device-cloud)_.
+See also:_ [real device cloud](#real-device-cloud-rdc)_.
 
 ### Virtual Cloud
 
-See: _[virtual device cloud](#virtual-device-cloud)_.
+See: _[virtual device cloud](#virtual-device-cloud-vdc)_.
 
 ### Virtual USB (vUSB)
 
@@ -782,7 +798,7 @@ Supports all major browsers and programming languages. Look here for
 [Examples of Test Libraries](/web-apps/automated-testing/selenium/#scaling-tests) that implement
 WebDriver.
 
-See also: _[appium](#appium), [UI automation library](#ui-automation-library), [webdriverIO](#webdriverIO)_.
+See also: _[appium](#appium), [UI automation library](#ui-automation-library), [webdriverIO](#webdriverio)_.
 
 ### WebdriverIO
 

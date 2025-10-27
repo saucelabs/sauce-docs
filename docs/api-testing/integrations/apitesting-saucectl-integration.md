@@ -14,7 +14,7 @@ Using the [`saucectl` CLI](/dev/cli/saucectl), you can execute API tests and int
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 ## Installing `saucectl`
@@ -64,7 +64,7 @@ If you get a value for both variables, they are set.
    saucectl configure
    ```
 
-1. Enter your Sauce Labs Username and Access Key at the prompts.
+1. Enter your Sauce Labs username and access key at the prompts.
 
 ### (Optional) Step 4: Clone the API Testing Project
 

@@ -68,9 +68,9 @@ The way to define capabilities in recent versions of Selenium is with browser op
 
 - Ensure you have the session you want (e.g., browser name, browser version, operating system).
 - Set the behavior you want in your session. There are three types of options that set behavior:
-  - [Common options](/dev/test-configuration-options/#browser-w3c-capabilities--optional):
+  - [Common options](/dev/test-configuration-options/#w3c-webdriver-browser-capabilities--optional):
     these include things such as page load timeouts, and insecure certificate behavior.
-  - [Browser options](/dev/test-configuration-options/#browser-vendor-capabilities)
+  - [Browser options](/dev/test-configuration-options/#desktop-browser-capabilities-sauce-specific--optional)
   - Sauce Labs options: see [Test Configuration](/dev/test-configuration-options)
     for a complete guide to our available capabilities.
 
@@ -606,34 +606,6 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </TabItem>
 </Tabs>
-
-### Sauce Bindings
-
-A great way to minimize complexity and reduce boilerplate code for writing Selenium tests with Sauce Labs is to use the [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
-
-Compare these equivalent Java implementations:
-
-<details>
-  <summary>
-    <strong>Click here</strong> to see the complete Java example of the above steps.
-  </summary>
-
-```java reference title="Complete Selenium Example"
-https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#
-```
-
-</details>
-
-<details>
-  <summary>
-    <strong>Click here</strong> to see the equivalent code using the Sauce Bindings JUnit 5 Test Runner Library.
-  </summary>
-
-```java reference title="Simplify With Sauce Bindings"
-https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SauceBindingsLoginTest.java
-```
-
-</details>
 
 ## Scaling Tests
 

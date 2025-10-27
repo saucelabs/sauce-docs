@@ -56,6 +56,25 @@ kind: playwright-cucumberjs
 
 ---
 
+## `nodeVersion`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the Node.js version for Sauce Cloud, supporting SemVer notation and aliases. For more details, refer to the [Advanced Configuration Page](./advanced.md#using-nodejs-runtime-on-sauce-cloud).
+
+Examples: `v20`, `v20.14.0`, `v20.14`, `iron`, `lts`.
+
+:::note
+This feature is available in `saucectl` version v0.185.0+ and supported test runners. For details on supported test runners, see [Supported Testing Platforms](../playwright.md#supported-testing-platforms).
+
+:::
+
+```yaml
+nodeVersion: v20
+```
+
+---
+
 ## `showConsoleLog`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -183,7 +202,8 @@ saucectl run --ccy 5
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
+Sets the number of times to retry a failed suite. For more settings, you can
+refer to [passThreshold](#passthreshold).
 
 ```yaml
 sauce:
@@ -202,7 +222,7 @@ saucectl run --retries 1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect-5/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -212,7 +232,7 @@ sauce:
 ```
 
 :::caution
-[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect-5/guides/localhost-proxying/#special-cases) are proxied by the tunnel when accessing localhost.
 :::
 
 ---
@@ -325,7 +345,11 @@ The order of precedence is as follows: --env flag > root-level environment varia
 
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
+The directory of files that need to be bundled and uploaded for the tests to
+run. Ignores what is specified in `.sauceignore`.
+See [Tailoring Your Test File Bundle](/web-apps/automated-testing/cucumberjs-playwright/advanced/#tailoring-your-test-file-bundle)
+for more details. The following examples show the different relative options for
+setting this value.
 
 ```yaml
 rootDir: "./" # Use the current directory
@@ -370,7 +394,9 @@ npm:
 This setting is supported up to Playwright 1.35.1. For newer versions, use `registries`.
 :::
 
-Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry source. If the registry source is a
+private address, and you are running tests on Sauce Cloud, you can provide
+access to the registry source using [Sauce Connect](/dev/cli/saucectl/usage/use-cases/#sauce-connect).
 
 ```yaml
 npm:
@@ -383,7 +409,9 @@ npm:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Specifies the location of the npm registry, scope, and credentials. Only one scopeless registry is allowed. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry, scope, and credentials. Only one
+scopeless registry is allowed. If the registry is inside a private network, you
+must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/usage/use-cases/#sauce-connect).
 
 ```yaml
 npm:
@@ -395,7 +423,7 @@ npm:
       auth: base64SecretToken
       username: myUsername
       password: myPassword
-      email: myEmail 
+      email: myEmail
 ```
 
 ---
@@ -550,6 +578,31 @@ Do not use `dependencies` and `packages` at the same time.
 
 ---
 
+### `usePackageLock`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Playwright 1.48.2+</span> | <span className="sauceGreen">saucectl 0.187.0+</span> |</small></p>
+
+Specifies whether to use the project's package-lock.json when installing npm
+dependencies. If true, package-lock.json will be used during package
+installation which can improve the speed of installation.
+
+To use this feature, additional pre-requisites must be met:
+* A package-lock.json must be present in your project.
+* The `@playwright/test` version in your package.json must **exactly** match
+the version defined in your saucectl config.
+
+```yaml
+npm:
+  usePackageLock: true
+```
+
+:::tip
+You can use this option with `packages` to define packages to install in
+addition to those defined in your `package-lock.json`.
+:::
+
+---
+
 ### `strictSSL`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -690,7 +743,7 @@ artifacts:
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Define directories to archive and retain as a test asset at the end of a test run. Archived test assets can
-be downloaded automatically using the `download` configuration, via the 
+be downloaded automatically using the `download` configuration, via the
 [REST API](/dev/api/jobs/#get-a-job-asset-file), or through the test details page.
 
 ```yaml

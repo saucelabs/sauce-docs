@@ -48,6 +48,9 @@
             }
             analytics.load = function (key, e) {
                 var t = document.createElement('script');
+                e = e || {};
+                e.integrations = e.integrations || {};
+                e.integrations['Appcues'] = false;
                 t.type = 'text/javascript';
                 t.async = !0;
                 t.src =

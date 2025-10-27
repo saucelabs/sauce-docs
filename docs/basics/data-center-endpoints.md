@@ -16,7 +16,7 @@ The data center you use with Sauce Labs determines:
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 
 ## Access to Data Centers
 
@@ -27,9 +27,13 @@ Your data center is determined based on your license type and your company's nee
 
 To see your data center, check the upper-right corner of the Sauce Labs user interface. Options include:
 
-- US West
-- US East
-- EU Central
+- US West 1
+- US East 4
+- EU Central 1
+
+:::note
+Virtual Device Testing is not available in US East 4.
+:::
 
 ## Data Center Endpoints
 
@@ -45,7 +49,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 | Description                  | Endpoint                                        |
 | ---------------------------- | ----------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.us-west-1.saucelabs.com/wd/hub |
+| Remote WebDriver Endpoint    | https://ondemand.us-west-1.saucelabs.com/wd/hub |
 | REST API                     | api.us-west-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.miso.saucelabs.com:443                   |
 
@@ -53,7 +57,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 | Description                  | Endpoint                                        |
 | ---------------------------- | ----------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.us-east-4.saucelabs.com/wd/hub |
+| Remote WebDriver Endpoint    | https://ondemand.us-east-4.saucelabs.com/wd/hub |
 | REST API                     | api.us-east-4.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | \*.tunnels.us-east-4.saucelabs.com:443          |
 
@@ -65,7 +69,7 @@ Depending on the framework or driver you use, you might need to make additional 
 
 | Description                  | Endpoint                                           |
 | ---------------------------- | -------------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.eu-central-1.saucelabs.com/wd/hub |
+| Remote WebDriver Endpoint    | https://ondemand.eu-central-1.saucelabs.com/wd/hub |
 | REST API                     | api.eu-central-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443         |
 
@@ -97,9 +101,9 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | ---------------------------------- |
 | 66.85.48.0/21                      |
 | 162.222.72.0/21                    |
-| 34.145.254.128/27                  |
+| 34.85.201.150/32                   |
 
-### EU Central Reguion
+### EU Central Region
 
 | Endpoints                          |
 | ---------------------------------- |

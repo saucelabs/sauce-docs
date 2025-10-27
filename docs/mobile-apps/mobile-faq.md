@@ -12,7 +12,7 @@ Android Emulators have software buttons and a hardware keyboard. In a regular An
 
 #### **Can I run Android Emulator tests using Espresso instead of Appium?**
 
-Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/).
+Yes, for more information see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/).
 
 #### **What mobile web browsers can I automate in Android Emulators?**
 
@@ -40,7 +40,7 @@ We strive to support the latest releases within 48 hours to ensure your website 
 
 #### **Is it possible to turn off the WiFi on Real Devices with SIM card included?**
 
-Yes. To test in offline mode with Real Devices, see our [Offline Mode Guide](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
+Yes. To test in offline mode with Real Devices, see our [Offline Mode Guide](https://github.com/saucelabs/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
 
 #### **Is it possible to test the camera behavior using your mobile devices?**
 
@@ -166,7 +166,7 @@ No. On iOS, we re-sign with our own certificate. On Android, there are no extra 
 
 #### **If I run a test on the public real device cloud, can I run it over ssh or a VPN?**
 
-No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](/secure-connections/sauce-connect/). Using a VPN app in the device is not supported, nor guaranteed to work.
+No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](/secure-connections/sauce-connect-5/). Using a VPN app in the device is not supported, nor guaranteed to work.
 
 Sauce Connect is supported for both private and public clouds.
 
@@ -176,7 +176,7 @@ No. If there is, our automated cleaning process didn’t work as intended. If th
 
 #### **My app is only available within our internal network. Can I use real devices for my testing?**
 
-You can add an exception for the Real Device Cloud to your network's allowlist for the appropriate domains as described in [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements).
+You can add an exception for the Real Device Cloud to your network's allowlist for the appropriate domains as described in [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-5/system-requirements/).
 
 #### **I see the error `Not Yet Implemented Exception` when scrolling in an Appium web test on Android. Why?**
 
@@ -314,14 +314,3 @@ To make sure the availability stays high, we need to password-protect certain fu
 #### **Is there a limit to how many tests I can run with a free-trial account? Can I run tests in parallel?**
 
 You can run as many tests as you wish on your trial account, but you will only be able to run one test at a time. Also, no manual test is allowed to run for more than ten minutes.
-
-## New iOS and Android Release:
-
-#### What is new on iOS17 devices?
-
-You can run automated Appium 2.0 and Live Tests against any of our iOS17 devices! You can find a detailed list of all the changes introduced that might impact[ your application or testing here.](https://saucelabs.com/resources/blog/ios-17-beta-sauce-real-device-cloud)
-The following features are limited or not available for a short period of time on iOS17 devices:
-
-- Accessing and changing Location services
-- Changing locale.
-- Virtual USB

@@ -10,6 +10,7 @@ import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import Frames from '../_partials/_frames.md';
 
 # Nightwatch Integration
 
@@ -24,7 +25,6 @@ Sauce Visual adds new commands to the Nightwatch's `browser` object:
 
 - `browser.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `browser.sauceVisualResults()`: Waits for diff calculations to complete and returns a summary of results.
-  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
@@ -354,10 +354,6 @@ browser
   .end();
 ```
 
-### Full page screenshots
-
-<FullPageJS />
-
 ### Clip to an Element
 
 <ClippingDescription />
@@ -369,6 +365,20 @@ await browser.sauceVisualCheck('Visible Sale Banner', {
   // An element that we should crop the screenshot to
   clipElement: browser.element('.your-css-selector')
 })
+```
+
+### Frames
+
+<Frames/>
+
+Example:
+
+```ts
+browser
+  .frame(0)
+  .sauceVisualCheck('Frame capture', {
+    fullPage: true
+  })
 ```
 
 ### Fail on failures

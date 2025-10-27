@@ -26,7 +26,7 @@ WonderProxy provides a global network of proxy servers that you can use to ensur
 ## What You'll Need
 
 - A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - A WonderProxy account
 
 :::info

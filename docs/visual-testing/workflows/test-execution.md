@@ -15,10 +15,10 @@ With Sauce Visual testing existing test suites can be enhanced with a few extra 
 
 ## Integrations
 
-Sauce Visual provides integrations with different kind of frameworks:
+Sauce Visual provides integrations with different kinds of frameworks:
 
-- **E2E Testing** allows to navigate a website and capture snapshots any time this is needed.
-- **Component Testing** allows to test extensively all your components.
+- **E2E Testing** allows you to navigate a website and capture snapshots any time this is needed.
+- **Component Testing** allows you to test extensively all your components.
 
 <div className="box-wrapper" markdown="1">
 <div className="box box1 card">
@@ -36,8 +36,6 @@ Sauce Visual provides integrations with different kind of frameworks:
   </div>
 </div>
 </div>
-
-Alternatively, [check out our examples](../../visual-testing.md#examples).
 
 ## First Test Execution
 

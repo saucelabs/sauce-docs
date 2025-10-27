@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><small><span className="sauceGreen">Real Devices Only</span></small></p>
+
 Device Vitals is a functionality that allows you to debug and observe an app’s performance during test execution for both, [Live](/mobile-apps/live-testing/live-mobile-app-testing/) and [Automated](/mobile-apps/automated-testing/) testing. With this feature, the app's performance is recorded during the test session and displayed for your test results.
 
 ## What You'll Need
@@ -17,19 +19,24 @@ Device Vitals is a functionality that allows you to debug and observe an app’s
 
 ## Using Device Vitals for Real Devices
 
-By default, Device Vitals is enabled if the instrumentation feature is enabled.
-To enable device instrumentation:
+To use Device Vitals, you must ensure that the functionality is enabled for your app. You need to specify this separately for your Live and Automated tests.
 
+### Upload Your App
 1. In Sauce Labs, from the left navigation, click **App Management**.
-   <img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
+   <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="700"/>
 2. Upload your mobile app.
    <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
-3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
-   <img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
-4. Under **Real Device Settings** toggle **Instrumentation** to **Enabled**.
-   <img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/>
 
-Now you can start your live or automated testing session. Your Device Vitals will be captured and be part of your test results.
+### Enabling Device Vitals for a Live Test
+1. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
+   <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="700"/>
+2. Under **Real Device Settings** first enable **Instrumentation** and then toggle **Device Vitals** on.
+   <img src={useBaseUrl('img/mobile-apps/device-vitals-app-setting.png')} alt="Device Vitals App Setting" width="700"/>
+
+Now you can start your live testing session. Your Device Vitals will be captured and be part of your test results.
+
+### Enabling Device Vitals for an Automated Test
+After you’ve uploaded your app, follow the [test configuration](/dev/test-configuration-options/#resigningenabled) instructions. Once you run your automated test the Device Vitals will be captured and be part of your test results.
 
 ## Device Vitals Metrics Overview
 
@@ -81,6 +88,9 @@ You can also download the results using the API call below:
 
 - Emulators and Simulators are not supported.
 - Cross-browser testing is not available.
+- The app must remain installed for the duration of the session. Uninstalling it prematurely will cause a complete loss of vitals data.
+
+  Note: Manual cleanup is not required, as Sauce Labs automatically uninstalls the app after each session. However, for persistent scenarios (e.g. whitelisted apps or Appium's `usePreinstalledCache`), you should manage cleanup at the start of your next session to ensure a pristine test environment.
 
 :::
 

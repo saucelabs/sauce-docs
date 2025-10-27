@@ -79,7 +79,7 @@ See the [Breakpad Integration Guide](/error-reporting/platform-integrations/brea
 
 ## Crashpad
 
-Crashpad is another open source library initially developed by Google as a successor to the Breakpad library. Backtrace has built and released a set of binaries of Crashpad for Windows (64 and 32 bit) that include an ability to upload file attachments. Check out http://get.backtrace.io/crashpad/builds/ to download the binaries for your OS.
+Crashpad is another open source library initially developed by Google as a successor to the Breakpad library. Backtrace has built and released a set of binaries of Crashpad for Windows (64 and 32 bit) that include an ability to upload file attachments. Check out https://github.com/backtrace-labs/crashpad/releases/ to download the binaries for your OS.
 
 To provide you with the ability to upload files, we have implemented a new handler to make file attachments just as simple as setting up any other piece of metadata to come alongside the crash.
 

@@ -314,6 +314,32 @@ try {
 </TabItem>
 </Tabs>
 
+### Sending Inner and Suppressed exceptions
+
+:::warning Inner and suppressed exception support
+
+Support for inner and suppressed exceptions is available starting backtrace-android@3.9.0
+:::
+
+Backtrace client allows sending Inner and suppressed exceptions. By default, this option is disabled. To enable inner and suppressed exception support, use the code shown below.
+
+```java
+// enable inner exceptions
+backtraceClient.sendInnerExceptions(true);
+// enable suppressed exceptions
+backtraceClient.sendSuppressedExceptions(true);
+```
+
+When enabled, the Backtrace client will send an additional report for each inner and/or suppressed exception detected. The additional reports will contain the same attributes as the parent. Linking attributes will also be added to each report to define the connection and relationships between the reports:
+
+| Attribute name | Attribute description                                                               |
+| -------------- | ----------------------------------------------------------------------------------- |
+| error.trace    | Exception trace id. All exceptions in the exception chain will have the same value. |
+| error.id       | Current report identifier. The value is allows to identify the current report id    |
+| error.parent   | Parent report id. Allows to identify the exception parent id                        |
+
+The outer exception always has `error.trace` and `error.id`. Since this is the first error in the exception chain, the `error.parent` attribute is set to `null`. The first inner exception of the outer exception will have the same `error.trace` attribute, its own unique `error.id` attribute, and `error.parent` set to the outer exception `error.id`. Each suppressed exception of the outer exception, follows the same pattern.
+
 ## Custom Event Handlers
 
 The `BacktraceClient` allows you to attach your custom event handlers. For example, you can trigger actions before the `send` method, as shown below.
@@ -382,6 +408,14 @@ To enable displaying logs from inside the library, set the level from which info
 ```java
 BacktraceLogger.setLevel(LogLevel.DEBUG);
 ```
+
+You can replace internal BacktraceLogger with your custom implementation using code below.
+
+```java
+BacktraceLogger.setLogger(customLoggerInstance);
+```
+
+Your custom logger implementation has to implement [Logger](https://github.com/backtrace-labs/backtrace-android/blob/master/backtrace-library/src/main/java/backtraceio/library/logger/Logger.java) interface.
 
 ## Monitoring Custom Threads
 
