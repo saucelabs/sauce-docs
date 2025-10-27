@@ -40,7 +40,7 @@ We strive to support the latest releases within 48 hours to ensure your website 
 
 #### **Is it possible to turn off the WiFi on Real Devices with SIM card included?**
 
-Yes. To test in offline mode with Real Devices, see our [Offline Mode Guide](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
+Yes. To test in offline mode with Real Devices, see our [Offline Mode Guide](https://github.com/saucelabs/demo-js/tree/main/webdriverio/appium-web/examples/offline-testing).
 
 #### **Is it possible to test the camera behavior using your mobile devices?**
 
