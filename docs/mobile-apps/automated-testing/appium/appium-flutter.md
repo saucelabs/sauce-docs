@@ -91,7 +91,7 @@ For more information regarding the build modes (`debug`, `release`, `profile`) f
 
 ## Uploading your Flutter App to Sauce Labs
 
-You can now upload the built apps with our [REST API](/dev/api/storage/#upload-file-to-app-storage), or manually upload them to the preferred Data Center. See [Manually Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app) for more information.
+You can now upload the built apps with our [REST API](/dev/api/storage/#upload-file-to-app-storage), or manually upload them to the preferred Data Center. See [Manually Uploading an App](/mobile-apps/app-storage/#uploading-apps) for more information.
 
 ## Configuring your Appium Capabilities
 
@@ -138,7 +138,7 @@ capabilities.setCapability("appium:automationName", "flutter");
 capabilities.setCapability("appium:app", "storage:filename=flutter-counter-debug.apk");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
-sauceOptions.put("appiumVersion", "2.0.0-beta56");
+sauceOptions.put("appiumVersion", "stable");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -156,7 +156,7 @@ capabilities.setCapability("appium:automationName", "flutter");
 capabilities.setCapability("appium:app", "storage:filename=flutter-counter-debug.zip");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
-sauceOptions.put("appiumVersion", "2.0.0-beta56");
+sauceOptions.put("appiumVersion", "stable");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -184,7 +184,7 @@ const capabilities = {
     'appium:automationName': 'flutter',
     'appium:app': 'storage:filename=flutter-counter-debug.apk',
     'sauce:options': {
-        appiumVersion: '2.0.0-beta56'
+        appiumVersion: 'stable'
     }
 }
 ```
@@ -202,7 +202,7 @@ const capabilities = {
     'appium:automationName': 'flutter',
     'appium:app': 'storage:filename=flutter-counter-debug.zip',
     'sauce:options': {
-        appiumVersion: '2.0.0-beta56'
+        appiumVersion: 'stable'
     }
 }
 ```
@@ -232,7 +232,7 @@ capabilities = {
     'appium:automationName': 'flutter',
     'appium:app': 'storage:filename=flutter-counter-debug.apk',
     "sauce:options" : {
-        "appiumVersion" : "2.0.0-beta56"
+        "appiumVersion" : "stable"
     }
 }
 ```
@@ -250,7 +250,7 @@ capabilities = {
     'appium:automationName': 'flutter',
     'appium:app': 'storage:filename=flutter-counter-debug.zip',
     "sauce:options" : {
-        "appiumVersion" : "2.0.0-beta56"
+        "appiumVersion" : "stable"
     }
 }
 ```
@@ -280,7 +280,7 @@ capabilities = {
     'appium:automationName' => 'flutter',
     'appium:app' => 'storage:filename=flutter-counter-debug.apk',
     "sauce:options" => {
-        "appiumVersion" => "2.0.0-beta56"
+        "appiumVersion" => "stable"
     }
 }
 ```
@@ -298,7 +298,7 @@ capabilities = {
     'appium:automationName'=> 'flutter',
     'appium:app' => 'storage:filename=flutter-counter-debug.zip',
     "sauce:options" => {
-        "appiumVersion" => "2.0.0-beta56"
+        "appiumVersion" => "stable"
     }
 }
 ```
@@ -330,7 +330,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "flutter");
 capabilities.AddAdditionalCapability("appium:app", "storage:filename=flutter-counter-debug.apk");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
-sauceOptions.Add("appiumVersion", "2.0.0-beta56");
+sauceOptions.Add("appiumVersion", "stable");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
@@ -349,7 +349,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "flutter");
 capabilities.AddAdditionalCapability("appium:app", "storage:filename=flutter-counter-debug.zip");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
-sauceOptions.Add("appiumVersion", "2.0.0-beta56");
+sauceOptions.Add("appiumVersion", "stable");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
@@ -396,7 +396,7 @@ capabilities.setCapability("appium:app", "storage:filename=flutter-counter-debug
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-sauceOptions.put("appiumVersion", "2.0.0");
+sauceOptions.put("appiumVersion", "stable");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -417,7 +417,7 @@ capabilities.setCapability("appium:app", "storage:filename=flutter-counter-debug
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-sauceOptions.put("appiumVersion", "2.0.0");
+sauceOptions.put("appiumVersion", "stable");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -447,7 +447,7 @@ const capabilities = {
     'appium:app': 'storage:filename=flutter-counter-debug.apk',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-        appiumVersion: '2.0.0'
+        appiumVersion: 'stable'
     }
 }
 ```
@@ -467,7 +467,7 @@ const capabilities = {
     'appium:app': 'storage:filename=flutter-counter-debug.ipa',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-        appiumVersion: '2.0.0'
+        appiumVersion: 'stable'
     }
 }
 ```
@@ -499,7 +499,7 @@ capabilities = {
     'appium:app': 'storage:filename=flutter-counter-debug.apk',
     "sauce:options" : {
         # appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-        "appiumVersion" : "2.0.0"
+        "appiumVersion" : "stable"
     }
 }
 ```
@@ -519,7 +519,7 @@ capabilities = {
     'appium:app': 'storage:filename=flutter-counter-debug.ipa',
     "sauce:options" : {
         # appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-        "appiumVersion" : "2.0.0"
+        "appiumVersion" : "stable"
     }
 }
 ```
@@ -551,7 +551,7 @@ capabilities = {
     'appium:app' => 'storage:filename=flutter-counter-debug.apk',
     "sauce:options" => {
         # appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-        "appiumVersion" => "2.0.0"
+        "appiumVersion" => "stable"
     }
 }
 ```
@@ -571,7 +571,7 @@ capabilities = {
     'appium:app' => 'storage:filename=flutter-counter-debug.ipa',
     "sauce:options" => {
         # appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-        "appiumVersion" => "2.0.0"
+        "appiumVersion" => "stable"
     }
 }
 ```
@@ -605,7 +605,7 @@ capabilities.AddAdditionalCapability("appium:app", "storage:filename=flutter-cou
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
 // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-sauceOptions.Add("appiumVersion", "2.0.0");
+sauceOptions.Add("appiumVersion", "stable");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
@@ -626,7 +626,7 @@ capabilities.AddAdditionalCapability("appium:app", "storage:filename=flutter-cou
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
 // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-sauceOptions.Add("appiumVersion", "2.0.0");
+sauceOptions.Add("appiumVersion", "stable");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 

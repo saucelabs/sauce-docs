@@ -34,7 +34,7 @@ Using Test Suite in combination with Sauce Labs allows you to run mobile tests a
 ### Prerequisites
 
 - A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-- Your Sauce Labs Username and Access Key
+- Your Sauce Labs username and access key
 - A UiPath Test Suite account (if you don't have one, [sign up](https://www.uipath.com/developers/enterprise-edition-download) for a free trial)
 - Basic understanding of UiPath’s [Mobile Device Manager (MDM)](https://docs.uipath.com/test-suite/docs/configuring-mobile-device-manager)
 

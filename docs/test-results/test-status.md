@@ -127,7 +127,8 @@ you can still use the [Sauce Labs REST API](/dev/api/) to update the test status
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- [Username and access key](https://app.saucelabs.com/user-settings) of your Sauce Labs user account.
+  - Alternatively, you can use the credentials of a [service account](/basics/acct-team-mgmt/managing-service-accounts). The username and access key for a service account are provided during [its creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 - The JOB_ID for the test you wish to update
 
 Call the `update_jobs` REST API and pass the parameter "passed" with a value of "true" or "false".

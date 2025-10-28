@@ -1,7 +1,7 @@
 ---
 id: mobile-native-testing
-title: Mobile Native Testing (BETA)
-sidebar_label: Mobile Native Testing (BETA)
+title: Mobile Native Testing
+sidebar_label: Mobile Native Testing
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,22 +10,33 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 In addition to website testing, Sauce Visual also supports testing of native mobile apps for Android and iOS with Appium.
 
-In principal, the process is the same as writing a visual test for a website, except that instead of a website, an app needs to be specified in the capabilities.
+In principle, the process is the same as writing a visual test for a website, except that instead of a website, a mobile native app needs to be specified in the capabilities.
 
-Check out [our examples](https://github.com/saucelabs/visual-examples/) to see it in action.
+Check [our examples](https://github.com/saucelabs/visual-examples/) to see visual for mobile native in action.
 
 
 ## Best Practices
 
-When writing a visual test for mobile apps, we recommend the following
+When writing a visual test for mobile apps, we recommend the following:
 - Explicitly control "dark mode" / "light mode" before taking visual snapshots, so snapshots are either always taken in dark or light mode, but not mixed.
 - Explicitly specify a single device and OS version for testing. You may run the same test suite on various devices, but don't use wildcards in device names (dynamic device allocation).
+- We strongly recommend disabling all notifications before your visual test start. Otherwise, system notifications might impact a visual snapshot. 
 
 
 ## Limitations
 
-The following features are not available for mobile app testing:
-- Full page screenshots
-- DOM capture and inspection
-- [Selective diffing](./selective-diffing.md)
+Native full-page screenshots are currently in beta and may have unexpected behavior.
+Identified limitations:
+- Slow screenshot capture
+- 1 pixel shifts in the screenshot (iOS tablets only)
+- Ignoring and clipping limited to elements within `scrollElement` (iOS only)
+- Sticky elements missing at the bottom of the screen
 
+
+## Integrations
+
+Learn more about native full-page options on the integration pages:
+<ul>
+  <li><a href="/visual-testing/integrations/java/#full-page-screenshots">Java</a></li>
+  <li><a href="/visual-testing/integrations/webdriverio/#full-page-screenshots">WebdriverIO</a></li>
+</ul>

@@ -82,9 +82,9 @@ Sauce Connect provides `.zip` package that can be used on older Windows versions
 
 ```powershell
 mkdir C:\sauce-connect
-Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.2.0/sauce-connect-5.2.0_windows.x86_64.zip -OutFile sauce-connect.zip
+Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_windows.x86_64.zip -OutFile sauce-connect.zip
 Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
-Rename-Item -Path C:\sauce-connect\sauce-connect.exe -NewName C:\sauce-connect\sc.exe
+Rename-Item -Path C:\sauce-connect\sauce-connect.exe -NewName C:\sauce-connect\sauce-connect.exe
 ```
 
 ### Edit Config File
@@ -96,7 +96,7 @@ Get the default configuration file:
 
 ```powershell
 cd C:\sauce-connect
-./sc.exe run config-file > sauce-connect.yaml
+./sauce-connect.exe run config-file > sauce-connect.yaml
 ```
 
 Edit the configuration file with your favorite editor:
@@ -108,5 +108,5 @@ notepad sauce-connect.yaml
 ### Start Sauce Connect
 
 ```powershell
-./sc.exe run --config-file sauce-connect.yaml
+./sauce-connect.exe run --config-file sauce-connect.yaml
 ```

@@ -19,7 +19,6 @@ The configuration file is flexible enough to allow for any customizations and de
 - [Configure XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 - [Configure Replay](/web-apps/automated-testing/replay/yaml)
 - [Configure API Testing](/api-testing/integrations/apitesting-saucectl-integration)
-- [Configure Sauce Orchestrate](/orchestrate/saucectl-configuration)
 
 ## Setting an Alternative Configuration File
 
@@ -108,10 +107,6 @@ If you need to go through a proxy server, you can set it through the following v
 
 - `HTTP_PROXY`: Proxy to use to access HTTP websites
 - `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
-:::note
-At this time, these proxy settings are not supported for Playwright.
-:::
 
 ### Saucectl
 

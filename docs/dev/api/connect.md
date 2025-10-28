@@ -10,14 +10,14 @@ import TabItem from '@theme/TabItem';
 
 Use the Sauce Connect API methods to monitor and clean up your active proxy tunnels.
 
-To download Sauce Connect, see [Sauce Connect Installation](secure-connections/sauce-connect/installation.md).
+To download Sauce Connect, see [Sauce Connect Installation](/secure-connections/sauce-connect-5/installation/).
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings).
 
 ### Get Tunnels for a User
 
@@ -368,7 +368,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "sha1" : "<hash>"
       }
    },
-   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect-4/installation",
    "latest_version" : "4.9.2",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
@@ -526,7 +526,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "sha1" : "<hash>"
       }
    },
-   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect-4/installation",
    "latest_version" : "4.9.2",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
@@ -551,7 +551,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "sha1" : "<hash>"
       }
    },
-   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect-4/installation",
    "latest_version" : "4.9.2",
    "sha1" : "<hash>"
 }
@@ -575,7 +575,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "sha1" : "<hash>"
       }
    },
-   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect-4/installation",
    "latest_version" : "4.9.2",
    "status" : "UPGRADE",
    "warning" : [
