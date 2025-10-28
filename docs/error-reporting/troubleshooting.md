@@ -187,17 +187,17 @@ On Windows, 64-bit applications store some unwinding information exclusively in 
 Direct login to Morgue using an SSO-only account is not supported. However, there is a workaround available:
 
 1. Start by logging into the Backtrace UI as you normally would.
-2. Next, go to https://youruniverse.sp.backtrace.io/api/session and copy the token from the JSON data displayed on that page.
+2. Next, navigate to the account page under Organization settings (https://youruniverse.sp.backtrace.io/settings/me)
+3. Copy the "Command line login" 
 
-To log in to Morgue using this token, run the following command:
+Paste the provided command to login:
 
 ```shell
-morgue login https://youruniverse.sp.backtrace.io --token=
+morgue login https://youruniverse.sp.backtrace.io --token=yourtoken
 ```
 
-replacing `token` with the token you copied from the `api/session` link mentioned earlier.
 
-The token may be reset during server restarts or maintenance. If you encounter any messages regarding invalid tokens or authentication issues, repeat the process described above.
+The token may be reset during server restarts or maintenance. If you encounter any messages regarding invalid tokens or authentication issues, repeat the steps above.
 
 ## missing_symbol Attribute
 
