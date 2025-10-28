@@ -11,18 +11,18 @@ Sauce Labs offers a wide range of Android Emulators on our Virtual Device Cloud,
 
 ## Supported Devices and Android Versions
 
-Our selection of Android Emulators corresponds to the most popular AVDs published by Google (specifically the `google_apis_*` device versions). This includes emulators that represent flagship Google devices as well as the default generic Google API Emulator. You can view the complete and most current list of available devices and OS versions in the [Platform Configurator](https://saucelabs.com/products/platform-configurator) and in the [Live Testing](https://app.saucelabs.com/live/app-testing/virtual) device selection menu.
+Our selection of Android Emulators corresponds to the most popular AVDs published by Google (specifically the `google_apis_*` device versions). This includes emulators that represent flagship Google devices as well as the default generic Medium Phone. You can view the complete and most current list of available devices and OS versions in the [Platform Configurator](https://saucelabs.com/products/platform-configurator) and in the [Live Testing](https://app.saucelabs.com/live/app-testing/virtual) device selection menu.
 
 Android 12 virtual devices on Sauce Labs are built with API level 32 (also known as Android 12L)
 
 ### Android 15/16 with 16KB Page Size Support
 
-We offer emulators for Android 15 and 16 which include critical support for the 16KB page size memory architecture. The Google Play Store requires that all new apps and app [updates submitted after November 1, 2025](https://developer.android.com/guide/practices/page-sizes), are compatible with 16KB pages. Testing on these emulator configurations is essential to ensure your application meets this requirement and functions correctly for all users.
+We offer emulators for Android 15 and 16 which include critical support for the 16KB page size memory architecture. The Google Play Store requires that all new apps and app [updates submitted after November 1, 2025](https://developer.android.com/guide/practices/page-sizes), are compatible with 16KB pages. Testing on these emulator configurations is essential to ensure your application meets this requirement and functions correctly for all users. Look for Pixel devices with the `ps16k` label in their name to get started with this new emulators.
 
 ### Legacy Device Mapping for Automated Testing
 
 Previously, Sauce Labs offered emulators sized to match the screen resolutions of various Samsung and other non-Google manufactured devices. These emulators used standard Android builds and did not include any manufacturer-specific software or features.
-To ensure backward compatibility and prevent disruption to existing test suites, we dynamically map test requests for these legacy device names to a generic Android emulator with a matching screen size and Android OS version. This allows your existing tests to continue running without modification.
+To ensure backward compatibility and prevent disruption to existing test suites, we dynamically map test requests for these legacy device names to a generic Android emulator with a matching screen size and Android OS version. This allows your automated existing tests to continue running without modification. These legacy emulators are not available for Live Testing. 
 
 ## Google Chrome Versions
 
