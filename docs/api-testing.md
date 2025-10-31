@@ -5,6 +5,9 @@ sidebar_label: Getting Started
 description: Running API tests with Sauce Labs
 hide_table_of_contents: true
 ---
+:::info 
+Sauce Labs API Testing will reach its End of Life (EOL) on September 1, 2025. For existing customers, your account team will work with you to provide the appropriate transition
+:::
 
 At its core, Sauce Labs API Testing allows you to use an HTTP client or a proprietary test composer to generate and edit intelligent contract or functional tests. The tests can be automated with any CI/CD tool or using the platform’s scheduler. Functional tests can then be used as load tests or scheduled as uptime monitors.
 

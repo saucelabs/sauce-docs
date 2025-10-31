@@ -1,14 +1,14 @@
 ---
 id: configuring-sso-in-ms-azure-ad
-title: Configuring SSO in Microsoft Azure Active Directory 
-sidebar_label: Configuring MS Azure AD
+title: Configuring SSO in Microsoft Entra ID
+sidebar_label: Configuring MSFT Entra ID
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceGreen">Enterprise Plans only</span></p>
 
-1. Log into **Azure** administrator panel and go to **Active Directory**.
+1. Log into **Entra ID** administrator panel and go to **Active Directory**.
 2. In the menu click **Enterprise Applications**.
    <img src={useBaseUrl('img/basics/sso/idp-config/azure/apps.png')} alt="Menu Applications" width="250" />
 

@@ -17,13 +17,14 @@ You can check the current accessibility of any Sauce Labs system on the [Sauce L
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- [Username and access key](https://app.saucelabs.com/user-settings) of your Sauce Labs user account.
+  - Alternatively, you can use the credentials of a [service account](/basics/acct-team-mgmt/managing-service-accounts). The username and access key for a service account are provided during [its creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
 ## Accessing the APIs
 
 The Sauce Labs APIs are organized around REST. Each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
 
-Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latest version for the given method. The following table provide the base URLs for each data center.
+Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latest version for the given method. The following table provides the base URLs for each data center.
 
 | Data Center | API Base URL                              |
 | :---------- | :---------------------------------------- |
@@ -38,6 +39,8 @@ The request examples throughout the API documentation utilize variables in place
 :::
 
 The Sauce Labs API uses API keys to authenticate requests. You can view and manage your API key under your [Sauce Labs User Settings](https://app.saucelabs.com/user-settings).
+
+Alternatively, you can use the username and access key of a [service account](/basics/acct-team-mgmt/managing-service-accounts) to authenticate API requests. Service account credentials are generated during [account creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
 Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username and API key as the basic auth username and password values, respectively. All requests must be made over HTTPS. Calls made over HTTP or without proper authentication will fail.
 
@@ -115,7 +118,7 @@ The Sauce Labs REST API places rate limits on some endpoints in order to prevent
 
 For example:
 
-- Incoming authenticated API requests have rate limits imposed against the individual user accounts.
+- Incoming authenticated API requests have rate limits imposed against the individual account.
 - Incoming unauthenticated API requests have rate limits imposed against the IP addresses.
 
 Requests received after the rate limit is reached return a [429 response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429#:~:text=The%20HTTP%20429%20Too%20Many,before%20making%20a%20new%20request) indicating that the number of allowable requests has been exceeded.
@@ -129,6 +132,6 @@ Requests received after the rate limit is reached return a [429 response code](h
 
 ## JSON Response Formatting
 
-The request examples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format that does not require the installation of any additional tools.
+The request examples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format, so you don’t need to install additional tools.
 
 You can remove the `| json_pp` reference from your requests to have responses returned as raw JSON, or you can specify a different syntax formatter of your choosing, such as [JQ](https://stedolan.github.io/jq/).

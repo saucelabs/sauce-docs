@@ -74,7 +74,7 @@ The following examples illustrate this difference in the respective specificatio
 
 <Tabs
 groupId="protocol"
-defaultValue="jwp"
+defaultValue="w3c"
 values={[
 {label: 'JWP', value: 'jwp'},
 {label: 'W3C', value: 'w3c'},
@@ -109,7 +109,7 @@ values={[
         "appium:orientation" : "PORTRAIT",
         "appium:platformVersion" : "8.1",
         "sauce:options" : {                           #Sauce custom capabilities
-           "appiumVersion" : "1.21.0",
+           "appiumVersion" : "stable",
            "sessionCreationRetry" : "2",
            "sessionCreationTimeout" : "300000",
            "name" : "MobileWebsiteTest (w3c)"
@@ -278,7 +278,7 @@ To optimize device availability, consistency, and efficiency for multiple tests,
 To skip the uninstallation and reinstallation of your app from the device, you can set `noReset` to `true` in conjunction with using a `cacheId`. This setting adds efficiency, but may not be suitable for test setups that require the app's state to be reset between tests.
 
 ```js
-"appium: noReset" : "true",
+"appium:noReset" : "true",
 "sauce:options" : {
   "cacheId" : "jnc0x1256",
 }

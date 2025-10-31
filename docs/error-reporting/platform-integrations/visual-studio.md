@@ -29,7 +29,7 @@ cmake --build cbuild --config Release
 
 ### Set Language Standard
 
-Crashpad requires C++17. In project properties, select `All Configurations` and change the C++ Language Standard in the General tab from the default `C++14` to `C++17 (/std:c++17)`, if necessary.
+Crashpad requires C++20. In project properties, select `All Configurations` and change the C++ Language Standard in the General tab from the default `C++14` to `C++20 (/std:c++20)`, if necessary.
 <img src={useBaseUrl('/img/error-reporting/vs-extension/vs-lang.png')} alt="listeners"/>
 
 ### Set Additional Include Directories
@@ -64,10 +64,48 @@ Or, if the configurations are named `Debug` and `Release` then this can be simpl
 
 <img src={useBaseUrl('/img/error-reporting/vs-extension/vs-link.png')} alt="listeners"/>
 
+### Ensure Symbol Generation
+
+It is required to upload symbols into Backtrace for intelligent deduplication and classification. This section explains how to enable debug symbols for your application.
+
+For Windows, Go to Project > Properties > Linker and update the `Generate Debug Info` setting. You'll want to set it to `Generate Debug Information optimized for sharing and publishing (/DEBUG:FULL)`.
+
+<img src={useBaseUrl('/img/error-reporting/minidump/general-debug-info.png')} alt="debug mode"/>
+
+This setting generates a `.pdb` file for your application in the build output directory. You can manually upload `.sym`, `.pdb`, and archive files containing `.pdb` or `.sym` files into Backtrace or through the command line. It is also possible to hook up Visual Studio to automatically upload symbols as they are generated. Be sure to upload the corresponding `.dll` or `.exe` along with the `.pdb`.
+
+## Alternative Integration
+
+### Pre-built Binaries
+
+To use the prebuilt static library and handler from GitHub follow these steps.
+
+:::note
+
+Because crashpad is built in CI as a static library against a single version of Visual Studio there are no guarantees that the library is compatible with later (or even different) versions of Visual Studio. It is recommended to build the distribution, as documented above, against your specific toolchain for debug and release configurations for maximum compatibilty.
+
+:::
+
+Extract the Visual Studio build from [releases](https://github.com/backtrace-labs/crashpad/releases) to your project's `third_party\crashpad` directory.
+
+### Set Additional Include Directories
+
+Add the following include directories in your Visual Studio project for all configurations in C/C++, Additional Include Directories:
+
+- `third_party\crashpad\include`
+
+### Add Additional Library Dependencies
+
+Add the following libraries in the project's Linker, Input, Additional Dependencies for all
+configurations
+
+- `third-party\crashpad\bin\client.lib`
+
 
 ## Code Samples
 
-The following code can be added to your project and can be used to initialize Crashpad in your application.
+For either integration documented above, the following code can be added to your project and can be
+used to initialize Crashpad in your application.
 
 Header, `bt_crashpad.h`
 ```cpp
@@ -183,3 +221,4 @@ In your initialization code,
    …
 }
 ```
+

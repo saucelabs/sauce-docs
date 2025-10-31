@@ -39,7 +39,7 @@ More details [here](/basics/data-center-endpoints).
 
 Name of the tunnel or tunnel pool.
 You can run tests using this tunnel by specifying the tunnelName value in your test capabilities, see [here](/dev/test-configuration-options/).
-It can also assign a name to a group of tunnels in the same high availability pool, see [here](/secure-connections/sauce-connect/setup-configuration/high-availability/).
+It can also assign a name to a group of tunnels in the same tunnel pool, see [here](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 ### `-u, --username` {#username}
 
@@ -66,7 +66,7 @@ This flag is, primarily, used by Sauce Labs to assign custom properties to the t
 
 Share the tunnel within the same org unit.
 Only the 'all' option is currently supported.
-See [here](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/).
+See [here](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).
 
 ### `-t, --tunnel-pool` {#tunnel-pool}
 
@@ -74,8 +74,8 @@ See [here](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/).
 * Value Format: `<value>`
 * Default value: `false`
 
-Denotes a tunnel as part of a high availability tunnel pool.
-See [here](/secure-connections/sauce-connect/setup-configuration/high-availability/).
+Denotes a tunnel as part of a tunnel pool.
+See [here](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 ## Tunnel traffic
 
@@ -206,6 +206,14 @@ Example:
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```
 
+### `--debug-address` {#debug-address}
+
+* Environment variable: `SAUCE_DEBUG_ADDRESS`
+* Value Format: `<host:port>`
+
+Address for the built-in HTTP proxy to listen on.
+Allows exposing the proxy port for connectivity debugging.
+
 ### `-H, --header` {#header}
 
 * Environment variable: `SAUCE_HEADER`
@@ -321,6 +329,22 @@ Syntax:
 - File: `/path/to/file.pac`
 - Embed: `data:base64,<base64 encoded data>`
 
+### `--http-dial-attempts` {#http-dial-attempts}
+
+* Environment variable: `SAUCE_HTTP_DIAL_ATTEMPTS`
+* Value Format: `<int>`
+* Default value: `3`
+
+The number of attempts to dial the network address.
+
+### `--http-dial-backoff` {#http-dial-backoff}
+
+* Environment variable: `SAUCE_HTTP_DIAL_BACKOFF`
+* Value Format: `<duration>`
+* Default value: `1s`
+
+The amount of time to wait between dial attempts.
+
 ### `--http-dial-timeout` {#http-dial-timeout}
 
 * Environment variable: `SAUCE_HTTP_DIAL_TIMEOUT`
@@ -401,6 +425,14 @@ The maximum amount of time to wait for the next request before closing connectio
 
 Path to the log file, if empty, logs to stdout.
 The file is reopened on SIGHUP to allow log rotation using external tools.
+
+### `--log-format` {#log-format}
+
+* Environment variable: `SAUCE_LOG_FORMAT`
+* Value Format: `<text, json>`
+* Default value: `text`
+
+Use json for production workload logs and text for more human-readable output.
 
 ### `--log-http` {#log-http}
 

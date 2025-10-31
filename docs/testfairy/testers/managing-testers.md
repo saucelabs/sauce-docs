@@ -17,7 +17,7 @@ You can fully automate and control tester management through our APIs. For more 
 
 ## Inviting Testers by Email
 
-1. Login to [TestFairy](https://app.testfairy.com/).
+1. Login to [Sauce Mobile App Distribution](https://app.testfairy.com/).
 2. To invite testers by email, click on the **Add Testers**.
    <img src={useBaseUrl('/img/test-fairy/add-testers1.png')} alt="alt upload"/>
 3. In the Email box, add the email addresses of the testers you wish to invite. Each email address should be entered on a separate row.
@@ -30,7 +30,7 @@ You can also select a Group for the testers in the list or leave it blank (see *
 You can add testers manually or [import lists of testers](https://app.testfairy.com/testers/import/) in CSV format.
 
 :::note Only for iOS
-If you are **not** using an [iOS Enterprise certificate](https://developer.apple.com/programs/ios/enterprise/), you will need to obtain the UDIDs (Unique Device Identifiers) of your testers' devices before sending them the app. The registration link in the email sent to testers will enable them to provide their UDIDs. These details will be added to your [testers page](https://app.testfairy.com/testers).
+If you are **not** using an [iOS Enterprise certificate](https://developer.apple.com/programs/enterprise/), you will need to obtain the UDIDs (Unique Device Identifiers) of your testers' devices before sending them the app. The registration link in the email sent to testers will enable them to provide their UDIDs. These details will be added to your [testers page](https://app.testfairy.com/testers).
 For more information on how to add UDIDs to provisioning profiles, see [Adding UDIDs to iOS Development Profile](/testfairy/sdk/ios/adding-udids/).
 
 :::

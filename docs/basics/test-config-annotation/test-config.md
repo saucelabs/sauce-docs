@@ -36,7 +36,7 @@ All examples are for Java, but you can use our Platform Configurator to configur
 
 ### Default Selenium Version
 
-By default, Sauce Labs will use the following version of Selenium, depending on your selected combination of browser and operating system. While Selenium 3 is not yet fully implemented as a default version, it is supported for all Chrome and Firefox browsers on Mac and Windows platforms, for Safari 10+ on macOS 10.12 Sierra, and for Microsoft Edge and IE browsers version 10 and above. Currently Sauce Labs supports Selenium 3.4.0+ for Firefox and Safari and Selenium 3.5.0+ for Microsoft Edge and Chrome.
+By default, Sauce Labs will use the following version of Selenium, depending on your selected combination of browser and operating system. While Selenium 3 is not yet fully implemented as a default version, it is supported for all Chrome and Firefox browsers on Mac and Windows platforms, for Safari 14+ on macOS 11 and higher, and for Microsoft Edge and IE browsers version 10 and above. Sauce Labs supports Selenium 3.4.0+ for Firefox and Safari and Selenium 3.5.0+ for Microsoft Edge and Chrome.
 
 | Browser Name      | Default Selenium Version                                  |
 | ----------------- | --------------------------------------------------------- |
@@ -76,8 +76,8 @@ caps.setCapability("version", "47.0");
 
 ```
 DesiredCapabilities caps = DesiredCapabilities.safari();
-caps.setCapability("platform", "OS X 10.9");
-caps.setCapability("version", "7.0");
+caps.setCapability("platform", "macOS 11.00");
+caps.setCapability("version", "14");
 ```
 
 #### Android Emulator Phone/Android 5.1
@@ -144,11 +144,13 @@ caps.setCapability("platformName","Android");
 
 ```
 {
-deviceName:'iPhone 6 Device',
-platformName:'iOS',
-platformVersion:'8.0',
-browserName:'Safari',
-"appium-version":"1.5.1"
+appium:deviceName:'iPhone 6 Device',
+appium:platformName:'iOS',
+appium:platformVersion:'8.0',
+appium:browserName:'Safari',
+sauce:options: {
+   "appium-version":"stable"
+   }
 }
 ```
 
@@ -184,7 +186,7 @@ This following includes tips and examples of how to configure your mobile native
 
 #### Setting `appiumVersion`
 
-If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. Sauce recommends that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs.
+If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. Sauce recommends that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs. [You can find out more about appium versions here](/docs/mobile-apps/automated-testing/appium/appium-versions.md)
 
 #### Checking the Appium Version for Your Test
 

@@ -9,6 +9,7 @@ import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import Frames from '../_partials/_frames.md';
 
 # WebdriverIO Integration
 
@@ -279,6 +280,19 @@ await browser.sauceVisualCheck('Visible Sale Banner', {
   // An element that we should crop the screenshot to
   clipElement: await $('.your-css-selector')
 })
+```
+
+### Frames
+
+<Frames/>
+
+Example:
+
+```ts
+await browser.switchToFrame(0);
+await browser.sauceVisualCheck('Frame capture', {
+  fullPage: true,
+});
 ```
 
 ### Using Baseline Overrides
