@@ -199,7 +199,7 @@ We are retiring the `stable` image to simplify our versioning model and align wi
           </li>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.0.2" target="_blank">
-              <code>appium-flutter-integration-driver</code>: 4.0.2
+              <code>@appium/images-plugin</code>: 4.0.2
             </a>
           </li>
           <li>
