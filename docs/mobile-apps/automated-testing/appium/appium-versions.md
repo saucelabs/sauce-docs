@@ -210,6 +210,38 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         </ul>
       </td>
     </tr>
+    <tr>
+      <td>
+        <code>appium3-deque-accessibility</code>
+      </td>
+      <td>
+        <span className="sauceGreen">Active</span>
+      </td>
+      <td>
+          <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
+              Deque axe DevTools® Mobile Analyzer Accessibility tools
+          </a>
+          &nbsp;help you with automated accessibility testing. Contains only the latest version of Appium. The tools help to identify and to resolve accessibility issues. Requires Deque axe DevTools® license. See the <a href="../appium-deque-accessibility-testing">detailed usage documentation</a>.
+        <br />
+        <ul>
+            <li>
+                <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
+                    <code>axe-appium-xcuitest-driver </code>: 2.0.0
+                </a>
+            </li>
+            <li>
+                <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
+                    <code>axe-appium-uiautomator2-driver </code>: 2.0.1
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
+                    <code>appium</code>: 3.1.0
+                </a>
+            </li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
 
