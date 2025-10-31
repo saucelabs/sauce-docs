@@ -39,11 +39,11 @@ and leverage its powerful tools to optimize accessibility testing in your mobile
 
 ## Appium Deque Versions: `appium2-deque-accessibility` and `appium3-deque-accessibility`
 
-Sauce Labs offers various versions of Appium in our cloud. to be specific the `appium2-deque-accessibility` and `appium3-deque-accessibility` versions, 
+Sauce Labs offers various versions of Appium in our cloud. The `appium2-deque-accessibility` and `appium3-deque-accessibility` versions, 
 designed to support accessibility testing on mobile apps for both iOS and Android. These versions integrate Appium drivers developed by 
 the Deque team, enabling seamless integration of accessibility scans into your existing test automation workflows.
 
-You can find more details on Sauce Labs' [Appium versions documentation](/mobile-apps/automated-testing/appium/appium-versions/#appium-2x).
+You can find more details on Sauce Labs' [Appium versions documentation](/mobile-apps/automated-testing/appium/appium-versions/#appium-3x).
 
 ## Key Features of `appium2-deque-accessibility` and `appium3-deque-accessibility`
 
