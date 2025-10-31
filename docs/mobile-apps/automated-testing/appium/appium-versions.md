@@ -340,7 +340,7 @@ We are retiring the `stable` image to simplify our versioning model and align wi
           <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
               Deque axe DevTools® Mobile Analyzer Accessibility tools
           </a>
-          &nbsp;help you with automated accessibility testing. Contains only the latest version of Appium. The tools help to identify and to resolve accessibility issues. Requires Deque axe DevTools® license. See the <a href="../appium-deque-accessibility-testing">detailed usage documentation</a>, including a [migration guide](../appium-deque-accessibility-testing/#migrating-from-the-deprecated-plugin-to-deque-new-drivers) if you still use the deprecated plugin.
+          &nbsp;help you with automated accessibility testing. Contains only the latest version of Appium. The tools help to identify and to resolve accessibility issues. Requires Deque axe DevTools® license. See the <a href="../appium-deque-accessibility-testing">detailed usage documentation</a>.
         <br />
         <ul>
             <li>
