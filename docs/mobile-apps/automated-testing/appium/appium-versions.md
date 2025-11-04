@@ -146,24 +146,24 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 To provide a clear and predictable update schedule, Appium on Real Devices follows a specific versioning scheme and quarterly release cycle.
 
 ***Versioning Scheme:*** Our versions follow this format: `appiumX-YYYY-MM`
-- `X`: The major version of Appium (e.g., `3`).
-- `YYYY`: The year the version was built (e.g., `2025`).
-- `MM`: The month the image was built (e.g., `10`).
+- `X`: The major version of Appium (for example, `3`).
+- `YYYY`: The year the version was built (for example, `2025`).
+- `MM`: The month the image was built (for example, `10`).
 
 For example, `appium3-2025-10` is an Appium 3 version built in October 2025.
 
-***Quarterly Release Cycle:*** We automatically release an Appium version every quarter. 
-These releases are scheduled for January (01), April (04), July (07), and October (10) of each year. 
+***Quarterly Release Cycle:*** We automatically release an Appium version every quarter.
+These releases are scheduled for January (01), April (04), July (07), and October (10) of each year.
 Each version will include the latest drivers available at that time building this version.
 
 ### Real Device Appium Images
 
 We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
-[table below](#appium-2x) and choose the one that fits your requirements.
+[tables below](#appium-3x) and choose the one that fits your requirements.
 
 :::warning Appium Stable Version is Being Retired
 **Why We Made This Decision:**
-We are retiring the `stable` image to simplify our versioning model and align with the industry standard. We believe that using specific, dated versions (like `appium2-20250901`) is the best way to have a stable environment. This makes version selection more straightforward and consistent.
+We are retiring the `stable` image to simplify our versioning model and align with the industry standard. We believe that using specific, dated versions (like `appium3-2025-10`) is the best way to have a stable environment. This makes version selection more straightforward and consistent.
 :::
 
 ### Appium 3.x
