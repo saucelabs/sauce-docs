@@ -5,13 +5,9 @@ if (typeof unwrapJsx !== 'function') {
     throw new Error('unwrapJsx plugin is not a function');
 }
 // Enabling PR previews
-let siteBaseUrl = '/';
-if (process.env.PREVIEW_PATH) {
-    const previewPath = process.env.PREVIEW_PATH.endsWith('/')
-        ? process.env.PREVIEW_PATH
-        : process.env.PREVIEW_PATH + '/';
-    siteBaseUrl += previewPath;
-}
+// Docusaurus will read the BASE_URL env var set in the CI.
+// We fall back to '/' for local development.
+let siteBaseUrl = process.env.BASE_URL || '/';
 
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
