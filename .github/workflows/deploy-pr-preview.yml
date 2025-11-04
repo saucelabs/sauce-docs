@@ -61,7 +61,7 @@ jobs:
       - name: Install Dependencies
         if: github.event.action != 'closed' # Skip if the PR was closed
         run: |
-          npm install
+          npm install --force
 
       - name: Build
         if: github.event.action != 'closed' # Skip if the PR was closed
