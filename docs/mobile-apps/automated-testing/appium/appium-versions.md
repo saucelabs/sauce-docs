@@ -154,7 +154,7 @@ For example, `appium3-2025-10` is an Appium 3 version built in October 2025.
 
 ***Quarterly Release Cycle:*** We automatically release an Appium version every quarter.
 These releases are scheduled for January (01), April (04), July (07), and October (10) of each year.
-Each version will include the latest drivers available at that time building this version.
+Each version will include the latest drivers available at the time of its release.
 
 ### Real Device Appium Images
 
