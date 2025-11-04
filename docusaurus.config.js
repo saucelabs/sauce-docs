@@ -6,7 +6,12 @@ if (typeof unwrapJsx !== 'function') {
 }
 // Enabling PR previews
 let siteBaseUrl = '/';
-if (process.env.PREVIEW_PATH) siteBaseUrl += process.env.PREVIEW_PATH;
+if (process.env.PREVIEW_PATH) {
+    const previewPath = process.env.PREVIEW_PATH.endsWith('/')
+        ? process.env.PREVIEW_PATH
+        : process.env.PREVIEW_PATH + '/';
+    siteBaseUrl += previewPath;
+}
 
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
