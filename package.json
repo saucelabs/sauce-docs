@@ -24,6 +24,7 @@
   "dependencies": {
     "@docusaurus/core": "^3.5.2",
     "@docusaurus/preset-classic": "^3.5.2",
+    "@scalar/docusaurus": "^0.6.7",
     "clsx": "^2.1.1",
     "docusaurus-theme-github-codeblock": "^2.0.2",
     "react": "^18.3.1",

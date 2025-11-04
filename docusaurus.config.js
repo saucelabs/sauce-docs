@@ -174,6 +174,19 @@ const docusaurusConfig = {
         ],
     ],
     themes: ['docusaurus-theme-github-codeblock'],
+    plugins: [
+        [
+            '@scalar/docusaurus',
+            {
+                label: 'API Reference',
+                route: '/api-reference',
+                showNavLink: true,
+                configuration: {
+                    url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml',
+                },
+            },
+        ],
+    ],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {
