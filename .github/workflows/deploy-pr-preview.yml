@@ -68,6 +68,15 @@ jobs:
         run: |
           npm run build
 
+      - name: List Build Output for Debugging
+        if: github.event.action != 'closed'
+        run: |
+          echo "Listing build directory contents for PR: ${{ env.PREVIEW_PATH }}"
+          ls -R build/${{ env.PREVIEW_PATH }}
+          echo "Checking for scalar API page specifically..."
+          # This command will likely fail, proving the file doesn't exist
+          ls -l build/${{ env.PREVIEW_PATH }}/real-device-access-api/index.html || echo "FILE NOT FOUND!"
+
       - name: Deploy
         if: github.event.action != 'closed' # Skip if the PR was closed
         working-directory: build
