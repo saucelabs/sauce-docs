@@ -179,7 +179,7 @@ const docusaurusConfig = {
             '@scalar/docusaurus',
             {
                 label: 'Real Device Access API',
-                route: '/real-device-access-api',
+                route: '/rdc/real-device-access-api',
                 showNavLink: true,
                 configuration: {
                     url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml',
