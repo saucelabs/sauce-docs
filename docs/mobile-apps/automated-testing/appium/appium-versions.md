@@ -453,47 +453,37 @@ We are retiring the `stable` image to simplify our versioning model and align wi
     </tr>
     <tr>
       <td>
-        <code>appium3-2025-10</code>
+        <code>appium2-20250101</code>
       </td>
       <td>
-        <span className="sauceGold">December 1st, 2026</span>
+        <span className="sauceGold">December 31th, 2025</span>
       </td>
       <td>
-        This is a collection of drivers and plugins that were released in October 28th 2025 <br />
+        This is a collection of drivers that were released in January 1st 2025 <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
-              <code>appium</code>: 3.1.0
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.13.1" target="_blank">
+              <code>appium</code>: 2.13.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.1.0" target="_blank">
-              <code>appium-flutter-driver</code>: 3.1.0
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.11.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.11.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v6.0.2" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 6.0.2
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.9.6" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.9.6
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.2.2" target="_blank">
-              <code>appium-xcuitest-driver</code>: 10.2.2
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.35.0" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.35.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v2.0.3" target="_blank">
-              <code>appium-flutter-integration-driver</code>: 2.0.3
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.0.2" target="_blank">
-              <code>appium-flutter-integration-driver</code>: 4.0.2
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.0.1" target="_blank">
-              <code>@appium/relaxed-caps-plugin</code>: 2.0.1
+            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v1.1.3" target="_blank">
+              <code>appium-flutter-integration-driver</code>: 1.1.3
             </a>
           </li>
         </ul>
