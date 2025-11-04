@@ -61,26 +61,18 @@ jobs:
       - name: Install Dependencies
         if: github.event.action != 'closed' # Skip if the PR was closed
         run: |
-          npm install --force
+          npm install
 
       - name: Build
         if: github.event.action != 'closed' # Skip if the PR was closed
         run: |
           npm run build
 
-      - name: List Build Output for Debugging
-        if: github.event.action != 'closed'
-        run: |
-          echo "--- BEGIN FILE CONTENT ---"
-          # Cat the file to see if its links are relative to the baseUrl
-          cat build/real-device-access-api/index.html || echo "FILE CONTENT NOT FOUND!"
-          echo "--- END FILE CONTENT ---"
-
       - name: Deploy
         if: github.event.action != 'closed' # Skip if the PR was closed
         working-directory: build
         run: |-
-          gsutil -m rsync -R -d build/ ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}
+          gsutil -m rsync -R -d . ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}
 
       - name: Deploy Message
         if: github.event.action != 'closed' # Skip if the PR was closed
