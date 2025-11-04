@@ -16,7 +16,7 @@ const docusaurusConfig = {
     trailingSlash: true,
     baseUrl: siteBaseUrl,
     onBrokenAnchors: 'throw',
-    onBrokenLinks: 'ignore',
+    onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
