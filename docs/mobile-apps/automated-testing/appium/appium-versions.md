@@ -143,18 +143,18 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 ## Real Devices
 
 ### Versioning Scheme and Release Cycle
-To provide a clear and predictable update schedule, we are adopting a new versioning scheme and quarterly release cycle for Appium on Real Devices.
-New Naming Scheme: Our new versions will follow this format: `appiumX-YYYY-MM`
+To provide a clear and predictable update schedule, Appium on Real Devices follows a specific versioning scheme and quarterly release cycle.
 
+***Versioning Scheme:*** Our versions follow this format: `appiumX-YYYY-MM`
 - `X`: The major version of Appium (e.g., `3`).
 - `YYYY`: The year the version was built (e.g., `2025`).
 - `MM`: The month the image was built (e.g., `10`).
 
 For example, `appium3-2025-10` is an Appium 3 version built in October 2025.
 
-***Quarterly Release Cycle:*** We will automatically release a new Appium version every quarter. 
-These releases are scheduled for January (01), April (04), July (07), and October (10) of each year.
-Each new version will include the latest drivers available at that time building this new version.
+***Quarterly Release Cycle:*** We automatically release an Appium version every quarter. 
+These releases are scheduled for January (01), April (04), July (07), and October (10) of each year. 
+Each version will include the latest drivers available at that time building this version.
 
 ### Real Device Appium Images
 
