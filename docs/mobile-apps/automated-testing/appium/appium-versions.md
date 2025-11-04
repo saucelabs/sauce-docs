@@ -143,7 +143,7 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 ## Real Devices
 
 ### Versioning Scheme and Release Cycle
-To provide a clear and predictable update schedule, Appium on Real Devices follows a specific versioning scheme and quarterly release cycle.
+To provide a transparent and predictable update schedule, Appium on Real Devices follows a specific versioning scheme and quarterly release cycle.
 
 ***Versioning Scheme:*** Our versions follow this format: `appiumX-YYYY-MM`
 - `X`: The major version of Appium (for example, `3`).
