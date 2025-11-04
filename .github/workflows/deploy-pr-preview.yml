@@ -71,11 +71,13 @@ jobs:
       - name: List Build Output for Debugging
         if: github.event.action != 'closed'
         run: |
-          echo "Listing build directory contents for PR: ${{ env.PREVIEW_PATH }}"
-          ls -R build/${{ env.PREVIEW_PATH }}
+          echo "Listing build directory contents..."
+          # List the contents of the build directory itself
+          ls -R build
           echo "Checking for scalar API page specifically..."
-          # This command will likely fail, proving the file doesn't exist
-          ls -l build/${{ env.PREVIEW_PATH }}/real-device-access-api/index.html || echo "FILE NOT FOUND!"
+          # This command will still likely fail if the plugin is client-only
+          # We look for the file at the path it *should* be generated at, relative to the build root.
+          ls -l build/real-device-access-api/index.html || echo "FILE NOT FOUND!"
 
       - name: Deploy
         if: github.event.action != 'closed' # Skip if the PR was closed
