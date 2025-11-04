@@ -71,19 +71,16 @@ jobs:
       - name: List Build Output for Debugging
         if: github.event.action != 'closed'
         run: |
-          echo "Listing build directory contents..."
-          # List the contents of the build directory itself
-          ls -R build
-          echo "Checking for scalar API page specifically..."
-          # This command will still likely fail if the plugin is client-only
-          # We look for the file at the path it *should* be generated at, relative to the build root.
-          ls -l build/real-device-access-api/index.html || echo "FILE NOT FOUND!"
+          echo "--- BEGIN FILE CONTENT ---"
+          # Cat the file to see if its links are relative to the baseUrl
+          cat build/real-device-access-api/index.html || echo "FILE CONTENT NOT FOUND!"
+          echo "--- END FILE CONTENT ---"
 
       - name: Deploy
         if: github.event.action != 'closed' # Skip if the PR was closed
         working-directory: build
         run: |-
-          gsutil -m rsync -R -d . ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}
+          gsutil -m rsync -R -d build/ ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}
 
       - name: Deploy Message
         if: github.event.action != 'closed' # Skip if the PR was closed
