@@ -125,11 +125,6 @@ const docusaurusConfig = {
                     position: 'left',
                     to: '/error-reporting/getting-started',
                 },
-                {
-                    label: 'Real Device Access API',
-                    position: 'left',
-                    to: '/rdc/real-device-access-api',
-                },
             ],
         },
         /* this is a swizzled component, see inside theme folder */
@@ -185,7 +180,7 @@ const docusaurusConfig = {
             {
                 label: 'Real Device Access API',
                 route: '/rdc/real-device-access-api',
-                showNavLink: false,
+                showNavLink: true,
                 configuration: {
                     url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml',
                 },
