@@ -188,7 +188,7 @@ const docusaurusConfig = {
                         {
                             // This title will appear in the top left dropdown within Scalar API doc.
                             title: 'Real Device Access API',
-                            url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/6b34c94ae9be3af027cad344bcfd01f319ef270d/open_api_specification.yaml',
+                            url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml',
                         },
                         // Append this list to show additional API specifications.
                     ],
