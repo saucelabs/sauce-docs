@@ -82,7 +82,7 @@ To halt the distribution of an app, you have two options:
 
 ### Disabling Distribution
 
-In build settings, switch **App Distribution** to **Disabled** and then click **Save Changes**.
+In build settings, switch **Sauce Mobile App Distribution** to **Disabled** and then click **Save Changes**.
 
 <img src={useBaseUrl('/img/testfairy/app-distribution/dissable-dist-build.png')} alt="disable distribution build"/>
 

@@ -37,8 +37,7 @@ services that can otherwise create unnecessary noise.
 On iOS/iPadOS devices, this feature works seamlessly without requiring any [resigning](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements)
 or changes to the app, making it simple and efficient to use.
 
-For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. This means no
-complete resigning or additional instrumentation is needed, ensuring a smooth feature enablement.
+For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. The app will be patched to circumvent SSL pinning if it is used.
 
 ## Using system-wide Network Capture
 
@@ -127,9 +126,13 @@ If you need to localize the capture context with just the browser and omit all n
 
 - iOS network capture is supported on iOS/iPadOS 14.0 and above.
 - Android network capture is supported on Android 10 and above.
+- Flutter applications are not supported at the moment.
 - Only HTTP/HTTPS network traffic is captured.
 - Android Emulators are not supported.
 - iOS Simulators are not supported.
+- SSL pinning, e.g. when using a self-signed certificate, your custom trust manager must not trust only your certificate.
+- Some common domains are excluded, like those used by system services and analytics providers
+> Excluded domains: `apple.com`, `google.com`, `googleapis.com`, `gstatic.com`, `crashlytics.com`, `doubleclick.net`, `app-measurement.com`, `facebook.com`, `xiaomi.com`, `xiaomi.net`, `miui.com` 
 
 :::
 
@@ -227,6 +230,17 @@ This helps to gain a deeper understanding of the request's timeline.
 Clicking on a specific request opens the Request Details view, which includes general information about the request, along with the request and
 response headers, and the request and response payloads.
 <img src={useBaseUrl('img/mobile-apps/network-capture-request-details.png')} alt="Inspect network logs" width="700"/>
+
+#### Failed requests
+Some requests will fail before even sending any HTTP data, and will appear in the requests table in red, with a status of "failed" (instead of a legitimate HTTP status code). They are usually caused by SSL errors, which in turn may be a sign of:
+- A misconfigured or expired SSL certificate
+- The usage of [SSL pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) in a mobile app
+
+<img src={useBaseUrl('img/mobile-apps/network-capture-failed-requests.png')} alt="Network capture failed requests" width="700"/>
+
+When an app uses SSL pinning, encrypted traffic will not work while network capture is active, because outgoing requests will be signed using a Sauce Labs certificate instead of the one included with the app.
+
+If you see failed network requests to domains you're trying to test, try to rule out (and remove) SSL pinning from the app first. Even if it was not implemented deliberately, SSL pinning may sometimes come included out-of-the-box with some mobile SDKs or libraries.
 
 #### Stats Row
 The Stats row in the footer provides details on the number of requests, transferred data size, resource sizes, and time metrics such as

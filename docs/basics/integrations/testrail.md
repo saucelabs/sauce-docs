@@ -20,7 +20,7 @@ For more information, see the [TestRail CLI documentation](https://support.testr
 ## What You'll Need
 
 - A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - A TestRail account (if you don't have one, start a [free trial](https://secure.gurock.com/customers/testrail/trial))
 
 ## Using the TestRail CLI

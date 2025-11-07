@@ -24,7 +24,7 @@ When uploading a new app or version on the dashboard, enter the release notes on
 
 ## In Build Settings
 
-After an app or new build is uploaded, open the build settings and modify the release notes under **App Distribution**.
+After an app or new build is uploaded, open the build settings and modify the release notes under **Sauce Mobile App Distribution**.
 
 <img src={useBaseUrl('/img/testfairy/app-distribution/settings-release-notes.png')} alt="Release notes in build settings"/>
 
@@ -37,7 +37,7 @@ To add release notes, use the `comment` field.
 For example:
 
 ```bash
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
     -F api_key='your_api_key' \
     -F file=@sample.apk \
     -F symbols_file=@sample_mapping.txt \

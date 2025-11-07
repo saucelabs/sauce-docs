@@ -15,7 +15,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 
 ### Get App Storage Files
 
@@ -67,7 +67,7 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>tag</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more tags to only include files having these tags assigned into the resulting JSON. AND condition is applied if more than one tag is provided</p></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more tags to include only files with these tags assigned into the resulting JSON. AND condition is applied if more than one tag is provided</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1004,7 +1004,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <summary><span className="api delete">DELETE</span> <code>/v1/storage/files/&#123;file_id&#125;</code></summary>
 <p/>
 
-Deletes the specified file from Sauce Storage.
+Deletes the specified file from Sauce Storage. Only team or organization administrators have permission to delete files. 
 
 #### Parameters
 
@@ -1103,7 +1103,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <summary><span className="api delete">DELETE</span> <code>/v1/storage/groups/&#123;group_id&#125;</code></summary>
 <p/>
 
-Deletes the specified group of files from Sauce Storage.
+Deletes the specified group of files from Sauce Storage. Only team or organization administrators have permission to delete a group of files.
 
 #### Parameters
 

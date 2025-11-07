@@ -36,8 +36,7 @@ Navigate to the **Settings** tab to view the app and device settings.
 
 <img src={useBaseUrl('img/live-testing/app-management-settings-tab.png')} alt="App settings" width="800"/>
 
-A range settings can be configured to serve as the default for both manual and automated test runs.
-To prevent unexpected inconsistencies across test frameworks, it is recommended to explicitly define these settings in your automated test scripts, ensuring stable configurations across multiple test runs.
+A range of settings can be configured to serve as the default for **manual** test runs (automated tests are running based on the settings defined directly in the test script).
 
 #### App Settings
 
@@ -159,14 +158,21 @@ You'll see a loading screen, and then the app will launch in a live test window 
 - Live tests for paid users will timeout after 15 minutes of inactivity
 
 ### Trusting Enterprise Certificates
+<small><span className="sauceGreen">Private Devices Only</span></small>
 
 If you upload an app that is signed with an enterprise certificate, and **Instrumentation** is DISABLED in app settings, you must manually trust the certificate before it will successfully launch.
 
 1. If you receive an app installation failed error, click the **X** in the app loading screen to exit the device home screen.
 1. On the device home screen, navigate to **Settings** -> **General**.
-1. Under **Profiles & Device Management**, tap the app you are trying to install and test.
+1. Under **VPN & Device Management**, tap the app you are trying to install and test.
 1. Tap **Trust "app name"** and then tap **Trust**.
 1. Reopen the app to continue the test.
+
+:::caution
+
+Due to constraints introduced by Apple starting from iOS18 it's no longer possible to add enterprise certificates during a running test session in our platform. Please contact our Support team for assistance.
+
+:::
 
 ### Adding a Test Name and Outcome for Your Test
 

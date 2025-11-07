@@ -45,7 +45,9 @@ If your Identity Provider has this limitation and you have two organizations at 
      - [sp4 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp4)
      - [sp5 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp5)
      - [sp6 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp6)
-   - The metadata contains different entity ID and different ACS URLs (`spX` instead of `sp`), where `X` is a number from 1 to 6. 
+     - [sp7 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp7)
+     - [sp8 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp8) - Signed Authentication Requested are enabled in this SP
+   - The metadata contains different entity ID and different ACS URLs (`spX` instead of `sp`), where `X` is a number from 1 to 8.
    - In this tutorial we will use the metadata for the auxiliary SP with entity ID `sp1`. But if you for example want to use the auxiliary **SP3, remember to put `sp3` in all places in the configuration in your IdP instead of `sp1`**.
    - Here is an example of the attributes for the auxiliary Sauce Labs SP with entity ID `sp1` that differ from the standard setup with `sp`:
 

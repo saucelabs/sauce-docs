@@ -14,7 +14,7 @@ The ability to share test results is currently only supported for virtual device
 
 Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
-1. On Sauce Labs, in the left panel, click **Live** or **Automaed**, and then click **Test Results**.
+1. On Sauce Labs, in the left panel, click **Live** or **Automated**, and then click **Test Results**.
 2. On the **Test Results** page, click a test in the list to view the test details.
 3. In the **Visibility** dropdown list, select a sharing option for the test results.
 
@@ -244,7 +244,7 @@ https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 To embed the page for EU DC test, you need to use the `app.eu-central-1.saucelabs.com` domain.
 
 ```js
-https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
+https://app.eu-central-1.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 ```
 
 ### Embedding Full Test Pages

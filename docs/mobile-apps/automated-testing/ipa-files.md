@@ -8,13 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::note
+:::note Documentation moved
 
-To install your iOS app on our real devices we need to include our own provisioning profile in your app. For that, we use a [resigning process](#sauce-labs-resigning-enablements) to include our provisioning profile in your app. While this process does not modify the functionality of the app, it touches [certain entitlements in your app](#sauce-labs-resigning-enablements). 
-
-In order to disable the resigning process, you must buy your own private devices with dedicated provisioning profiles, see [here](#private-devices). Once you have such private devices, disabling can be achieved in one of these two ways:
-1. Using an [ad-hoc provisioning profile](https://developer.apple.com/help/account/manage-profiles/create-an-ad-hoc-provisioning-profile/): embed the private device's UDID in the profile.
-2. Using an [enterprise certificate](https://developer.apple.com/help/account/create-certificates/create-enterprise-distribution-certificates/): this does not require you to embed the device's UDID in the provisioning profile.
+Details of the resigning process were moved to [Features/iOS App Resiging](/docs/mobile-apps/features/ios-app-resigning.md)
 
 :::
 
@@ -34,6 +30,13 @@ In order to disable the resigning process, you must buy your own private devices
 2. Move the **.app** file inside the `Payload` directory.
 3. Compress the `Payload` directory into an archive (.zip file) and give it a new name with .ipa appended to the end of the file name.
 4. Your `.ipa` file is now ready for upload to Sauce Labs.
+
+```shell
+# example for building an '.ipa' file out of an '.app'
+mkdir Payload
+cp -r PATH_TO_BUILD_FOLDER/Runner.app Payload
+zip -r Runner.ipa Payload
+```
 
 ### Building an .ipa File
 
@@ -99,46 +102,16 @@ This will also overwrite the **Build Settings** at the Project level to that iOS
 
 ## Sauce Labs Resigning Enablements
 
-### Public Devices
+:::note Documentation moved
 
-Sauce Labs applies its own resigning to apps that are installed on our public iOS devices. Our resigner includes the following `keychain-access-groups` entitlements:
+Details of the resigning Enablements were moved to [Features/iOS App Resiging#Side Effects](/docs/mobile-apps/features/ios-app-resigning.md#side-effects-of-re-signing-your-app)
 
-| Key                                                  | Value                                                                                                                                                                                                                                                                                               |
-| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `application-identifier`                             | `<string>XXXXXXXXXX.*</string>`                                                                                                                                                                                                                                                                     |
-| `keychain-access-groups`                             | `<array>`<br/>&nbsp;&nbsp;`<string>XXXXXXXXXX.*</string>`<br/>&nbsp;&nbsp;`  <string>com.apple.token</string>`<br/>`</array>`                                                                                                                                                                       |
-| `get-task-allow`                                     | `<true/>`                                                                                                                                                                                                                                                                                           |
-| `com.apple.developer.team-identifier`                | `<string>XXXXXXXXXX</string>`                                                                                                                                                                                                                                                                       |
-| `com.apple.developer.ubiquity-kvstore-identifier`    | `<string>XXXXXXXXXX.*</string>`                                                                                                                                                                                                                                                                     |
-| `com.apple.developer.ubiquity-container-identifiers` | `<array>`<br/>&nbsp;&nbsp;`<string>XXXXXXXXXX.*</string>`<br/>`</array>`                                                                                                                                                                                                                            |
-| `inter-app-audio`                                    | `<true/>`                                                                                                                                                                                                                                                                                           |
-| `com.apple.developer.networking.networkextension`    | `<array>`<br/> &nbsp;&nbsp;`<string>app-proxy-provider</string>`<br/>&nbsp;&nbsp;`<string>content-filter-provider</string>`<br/> &nbsp;&nbsp;`<string>packet-tunnel-provider</string>`<br/>&nbsp;&nbsp;`<string>dns-proxy</string>`<br/> &nbsp;&nbsp;`<string>dns-settings</string>`<br/>`</array>` |
-| `com.apple.developer.siri`                           | `<true/>`                                                                                                                                                                                                                                                                                           |
-| `com.apple.developer.pass-type-identifiers`          | `<array>`<br/>&nbsp;&nbsp; `<string>XXXXXXXXXX.*</string>`<br/>`</array>`                                                                                                                                                                                                                           |
-
-### Private Devices
-
-If your organization or application requires specific entitlements to be present, Sauce Labs allows you to [disable resigning](/dev/test-configuration-options/#resigningenabled) for private devices.
-To access our private device cloud, contact your Sauce Labs account executive or our support team. 
-When resigning is disabled, you may sign your app using your own provisioning profile, or install an application that is signed with an Enterprise certificate, which can include any entitlements.
-
-To disable the **Resigning**, you can either visit "App Management > \{Your App} > App Settings" ([App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-and-device-settings)) to disable resigning globally for your app.
-
-You can also use the `sauce:options` [capability](/dev/test-configuration-options/#resigningenabled) `resigningEnabled=false` to disable app resigning for automation. This option is available for private devices only.
-
+:::
 
 ## Common Errors
 
-### Unable to Verify App
+:::note Documentation moved
 
-If you are facing the issue where the app crashes with a red screen and an "Unable to Verify App" popup:
-<img src={useBaseUrl('img/mobile-apps/verify-app-error.png')} alt="Mobile app settings navigation" width="350"/>
+Details of the resigning Enablements were moved to [Features/iOS App Resiging#Common Errors](/docs/mobile-apps/features/ios-app-resigning.md#common-errors)
 
-that means your proxy might be blocking Apple's signature check for installing custom enterprise apps on iOS. Apple has recently started rolling out a new signature verification and PPQS check for new prov. profiles and our new accounts. During installation, Apple sends an initial API request to verify the signature of the app.
-
-We recommend that you try the following workaround:
-
-1. Disable the proxy for the device you are using to install the app.
-2. If the above solution does not work, try using a different network without the proxy.
-
-We do not have control over Apple's signature verification process. It is recommended to work with your network administrator to ensure that Apple's signature check is not blocked by the proxy.
+:::

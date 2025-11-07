@@ -20,12 +20,10 @@ Check [our examples](https://github.com/saucelabs/visual-examples/) to see visua
 When writing a visual test for mobile apps, we recommend the following:
 - Explicitly control "dark mode" / "light mode" before taking visual snapshots, so snapshots are either always taken in dark or light mode, but not mixed.
 - Explicitly specify a single device and OS version for testing. You may run the same test suite on various devices, but don't use wildcards in device names (dynamic device allocation).
+- We strongly recommend disabling all notifications before your visual test start. Otherwise, system notifications might impact a visual snapshot. 
 
 
 ## Limitations
-
-The following features are not yet available for mobile app testing:
-- [Selective diffing](./selective-diffing.md)
 
 Native full-page screenshots are currently in beta and may have unexpected behavior.
 Identified limitations:
@@ -33,7 +31,6 @@ Identified limitations:
 - 1 pixel shifts in the screenshot (iOS tablets only)
 - Ignoring and clipping limited to elements within `scrollElement` (iOS only)
 - Sticky elements missing at the bottom of the screen
-- DOM capture is not available
 
 
 ## Integrations

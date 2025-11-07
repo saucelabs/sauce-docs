@@ -27,7 +27,7 @@ Some applications implement a watchdog thread whose job is to perform internal a
 
 Crash reports normally include an indicator of the culpable thread that triggered the report, usually because they faulted or raised an unhandled exception. Watchdog threads often generate reports when they detect that some part of the application has stopped making forward progress. In such cases, the report needs to explicitly call out the triggering thread.
 
-For reports made using the JSON format, you can adjust the `mainThread` parameter to specify the triggering thread. Refer to the [API documentation](https://api.backtrace.io/) for more information on this. In the case of other report types, such as minidumps, the watchdog can send a signal (for example., SIGABRT) to the affected thread to set the context appropriately.
+For reports made using the JSON format, you can adjust the `mainThread` parameter to specify the triggering thread. Refer to the [API documentation](https://docs.saucelabs.com/dev/api/error-reporting/) for more information on this. In the case of other report types, such as minidumps, the watchdog can send a signal (for example., SIGABRT) to the affected thread to set the context appropriately.
 
 ### Crash Dump Context
 

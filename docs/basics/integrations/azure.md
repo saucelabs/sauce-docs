@@ -13,7 +13,7 @@ Azure DevOps (formerly Visual Studio Team Services or VSTS) is a Microsoft produ
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - An existing Azure DevOps pipeline
 
 ## Using Azure DevOps
