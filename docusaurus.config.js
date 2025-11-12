@@ -1,3 +1,4 @@
+const isDev = process.env.NODE_ENV === 'development';
 // Load default export (must be a function)
 const unwrapJsx = require('./src/plugins/unwrap-jsx').default;
 
@@ -192,7 +193,11 @@ const docusaurusConfig = {
                         },
                         {
                             title: 'Insights API',
-                            url: '/oas/insights-api.yml',
+                            url: isDev
+                                ? '/static/oas/insights-api.yml'
+                                : require.resolve(
+                                      './static/oas/insights-api.yml'
+                                  ),
                         },
                         // Append this list to show additional API specifications.
                     ],
