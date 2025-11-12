@@ -555,7 +555,7 @@ paths:
         - name: user_id
           in: query
           required: true
-          description: Return only jobs that belongs to the specified `user_id`. (Note: Source doc incorrectly lists this as PATH param).
+          description: 'Return only jobs that belongs to the specified `user_id`. (Note: Source doc incorrectly lists this as PATH param).'
           schema:
             type: string
         - name: group_id
@@ -684,7 +684,7 @@ paths:
         - name: user_id
           in: query
           required: true
-          description: Return only jobs that belongs to the specified `user_id`. (Note: Source doc incorrectly lists this as PATH param).
+          description: 'Return only jobs that belongs to the specified `user_id`. (Note: Source doc incorrectly lists this as PATH param).'
           schema:
             type: string
         - name: group_id
