@@ -190,6 +190,10 @@ const docusaurusConfig = {
                             title: 'Real Device Access API',
                             url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml',
                         },
+                        {
+                            title: 'Insights API',
+                            url: '/oas/insights-api.yml',
+                        },
                         // Append this list to show additional API specifications.
                     ],
                 },

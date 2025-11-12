@@ -1,0 +1,4051 @@
+openapi: 3.0.1
+info:
+  title: Insights API
+  description: Retrieve Sauce Labs raw analytics data.
+  version: 1.0.0
+servers:
+  - url: https://api.us-west-1.saucelabs.com
+    description: United States
+  - url: https://api.eu-central-1.saucelabs.com
+    description: Europe
+security:
+  - basicAuth: []
+tags:
+  - name: Analytics
+    description: Retrieve analytics data about jobs.
+  - name: Filters
+    description: Get filter items for tests.
+  - name: Activity
+    description: Get statistics about test results and concurrency.
+  - name: Errors
+    description: Retrieve error data.
+  - name: Test Cases
+    description: Get details and statistics for test cases.
+  - name: Concurrency
+    description: Report on concurrency usage.
+  - name: Coverage
+    description: Report on test coverage.
+  - name: Trends
+    description: Retrieve trend data for tests and builds.
+paths:
+  /v1/analytics/tests:
+    get:
+      tags:
+        - Analytics
+      summary: Get Test Results
+      description: |-
+        Return run data for all tests that match the request criteria.
+        **Note:** This call requires `start` and `end` parameters OR the `time_range` parameter.
+      operationId: getTestResults
+      parameters:
+        - name: start
+          in: query
+          required: false
+          description: The starting date of the period during which the test runs executed, in `YYYY-MM-DDTHH:mm:ssZ` (UTC) format.
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          description: The ending date of the period during which the test runs executed, in `YYYY-MM-DDTHH:mm:ssZ` (UTC) format.
+          schema:
+            type: string
+            format: date-time
+        - name: time_range
+          in: query
+          required: false
+          description: The amount of time backward from the current time. Acceptable units include `d` (day); `h` (hour); `m` (minute); `s` (second).
+          schema:
+            type: string
+            example: '7d'
+        - name: build
+          in: query
+          required: false
+          description: Limit results to those grouped by this build name.
+          schema:
+            type: string
+        - name: build_missing
+          in: query
+          required: false
+          description: Limit results to those without the build name provided.
+          schema:
+            type: boolean
+            default: false
+        - name: descending
+          in: query
+          required: false
+          description: Sort results by test creation time.
+          schema:
+            type: boolean
+            default: true
+        - name: error
+          in: query
+          required: false
+          description: Limit results to only those that threw the specified error message.
+          schema:
+            type: string
+        - name: name
+          in: query
+          required: false
+          description: Limit results to only those with the specified name.
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: false
+          description: Begin results list from this record number.
+          schema:
+            type: integer
+            default: 0
+        - name: owner
+          in: query
+          required: false
+          description: Limit results to the provided owner (username).
+          schema:
+            type: string
+        - name: scope
+          in: query
+          required: false
+          description: Specifies the scope of the `owner` parameter.
+          schema:
+            type: string
+            enum:
+              - me
+              - organization
+              - single
+        - name: size
+          in: query
+          required: false
+          description: The maximum number of results to return.
+          schema:
+            type: integer
+            default: 10
+        - name: status
+          in: query
+          required: false
+          description: Limit results to only those with a specified status.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - passed
+                - errored
+                - failed
+                - complete
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestResultsList'
+        '422':
+          description: Validation Error.
+  /v1/analytics/insights/test-metrics:
+    get:
+      tags:
+        - Analytics
+      summary: Get a Summary of Test Metrics
+      description: |-
+        Return an aggregate of metric values for runs of a specified test during the specified period.
+        **Note:** This call requires `start` and `end` parameters OR the `time_range` parameter.
+      operationId: getTestMetricsSummary
+      parameters:
+        - name: start
+          in: query
+          required: false
+          description: The starting date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          description: The ending date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: time_range
+          in: query
+          required: false
+          description: The amount of time backward from the current time. Acceptable units include `d`, `h`, `m`, `s`.
+          schema:
+            type: string
+            example: '7d'
+        - name: query
+          in: query
+          required: true
+          description: The name of the test for which results are requested.
+          schema:
+            type: string
+        - name: scope
+          in: query
+          required: false
+          description: Specifies the scope of the `owner` parameter.
+          schema:
+            type: string
+            enum:
+              - me
+              - organization
+              - single
+        - name: owner
+          in: query
+          required: false
+          description: The name of one or more users. This parameter is required if the `scope` parameter is set to `single`.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          description: Limit results to only those with a specified status.
+          schema:
+            type: string
+            enum:
+              - passed
+              - errored
+              - failed
+              - complete
+        - name: os
+          in: query
+          required: false
+          description: Limit results to only those run on the specified operating systems.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: browser
+          in: query
+          required: false
+          description: Limit results to only those run on the specified browsers.
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestMetricsSummary'
+        '400':
+          description: Bad Request. May include additional error messages, such as "start and end parameters are required."
+        '404':
+          description: Not found.
+  /v1/analytics/trends/tests:
+    get:
+      tags:
+        - Analytics
+      summary: Get Test Trends
+      description: |-
+        Return a set of data "buckets" representing tests that were run in each time interval defined by the request parameters.
+        **Note:** This call requires `start` and `end` parameters OR the `time_range` parameter.
+      operationId: getTestTrends
+      parameters:
+        - name: start
+          in: query
+          required: false
+          description: The starting date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          description: The ending date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: time_range
+          in: query
+          required: false
+          description: The amount of time backward from the current time. Acceptable units include `d`, `h`, `m`, `s`.
+          schema:
+            type: string
+            example: '7d'
+        - name: scope
+          in: query
+          required: false
+          description: Specifies the scope of the `owner` parameter.
+          schema:
+            type: string
+            enum:
+              - me
+              - organization
+              - single
+        - name: interval
+          in: query
+          required: false
+          description: Relative date filter.
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - passed
+              - errored
+              - failed
+              - complete
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestTrends'
+        '422':
+          description: Validation Error.
+  /v1/analytics/trends/builds_tests:
+    get:
+      tags:
+        - Analytics
+      summary: Get Builds and Tests
+      description: |-
+        Return the set of all tests run in the specified period, grouped by whether each test was part of a build or not.
+        **Note:** This call requires `start` and `end` parameters OR the `time_range` parameter.
+      operationId: getBuildsAndTests
+      parameters:
+        - name: start
+          in: query
+          required: false
+          description: The starting date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          description: The ending date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: time_range
+          in: query
+          required: false
+          description: The amount of time backward from the current time. Acceptable units include `d`, `h`, `m`, `s`.
+          schema:
+            type: string
+            example: '7d'
+        - name: scope
+          in: query
+          required: false
+          description: Specifies the scope of the `owner` parameter.
+          schema:
+            type: string
+            enum:
+              - me
+              - organization
+              - single
+        - name: owner
+          in: query
+          required: false
+          description: The name of one or more users. Required if `scope` is `single`.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - passed
+              - errored
+              - failed
+              - complete
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: automation_backend
+          in: query
+          required: false
+          description: Limit results to only those run on the specified framework.
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildsTestsList'
+        '400':
+          description: Bad Request.
+        '404':
+          description: Not found.
+  /v2/insights/{source}/filters:
+    get:
+      tags:
+        - Filters
+      summary: Get Filter Items
+      description: Return data for all tests that match the request criteria.
+      operationId: getFilterItems
+      parameters:
+        - name: source
+          in: path
+          required: true
+          description: Return results only for tests run in virtual device cloud or real device cloud.
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          description: Return results only for the specified `org_id`.
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          description: Limit results to only those with a specified status.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - passed
+                - error
+                - failed
+                - complete
+            default:
+              - error
+              - failed
+              - passed
+              - complete
+        - name: start
+          in: query
+          required: false
+          description: The starting date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          description: The ending date of the period (UTC `YYYY-MM-DDTHH:mm:ssZ` format).
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: user_id
+          in: query
+          required: true
+          description: Return only jobs that belongs to the specified `user_id`. (Note: Source doc incorrectly lists this as PATH param).
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: must_have
+          in: query
+          required: false
+          description: When set to `error`, jobs must have ended with an error.
+          schema:
+            type: string
+            enum:
+              - error
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterItemsResponse'
+        '422':
+          description: Validation Error.
+  /insights/v2/filters:
+    get:
+      tags:
+        - Filters
+      summary: Get Filter Items from All Sources
+      description: Return data from all sources for all tests that match the request criteria.
+      operationId: getFilterItemsAllSources
+      parameters:
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - passed
+                - error
+                - failed
+                - complete
+            default:
+              - error
+              - failed
+              - passed
+              - complete
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: user_id
+          in: query
+          required: true
+          description: Return only jobs that belongs to the specified `user_id`. (Note: Source doc incorrectly lists this as PATH param).
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: must_have
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - error
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rdc
+                - vdc
+            default:
+              - vdc
+              - rdc
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterItemsResponse'
+        '422':
+          description: Validation Error.
+  /rest/v1/users/{user_id}/activity:
+    get:
+      tags:
+        - Activity
+      summary: Get Activity
+      description: Return daily statistics about test results and concurrency usage for the specified `user_id`.
+      operationId: getUserActivity
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: Return only jobs that belongs to the specified `user_id`
+          schema:
+            type: string
+        - name: since
+          in: query
+          required: false
+          description: Return only jobs ran from the provided Unix timestamp on.
+          schema:
+            type: integer
+            format: int64
+        - name: until
+          in: query
+          required: false
+          description: Return only jobs ran until the provided Unix timestamp.
+          schema:
+            type: integer
+            format: int64
+        - name: level
+          in: query
+          required: false
+          description: Specifies the ownership level.
+          schema:
+            type: string
+            enum:
+              - user
+              - organization
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityData'
+        '422':
+          description: Validation Error.
+  /rest/v1/users_activity:
+    get:
+      tags:
+        - Activity
+      summary: Get Activity for Users
+      description: Return daily statistics about test results and concurrency usage.
+      operationId: getUsersActivity
+      parameters:
+        - name: users
+          in: query
+          required: false
+          description: Limit results to specific users.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: since
+          in: query
+          required: false
+          description: Return only jobs ran from the provided Unix timestamp on.
+          schema:
+            type: integer
+            format: int64
+        - name: until
+          in: query
+          required: false
+          description: Return only jobs ran until the provided Unix timestamp.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserActivityMap'
+        '422':
+          description: Validation Error.
+  /rest/v1/activity/teams:
+    get:
+      tags:
+        - Activity
+      summary: Get Activity for Teams
+      description: Return daily statistics about test results and concurrency usage for teams.
+      operationId: getTeamsActivity
+      parameters:
+        - name: id
+          in: query
+          required: false
+          description: Return results for the specified team `id`.
+          schema:
+            type: array
+            items:
+              type: string
+        - name: since
+          in: query
+          required: false
+          description: Return only jobs ran from the provided Unix timestamp on.
+          schema:
+            type: integer
+            format: int64
+        - name: until
+          in: query
+          required: false
+          description: Return only jobs ran until the provided Unix timestamp.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamActivityMap'
+        '422':
+          description: Validation Error.
+  /rest/v1/activity/organization:
+    get:
+      tags:
+        - Activity
+      summary: Get Activity for Org
+      description: Return daily statistics about test results and concurrency usage for organization.
+      operationId: getOrganizationActivity
+      parameters:
+        - name: since
+          in: query
+          required: false
+          description: Return only jobs ran from the provided Unix timestamp on.
+          schema:
+            type: integer
+            format: int64
+        - name: until
+          in: query
+          required: false
+          description: Return only jobs ran until the provided Unix timestamp.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationActivityMap'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/errors:
+    get:
+      tags:
+        - Errors
+      summary: Get Errors
+      description: Return an array of errors with occurrence count on all tests run in the specified period.
+      operationId: getErrors
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorBuckets'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/errors/trends:
+    get:
+      tags:
+        - Errors
+      summary: Get Errors Trends
+      description: Return past and current data about errors for comparison.
+      operationId: getErrorTrends
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: time_zone
+          in: query
+          required: false
+          schema:
+            type: string
+            default: '+00:00'
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorTrends'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/tests:
+    get:
+      tags:
+        - Test Cases
+      summary: Get Tests
+      description: Return an array of tests with details.
+      operationId: getTestsBySource
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: error
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - duration
+              - creation_time
+            default: creation_time
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          description: If `source` is `rdc`, return results only for the specified device group.
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestsListResponse'
+        '422':
+          description: Validation Error.
+  /insights/v2/tests:
+    get:
+      tags:
+        - Test Cases
+      summary: Get Common Tests
+      description: Return an array of tests with details from all sources.
+      operationId: getCommonTests
+      parameters:
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rdc
+                - vdc
+            default:
+              - vdc
+              - rdc
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: error
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - duration
+              - creation_time
+            default: creation_time
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - complete
+                - error
+                - passed
+                - failed
+        - name: build_missing
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonTestsListResponse'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/test-cases:
+    get:
+      tags:
+        - Test Cases
+      summary: Get Test Cases
+      description: Return an array of test cases (grouped by name) with statistical details.
+      operationId: getTestCases
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - complete
+                - error
+                - passed
+                - failed
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 50
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - total_runs
+              - name
+              - complete_count
+              - error_count
+              - fail_count
+              - pass_count
+              - complete_rate
+              - error_rate
+              - failure_rate
+              - pass_rate
+              - avg_duration
+              - median_duration
+              - total_duration
+            default: total_runs
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestCasesResponse'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/test-cases/csv:
+    get:
+      tags:
+        - Test Cases
+      summary: Get Test Cases CSV
+      description: Return an array of test cases (grouped by name) with statistical details as a CSV file.
+      operationId: getTestCasesCSV
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - complete
+                - error
+                - passed
+                - failed
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - total_runs
+              - name
+              - complete_count
+              - error_count
+              - fail_count
+              - pass_count
+              - complete_rate
+              - error_rate
+              - failure_rate
+              - pass_rate
+              - avg_duration
+              - median_duration
+              - total_duration
+            default: total_runs
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            text/csv:
+              schema:
+                type: string
+                description: CSV file data.
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/test-cases/stats:
+    get:
+      tags:
+        - Test Cases
+      summary: Get Test Cases Stats
+      description: Return an array of test cases (grouped by name) with statistical details.
+      operationId: getTestCasesStats
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - complete
+                - error
+                - passed
+                - failed
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestCasesStats'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/test-cases/trends:
+    get:
+      tags:
+        - Test Cases
+      summary: Get Status Trend
+      description: Return a histogram with test statistic details grouped by specific period.
+      operationId: getTestCaseStatusTrends
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: groupby
+          in: query
+          required: true
+          description: Time period for grouping.
+          schema:
+            type: string
+            enum:
+              - 1h
+              - 1d
+              - 7d
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+        - name: time_zone
+          in: query
+          required: false
+          schema:
+            type: string
+            default: '+00:00'
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestCasesTrends'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/concurrency/max/csv:
+    get:
+      tags:
+        - Concurrency
+      summary: Get Max Concurrency Report CSV
+      description: Return information about concurrency usage in a CSV format.
+      operationId: getMaxConcurrencyCSV
+      parameters:
+        - name: source
+          in: path
+          required: true
+          description: Return results only for tests run in virtual device cloud.
+          schema:
+            type: string
+            enum:
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: start_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Success.
+          content:
+            text/csv:
+              schema:
+                type: string
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/concurrency/max/json:
+    get:
+      tags:
+        - Concurrency
+      summary: Get Max Concurrency Report JSON
+      description: Return information about concurrency usage.
+      operationId: getMaxConcurrencyJSON
+      parameters:
+        - name: source
+          in: path
+          required: true
+          description: Return results only for tests run in virtual device cloud.
+          schema:
+            type: string
+            enum:
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: start_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Success. (Sample response was empty, so schema is generic).
+          content:
+            application/json:
+              schema:
+                type: object
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/coverage/{coverage_field}:
+    get:
+      tags:
+        - Coverage
+      summary: Get Coverage
+      description: Return information about tests coverage for the specified `coverage_field`.
+      operationId: getCoverage
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: coverage_field
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - device
+              - browser
+              - os
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - name
+              - count
+              - total_duration
+            default: count
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoverageResponse'
+        '422':
+          description: Validation Error.
+  /insights/v2/coverage/{coverage_field}:
+    get:
+      tags:
+        - Coverage
+      summary: Get Coverage from All Sources
+      description: Return information from all sources about test coverage for the specified `coverage_field`.
+      operationId: getCoverageAllSources
+      parameters:
+        - name: coverage_field
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - device
+              - browser
+              - os
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+        - name: sort_by
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - name
+              - count
+              - total_duration
+            default: count
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rdc
+                - vdc
+            default:
+              - vdc
+              - rdc
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoverageResponse'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/coverage/{coverage_field}/csv:
+    get:
+      tags:
+        - Coverage
+      summary: Get Coverage CSV
+      description: Return information about tests coverage for the specified `coverage_field` in a CSV format.
+      operationId: getCoverageCSV
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: coverage_field
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - device
+              - browser
+              - os
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            text/csv:
+              schema:
+                type: string
+        '422':
+          description: Validation Error.
+  /insights/v2/coverage/{coverage_field}/csv:
+    get:
+      tags:
+        - Coverage
+      summary: Get Coverage CSV from All Sources
+      description: Return information from all sources about test coverage for the specified `coverage_field` in a CSV format.
+      operationId: getCoverageCSVAllSources
+      parameters:
+        - name: coverage_field
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - device
+              - browser
+              - os
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rdc
+                - vdc
+            default:
+              - vdc
+              - rdc
+      responses:
+        '200':
+          description: Success.
+          content:
+            text/csv:
+              schema:
+                type: string
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/trends/tests:
+    get:
+      tags:
+        - Trends
+      summary: Get Trends Tests
+      description: Return an array of buckets with aggregations, such as number of tests run on a specific browser or device.
+      operationId: getTrendsTests
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: time_zone
+          in: query
+          required: false
+          schema:
+            type: string
+            default: '+00:00'
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - complete
+                - error
+                - passed
+                - failed
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendsTestsResponse'
+        '422':
+          description: Validation Error.
+  /insights/v2/trends/tests:
+    get:
+      tags:
+        - Trends
+      summary: Get Trends Tests from All Sources
+      description: Return an array of buckets with aggregations, such as the number of tests from all sources run on a specific browser or device.
+      operationId: getTrendsTestsAllSources
+      parameters:
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: time_zone
+          in: query
+          required: false
+          schema:
+            type: string
+            default: '+00:00'
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rdc
+                - vdc
+            default:
+              - vdc
+              - rdc
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - passed
+                - error
+                - failed
+                - complete
+            default:
+              - error
+              - failed
+              - passed
+              - complete
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendsTestsResponse'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/trends/errors:
+    get:
+      tags:
+        - Trends
+      summary: Get Trends Errors
+      description: Return statistics for errors that occurred in tests run in the specified period.
+      operationId: getTrendsErrors
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - complete
+                - error
+                - passed
+                - failed
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendsErrorsResponse'
+        '422':
+          description: Validation Error.
+  /insights/v2/trends/errors:
+    get:
+      tags:
+        - Trends
+      summary: Get Trends Errors from All Sources
+      description: Return statistics from all sources for errors that occurred on tests run in the specified period.
+      operationId: getTrendsErrorsAllSources
+      parameters:
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rdc
+                - vdc
+            default:
+              - vdc
+              - rdc
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - passed
+                - error
+                - failed
+                - complete
+            default:
+              - error
+              - failed
+              - passed
+              - complete
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendsErrorsResponse'
+        '422':
+          description: Validation Error.
+  /v2/insights/{source}/trends/builds_tests:
+    get:
+      tags:
+        - Trends
+      summary: Get Trends Builds Tests
+      description: Return information about builds and tests run included in the build. Also, it provides information about tests without build names.
+      operationId: getTrendsBuildsTests
+      parameters:
+        - name: source
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - rdc
+              - vdc
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: interval
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1m
+              - 15m
+              - 1h
+              - 6h
+              - 12h
+              - 1d
+              - 7d
+              - 30d
+            default: 1d
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - complete
+                - error
+                - passed
+                - failed
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendsBuildsTestsResponse'
+        '422':
+          description: Validation Error.
+  /insights/v2/trends/builds-tests:
+    get:
+      tags:
+        - Trends
+      summary: Get Trends Builds Tests from All Sources
+      description: Return information from all sources about builds and tests run included in the build. Also, it provides information about tests without build names.
+      operationId: getTrendsBuildsTestsAllSources
+      parameters:
+        - name: org_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: team_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: end
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: automation_backend
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: browser
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: build
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: device_group
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - private
+              - public
+        - name: os
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - rdc
+                - vdc
+            default:
+              - vdc
+              - rdc
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - passed
+                - error
+                - failed
+                - complete
+            default:
+              - error
+              - failed
+              - passed
+              - complete
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: tag_filter_mode
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - and
+              - or
+            default: or
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendsBuildsTestsResponse'
+        '422':
+          description: Validation Error.
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    StatusCountMap:
+      type: object
+      additionalProperties:
+        type: integer
+      description: A map of statuses to their counts.
+    TestRunItem:
+      type: object
+      properties:
+        id:
+          type: string
+        owner:
+          type: string
+        ancestor:
+          type: string
+        name:
+          type: string
+        build:
+          type: string
+        creation_time:
+          type: string
+          format: date-time
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        duration:
+          type: integer
+        status:
+          type: string
+        error:
+          type: string
+        os:
+          type: string
+        os_normalized:
+          type: string
+        browser:
+          type: string
+        browser_normalized:
+          type: string
+        details_url:
+          type: string
+          format: uri
+        is_expired:
+          type: boolean
+    TestResultsList:
+      type: object
+      properties:
+        has_more:
+          type: boolean
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestRunItem'
+        meta:
+          type: object
+          properties:
+            status:
+              type: integer
+    TestMetricsSummary:
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            status:
+              type: integer
+        aggs:
+          type: object
+          properties:
+            count:
+              type: integer
+            fastestRun:
+              $ref: '#/components/schemas/TestRunItem'
+            slowestRun:
+              $ref: '#/components/schemas/TestRunItem'
+            statuses:
+              type: object
+              properties:
+                errored:
+                  type: integer
+                failed:
+                  type: integer
+                passed:
+                  type: integer
+            totalQueueTime:
+              type: number
+              format: double
+            totalRunTime:
+              type: number
+              format: double
+    TestTrends:
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            status:
+              type: string
+        buckets:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrendBucket'
+        metrics:
+          type: object
+          description: Map of metrics
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: number
+    TrendBucket:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int64
+        datetime:
+          type: string
+          format: date-time
+        count:
+          type: integer
+        aggs:
+          $ref: '#/components/schemas/TrendAggregations'
+    TrendAggregations:
+      type: object
+      description: Aggregations for a trend bucket.
+      properties:
+        browser:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        browserError:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        browserFail:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        device:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        deviceError:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        deviceFail:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        errorMessage:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        framework:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        frameworkError:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        frameworkFail:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        os:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        osError:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        osFail:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        owner:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        status:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+    NameCountItem:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: integer
+    BuildsTestsList:
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            status:
+              type: integer
+        builds:
+          $ref: '#/components/schemas/BuildList'
+        tests_missing_build:
+          $ref: '#/components/schemas/TestRunList'
+    BuildList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BuildItem'
+        has_more:
+          type: boolean
+    BuildItem:
+      type: object
+      properties:
+        name:
+          type: string
+        tests_count:
+          type: integer
+        duration:
+          type: integer
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        tests:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestRunItem'
+        has_more:
+          type: boolean
+        aggs:
+          type: object
+          properties:
+            status:
+              type: array
+              items:
+                $ref: '#/components/schemas/NameCountItem'
+    TestRunList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestRunItem'
+        has_more:
+          type: boolean
+    FilterItemsResponse:
+      type: object
+      properties:
+        automation_backend:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        browser:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        build:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        os:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        device:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        tag:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+    ActivityData:
+      type: object
+      properties:
+        ccy_exec_mean:
+          type: array
+          items:
+            type: number
+        ccy_exec_peak:
+          type: array
+          items:
+            type: number
+        datestamp:
+          type: array
+          items:
+            type: string
+            format: date
+        jobs:
+          type: array
+          items:
+            type: integer
+        minutes:
+          type: array
+          items:
+            type: number
+    UserActivityMap:
+      type: object
+      description: A map of User IDs to their activity data.
+      additionalProperties:
+        $ref: '#/components/schemas/ActivityData'
+    TeamActivityMap:
+      type: object
+      description: A map of Team IDs to their activity data.
+      additionalProperties:
+        $ref: '#/components/schemas/ActivityData'
+    OrganizationActivityMap:
+      type: object
+      description: A map of Org properties to their activity data.
+      additionalProperties:
+        $ref: '#/components/schemas/ActivityData'
+    ErrorBuckets:
+      type: object
+      properties:
+        buckets:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameCountItem'
+        all_items_count:
+          type: integer
+        total:
+          type: integer
+    ErrorTrends:
+      type: object
+      properties:
+        histogram:
+          type: array
+          items:
+            type: object
+            properties:
+              count:
+                type: integer
+              datetime:
+                type: string
+                format: date-time
+        trend:
+          type: object
+          properties:
+            current:
+              type: integer
+            past:
+              type: integer
+            tests_count:
+              type: integer
+    TestsListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestDetailItem'
+        total:
+          type: integer
+        statuses:
+          $ref: '#/components/schemas/StatusCountMap'
+        max_duration:
+          type: integer
+    TestDetailItem:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        creation_time:
+          type: string
+          format: date-time
+        modification_time:
+          type: string
+          format: date-time
+        error:
+          type: string
+        passed:
+          type: boolean
+        browser_normalized:
+          type: string
+        os_normalized:
+          type: string
+        device_name:
+          type: string
+        device_group:
+          type: string
+        build:
+          type: string
+        automation_backend:
+          type: string
+        duration:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        owner:
+          type: string
+        ancestor:
+          type: string
+        user_id:
+          type: string
+        team_id:
+          type: string
+        group_id:
+          type: string
+        org_id:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        deletion_time:
+          type: string
+          format: date-time
+        is_expired:
+          type: boolean
+    CommonTestsListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommonTestDetailItem'
+        total:
+          type: integer
+        statuses:
+          $ref: '#/components/schemas/StatusCountMap'
+        max_duration:
+          type: integer
+    CommonTestDetailItem:
+      allOf:
+        - $ref: '#/components/schemas/TestDetailItem'
+        - type: object
+          properties:
+            source:
+              type: string
+              enum:
+                - rdc
+                - vdc
+    TestCasesResponse:
+      type: object
+      properties:
+        test_cases:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              statuses:
+                $ref: '#/components/schemas/StatusCountMap'
+              total_runs:
+                type: integer
+              complete_rate:
+                type: number
+              error_rate:
+                type: number
+              fail_rate:
+                type: number
+              pass_rate:
+                type: number
+              avg_duration:
+                type: number
+              median_duration:
+                type: number
+              total_duration:
+                type: number
+        total:
+          type: integer
+        statuses:
+          $ref: '#/components/schemas/StatusCountMap'
+        avg_runtime:
+          type: number
+    TestCasesStats:
+      type: object
+      properties:
+        consistently_complete:
+          type: integer
+        consistently_error:
+          type: integer
+        consistently_failing:
+          type: integer
+        consistently_passing:
+          type: integer
+        total_test_cases:
+          type: integer
+        total_test_cases_limited:
+          type: integer
+    TestCasesTrends:
+      type: object
+      properties:
+        histogram:
+          type: array
+          items:
+            type: object
+            properties:
+              timestamp_s:
+                type: integer
+              timestamp_ms:
+                type: integer
+              complete:
+                type: integer
+              error:
+                type: integer
+              failed:
+                type: integer
+              passed:
+                type: integer
+    CoverageResponse:
+      type: object
+      properties:
+        coverage:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              count:
+                type: integer
+              total_duration:
+                type: integer
+        max_count:
+          type: integer
+    TrendsTestsResponse:
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            status:
+              type: string
+        buckets:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrendBucket'
+        metrics:
+          type: object
+          description: Map of metrics
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: number
+    TrendsErrorsResponse:
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            status:
+              type: string
+        buckets:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              count:
+                type: integer
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TestRunItem'
+              has_more:
+                type: boolean
+        all_items_count:
+          type: integer
+    TrendsBuildsTestsResponse:
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            status:
+              type: string
+        builds:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/TrendsBuildItem'
+            has_more:
+              type: boolean
+            total:
+              type: integer
+        tests_missing_build:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/TestRunItem'
+            has_more:
+              type: boolean
+            total:
+              type: integer
+    TrendsBuildItem:
+      type: object
+      properties:
+        name:
+          type: string
+        tests_count:
+          type: integer
+        owner:
+          type: string
+        duration:
+          type: integer
+        duration_absolute:
+          type: integer
+        duration_test_max:
+          type: integer
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        tests:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestRunItem'
+        aggs:
+          type: object
+          properties:
+            status:
+              type: array
+              items:
+                $ref: '#/components/schemas/NameCountItem'
