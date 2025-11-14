@@ -28,6 +28,8 @@ Sauce Visual plugin provides a library exposing a `VisualApi` object that provid
 - `visual.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `visual.sauceVisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
 
+Sauce Visual can be run on the Sauce Selenium Grid as well as on a local Selenium Grid.
+
 ## Quickstart
 
 ### Step 1: Add Sauce Visual dependency
@@ -408,12 +410,13 @@ Available methods:
 
 - `withDelayAfterScrollMs(int delayAfterScrollMs)`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `withDisableCSSAnimation(Boolean disableCSSAnimation)`: Disable CSS animations and the input caret in the app. The default value is true.
-- `withHideAfterFirstScroll(String... hideAfterFirstScroll)`: One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
+- (deprecated)`withHideAfterFirstScroll(String... hideAfterFirstScroll)`: One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
+- `withHideElementsAfterFirstScroll(String... hideElementsAfterFirstScroll)`: One or more webdriver element ids that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
 - `withHideScrollBars(Boolean hideScrollBars)`: <span className="sauceGold">Deprecated</span> Use `withHideScrollBars` from `CheckOptions` instead
 - `withScrollLimit(int scrollLimit)`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 :::note
-It's recommended to use the `withHideAfterFirstScroll` method for elements with a fixed or sticky position, such as sticky headers or consent banners.
+It's recommended to use the `withHideElementsAfterFirstScroll` method for elements with a fixed or sticky position, such as sticky headers or consent banners.
 :::
 
 Examples:

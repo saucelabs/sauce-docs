@@ -27,7 +27,7 @@ While you can use multiple files of different names or locations to specify your
 ## Example Configuration
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-espresso-example/blob/master/.sauce/config.yml
+https://github.com/saucelabs/saucectl-espresso-example/blob/main/.sauce/config.yml
 ```
 
 Each of the properties supported for running Espresso tests through `saucectl` is defined below.
@@ -196,7 +196,7 @@ saucectl run --retries 1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect-5/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:

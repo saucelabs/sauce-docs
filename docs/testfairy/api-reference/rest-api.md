@@ -238,7 +238,15 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 		</tr>
         <tr>
 			<td><code>groups</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs for the build. <br />If not specified, the original assigned groups will be copied over to the build.</p></td>
+		</tr>
+        <tr>
+			<td><code>projectGroups</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs for the project. <br />If not specified, the original assigned groups will be copied over to the project.</p></td>
+		</tr>
+        <tr>
+			<td><code>allowAllTesters</code></td>
+			<td><p><small>| OPTIONAL | BOOLEAN |</small></p><p>Value `1` allows all other users to access the copied build, while `0` prevents access.<br />If not specified, the original assigned value will be copied over to the project.</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -262,10 +270,19 @@ Use this endpoint to copy a specific build to a specified folder. You can either
     "app_name": "My Application",
     "assigned_groups": [
       "13",
-      "14",
+      "group14",
       "12"
     ],
     "invalid_groups": [
+      "abcd",
+      "efgd"
+    ],
+    "assigned_project_groups": [
+      "group13",
+      "14",
+      "12"
+    ],
+    "invalid_project_groups": [
       "abcd",
       "efgd"
     ]
@@ -1192,6 +1209,134 @@ Modifies a single webhook.
 <p></p>
 
 Deletes a single webhook.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok"
+}
+```
+
+</details>
+
+## Sites
+
+### List All Sites
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/site/</code></summary>
+<p></p>
+
+List all sites in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "site": {
+    "accounts": [
+      {
+        "id": "1",
+        "name": "Site 1",
+        "buildsCount": 0,
+        "users": [
+          {
+            "email": "[site-subaccount-682ae46476f9f]",
+            "role": "Account Owner"
+          },
+          {
+            "email": "sitemanager@saucelabs.com",
+            "role": "Account Manager"
+          }
+        ]
+      }
+    ],
+    "managers": [
+      {
+        "email": "accountmanager@saucelabs.com"
+      }
+    ]
+  }
+}
+```
+
+</details>
+
+---
+
+### Create a New Site
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/site/</code></summary>
+<p></p>
+
+Add a new site to the organization.
+
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name of the account. The string accepts numbers, letters, <code>-</code>, and <code>_</code>. The length has to be more than 3 characters.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>loginMethod</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Specify how users can log in to account. Pass <code>0</code> for SSO or <code>1</code> for credentials</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok"
+}
+```
+
+</details>
+
+---
+
+### Delete a Site
+
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/site/&#123;site-id&#125;/</code></summary>
+<p></p>
+
+Deletes an account .
 
 #### Responses
 

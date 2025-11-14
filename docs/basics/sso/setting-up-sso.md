@@ -123,6 +123,21 @@ In the encryption process, the Identity Provider encrypts the SAML Assertion usi
 If you start to see errors after enabling encryption, make sure that you use the encryption certificate that is provided in Sauce Labs metadata (in the tag `<KeyDescriptor use="encryption">`) and the encryption algorithm matches the algorithm provided in Sauce Labs metadata (value of the attribute `Algorithm` in the tag `EncryptionMethod`).
 :::
 
+### Signing
+
+Signing SAML `AuthnRequest` messages is not mandatory, but it is recommended for enhanced security.
+
+This feature is available for organizations using our Service Provider [configuration - sp8](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp8).
+
+Similar to [encryption](#encryption), metadata may contain multiple encryption certificates. Follow the recommendations on how to select the newest one.
+
+:::tip
+
+#### Possible Issues
+
+If you start to see errors after enabling signing, make sure that you use the signing certificate that is provided in Sauce Labs metadata (in the tag `<KeyDescriptor use="signing">`) and the signing algorithm matches the algorithm provided in Sauce Labs metadata (value of the attribute `Algorithm` in the tag `EncryptionMethod`).
+:::
+
 ### Name ID
 
 Name ID format must be set to `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.

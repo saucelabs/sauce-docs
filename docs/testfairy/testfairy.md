@@ -33,4 +33,4 @@ For more information, see [API Reference guide](/testfairy/api-reference/rest-ap
 Sauce Mobile App Distribution is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service. Sauce Mobile App Distribution is the only platform that provides end-to-end data encryption using your private/public keys, so your data remains private.
 Sauce Mobile App Distribution Public Cloud is available in the EU-Central-1 and US-East-1 data centers. The Private Cloud is available in various regions, customizable based on specific preferences. 
 
-For more information, see [SSO](/testfairy/security/sso/sso-intro/), or [Private Cloud](/testfairy/security/sso/sso-intro/).
+For more information, see [SSO](/testfairy/security/sso/sso-intro/), or [Private Cloud](/testfairy/security/private-cloud/).

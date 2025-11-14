@@ -848,7 +848,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:timeZone`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
 Overrides the current device's time zone. This change is done on per-device basis and is
 preserved for the whole duration of the test session. The time zone identifier must be a
@@ -1702,6 +1702,49 @@ Each network condition has a supported value range:
 
 ---
 
+### `logFilters`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set custom filters for Appium server logs. This will allow you to mask sensitive data from your test report.
+
+For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
+
+:::note
+The `logFilters` capability is supported in Appium version 2.5.2 and later. To use this feature, ensure your test script specifies a compatible Appium version using the Sauce-specific [`appiumVersion`](/dev/test-configuration-options/#appiumversion) capability. You can view the list of [available Appium versions](/docs/mobile-apps/automated-testing/appium/appium-versions.md) here.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("logFilters", List.of(
+	ImmutableMap.of("text","text-to-be-replaced")));
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `filterSendKeys`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Filters the `SendKeys` Appium command from the Appium commands log in the tests report. In case your test sends sensitive information (such as credentials) through a form this will prevent to leak them in the test report, replacing the request of the command by a placeholder.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("filterSendKeys", true);
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `sauce: network-profile`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
@@ -1814,10 +1857,12 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Sets your Sauce Labs username for a test.
 
-You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing)), this must be set in capabilities.
+You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication.
 
 :::tip
 You can find your `username` value under **Account** > **User Settings**.
+
+Alternatively, you can use the `username` of a [service account](/basics/acct-team-mgmt/managing-service-accounts) for running tests.
 :::
 
 :::warning
@@ -1840,10 +1885,12 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Sets your Sauce Labs access key for the test.
 
-You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication.
 
 :::tip
 You can find your `accessKey` value under **Account** > **User Settings**.
+
+Alternatively, you can use the `accessKey` of a [service account](/basics/acct-team-mgmt/managing-service-accounts) for running tests.
 :::
 
 :::warning
@@ -1916,9 +1963,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | </small></p>
 
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
-
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
+Specify a [Sauce Connect](/secure-connections/sauce-connect-5/) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1934,7 +1979,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
+Specify a [Sauce Connect tunnel name](/dev/cli/sauce-connect-5/run/#tunnel-name) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
 
 :::caution Deprecation notice
 `tunnelIdentifier` is being deprecated in favor of `tunnelName`.
@@ -1943,8 +1988,6 @@ Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-co
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
-
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1967,8 +2010,6 @@ If the [tunnelName](#tunnelname) you've specified to establish connectivity with
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
-
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -2157,14 +2198,14 @@ Provide a valid time zone identifier to `appium:timeZone` capability.
 The time zone identifier must be a valid name from the list of
 [available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
 for example `America/New_York`.
-The time zone is changed instantly on the *per-device* basis and is preserved until the next change.
+The time zone is changed instantly on the _per-device_ basis and is preserved until the next change.
 
 **iOS Devices**
 
 Provide a valid time zone identifier to `appium:appTimeZone` capability.
 The time zone identifier must be a valid name from the list of
 [available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), for example `America/New_York`.
-The time zone is changed on the *per-application* basis and is only valid for the application under test.
+The time zone is changed on the _per-application_ basis and is only valid for the application under test.
 The same behavior could be achieved by providing a custom value to the
 [TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
 
@@ -2250,13 +2291,3 @@ Defines the number of seconds Sauce Labs will wait for your executable to finish
 ### Example Test Scripts
 
 See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
-
-### Visual Testing
-
-While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
-
-See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Commands and Options](/visual/e2e-testing/commands-options).
-
-:::caution Limitations
-When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.
-:::

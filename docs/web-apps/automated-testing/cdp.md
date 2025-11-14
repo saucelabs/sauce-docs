@@ -296,5 +296,5 @@ to you test code.
 
 - [WebDriver BiDi Protocol](https://w3c.github.io/webdriver-bidi/): Documentation of the BiDirectional WebDriver Protocol
 - [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/): Documentation of the Chrome DevTools Protocol
-- [Selenium Chrome DevTools](https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/): Selenium CDP Usage Documentation
+- [Selenium Chrome DevTools](https://www.selenium.dev/documentation/webdriver/bidi/cdp/): Selenium CDP Usage Documentation
 - [Playwright CDPSession](https://playwright.dev/docs/api/class-cdpsession): Playwright CDP Usage Documentation

@@ -1,5 +1,5 @@
 ---
-sidebar_label: Baseline Management (BETA)
+sidebar_label: Baseline Management
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

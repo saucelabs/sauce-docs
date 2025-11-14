@@ -216,7 +216,7 @@ saucectl run --retries 1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect-5/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -226,7 +226,7 @@ sauce:
 ```
 
 :::caution
-[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect-5/guides/localhost-proxying/#special-cases) are proxied by the tunnel when accessing localhost.
 :::
 
 ---
@@ -868,7 +868,7 @@ The parent property containing the details specific to the TestCafe project.
 
 ```yaml
 testcafe:
-  version: 3.0.1
+  version: 3.7.2
   configFile: .testcaferc.js
 ```
 
@@ -882,7 +882,7 @@ The version of TestCafe that is compatible with the tests defined in this file. 
 
 ```yaml
 testcafe:
-  version: 3.0.1
+  version: 3.7.2
 ```
 
 :::tip
@@ -1729,4 +1729,23 @@ When set to `true`, this option enables importing ECMAScript Modules (ESM) that 
 suite:
   - name: My Saucy Test
     esm: true
+```
+
+---
+
+### `armRequired`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">saucectl 0.196.0+</span></small></p>
+
+When set to `true`, this option adds capability requirement for ARM architecture on the machine running the test.
+
+:::note
+ARM is only available for MacOS 14 and for TestCafe >=3.7.2.
+:::
+
+```yaml
+suite:
+  - name: My Saucy Test
+    platform: 'macOS 14'
+    armRequired: true
 ```

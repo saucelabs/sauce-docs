@@ -12,7 +12,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - Know which test framework and browser versions you plan to run tests against
 
 ## System Requirements
@@ -235,7 +235,7 @@ The CLI output includes a link to the job test results page in Sauce Labs:
 Open job details page: https://app.saucelabs.com/tests/<job-number>
 ```
 
-:::note Media Assets Not Viewable in UI
+:::note Media Assets Not Viewable in the UI
 Any screenshots and video recorded during the test execution and uploaded to Sauce Labs are not currently viewable in the Sauce Labs UI, but can be accessed and downloaded through the [Job Assets API endpoints](/dev/api/jobs/#list-job-assets). Alternatively, you can automatically download your test assets locally using the [`artifacts`](/dev/cli/saucectl/init) parameter in your config file.
 :::
 <!-- prettier-ignore-end -->
