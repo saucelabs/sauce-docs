@@ -179,20 +179,19 @@ const docusaurusConfig = {
         [
             '@scalar/docusaurus',
             {
-                id: 'api-reference',
-                label: 'API Reference',
-                route: '/api-reference',
+                id: 'real-device-access-api',
+                label: 'Real Device Access API',
+                route: '/real-device-access-api',
                 showNavLink: true,
                 configuration: {
+                    hideClientButton: true,
+                    hideTestRequestButton: true,
+                    layout: 'classic',
                     sources: [
                         {
                             // This title will appear in the top left dropdown within Scalar API doc.
                             title: 'Real Device Access API',
                             url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml',
-                        },
-                        {
-                            title: 'Insights API - temp',
-                            url: `${siteBaseUrl}oas/insights-api.yml`,
                         },
                     ],
                 },
