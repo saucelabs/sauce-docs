@@ -167,17 +167,24 @@ If you create any new files in the same directory as your `BacktraceDatabase` di
 
 ## Application Not Responding (ANRs)
 
-The `BacktraceClient` allows you to detect Application Not Responding (ANR) errors that occur when the main thread is blocked for more than 5 seconds. You can enable ANR reporting as follows:
+The `BacktraceClient` enables detection of Application Not Responding (ANR) errors that occur when the main thread is blocked for longer than 5 seconds. The library provides two methods for ANR detection:
+
+- **Threshold-based detection (`AnrType.Threshold`)** - this method starts a separate monitoring thread that continuously checks the responsiveness of the main thread. If the main thread remains unresponsive for a specified duration (default: 5 seconds), an ANR is reported. This is the default detection method.
+
+  Configuration options include:
+  - `timeout`: Time (in milliseconds) the main thread must be blocked before triggering an ANR report.
+  - `event`: A custom callback to be invoked instead of the default ANR handling.
+  - `debug`: Prevents ANR reporting while the app is running in debug mode.
+
+- **ApplicationExitInfo-based detection (`AnrType.ApplicationExit`)** - available on Android 12 (API level 31) and above. This method retrieves a list of historical process exit reasons using `ActivityManager.getHistoricalProcessExitReasons()` and reports any exits classified as ANRs.
+
+You can enable ANR detection with:
 
 ```java
-backtraceClient.enableAnr(timeout, event, debug);
+backtraceClient.enableAnr(AnrType.Threshold);
+// or
+backtraceClient.enableAnr(AnrType.ApplicationExit);
 ```
-
-You can also provide the following parameters as an argument:
-
-- `timeout`: Specifies how long (in milliseconds) the thread should be blocked before the ANR is reported.
-- `event`: Specifies an event, which will be executed instead of handling the ANR error by default.
-- `debug`: Does not report ANRs if the app is in debug mode.
 
 ## Offline Database Settings
 
