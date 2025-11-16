@@ -1857,7 +1857,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Sets your Sauce Labs username for a test.
 
-You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing)), this must be set in capabilities.
+You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication.
 
 :::tip
 You can find your `username` value under **Account** > **User Settings**.
@@ -1885,7 +1885,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Sets your Sauce Labs access key for the test.
 
-You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication.
 
 :::tip
 You can find your `accessKey` value under **Account** > **User Settings**.
@@ -2291,13 +2291,3 @@ Defines the number of seconds Sauce Labs will wait for your executable to finish
 ### Example Test Scripts
 
 See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
-
-### Visual Testing
-
-While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
-
-See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Commands and Options](/visual/e2e-testing/commands-options).
-
-:::caution Limitations
-When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.
-:::
