@@ -213,5 +213,5 @@ public class DemoAppiumTest {
 }
 ```
 
-***Note on Running the Example:*** For a complete, runnable example that includes all helper methods, please check out our [Java sample.](./samples/java/demo)
+***Note on Running the Example:*** For a complete, runnable example that includes all helper methods, please check out our [Java sample.](https://github.com/saucelabs/real-device-api/tree/main/samples/java/demo)
 To run the tests, navigate to the `samples/java/tests` directory and execute the command `mvn test`.
