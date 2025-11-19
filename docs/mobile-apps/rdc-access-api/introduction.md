@@ -26,7 +26,7 @@ Historically, accessing real devices meant depending on a specific framework lik
 2. **Live data (WebSockets):** Subscribe to the `AlternativeIO` socket for MJPEG video and the `Companion` socket for JSON logs/events while a session is active.
 3. **Device operations:** Call dedicated endpoints to install apps, run ADB shell commands, proxy HTTP traffic, or start a hosted Appium server—all from the same session.
 
-Need the full contract? Review the [Real Device Access API specification](https://docs.dev.saucelabs.net/pr-preview/pr-3312/real-device-access-api/).
+Need the full contract? Review the [Real Device Access API specification](/real-device-access-api).
 
 ## What You'll Need
 

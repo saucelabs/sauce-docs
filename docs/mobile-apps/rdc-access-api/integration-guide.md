@@ -48,7 +48,7 @@ Understanding how devices are labeled helps you target exactly what you need:
 
 The `deviceName` query parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that takes `deviceName`.
 
-> Need the full schema for these fields? See `Device` and `Session` definitions in the [OpenAPI spec](https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml).
+> Need the full schema for these fields? See `Device` and `Session` definitions in the [Access API spec](/real-device-access-api).
 
 ## Quick Start Examples
 
