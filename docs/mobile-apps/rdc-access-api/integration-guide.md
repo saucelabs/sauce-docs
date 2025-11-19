@@ -48,6 +48,8 @@ Understanding how devices are labeled helps you target exactly what you need:
 
 The `deviceName` query parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that takes `deviceName`.
 
+> Need the full schema for these fields? See `Device` and `Session` definitions in the [OpenAPI spec](https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml).
+
 ## Quick Start Examples
 
 ### Check Device Status
@@ -114,7 +116,7 @@ curl -X GET -u $AUTH \
 
 ### Create a Device Session
 Start a new session with a `POST` request to `/sessions`.
-> ***Note:*** The `deviceName` and `os` parameters are optional. If omitted, Sauce Labs selects an available device automatically.
+> ***Note:*** The `deviceName` and `os` parameters are optional. If omitted, Sauce Labs selects an available device automatically. You can also include the optional `configuration` object from the API spec to set `sessionDuration` (ISO-8601) or attach a Sauce Connect `tunnel`.
 
 #### Example
 ```shell
@@ -140,6 +142,13 @@ curl -X POST -u $AUTH \
   "error": null
 }
 ```
+
+### Session lifecycle cheat sheet
+
+1. `POST /sessions` → returns `id` and initial `state` (`PENDING` or `CREATING`).
+2. `GET /sessions/{id}` → poll until `state` becomes `ACTIVE`. Capture the links block: `ioWebsocketUrl`, `eventsWebsocketUrl`, optional `vusbUrl`, `appiumserver`, etc.
+3. Run your automations. Use other endpoints (install app, execute shell, HTTP proxy) against the same `sessionId`.
+4. `DELETE /sessions/{id}` → releases the device. Optionally add `?rebootDevice=true` for private devices.
 
 ### Manage Device Sessions
 Once a session is created, you can list your sessions, get details for a specific session, and close it when you are done.

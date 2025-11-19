@@ -44,7 +44,7 @@ Wait for the session to reach `ACTIVE`, then run:
 curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
 ```
 
-Copy the WebSocket URL in `links -> vusbUrl`.
+Copy the WebSocket URL in `links -> vusbUrl`. This is the `links.vusbUrl` field described in the API spec.
 
 #### 3. Establish an ADB proxy between your local machine and the remote device
 
@@ -86,7 +86,7 @@ The Access API exposes an HTTP proxy endpoint on the device. Appium expects WDA 
 * Converts outbound HTTPS to plain HTTP for Appium
 * Rewrites the path so the WDA endpoint appears at the root
 
-Any reverse proxy works; our reference script uses [Caddy](https://caddyserver.com/). Forward requests to:
+Any reverse proxy works; our reference script uses [Caddy](https://caddyserver.com/). Forward requests to the HTTP proxy path defined in the API spec:
 
 ```
 /sessions/{session_id}/device/proxy/http/localhost/8100

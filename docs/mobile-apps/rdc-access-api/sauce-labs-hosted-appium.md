@@ -15,7 +15,7 @@ For testers, time is a critical resource. This guide shows how to pair the Sauce
 4. Run tests back-to-back, performing any device prep you need between them.
 5. Close the session once, optionally rebooting the device for the next run.
 
-You can find the full code sample [below](sauce-labs-hosted-appium.md#how-it-looks-in-practice).
+You can find the full code sample [below](sauce-labs-hosted-appium.md#how-it-looks-in-practice). Endpoint names align with the [Access API spec](https://docs.dev.saucelabs.net/pr-preview/pr-3312/real-device-access-api/) under the `Session Lifecycle` and `Appium Server` tags.
 
 ## The Test-per-Session Model vs. The Suite-per-Session Model
 
