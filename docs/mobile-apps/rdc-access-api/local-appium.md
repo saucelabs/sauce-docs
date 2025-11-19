@@ -21,9 +21,9 @@ Appium requires a local ADB connection for Android devices and a WebDriverAgent 
 
 Use the session’s `vusbUrl` to bridge an ADB connection from the remote device to your local machine.
 
-### Example workflow
+### Example Workflow
 
-#### 1. Start a session
+#### 1. Start a Session
 ```shell
 curl -X POST -u $AUTH \
   -H "Content-Type: application/json" \
@@ -36,7 +36,7 @@ curl -X POST -u $AUTH \
 ```
 See the [Integration Guide](integration-guide.md#base-urls) for the `$BASE_URL` definition.
 
-#### 2. Get `vusbUrl` link
+#### 2. Get `vusbUrl` Link
 
 Wait for the session to reach `ACTIVE`, then run:
 
@@ -44,9 +44,9 @@ Wait for the session to reach `ACTIVE`, then run:
 curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
 ```
 
-Copy the WebSocket URL in `links -> vusbUrl`. This is the `links.vusbUrl` field described in the API spec.
+Copy the WebSocket URL in `links -> vusbUrl`. The API returns this value in the `links.vusbUrl` field described in the specification.
 
-#### 3. Establish an ADB proxy between your local machine and the remote device
+#### 3. Establish an ADB Proxy Between Your Local Machine and the Remote Device
 
 Use `websocat` to create a bridge between your local machine and the remote device. The `vusbUrl` encapsulates a binary ADB connection, so your local `adb` client can interact with the device as if it were plugged in.
 :::tip
@@ -57,9 +57,9 @@ For more information on using `websocat` and connecting to WebSockets, please re
 
 Expose the device’s WebDriverAgent (WDA) endpoint on a local port by using the Access API HTTP forward endpoints.
 
-### Example workflow
+### Example Workflow
 
-#### 1. Start a session
+#### 1. Start a Session
 ```shell
 curl -X POST -u $AUTH \
   -H "Content-Type: application/json" \
@@ -71,7 +71,7 @@ curl -X POST -u $AUTH \
   "$BASE_URL/sessions"
 ```
 
-#### 2. Wait for the session to be established
+#### 2. Wait for the Session to Be Established
 
 Confirm the session state is `ACTIVE`:
 
@@ -79,7 +79,7 @@ Confirm the session state is `ACTIVE`:
 curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
 ```
 
-#### 3. Forward the WDA port
+#### 3. Forward the WDA Port
 
 The Access API exposes an HTTP proxy endpoint on the device. Appium expects WDA on `localhost`, so run a local reverse proxy that:
 * Adds the Access API basic auth headers
@@ -122,7 +122,7 @@ Set the following environment variables:
 1. **Start an Access API session:** Use the `curl` commands above or a REST client to create a session.
 2. **Wait for activation:** Poll the session endpoint until the state becomes `ACTIVE`.
 3. **Save the script:** Copy [The Script](#the-script) content into `api-connect.sh`.
-4. **Execute the script:** Provide your `sessionId`:
+4. **Run the script:** Provide your `sessionId`:
 ```shell
 ./api-connect.sh <sessionId>
 ```
@@ -133,7 +133,7 @@ Depending on the device OS, the script will:
 - **iOS:** Start a local Caddy proxy that forwards WebDriverAgent to `localhost:8100`.
 
 ### The Script
-Save the following content to a file named `api-connect.sh` and make it executable (`chmod +x api-connect.sh`).
+Save the following content to a file named `api-connect.sh` and mark it as runnable (`chmod +x api-connect.sh`).
 
 ```shell
 #!/bin/bash
@@ -251,7 +251,7 @@ handle_android() {
     echo "websocat started with PID: $websocat_pid on port $ADB_PORT"
 
     adb connect localhost:$ADB_PORT
-    echo "ADB connected! You can start your appium server with 'appium --allow-insecure chromedriver_autodownload'"
+    echo "ADB connected! You can start your Appium server with 'appium --allow-insecure chromedriver_autodownload'"
 
     # Display example capabilities for the user
     cat <<EOF
@@ -345,7 +345,7 @@ quit() {
     exit "$exit_code"
 }
 
-# --- Main Script Execution ---
+# --- Main Script Flow ---
 
 SESSION="$1"
 

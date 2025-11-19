@@ -29,11 +29,11 @@ Think about a traditional Appium test run. For every single test, you typically 
 5. Tear down the session and release the device.
 6. Repeat for every test in your suite.
 
-This cycle means a lot of your pipeline's time is spent on repetitive setup and teardown, not on executing tests.
+This cycle means a lot of your pipeline's time is spent on repetitive setup and teardown, not on running tests.
 
 **The Access API Session Model (Suite-per-Session):**
 
-***The Access API session model transforms this workflow.*** Reserve a device once for the entire suite, keep Appium running, and execute every test against that persistent session.
+***The Access API session model transforms this workflow.*** Reserve a device once for the entire suite, keep Appium running, and run every test against that persistent session.
 
 1. Start a device session.
 2. Start the Appium server once.
@@ -45,7 +45,7 @@ This cycle means a lot of your pipeline's time is spent on repetitive setup and 
 
 ## Core Value for Testers: Speed, Control, and Efficiency
 
-### Accelerate Your Test Suite Execution
+### Accelerate Your Test Suite Run Time
 By paying the “startup cost” of reserving a device and launching Appium only once, the rest of your tests run immediately.
 
 * ***Eliminate redundant waits:*** No more waiting for a new device for each test—the device stays assigned to you.
@@ -64,7 +64,7 @@ you are orchestrating the device's state to create more powerful and realistic t
 
 ### Centralizing Session Management
 
-Running an entire suite on one device session introduces a lifecycle to manage. The recommended pattern—demonstrated below—is to centralize the session/Appium setup inside a suite-level hook (e.g., JUnit 5 `@BeforeAll`).
+Running an entire suite on one device session introduces a lifecycle to manage. The recommended pattern—demonstrated below—is to centralize the session/Appium setup inside a suite-level hook (for example, JUnit 5 `@BeforeAll`).
 
 This isolates infrastructure concerns (reserving the device, starting Appium, cleaning up) from test logic so each `@Test` can assume an existing session.
 
@@ -127,7 +127,7 @@ public class DemoAppiumTest {
 
   @Test
   public void first_test() {
-    System.out.println("Executing first test");
+    System.out.println("Running first test");
     var capabilities = new MutableCapabilities();
     var driver = new AndroidDriver(appiumUrl, capabilities);
 
@@ -142,7 +142,7 @@ public class DemoAppiumTest {
 
   @Test
   public void second_test() {
-    System.out.println("Executing second test");
+    System.out.println("Running second test");
     var capabilities = new MutableCapabilities();
     var driver = new AndroidDriver(appiumUrl, capabilities);
 
@@ -208,4 +208,4 @@ public class DemoAppiumTest {
 ```
 
 ***Note on Running the Example:*** For a complete, runnable example that includes all helper methods, please check out our [Java sample.](https://github.com/saucelabs/real-device-api/tree/main/samples/java/demo)
-To run the tests, navigate to the `samples/java/tests` directory and execute the command `mvn test`.
+To run the tests, navigate to the `samples/java/tests` directory and run the command `mvn test`.

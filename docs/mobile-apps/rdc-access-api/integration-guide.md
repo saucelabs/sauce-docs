@@ -43,8 +43,8 @@ curl -u $AUTH "$BASE_URL/devices/status"
 ## Device Identification and Filtering
 Understanding how devices are labeled helps you target exactly what you need:
 
-- `descriptor`: Static identifier (e.g., `iPhone_13_real`) consistent across the API.
-- `deviceName`: Descriptive label you see in the UI (e.g., `iPhone 13 real private`).
+- `descriptor`: Static identifier (for example, `iPhone_13_real`) consistent across the API.
+- `deviceName`: Descriptive label you see in the UI (for example, `iPhone 13 real private`).
 
 The `deviceName` query parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that takes `deviceName`.
 
@@ -67,7 +67,7 @@ The `/devices/status` endpoint supports the following query parameters:
 
 - `state`: Filter by device state (`AVAILABLE`, `IN_USE`, `CLEANING`, `REBOOTING`, `MAINTENANCE`, `OFFLINE`).
 - `privateOnly`: Set to `true` to show only your account's private devices.
-- `deviceName`: Filter by descriptor or friendly name. Accepts regular expressions (e.g., `iPhone.*`).
+- `deviceName`: Filter by descriptor or friendly name. Accepts regular expressions (for example, `iPhone.*`).
 
 #### Examples:
 ```shell
@@ -81,7 +81,7 @@ curl -X GET -u $AUTH "$BASE_URL/devices/status?state=AVAILABLE"
 curl -X GET -u $AUTH \
   "$BASE_URL/devices/status?privateOnly=true"
 
-# Filter by device identifier (supports regex patterns)
+# Filter by device identifier (supports regular expression patterns)
 curl -X GET -u $AUTH \
   "$BASE_URL/devices/status?deviceName=iPhone.*"
 
@@ -143,11 +143,11 @@ curl -X POST -u $AUTH \
 }
 ```
 
-### Session lifecycle cheat sheet
+### Session Lifecycle Cheat Sheet
 
 1. `POST /sessions` → returns `id` and initial `state` (`PENDING` or `CREATING`).
 2. `GET /sessions/{id}` → poll until `state` becomes `ACTIVE`. Capture the links block: `ioWebsocketUrl`, `eventsWebsocketUrl`, optional `vusbUrl`, `appiumserver`, etc.
-3. Run your automations. Use other endpoints (install app, execute shell, HTTP proxy) against the same `sessionId`.
+3. Run your automations. Use other endpoints (install apps, run shell commands, use the HTTP proxy) against the same `sessionId`.
 4. `DELETE /sessions/{id}` → releases the device. Optionally add `?rebootDevice=true` for private devices.
 
 ### Manage Device Sessions
@@ -160,7 +160,7 @@ Filter sessions by `state` and `deviceName`.
 The `/sessions` endpoint supports:
 
 - `state`: Session lifecycle state (`PENDING`, `CREATING`, `ACTIVE`, `CLOSING`, `CLOSED`, `ERRORED`).
-- `deviceName`: Specific descriptor or regex (e.g., `iPhone_16_real`, `Samsung.*`).
+- `deviceName`: Specific descriptor or regular expression (for example, `iPhone_16_real` or `Samsung.*`).
 
 Combine both filters to surface, for example, all `ACTIVE` sessions on a private device.
 
@@ -288,7 +288,7 @@ Connect to a WebSocket to receive real-time logs and events from an active sessi
 - The `eventsWebsocketUrl` from the session details response.
 - A WebSocket client tool like `websocat` or `wscat`.
 
-#### Live Streaming with websocat (Recommended)
+#### Live Streaming with Websocat (Recommended)
 `websocat` is a versatile command-line WebSocket client.
 
 ##### Installation:
@@ -316,7 +316,7 @@ echo "Auth token: $AUTH_TOKEN"
 websocat -H="Authorization: Basic $AUTH_TOKEN" "wss://api.${DATA_CENTER}.saucelabs.com/rdc/v2/socket/companion/${SESSION_ID}"
 ```
 
-#### Alternative Tool: wscat (Node.js)
+#### Alternative Tool: Wscat (Node.js)
 If you have Node.js installed, you can use `wscat`.
 
 ##### Installation:
