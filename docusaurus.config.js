@@ -186,6 +186,8 @@ const docusaurusConfig = {
                 configuration: {
                     hideClientButton: true,
                     hideTestRequestButton: true,
+                    hideSearch: true,
+                    defaultOpenAllTags: true,
                     layout: 'classic',
                     sources: [
                         {
