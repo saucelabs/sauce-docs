@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The `coroner` client tool enables you to submit snapshot files (.btt files) to the object store (coronerd). To perform command-line querying of the Backtrace object store, use the [morgue tool](https://documentation.backtrace.io/product_product_morgue/) instead.
+The `coroner` client tool enables you to submit snapshot files (.btt files) to the object store (coronerd). To perform command-line querying of the Backtrace object store, use the [morgue tool](/error-reporting/advanced/morgue/) instead.
 
 ## Configuration
 
@@ -34,7 +34,7 @@ Below are some example configurations for coroner for common scenarios:
 
 ### Configuration Using CA-Trusted Certificates
 
-For server-side configuration with CA-trusted certificates, refer to: [Database Install with CA-Trusted Certificates](https://documentation.backtrace.io/coronerd_install#ca-trusted-certificates).
+For server-side configuration with CA-trusted certificates, refer to: [Database Install with CA-Trusted Certificates](/error-reporting/advanced/coroner/server-installation/#ca-trusted-certificates).
 
 ```bash
 [universe]
@@ -53,7 +53,7 @@ read.ssl.method = TLSv12
 
 ### Configuration Using Self-Signed Certificates
 
-For server-side configuration with self-signed certificates, refer to: [Database Install with Self-Signed Certificates](https://documentation.backtrace.io/coronerd_install#self-signed-certificates).
+For server-side configuration with self-signed certificates, refer to: [Database Install with Self-Signed Certificates](/error-reporting/advanced/coroner/server-installation/#self-signed-certificates).
 
 ```bash
 [universe]
@@ -74,7 +74,7 @@ curl.ssl_verifypeer = false
 
 ### Configuration for Unsecured Communications
 
-For server-side configuration with no SSL/TLS, refer to: [Database Install with No SSL/TLS](https://documentation.backtrace.io/coronerd_install#no-ssltls).
+For server-side configuration with no SSL/TLS, refer to: [Database Install with No SSL/TLS](/error-reporting/advanced/coroner/server-advanced/#disable-ssl).
 
 ```bash
 [universe]
