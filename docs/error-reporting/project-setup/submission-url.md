@@ -32,4 +32,4 @@ A breakdown of each capability can be found in our Error Reporting [API document
 
 ## Creating Submission URLs
 
-Examples of the Submission URLs can be found in our Error Reporting [API documentation](/dev/api/error-reporting/#api-tokens)
+Examples of the Submission URLs can be found in our Error Reporting [API documentation](/dev/api/error-reporting/#accessing-the-apis)
