@@ -1,17 +1,26 @@
 ---
 id: real-device-access-api-integration-guide
-title:  RDC Access API Integration Guide
+title: RDC Access API Integration Guide
 sidebar_label: Integration Guide
 ---
 
 # Sauce Labs Real Device Access API
 
-Sauce Labs Real Device API v2 allows you to programmatically interact with real mobile devices in the Sauce Labs cloud
-for your testing purposes. This guide provides the information you need to get started with checking device status,
-creating and managing test sessions, and streaming logs.
+Sauce Labs Real Device Access API v2 lets you programmatically interact with real mobile devices in the Sauce Labs cloud for functional testing, debugging, and observability.
+This guide walks you through the essentials—checking device status, creating sessions, managing them, and streaming live logs—so you can get productive quickly.
+
+## Five-Minute Onboarding Checklist
+
+1. **Choose your data center** (US West, EU Central, or US East) and export `BASE_URL`.
+2. **Grab your credentials** from Sauce Labs User Settings and export `SAUCE_USERNAME`/`SAUCE_ACCESS_KEY`.
+3. **Verify access** by listing devices with `curl -u $AUTH "$BASE_URL/devices/status"`.
+4. **Create a session** with `POST /sessions` and wait for the `ACTIVE` state.
+5. **Attach tooling**: connect via WebSockets for logs or start Appium (local or hosted) using the session details.
+
+Each step is expanded in the sections below with copy‑and‑paste snippets.
 
 ## Base URLs
-Sauce Labs offers three production environments for the Real Device Cloud (RDC) API v2. Please use the base URL that corresponds to your account's data center:
+Sauce Labs offers three production environments for the Real Device Cloud (RDC) API v2. Use the base URL that matches your account's data center:
 * US West: https://api.us-west-1.saucelabs.com/rdc/v2/
 * EU Central: https://api.eu-central-1.saucelabs.com/rdc/v2/
 * US East: https://api.us-east-4.saucelabs.com/rdc/v2/
@@ -21,26 +30,23 @@ export BASE_URL="https://api.us-west-1.saucelabs.com/rdc/v2"
 export AUTH="{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}"
 ```
 
-In the examples below, we will use `$BASE_URL` and `$AUTH` as a placeholder.
+In the examples below, `$BASE_URL` and `$AUTH` act as placeholders.
 
 ## Authentication
-The API uses Basic Authentication. You will need your Sauce Labs username and access key to make requests.
-You can find these in the `Account -> User Settings` section of the Sauce Labs UI.
+The API uses Basic Authentication. Retrieve your Sauce Labs username and access key from **Account → User Settings**.
 
-All examples use curl and expect you to replace `YOUR_USERNAME` and `YOUR_ACCESS_KEY` with your credentials.
+All examples use `curl` and expect you to set `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` (or inline `YOUR_USERNAME:YOUR_ACCESS_KEY`).
 ```shell
 curl -u $AUTH "$BASE_URL/devices/status"
 ```
 
 ## Device Identification and Filtering
-A key concept in the Real Device API is how devices are identified and filtered. When you query for devices or request a device for a session, you will interact with two primary fields:
+Understanding how devices are labeled helps you target exactly what you need:
 
-- `descriptor`: A static identifier for a device (e.g., `iPhone_13_real`). This is consistent across the Real Device API
-- `deviceName`: A more descriptive, user-friendly name (e.g., `iPhone 13 real private`)
+- `descriptor`: Static identifier (e.g., `iPhone_13_real`) consistent across the API.
+- `deviceName`: Descriptive label you see in the UI (e.g., `iPhone 13 real private`).
 
-When you use the `deviceName` query parameter in an API request, you are not just filtering on the `deviceName` field. Instead, this parameter accepts either a specific device ID or a regular expression and applies the filter to both the `descriptor` and `deviceName` fields.
-
-This is the standard behavior for all endpoints that accept a `deviceName` parameter.
+The `deviceName` query parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that takes `deviceName`.
 
 ## Quick Start Examples
 
@@ -55,11 +61,11 @@ curl -X GET \
 ```
 
 #### Device Filtering Options
-The `/devices/status` endpoint supports the following query parameters for filtering:
+The `/devices/status` endpoint supports the following query parameters:
 
-- `state`: Filter by device state. Possible values: `AVAILABLE`, `IN_USE`, `CLEANING`, `REBOOTING`, `MAINTENANCE`, `OFFLINE`.
+- `state`: Filter by device state (`AVAILABLE`, `IN_USE`, `CLEANING`, `REBOOTING`, `MAINTENANCE`, `OFFLINE`).
 - `privateOnly`: Set to `true` to show only your account's private devices.
-- `deviceName`:  Filter by a device identifier. This field supports regular expressions (e.g., `iPhone.*`) and matches against both the device `descriptor` and `deviceName` fields.
+- `deviceName`: Filter by descriptor or friendly name. Accepts regular expressions (e.g., `iPhone.*`).
 
 #### Examples:
 ```shell
@@ -107,8 +113,8 @@ curl -X GET -u $AUTH \
 ```
 
 ### Create a Device Session
-To start a new testing session, you need to make a `POST` request to the `/sessions` endpoint.
-> ***Note:*** The `deviceName` and `os` parameters in the request body are optional. If they are omitted, Sauce Labs will automatically select an available device for your session.
+Start a new session with a `POST` request to `/sessions`.
+> ***Note:*** The `deviceName` and `os` parameters are optional. If omitted, Sauce Labs selects an available device automatically.
 
 #### Example
 ```shell
@@ -139,22 +145,15 @@ curl -X POST -u $AUTH \
 Once a session is created, you can list your sessions, get details for a specific session, and close it when you are done.
 
 #### List All Sessions
-You can filter sessions by `state` and `deviceName.`
+Filter sessions by `state` and `deviceName`.
 
 ##### Session Filtering Options
-The `/sessions` endpoint supports the following filters:
+The `/sessions` endpoint supports:
 
-- `state`: Filter by session state
-    * `PENDING` - Session is waiting to be created
-    * `CREATING` - Session is being set up
-    * `ACTIVE` - Session is ready for interaction
-    * `CLOSING` - Session is being terminated
-    * `CLOSED` - Session has ended
-    * `ERRORED` - Session encountered an error
+- `state`: Session lifecycle state (`PENDING`, `CREATING`, `ACTIVE`, `CLOSING`, `CLOSED`, `ERRORED`).
+- `deviceName`: Specific descriptor or regex (e.g., `iPhone_16_real`, `Samsung.*`).
 
-- `deviceName`: Filter by specific device identifier (e.g., `iPhone_16_real`, `Samsung_Galaxy_S21_real`, `iPhone.*`, `Samsung.*`)
-
-You can combine both filters to get more specific results, such as finding all active sessions on a particular device.
+Combine both filters to surface, for example, all `ACTIVE` sessions on a private device.
 
 ##### Examples
 ```shell
@@ -232,12 +231,10 @@ curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
 Terminate a device session and release the device. When you close a session, its state will transition from `ACTIVE` → `CLOSING` → `CLOSED`.
 
 ##### Session Closure Options
-The session closure endpoint provides flexible termination options:
+- **Basic closure** (default): terminate the session, clean the device, return it to the device pool marked as AVAILABLE.
+- **Reboot option** (private devices only): perform the standard cleanup and then reboot to guarantee a pristine state.
 
-- Basic Closure: This is the default behavior. The session is terminated, and a standard cleaning process is executed on the device. Once the cleaning process is complete, the device is marked as AVAILABLE and returned to the device pool.
-- Reboot Option: **Available only for private devices**, The session is terminated, the standard cleaning process is executed, and finally, the device is rebooted. This ensures the device is in a pristine state before being returned to the pool.
-
-***Note:*** The `rebootDevice` parameter only works with private devices. Public/shared devices cannot be rebooted through the API.
+***Note:*** The `rebootDevice` parameter has no effect on public/shared devices.
 
 ##### Examples
 ```shell
@@ -251,7 +248,7 @@ curl -X DELETE -u $AUTH \
 ```
 
 ##### Example Response
-```yaml
+```json
 {
   "id": "f64b3cc1-7c56-42b5-bb59-d31711337ce9",
   "state": "CLOSING",
@@ -275,7 +272,7 @@ curl -X DELETE -u $AUTH \
 ```
 
 ### WebSocket for Live Event Streaming
-You can connect to a WebSocket to receive real-time logs and events from an active session.
+Connect to a WebSocket to receive real-time logs and events from an active session.
 
 ***Prerequisites:***
 - Active device session (state must be `ACTIVE`)
@@ -283,7 +280,7 @@ You can connect to a WebSocket to receive real-time logs and events from an acti
 - A WebSocket client tool like `websocat` or `wscat`.
 
 #### Live Streaming with websocat (Recommended)
-`websocat` is a versatile command-line client for WebSockets.
+`websocat` is a versatile command-line WebSocket client.
 
 ##### Installation:
 ```shell
@@ -332,6 +329,6 @@ AUTH_TOKEN=$(echo -n $AUTH | base64)
 echo "Auth token: $AUTH_TOKEN"
 
 # Connect to the WebSocket
-wscat -c "wss://api.${DATA_CENTER}.saucelabs.net/rdc/v2/socket/companion/$SESSION_ID" \
+wscat -c "wss://api.${DATA_CENTER}.saucelabs.com/rdc/v2/socket/companion/$SESSION_ID" \
   -H "Authorization: Basic $AUTH_TOKEN"
 ```

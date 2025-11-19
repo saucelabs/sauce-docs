@@ -5,17 +5,21 @@ sidebar_label: Local Appium
 ---
 
 # Introduction
-Although we encourage using [our hosted Appium solution](/mobile-apps/automated-testing/appium/), for some use cases, it can be beneficial 
-to run Appium locally. This guide is a sample on how to connect a local Appium server to our remote Android and iOS devices.
+Although we encourage using [our hosted Appium solution](/mobile-apps/automated-testing/appium/), certain scenarios benefit from running Appium locally—for example, custom plugins, in-depth debugging, or networking requirements. This guide shows how to connect a local Appium server to Sauce Labs Android and iOS devices through the RDC Access API.
 
-# Technical specification
+## Prerequisites
+- RDC Access API enabled for your account (see the [Integration Guide](integration-guide.md)).
+- `curl` and `jq` installed locally.
+- Android workflows: `websocat` and `adb`.
+- iOS workflows: Docker (used for the reference Caddy proxy).
 
-Appium requires a local ADB connection for Android devices and a WebDriverAgent (WDA) forward for iOS.
+## Technical Specification
+
+Appium requires a local ADB connection for Android devices and a WebDriverAgent (WDA) tunnel for iOS.
 
 ## Android
 
-To get a local ADB connection, you must start an Access API session and use the returned `vusbUrl` to forward the ADB connection from the 
-device to your local machine.
+Use the session’s `vusbUrl` to bridge an ADB connection from the remote device to your local machine.
 
 ### Example workflow
 
@@ -30,29 +34,28 @@ curl -X POST -u $AUTH \
   }' \
   "$BASE_URL/sessions"
 ```
-See [Integration Guide](integration-guide.md#base-urls) for `$BASE_URL` definition.
+See the [Integration Guide](integration-guide.md#base-urls) for the `$BASE_URL` definition.
 
 #### 2. Get `vusbUrl` link
 
-Wait for the session to stabilize, then:
+Wait for the session to reach `ACTIVE`, then run:
 
 ```shell
 curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
 ```
 
-Fetch the websocket URL in `links -> vusbUrl`
+Copy the WebSocket URL in `links -> vusbUrl`.
 
-#### 3. Establish an adb proxy between your local machine and our remote device
+#### 3. Establish an ADB proxy between your local machine and the remote device
 
-Use a tool like `websocat` to create a bridge between your local machine and the remote device. The `vusbUrl` encapsulates a binary ADB connection.
+Use `websocat` to create a bridge between your local machine and the remote device. The `vusbUrl` encapsulates a binary ADB connection, so your local `adb` client can interact with the device as if it were plugged in.
 :::tip
 For more information on using `websocat` and connecting to WebSockets, please refer to the [Integration Guide](integration-guide.md#websocket-for-live-event-streaming).
 :::
 
 ## iOS
 
-For iOS, our solution consists of mounting the endpoint of the WebDriverAgent running on the device on a local port. 
-This is possible by leveraging the HTTP forward endpoints in the OpenAPI.
+Expose the device’s WebDriverAgent (WDA) endpoint on a local port by using the Access API HTTP forward endpoints.
 
 ### Example workflow
 
@@ -70,7 +73,7 @@ curl -X POST -u $AUTH \
 
 #### 2. Wait for the session to be established
 
-Check the state is `ACTIVE` in
+Confirm the session state is `ACTIVE`:
 
 ```shell
 curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
@@ -78,22 +81,20 @@ curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
 
 #### 3. Forward the WDA port
 
-Our Access API solution exposes an HTTP proxy endpoint running on the device. Appium needs a WDA server listening on the localhost interface
-to connect with it using the HTTP protocol. To achieve this, we run locally a reverse proxy to our HTTP proxy endpoint that:
-* Handles the basic auth in Access API
-* Converts the SSL-encrypted HTTPS messages to plain HTTP
-* Rewrites the request path so that the WDA endpoint is exposed in the root path
+The Access API exposes an HTTP proxy endpoint on the device. Appium expects WDA on `localhost`, so run a local reverse proxy that:
+* Adds the Access API basic auth headers
+* Converts outbound HTTPS to plain HTTP for Appium
+* Rewrites the path so the WDA endpoint appears at the root
 
-There are several tools to achieve this. Our reference implementation script uses [Caddy](https://caddyserver.com/). The endpoint that 
-the HTTP calls need to be forwarded to is:
+Any reverse proxy works; our reference script uses [Caddy](https://caddyserver.com/). Forward requests to:
 
 ```
 /sessions/{session_id}/device/proxy/http/localhost/8100
 ```
 
-## Reference Script (api-connect.sh)
+## Reference Script (`api-connect.sh`)
 
-We have prepared a reference script, `api-connect.sh`, to automate the connection process for both Android and iOS.
+Use `api-connect.sh` to automate the setup for both Android and iOS.
 
 ### Requirements
 
@@ -107,30 +108,29 @@ For the script to run correctly, you'll need the following tools installed local
 
 ### Environment Variables
 
-You'll need the following environment variables set:
+Set the following environment variables:
 
-* `SAUCE_USERNAME`: Your SauceLabs user.
-* `SAUCE_ACCESS_KEY`: Your SauceLabs api access key.
-* `SAUCE_API_URL`: The Access API URL. Depending on the environment, it can be one of
+* `SAUCE_USERNAME`: Your Sauce Labs username.
+* `SAUCE_ACCESS_KEY`: Your Sauce Labs API access key.
+* `SAUCE_API_URL`: One of:
     * https://api.us-west-1.saucelabs.com
     * https://api.eu-central-1.saucelabs.com
     * https://api.us-east-4.saucelabs.com
-### Usage 
-Follow these steps to establish a local connection to a remote device:
 
-1. Start an Access API Session: Use the `curl` command (shown in the Technical Specification sections above) or a tool like Postman to create a new session.
-2. Wait for Activation: Ensure the session state transitions to `ACTIVE`. You can verify this by polling the session details endpoint.
-3. Save the Script: Copy the code from [The Script](#the-script) section below and save it to a file named `api-connect.sh`.
-4. Run the Script: Execute the script with your `sessionId` as an argument:
+### Usage 
+
+1. **Start an Access API session:** Use the `curl` commands above or a REST client to create a session.
+2. **Wait for activation:** Poll the session endpoint until the state becomes `ACTIVE`.
+3. **Save the script:** Copy [The Script](#the-script) content into `api-connect.sh`.
+4. **Execute the script:** Provide your `sessionId`:
 ```shell
 ./api-connect.sh <sessionId>
 ```
 
 Depending on the device OS, the script will:
 
-- Android: Forward the ADB connection to local port 50371.
-
-- iOS: Start a local Caddy proxy forwarding the WebDriverAgent to local port 8100.
+- **Android:** Forward the ADB connection to `localhost:50371`.
+- **iOS:** Start a local Caddy proxy that forwards WebDriverAgent to `localhost:8100`.
 
 ### The Script
 Save the following content to a file named `api-connect.sh` and make it executable (`chmod +x api-connect.sh`).
