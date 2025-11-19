@@ -701,19 +701,12 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Real Device',
-                    collapsed: true,
+                    collapsed: false,
                     items: [
-                        {
-                            type: 'category',
-                            label: 'Access API v2',
-                            collapsed: false,
-                            items: [
-                                'dev/api/rdc-access-api/real-device-access-api-introduction',
-                                'dev/api/rdc-access-api/real-device-access-api-integration-guide',
-                                'dev/api/rdc-access-api/real-device-access-api-local-appium',
-                                'dev/api/rdc-access-api/real-device-access-api-sauce-hosted-appium',
-                            ],
-                        },
+                        'dev/api/rdc-access-api/real-device-access-api-introduction',
+                        'dev/api/rdc-access-api/real-device-access-api-integration-guide',
+                        'dev/api/rdc-access-api/real-device-access-api-local-appium',
+                        'dev/api/rdc-access-api/real-device-access-api-sauce-hosted-appium',
                         'dev/api/rdc',
                     ],
                 },
