@@ -50,7 +50,7 @@ Copy the WebSocket URL in `links -> vusbUrl`. The API returns this value in the 
 
 Use `websocat` to create a bridge between your local machine and the remote device. The `vusbUrl` encapsulates a binary ADB connection, so your local `adb` client can interact with the device as if it were plugged in.
 :::tip
-For more information on using `websocat` and connecting to WebSockets, please refer to the [Integration Guide](integration-guide.md#websocket-for-live-event-streaming).
+For more information on using `websocat` and connecting to WebSockets, refer to the [Integration Guide](integration-guide.md#websocket-for-live-event-streaming).
 :::
 
 ## iOS
@@ -117,7 +117,7 @@ Set the following environment variables:
     * https://api.eu-central-1.saucelabs.com
     * https://api.us-east-4.saucelabs.com
 
-### Usage 
+### Usage
 
 1. **Start an Access API session:** Use the `curl` commands above or a REST client to create a session.
 2. **Wait for activation:** Poll the session endpoint until the state becomes `ACTIVE`.
@@ -208,7 +208,7 @@ check_dependency() {
 
 
     if ! command -v $1 &> /dev/null
-    then 
+    then
     printf "%s\n\n" "$PACKAGE not installed in the system, please install before using $0"
     fi
 }
@@ -247,7 +247,7 @@ handle_android() {
 
     websocat_pid=$!
     sleep 1
-    
+
     echo "websocat started with PID: $websocat_pid on port $ADB_PORT"
 
     adb connect localhost:$ADB_PORT
@@ -255,8 +255,8 @@ handle_android() {
 
     # Display example capabilities for the user
     cat <<EOF
-Example capabilities: 
-{ 
+Example capabilities:
+{
   "platformName": "Android",
   "browserName": "Chrome",
   "appium:automationName": "UiAutomator2",
@@ -301,7 +301,7 @@ EOF
     echo "Caddy container started with ID: $CADDY_CONTAINER_ID"
 
         cat <<EOF
-Example capabilities: 
+Example capabilities:
 {
   "platformName": "iOS",
   "appium:automationName": "XCUITest",
@@ -311,7 +311,7 @@ Example capabilities:
   "appium:webDriverAgentUrl": "http://localhost:$WDA_PORT"
 }
 EOF
-    
+
 }
 
 quit() {
@@ -382,12 +382,12 @@ os=$(echo $RESPONSE|jq -r '.device.os')
 
 if [ "$os" == "ANDROID" ]; then
     echo "Platform: ANDROID"
-    wss_endpoint=$(echo $RESPONSE|jq -r '.links.vusbUrl') 
-    session_id=$(echo $RESPONSE|jq -r '.id') 
+    wss_endpoint=$(echo $RESPONSE|jq -r '.links.vusbUrl')
+    session_id=$(echo $RESPONSE|jq -r '.id')
     handle_android $wss_endpoint $session_id
 else
     echo "Platform: IOS"
-    session_id=$(echo $RESPONSE|jq -r '.id') 
+    session_id=$(echo $RESPONSE|jq -r '.id')
     handle_ios $session_id
 fi
 

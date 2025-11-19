@@ -17,7 +17,7 @@ For testers, time is a critical resource. This guide shows how to pair the Sauce
 
 You can find the full code sample [below](sauce-labs-hosted-appium.md#how-it-looks-in-practice). Endpoint names align with the [Access API spec](https://docs.dev.saucelabs.net/pr-preview/pr-3312/real-device-access-api/) under the `Session Lifecycle` and `Appium Server` tags.
 
-## The Test-per-Session Model vs. The Suite-per-Session Model
+## The Test-per-Session Model vs The Suite-per-Session Model
 
 Think about a traditional Appium test run. For every single test, you typically have to:
 
@@ -207,5 +207,5 @@ public class DemoAppiumTest {
 }
 ```
 
-***Note on Running the Example:*** For a complete, runnable example that includes all helper methods, please check out our [Java sample.](https://github.com/saucelabs/real-device-api/tree/main/samples/java/demo)
+***Note on Running the Example:*** For a complete, runnable example that includes all helper methods, check out our [Java sample.](https://github.com/saucelabs/real-device-api/tree/main/samples/java/demo)
 To run the tests, navigate to the `samples/java/tests` directory and run the command `mvn test`.
