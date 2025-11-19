@@ -706,12 +706,12 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Access API v2',
-                            collapsed: true,
+                            collapsed: false,
                             items: [
-                                'mobile-apps/rdc-access-api/real-device-access-api-introduction',
-                                'mobile-apps/rdc-access-api/real-device-access-api-integration-guide',
-                                'mobile-apps/rdc-access-api/real-device-access-api-local-appium',
-                                'mobile-apps/rdc-access-api/real-device-access-api-sauce-hosted-appium',
+                                'dev/api/rdc-access-api/real-device-access-api-introduction',
+                                'dev/api/rdc-access-api/real-device-access-api-integration-guide',
+                                'dev/api/rdc-access-api/real-device-access-api-local-appium',
+                                'dev/api/rdc-access-api/real-device-access-api-sauce-hosted-appium',
                             ],
                         },
                         'dev/api/rdc',
