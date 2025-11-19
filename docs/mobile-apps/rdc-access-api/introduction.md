@@ -1,6 +1,6 @@
 ---
 id: real-device-access-api-introduction
-title: Real Device Access API
+title: Real Device Access API v2
 sidebar_label: Introduction
 ---
 <p><span className="sauceGreen">Open Beta</span></p>
@@ -10,7 +10,8 @@ sidebar_label: Introduction
 Access is available for customers with **Private Devices** only. The API specification is subject to change as we refine the product.
 :::
 
-The **Real Device Access API** is your direct doorway to Sauce Labs’ private device fleet. Instead of wiring every workflow through Appium or Espresso, you reserve a device once, interact with it over HTTP/WebSockets, and decide how to drive automation, debugging, or observability.
+The **Real Device Access API** is your direct doorway to Sauce Labs’ private device fleet. 
+Instead of wiring every workflow through Appium, Espresso and XCTest, you reserve a device once, interact with it over HTTP/WebSockets, and decide how to drive automation, debugging, or observability.
 
 Historically, accessing real devices meant depending on a specific framework like Appium, XCTest, XCUITest, or Espresso. The Access API removes that dependency by exposing our infrastructure through standard protocols so you can build your own testing, validation, or monitoring solutions—without running a physical lab.
 
