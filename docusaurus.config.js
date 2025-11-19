@@ -53,6 +53,7 @@ const docusaurusConfig = {
         },
     ],
     scripts: [
+        '/scripts/hide.js',
         // Need Help? button
         {
             src: 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js',
