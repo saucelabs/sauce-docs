@@ -1438,6 +1438,7 @@ module.exports = {
                         },
                     ],
                 },
+                'web-apps/macos-apple-silicon',
                 'web-apps/automated-testing/web-automated-faq',
             ],
         },
@@ -1635,11 +1636,6 @@ module.exports = {
                 'dev/test-configuration-options',
                 'dev/error-messages',
                 'dev/w3c-webdriver-capabilities',
-                {
-                    type: 'link',
-                    label: 'Visual E2E Testing', // The label that should be displayed (string).
-                    href: '/visual/e2e-testing/commands-options', // The target URL (string).
-                },
                 'dev/data-center-maint',
                 'dev/glossary',
             ],
