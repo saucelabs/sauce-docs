@@ -252,7 +252,7 @@ This APIs below are intended for hosted Backtrace instances. If you are an on-pr
       <td>
         <p><small>| BODY | REQUIRED | STRING |</small></p>
         <p>
-          The error data file (minidump or core dump) containing the crash
+          The error data file containing the crash
           information.
         </p>
       </td>
