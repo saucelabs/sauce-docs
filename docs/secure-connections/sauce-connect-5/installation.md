@@ -4,7 +4,7 @@ title: Install Sauce Connect
 sidebar_label: Installation
 ---
 
-### Installation Instructions (recommended)
+### Recommended Installation Instructions
 
 Visit the following pages for installation instructions for your platform:
 - **[Linux](/secure-connections/sauce-connect-5/installation/linux)**
@@ -15,9 +15,9 @@ Visit the following pages for installation instructions for your platform:
 
 ### Download Links
 
-If you prefer to do custom installation, you can download Sauce Connect binaries from the following links.
+If you prefer to perform a custom installation, you can download the Sauce Connect binaries from the following links.
 
-SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-connect/5.3.1/checksums).
+SHA256 checksums are available [on this page](https://saucelabs.com/downloads/sauce-connect/5.3.1/checksums).
 
 <table>
   <tr>
