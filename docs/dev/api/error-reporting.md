@@ -211,7 +211,7 @@ This APIs below are intended for hosted Backtrace instances. If you are an on-pr
 <summary><span className="api post">POST</span> <code>https&#58;&#47;&#47;submit.backtrace.io&#47;&lbrace;subdomain&rbrace;&#47;&lbrace;apiToken&rbrace;&#47;&lbrace;format&rbrace;</code></summary>
 <p/>
 
-Submits Error Object to Backtrace. For large files, include the header flag <code>-H "Expect:"</code> to override some default curl behavior, which can cause issues when uploading to Backtrace.
+<p>Submits Error Object to Backtrace. For large files, include the header flag <code>-H "Expect:"</code> to override some default curl behavior, which can cause issues when uploading to Backtrace.</p>
 
 #### Parameters
 
@@ -252,7 +252,7 @@ Submits Error Object to Backtrace. For large files, include the header flag <cod
       <td>
         <p><small>| BODY | REQUIRED | STRING |</small></p>
         <p>
-          The error data file (minidump or core dump) containing the crash
+          The error data file containing the crash
           information.
         </p>
       </td>
@@ -377,7 +377,7 @@ A successful response contains an <code>_rxid</code>, which is the unique identi
 
 <p/>
 
-Submits debug symbol files to Backtrace. The symbol archive must contain both the executable and symbol files for proper symbolication. Any archive format supported by libarchive 3.2.3 is supported, such as <code>.tar</code>, <code>.tar.gz</code>, <code>.zip</code>. Archives should be pre-compressed and should not exceed 10GB in size, where possible.
+<p>Submits debug symbol files to Backtrace. The symbol archive must contain both the executable and symbol files for proper symbolication. Any archive format supported by libarchive 3.2.3 is supported, such as <code>.tar</code>, <code>.tar.gz</code>, <code>.zip</code>. Archives should be pre-compressed and should not exceed 10GB in size, where possible.</p>
 
 #### Parameters
 
@@ -497,7 +497,7 @@ A successful response contains an <code>_rxid</code>, which is the unique identi
 
 <p/>
 
-Upload source maps to symbolicate ES6/JavaScript errors.
+<p>Upload source maps to symbolicate ES6/JavaScript errors.</p>
 
 #### Parameters
 
