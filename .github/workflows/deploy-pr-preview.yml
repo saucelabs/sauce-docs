@@ -53,10 +53,7 @@ jobs:
           CLOUDSDK_PYTHON: ${{ env.pythonLocation }}/python
 
       - name: Set Preview Path
-        run: |
-          PREVIEW_PATH="pr-preview/pr-${{ github.event.number }}"
-          echo "PREVIEW_PATH=$PREVIEW_PATH" >> "$GITHUB_ENV"
-          echo "BASE_URL=/$PREVIEW_PATH/" >> "$GITHUB_ENV"
+        run: echo "PREVIEW_PATH=pr-preview/pr-${{ github.event.number }}" >> "$GITHUB_ENV"
 
       - name: Install Dependencies
         if: github.event.action != 'closed' # Skip if the PR was closed
