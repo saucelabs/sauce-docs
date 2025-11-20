@@ -20,7 +20,7 @@ Breakpad is an open source library initially developed by Google for cross-platf
 ## Initial Integration
 
 If you have yet to integrate Breakpad into your application, we recommend incorporating [Crashpad](/error-reporting/platform-integrations/crashpad). Crashpad is the successor to Breakpad, with many improvements and up-to-date integration instructions.
-You can check [Breakpad's official integration instructions](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#Integration-overview) for more information. If you would like additional assistance, you can reach out to us at support@saucelabs.com.
+You can check [Breakpad's official integration instructions](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#Integration-overview) for more information. If you need any additional assistance, please [contact our Support team](https://support.saucelabs.com/).
 
 ## Upload Methods
 
