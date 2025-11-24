@@ -30,7 +30,6 @@ export BASE_URL="https://api.us-west-1.saucelabs.com/rdc/v2"
 export AUTH="{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}"
 ```
 
-In the examples below, `$BASE_URL` and `$AUTH` act as placeholders.
 
 ## Authentication
 The API uses Basic Authentication. Retrieve your Sauce Labs username and access key from **Account → User Settings**.
