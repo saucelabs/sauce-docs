@@ -39,7 +39,7 @@ In order to set up integration for webhook, you need an existing HTTP service wh
     "href": "https://u.sp.backtrace.io/",
 
     // Url to the group information and debugger
-    "group_url": "https://u.sp.backtrace.io/dashboard/...",
+    "group_url": "https://docs.saucelabs.com/error-reporting/...",
 
     // Callstack of the group.
     "callstack": [

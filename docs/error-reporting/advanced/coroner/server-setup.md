@@ -11,13 +11,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This guide goes over the initial setup of `coronerd`.
 
-Refer to the [coronerd installation](https://documentation.backtrace.io/coronerd_install/) guide for detailed instructions on installing `coronerd` on-premises.
+Refer to the [coronerd installation](/error-reporting/advanced/coroner/server-installation/) guide for detailed instructions on installing `coronerd` on-premises.
 
 1. **Login**
-   Login to coronerd by navigating to your coronerd URL in your web browser and entering the username and password of the admin account you created during sign-up.
+   Log in to coronerd by navigating to your coronerd URL in your web browser and entering the username and password of the admin account you created during sign-up.
 
    - For Backtrace-hosted customers, the URL is `https://{yourorganization}.sp.backtrace.io`, and you created the login during the sign-up process.
-   - For on-premises customers, the login is the same as the one you created during the steps in the [coronerd installation](https://documentation.backtrace.io/coronerd_install/) guide.
+   - For on-premises customers, the login is the same as the one you created during the steps in the [coronerd installation](/error-reporting/advanced/coroner/server-installation/) guide.
 
 2. **Create a Project**
    After logging in, click **Continue**, and create your first project by entering a project name.
@@ -25,7 +25,7 @@ Refer to the [coronerd installation](https://documentation.backtrace.io/coronerd
    <img src={useBaseUrl('/img/error-reporting/coroner/5e601ca0b57d9.png')} alt="Create a project" />
 
 3. **Select an Integration**
-   Next, you see a list of integration types. Select the language or framework you want to start with, and the UI provides helpful getting started information and a link to your dashboard.
+   Next, you see a list of integration types. Select the language or framework you want to start with, and the UI provides helpful getting-started information and a link to your dashboard.
 
    <img src={useBaseUrl('/img/error-reporting/coroner/5e601ca1c7b8c.png')} alt="Select an integration" />
 
@@ -43,7 +43,7 @@ Refer to the [coronerd installation](https://documentation.backtrace.io/coronerd
    - **Projects**: You can create additional projects or select a project to configure it further. See Configure Project section below for more details.
      <img src={useBaseUrl('/img/error-reporting/coroner/5e601ca4c49d8.png')} alt="projects" />
 
-   - **Users**: On the user management screen, you can send email invitations to new users to join. You can also allowlist one or more domains from which users can sign up. Additionally, you can manage passwords and access control for individual users. For full details on user management, refer to [User Management](https://documentation.backtrace.io/product_product_user).
+   - **Users**: On the user management screen, you can send email invitations to new users to join. You can also allowlist one or more domains from which users can sign up. Additionally, you can manage passwords and access control for individual users. For full details on user management, refer to [User Management](/error-reporting/org-settings/user-mgmnt/).
      <img src={useBaseUrl('/img/error-reporting/coroner/5e601ca5c2c73.png')} alt="users" />
 
    - **Listeners** (advanced): For on-premises coronerd installations, the listeners section allows you to specify the ports on which each object store's endpoint listens and configure SSL settings.
@@ -79,7 +79,7 @@ Refer to the [coronerd installation](https://documentation.backtrace.io/coronerd
        - `callstack`: The underlying column stores a serialized JSON object representing a callstack as a sequence of strings, where each element represents a function. Only valid for the dictionary type.
        - `hostname`: The underlying column stores a machine hostname. Only valid for the dictionary type.
        - `memory_address`: The values represent memory addresses and should be rendered accordingly. Only valid for integer types.
-       - `seconds`: The values represent seconds since a user-defined epoch (for example., `process.age` is seconds since process start). This is only valid for integers.
+       - `seconds`: The values represent seconds since a user-defined epoch (for example, `process.age` is seconds since process start). This is only valid for integers.
        - `unix_timestamp`: The values represent a UNIX timestamp. Only valid for integers.
        - `js_timestamp`: The values represent a JavaScript timestamp (UNIX epoch in milliseconds). Only valid for integers.
        - `ipv4`: The column stores IPv4 addresses and should be used with the uint32 type. JavaScript must render the value as an IP address.
@@ -98,4 +98,4 @@ Refer to the [coronerd installation](https://documentation.backtrace.io/coronerd
    - **Workflow Integrations**: You can integrate Backtrace into your workflow by configuring coroner to send messages or tickets to various messaging, issue tracking, alerting, or monitoring services. You must create at least one entry in the Integrations section for each workflow integration.
      <img src={useBaseUrl('/img/error-reporting/coroner/5e601cab07590.png')} alt="workflow integration" />
 
-   Each integration has its unique settings. For more information, refer to [Workflow Integrations](https://documentation.backtrace.io/wi_firststeps) or the sub-menu of the integration you want to use in the Integrations menu at the top of the documentation portal.
+   Each integration has its unique settings. For more information, refer to [Workflow Integrations](/error-reporting/workflow-integrations/overview/) or the sub-menu of the integration you want to use in the Integrations menu at the top of the documentation portal.
