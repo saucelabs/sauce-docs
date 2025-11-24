@@ -46,7 +46,7 @@ Understanding how devices are labeled helps you target exactly what you need:
 - `descriptor`: Static identifier (for example, `iPhone_13_real`) consistent across the API.
 - `deviceName`: Descriptive label you see in the UI (for example, `iPhone 13 real private`).
 
-The `deviceName` query parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that takes `deviceName`.
+The `deviceName` parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that accepts the `deviceName` parameter.
 
 > Need the full schema for these fields? See `Device` and `Session` definitions in the [Access API spec](/real-device-access-api).
 
