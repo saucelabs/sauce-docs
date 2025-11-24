@@ -20,7 +20,7 @@ This guide walks you through the essentials—checking device status, creating s
 Each step is expanded in the sections below with copy‑and‑paste snippets.
 
 ## Base URLs
-Sauce Labs offers three production environments for the Real Device Cloud (RDC) API v2. Use the base URL that matches your account's data center:
+Sauce Labs has three Real Device Cloud in the following regions:
 * US West: https://api.us-west-1.saucelabs.com/rdc/v2/
 * EU Central: https://api.eu-central-1.saucelabs.com/rdc/v2/
 * US East: https://api.us-east-4.saucelabs.com/rdc/v2/
