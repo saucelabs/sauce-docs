@@ -10,9 +10,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning Appium 1 End-of-life
-The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). This means that:
+The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). This means the following:
 
-- bugfixes will not be released for Appium 1.x anymore and require you to [migrate to Appium 2](./migration-guides/appium-2-migration.md)
+- Bug-fixes will not be released for Appium 1.x anymore and require you to [migrate to Appium 2](./migration-guides/appium-2-migration.md)
 - Appium 1 and its packaged drivers are no longer 100% compatible with Android 13/iOS 16 and higher and require Appium 2 to run stably.
 
 Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migrating to Appium 2](./migration-guides/appium-2-migration.md) to keep your tests up-to-date and compatible with the latest platform versions.
@@ -22,7 +22,7 @@ Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migr
 
 You can select a specific Appium version by using the `appiumVersion` capability as part of the `"sauce:options"`. The below examples show how to select the Appium version for your test and use Android with Chrome as an example. See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to help you construct your capabilities for the specific platform and Real Device/Android Emulator/iOS Simulator you want to test on.
 
-The active Appium versions can be found in the [Real Devices](#real-devices), [Android Emulators](#android-emulators), and [iOS Simulators](#ios-simulators) sections.
+The active Appium versions are listed in the [Real Devices](#real-devices), [Android Emulators](#android-emulators), and [iOS Simulators](#ios-simulators) sections.
 
 <Tabs
 groupId="capability-ex-emusim"
@@ -132,7 +132,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 
 ## End-of-Life
 
-To improve your testing experience, we're ending support for select versions of Appium 1 and certain bundles of Appium 2. A single stable Appium 1 release will ensure better compatibility and stability, especially on older Android and iOS devices. For Appium 2, we recommend using the most recent drivers to benefit from new features and bug fixes.
+To improve your testing experience, we are ending support for select versions of Appium 1 and certain bundles of Appium 2. A single stable Appium 1 release will ensure better compatibility and stability, particularly on older Android and iOS devices. For Appium 2, we recommend using the most recent drivers to take advantage of new features and bug fixes.
 
 You can find which versions are currently supported in the [Real Devices](#real-devices), [Android Emulators](#android-emulators) and [iOS Simulators](#ios-simulators) sections, including their end-of-life dates.
 
