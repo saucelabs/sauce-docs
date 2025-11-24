@@ -40,8 +40,8 @@ curl -u $AUTH "$BASE_URL/devices/status"
 ## Device Identification and Filtering
 Understanding how devices are labeled helps you target exactly what you need:
 
-- `descriptor`: Static identifier (for example, `iPhone_13_real`) consistent across the API.
-- `deviceName`: Descriptive label you see in the UI (for example, `iPhone 13 real private`).
+- `descriptor`: Device identifier, you can look up device IDs on device selection pages (for example, `iPhone_13_real`).
+- `deviceName`: The human-readable name you see in the UI (for example, `iPhone 12 Pro Max`).
 
 The `deviceName` parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that accepts the `deviceName` parameter.
 
@@ -133,13 +133,6 @@ curl -u $AUTH \
 }
 ```
 
-### Session Lifecycle Cheat Sheet
-
-1. `POST /sessions` → returns `id` and initial `state` (`PENDING` or `CREATING`).
-2. `GET /sessions/{id}` → poll until `state` becomes `ACTIVE`. Capture the links block: `ioWebsocketUrl`, `eventsWebsocketUrl`, optional `vusbUrl`, `appiumserver`, etc.
-3. Run your automations. Use other endpoints (install apps, run shell commands, use the HTTP proxy) against the same `sessionId`.
-4. `DELETE /sessions/{id}` → releases the device. Optionally add `?rebootDevice=true` for private devices.
-
 ### Manage Device Sessions
 Once a session is created, you can list your sessions, get details for a specific session, and close it when you are done.
 
@@ -151,8 +144,6 @@ The `/sessions` endpoint supports:
 
 - `state`: Session lifecycle state (`PENDING`, `CREATING`, `ACTIVE`, `CLOSING`, `CLOSED`, `ERRORED`).
 - `deviceName`: Specific descriptor or regular expression (for example, `iPhone_16_real` or `Samsung.*`).
-
-Combine both filters to surface, for example, all `ACTIVE` sessions on a private device.
 
 ##### Examples
 ```shell
@@ -228,7 +219,7 @@ curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
 Terminate a device session and release the device. When you close a session, its state will transition from `ACTIVE` → `CLOSING` → `CLOSED`.
 
 ##### Session Closure Options
-- **Basic closure** (default): terminate the session, clean the device, return it to the device pool marked as AVAILABLE.
+- **Basic closure** (default): terminate the session, [clean the device](/mobile-apps/real-device-cleaning/), return it to the device pool marked as AVAILABLE.
 - **Reboot option** (private devices only): perform the standard cleanup and then reboot the device. After rebooting the device it will not be rebooted for another 10 sessions
 
 

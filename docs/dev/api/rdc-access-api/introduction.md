@@ -7,7 +7,8 @@ sidebar_label: Introduction
 
 :::info
 **This API is in Open Beta.**
-Access is available for customers with **Private Devices** only. The API specification is subject to change as we refine the product.
+Access is currently limited to customers with **Private Devices**. While we continue to refine the product, 
+we do not plan to introduce breaking changes to the current API specification.
 :::
 
 The **Real Device Access API** is your direct doorway to Sauce Labs’ private device fleet. Instead of wiring every workflow through test-frameworks, you reserve a device once, interact with it over HTTP/WebSockets, and decide how to drive automation, debugging, or observability.
