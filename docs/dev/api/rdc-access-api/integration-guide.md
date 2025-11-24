@@ -129,7 +129,7 @@ curl -u $AUTH \
 ```json
 {
   "id": "{session_id}",
-  "state": "PENDING",
+  "state": "PENDING"
 }
 ```
 
@@ -220,8 +220,7 @@ curl -X GET -u $AUTH "$BASE_URL/sessions/{session_id}"
     "ioWebsocketUrl": "wss://api.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000/wss/io",
     "eventsWebsocketUrl": "wss://api.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000/wss/events",
     "self": "https://api.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000"
-  },
-  "error": null
+  }
 }
 ```
 
@@ -252,7 +251,6 @@ curl -X DELETE -u $AUTH \
   "links": {
     "ioWebsocketUrl": "wss://api.saucelabs.com/rdc/v2/socket/alternativeIo/0501a5ee-76e1-4b1e-8302-82379025a275",
     "eventsWebsocketUrl": "wss://api.saucelabs.com/rdc/v2/socket/companion/0501a5ee-76e1-4b1e-8302-82379025a275",
-    "deviceUrl": null,
     "self": "https://api.saucelabs.com/rdc/v2/sessions/f64b3cc1-7c56-42b5-bb59-d31711337ce9"
   },
   "device": {
@@ -263,8 +261,7 @@ curl -X DELETE -u $AUTH \
     "resolutionWidth": 1440,
     "resolutionHeight": 2960,
     "screenSize": 5.7
-  },
-  "error": null
+  }
 }
 ```
 
