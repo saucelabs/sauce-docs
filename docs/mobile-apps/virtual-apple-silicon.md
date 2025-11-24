@@ -17,7 +17,7 @@ iOS 17.5 and iOS 18 Simulators on Apple Silicon are available only to Enterprise
 
 ## Key Benefits
 
-- High-fidelity iOS testing environments on M-series macOS virtual machines (VMs).
+- High-fidelity iOS testing environments on M-series macOS hosts.
 - Improved performance and stability, with faster start-up times and faster test execution.
 - More efficient for development teams that adopt `arm64` across their development and testing pipelines.
 
