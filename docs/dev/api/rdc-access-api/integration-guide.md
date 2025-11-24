@@ -4,13 +4,11 @@ title: RDC Access API Integration Guide
 sidebar_label: Integration Guide
 ---
 
-# Sauce Labs Real Device Access API
 
-Sauce Labs Real Device Access API v2 lets you programmatically interact with real mobile devices in the Sauce Labs cloud for functional testing, debugging, and observability.
-This guide walks you through the essentials—checking device status, creating sessions, managing them, and streaming live logs—so you can get productive quickly.
+The Sauce Labs Real Device Access API v2 allows you to programmatically interact with real mobile devices in the Sauce Labs cloud. Use it for functional testing, debugging, and observability. This guide introduces the core concepts: checking device availability, creating and managing sessions, and streaming live logs. By following these steps, you can start testing in just a few minutes.
 
 ## Five-Minute Onboarding Checklist
-
+Use this checklist to quickly set up your environment and run your first test using the Real Device Access API. These steps cover the minimum required configuration to begin interacting with real devices through the API:
 1. **Choose your data center** (US West, EU Central, or US East) and export `BASE_URL`.
 2. **Grab your credentials** from Sauce Labs User Settings and export `SAUCE_USERNAME`/`SAUCE_ACCESS_KEY`.
 3. **Verify access** by listing devices with `curl -u $AUTH "$BASE_URL/devices/status"`.
@@ -56,9 +54,8 @@ You can retrieve a list of all available real devices and filter them based on v
 
 #### List All Devices
 ```shell
-curl -X GET \
-  -u $AUTH \
-  "$BASE_URL/devices/status"
+curl  $BASE_URL/devices/status \
+-u $AUTH 
 ```
 
 #### Device Filtering Options
@@ -71,10 +68,10 @@ The `/devices/status` endpoint supports the following query parameters:
 #### Examples:
 ```shell
 # Get all devices
-curl -X GET -u $AUTH "$BASE_URL/devices/status"
+curl -u $AUTH "$BASE_URL/devices/status"
 
 # Filter by device state
-curl -X GET -u $AUTH "$BASE_URL/devices/status?state=AVAILABLE"
+curl -u $AUTH "$BASE_URL/devices/status?state=AVAILABLE"
 
 # Show only private devices
 curl -X GET -u $AUTH \
@@ -84,9 +81,6 @@ curl -X GET -u $AUTH \
 curl -X GET -u $AUTH \
   "$BASE_URL/devices/status?deviceName=iPhone.*"
 
-# Combine multiple filters
-curl -X GET -u $AUTH \
-  "$BASE_URL/devices/status?state=AVAILABLE&privateOnly=true&deviceName=iPhone.*"
 ```
 
 #### Example Response
@@ -115,15 +109,15 @@ curl -X GET -u $AUTH \
 
 ### Create a Device Session
 Start a new session with a `POST` request to `/sessions`.
-> ***Note:*** The `deviceName` and `os` parameters are optional. If omitted, Sauce Labs selects an available device automatically. You can also include the optional `configuration` object from the API spec to set `sessionDuration` (ISO-8601) or attach a Sauce Connect `tunnel`.
+> ***Note:*** The `deviceName` and `os` parameters are optional. If omitted, Sauce Labs selects an available device automatically. For full configuration go to ... (link to api contract)
 
 #### Example
 ```shell
-curl -X POST -u $AUTH \
+curl -u $AUTH \
   -H "Content-Type: application/json" \
   -d '{
     "device": {
-      "deviceName": "iPhone_16_real",
+      "deviceName": ".*",
       "os": "ios"
     }
   }' \
@@ -136,9 +130,6 @@ curl -X POST -u $AUTH \
 {
   "id": "{session_id}",
   "state": "PENDING",
-  "links": null,
-  "device": null,
-  "error": null
 }
 ```
 
@@ -166,10 +157,10 @@ Combine both filters to surface, for example, all `ACTIVE` sessions on a private
 ##### Examples
 ```shell
 # Get all sessions
-curl -X GET -u $AUTH "$BASE_URL/sessions"
+curl  -u $AUTH "$BASE_URL/sessions"
 
 # Filter by session state
-curl -X GET -u $AUTH "$BASE_URL/sessions?state=ACTIVE"
+curl -u $AUTH "$BASE_URL/sessions?state=ACTIVE"
 
 # Filter by device ID
 curl -X GET -u $AUTH "$BASE_URL/sessions?deviceName=iPhone_16_real"
@@ -200,7 +191,6 @@ curl -X GET -u $AUTH \
         "eventsWebsocketUrl": "wss://api.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000/wss/events",
         "self": "https://api.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000"
       },
-      "error": null
     }
   ]
 }
@@ -240,9 +230,8 @@ Terminate a device session and release the device. When you close a session, its
 
 ##### Session Closure Options
 - **Basic closure** (default): terminate the session, clean the device, return it to the device pool marked as AVAILABLE.
-- **Reboot option** (private devices only): perform the standard cleanup and then reboot to guarantee a pristine state.
+- **Reboot option** (private devices only): perform the standard cleanup and then reboot the device. After rebooting the device it will not be rebooted for another 10 sessions
 
-***Note:*** The `rebootDevice` parameter has no effect on public/shared devices.
 
 ##### Examples
 ```shell
@@ -290,13 +279,6 @@ Connect to a WebSocket to receive real-time logs and events from an active sessi
 #### Live Streaming with Websocat (Recommended)
 `websocat` is a versatile command-line WebSocket client.
 
-##### Installation:
-```shell
-# macOS (Homebrew)
-brew install websocat
-
-# For other systems, see: https://github.com/vi/websocat/releases
-```
 
 ##### Usage:
 
