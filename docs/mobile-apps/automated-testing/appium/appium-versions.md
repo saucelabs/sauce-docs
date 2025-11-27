@@ -181,7 +181,7 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <code>appium3-2025-10</code>
       </td>
       <td>
-        <span className="sauceGold">December 1st, 2026</span>
+        <span className="sauceGold">October 1st, 2026</span>
       </td>
       <td>
         This is a collection of drivers and plugins that were released in October 28th 2025 <br />
