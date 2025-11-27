@@ -28,8 +28,6 @@ Sauce Visual plugin provides a library exposing a `VisualApi` object that provid
 - `visual.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `visual.sauceVisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
 
-Sauce Visual can be run on the Sauce Selenium Grid as well as on a local Selenium Grid.
-
 ## Quickstart
 
 ### Step 1: Add Sauce Visual dependency
