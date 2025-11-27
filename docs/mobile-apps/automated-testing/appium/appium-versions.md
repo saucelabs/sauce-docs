@@ -278,7 +278,7 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-        This is the final Appium 2 release provided by Sauce Labs. We recommend using this version if you intend to remain on Appium 2. <br /><br />
+        This is the final Appium 2 release provided by Sauce Labs. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
         <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/3.1/guides/migrating-2-to-3/" target="_blank">migrate to Appium 3</a>.
         <br />
         <ul>
