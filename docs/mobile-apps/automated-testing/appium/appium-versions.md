@@ -181,7 +181,7 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <code>appium3-2025-10</code>
       </td>
       <td>
-        <span className="sauceGold">December 1st, 2026</span>
+        <span className="sauceGold">October 1st, 2026</span>
       </td>
       <td>
         This is a collection of drivers and plugins that were released in October 28th 2025 <br />
@@ -272,6 +272,46 @@ We are retiring the `stable` image to simplify our versioning model and align wi
   <tbody>
     <tr>
       <td>
+        <code>appium2-20250901</code> alias: <code>appium2-2025-09</code>
+      </td>
+      <td>
+        <span className="sauceGreen">Active</span>
+      </td>
+      <td>
+        This is the final Appium 2 release provided by Sauce Labs. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
+        <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/3.1/guides/migrating-2-to-3/" target="_blank">migrate to Appium 3</a>.
+        <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.19.0" target="_blank">
+              <code>appium</code>: 2.19.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.19.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.19.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v4.2.9" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 4.2.9
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v9.10.5" target="_blank">
+              <code>appium-xcuitest-driver</code>: 9.10.5
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v1.3.0" target="_blank">
+              <code>appium-flutter-integration-driver</code>: 1.3.0
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>latest</code>
       </td>
       <td>
@@ -343,44 +383,6 @@ We are retiring the `stable` image to simplify our versioning model and align wi
     </tr>
     <tr>
       <td>
-        <code>appium2-20250901</code>
-      </td>
-      <td>
-        <span className="sauceGold">August 31st, 2026</span>
-      </td>
-      <td>
-        This is a collection of drivers that were released in September 1st 2025 <br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.19.0" target="_blank">
-              <code>appium</code>: 2.19.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.19.0" target="_blank">
-              <code>appium-flutter-driver</code>: 2.19.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v4.2.9" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 4.2.9
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v9.10.5" target="_blank">
-              <code>appium-xcuitest-driver</code>: 9.10.5
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v1.3.0" target="_blank">
-              <code>appium-flutter-integration-driver</code>: 1.3.0
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <code>appium2-20250501</code>
       </td>
       <td>
@@ -422,7 +424,7 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <code>appium2-20250101</code>
       </td>
       <td>
-        <span className="sauceGold">December 31th, 2025</span>
+        <span className="sauceGold">December 31th, 2026</span>
       </td>
       <td>
         This is a collection of drivers that were released in January 1st 2025 <br />
