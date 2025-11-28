@@ -9,17 +9,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs now supports **iOS 17.5 and iOS 18** on Apple Silicon-based Simulators. These environments offer improved performance, modern architecture alignment, and compatibility with Xcode's latest features. This enables you to test apps in the most current Apple environments across iPhone and iPad Simulators.
+Sauce Labs now supports **iOS 17.5 and iOS 18** on Apple Silicon-based Simulators. These environments offer improved performance, alignment with modern architecture, and compatibility with Xcode's latest features. This allows you to test apps in the most current Apple environments across iPhone and iPad Simulators.
 
 :::caution Enteprise Only
-iOS 17.5 and iOS 18 Simulators on Apple Silicon are only available to Enterprise customers with the appropriate Premium plan. Contact your account manager to discuss upgrading.
+iOS 17.5 and iOS 18 Simulators on Apple Silicon are available only to Enterprise customers on the appropriate Premium plan. Contact your account manager to discuss upgrading your plan.
 :::
 
 ## Key Benefits
 
-- High-fidelity iOS testing environments on M-series macOS VMs
-- Improved performance and stability with faster start-up times and test execution
-- More efficient for development teams that adopt `arm64` throughout their development and testing pipelines.
+- High-fidelity iOS testing environments on M-series macOS hosts.
+- Improved performance and stability, with faster start-up times and faster test execution.
+- More efficient for development teams that adopt `arm64` across their development and testing pipelines.
 
 ---
 
@@ -45,19 +45,21 @@ xcodebuild -arch arm64 -sdk iphonesimulator -destination 'platform=iOS Simulator
 
 #### Archive the Build
 
-1. Create a folder named `Payload`
-2. Copy your `.app` file into the `Payload` directory
-3. Compress the folder into a `.zip`
-4. Rename the file to match your app, for example `MyApp.zip`
+To archive the build, follow the steps below:
+
+1. Create a folder named `Payload`.
+2. Copy your `.app` file into the `Payload` directory.
+3. Compress the folder into a `.zip`.
+4. Rename the file to match your app, for example `MyApp.zip`.
 
 ---
 
 ### Uploading the App to Sauce Labs
 
-You can upload the `.zip` archive:
+You can upload the `.zip` archive in the following ways:
 
-- Via the **App Management** section in the Sauce Labs web UI
-- Or via the **Sauce Labs File Storage API**
+- Via the **App Management** section in the Sauce Labs web UI.
+- Or via the **Sauce Labs File Storage API**.
 
 ➡️ [Uploading Apps to Sauce Labs](./app-storage.md)
 
@@ -152,7 +154,7 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ## Known Issues and Migration Notes
 
-As you upgrade to iOS 17.5 and 18, be aware that Appium and related driver updates may require updates to existing tests to remove deprecated features no longer supported. 
+As you upgrade to iOS 17.5 and iOS 18, note that Appium and related driver updates may require you to modify existing tests to remove deprecated features no longer supported. 
 
 Check [Appium Version Details](./automated-testing/appium/appium-versions.md#appium-2x) for full bundle details on versions 2.1.3 and 2.11.3.
 
@@ -182,7 +184,7 @@ Appium commands `TouchActions` and `MultiTouchActions` have been deprecated in X
 
 **Solution**: Refer to [Appium Documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/gestures/) for additional implementation options.
 
-More details ➡️ [Migrating to Appium 2](./automated-testing/appium/appium-2-migration.md)
+More details ➡️ [Migrating to Appium 2](./automated-testing/appium/migration-guides/appium-2-migration.md)
 
 ---
 
