@@ -1,7 +1,7 @@
 ---
 id: rdc
 title: Real Device API Endpoints
-sidebar_label: Legacy API v1
+sidebar_label: Real Devices
 description: Retrieve information related to real device availability, device/platform/browser combinations, and currently running tests.
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: real-device-access-api-introduction
-title: Real Device Access API v2
+title: Real Device Access API
 sidebar_label: Introduction
 ---
 <p><span className="sauceGreen">Open Beta</span></p>
