@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs is introducing a major step forward in how you can interact with your test data: **Sauce AI for insights**, an intuitive natural language interface seamlessly integrated into the Sauce Home experience.
+Sauce Labs is introducing a major step forward in how you can interact with your test data: **Sauce AI for Insights**, an intuitive natural language interface seamlessly integrated into the Sauce Home experience.
 
 This feature brings generative AI directly into the Sauce Labs experience, allowing you to explore, analyze, and understand your testing data in a conversational and visual way, directly from within the Sauce Home widgets you already use. Each widget, where generative AI is valuable, now comes equipped with an AI chat interface that understands the context of the data it represents, transforming how QA and engineering teams extract insights and make decisions. With this integration, you can ask complex questions such as:
 
@@ -61,9 +61,7 @@ Sauce AI for Insights uses advanced language models to interpret questions and g
 
 Data protection, security, and privacy are central to this product and to Sauce Labs as a whole. Our AI for Insights product is designed to minimize data exposure by only sending the relevant portions of data required to answer a given question, not entire datasets. While the model may receive raw data, we avoid sending personally identifiable information (PII). Currently, the only user-related data sent to the LLM are user IDs and usernames. 
 
-Users utilizing Sauce AI for Insights will have the same data access as they have all other places in the platform. If a user only has access to certain team’s tests in another area of the platform, that access will be mirrored by Sauce AI for Insights. User authentication remains consistent with Sauce Labs’ existing security model; each query respects user credentials and permission boundaries.
-
-All processing is done within authorized and isolated Google Cloud environments using Gemini, ensuring a secure and compliant operational framework.
+Users utilizing Sauce AI for Insights will have the same data access as they have all other places in the platform. If a user only has access to certain team’s tests in another area of the platform, that access will be mirrored by Sauce AI for Insights. User authentication remains consistent with Sauce Labs’ existing security model; each query respects user credentials and permission boundaries. Data processing is performed within secure and controlled cloud environments utilizing a powerful, compliant large language model.
 
 Please see our [Responsible use of AI guidelines](https://trust.saucelabs.com/resources?s=tcd1vcgj9ya80ahtrhj65&name=responsible-usage-of-ai-at-sauce-labs) in our [Trust Center](https://trust.saucelabs.com/) for more information.
 
