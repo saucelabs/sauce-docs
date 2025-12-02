@@ -7,9 +7,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs is introducing a major step forward in how you can interact with your test data: **Sauce AI for Insights**, an intuitive natural language interface seamlessly integrated into the Sauce Home experience.
+Sauce Labs is introducing a major step forward in how you can interact with your test data: **Sauce AI for Insights**, an intuitive natural language AI agent seamlessly integrated into the Sauce Home experience.
 
-This feature brings generative AI directly into the Sauce Labs experience, allowing you to explore, analyze, and understand your testing data in a conversational and visual way, directly from within the Sauce Home widgets you already use. Each widget, where generative AI is valuable, now comes equipped with an AI chat interface that understands the context of the data it represents, transforming how QA and engineering teams extract insights and make decisions. With this integration, you can ask complex questions such as:
+This AI agent brings generative AI directly into the Sauce Labs experience, allowing you to explore, analyze, and understand your testing data in a conversational and visual way, directly from within the Sauce Home widgets you already use. Each widget, where generative AI is valuable, now comes equipped with a conversational interface that understands the context of the data it represents, transforming how engineering and quality teams extract insights and make decisions. With this AI agent, you can ask complex questions such as:
 
 * “What’s the most recurring error in our regression tests?”
 * “Which devices fail the most often?”
@@ -19,9 +19,9 @@ and receive tailored natural-language answers, data visualizations, and curated 
 
 ## How It Works
 
-Each widget in the Sauce Home page now features our Sauce AI icon. When clicked, a chat window opens, already aware of the widget’s context, filters, and the data it represents. You can type a question about that data, and the system immediately interprets and processes it through a large language model (LLM) configured to understand the Sauce data structure. Sauce AI for Insights will provide suggestions and recommendations for follow-ups based on conversation context.
+Each widget in the Sauce Home page now features our Sauce AI icon. When clicked, the AI agent is launched, already aware of the widget’s context, filters, and the data it represents. You can type a question about that data, and the system immediately interprets and processes it through a large language model (LLM) configured to understand the Sauce data structure. Sauce AI for Insights agent will provide suggestions and recommendations for follow-ups based on conversation context.
 
-If a question cannot be answered due to access permissions or unsupported topics, AI for Insights clearly communicates why, helping you to re-frame the query. Transparency is built into the core: each response includes metadata describing the source APIs and filters used to generate the insight when prompted.
+If a question cannot be answered due to access permissions or unsupported topics, AI for Insights agent clearly communicates why, helping you to re-frame the query. Transparency is built into the core: each response includes metadata describing the source APIs and filters used to generate the insight when prompted.
 
 You can copy or share the visualization or data tables, as well as rate the response using a thumbs-up or thumbs-down feedback mechanism, with the ability to add a note about your experience to help improve future results.
 
@@ -31,11 +31,11 @@ We only use your responses in AI for Insights to improve our prompting and data 
 
 ## Key Capabilities
 
-The initial rollout focuses on making Sauce AI for Insights a trusted, transparent, and extensible part of the Sauce Labs ecosystem. Among the capabilities being delivered:
+The initial rollout focuses on making Sauce AI for Insights agent a trusted, transparent, and extensible part of the Sauce Labs ecosystem. Among the capabilities being delivered:
 
-* **Context-Aware Querying**: Each AI interaction inherits the context from the widget where it was launched; you don’t need to restate what dataset you’re exploring.
-* **Multi-Format Answers**: Responses may appear in natural language, as charts, or as data tables, depending on the nature of the question.
-* **Data Provenance**: Every answer includes information on where the data originated (Insight APIs, filters, and schemas).
+* **Context-Aware Querying**: Each AI interaction inherits the context from the widget where it was launched; you don’t need to restate what dataset you’re exploring or describe a timeframe. The Sauce AI for Insights agent knows the context of Sauce Home and applies that context window to your queries. 
+* **Multi-Format Answers**: Responses may appear in natural language, as charts, or as data visualizations depending on the nature of the question.
+* **Data Provenance**: Every answer includes information on where the data originated (Insight APIs, filters, and schemas) when prompted.
 * **Feedback Loop**: You can rate the helpfulness of each answer to continually refine the model.
 
 ## Accessing Sauce AI for Insights
