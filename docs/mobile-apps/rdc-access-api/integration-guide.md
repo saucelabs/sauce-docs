@@ -4,7 +4,6 @@ title: RDC Access API Integration Guide
 sidebar_label: Integration Guide
 ---
 
-
 The Sauce Labs Real Device Access API v2 allows you to programmatically interact with real mobile devices in the Sauce Labs cloud. Use it for functional testing, debugging, and observability. This guide introduces the core concepts: checking device availability, creating and managing sessions, and streaming live logs. By following these steps, you can start testing in just a few minutes.
 
 ## Five-Minute Onboarding Checklist

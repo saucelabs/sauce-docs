@@ -1332,6 +1332,7 @@ module.exports = {
                         'mobile-apps/rdc-access-api/real-device-access-api-integration-guide',
                         'mobile-apps/rdc-access-api/real-device-access-api-local-appium',
                         'mobile-apps/rdc-access-api/real-device-access-api-sauce-hosted-appium',
+                        'mobile-apps/rdc-access-api/real-device-access-api-mastering-companion-socket',
                     ],
                 },
                 'mobile-apps/ms-app-center',
