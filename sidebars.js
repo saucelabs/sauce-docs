@@ -1576,6 +1576,12 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Sauce AI',
+            collapsed: true,
+            items: ['sauce-ai/ai-insights'],
+        },
+        {
+            type: 'category',
             label: 'Performance',
             collapsed: true,
             items: [
