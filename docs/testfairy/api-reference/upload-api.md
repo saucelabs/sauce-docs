@@ -38,7 +38,7 @@ Streamline your build process and upload APKs or IPAs directly to Sauce Mobile A
  <tbody>
  <tr>
  <td><code>api_key</code></td>
- <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://app.testfairy.com/settings for details.</p></td>
+ <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://mobile.saucelabs.com/settings/access-key for details.</p></td>
  </tr>
  </tbody>
  <tbody>
