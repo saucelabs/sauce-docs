@@ -151,13 +151,11 @@ You can manage file attachments dynamically after `BacktraceClient` initializati
 
 ```java
 // Adding new file attachment
-String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
 backtraceClient.addAttachment(fileName);
 ```
 
 ```java
 // Removing file attachment
-String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
 backtraceClient.getAttachments().remove(fileName);
 ```
 </TabItem>
