@@ -158,7 +158,7 @@ backtraceClient.addAttachment(fileName);
 ```java
 // Removing file attachment
 String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
-backtraceClient.getAttachments().remove((fileName);
+backtraceClient.getAttachments().remove(fileName);
 ```
 </TabItem>
 
