@@ -163,7 +163,7 @@ backtraceClient.getAttachments().remove((fileName);
 </TabItem>
 
 <TabItem value="3.10" label="Version < 3.11">
-In earlier versions, file attachment paths could only be specified during client initialization. File attachment paths for crash reports can only be specified on initialization. If you have rotating file logs or another situation where the exact filename won't be known when you initialize your Backtrace client, you can use symlinks:
+In earlier versions, file attachment paths could only be specified during client initialization. File attachment paths for crash reports can only be specified on initialization. If you have rotating file logs or another situation where the exact filename won't be known when you initialize your `BacktraceClient`, you can use symlinks:
 
 ```java
 // The file simlink path to pass to Backtrace
