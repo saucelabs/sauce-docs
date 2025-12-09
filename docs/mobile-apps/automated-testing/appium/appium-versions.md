@@ -240,17 +240,17 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 2.0.0
+                    <code>axe-appium3-xcuitest-driver </code>: 1.0.1
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 2.0.1
+                    <code>axe-appium3-uiautomator2-driver </code>: 1.0.1
                 </a>
             </li>
             <li>
                 <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
-                    <code>appium</code>: 3.1.0
+                    <code>appium</code>: 3.1.2
                 </a>
             </li>
         </ul>
@@ -365,12 +365,12 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 2.1.0
+                    <code>axe-appium-xcuitest-driver </code>: 2.1.1
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 2.1.0
+                    <code>axe-appium-uiautomator2-driver </code>: 2.1.1
                 </a>
             </li>
             <li>
