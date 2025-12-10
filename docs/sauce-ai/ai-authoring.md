@@ -57,9 +57,9 @@ To create the test script, follow the steps below:
 
     The platform remembers the last-used configurations for convenience. If you don’t set those, then Sauce Labs will use predetermined defaults that are available for the type of app you are testing.
 
-4. **Write and run** the prompt. Once you've provided the application context, you can write a prompt to describe the test intent, either in plain language (e.g., “log into the app and verify the dashboard appears”) or in structured formats like Gherkin-style steps. Both are supported. Check out guidelines for prompting here. 
+4. **Write and run** the prompt. Once you've provided the application context, you can write a prompt to describe the test intent, either in plain language (e.g., “log into the app and verify the dashboard appears”) or in structured formats like Gherkin-style steps. Both are supported. Check out guidelines for prompting [here](https://docs.saucelabs.com/sauce-ai/ai-authoring/#prompt-writing-guidance). 
 
-    You can submit the prompt by clicking the **Play** icon, and a live session will be launched. The LLM connects to the target device or browser and interprets your prompt as a set of interactive test actions. These actions are executed in real time, and their outcomes are captured step by step for you to review.
+    You can submit the prompt by clicking the **Play** icon, and a live session will be launched. The LLM connects to the target device or browser and interprets your prompt as a set of interactive test actions. The system supports the click, input, and scroll interactions, while others such as right click, drag, or long press are going to be added at a later stage. These actions are executed in real time, and their outcomes are captured step by step for you to review.
 
     <img src={useBaseUrl('/img/ai-authoring/authoring5.png')} alt="AI Insights View" width="700"/>
 
@@ -114,7 +114,7 @@ Structured prompts, including pseudo-code or formalized syntax like Gherkin, are
 
 * Give advice to the model where to find elements if it’s not obvious from looking at the page. For example, if the navigation item is hidden in an off-screen navigation, instruct the model to find the navigation trigger first.
     * **Avoid**: "Go to the Settings page and change the theme." (If Settings is hidden in a menu)
-    * **Use**: "Click the hamburger menu icon (three horizontal lines), then click 'Settings'. In the Settings page, change the theme to 'Dark Mode'."
+    * **Use**: "Click the hamburger menu icon, then click 'Settings'. In the Settings page, change the theme to 'Dark Mode'."
 * The tool is designed to intuitively handle common popups, cookie consents, and similar obstacles. However, for mission-critical steps or complex, non-standard modals, it is safer to explicitly instruct the model on how to dismiss them if they block the next action.
     * **Avoid**: "Click the 'Accept Cookies' button. If a banner appears about a new feature, click the 'Got It' button. Navigate to the Products page." (Explicitly handling expected generic obstacles)
     * **Use**: "Navigate directly to the Products page and filter by 'In Stock'." (The LLM should handle the cookies/popups implicitly)
