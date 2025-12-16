@@ -37,6 +37,19 @@ Sauce Labs supports the following test configurations for Playwright:
     <th width="30%">End of Life</th>
   </tr>
     <tbody>
+      <tr>
+        <td rowspan='2'>1.57.0</td>
+        <td rowspan='2'>22</td>
+        <td rowspan='2'>✅</td>
+        <td><b>macOS:</b> 12, 13</td>
+        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+        <td rowspan='2'>December 4th, 2026</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
     <tr>
       <td rowspan='2'>1.56.1</td>
       <td rowspan='2'>22</td>
@@ -96,19 +109,6 @@ Sauce Labs supports the following test configurations for Playwright:
       <td><b>macOS:</b> 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>February 06, 2026</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.49.0</td>
-      <td rowspan='2'>22</td>
-      <td rowspan='2'>✅</td>
-      <td><b>macOS:</b> 12, 13</td>
-      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-      <td rowspan='2'>December 04, 2025</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
