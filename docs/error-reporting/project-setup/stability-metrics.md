@@ -66,7 +66,7 @@ For example, you can configure metrics to normalize for:
 
 The configuration steps for this functionality vary by SDK. For more information about the required configuration steps, see the SDK-specific documentation below.
 
-## Data resolution
+## Data Resolution
 
 Data retention limitations require us to aggregate session data into time slices and discard the original session-level data. The resolution of stability metrics is dependent on the time slices, which are 30 minutes for recent events, and larger over longer periods of time.
 
