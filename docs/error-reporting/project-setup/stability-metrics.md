@@ -72,7 +72,7 @@ Data retention limitations require us to aggregate session data into time slices
 
 Note also that the following factors influence stability metrics. These factors are unique to each performance and observability tool and, because they are unique, 1:1 comparison will not be possible between tools.
 
-- The precise definition of User and application sessions
+- The precise definitions of user and application sessions
 - The exact moment in the application lifecycle when session reports begin sending (For Sauce Labs Error Reporting, this excludes application startup time before SDK initialization)
 - The time slice selected for view (older periods have less granular calculations)
 - Time span and customer-applied filters
