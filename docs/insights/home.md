@@ -7,32 +7,32 @@ description: Get real-time, AI-powered clarity from your test data with data, an
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce AI Home is your AI-powered hub. It provides real-time analytics and actionable insights from test data, helping QA and dev teams swiftly address issues, accelerate delivery, and boost product quality and customer satisfaction.
+Sauce Home is your AI-powered hub. It provides real-time analytics and actionable insights from test data, helping Engineering and Quality teams swiftly address issues, accelerate delivery, and boost product quality and customer satisfaction.
 
 <img src={useBaseUrl('img/insights/home_overview.png')} alt="Home Overview"/>
 
-## Accessing the Sauce AI Homepage
+## Accessing Sauce Home
 
-Not only is Sauce AI home now your landing page when logging into Sauce Labs, but it's the place you'll return to frequently check on your testing strategy and preformance regularly. You can access Sauce AI home a few different ways.
+Not only is Sauce home now your landing page when logging into Sauce Labs, but it's the place you'll return to frequently check on your testing strategy and preformance regularly. You can access Sauce Home a few different ways.
 
-1. Click the **Home** tab in the left-hand navigation pane to return to Sauce AI Home.
+1. Click the **Home** tab in the left-hand navigation pane to return to Sauce Home.
 2. Click the Sauce Labs logo in the top left corner of your screen.
 
-## Setting the Scope of the Sauce AI Home page
+## Setting the Scope of the Sauce Home page
 
-Sauce AI Home allows you to filter your test data to surface what's most important to you. You can view data by organization, team, or individual in addition to customizing the date range for which the scope will apply. Use the filters at the top left of the homepage to set your frame of reference.
+Sauce Home allows you to filter your test data to surface what's most important to you. You can view data by organization, team, or individual in addition to customizing the date range for which the scope will apply. Use the filters at the top left of the homepage to set your frame of reference.
 
 <img src={useBaseUrl('img/insights/home_filter_bar.png')} alt="Home Filter Bar"/>
 
-## Exporting the Sauce AI Home page for sharing
+## Exporting the Sauce Home page for sharing
 
-Sauce AI Home is a great tool to share with your teammates. You can export the full page by clicking the small download arrow in the top right of the page to export to PDF. 
+Sauce Home is a great tool to share with your teammates. You can export the full page by clicking the small download arrow in the top right of the page to export to PDF. 
 
 <img src={useBaseUrl('img/insights/home_export_to_pdf.png')} alt="Home Summary Widget"/>
 
 ## Digging Into the Data With Widgets
 
-The Sauce AI Home page has numerous widgets to highlight the results and changes in your testing data that matter most to you. 
+The Sauce Home page has numerous widgets to highlight the results and changes in your testing data that matter most to you. 
 
 ### The Summary Widget
 

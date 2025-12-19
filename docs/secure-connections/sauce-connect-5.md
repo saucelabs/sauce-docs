@@ -38,11 +38,11 @@ Operational transparency is a core part of SC5. It exposes real-time metrics via
 - Prometheus-compatible metrics
 - Pre-built Grafana dashboards
 
-This makes it possible to monitor tunnel usage, uptime, and system health. See the [Monitoring Guide](/secure-connections/sauce-connect-5/guides/monitoring/) for details.
+This allows you to monitor tunnel usage, uptime, and system health. See the [Monitoring Guide](/secure-connections/sauce-connect-5/guides/monitoring/) for details.
 
 ### Easy Installation
 
-SC5 is distributed in multiple formats to accommodate diverse systems and architectures. Available formats include:
+SC5 is distributed in multiple formats to accommodate diverse systems and architectures. Available formats include the following:
 
 - Winget package (Windows)
 - Homebrew tap (macOS)
@@ -59,7 +59,7 @@ See the [Installation Guide](/secure-connections/sauce-connect-5/installation/) 
 
 ## Migrating from Sauce Connect 4
 
-Refer to the [Migration Guide](/secure-connections/sauce-connect-5/migrating/) for detailed instructions on transitioning from Sauce Connect 4 to Sauce Connect 5.
+See the [Migration Guide](/secure-connections/sauce-connect-5/migrating/) for detailed instructions on transitioning from Sauce Connect 4 to Sauce Connect 5.
 
 ## Getting Started
 

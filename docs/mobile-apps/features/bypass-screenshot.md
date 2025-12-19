@@ -5,11 +5,11 @@ sidebar_label: Bypass Screenshot Restriction
 hide_table_of_contents: true
 ---
 
-If you test Android mobile apps on Sauce Labs real devices and you see a black screen in your live testing session or in your video recording, you might need to enable **Bypass Screenshot Restriction**.
+If you are testing Android mobile apps on Sauce Labs real devices and you see a black screen in your live testing session or video recording, you may need to enable **Bypass Screenshot Restriction**.
 
-This black screen is caused by a setting called **FLAG_SECURE** that is sometimes added to Android apps. This prevents videos or screenshots from being taken of the app.
+This black screen is caused by a setting called **FLAG_SECURE**, which is sometimes implemented in Android apps to prevent screenshots or video recordings from being taken.
 
-Under the right conditions, when a user enables **Bypass Screenshot Restriction**, this allows Sauce Labs to work around the **FLAG_SECURE** setting so that the app can be tested. However, your ability to work around this setting is limited as described in [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps).
+Under the right conditions, enabling **Bypass Screenshot Restriction** allows Sauce Labs to work around the **FLAG_SECURE** setting so that the app can be tested. However, your ability to work around this setting is limited as described in [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps).
 
 :::note
 Legacy app storage in Sauce Labs does not support this setting.
@@ -31,7 +31,7 @@ For more information, see [FLAG_SECURE](https://developer.android.com/reference/
 Your ability to work around this setting to test will depend on a few factors:
 
 - Who owns the app:
-  - If your developers have created this app, they should be able to provide you with a version that does not have the **FLAG_SECURE** flag enabled.
+  - If your team developed the app, they should be able to provide you with a version that does not have the **FLAG_SECURE** flag enabled.
   - If your company has built this app on top of another company’s technology, your ability to request a version of the app without this flag is limited.
 - Whether **Bypass Screenshot Restriction** is an option:
   - If your developers have created this app and they can’t provide you with an app that doesn’t use **FLAG_SECURE**, the **Bypass Screenshot Restriction** is an option.
@@ -55,6 +55,8 @@ To bypass screenshot restriction in Live Tests, you'll need to have:
 
 #### Editing the App
 
+To edit the app, follow the steps below:
+
 1. Go to **App Management**.
 2. Hover over the app you want to test.
 3. Click **Settings and App Versions**.
@@ -64,8 +66,8 @@ To bypass screenshot restriction in Live Tests, you'll need to have:
 
 ### Appium Test
 
-See the [Appium Test Configuration Documentation](/dev/test-configuration-options/#bypassscreenshotrestriction)
+For more information, see [Appium Test Configuration Documentation](/dev/test-configuration-options/#bypassscreenshotrestriction).
 
 ### Espresso Test
 
-See the [saucectl documentation for Espresso tests](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#bypassscreenshotrestriction)
+For more information, see [saucectl documentation for Espresso tests](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#bypassscreenshotrestriction).

@@ -66,6 +66,17 @@ For example, you can configure metrics to normalize for:
 
 The configuration steps for this functionality vary by SDK. For more information about the required configuration steps, see the SDK-specific documentation below.
 
+## Data Resolution
+
+Data retention limitations require us to aggregate session data into time slices and discard the original session-level data. The resolution of stability metrics is dependent on the time slices, which are 30 minutes for recent events, and larger over longer periods of time.
+
+Note also that the following factors influence stability metrics. These factors are unique to each performance and observability tool and, because they are unique, 1:1 comparison will not be possible between tools.
+
+- The precise definitions of user and application sessions
+- The exact moment in the application lifecycle when session reports begin sending (For Sauce Labs Error Reporting, this excludes application startup time before SDK initialization)
+- The time slice selected for view (older periods have less granular calculations)
+- Time span and customer-applied filters
+
 ## SDK Support Links
 
 As of August 2021, only our Unity SDK supports this functionality. Support for the Unreal Engine, native Android and iOS SDKs will be introduced in a future release.
