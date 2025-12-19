@@ -224,6 +224,7 @@ You may encounter failures when using the visibility_of_element_located Expected
 ✅ Works: `EC.presence_of_element_located((AppiumBy.NAME, 'Element_Name'))`
 
 **Recommended Solution**: Update your `WebDriverWait` calls to use `presence_of_element_located`. Since the XCUITest driver often handles visibility checks internally during interaction, verifying presence is sufficient for element discovery and significantly more stable in this release. 
+
 ---
 
 ## Learn More
