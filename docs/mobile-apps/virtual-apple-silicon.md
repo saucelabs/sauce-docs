@@ -9,10 +9,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs now supports **iOS 17.5 and iOS 18** on Apple Silicon-based Simulators. These environments offer improved performance, alignment with modern architecture, and compatibility with Xcode's latest features. This allows you to test apps in the most current Apple environments across iPhone and iPad Simulators.
+Sauce Labs now supports **iOS 18 and iOS 26** on Apple Silicon-based Simulators. These environments offer improved performance, alignment with modern architecture, and compatibility with Xcode's latest features. This allows you to test apps in the most current Apple environments across iPhone and iPad Simulators.
 
 :::caution Enteprise Only
-iOS 17.5 and iOS 18 Simulators on Apple Silicon are available only to Enterprise customers on the appropriate Premium plan. Contact your account manager to discuss upgrading your plan.
+iOS 17.5 and newer simulators on Apple Silicon are available only to Enterprise customers on the appropriate Premium plan. Contact your account manager to discuss upgrading your plan.
 :::
 
 ## Key Benefits
@@ -71,10 +71,13 @@ To test your app on Apple Silicon Simulators, use the following capabilities:
 
 ### Required Capabilities
 
-| OS Version | Appium Version | Device Name          | `armRequired` |
+For full sample configurations and lists of available devices per version, please use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).
+
+| OS Version | Appium Version | Device Name (for example)         | `armRequired` |
 |------------|----------------|-----------------------|---------------|
 | iOS 17.5   | 2.1.3          | iPhone 15 Simulator    | true          |
 | iOS 18.0   | 2.11.3         | iPhone 16 Simulator | true          |
+| iOS 26.1   | 2.19.0         | iPhone 17 Simulator | true          |
 
 ```json
 {
@@ -154,13 +157,11 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ## Known Issues and Migration Notes
 
-As you upgrade to iOS 17.5 and iOS 18, note that Appium and related driver updates may require you to modify existing tests to remove deprecated features no longer supported. 
+As you upgrade to newer verisons on Sauce Labs simulators note that Appium and related driver updates may require you to modify existing tests to remove deprecated features no longer supported. 
 
-Check [Appium Version Details](./automated-testing/appium/appium-versions.md#appium-2x) for full bundle details on versions 2.1.3 and 2.11.3.
+Check [Appium Version Details](./automated-testing/appium/appium-versions.md#appium-2x) for full bundle details on supported versions.
 
 ### Changes to Content Scope
-
-
 
 | Appium Version | iOS Versions Affected | Content Scope |
 |----------------|-----------------------|---------------|
@@ -186,6 +187,44 @@ Appium commands `TouchActions` and `MultiTouchActions` have been deprecated in X
 
 More details ➡️ [Migrating to Appium 2](./automated-testing/appium/migration-guides/appium-2-migration.md)
 
+### Changes for iOS 26
+
+Users migrating from iOS 17.5 or 18.0 to iOS 26 should be aware of the following updates:
+
+* Appium Server: Updated to version 2.19.0.
+* Appium XCUITest Driver: Updated to version 9.10.15.
+
+#### Appium Client: element.click() Failures
+
+In iOS 26.1, the standard element.click() method (observed in the Python Appium client) may fail to trigger interactions on native iOS applications. It remains functional for web-based tests.
+
+**Recommended Solution**: We recommend migrating to the W3C Actions API using [ActionChains](https://github.com/appium/python-client?tab=readme-ov-file#multiactiontouchaction-to-w3c-actions). This is the industry-standard approach recommended by the Appium team for robust gesture handling.
+
+You can implement a helper function to ensure consistent click behavior:
+```python
+from selenium.webdriver import ActionChains
+
+def click_element(driver, element):
+    """
+    Workaround for iOS 26.1 click issues.
+    Uses ActionChains to move to the element, pause, and perform the action.
+    """
+    ActionChains(driver).move_to_element(element).pause(0.5).click().perform()
+
+# Usage Example
+location_btn = wait.until(EC.presence_of_element_located((AppiumBy.NAME, 'Trigger Location Permission')))
+click_element(driver, location_btn)
+```
+#### WebDriver Expected Conditions: Visibility vs. Presence
+
+You may encounter failures when using the visibility_of_element_located Expected Condition (EC) with iOS 26.1 simulators. The driver may fail to verify the visibility state even if the element is present in the hierarchy.
+
+❌ Fails: `EC.visibility_of_element_located((AppiumBy.NAME, 'Element_Name'))`
+
+✅ Works: `EC.presence_of_element_located((AppiumBy.NAME, 'Element_Name'))`
+
+**Recommended Solution**: Update your `WebDriverWait` calls to use `presence_of_element_located`. Since the XCUITest driver often handles visibility checks internally during interaction, verifying presence is sufficient for element discovery and significantly more stable in this release.
+  
 ---
 
 ## Learn More
