@@ -37,15 +37,15 @@ and leverage its powerful tools to optimize accessibility testing in your mobile
 - [A Deque Account](https://axe.deque.com/plans) (axe DevTools® for Mobile Product is required) 
 
 
-## Appium 2 Version: `appium2-deque-accessibility`
+## Appium Deque Versions: `appium2-deque-accessibility` and `appium3-deque-accessibility`
 
-Sauce Labs offers various versions of Appium 2 in our cloud. One of these is the `appium2-deque-accessibility` version, 
-designed to support accessibility testing on mobile apps for both iOS and Android. This version integrates Appium drivers developed by 
+Sauce Labs offers various versions of Appium in our cloud. The `appium2-deque-accessibility` and `appium3-deque-accessibility` versions, 
+designed to support accessibility testing on mobile apps for both iOS and Android. These versions integrate Appium drivers developed by 
 the Deque team, enabling seamless integration of accessibility scans into your existing test automation workflows.
 
-You can find more details on Sauce Labs' [Appium versions documentation](/mobile-apps/automated-testing/appium/appium-versions/#appium-2x).
+You can find more details on Sauce Labs' [Appium versions documentation](/mobile-apps/automated-testing/appium/appium-versions/#appium-3x).
 
-## Key Features of `appium2-deque-accessibility`
+## Key Features of `appium2-deque-accessibility` and `appium3-deque-accessibility`
 
 - ****Includes Deque Drivers :**** This version incorporates the following accessibility drivers provided by Deque:
     - axe-appium-uiautomator2-driver: Automation name is `AxeUIAutomator2`
@@ -56,12 +56,10 @@ You can find more details on Sauce Labs' [Appium versions documentation](/mobile
 supported by the axe-appium-xcuitest-driver. Refer to the [Deque documentation](https://docs.deque.com/devtools-mobile/appium-sauce) 
 for detailed requirements and supported versions.
 :::
-- ****Backward Compatibility with Deprecated Plugin:**** While Deque’s  [axeDevToolsMobile Appium Plugin](https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3) 
-has been deprecated, Sauce Labs will continue hosting it until January 31st 2025, allowing users time to migrate to the new drivers.
 
-## How to Use `appium2-deque-accessibility`
+## How to Use `appium2-deque-accessibility` OR `appium3-deque-accessibility`
 
-Follow these steps to set up and execute accessibility tests using the `appium2-deque-accessibility` image, leveraging Deque's Appium drivers for Android and iOS.
+Follow these steps to set up and execute accessibility tests using the `appium2-deque-accessibility` or `appium3-deque-accessibility` images, leveraging Deque's Appium drivers for Android and iOS.
 
 1. Set Up Your Appium Capabilities
 
@@ -88,7 +86,7 @@ const capabilities = {
   'appium:newCommandTimeout': 90,
   'sauce:options': {
     name: "Android Driver - Testing appium2-deque-accessibility",
-    appiumVersion: 'appium2-deque-accessibility',
+    appiumVersion: 'appium2-deque-accessibility', // Or 'appium3-deque-accessibility'
   },
 }
 ```
@@ -109,7 +107,7 @@ const capabilities = {
   'sauce:options': {
     name: "iOS Driver - Testing appium2-deque-accessibility",
     resigningEnabled: true,
-    appiumVersion: 'appium2-deque-accessibility',
+    appiumVersion: 'appium3-deque-accessibility', // Or 'appium2-deque-accessibility'
   },
 }
 ```
@@ -134,8 +132,8 @@ values={[
 <TabItem value="TestingScript">
 
 ```js
-describe("Test appium2-deque-accessibility - Using Drivers Android/iOS", () => {
-    it('test appium2-deque-accessibility', async () => {
+describe("Test appium-deque-accessibility - Using Drivers Android/iOS", () => {
+    it('test appium-deque-accessibility', async () => {
         const apiKey = process.env.DEQUE_API_KEY;
         const settings = { apiKey: apiKey }
 
@@ -147,95 +145,9 @@ describe("Test appium2-deque-accessibility - Using Drivers Android/iOS", () => {
 
 </Tabs>
 
-## Migrating from the Deprecated Plugin to Deque New Drivers
-
-Deque's axeDevToolsMobile Appium Plugin is deprecated and will no longer be supported after January 31st 2025. Moving forward, 
-the following drivers should be used to ensure compatibility and continued support for accessibility testing:
-
-- Android: axe-appium-uiautomator2-driver: Automation name is `AxeUIAutomator2`
-- iOS : axe-appium-xcuitest-driver: Automation name is `AxeXCUITEST`
-
-### Why Migrate?
-- Continued Support: The plugin will no longer receive updates, fixes, or enhancements.
-- Expanded Capabilities: The drivers offer better integration and updated functionalities for Android and iOS platforms.
-- Compliance with Modern Requirements: For iOS, the new driver supports devices running iOS 16 and above.
-
-### Migration Steps
-1. ****Update Your Appium Capabilities****
-
-Replace the old plugin reference with the appropriate new driver. Choose the correct automationName based on your platform:
-
-+ Use `AxeUIAutomator2` for Android.
-+ Use `AxeXCUITEST` for iOS.
-
-Additionally, specify the appiumVersion as `appium2-deque-accessibility`.
-
-<Tabs
-groupId="appium-deque-accessibility"
-defaultValue="AxeUIAutomator2"
-values={[
-{label: 'AxeUIAutomator2', value: 'AxeUIAutomator2'},
-{label: 'AxeXCUITEST', value: 'AxeXCUITEST'},
-]}>
-
-<TabItem value="AxeUIAutomator2">
-
-<!-- prettier-ignore -->
-```js
-const capabilities = {
-  platformName: 'Android',
-  'appium:platformVersion': '1[0-9]',
-  'appium:automationName': 'AxeUIAutomator2', // New Automation name goes here
-  ...
-  'sauce:options': {
-    ...
-    appiumVersion: 'appium2-deque-accessibility',
-  },
-}
-```
-</TabItem>
-<TabItem value="AxeXCUITEST">
-
-<!-- prettier-ignore -->
-```js
-const capabilities = {
-  platformName: 'iOS',
-  'appium:platformVersion': '^1(6|7|8).*$', // The iOS driver will work only on devices running iOS 16 and above
-  'appium:automationName': 'AxeXCUITEST', // New Automation name goes here
-  ...
-  'sauce:options': {
-    ...
-    appiumVersion: 'appium2-deque-accessibility',
-  },
-}
-```
-</TabItem>
-
-</Tabs>
-
-2. ****Update Your Testing Scripts****
-The `axe:Scan` command used with the ****deprecated**** plugin should now be replaced with the new `mobile: axeScan` command. 
-
-This command works with the new drivers and requires the same API key setup.
-
-<Tabs
-groupId="appium-deque-example"
-defaultValue="TestingScript"
-values={[
-{label: 'Testing Script', value: 'TestingScript'},
-]}>
-
-<TabItem value="TestingScript">
-```js
-await driver.execute('mobile: axeScan', scanSettings);
-```
-</TabItem>
-
-</Tabs>
-
 ## Additional Notes
 
-- Ensure your Appium server is correctly set up to use the `appium2-deque-accessibility` version. 
+- Ensure your Appium server is correctly set up to use the `appium2-deque-accessibility` or `appium3-deque-accessibility` versions. 
 - Validate that your app and environment meet the OS version requirements for the selected Deque drivers. 
 - For iOS, remember that the AxeXCUITEST driver only works on devices running iOS 16 or above.
 - The axeDevToolsMobile plugin will remain available in the Sauce Labs cloud until January 31st 2025.

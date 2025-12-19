@@ -68,3 +68,36 @@ Accelerate and scale your testing and broaden coverage by running automated test
   <p>Integrate your Espresso and XCUITest test automation frameworks with Sauce Labs.</p>
   </div>
 </div>
+
+## Real Device Access API
+
+<p><span className="sauceGreen">Open Beta</span></p>
+
+Directly access Sauce Labs private devices via HTTP and WebSockets. Reserve a device once and interact with it using standard protocols to build custom automation, debugging, or observability tools without relying on specific frameworks.
+
+<div className="box-wrapper" markdown="1">
+    <div className="box box1 card">
+        <div className="container">
+            <a href="/mobile-apps/real-device-access-api/introduction"><h3>Introduction</h3></a>
+            <p>Discover how the Access API removes framework dependencies and enables custom testing workflows on private devices.</p>
+        </div>
+    </div>
+    <div className="box box2 card">
+        <div className="container">
+            <a href="/mobile-apps/real-device-access-api/integration-guide"><h3>Integration Guide</h3></a>
+            <p>A step-by-step guide to authentication, session creation, device filtering, and lifecycle management.</p>
+        </div>
+    </div>
+    <div className="box box3 card">
+        <div className="container">
+            <a href="/mobile-apps/real-device-access-api/local-appium"><h3>Local Appium Connection</h3></a>
+            <p>Bridge your local Appium server to remote Sauce Labs devices using the <code>vusbUrl</code> or HTTP forwarding.</p>
+        </div>
+    </div>
+    <div className="box box4 card">
+        <div className="container">
+            <a href="/mobile-apps/real-device-access-api/sauce-hosted-appium"><h3>Hosted Appium</h3></a>
+            <p>Run faster test suites by keeping a hosted Appium server active across multiple tests on a single device session.</p>
+        </div>
+    </div>
+</div>

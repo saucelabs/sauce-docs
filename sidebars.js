@@ -1323,6 +1323,18 @@ module.exports = {
                         'mobile-apps/automated-testing/app-files',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Real Device Access API',
+                    collapsed: true,
+                    items: [
+                        'mobile-apps/rdc-access-api/real-device-access-api-introduction',
+                        'mobile-apps/rdc-access-api/real-device-access-api-integration-guide',
+                        'mobile-apps/rdc-access-api/real-device-access-api-local-appium',
+                        'mobile-apps/rdc-access-api/real-device-access-api-sauce-hosted-appium',
+                        'mobile-apps/rdc-access-api/real-device-access-api-mastering-companion-socket',
+                    ],
+                },
                 'mobile-apps/ms-app-center',
                 'mobile-apps/mobile-faq',
             ],
@@ -1564,6 +1576,12 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Sauce AI',
+            collapsed: true,
+            items: ['sauce-ai/ai-insights'],
+        },
+        {
+            type: 'category',
             label: 'Performance',
             collapsed: true,
             items: [
@@ -1636,11 +1654,6 @@ module.exports = {
                 'dev/test-configuration-options',
                 'dev/error-messages',
                 'dev/w3c-webdriver-capabilities',
-                {
-                    type: 'link',
-                    label: 'Visual E2E Testing', // The label that should be displayed (string).
-                    href: '/visual/e2e-testing/commands-options', // The target URL (string).
-                },
                 'dev/data-center-maint',
                 'dev/glossary',
             ],

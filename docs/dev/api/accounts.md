@@ -1220,12 +1220,6 @@ Replaces all values of the specified user profile with the new set of parameters
   </tbody>
   <tbody>
     <tr>
-     <td><code>email</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The user's contact email address.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
       <td><code>password</code></td>
       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A login password for the new user. The password requirements are: </p><p><ul><li>1 lowercase letter</li><li>1 uppercase letter</li><li>1 digit</li><li>1 special character</li><li>8 characters minimum</li><li>No blank spaces</li></ul></p></td>
     </tr>
@@ -1349,12 +1343,6 @@ Allows you to update individual user values without replacing the entire profile
     <tr>
      <td><code>last_name</code></td>
      <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's last name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>email</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's contact email address.</p></td>
     </tr>
   </tbody>
   <tbody>
