@@ -17,7 +17,7 @@ Visit the following pages for installation instructions for your platform:
 
 If you prefer to perform a custom installation, you can download the Sauce Connect binaries from the following links.
 
-SHA256 checksums are available [on this page](https://saucelabs.com/downloads/sauce-connect/5.3.1/checksums).
+SHA256 checksums are available [on this page](https://saucelabs.com/downloads/sauce-connect/5.4.1/checksums).
 
 <table>
   <tr>
@@ -27,51 +27,51 @@ SHA256 checksums are available [on this page](https://saucelabs.com/downloads/sa
   <tr>
     <td rowspan="3">Linux x86_64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.x86_64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.x86_64.tar.gz</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.x86_64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.x86_64.tar.gz</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect_5.3.1.linux_amd64.deb">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect_5.3.1.linux_amd64.deb</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect_5.4.1.linux_amd64.deb">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect_5.4.1.linux_amd64.deb</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.x86_64.rpm">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.x86_64.rpm</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.x86_64.rpm">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.x86_64.rpm</a>
     </td>
   </tr>
   <tr>
     <td rowspan="3">Linux arm64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.aarch64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.aarch64.tar.gz</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.aarch64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.aarch64.tar.gz</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect_5.3.1.linux_arm64.deb">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect_5.3.1.linux_arm64.deb</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect_5.4.1.linux_arm64.deb">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect_5.4.1.linux_arm64.deb</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.aarch64.rpm">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_linux.aarch64.rpm</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.aarch64.rpm">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_linux.aarch64.rpm</a>
     </td>
   </tr>
   <tr>
     <td>macOS</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_darwin.all.zip">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_darwin.all.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_darwin.all.zip">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_darwin.all.zip</a>
     </td>
   </tr>
   <tr>
     <td>Windows x86_64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_windows.x86_64.zip">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_windows.x86_64.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_windows.x86_64.zip">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_windows.x86_64.zip</a>
     </td>
   </tr>
   <tr>
     <td>Windows arm64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_windows.aarch64.zip">https://saucelabs.com/downloads/sauce-connect/5.3.1/sauce-connect-5.3.1_windows.aarch64.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_windows.aarch64.zip">https://saucelabs.com/downloads/sauce-connect/5.4.1/sauce-connect-5.4.1_windows.aarch64.zip</a>
     </td>
   </tr>
 </table>
