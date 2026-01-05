@@ -240,17 +240,17 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 2.0.0
+                    <code>axe-appium3-xcuitest-driver </code>: 1.0.1
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 2.0.1
+                    <code>axe-appium3-uiautomator2-driver </code>: 1.0.1
                 </a>
             </li>
             <li>
                 <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
-                    <code>appium</code>: 3.1.0
+                    <code>appium</code>: 3.1.2
                 </a>
             </li>
         </ul>
@@ -365,12 +365,12 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 2.1.0
+                    <code>axe-appium-xcuitest-driver </code>: 2.1.1
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 2.1.0
+                    <code>axe-appium-uiautomator2-driver </code>: 2.1.1
                 </a>
             </li>
             <li>
@@ -1751,8 +1751,52 @@ We are retiring the `stable` image to simplify our versioning model and align wi
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>iOS 18.0</td>
+     <tr>
+      <td>iOS 26.1</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.19.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.19.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.19.0</code>
+        </a>
+      </td>
+    </tr>
+      <tr>
+       <tr>
+      <td>iOS 18.6</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.3</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
+        </a>
+      </td>
+    </tr>
+          <td>iOS 18.0</td>
       <td>
         <ul>
           <li>
@@ -1814,6 +1858,28 @@ We are retiring the `stable` image to simplify our versioning model and align wi
       <td>
         <a href="#appium-2-versions">
           <code>2.1.3</code>
+        </a>
+      </td>
+    </tr>
+       <tr>
+      <td>iOS 16.4</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.3</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
         </a>
       </td>
     </tr>
@@ -2381,6 +2447,27 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
   </thead>
   <tbody>
     <tr>
+      <td>
+        <code>2.19.0</code>
+      </td>
+      <td>-</td>
+      <td>
+        The is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.19.0" target="_blank">
+              <code>appium</code>: 2.19.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v9.10.5" target="_blank">
+              <code>appium-xcuitest-driver</code>: 9.10.5
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+      <tr>
       <td>
         <code>2.11.3</code>
       </td>
