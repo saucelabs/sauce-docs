@@ -479,9 +479,9 @@ Log level.
 
 ### Introduction
 
-Sauce Connect 5 supports Kerberos authentication both to the upstream proxy and tested applications.
+Sauce Connect 5 supports Kerberos authentication for both upstream proxy and tested applications.
 
- `sc` client process connects to your Kerberos KDC server, authenticates as configured account ("principal name") and retrieves relevant Kerberos service tickets. Kerberos connection and authentication is only local to your `sc` client - Sauce Labs servers do not participate in it. 
+The `sc` client process connects to your Kerberos KDC server, authenticates as the configured account ("principal name") and retrieves relevant Kerberos service tickets. Kerberos connection and authentication are local only to your `sc` client - Sauce Labs servers do not participate in it. 
 
 It is also fully transparent to your tests as `sc` injects relevant HTTP headers with Kerberos authentication tokens automatically for all needed requests forwarded through the tunnel.
 
@@ -495,11 +495,11 @@ It is possible to have combination of settings - for example when both upstream 
 
 Sauce Connect 5 generates SPNEGO tokens from relevant Kerberos tickets to pass in HTTP headers which is the most popular and standardized way of handling Kerberos HTTP authentication.
 
-Implemented method is called "opportunistic authentication", it means `sc` does not try to detect `401` or `407` HTTP error codes and negotiate Kerberos authentication - it uses predefined host names needing Kerberos authentication and it's up to the user to know those hosts in advance. This greately improves performance and does not interfere with your tests which may require detection and custom handling of `401` and other error codes.
+Implemented method is called "opportunistic authentication", meaning that `sc` does not try to detect `401` or `407` HTTP error codes and negotiate Kerberos authentication - it uses predefined host names needing Kerberos authentication and it's up to the user to know those hosts in advance. This greatly improves performance and does not interfere with your tests which may require detection and custom handling of `401` and other error codes.
 
-Current implementation uses HTTP request host (or configured proxy hostname) as SPN (Service Principal Name) used to request tickets from Kerberos KDC server. For example `app.example.com` is converted to SPN `HTTP/app.example.com` and such SPN is expected to be present in Kerberos KDC server.
+Current implementation uses HTTP request host (or configured proxy hostname) as SPN (Service Principal Name) to request tickets from Kerberos KDC server. For example `app.example.com` is converted to SPN `HTTP/app.example.com` and such SPN is expected to be present in Kerberos KDC server.
 
-To use Kerberos authentication mechanism you need to have both `krb5.conf` file which points to proper realms and Kerberos servers and keytab file accessible to `sc` client. Those are standardized format files used in most Kerberos related software suites and are not specific to Sauce Connect 5 client.
+To use Kerberos authentication mechanism, you must have both a `krb5.conf` file, which points to proper realms and Kerberos servers and keytab file accessible to `sc` client. Those are standardized format files used in most Kerberos related software suites and are not specific to Sauce Connect 5 client.
 
 ### --kerberos-cfg-file {#kerberos-cfg-file}
 
@@ -545,13 +545,13 @@ Kerberos realm of the user specified in `--kerberos-user-name`. It depends on Ke
 
 List of hosts for which Kerberos (SPNEGO) authorization tokens will be injected as `Authorization` header. If a forwarded HTTP request already has such header (or header is added by `sc` by means of other settings, like custom headers or credentials) - this header value will be overwritten by SPNEGO token.
 
-Please note that this host list do not support wildcards.
+Please note that this host list does not support wildcards.
 
 
 ### --kerberos-auth-upstream-proxy {#kerberos-auth-upstream-proxy}
 
 * Environment variable: `SAUCE_KERBEROS_AUTH_UPSTREAM_PROXY`
-* Value Format: `<value>` (you can use empty command line switch to enable)
+* Value Format: `<value>` (you can use empty command-line switch to enable)
 * Default Value: `false`
 
 Authenticate to a configured upstream proxy with Kerberos (using `Proxy-Authorization` HTTP header). Please note that if `sc` configuration results in multiple proxies available (like PAC for example), `sc` will try to authenticate with Kerberos to each one of them.
@@ -598,7 +598,7 @@ Diagnostics printout will allow you to match enctype number to string:
 
 (17 is aes128-cts-hmac-sha1-96, etc)
 
-Often having only one enctype in user configuration will work but can break at any time if hosts decide to negotiate something different than usual. For simplification you can restrict supported encryption types to 1-2 entries in krb5.conf file. Enctypes listed in diagnostics mode are sorted from most secure to least secure so in most cases first 1-2 positions are good enough to choose from and check if KDC server supports them. When in doubt - contact your ActiveDirectory/Kerberos administrator.
+Often having only one enctype in user configuration will work but can break at any time if hosts decide to negotiate something different than usual. For simplification you can restrict supported encryption types to 1-2 entries in krb5.conf file. The enctypes listed in diagnostics mode are sorted from most secure to least secure so in most cases first 1-2 positions are good enough to choose from and check if KDC server supports them. When in doubt - contact your Active Directory or Kerberos administrator.
 
 
 ## Formatting Domains
