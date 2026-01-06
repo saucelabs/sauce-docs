@@ -22,7 +22,7 @@ Your app token initializes the Sauce Mobile App Distribution SDK. See [Adding th
 
 <img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="Sauce Mobile App Distribution Access Key page" width="700"/>
 
-Your Access Key (API key) is used to authenticate REST API requests. You can use the Sauce Mobile App Distribution API to upload builds, manage testers, and automate workflows.
+Your access key (API key) is used to authenticate REST API requests. You can use the Sauce Labs Mobile App Distribution API to upload builds, manage testers, and automate workflows.
 
 :::tip Best Practice
 For CI/CD pipelines and automated processes, create dedicated [service accounts](/testfairy/security/service-accounts) rather than using personal user accounts. This improves security, auditability, and operational continuity.

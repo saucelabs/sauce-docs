@@ -67,11 +67,9 @@ Each user account (including service accounts) has an associated API key that is
 ### Finding Your API Key
 
 1. Log in to the service account.
-2. Navigate to **Account** > **Sauce Mobile App Distribution Settings**.
-3. Locate the **Sauce Mobile App Distribution Access Key** section.
-4. Copy the API key for use in your integrations.
-
-Alternatively, for accounts not managed through Sauce Labs IAM, you can find the API key at [your preferences page](https://app.testfairy.com/settings).
+2. Navigate to **Account** > **Settings**.
+3. Locate the **Access Key** section.
+4. Copy the username and API key for use in your integrations.
 
 ### API Key Security Best Practices
 

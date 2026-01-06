@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In this document you can find the reference for the Sauce Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Mobile App Distribution data remotely.
+In this document you can find the reference for the Sauce Labs Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Mobile App Distribution data remotely.
 
 ## Authentication
 
@@ -26,12 +26,10 @@ Your API key is a unique credential that authenticates your API requests. It is 
 
 ### Finding Your API Key
 
-1. Log in to your Sauce Mobile App Distribution account.
-2. Navigate to **Account** > **Sauce Mobile App Distribution Settings**.
-3. Locate the **Sauce Mobile App Distribution Access Key** section.
-4. Copy your API key.
-
-Alternatively, you can find your API key at [your preferences page](https://app.testfairy.com/settings).
+1. Log in to your Sauce Labs Mobile App Distribution account.
+2. Navigate to **Account** > **Settings**.
+3. Locate the **Access Key** section.
+4. Copy your username and API key.
 
 For detailed guidance on creating service accounts, managing API keys, and security best practices, see [Service Accounts and API Keys](/testfairy/security/service-accounts).
 

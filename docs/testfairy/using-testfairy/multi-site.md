@@ -102,11 +102,12 @@ It is essential first to understand that all accounts are divided into two categ
   - Testers are humans who can only download an app. They cannot invite other humans and can only download apps via email invitation, landing page, or tester’s dashboard (logging in through mobile will automatically take them to this dashboard).
 
 | Role                                                                                             | Explanation                                                                                                                    |
-| :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| "Member" (managed through Sauce IAM) or "Admin" (separated from Sauce IAM)                       | Users who can upload apps, delete apps, and download apps, with an API key, can use                                            |
-| "Organization Admin" (managed through Sauce IAM) Or "Account Manager" (separated from Sauce IAM) | Same as above, but you can invite other users to this account. Usually, there are only a handful of such users.                |
-| "Account Owner"                                                                                  | A single user who owns the entire organization. That user cannot be deleted.                                                   |
-| "Site Manager"                                                                                   | This is only applicable for Private Cloud \+ Multi-Site. A user can create new organizations within the same private instance. |
+|:-------------------------------------------------------------------------------------------------| :----------------------------------------------------------------------------------------------------------------------------- |
+| "Member" (managed through Sauce IAM)                                                             | Users with read-only access. Can view and download apps but cannot upload, delete, or modify. Does not have an API key.        |
+| "Admin" (separated from Sauce IAM)                                                               | Users with read-write access. Can upload apps, delete apps, download apps, and use the REST API with their API key.            |
+| "Organization Admin" (managed through Sauce IAM) or "Account Manager" (separated from Sauce IAM) | Same as Admin, but can also invite and manage other users in the account. Usually only a few users have this role.             |
+| "Account Owner"                                                                                  | A single user who owns the entire organization. Has full permissions. Cannot be deleted.                                       |
+| "Site Manager"                                                                                   | Only applicable for Private Cloud + Multi-Site. Can create and manage organizations within the same private instance.          |
 
 :::warning API Access and Service Accounts
 For programmatic API access (CI/CD pipelines, automation scripts, integrations), create dedicated **service accounts** with the **Admin** role. The **Member** role does not receive an API key and has read-only access. Do not use Site Manager, Account Owner, Account Manager, or personal accounts for automated API access. See [Service Accounts and API Keys](/testfairy/security/service-accounts) for detailed guidance.
