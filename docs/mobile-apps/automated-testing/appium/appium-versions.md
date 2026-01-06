@@ -267,8 +267,8 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         This is a collection of drivers and plugins that were released in January 6th 2026 <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
-              <code>appium</code>: 3.1.0
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
+              <code>appium</code>: 3.1.2
             </a>
           </li>
           <li>
