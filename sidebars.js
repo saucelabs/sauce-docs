@@ -1154,6 +1154,7 @@ module.exports = {
                             ],
                         },
                         'testfairy/security/acct-settings',
+                        'testfairy/security/service-accounts',
                         'testfairy/security/gdpr',
                     ],
                 },

@@ -103,10 +103,14 @@ It is essential first to understand that all accounts are divided into two categ
 
 | Role                                                                                             | Explanation                                                                                                                    |
 | :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| “Member” (managed through Sauce IAM) or “Admin” (separated from Sauce IAM)                       | Users who can upload apps, delete apps, and download apps, with an API key, can use                                            |
-| “Organization Admin” (managed through Sauce IAM) Or “Account Manager” (separated from Sauce IAM) | Same as above, but you can invite other users to this account. Usually, there are only a handful of such users.                |
-| “Account Owner”                                                                                  | A single user who owns the entire organization. That user cannot be deleted.                                                   |
-| “Site Manager”                                                                                   | This is only applicable for Private Cloud \+ Multi-Site. A user can create new organizations within the same private instance. |
+| "Member" (managed through Sauce IAM) or "Admin" (separated from Sauce IAM)                       | Users who can upload apps, delete apps, and download apps, with an API key, can use                                            |
+| "Organization Admin" (managed through Sauce IAM) Or "Account Manager" (separated from Sauce IAM) | Same as above, but you can invite other users to this account. Usually, there are only a handful of such users.                |
+| "Account Owner"                                                                                  | A single user who owns the entire organization. That user cannot be deleted.                                                   |
+| "Site Manager"                                                                                   | This is only applicable for Private Cloud \+ Multi-Site. A user can create new organizations within the same private instance. |
+
+:::warning API Access and Service Accounts
+For programmatic API access (CI/CD pipelines, automation scripts, integrations), create dedicated **service accounts** with the **Admin** role. The **Member** role does not receive an API key and has read-only access. Do not use Site Manager, Account Owner, Account Manager, or personal accounts for automated API access. See [Service Accounts and API Keys](/testfairy/security/service-accounts) for detailed guidance.
+:::
 
 ### How to see the current user roles?
 
