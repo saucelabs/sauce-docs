@@ -33,9 +33,7 @@ Once created, you'll see a small status icon to indicate the status of the Repos
 
 Use the "Add a Github repository" button to begin configuring a repository.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/edit-git-repo.png')} alt="" />
-
-- Connection Information: Backtrace Source Control can integrate with GIT based systems. You must provide a Name, URL (HTTP or SSH based), and Authentication method (None, User Name / Password, SSH Key).
+- Connection Information: Backtrace Source Control can integrate with GIT based systems. You must provide a Name, URL (HTTP/S-based), and Authentication method (None, User Name / Password, Token).
   - NOTE - You may need to work with your source control system to get the proper URL and credentials to provide access to your SCM.
 - Revisions: GIT systems take snapshots of the source code at different times and manage those as Revisions. You can specify the ordered list of Revisions to try when searching for matching source code. Acceptable revision types include branch names, tags, as well as short and long SHA-1 hashes. You can specify an attribute to be dynamically included in the revision string by using \{attribute} template syntax.
 
