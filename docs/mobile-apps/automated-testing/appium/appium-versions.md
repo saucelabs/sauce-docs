@@ -240,12 +240,12 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-xcuitest-driver </code>: 1.0.1
+                    <code>axe-appium3-xcuitest-driver </code>: 1.1.0
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-uiautomator2-driver </code>: 1.0.1
+                    <code>axe-appium3-uiautomator2-driver </code>: 1.1.0
                 </a>
             </li>
             <li>
@@ -253,6 +253,54 @@ We are retiring the `stable` image to simplify our versioning model and align wi
                     <code>appium</code>: 3.1.2
                 </a>
             </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>appium3-2026-01</code>
+      </td>
+      <td>
+        <span className="sauceGold">January 1st, 2027</span>
+      </td>
+      <td>
+        This is a collection of drivers and plugins that were released in January 6th 2026 <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
+              <code>appium</code>: 3.1.2
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.3.0" target="_blank">
+              <code>appium-flutter-driver</code>: 3.3.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v6.7.8" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 6.7.8
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.14.4" target="_blank">
+              <code>appium-xcuitest-driver</code>: 10.14.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v2.0.3" target="_blank">
+              <code>appium-flutter-integration-driver</code>: 2.0.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.0.4" target="_blank">
+              <code>@appium/images-plugin</code>: 4.0.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.0.1" target="_blank">
+              <code>@appium/relaxed-caps-plugin</code>: 2.0.1
+            </a>
+          </li>
         </ul>
       </td>
     </tr>
@@ -365,12 +413,12 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 2.1.1
+                    <code>axe-appium-xcuitest-driver </code>: 2.2.0
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 2.1.1
+                    <code>axe-appium-uiautomator2-driver </code>: 2.2.0
                 </a>
             </li>
             <li>
