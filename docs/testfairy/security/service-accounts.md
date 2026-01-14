@@ -83,7 +83,11 @@ Each user account (including service accounts) has an associated API key that is
 
 ### Using API Keys in API Calls
 
-API keys are used with HTTP Basic Authentication. The format is:
+Different APIs use different authentication methods:
+
+#### REST API
+
+The [REST API](/testfairy/api-reference/rest-api) uses HTTP Basic Authentication with your email and API key:
 
 ```bash
 curl -u "service-account-email:api-key" "https://mobile.saucelabs.com/api/1/projects/"
@@ -93,7 +97,13 @@ Where:
 - **Username**: The email address of the service account
 - **Password**: The API key (not the account password)
 
-See the [REST API documentation](/testfairy/api-reference/rest-api) for complete API reference.
+#### Upload API
+
+The [Upload API](/testfairy/api-reference/upload-api) uses only the API key as a form parameter - no username required:
+
+```bash
+curl https://mobile.saucelabs.com/api/upload -F api_key='your_api_key' -F file=@app.apk
+```
 
 ## Account Types and API Access
 
