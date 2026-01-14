@@ -59,7 +59,7 @@ Here’s an example of the relevant portion of the API response:
 
 ## Accessing Symbols File Through the Dashboard
 
-To download your symbols file through the Sauce Mobile App Distribution dashboard, follow these steps:
+To download your symbols file through the Sauce Labs Mobile App Distribution dashboard, follow these steps:
 
 1. **Log In to Your Dashboard**
 

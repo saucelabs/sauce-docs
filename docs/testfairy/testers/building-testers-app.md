@@ -8,13 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Sauce Mobile App Distribution platform provides a unique service that allows customers to run the Sauce Mobile App Distribution Testers App on a private cloud. By doing so, you gain the ability to customize and brand the Testers App according to your requirements. This documentation will guide you through the process of building your personalized Testers App for both Android and iOS platforms.
+The Sauce Labs Mobile App Distribution platform provides a unique service that allows customers to run the Sauce Labs Mobile App Distribution Testers App on a private cloud. By doing so, you gain the ability to customize and brand the Testers App according to your requirements. This documentation will guide you through the process of building your personalized Testers App for both Android and iOS platforms.
 
 ## Android Testers App
 
 ### Source Code
 
-To begin, you need to access the source code of the Sauce Mobile App Distribution Testers App for Android. This can be achieved by forking the project from the following [GitHub repository](https://github.com/testfairy/testers-app-android).
+To begin, you need to access the source code of the Sauce Labs Mobile App Distribution Testers App for Android. This can be achieved by forking the project from the following [GitHub repository](https://github.com/testfairy/testers-app-android).
 
 ### Code Changes
 

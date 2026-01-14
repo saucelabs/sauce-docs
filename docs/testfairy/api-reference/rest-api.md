@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In this document you can find the reference for the Sauce Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Mobile App Distribution data remotely.
+In this document you can find the reference for the Sauce Labs Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Labs Mobile App Distribution data remotely.
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/
 curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
 
-## Previous Sauce Mobile App Distribution US-East endpoint:
+## Previous Sauce Labs Mobile App Distribution US-East endpoint:
 
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
@@ -88,7 +88,7 @@ Returns a list of all projects (iOS and Android apps) in this account.
 <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
 <p></p>
 
-Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the Sauce Mobile App Distribution SDK.
+Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the Sauce Labs Mobile App Distribution SDK.
 
 #### Responses
 
@@ -299,7 +299,7 @@ Use this endpoint to copy a specific build to a specified folder. You can either
     <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/download/</code></summary>
 <p></p>
 
-Downloads the binary file uploaded to Sauce Mobile App Distribution.
+Downloads the binary file uploaded to Sauce Labs Mobile App Distribution.
 
 #### Responses
 
@@ -354,105 +354,6 @@ Invite one or more tester groups to this specific build. You can optionally send
 		</tr>
 	</tbody>
 </table>
-
-</details>
-
----
-
-### List All Recorded Sessions in Build
-
-<details>
-    <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/</code></summary>
-<p></p>
-
-Get metadata for all sessions recorded for a specific build.
-
-#### Responses
-
-<table id="table-api">
-	<tbody>
-		<tr>
-			<td><code>200</code></td>
-			<td colSpan='2'>Success.</td>
-		</tr>
-	</tbody>
-</table>
-
-```json title="Sample Response"
-{
-    "status": "ok",
-    "sessions": [
-        {
-            "id": 1,
-            "self": "/projects/2197059-demoapp/builds/4867553/sessions/1",
-            "startTime": "2017-01-22 16:42:40",
-            "duration": "15:01",
-            "testerEmail": "john@testfairy.com",
-            "device": "Samsung - Samsung Galaxy S8",
-            "ipAddress": "23.100.122.175",
-            "crashed": false,
-            "countryName": "United States",
-            "countryCode": "us"
-        }
-    ]
-}
-```
-
-</details>
-
----
-
-### Get Session Data, Events and Logs
-
-<details>
-    <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/&#123;session-id&#125;</code></summary>
-<p></p>
-
-Get metadata (and optionally data) for a specific session.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-   <tr>
-    <td><code>fields</code></td>
-    <td><p><small>| OPTIONAL | STRING |</small></p><p>Possible values: <code>meta</code>, <code>logs</code>, <code>events</code>. The default value is <code>meta</code>. Use <code>events</code> to load all events, screenshots, touches, and other metrics. Use <code>logs</code> to fetch only logs. When loading logs, the response is application/text.</p></td>
-  </tr>
-</tbody>
-</table>
-
-#### Responses
-
-<table id="table-api">
-	<tbody>
-		<tr>
-			<td><code>200</code></td>
-			<td colSpan='2'>Success.</td>
-		</tr>
-	</tbody>
-</table>
-
-```json title="Sample Response"
-{
-    "status": "ok",
-    "session": {
-        "id":4426273741,
-        "sessionStartTime":"2019-05-20 09:05:30",
-        "duration":"00:27",
-        "testerEmail":"blabla@ex.com",
-        "device":"Xiaomi - Redmi S2",
-        "ipAddress":"84.94.200.136",
-        "crashed":false,
-        "identity":{
-            "correlationId":"blabla@ex.com",
-            "attr3":"three",
-            "attr4":"four",
-            "attr1":"High",
-            "attr2":"1.0",
-            "attr5":"Version 1.0"
-    }
-}
-```
 
 </details>
 
