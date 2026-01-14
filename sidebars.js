@@ -1094,13 +1094,12 @@ module.exports = {
                 'testfairy/testfairy',
                 {
                     type: 'category',
-                    label: 'Using App Distribution (TestFairy)',
+                    label: 'Using App Distribution',
                     collapsed: true,
                     items: [
                         'testfairy/using-testfairy/uploading-an-app',
                         'testfairy/using-testfairy/builds',
                         'testfairy/using-testfairy/dashboard',
-                        'testfairy/using-testfairy/insights',
                         'testfairy/using-testfairy/multi-site',
                     ],
                 },

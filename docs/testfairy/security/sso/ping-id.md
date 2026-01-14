@@ -30,6 +30,6 @@ For **Entity ID**, use the same format, **https://acme.testfairy.com**, and agai
 
 1. Download **SAML Metadata**.
 
-1. Login to Sauce Mobile App Distribution, and select **Preferences**.
+1. Login to Sauce Labs Mobile App Distribution, and select **Preferences**.
 
 1. Copy the contents of the file you just downloaded, and paste it into the textbox. Click on **Update SAML ID Provider Metadata**.

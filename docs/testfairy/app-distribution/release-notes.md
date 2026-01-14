@@ -24,7 +24,7 @@ When uploading a new app or version on the dashboard, enter the release notes on
 
 ## In Build Settings
 
-After an app or new build is uploaded, open the build settings and modify the release notes under **Sauce Mobile App Distribution**.
+After an app or new build is uploaded, open the build settings and modify the release notes under **Sauce Labs Mobile App Distribution**.
 
 <img src={useBaseUrl('/img/testfairy/app-distribution/settings-release-notes.png')} alt="Release notes in build settings"/>
 

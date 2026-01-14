@@ -1758,19 +1758,19 @@ Update device settings to allow apps, system apps, and accounts to persist betwe
   <tbody>
     <tr>
      <td><code>appWhitelist</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list">Persist installed apps</a> and app data between sessions.</p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list">Persist installed apps</a> and app data between sessions.</p><p>There is an upper limit of 100 entries on this field.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>accountWhitelist</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Preserve <a href="/basics/acct-team-mgmt/private-device-mgmt/#account-allow-list">store and payment account sign-ins</a> for Google accounts and Apple IDs between sessions for each account email.</p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Preserve <a href="/basics/acct-team-mgmt/private-device-mgmt/#account-allow-list">store and payment account sign-ins</a> for Google accounts and Apple IDs between sessions for each account email.</p><p>There is an upper limit of 100 entries on this field.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>systemAppAllowlist</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Access <a href="/basics/acct-team-mgmt/private-device-mgmt/#system-app-allow-list-ios">iOS preinstalled applications</a>.</p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Access <a href="/basics/acct-team-mgmt/private-device-mgmt/#system-app-allow-list-ios">iOS preinstalled applications</a>.</p><p>There is an upper limit of 100 entries on this field.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1782,7 +1782,7 @@ Update device settings to allow apps, system apps, and accounts to persist betwe
   <tbody>
     <tr>
      <td><code>skipCleaningFolders</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#retain-foldersfilepath-android">Retain specific file paths or folders</a> on your private Android devices between sessions. </p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#retain-foldersfilepath-android">Retain specific file paths or folders</a> on your private Android devices between sessions.</p><p>There is an upper limit of 100 entries on this field.</p></td>
     </tr>
   </tbody>
 </table>
