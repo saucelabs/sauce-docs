@@ -9,17 +9,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs now supports **iOS 17.5 and iOS 18** on Apple Silicon-based Simulators. These environments offer improved performance, modern architecture alignment, and compatibility with Xcode's latest features. This enables you to test apps in the most current Apple environments across iPhone and iPad Simulators.
+Sauce Labs now supports **iOS 18 and iOS 26** on Apple Silicon-based Simulators. These environments offer improved performance, alignment with modern architecture, and compatibility with Xcode's latest features. This allows you to test apps in the most current Apple environments across iPhone and iPad Simulators.
 
 :::caution Enteprise Only
-iOS 17.5 and iOS 18 Simulators on Apple Silicon are only available to Enterprise customers with the appropriate Premium plan. Contact your account manager to discuss upgrading.
+iOS 17.5 and newer Simulators on Apple Silicon are available only to Enterprise customers on the appropriate Premium plan. Contact your account manager to discuss upgrading your plan.
 :::
 
 ## Key Benefits
 
-- High-fidelity iOS testing environments on M-series macOS VMs
-- Improved performance and stability with faster start-up times and test execution
-- More efficient for development teams that adopt `arm64` throughout their development and testing pipelines.
+- High-fidelity iOS testing environments on M-series macOS hosts.
+- Improved performance and stability, with faster start-up times and faster test execution.
+- More efficient for development teams that adopt `arm64` across their development and testing pipelines.
 
 ---
 
@@ -45,19 +45,21 @@ xcodebuild -arch arm64 -sdk iphonesimulator -destination 'platform=iOS Simulator
 
 #### Archive the Build
 
-1. Create a folder named `Payload`
-2. Copy your `.app` file into the `Payload` directory
-3. Compress the folder into a `.zip`
-4. Rename the file to match your app, for example `MyApp.zip`
+To archive the build, follow the steps below:
+
+1. Create a folder named `Payload`.
+2. Copy your `.app` file into the `Payload` directory.
+3. Compress the folder into a `.zip`.
+4. Rename the file to match your app, for example `MyApp.zip`.
 
 ---
 
 ### Uploading the App to Sauce Labs
 
-You can upload the `.zip` archive:
+You can upload the `.zip` archive in the following ways:
 
-- Via the **App Management** section in the Sauce Labs web UI
-- Or via the **Sauce Labs File Storage API**
+- Via the **App Management** section in the Sauce Labs web UI.
+- Or via the **Sauce Labs File Storage API**.
 
 ➡️ [Uploading Apps to Sauce Labs](./app-storage.md)
 
@@ -69,10 +71,13 @@ To test your app on Apple Silicon Simulators, use the following capabilities:
 
 ### Required Capabilities
 
-| OS Version | Appium Version | Device Name          | `armRequired` |
+For full sample configurations and lists of available devices per version, use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).
+
+| OS Version | Appium Version | Device Name (for example)         | `armRequired` |
 |------------|----------------|-----------------------|---------------|
 | iOS 17.5   | 2.1.3          | iPhone 15 Simulator    | true          |
 | iOS 18.0   | 2.11.3         | iPhone 16 Simulator | true          |
+| iOS 26.1   | 2.19.0         | iPhone 17 Simulator | true          |
 
 ```json
 {
@@ -152,13 +157,11 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ## Known Issues and Migration Notes
 
-As you upgrade to iOS 17.5 and 18, be aware that Appium and related driver updates may require updates to existing tests to remove deprecated features no longer supported. 
+As you upgrade to newer verisons on Sauce Labs Simulators, Appium and related driver updates may require you to modify existing tests to remove deprecated features no longer supported.
 
-Check [Appium Version Details](./automated-testing/appium/appium-versions.md#appium-2x) for full bundle details on versions 2.1.3 and 2.11.3.
+Check [Appium Version Details](./automated-testing/appium/appium-versions.md#appium-2x) for full bundle details on supported versions.
 
 ### Changes to Content Scope
-
-
 
 | Appium Version | iOS Versions Affected | Content Scope |
 |----------------|-----------------------|---------------|
@@ -183,6 +186,23 @@ Appium commands `TouchActions` and `MultiTouchActions` have been deprecated in X
 **Solution**: Refer to [Appium Documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/gestures/) for additional implementation options.
 
 More details ➡️ [Migrating to Appium 2](./automated-testing/appium/migration-guides/appium-2-migration.md)
+
+### Changes in iOS 26
+
+Users migrating from iOS 17.5 or 18.0 to iOS 26 should be aware of the following updates:
+
+* Appium Server: Updated to version 2.19.0.
+* Appium XCUITest Driver: Updated to version 9.10.15.
+
+#### WebDriver Expected Conditions: Visibility vs. Presence
+
+You may encounter failures when using the visibility_of_element_located Expected Condition (EC) with iOS 26.1 Simulators. The driver may fail to verify the visibility state even if the element is present in the hierarchy.
+
+❌ Fails: `EC.visibility_of_element_located((AppiumBy.NAME, 'Element_Name'))`
+
+✅ Works: `EC.presence_of_element_located((AppiumBy.NAME, 'Element_Name'))`
+
+**Recommended Solution**: Update your `WebDriverWait` calls to use `presence_of_element_located`. Since the XCUITest driver often handles visibility checks internally during interaction, verifying presence is sufficient for element discovery and significantly more stable in this release. 
 
 ---
 

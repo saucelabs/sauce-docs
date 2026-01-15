@@ -5,8 +5,9 @@ if (typeof unwrapJsx !== 'function') {
     throw new Error('unwrapJsx plugin is not a function');
 }
 // Enabling PR previews
-let siteBaseUrl = '/';
-if (process.env.PREVIEW_PATH) siteBaseUrl += process.env.PREVIEW_PATH;
+// Docusaurus will read the BASE_URL env var set in the CI.
+// We fall back to '/' for local development.
+let siteBaseUrl = process.env.BASE_URL || '/';
 
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
@@ -174,6 +175,31 @@ const docusaurusConfig = {
         ],
     ],
     themes: ['docusaurus-theme-github-codeblock'],
+    plugins: [
+        [
+            '@scalar/docusaurus',
+            {
+                id: 'real-device-access-api',
+                label: 'Real Device Access API',
+                route: '/real-device-access-api',
+                showNavLink: true,
+                configuration: {
+                    hideClientButton: true,
+                    hideTestRequestButton: true,
+                    hideSearch: true,
+                    defaultOpenAllTags: true,
+                    layout: 'classic',
+                    sources: [
+                        {
+                            // This title will appear in the top left dropdown within Scalar API doc.
+                            title: 'Real Device Access API',
+                            url: 'https://raw.githubusercontent.com/saucelabs/real-device-api/main/open_api_specification.yaml',
+                        },
+                    ],
+                },
+            },
+        ],
+    ],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {

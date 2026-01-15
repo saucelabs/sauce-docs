@@ -1,10 +1,10 @@
 ---
-sidebar_label: Figma (Beta)
+sidebar_label: Figma
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Figma Integration (Beta)
+# Figma Integration
 
 You can use the Sauce Visual Figma plugin to set your Figma designs as baselines for visual testing your applications, enabling you to compare your live application screenshots against your original design specifications.
 
