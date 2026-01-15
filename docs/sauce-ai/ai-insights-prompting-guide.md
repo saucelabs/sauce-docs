@@ -84,9 +84,10 @@ Good Prompts:
 - "What are the IDs and names of all builds that ran yesterday, and how many jobs were completed in each?"
 - "Show me the browser and OS for my 5 most recent passing VDC jobs from last week."
 - "What is the average duration of all jobs in the build 'MyFeatureBranch-123'?"
+
 Bad Prompts:
 - "Show me everything about jobs." (Too broad, the agent needs more specific criteria.)
-- "Give me a chart of pass rates." 
+- "Give me a chart of pass rates."
 - "What's wrong with my tests?" (Too vague; for specific failures, provide a job ID for root cause analysis.)
 
 ### 2. Listing Specific Test Cases 
@@ -97,6 +98,7 @@ Good Prompts:
 - "Which test cases ran on 'Samsung Galaxy S24 Ultra' in the last month and had a mixed status?"
 - "Show me the top 5 test cases by average duration that ran on Chrome in the last 30 days."
 - "Are there any test cases with 'login' in their name that passed yesterday?"
+
 Bad Prompts:
 - "Show me tests." (Ambiguous; specify "jobs" or "test cases" and a time frame.)
 - "What are the fastest test cases?" (Needs a time frame and a clear metric like "average duration" or "median duration.")
@@ -109,6 +111,7 @@ Good Prompts:
 - "What is the OS coverage for my RDC jobs this month?"
 - "Which browsers have my VDC jobs run on the most in the last week, and can you sort them by count?"
 - "Visualize the device coverage for my jobs from last quarter."
+
 Bad Prompts:
 - "What's my coverage?" (Too vague; specify data like "device", "browser", or "os" and a time frame.)
 - "Show me device coverage for a specific job."
@@ -121,6 +124,7 @@ Good Prompts:
 - "What is the weekly trend of job duration for VDC jobs over the last 3 months?"
 - "Chart the hourly pass rate for my jobs today."
 - "How has the number of errored jobs changed daily over the past two weeks?"
+
 Bad Prompts:
 - "How many jobs passed?" (This is a single number, not a trend.)
 - "Show me trends." (Needs specific metrics, an interval (e.g., daily, weekly), and a time frame.)
@@ -133,6 +137,7 @@ Good Prompts:
 - "Give me a summary of consistently passing and failing test cases for the last week, and compare it to the previous week."
 - "What are the statistics for test cases run on iOS devices this month?"
 - "Show me the total number of test cases and how many are consistently passing for the last 90 days."
+
 Bad Prompts:
 - "Tell me about test cases." (Too broad; specify what statistics you're interested in.)
 
@@ -144,6 +149,7 @@ Good Prompts:
 - "What's the average runtime and total job count for my VDC jobs last month?"
 - "Summarize my RDC job activity for the current week."
 - "How many jobs were run by me in the last 24 hours, and what was their median runtime?"
+
 Bad Prompts:
 - "Show me job details." (This is a summary tool; for details on individual jobs, you'd need a job ID and other tools.)
 - "What's the problem with my jobs?" (This tool doesn't diagnose issues, it provides aggregate metrics.)
@@ -155,6 +161,7 @@ Good Prompts:
 - "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?" (Provide a specific job ID.)
 - "Can you find the root cause for the failure in job another_job_id_here?"
 - "What were the differing commands in job xyz-123 that led to its failure?"
+
 Bad Prompts:
 - "Why are my tests failing?" (Too general; Needs a specific job ID to perform root cause analysis.)
 - "Show me all root causes." (This tool requires a job_id; it doesn't list all root causes across the organization.)
@@ -166,6 +173,7 @@ Good Prompts (that lead to a chart):
 - "Show me the daily pass rate trend for my jobs over the last month." (Implies retrieving trend data, then charting it.)
 - "Compare the number of passed, failed, and errored jobs for the last week in a chart." (Implies retrieving job counts, then charting them.)
 - "Visualize the distribution of jobs across different operating systems for the last 30 days." (Implies retrieving coverage data, then charting it.)
+
 Bad Prompts (that might not lead to a chart or are ambiguous):
 - "Chart something." (Needs specific data to chart.)
 - "Show me a chart of job ID." (Job IDs are unique identifiers, not typically charted as a trend or distribution.)
