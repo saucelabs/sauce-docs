@@ -28,7 +28,7 @@ For example:
 
 ## Programmatically Detecting Distribution Status
 
-Sauce Mobile App Distribution provides a simple API to receive the distribution status as 
+Sauce Labs Mobile App Distribution provides a simple API to receive the distribution status as 
 set in the Build Settings page.
 
 To fetch the status of a specific version, use
@@ -68,7 +68,7 @@ curl -XPOST \
 </table>
 
 :::note Important
-Sauce Mobile App Distribution is using a Token. This is not your Sauce Labs' username and access key. The token
+Sauce Labs Mobile App Distribution is using a Token. This is not your Sauce Labs' username and access key. The token
 itself is not private and can be used only to query status. It cannot be used to access any other
 data in your account.
 :::
@@ -78,7 +78,7 @@ Upon response, the API will return a json with `status` equal to either `enabled
 {"status":"enabled"}
 ```
 
-If a Build cannot be found on Sauce Mobile App Distribution platform, it is assumed deleted, and the result will be `disabled`.
+If a Build cannot be found on Sauce Labs Mobile App Distribution platform, it is assumed deleted, and the result will be `disabled`.
 
 ## Sample Code
 

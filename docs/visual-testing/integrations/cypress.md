@@ -64,27 +64,9 @@ export default defineConfig({
 
 - Register Sauce Visual for Cypress commands. Add the following line in your `cypress/support/e2e.ts`:
 
-<Tabs
-defaultValue="Cypress 12.17.4+"
-  values={[
-    {label: 'Cypress 12.17.4+', value: 'Cypress 12.17.4+'},
-    {label: 'Cypress 12.17.3 and older', value: 'Cypress 12.17.3'},
-  ]}>
-<TabItem value="Cypress 12.17.4+">
-
 ```ts
 import '@saucelabs/cypress-visual-plugin/commands';
 ```
-
-  </TabItem>
-  <TabItem value="Cypress 12.17.3">
-
-```ts
-import '@saucelabs/cypress-visual-plugin/build/commands';
-```
-
-  </TabItem>
-</Tabs>
 
 ### Step 3: Add visual tests in your project:
 

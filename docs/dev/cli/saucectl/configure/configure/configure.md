@@ -4,7 +4,7 @@ title: saucectl configure
 sidebar_label: configure
 ---
 
-Generate a credentials file with your Sauce Labs Username and Access Key.
+Generate a credentials file with your Sauce Labs username and access key.
 
 ## Usage
 

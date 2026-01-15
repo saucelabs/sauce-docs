@@ -1021,7 +1021,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <summary><span className="api post">POST</span> <code>/team-management/v1/users/</code></summary>
 <p/>
 
-Creates a new user in the Sauce Labs platform.
+Creates a new user in your Sauce Labs organization.
 
 #### Parameters
 
@@ -1058,20 +1058,14 @@ Creates a new user in the Sauce Labs platform.
   </tbody>
   <tbody>
     <tr>
-     <td><code>organization</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The identifier of the organization to create the user's account. You can look up organization IDs by calling the <code>GET https://api.&#123;region&#125;.saucelabs.com/team-management/v1/organizations/</code> endpoint.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
      <td><code>role</code></td>
-     <td><p><small>| BODY | REQUIRED | INTEGER |</small></p><p>Tnew user's permission role. Valid values are:<ul><li><code>1</code> - Organaization Admin</li><li><code>4</code> - Team Admin</li><li><code>3</code> - Member</li></ul></p></td>
+     <td><p><small>| BODY | OPTIONAL | INTEGER |</small></p><p>New user's permission role. Valid values are:<ul><li><code>1</code> - Organization Admin</li><li><code>4</code> - Team Admin</li><li><code>3</code> - Member (default)</li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The identifier of the team of which the new user is a member. You can look up team IDs using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>ID of the team to assign the new user to. Must be the UUID of a team that exists in your organization. You can look up team IDs using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p><ul><li>If omitted: the user is created in the default team</li><li>Example: <code>b3de7078b79841b59d2e54127269afe3</code></li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -1097,7 +1091,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "username": "jsmith",
     "password": "$m1th*RULES",
     "role": 4,
-    "team": "<team-id>"
+    "team": "b3de7078b79841b59d2e54127269afe3"
 }' | json_pp
 ```
 
@@ -1115,7 +1109,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "username": "jsmith",
     "password": "$m1th*RULES",
     "role": 4,
-    "team": "<team-id>"
+    "team": "b3de7078b79841b59d2e54127269afe3"
 }' | json_pp
 ```
 
@@ -1222,12 +1216,6 @@ Replaces all values of the specified user profile with the new set of parameters
     <tr>
      <td><code>last_name</code></td>
      <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The user's last name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>email</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The user's contact email address.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1355,12 +1343,6 @@ Allows you to update individual user values without replacing the entire profile
     <tr>
      <td><code>last_name</code></td>
      <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's last name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>email</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's contact email address.</p></td>
     </tr>
   </tbody>
   <tbody>

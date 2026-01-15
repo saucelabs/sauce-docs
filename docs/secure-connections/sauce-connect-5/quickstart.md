@@ -21,7 +21,7 @@ This guide walks you through the fastest way to get up and running with a basic 
 
 ### Run Sauce Connect Proxy
 
-1. Make sure that the directory containing the `sc` binary (or `sauce-connect.exe`, for Windows) is in the `$PATH`. Otherwise, you will have to specify the path to the binary in the command line, i.e. `/path/to/sc`
+1. Make sure that the directory containing the `sc` binary (or `sauce-connect.exe`, for Windows) is in the `$PATH`. Otherwise, you will have to specify the path to the binary in the command line(e.g., `/path/to/sc`).
 2. Define environment variables containing sensitive data: your username and access key
 
 ```bash
@@ -110,7 +110,7 @@ With your tunnel up and running, try doing a Live <!--or Automated--> local test
 ### Stop Tunnel
 
 When you've finished testing, you can stop your tunnel from the terminal where Sauce Connect is running by entering Ctrl+C.
-If there are jobs that use Sauce Connect Proxy connection, it will wait for them to finish.
+If there are jobs that use the Sauce Connect Proxy connection, it will wait for them to finish.
 
 ```bash
 2024/01/23 15:19:33.152509 [control] [INFO] Sauce Connect is up, you may start your tests

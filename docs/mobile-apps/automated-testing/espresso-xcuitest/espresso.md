@@ -27,7 +27,7 @@ While you can use multiple files of different names or locations to specify your
 ## Example Configuration
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-espresso-example/blob/master/.sauce/config.yml
+https://github.com/saucelabs/saucectl-espresso-example/blob/main/.sauce/config.yml
 ```
 
 Each of the properties supported for running Espresso tests through `saucectl` is defined below.

@@ -17,14 +17,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <TabItem value="swift" label="Swift">
 
 ```swift reference title="Usage Example"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS/AppDelegate.swift#L19-L37
+https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS/AppDelegate.swift#L18-L77
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
 ```objc reference title="Usage Example"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS-ObjC/AppDelegate.m#L13-L32
+https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS-ObjC/AppDelegate.m#L4-L67
 ```
 
 </TabItem>

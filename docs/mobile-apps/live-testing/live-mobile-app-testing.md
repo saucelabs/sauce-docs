@@ -175,7 +175,7 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 
 1. If you receive an app installation failed error, click the **X** in the app loading screen to exit the device home screen.
 1. On the device home screen, navigate to **Settings** -> **General**.
-1. Under **Profiles & Device Management**, tap the app you are trying to install and test.
+1. Under **VPN & Device Management**, tap the app you are trying to install and test.
 1. Tap **Trust "app name"** and then tap **Trust**.
 1. Reopen the app to continue the test.
 

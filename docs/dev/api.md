@@ -8,7 +8,7 @@ description: Introduction to basic principles of authentication, request/respons
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs exposes a set of REST API endpoints that allow you to perform operations, manage accounts, and retrieve data programmatically so you can use the Sauce platform in the way that best suits your business logic.
+Sauce Labs exposes a set of REST API endpoints that let you perform operations, manage accounts, and retrieve data programmatically so you can use the Sauce platform in the way that best suits your business logic.
 
 :::tip
 You can check the current accessibility of any Sauce Labs system on the [Sauce Labs Systems Status](https://status.saucelabs.com/) page.
@@ -22,9 +22,9 @@ You can check the current accessibility of any Sauce Labs system on the [Sauce L
 
 ## Accessing the APIs
 
-The Sauce Labs APIs are organized around REST. Each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
+The Sauce Labs APIs are REST-based. Each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, and returns JSON-encoded responses.
 
-Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latest version for the given method. The following table provide the base URLs for each data center.
+Each endpoint is formed by a `{base-url}` prefix (which depends on the data-center associated with your Sauce Labs account) plus the version for the given method. The following table provides the base URLs for each data center.
 
 | Data Center | API Base URL                              |
 | :---------- | :---------------------------------------- |
@@ -42,7 +42,7 @@ The Sauce Labs API uses API keys to authenticate requests. You can view and mana
 
 Alternatively, you can use the username and access key of a [service account](/basics/acct-team-mgmt/managing-service-accounts) to authenticate API requests. Service account credentials are generated during [account creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
-Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username and API key as the basic auth username and password values, respectively. All requests must be made over HTTPS. Calls made over HTTP or without proper authentication will fail.
+Authentication is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). PRovide your username as the basic username and your API key as the password. All requests must use HTTPS. Calls made over HTTP or without proper authentication will fail.
 
 You can provide your authentication credentials as inline parameters of your request or using a Basic Header.
 
@@ -58,7 +58,7 @@ curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
 
 ### Versioning
 
-The API is versioned by URL, each of which may be in a different stage of release. The currently published version of each endpoint is reflected in the URL itself, as demonstrated in the following two endpoints:
+The API is versioned via the URL, and different endpoints may be at different stages of release, The currently published version of each endpoint is visible in its URL, for example:
 
 - `https://api.us-west-1.saucelabs.com/rest/v1/{username}/jobs`
 - `https://api.us-west-1.saucelabs.com/v2/performance/metrics/`
@@ -69,7 +69,7 @@ Unspecified method requests default to `GET`. All other supported request types 
 
 ## Status Codes
 
-Sauce Labs uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the `2xx` range indicate success, while codes in the `4xx` range indicate an error that caused the request to be denied. Codes in the `5xx` range indicate an error reaching the Sauce Labs server (which is rare). The following table provides a summary of response codes returned by the APIs.
+Sauce Labs uses conventional HTTP response codes to indicate the success or failure of an API request. In general, status codes in the `2xx` range indicate success, `4xx` indicate client-errors (e.g., invalid request), and `5xx` indicate server-errors at Sauce Labs (which are rare). The following table provides a summary of response codes returned by the APIs.
 
 | Code                          | Description                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -114,14 +114,14 @@ Following are some sample error responses that include additional detail.
 
 ## Rate Limits
 
-The Sauce Labs REST API places rate limits on some endpoints in order to prevent over-utilization.
+The Sauce Labs REST API imposes rate limits on some endpoints to prevent over-utilization.
 
 For example:
 
 - Incoming authenticated API requests have rate limits imposed against the individual account.
 - Incoming unauthenticated API requests have rate limits imposed against the IP addresses.
 
-Requests received after the rate limit is reached return a [429 response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429#:~:text=The%20HTTP%20429%20Too%20Many,before%20making%20a%20new%20request) indicating that the number of allowable requests has been exceeded.
+If you exceed the rate limit, requests will return a [429 response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429#:~:text=The%20HTTP%20429%20Too%20Many,before%20making%20a%20new%20request), indicating that the allowable number of requests has been exceeded.
 
 ### Rate Limit Breakdown
 
@@ -132,6 +132,6 @@ Requests received after the rate limit is reached return a [429 response code](h
 
 ## JSON Response Formatting
 
-The request examples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format that does not require the installation of any additional tools.
+The request examples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format, so you don’t need to install additional tools.
 
 You can remove the `| json_pp` reference from your requests to have responses returned as raw JSON, or you can specify a different syntax formatter of your choosing, such as [JQ](https://stedolan.github.io/jq/).

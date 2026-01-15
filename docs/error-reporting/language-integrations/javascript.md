@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 [Backtrace](https://backtrace.io) captures and reports handled and unhandled exceptions in your production software so
 you can manage application quality through the complete product lifecycle.
 
-The [@backtrace/browser](#) SDK connects your JavaScript application to Backtrace. The basic integration is quick
+The [@backtrace/browser](https://www.npmjs.com/package/@backtrace/browser) SDK connects your JavaScript application to Backtrace. The basic integration is quick
 and easy, after which you can explore the rich set of Backtrace features.
 
 ## Table of Contents
@@ -25,6 +25,7 @@ and easy, after which you can explore the rich set of Backtrace features.
     - [Attributes](#attributes)
     - [File Attachments](#file-attachments)
     - [Breadcrumbs](#breadcrumbs)
+    - [Session Replay](#session-replay)
     - [Application Stability Metrics](#application-stability-metrics)
         - [Metrics Configuration](#metrics-configuration)
         - [Metrics Usage](#metrics-usage)
@@ -270,6 +271,62 @@ client.breadcrumbs?.info('This is a manual breadcrumb.', {
     customAttr: 'wow!',
 });
 ```
+
+---
+
+### Session Replay
+
+The optional `@backtrace/session-replay` module allows you to capture and replay the user's interactions leading up to an error. This provides a video-like context for your error reports, making it much easier to reproduce and debug issues.
+
+The Session Replay module is designed with privacy as a top priority. By default, it automatically masks all text and input fields to avoid capturing sensitive user data.
+
+For full details on session replay configuration, sampling, and advanced privacy controls, please see the **[Session Replay Module Documentation](../platform-integrations/session-replay.md)**.
+
+#### 1. Install the additional package
+
+In addition to `@backtrace/browser`, you will also need to install the session replay package.
+
+```bash
+$ npm install @backtrace/session-replay
+```
+
+#### 2. Add the module to the client
+
+To enable session replay, you must use the BacktraceClient.builder() and add the BacktraceSessionReplayModule. This replaces the standard BacktraceClient.initialize().
+
+```ts
+// Import the necessary modules
+import { BacktraceClient, BacktraceConfiguration } from '@backtrace/browser';
+import { BacktraceSessionReplayModule } from '@backtrace/session-replay';
+
+// Configure client options
+const options: BacktraceConfiguration = {
+    name: 'MyWebPage',
+    version: '1.2.3',
+    url: 'https://submit.backtrace.io/<universe>/<token>/json',
+};
+
+// Initialize the client using the builder to add the session replay module
+const client = BacktraceClient.builder(options)
+    .useModule(
+        new BacktraceSessionReplayModule({
+            // Configuration for session replay goes here.
+            maxEventCount: 100,
+            privacy: {
+                blockClass: 'do-not-send',
+            },
+            sampling: {
+                input: 'last',
+            }
+        }),
+    )
+    .build();
+
+// The client is now initialized with Session Replay enabled.
+// Any errors captured by the client or the ErrorBoundary will now include a session replay.
+```
+
+When an error is captured, a link to the session replay will be available on the Debugger page for that specific error in the Backtrace UI.
 
 ---
 

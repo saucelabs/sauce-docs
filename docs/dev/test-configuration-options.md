@@ -727,18 +727,6 @@ Set `noReset` to `true` to keep a device allocated to you during the device clea
 
 This capability will have no effect on Sauce Labs virtual devices, it will only work on local Android Emulators/iOS Simulators. For local executions, you will likely only have one device available, in Sauce Labs you will have a pool of devices available depending on your concurrency. Each session will start a new clean session which will make this capability redundant.
 
-**Specifics for Android Real Devices:**
-
-If `noReset` is set to `true`:
-
-- The app does not stop after a test/session.
-- The app data will not be cleared between tests/sessions.
-- Apk will not be uninstalled after a test/session.
-
-**Specifics for iOS Real Devices:**
-
-On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
-
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:noReset", true);
@@ -848,7 +836,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:timeZone`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
 Overrides the current device's time zone. This change is done on per-device basis and is
 preserved for the whole duration of the test session. The time zone identifier must be a
@@ -1710,6 +1698,10 @@ Set custom filters for Appium server logs. This will allow you to mask sensitive
 
 For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
 
+:::note
+The `logFilters` capability is supported in Appium version 2.5.2 and later. To use this feature, ensure your test script specifies a compatible Appium version using the Sauce-specific [`appiumVersion`](/dev/test-configuration-options/#appiumversion) capability. You can view the list of [available Appium versions](/docs/mobile-apps/automated-testing/appium/appium-versions.md) here.
+:::
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
@@ -1717,6 +1709,24 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 
 sauceOptions.setCapability("logFilters", List.of(
 	ImmutableMap.of("text","text-to-be-replaced")));
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `filterSendKeys`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Filters the `SendKeys` Appium command from the Appium commands log in the tests report. In case your test sends sensitive information (such as credentials) through a form this will prevent to leak them in the test report, replacing the request of the command by a placeholder.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("filterSendKeys", true);
 
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1835,7 +1845,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Sets your Sauce Labs username for a test.
 
-You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing)), this must be set in capabilities.
+You can either set `"username"` in capabilities or specify it in the Sauce URL as Basic Authentication.
 
 :::tip
 You can find your `username` value under **Account** > **User Settings**.
@@ -1863,7 +1873,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Sets your Sauce Labs access key for the test.
 
-You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication. For [Visual Tests](#visual-testing), this must be set in capabilities.
+You can either set `"accessKey"` in capabilities or specify it in the Sauce URL as Basic Authentication.
 
 :::tip
 You can find your `accessKey` value under **Account** > **User Settings**.
@@ -2269,13 +2279,3 @@ Defines the number of seconds Sauce Labs will wait for your executable to finish
 ### Example Test Scripts
 
 See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
-
-### Visual Testing
-
-While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
-
-See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Commands and Options](/visual/e2e-testing/commands-options).
-
-:::caution Limitations
-When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.
-:::

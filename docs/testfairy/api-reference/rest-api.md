@@ -8,37 +8,86 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In this document you can find the reference for the Sauce Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Mobile App Distribution data remotely.
+In this document you can find the reference for the Sauce Labs Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Labs Mobile App Distribution data remotely.
+
+## Authentication
+
+All REST API requests require authentication using HTTP Basic Authentication with your email address and API key.
+
+### API Key Overview
+
+Your API key is a unique credential that authenticates your API requests. It is **not** your account password.
+
+:::warning Important Security Guidelines
+- **Your API key is private** - Do not share it or post it on public code repositories or forums.
+- **Use service accounts for automation** - Create dedicated [service accounts](/testfairy/security/service-accounts) for CI/CD pipelines and automated processes.
+- **Never use Site Manager accounts for API calls** - Site Manager accounts have elevated privileges that are inappropriate for automated API access. Always use a dedicated service account with appropriate permissions.
+:::
+
+### Finding Your API Key
+
+1. Log in to your Sauce Labs Mobile App Distribution account.
+2. Navigate to **Account** > **Settings**.
+3. Locate the **Access Key** section.
+4. Copy your username and API key.
+
+For detailed guidance on creating service accounts, managing API keys, and security best practices, see [Service Accounts and API Keys](/testfairy/security/service-accounts).
+
+### Authentication Format
+
+Use HTTP Basic Authentication with your email as the username and your API key as the password:
+
+```bash
+curl -u "email:api-key" "https://mobile.saucelabs.com/api/1/endpoint"
+```
+
+## API Endpoints
+
+Sauce Mobile App Distribution REST API is available at the following endpoints:
+
+### US-East-1 (Primary)
+
+```bash
+https://mobile.saucelabs.com/api/1/
+```
+
+### EU-Central-1
+
+```bash
+https://mobile.eu-central-1.saucelabs.com/api/1/
+```
+
+:::note
+Access keys are different in each Data Center. Ensure you are using the correct API key for the data center you are accessing.
+:::
+
+### Legacy Endpoint (US-East)
+
+The previous TestFairy endpoint remains available:
+
+```bash
+https://api.testfairy.com/api/1/
+```
 
 ## Getting Started
 
 Getting started with the REST API can be done via the command line with any programming language. Let's begin with an example: by listing all our projects.
 
-Supported Public Cloud endpoints:
+### Example: List All Projects
 
-### US-East-1
-
+**US-East-1:**
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
 ```
 
-### EU-Central-1 (Access keys are different in each Data Center)
-
+**EU-Central-1:**
 ```bash
 curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
 
-## Previous Sauce Mobile App Distribution US-East endpoint:
-
-```bash
-curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
-```
-
 A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
 
-In the example above, you can see that our user is `john@example.com` and the API key is `0001234cafecafe`. This user authentication token is required for all requests to the REST server.
-
-**Your API key is private**, do not share it or post it on public code repositories or forums. To find your API key, refer to [your preferences page](https://app.testfairy.com/settings).
+In the example above, the user is `john@example.com` and the API key is `0001234cafecafe`. This authentication is required for all requests to the REST server.
 
 ## Projects
 
@@ -88,7 +137,7 @@ Returns a list of all projects (iOS and Android apps) in this account.
 <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
 <p></p>
 
-Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the Sauce Mobile App Distribution SDK.
+Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the Sauce Labs Mobile App Distribution SDK.
 
 #### Responses
 
@@ -238,7 +287,15 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 		</tr>
         <tr>
 			<td><code>groups</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs for the build. <br />If not specified, the original assigned groups will be copied over to the build.</p></td>
+		</tr>
+        <tr>
+			<td><code>projectGroups</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs for the project. <br />If not specified, the original assigned groups will be copied over to the project.</p></td>
+		</tr>
+        <tr>
+			<td><code>allowAllTesters</code></td>
+			<td><p><small>| OPTIONAL | BOOLEAN |</small></p><p>Value `1` allows all other users to access the copied build, while `0` prevents access.<br />If not specified, the original assigned value will be copied over to the project.</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -262,10 +319,19 @@ Use this endpoint to copy a specific build to a specified folder. You can either
     "app_name": "My Application",
     "assigned_groups": [
       "13",
-      "14",
+      "group14",
       "12"
     ],
     "invalid_groups": [
+      "abcd",
+      "efgd"
+    ],
+    "assigned_project_groups": [
+      "group13",
+      "14",
+      "12"
+    ],
+    "invalid_project_groups": [
       "abcd",
       "efgd"
     ]
@@ -282,7 +348,7 @@ Use this endpoint to copy a specific build to a specified folder. You can either
     <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/download/</code></summary>
 <p></p>
 
-Downloads the binary file uploaded to Sauce Mobile App Distribution.
+Downloads the binary file uploaded to Sauce Labs Mobile App Distribution.
 
 #### Responses
 
@@ -337,105 +403,6 @@ Invite one or more tester groups to this specific build. You can optionally send
 		</tr>
 	</tbody>
 </table>
-
-</details>
-
----
-
-### List All Recorded Sessions in Build
-
-<details>
-    <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/</code></summary>
-<p></p>
-
-Get metadata for all sessions recorded for a specific build.
-
-#### Responses
-
-<table id="table-api">
-	<tbody>
-		<tr>
-			<td><code>200</code></td>
-			<td colSpan='2'>Success.</td>
-		</tr>
-	</tbody>
-</table>
-
-```json title="Sample Response"
-{
-    "status": "ok",
-    "sessions": [
-        {
-            "id": 1,
-            "self": "/projects/2197059-demoapp/builds/4867553/sessions/1",
-            "startTime": "2017-01-22 16:42:40",
-            "duration": "15:01",
-            "testerEmail": "john@testfairy.com",
-            "device": "Samsung - Samsung Galaxy S8",
-            "ipAddress": "23.100.122.175",
-            "crashed": false,
-            "countryName": "United States",
-            "countryCode": "us"
-        }
-    ]
-}
-```
-
-</details>
-
----
-
-### Get Session Data, Events and Logs
-
-<details>
-    <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/&#123;session-id&#125;</code></summary>
-<p></p>
-
-Get metadata (and optionally data) for a specific session.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-   <tr>
-    <td><code>fields</code></td>
-    <td><p><small>| OPTIONAL | STRING |</small></p><p>Possible values: <code>meta</code>, <code>logs</code>, <code>events</code>. The default value is <code>meta</code>. Use <code>events</code> to load all events, screenshots, touches, and other metrics. Use <code>logs</code> to fetch only logs. When loading logs, the response is application/text.</p></td>
-  </tr>
-</tbody>
-</table>
-
-#### Responses
-
-<table id="table-api">
-	<tbody>
-		<tr>
-			<td><code>200</code></td>
-			<td colSpan='2'>Success.</td>
-		</tr>
-	</tbody>
-</table>
-
-```json title="Sample Response"
-{
-    "status": "ok",
-    "session": {
-        "id":4426273741,
-        "sessionStartTime":"2019-05-20 09:05:30",
-        "duration":"00:27",
-        "testerEmail":"blabla@ex.com",
-        "device":"Xiaomi - Redmi S2",
-        "ipAddress":"84.94.200.136",
-        "crashed":false,
-        "identity":{
-            "correlationId":"blabla@ex.com",
-            "attr3":"three",
-            "attr4":"four",
-            "attr1":"High",
-            "attr2":"1.0",
-            "attr5":"Version 1.0"
-    }
-}
-```
 
 </details>
 

@@ -82,7 +82,7 @@ This setting does **NOT** install the app. You must manually or via automation i
 `com.apps.app1`  
 `com.ios.app2`  
 
-*Multiple entries must be comma-separated.*
+*Multiple entries must be comma-separated. There is an upper limit of 100 entries for this list.*
 :::
 
 ### System App Allow List (iOS)
@@ -96,7 +96,7 @@ https://support.apple.com/en-gb/guide/deployment/depece748c41/web
 `com.apple.MobileSMS`
 `com.apple.mobilenotes`
 
-*Multiple entries must be comma-separated.*
+*Multiple entries must be comma-separated. There is an upper limit of 100 entries for this list.*
 :::
 
 ### Account Allow List
@@ -110,7 +110,7 @@ Update this setting for each account email to preserve store and payment account
 `account1@mydomain.com`  
 `account2@mydomain.com`  
 
-*Multiple entries must be comma-separated.*
+*Multiple entries must be comma-separated. There is an upper limit of 100 entries for this list.*
 :::
 
 ### Retain folders/filepath (Android)
@@ -135,7 +135,7 @@ Invalid path: `/data/local/tmp/`
 `/data/com.wavelink.velocity/files`  
 `/com.my.app/data/temp/folder`
 
-*Multiple entries must be comma-separated.*
+*Multiple entries must be comma-separated. There is an upper limit of 100 entries for this list.*
 :::
 
 ### Enable Apple Pay

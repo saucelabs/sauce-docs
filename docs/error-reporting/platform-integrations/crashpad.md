@@ -25,7 +25,7 @@ For new users, Backtrace has prepared an enhanced fork of Crashpad, allowing eas
 
 If you are a Windows and Visual Studio user, review the [Crashpad Integration Guide for Visual Studio](/error-reporting/platform-integrations/visual-studio/) to simplify the integration of Crashpad into your new or existing application.
 
-Advanced instructions are available at [the Crashpad home page](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md) if you can't find what you're looking for or prefer to build Crashpad from the source. Backtrace's fork of Crashpad is available [on Github](https://github.com/backtrace-labs/crashpad/tree/backtrace), which contains easy [CMake](https://cmake.org/) build instructions and also hosts [binary builds for Android, Linux, Windows, Mac and more](https://github.com/backtrace-labs/crashpad/releases). If you would like additional assistance, don't hesitate to contact support@saucelabs.com.
+Advanced instructions are available at [the Crashpad home page](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md) if you can't find what you're looking for or prefer to build Crashpad from the source. Backtrace's fork of Crashpad is available [on Github](https://github.com/backtrace-labs/crashpad/tree/backtrace), which contains easy [CMake](https://cmake.org/) build instructions and also hosts [binary builds for Android, Linux, Windows, Mac and more](https://github.com/backtrace-labs/crashpad/releases). If you would like additional assistance, don't hesitate to [contact Support](https://support.saucelabs.com/).
 
 ### Update Your Application
 
@@ -119,4 +119,4 @@ Windows Registry Editor Version 5.00
 
 Additional documentation is available at the [Crashpad Website](https://chromium.googlesource.com/crashpad/crashpad/). For more information on the `crashpad_handler`, see [crashpad_handler.md](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/handler/crashpad_handler.md).
 
-If you're still encountering issues, contact us at support@saucelabs.com.
+If you're still encountering issues, contact us via our [Support page](https://support.saucelabs.com/).

@@ -37,8 +37,7 @@ services that can otherwise create unnecessary noise.
 On iOS/iPadOS devices, this feature works seamlessly without requiring any [resigning](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements)
 or changes to the app, making it simple and efficient to use.
 
-For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. This means no
-complete resigning or additional instrumentation is needed, ensuring a smooth feature enablement.
+For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. The app will be patched to circumvent SSL pinning if it is used.
 
 ## Using system-wide Network Capture
 
@@ -127,6 +126,7 @@ If you need to localize the capture context with just the browser and omit all n
 
 - iOS network capture is supported on iOS/iPadOS 14.0 and above.
 - Android network capture is supported on Android 10 and above.
+- Flutter applications are not supported at the moment.
 - Only HTTP/HTTPS network traffic is captured.
 - Android Emulators are not supported.
 - iOS Simulators are not supported.

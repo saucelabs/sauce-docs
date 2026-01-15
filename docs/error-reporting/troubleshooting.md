@@ -70,7 +70,7 @@ To resolve missing symbols, the first step is to identify which symbols are miss
 
 Backtrace indicates that a crash report is missing symbols by setting an attribute, `_missing_symbols`, to 1, and in the debug view UI (in the callstack and the global annotations sections).
 
-When a crash report is missing standard symbol files, in the debug view you'll see a memory address in the callstack with an orange triangle `missing symbol` icon.
+When a crash report is missing standard symbol files, in the debug view, you'll see a memory address in the callstack with an orange triangle `missing symbol` icon.
 
 <img src={useBaseUrl('/img/error-reporting/troubleshooting/missingsymbol.png')} alt="missing symbols"/>
 
@@ -92,7 +92,7 @@ Upon hover, you'll see a "missing CFI" message with details about the missing fi
 
 If either of the filename or the debug ID are missing in this hover message, then you can search the global annotations modules section for whichever information (the debug ID or filename) was provided to find the missing portion from the corresponding symbol file entry.
 
-These options should be sufficient in determining what symbols are missing from a crash report, but always feel free to reach out to our support team (by opening a support ticket, via the in-app widget, or emailing support@backtrace.io for additional assistance.
+These options should be sufficient in determining what symbols are missing from a crash report. [Contact our Support team](https://support.saucelabs.com/s/?language=en_US) if you need additional assistance.
 
 ### Supplying Missing Symbols
 
@@ -106,7 +106,7 @@ If you are uploading symbols manually, your next steps will be to retrieve and u
 
 If you are using a [custom symbol server](/error-reporting/project-setup/symbolication/#integrate-custom-symbol-server-with-backtrace), then your next step will be to verify that the symbol exists on the symbol server in the proper directory structure (that is, `<url>/<object_name>/<debug_id>/<file>`). If it does not, then you know why it did not apply.
 
-If it does exist, and reprocessing does not correct, then there are a few additional things to check. These items to check live in the symbol server section of your project settings (navigate from the **Main Menu** > **Project Settings** > **Symbols** > **Symbol Servers**), unless otherwise noted.
+If it does exist and reprocessing does not correct it, then there are a few additional things to check. These items to check live in the symbol server section of your project settings (navigate from the **Main Menu** > **Project Settings** > **Symbols** > **Symbol Servers**), unless otherwise noted.
 
 - White list: If this optional configuration is enabled, then a symbol's name must exist on the white list in order for Backtrace to download it from the symbol server.
 - Skip list: Symbol name and debug ID combinations that fail to download from a custom symbol server are added to a skip list so that requests are not made for symbols which do not exist on the server. If a symbol that previously did not exist on the symbol server was uploaded, its name and debug ID may exist on this list. Removing the name and ID from the skiplist and reprocessing the crash object will allow the symbol to download. The symbols can removed from the skip list tab of the symbol server entry, or via our command line tool, [morgue](/error-reporting/advanced/morgue/).
@@ -136,7 +136,7 @@ You must have actually provided / uploaded the symbols in question. If you haven
 
 Once missing symbols are uploaded or obtained from a symbol server, and the relevant crashes are reprocessed, the callstack will resolve completely.
 
-If there are any questions or remaining issues, always feel free to reach out to our support team by opening a support ticket, via the in-app widget, or emailing support@backtrace.io .
+[Contact our Support team](https://support.saucelabs.com/s/?language=en_US) if you need additional assistance.
 
 ## Why Are Aggregate Filters Removed In Certain Views?
 
@@ -187,17 +187,17 @@ On Windows, 64-bit applications store some unwinding information exclusively in 
 Direct login to Morgue using an SSO-only account is not supported. However, there is a workaround available:
 
 1. Start by logging into the Backtrace UI as you normally would.
-2. Next, go to https://youruniverse.sp.backtrace.io/api/session and copy the token from the JSON data displayed on that page.
+2. Next, navigate to the account page under Organization settings (https://youruniverse.sp.backtrace.io/settings/me)
+3. Copy the "Command line login" 
 
-To log in to Morgue using this token, run the following command:
+Paste the provided command to login:
 
 ```shell
-morgue login https://youruniverse.sp.backtrace.io --token=
+morgue login https://youruniverse.sp.backtrace.io --token=yourtoken
 ```
 
-replacing `token` with the token you copied from the `api/session` link mentioned earlier.
 
-The token may be reset during server restarts or maintenance. If you encounter any messages regarding invalid tokens or authentication issues, repeat the process described above.
+The token may be reset during server restarts or maintenance. If you encounter any messages regarding invalid tokens or authentication issues, repeat the steps above.
 
 ## missing_symbol Attribute
 
