@@ -10,35 +10,84 @@ import TabItem from '@theme/TabItem';
 
 In this document you can find the reference for the Sauce Labs Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Labs Mobile App Distribution data remotely.
 
+## Authentication
+
+All REST API requests require authentication using HTTP Basic Authentication with your email address and API key.
+
+### API Key Overview
+
+Your API key is a unique credential that authenticates your API requests. It is **not** your account password.
+
+:::warning Important Security Guidelines
+- **Your API key is private** - Do not share it or post it on public code repositories or forums.
+- **Use service accounts for automation** - Create dedicated [service accounts](/testfairy/security/service-accounts) for CI/CD pipelines and automated processes.
+- **Never use Site Manager accounts for API calls** - Site Manager accounts have elevated privileges that are inappropriate for automated API access. Always use a dedicated service account with appropriate permissions.
+:::
+
+### Finding Your API Key
+
+1. Log in to your Sauce Labs Mobile App Distribution account.
+2. Navigate to **Account** > **Settings**.
+3. Locate the **Access Key** section.
+4. Copy your username and API key.
+
+For detailed guidance on creating service accounts, managing API keys, and security best practices, see [Service Accounts and API Keys](/testfairy/security/service-accounts).
+
+### Authentication Format
+
+Use HTTP Basic Authentication with your email as the username and your API key as the password:
+
+```bash
+curl -u "email:api-key" "https://mobile.saucelabs.com/api/1/endpoint"
+```
+
+## API Endpoints
+
+Sauce Mobile App Distribution REST API is available at the following endpoints:
+
+### US-East-1 (Primary)
+
+```bash
+https://mobile.saucelabs.com/api/1/
+```
+
+### EU-Central-1
+
+```bash
+https://mobile.eu-central-1.saucelabs.com/api/1/
+```
+
+:::note
+Access keys are different in each Data Center. Ensure you are using the correct API key for the data center you are accessing.
+:::
+
+### Legacy Endpoint (US-East)
+
+The previous TestFairy endpoint remains available:
+
+```bash
+https://api.testfairy.com/api/1/
+```
+
 ## Getting Started
 
 Getting started with the REST API can be done via the command line with any programming language. Let's begin with an example: by listing all our projects.
 
-Supported Public Cloud endpoints:
+### Example: List All Projects
 
-### US-East-1
-
+**US-East-1:**
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
 ```
 
-### EU-Central-1 (Access keys are different in each Data Center)
-
+**EU-Central-1:**
 ```bash
 curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
 
-## Previous Sauce Labs Mobile App Distribution US-East endpoint:
-
-```bash
-curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
-```
-
 A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
 
-In the example above, you can see that our user is `john@example.com` and the API key is `0001234cafecafe`. This user authentication token is required for all requests to the REST server.
-
-**Your API key is private**, do not share it or post it on public code repositories or forums. To find your API key, refer to [your preferences page](https://app.testfairy.com/settings).
+In the example above, the user is `john@example.com` and the API key is `0001234cafecafe`. This authentication is required for all requests to the REST server.
 
 ## Projects
 

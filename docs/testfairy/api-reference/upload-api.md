@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 Streamline your build process and upload APKs or IPAs directly to Sauce Labs Mobile App Distribution.
 
+:::tip Authentication Best Practice
+For CI/CD pipelines and automated uploads, use a dedicated [service account](/testfairy/security/service-accounts) rather than personal user credentials. This improves security and ensures uploads continue working when team members change.
+:::
+
 ### Usage
 
 [Gradle](https://github.com/testfairy/testfairy-gradle-plugin)
