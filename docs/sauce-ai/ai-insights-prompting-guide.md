@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 
 # AI for Insights - Agent Prompting Guide
 
+Unlocking the true power of your AI for Insights agent starts with knowing how to ask the right questions. This guide acts as your strategic playbook for turning raw information into profound business intelligence. Our goal is to empower you to communicate effectively with the agent, transforming it from a simple tool into a dedicated analyst that understands your specific context. From foundational best practices to expert-level techniques, this document covers everything you need to drive smarter, data-backed outcomes with confidence.
+
 | Principle           | Don't Say This                                         | Do Say This                                          | Why?                                                                                   |
 |:--------------------|:-------------------------------------------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------|
 | Trust the Context   | "Show me failures for the 'Login' test in the widget." | "Why are these tests failing?"                       | The agent already knows what widget you are looking at. Redundancy confuses the model. |
@@ -17,7 +19,7 @@ import TabItem from '@theme/TabItem';
 | Drill Down          | "Tell me everything about the errors."                 | "Filter by 'Timeout' errors, then group by Browser." | Start broad, then narrow down using follow-up prompts.
 
 ### 1. Be Specific About Time Windows
-If you don't specify a time window, I will use the period set in the page filter. Always clarify if you need a different period.
+If you don't specify a time window, the agent will use the period set in the page filter. Always clarify if you need a different period.
 - Good: "Show me the number of passed and failed jobs in the last 7 days."
 - Good: "What was the pass rate for my jobs between October 1st and October 31st, 2025?"
 - Less Effective: "Show me my jobs." (This will default to the period set in the time filter on the top of the page, which might not be what you want.)
@@ -38,11 +40,11 @@ If you don't specify a time window, I will use the period set in the page filter
   - "Are there any flaky test cases in the last month?"
 
 ### 3. Specify Filters and Conditions
-- Use keywords to filter the data you're interested in.
+Use keywords to filter the data you're interested in.
 - Status: "Show me all failed jobs."
 - Source (VDC/RDC): "How many RDC jobs passed last week?"
 - Browser/OS/Device: "What is the pass rate for jobs run on Chrome on Windows 10?" or "Show me test coverage by device for iOS jobs."
-- User/Team: "Show me the jobs run by me." (I will automatically use your user_id). "What is the pass rate for my team's jobs?" (I will automatically use your team_id).
+- User/Team: "Show me the jobs run by me." (The agent will automatically use your user_id). "What is the pass rate for my team's jobs?" (I will automatically use your team_id).
 - Build Name: "Show me the jobs in the build named 'Release-2025-12-15'."
 
 ### 4. Ask for Trends and Comparisons
@@ -65,8 +67,10 @@ If you want to see data in a chart, indicate that. I will automatically choose t
 ### Examples of Less Effective vs. More Effective Questions:
 - Less Effective: "What's up with my tests?"
 - More Effective: "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
+  
 - Less Effective: "Tell me about builds."
 - More Effective: "List the 5 most recent builds, including their status and the number of jobs they contain."
+  
 - Less Effective: "Errors?"
 - More Effective: "Are there any specific error types that are frequently occurring in my VDC jobs from the last 24 hours?"
 
@@ -81,8 +85,8 @@ Good Prompts:
 - "Show me the browser and OS for my 5 most recent passing VDC jobs from last week."
 - "What is the average duration of all jobs in the build 'MyFeatureBranch-123'?"
 Bad Prompts:
-- "Show me everything about jobs." (Too broad, I need more specific criteria.)
-- "Give me a chart of pass rates." (While this tool can get the data, get_tests_trends combined with create_chart is more direct for trends.)
+- "Show me everything about jobs." (Too broad, the agent needs more specific criteria.)
+- "Give me a chart of pass rates." 
 - "What's wrong with my tests?" (Too vague; for specific failures, provide a job ID for root cause analysis.)
 
 ### 2. Listing Specific Test Cases 
@@ -106,8 +110,8 @@ Good Prompts:
 - "Which browsers have my VDC jobs run on the most in the last week, and can you sort them by count?"
 - "Visualize the device coverage for my jobs from last quarter."
 Bad Prompts:
-- "What's my coverage?" (Too vague; specify coverage_field like "device", "browser", or "os" and a time frame.)
-- "Show me device coverage for a specific job." (This tool is for aggregate coverage across many jobs, not individual job details.)
+- "What's my coverage?" (Too vague; specify data like "device", "browser", or "os" and a time frame.)
+- "Show me device coverage for a specific job."
 
 ### 4. Job Performance Trends 
 These prompts are ideal for monitoring how job performance metrics (like pass rates, failure rates) change over time.
@@ -152,7 +156,7 @@ Good Prompts:
 - "Can you find the root cause for the failure in job another_job_id_here?"
 - "What were the differing commands in job xyz-123 that led to its failure?"
 Bad Prompts:
-- "Why are my tests failing?" (Too general; I need a specific job ID to perform root cause analysis.)
+- "Why are my tests failing?" (Too general; Needs a specific job ID to perform root cause analysis.)
 - "Show me all root causes." (This tool requires a job_id; it doesn't list all root causes across the organization.)
 
 ### 8. Charting Data 
