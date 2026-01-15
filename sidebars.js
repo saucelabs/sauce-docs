@@ -1500,8 +1500,8 @@ module.exports = {
             label: 'Sauce AI',
             collapsed: true,
             items: [
-                'sauce-ai/ai-insights'
-                'sauce-ai/ai-insights-prompting-guide'
+                'sauce-ai/ai-insights',
+                'sauce-ai/ai-insights-prompting-guide',
                    ],
         },
         {
