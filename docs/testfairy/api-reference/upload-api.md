@@ -8,7 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Streamline your build process and upload APKs or IPAs directly to Sauce Mobile App Distribution.
+Streamline your build process and upload APKs or IPAs directly to Sauce Labs Mobile App Distribution.
+
+:::tip Authentication Best Practice
+For CI/CD pipelines and automated uploads, use a dedicated [service account](/testfairy/security/service-accounts) rather than personal user credentials. This improves security and ensures uploads continue working when team members change.
+:::
 
 ### Usage
 
@@ -158,7 +162,7 @@ curl https://app.testfairy.com/api/upload \
 
 #### Responses
 
-In the case of an error, Sauce Mobile App Distribution returns a JSON with `status` => `fail` and `code` with one of the values listed below. Sauce Mobile App Distribution supplies an additional human-readable error message to detail the cause of the specific error.
+In the case of an error, Sauce Labs Mobile App Distribution returns a JSON with `status` => `fail` and `code` with one of the values listed below. Sauce Labs Mobile App Distribution supplies an additional human-readable error message to detail the cause of the specific error.
 
 <table id="table-api">
  <tbody>
@@ -226,7 +230,7 @@ To create a new API KEY, click on **Regenerate** on your account preferences pag
 
 ### Why Is My API Key Empty?
 
-In cases Sauce Mobile App Distribution identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, Sauce Mobile App Distribution automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
+In cases Sauce Labs Mobile App Distribution identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, Sauce Labs Mobile App Distribution automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
 
 ### Can I Add Custom Metadata?
 

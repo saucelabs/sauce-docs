@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Upload a new build to Sauce Mobile App Distribution using Fastlane. You can find your API Key in the [Sauce Mobile App Distribution Settings](https://app.testfairy.com/settings/) page.
+Upload a new build to Sauce Labs Mobile App Distribution using Fastlane. You can find your API Key in the [Sauce Labs Mobile App Distribution Settings](https://app.testfairy.com/settings/) page.
 
 ```
 testfairy(
@@ -30,11 +30,11 @@ testfairy(
 
 | Key            | 	Description                                                              | Default                      |
 |----------------|---------------------------------------------------------------------------|------------------------------|
-| api_key        | API Key for Sauce Mobile App Distribution                                                     |                              |
+| api_key        | API Key for Sauce Labs Mobile App Distribution                                                     |                              |
 | ipa            | 	Path to your IPA file for iOS	                                           |                              |
 | apk            | 	Path to your APK file for Android	                                       |                              |
 | symbols_file   | 	Symbols mapping file	                                                    |                              |
-| upload_url     | 	Upload API URL for Sauce Mobile App Distribution	                                            | https://app.testfairy.com |
+| upload_url     | 	Upload API URL for Sauce Labs Mobile App Distribution	                                            | https://app.testfairy.com |
 | testers_groups | 	Array of tester groups to be notified	                                   | []                           |
 | comment        | 	Additional release notes for this upload. Will be added to sent emails 	 | No comment                   |
 | notify         | 	Send email to testers	                                                   | off                          |

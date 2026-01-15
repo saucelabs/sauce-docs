@@ -15,7 +15,7 @@ For Android applications, refer to [Uploading Apps](/testfairy/using-testfairy/u
 If you're distributing an iOS application:
 
 - When using an enterprise certificate, the process mirrors the Android distribution.
-- With an ad-hoc certificate, follow the steps outlined in [Adding UDIDs to the iOS Development Profile](/testfairy/sdk/ios/adding-udids/).
+- With an ad-hoc certificate, you will need to add tester device UDIDs to your provisioning profile before distributing.
 
 If you're distributing a macOS application, first zip the application (before zipping, the file extension will be `.app`; after zipping, it will become `.zip`). Then, proceed with the process described in [Uploading Apps](/testfairy/using-testfairy/uploading-an-app).
 
@@ -82,7 +82,7 @@ To halt the distribution of an app, you have two options:
 
 ### Disabling Distribution
 
-In build settings, switch **Sauce Mobile App Distribution** to **Disabled** and then click **Save Changes**.
+In build settings, switch **Sauce Labs Mobile App Distribution** to **Disabled** and then click **Save Changes**.
 
 <img src={useBaseUrl('/img/testfairy/app-distribution/dissable-dist-build.png')} alt="disable distribution build"/>
 
