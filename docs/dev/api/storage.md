@@ -658,7 +658,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 <summary><span className="api put">PUT</span> <code>/v1/storage/groups/&#123;group_id&#125;/share</code></summary>
 <p/>
 
-Grants team access to a storage group. This endpoint allows organization administrators to share an app group with one or more teams within the organization.
+Grants team access to a storage group. This endpoint allows organization administrators to share an app group with one or more teams in the organization.
 
 :::note
 Only organization administrators can share groups. Team administrators and regular users do not have permission to share groups.
