@@ -652,6 +652,159 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 
 ---
 
+### Share an App Storage Group
+
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/storage/groups/&#123;group_id&#125;/share</code></summary>
+<p/>
+
+Grants team access to a storage group. This endpoint allows organization administrators to share an app group with one or more teams in the organization.
+
+:::note
+Only organization administrators can share groups. Team administrators and regular users do not have permission to share groups.
+:::
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>group_id</code></td>
+     <td><p><small>| PATH | REQUIRED | INTEGER |</small></p><p>The unique identifier of the app group. You can look up group IDs using the <a href="#get-app-storage-groups">Get App Storage Groups</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>teams</code></td>
+     <td><p><small>| BODY | REQUIRED | ARRAY of STRINGS |</small></p><p>A list of team IDs to grant access to the group. The group's owner team is automatically included in the access list.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/storage/groups/64612/share' \
+--header 'Content-Type: application/json' \
+--data-raw '{"teams":["80d69d16ebdb4c018cc9d81ea911761a","a4cd325b896c4b2db5dc7c853fed31c4"]}'
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/storage/groups/64612/share' \
+--header 'Content-Type: application/json' \
+--data-raw '{"teams":["80d69d16ebdb4c018cc9d81ea911761a","a4cd325b896c4b2db5dc7c853fed31c4"]}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad Request. The request body is missing or invalid, or the <code>teams</code> key is missing or not a list.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Forbidden. The current user is not an organization administrator or does not have access to this group.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found. The group does not exist or is not accessible.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "item": {
+        "id": 64612,
+        "name": "com.saucelabs.SwagLabsMobileApp",
+        "project_path": "My Swag Project",
+        "recent": {
+            "id": "43732d5b-5275-4a79-a936-197e4b9cd2d4",
+            "owner": {
+                "id": "e5be7513ba224f6f9463c209cb4c5d83",
+                "org_id": "bed0a8a559404117b3d10d3bfff4c8ab"
+            },
+            "name": "iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa",
+            "upload_timestamp": 1618522437,
+            "etag": "184d1c399251e8849edcb0adfc079571",
+            "kind": "ios",
+            "group_id": 64612,
+            "description": null,
+            "tags": [],
+            "metadata": {
+                "identifier": "com.saucelabs.SwagLabsMobileApp",
+                "name": "SwagLabsMobileApp",
+                "version": "12",
+                "is_test_runner": false,
+                "icon": "...",
+                "icon_hash": "...",
+                "short_version": "2.7.1",
+                "is_simulator": false,
+                "min_os": "10.0",
+                "target_os": "14.2",
+                "test_runner_plugin_path": null
+            }
+        },
+        "access": {
+            "team_ids": [
+                "80d69d16ebdb4c018cc9d81ea911761a",
+                "a4cd325b896c4b2db5dc7c853fed31c4"
+            ],
+            "org_ids": []
+        },
+        "count": 1,
+        "settings": {
+            "proxy": {
+                "host": "",
+                "port": 0
+            },
+            "proxy_enabled": false,
+            "lang": "en_GB",
+            "orientation": null,
+            "resigning_enabled": true,
+            "resigning": {
+                "image_injection": true,
+                "group_directory": false,
+                "biometrics": true,
+                "sys_alerts_delay": false
+            }
+        }
+    }
+}
+```
+
+</details>
+
+---
+
 ### Upload File to App Storage
 
 <details>
