@@ -43,6 +43,21 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 | US East    | January 17, 2026      | 9 AM - 11 AM EDT (1300-1500 UTC) |
 | EU Central | January 17, 2026      | 5 PM - 7 PM CEST (1500-1700 UTC) |
 | US West    | January 17, 2026      | 10 AM - 12 PM PDT (1700-1900 UTC) |
+| US East    | February 21, 2026      | 9 AM - 11 AM EST (1400-1600 UTC) |
+| EU Central | February 21, 2026      | 5 PM - 7 PM CET (1600-1800 UTC) |
+| US West    | February 21, 2026      | 10 AM - 12 PM PST (1800-2000 UTC) |
+| US East    | March 7, 2026          | 9 AM - 11 AM EST (1400-1600 UTC) |
+| EU Central | March 7, 2026          | 5 PM - 7 PM CET (1600-1800 UTC) |
+| US West    | March 7, 2026          | 10 AM - 12 PM PST (1800-2000 UTC) |
+| US East    | April 18, 2026         | 9 AM - 11 AM EST (1300-1500 UTC) |
+| EU Central | April 18, 2026         | 5 PM - 7 PM CET (1500-1700 UTC) |
+| US West    | April 18, 2026         | 10 AM - 12 PM PST (1700-1900 UTC) |
+| US East    | May 9, 2026            | 9 AM - 11 AM EST (1300-1500 UTC) |
+| EU Central | May 9, 2026            | 5 PM - 7 PM CET (1500-1700 UTC) |
+| US West    | May 9, 2026            | 10 AM - 12 PM PST (1700-1900 UTC) |
+| US East    | June 6, 2026           | 9 AM - 11 AM EST (1300-1500 UTC) |
+| EU Central | June 6, 2026           | 5 PM - 7 PM CET (1500-1700 UTC) |
+| US West    | June 6, 2026           | 10 AM - 12 PM PST (1700-1900 UTC) |
 
 
 
