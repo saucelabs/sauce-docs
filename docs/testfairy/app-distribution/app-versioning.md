@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When you upload an app to Sauce Mobile App Distribution, various aspects of the version, such as the app name, version number, and version name, are decoded and made accessible on the Sauce Mobile App Distribution dashboard. This documentation will explain the key elements related to app versioning and help you understand how to manage and differentiate your app builds effectively.
+When you upload an app to Sauce Labs Mobile App Distribution, various aspects of the version, such as the app name, version number, and version name, are decoded and made accessible on the Sauce Labs Mobile App Distribution dashboard. This documentation will explain the key elements related to app versioning and help you understand how to manage and differentiate your app builds effectively.
 
 ## Display Name
 
-The app name used on the dashboard is the **Display Name** in your iOS Xcode project, or the value of the `string name=”app_name”` in the **strings.xml** file in the `res/values` directory of your Android app in Android Studio. By understanding how to configure the Display Name, you can ensure the accurate representation of your app on the Sauce Mobile App Distribution platform.
+The app name used on the dashboard is the **Display Name** in your iOS Xcode project, or the value of the `string name=”app_name”` in the **strings.xml** file in the `res/values` directory of your Android app in Android Studio. By understanding how to configure the Display Name, you can ensure the accurate representation of your app on the Sauce Labs Mobile App Distribution platform.
 
 **In Xcode:**
 
@@ -24,7 +24,7 @@ The app name used on the dashboard is the **Display Name** in your iOS Xcode pro
 
 ## Android
 
-For Android apps, Sauce Mobile App Distribution utilizes two fields to identify a build:
+For Android apps, Sauce Labs Mobile App Distribution utilizes two fields to identify a build:
 
 - **versionCode** - A positive integer used as an internal version number.
 - **versionName** — A string used as the version number shown to users.
@@ -38,7 +38,7 @@ These fields are translated and displayed in the following fields on the dashboa
 
 ## iOS
 
-iOS apps in Sauce Mobile App Distribution are identified using two fields:
+iOS apps in Sauce Labs Mobile App Distribution are identified using two fields:
 
 - **Bundle version** - A string of one to three period-separated integers. It can only contain numeric characters (0-9) and periods.
 - **Bundle versions string, short** - A string.
@@ -56,7 +56,7 @@ For more information about app versioning, see [Version Numbers and Build Number
 
 ## Separating Apps and Builds
 
-When uploading an app to Sauce Mobile App Distribution, it's important to understand how Sauce Mobile App Distribution handles situations where an app with the same version and package name (or bundle identifier) already exists in your account. In such cases, the new app will override the old one, replacing it entirely.
+When uploading an app to Sauce Labs Mobile App Distribution, it's important to understand how Sauce Labs Mobile App Distribution handles situations where an app with the same version and package name (or bundle identifier) already exists in your account. In such cases, the new app will override the old one, replacing it entirely.
 
 To retain the previous app build, you have two options:
 

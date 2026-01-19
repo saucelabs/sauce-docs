@@ -21,7 +21,7 @@ As a tester, you will receive an email invitation from the application developer
 5. Once the installation is complete, the application icon should appear on your device's desktop.
 
 ## Creating a tester's account
-Once you've been invited to test an application via Sauce Mobile App Distribution, you can create a Sauce Mobile App Distribution account to manage your testing activities. Open the invitation you've received for testing a new build, and click the **tester account **link.
+Once you've been invited to test an application via Sauce Labs Mobile App Distribution, you can create a Sauce Labs Mobile App Distribution account to manage your testing activities. Open the invitation you've received for testing a new build, and click the **tester account **link.
 
 Click on "I am a tester, I do not know my password" and submit your email address. You will receive an email with instructions for setting a new password for your
 tester account.

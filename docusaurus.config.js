@@ -102,6 +102,11 @@ const docusaurusConfig = {
                     to: '/overview',
                 },
                 {
+                    label: 'Sauce AI',
+                    position: 'left',
+                    to: '/sauce-ai/ai-insights',
+                },
+                {
                     label: 'API',
                     position: 'left',
                     to: '/dev/api',

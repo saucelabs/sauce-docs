@@ -194,27 +194,6 @@ Users migrating from iOS 17.5 or 18.0 to iOS 26 should be aware of the following
 * Appium Server: Updated to version 2.19.0.
 * Appium XCUITest Driver: Updated to version 9.10.15.
 
-#### Appium Client: `element.click()` Failures
-
-In iOS 26.1, the standard element.click() method (observed in the Python Appium client) may fail to trigger interactions on native iOS applications. It remains functional for web-based tests.
-
-**Recommended Solution**: We recommend migrating to the W3C Actions API using [ActionChains](https://github.com/appium/python-client?tab=readme-ov-file#multiactiontouchaction-to-w3c-actions).
-
-You can implement a helper function to ensure consistent click behavior:
-```python
-from selenium.webdriver import ActionChains
-
-def click_element(driver, element):
-    """
-    Workaround for iOS 26.1 click issues.
-    Uses ActionChains to move to the element, pause, and perform the action.
-    """
-    ActionChains(driver).move_to_element(element).pause(0.5).click().perform()
-
-# Usage Example
-location_btn = wait.until(EC.presence_of_element_located((AppiumBy.NAME, 'Trigger Location Permission')))
-click_element(driver, location_btn)
-```
 #### WebDriver Expected Conditions: Visibility vs. Presence
 
 You may encounter failures when using the visibility_of_element_located Expected Condition (EC) with iOS 26.1 Simulators. The driver may fail to verify the visibility state even if the element is present in the hierarchy.

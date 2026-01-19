@@ -689,7 +689,6 @@ module.exports = {
             items: [
                 'dev/api',
                 'dev/api/accounts',
-                'dev/api/api-testing',
                 'dev/api/error-reporting',
                 'dev/api/jobs',
                 'dev/api/builds',
@@ -1094,13 +1093,12 @@ module.exports = {
                 'testfairy/testfairy',
                 {
                     type: 'category',
-                    label: 'Using App Distribution (TestFairy)',
+                    label: 'Using App Distribution',
                     collapsed: true,
                     items: [
                         'testfairy/using-testfairy/uploading-an-app',
                         'testfairy/using-testfairy/builds',
                         'testfairy/using-testfairy/dashboard',
-                        'testfairy/using-testfairy/insights',
                         'testfairy/using-testfairy/multi-site',
                     ],
                 },
@@ -1154,6 +1152,7 @@ module.exports = {
                             ],
                         },
                         'testfairy/security/acct-settings',
+                        'testfairy/security/service-accounts',
                         'testfairy/security/gdpr',
                     ],
                 },
@@ -1499,7 +1498,10 @@ module.exports = {
             type: 'category',
             label: 'Sauce AI',
             collapsed: true,
-            items: ['sauce-ai/ai-insights'],
+            items: [
+                'sauce-ai/ai-insights',
+                'sauce-ai/ai-insights-prompting-guide',
+            ],
         },
         {
             type: 'category',
