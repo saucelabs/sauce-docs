@@ -689,7 +689,6 @@ module.exports = {
             items: [
                 'dev/api',
                 'dev/api/accounts',
-                'dev/api/api-testing',
                 'dev/api/error-reporting',
                 'dev/api/jobs',
                 'dev/api/builds',
