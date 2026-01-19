@@ -16,10 +16,10 @@ Playwright connects to the browser using the Chrome DevTools Protocol (CDP).
 Selenium 4 _currently_ exposes this capability.
 
 :::note
-Playwright support via Selenium Grid currently utilizes the Chrome DevTools 
-Protocol (CDP). While this provides immediate compatibility, we are actively 
-developing a native WebSocket integration for enhanced performance. For the 
-most reliable experience today, please follow the guidelines shown below.
+Playwright support via Selenium Grid utilizes the Chrome DevTools Protocol (CDP).
+While this provides immediate compatibility, we are actively developing a native 
+WebSocket integration for enhanced performance. For the most reliable experience 
+today, follow the guidelines shown below.
 :::
 
 ## What You'll Need
@@ -31,10 +31,10 @@ most reliable experience today, please follow the guidelines shown below.
 
 ## Connect Playwright to Sauce Labs
 
-Playwright can connect to Sauce Labs using environment variables or direct configuration in your 
+Playwright can connect to Sauce Labs using environment variables or direct configuration in your
 test code. The recommendations below demonstrate both approaches across multiple programming languages.
 
-### Using Fixtures/Extensions (recommended)
+### Using Fixtures/Extensions (Recommended)
 
 We have crafted code setups and fixtures that will improve how your Playwright tests
 perform and look on Sauce Labs. These examples include best practices that help you
@@ -56,11 +56,11 @@ values={[
 
 <TabItem value="javascript">
 
-We recommend using the the following fixture, which can run your tests locally or on Sauce Labs. 
+We recommend using the following fixture, which can run your tests locally or on Sauce Labs. 
 The fixture extends Playwright's test to swap the page fixture for a Sauce Labs remote page.
 <br/>
 <br/>
-The fixture builds the Sauce session capabilities and metadata (name, build). Here you can tweak the
+The fixture builds the Sauce session capabilities and metadata (name, build). You can tweak the
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```javascript reference title="Sauce Session Capabilities and Metadata"
@@ -68,8 +68,8 @@ https://github.com/saucelabs-training/demo-js/blob/main/playwright/tests/fixture
 ```
 
 The fixture also helps creating and tearing down the remote Sauce session, updating the job status
-based on the test result. The fixture also logs a direct link to the job in the Sauce Labs UI for 
-easy access. Your test code remains unchanged as they use the same `page` API locally and on Sauce. 
+based on the test result. The fixture also logs a direct link to the job in the Sauce Labs UI.
+Your test code remains unchanged as they use the same `page` API locally and on Sauce. 
 
 <br/>
 <br/>
@@ -89,7 +89,7 @@ For complete working examples and setup instructions, visit our [JS/TS Demo Repo
 We recommend using the following JUnit extension, which creates a Playwright page to your tests on Sauce Labs.
 <br/>
 <br/>
-The extension builds the Sauce session capabilities and metadata (name, build). Here you can tweak the
+The extension builds the Sauce session capabilities and metadata (name, build). You can tweak the
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```java reference title="Sauce Session Capabilities and Metadata"
@@ -97,10 +97,9 @@ https://github.com/saucelabs-training/demo-java/blob/main/playwright-examples/sr
 ```
 
 We also recommend using the custom [`SaucePlaywrightSession`](https://github.com/saucelabs-training/demo-java/blob/main/playwright-examples/src/test/java/com/saucelabs/bindings/SaucePlaywrightSession.java)
-to manage the lifecycle, annotate, and add tags to the Sauce session. The extension 
-also helps updating the job status based on the test result, it also logs a direct link to the job in 
-the Sauce Labs UI for easy access. Your test code remains unchanged as they use the same `page` API 
-locally and on Sauce.
+to manage the lifecycle, annotate, and add tags to the Sauce session. The extension
+also helps updating the job status based on the test result, it also logs a direct link to the job in
+the Sauce Labs UI . Your test code remains unchanged as they use the same `page` API locally and on Sauce.
 
 <br/>
 <br/>
@@ -120,7 +119,7 @@ For complete working examples and setup instructions, visit our [Java Demo Repos
 We recommend using the following fixture, which creates a Playwright page to your tests on Sauce Labs.
 <br/>
 <br/>
-The fixture builds the Sauce session capabilities and metadata (name, build). Here you can tweak the
+The fixture builds the Sauce session capabilities and metadata (name, build). You can tweak the
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```python reference title="Sauce Session Capabilities and Metadata"
@@ -128,8 +127,8 @@ https://github.com/saucelabs-training/demo-python/blob/main/examples/playwright/
 ```
 
 The fixture also helps creating and tearing down the remote Sauce session, updating the job status
-based on the test result. The fixture also logs a direct link to the job in the Sauce Labs UI for
-easy access. Your test code remains unchanged as they use the same `page` API locally and on Sauce.
+based on the test result. The fixture also logs a direct link to the job in the Sauce Labs UI.
+Your test code remains unchanged as they use the same `page` API locally and on Sauce.
 
 <br/>
 <br/>
@@ -149,7 +148,7 @@ For complete working examples and setup instructions, visit our [Python Demo Rep
 We recommend using the following fixture, which creates a Playwright page to your tests on Sauce Labs.
 <br/>
 <br/>
-The fixture builds the Sauce session capabilities and metadata (name, build). Here you can tweak the
+The fixture builds the Sauce session capabilities and metadata (name, build). You can tweak the
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```csharp reference title="Sauce Session Capabilities and Metadata"
@@ -157,8 +156,8 @@ https://github.com/saucelabs-training/demo-csharp/blob/main/PlaywrightExamples/T
 ```
 
 The fixture also helps creating and tearing down the remote Sauce session, updating the job status
-based on the test result. The fixture also logs a direct link to the job in the Sauce Labs UI for
-easy access. Your test code remains unchanged as they use the same `page` API locally and on Sauce.
+based on the test result. The fixture also logs a direct link to the job in the Sauce Labs U. Your
+test code remains unchanged as they use the same `page` API locally and on Sauce.
 
 <br/>
 <br/>
@@ -177,7 +176,7 @@ For complete working examples and setup instructions, visit our [.NET Demo Repos
 
 ### Using Environment Variables
 
-Set the `SELENIUM_REMOTE_URL` and `SELENIUM_REMOTE_CAPABILITIES` environment variables to connect 
+Set the `SELENIUM_REMOTE_URL` and `SELENIUM_REMOTE_CAPABILITIES` environment variables to connect
 Playwright to Sauce Labs:
 
 <Tabs
@@ -234,12 +233,12 @@ HEADED=1 dotnet test
 ## Best Practices
 
 :::tip
-If you're using our recommended [fixtures/extensions](#using-fixturesextensions-recommended), many of these best 
+If you're using our recommended [fixtures/extensions](#using-fixturesextensions-recommended), many of these best
 practices are already implemented for you, including test metadata, session management, and job status updates.
 :::
 
 ### Use Headed Mode
-Playwright must run in headed mode for Sauce Labs to capture video recordings. Ensure your test 
+Playwright must run in headed mode for Sauce Labs to capture video recordings. Ensure your test
 configuration or command includes the headed flag:
 
 ```shell
@@ -259,15 +258,15 @@ Always include descriptive test names and build identifiers to make results easi
 
 ## Limitations
 
-Due to the nature of CDP-based communication, there are some limitations when running Playwright 
+Due to the nature of CDP-based communication, there are some limitations when running Playwright
 via Selenium Grid:
 
-- **Command Display**: The commands shown in the Sauce Labs UI may differ from what you typically 
-  see when running Playwright locally. This is because the browser communicates with Playwright 
-  via CDP. Rest assured that your test is still running successfully and every command is being 
+- **Command Display**: The commands shown in the Sauce Labs UI may differ from what you typically
+  see when running Playwright locally, this is because the browser communicates with Playwright
+  via CDP. Rest assured that your test is still running successfully and every command is being
   executed properly. We're actively working on improving how Playwright commands are displayed.
 
-- **Browser Support**: Only Google Chrome and Microsoft Edge are supported, as they provide CDP 
+- **Browser Support**: Only Google Chrome and Microsoft Edge are supported, as they provide CDP
   endpoints.
 
 - **Headed Mode Required**: Tests must run in headed mode for video capture to work.
