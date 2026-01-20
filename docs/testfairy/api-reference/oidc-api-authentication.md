@@ -180,6 +180,7 @@ The config key ensures that even if multiple organizations use the same OIDC pro
 ### Token Lifetime
 
 Configure short-lived tokens in your identity provider:
+
 - Recommended: 1 hour or less
 - Maximum recommended: 24 hours
 
@@ -188,6 +189,7 @@ Configure short-lived tokens in your identity provider:
 Scope validation is **optional**. If you leave the "Required Scopes" field empty, scope validation is skipped entirely.
 
 For additional security, you can configure required scopes:
+
 1. Define scopes in your identity provider (e.g., `uploads:write`, `sessions:read`)
 2. Add them to the "Required Scopes" field in the settings
 3. Tokens must contain at least one of the required scopes
@@ -531,4 +533,4 @@ A: RS256, RS384, and RS512 are supported. RS256 is recommended and is the defaul
 
 **Q: Can I use HS256 (symmetric) algorithms?**
 
-A: No. Only asymmetric algorithms (RS*) are supported for security reasons. Symmetric algorithms would require sharing the secret key.
+A: No. Only asymmetric algorithms (RS\*) are supported for security reasons. Symmetric algorithms would require sharing the secret key.
