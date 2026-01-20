@@ -1,12 +1,12 @@
 ---
 id: service-accounts
-title: Service Accounts and API Keys
+title: Service Accounts
 sidebar_label: Service Accounts
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This guide explains how to create and manage service accounts for programmatic access to Sauce Mobile App Distribution, including API key management and best practices.
+This guide explains how to create and manage service accounts for programmatic access to Sauce Labs Mobile App Distribution, including API key management and best practices.
 
 ## What Are Service Accounts?
 
@@ -61,51 +61,6 @@ Use clear naming conventions to identify service accounts:
 | `{tool}-{purpose}@domain` | `jenkins-upload@company.com` | CI/CD tool integration |
 | `svc-{application}@domain` | `svc-mobile-deploy@company.com` | Application-specific automation |
 | `automation-{team}@domain` | `automation-qa@company.com` | Team-specific automation |
-
-## Managing API Keys
-
-Each user account (including service accounts) has an associated API key that is used for authenticating API requests. For general API key information, see [API Keys](/testfairy/security/api-keys).
-
-### Finding Your API Key
-
-1. Log in to the service account.
-2. Navigate to **Account** > **Settings**.
-3. Locate the **Access Key** section.
-4. Copy the username and API key for use in your integrations.
-
-### API Key Security Best Practices
-
-| Practice | Description |
-| :------- | :---------- |
-| **Never commit API keys to source control** | Use environment variables or secrets management solutions. |
-| **Use different keys per environment** | Create separate service accounts for development, staging, and production. |
-| **Rotate keys periodically** | Regenerate API keys on a regular schedule or after any potential exposure. |
-| **Monitor API usage** | Review audit logs regularly to detect unusual activity. |
-| **Limit key exposure** | Only share API keys with systems that need them. |
-
-### Using API Keys in API Calls
-
-Different APIs use different authentication methods:
-
-#### REST API
-
-The [REST API](/testfairy/api-reference/rest-api) uses HTTP Basic Authentication with your email and API key:
-
-```bash
-curl -u "service-account-email:api-key" "https://mobile.saucelabs.com/api/1/projects/"
-```
-
-Where:
-- **Username**: The email address of the service account
-- **Password**: The API key (not the account password)
-
-#### Upload API
-
-The [Upload API](/testfairy/api-reference/upload-api) uses only the API key as a form parameter - no username required:
-
-```bash
-curl https://mobile.saucelabs.com/api/upload -F api_key='your_api_key' -F file=@app.apk
-```
 
 ## Account Types and API Access
 

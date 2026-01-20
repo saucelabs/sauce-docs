@@ -69,6 +69,8 @@ curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@app
 | **Use service accounts for automation** | Create dedicated [service accounts](/testfairy/security/service-accounts) for CI/CD pipelines instead of using personal credentials. |
 | **Rotate keys periodically** | Regenerate API keys on a regular schedule or after any potential exposure. |
 | **Use different keys per environment** | Create separate service accounts for development, staging, and production. |
+| **Monitor API usage** | Review audit logs regularly to detect unusual activity. |
+| **Limit key exposure** | Only share API keys with systems that need them. |
 
 ## See Also
 
