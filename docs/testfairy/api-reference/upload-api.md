@@ -42,7 +42,7 @@ For CI/CD pipelines and automated uploads, use a dedicated [service account](/te
  <tbody>
  <tr>
  <td><code>api_key</code></td>
- <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://app.testfairy.com/settings for details.</p></td>
+ <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://mobile.saucelabs.com/settings/access-key for details.</p></td>
  </tr>
  </tbody>
  <tbody>
