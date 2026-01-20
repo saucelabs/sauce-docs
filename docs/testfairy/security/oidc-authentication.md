@@ -1,6 +1,6 @@
 ---
-id: oidc-api-authentication
-title: OIDC API Authentication
+id: oidc-authentication
+title: OIDC Authentication Setup
 sidebar_label: OIDC Authentication
 ---
 
@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This document describes how to configure and use OpenID Connect (OIDC) authentication for Sauce Labs Mobile App Distribution API access.
+This guide explains how to configure OpenID Connect (OIDC) authentication for Sauce Labs Mobile App Distribution API access.
 
 ## Overview
 
@@ -101,57 +101,23 @@ values={[
 2. Go to **Settings > OIDC Authentication**
 3. Configure the following fields:
 
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>Enable OIDC</code></td>
-      <td><p>Toggle to enable OIDC authentication</p></td>
-    </tr>
-    <tr>
-      <td><code>Authentication Mode</code></td>
-      <td><p>How to handle API key vs OIDC auth (see below)</p></td>
-    </tr>
-    <tr>
-      <td><code>Issuer URL</code></td>
-      <td><p>Your identity provider's issuer URL (e.g., <code>https://your-tenant.auth0.com/</code>)</p></td>
-    </tr>
-    <tr>
-      <td><code>Audience</code></td>
-      <td><p>The expected audience claim in tokens (e.g., <code>https://api.testfairy.com</code>)</p></td>
-    </tr>
-    <tr>
-      <td><code>Signing Algorithms</code></td>
-      <td><p>Allowed JWT signing algorithms (default: <code>RS256</code>)</p></td>
-    </tr>
-    <tr>
-      <td><code>Required Scopes</code></td>
-      <td><p><small>| OPTIONAL |</small></p><p>Comma-separated list of scopes to validate. Leave empty to skip scope validation. If configured, tokens must contain at least one of these scopes.</p></td>
-    </tr>
-    <tr>
-      <td><code>JWKS Cache TTL</code></td>
-      <td><p>How long to cache public keys (default: 24 hours)</p></td>
-    </tr>
-    <tr>
-      <td><code>Clock Skew Tolerance</code></td>
-      <td><p>Allowed time difference (default: 60 seconds)</p></td>
-    </tr>
-  </tbody>
-</table>
+| Setting | Description |
+| :------ | :---------- |
+| **Enable OIDC** | Toggle to enable OIDC authentication |
+| **Authentication Mode** | How to handle API key vs OIDC auth (see below) |
+| **Issuer URL** | Your identity provider's issuer URL (e.g., `https://your-tenant.auth0.com/`) |
+| **Audience** | The expected audience claim in tokens (e.g., `https://api.testfairy.com`) |
+| **Signing Algorithms** | Allowed JWT signing algorithms (default: `RS256`) |
+| **Required Scopes** | *(Optional)* Comma-separated list of scopes to validate |
+| **JWKS Cache TTL** | How long to cache public keys (default: 24 hours) |
+| **Clock Skew Tolerance** | Allowed time difference (default: 60 seconds) |
 
 #### Authentication Modes
 
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>OIDC or API Key</code></td>
-      <td><p>Accept both OIDC tokens and API keys. Recommended during migration period.</p></td>
-    </tr>
-    <tr>
-      <td><code>OIDC Only</code></td>
-      <td><p>Require OIDC tokens, reject API keys. Use for full OIDC enforcement.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Mode | Description |
+| :--- | :---------- |
+| **OIDC or API Key** | Accept both OIDC tokens and API keys. Recommended during migration. |
+| **OIDC Only** | Require OIDC tokens, reject API keys. Use for full OIDC enforcement. |
 
 ### Step 3: Test the Configuration
 
@@ -160,7 +126,7 @@ values={[
    - The OIDC discovery endpoint responds correctly
    - The JWKS (public keys) can be fetched
 2. If successful, you'll see details about the discovered configuration
-3. Enable the setting and hit Save configuration.
+3. Enable the setting and hit Save configuration
 
 ---
 
@@ -206,100 +172,6 @@ When migrating from API keys to OIDC:
 2. **Phase 2**: Update all clients to use OIDC tokens
 3. **Phase 3**: Monitor for any remaining API key usage
 4. **Phase 4**: Switch to "OIDC Only" mode
-
----
-
-## API Usage
-
-### Obtaining a Token
-
-Request an access token from your identity provider using the Client Credentials flow:
-
-```bash
-curl -X POST https://your-tenant.auth0.com/oauth/token \
-  -H "Content-Type: application/json" \
-  -d '{
-    "client_id": "YOUR_CLIENT_ID",
-    "client_secret": "YOUR_CLIENT_SECRET",
-    "audience": "https://api.testfairy.com",
-    "grant_type": "client_credentials"
-  }'
-```
-
-```json title="Sample Response"
-{
-  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "token_type": "Bearer",
-  "expires_in": 3600
-}
-```
-
-### Making API Requests
-
-Include the token in the `Authorization` header and your OIDC config key:
-
-#### Upload API
-
-<details>
-<summary><span className="api post">POST</span><code>https://app.testfairy.com/api/upload/</code></summary>
-<p></p>
-
-Upload an app using OIDC authentication.
-
-#### Headers
-
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>Authorization</code></td>
-      <td><p><small>| REQUIRED |</small></p><p>Bearer token from your OIDC provider (e.g., <code>Bearer eyJhbGci...</code>)</p></td>
-    </tr>
-    <tr>
-      <td><code>X-OIDC-Config-Key</code></td>
-      <td><p><small>| REQUIRED |</small></p><p>Your organization's OIDC config key</p></td>
-    </tr>
-  </tbody>
-</table>
-
-```bash title="Sample Request"
-curl -X POST https://app.testfairy.com/api/upload/ \
-  -H "Authorization: Bearer <your-access-token>" \
-  -H "X-OIDC-Config-Key: <your-config-key>" \
-  -F "file=@app.apk"
-```
-
-</details>
-
-#### REST API
-
-<details>
-<summary><span className="api get">GET</span><code>https://app.testfairy.com/api/1/projects/</code></summary>
-<p></p>
-
-List all projects using OIDC authentication.
-
-#### Headers
-
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>Authorization</code></td>
-      <td><p><small>| REQUIRED |</small></p><p>Bearer token from your OIDC provider (e.g., <code>Bearer eyJhbGci...</code>)</p></td>
-    </tr>
-    <tr>
-      <td><code>X-OIDC-Config-Key</code></td>
-      <td><p><small>| REQUIRED |</small></p><p>Your organization's OIDC config key</p></td>
-    </tr>
-  </tbody>
-</table>
-
-```bash title="Sample Request"
-curl -X GET https://app.testfairy.com/api/1/projects/ \
-  -H "Authorization: Bearer <your-access-token>" \
-  -H "X-OIDC-Config-Key: <your-config-key>"
-```
-
-</details>
 
 ---
 
@@ -437,49 +309,6 @@ upload-to-testfairy:
 
 ## Troubleshooting
 
-### Common Errors
-
-<table id="table-api">
-  <tbody>
-    <tr>
-      <td><code>X-OIDC-Config-Key header required</code></td>
-      <td><p>Add <code>X-OIDC-Config-Key</code> header to your request</p></td>
-    </tr>
-    <tr>
-      <td><code>Invalid config key</code></td>
-      <td><p>Verify the config key from your OIDC settings page</p></td>
-    </tr>
-    <tr>
-      <td><code>OIDC not enabled for this organization</code></td>
-      <td><p>Enable OIDC in settings</p></td>
-    </tr>
-    <tr>
-      <td><code>Invalid issuer</code></td>
-      <td><p>Token's <code>iss</code> claim doesn't match configured issuer. Verify issuer URL matches exactly (including trailing slash)</p></td>
-    </tr>
-    <tr>
-      <td><code>Invalid audience</code></td>
-      <td><p>Token's <code>aud</code> claim doesn't match. Verify audience matches exactly</p></td>
-    </tr>
-    <tr>
-      <td><code>Token has expired</code></td>
-      <td><p>Request a new token from your identity provider</p></td>
-    </tr>
-    <tr>
-      <td><code>Invalid token signature</code></td>
-      <td><p>Check that the token is from the correct provider</p></td>
-    </tr>
-    <tr>
-      <td><code>Missing required scope</code></td>
-      <td><p>Request token with required scopes or update config</p></td>
-    </tr>
-    <tr>
-      <td><code>Failed to fetch JWKS</code></td>
-      <td><p>Check network connectivity and issuer URL</p></td>
-    </tr>
-  </tbody>
-</table>
-
 ### Debugging Tips
 
 1. **Decode your JWT token** at [jwt.io](https://jwt.io) to inspect claims
@@ -506,6 +335,21 @@ When a token is validated, the following checks are performed:
 6. Issuer (`iss` claim) matches configured issuer URL
 7. Audience (`aud` claim) matches configured audience
 8. Required scopes are present (only if scope validation is configured)
+
+### Common Error Messages
+
+| Error | Solution |
+| :---- | :------- |
+| `X-OIDC-Config-Key header required` | Add the `X-OIDC-Config-Key` header to your request. |
+| `Invalid config key` | The config key is incorrect. Verify it from your OIDC settings page. |
+| `OIDC not enabled for this organization` | Enable OIDC in Settings > OIDC Authentication. |
+| `Invalid issuer` | Token's `iss` claim doesn't match. Verify the issuer URL matches exactly (including trailing slash). |
+| `Invalid audience` | Token's `aud` claim doesn't match. Verify the audience matches exactly (case-sensitive). |
+| `Token has expired` | Request a new token from your identity provider. |
+| `Invalid token signature` | Ensure the token is from the correct provider and hasn't been tampered with. |
+| `Missing required scope` | Request a token with the required scopes or update your OIDC configuration. |
+| `Failed to fetch JWKS` | Check network connectivity and verify the issuer URL. |
+| `Unsupported algorithm` | Only RS256, RS384, and RS512 are supported. |
 
 ---
 
@@ -534,3 +378,9 @@ A: RS256, RS384, and RS512 are supported. RS256 is recommended and is the defaul
 **Q: Can I use HS256 (symmetric) algorithms?**
 
 A: No. Only asymmetric algorithms (RS\*) are supported for security reasons. Symmetric algorithms would require sharing the secret key.
+
+## See Also
+
+- [REST API](/testfairy/api-reference/rest-api) - Full API reference
+- [Upload API](/testfairy/api-reference/upload-api) - Build upload API
+- [Service Accounts](/testfairy/security/service-accounts) - Alternative authentication using API keys

@@ -10,9 +10,39 @@ import TabItem from '@theme/TabItem';
 
 Streamline your build process and upload APKs or IPAs directly to Sauce Labs Mobile App Distribution.
 
-:::tip Authentication Best Practice
-For CI/CD pipelines and automated uploads, use a dedicated [service account](/testfairy/security/service-accounts) rather than personal user credentials. This improves security and ensures uploads continue working when team members change.
+## Authentication
+
+The Upload API supports two authentication methods:
+
+| Method | Best For | Documentation |
+| :----- | :------- | :------------ |
+| **API Key** | Simple setups, small teams | [Service Accounts](/testfairy/security/service-accounts) |
+| **OIDC** | Enterprise, centralized credential management | [OIDC Authentication](/testfairy/security/oidc-authentication) |
+
+### API Key Authentication
+
+Pass your API key as a form parameter:
+
+```bash
+curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@app.apk
+```
+
+:::tip Best Practice
+For CI/CD pipelines and automated uploads, use a dedicated [service account](/testfairy/security/service-accounts) rather than personal user credentials.
 :::
+
+### OIDC Authentication
+
+Use JWT tokens from your identity provider with Bearer authentication:
+
+```bash
+curl -X POST https://app.testfairy.com/api/upload/ \
+  -H "Authorization: Bearer <your-access-token>" \
+  -H "X-OIDC-Config-Key: <your-config-key>" \
+  -F "file=@app.apk"
+```
+
+For OIDC setup instructions, see [OIDC Authentication](/testfairy/security/oidc-authentication).
 
 ### Usage
 

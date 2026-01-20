@@ -14,6 +14,8 @@ A **service account** is a dedicated user account created specifically for autom
 
 ## Why Use Service Accounts?
 
+Service accounts with API keys are one approach for programmatic API access. For organizations looking for enhanced security with short-lived tokens and centralized credential management, [OIDC authentication](/testfairy/security/oidc-authentication) offers an alternative that eliminates the need to manage long-lived API keys.
+
 Using service accounts for API access provides several benefits:
 
 | Benefit | Description |
@@ -125,6 +127,40 @@ In Multi-Site configurations, service accounts operate within a specific site co
 - A service account in Site A cannot access resources in Site B unless explicitly added to both sites.
 - Site Managers should create and manage service accounts but should **never use their own Site Manager credentials for API access**.
 
+## OIDC Authentication Alternative
+
+For organizations seeking enhanced security, **OIDC (OpenID Connect) authentication** provides an alternative to service account API keys. OIDC uses short-lived JWT tokens from your identity provider instead of long-lived API keys.
+
+### When to Use OIDC vs. Service Accounts
+
+| Consideration | Service Account + API Key | OIDC Authentication |
+| :------------ | :------------------------ | :------------------ |
+| **Setup complexity** | Simple - create account, get key | Requires identity provider configuration |
+| **Token lifetime** | Long-lived (never expires) | Short-lived (typically 1 hour) |
+| **Credential storage** | API key stored in CI/CD secrets | Client credentials in identity provider only |
+| **Revocation** | Manual key regeneration | Automatic token expiration |
+| **Audit trail** | Basic API logs | Full audit in identity provider |
+| **Central management** | Per-account | Centralized in identity provider |
+
+### Choosing Your Authentication Method
+
+**Use Service Accounts with API Keys when:**
+- You need simple setup for small teams
+- You have limited CI/CD pipelines
+- You don't have an enterprise identity provider
+
+**Use OIDC Authentication when:**
+- You want centralized credential management
+- Your organization requires short-lived tokens for compliance
+- You already use an identity provider (Auth0, Okta, Azure AD, etc.)
+- You need detailed audit trails for API access
+
+:::tip
+Organizations can enable both authentication methods simultaneously during migration. Use "OIDC or API Key" mode to gradually transition from API keys to OIDC without disrupting existing integrations.
+:::
+
+For complete OIDC setup instructions, see [OIDC API Authentication](/testfairy/security/oidc-authentication).
+
 ## Rotating API Keys
 
 To rotate an API key for a service account:
@@ -159,6 +195,7 @@ Before rotating keys, inventory all systems using the current key to avoid servi
 
 ## See Also
 
+- [OIDC API Authentication](/testfairy/security/oidc-authentication) - JWT-based authentication alternative
 - [REST API Reference](/testfairy/api-reference/rest-api) - Complete API documentation
 - [Upload API](/testfairy/api-reference/upload-api) - Build upload automation
 - [Multiple Accounts](/testfairy/using-testfairy/multi-site) - Multi-Site configuration and roles

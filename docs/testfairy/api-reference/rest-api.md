@@ -12,34 +12,56 @@ In this document you can find the reference for the Sauce Labs Mobile App Distri
 
 ## Authentication
 
-All REST API requests require authentication using HTTP Basic Authentication with your email address and API key.
+The REST API supports two authentication methods:
 
-### API Key Overview
+| Method | Best For | Documentation |
+| :----- | :------- | :------------ |
+| **API Key** | Simple setups, small teams | [Service Accounts](/testfairy/security/service-accounts) |
+| **OIDC** | Enterprise, centralized credential management | [OIDC Authentication](/testfairy/security/oidc-authentication) |
 
-Your API key is a unique credential that authenticates your API requests. It is **not** your account password.
+### Option 1: API Key Authentication
+
+Use HTTP Basic Authentication with your email address and API key.
 
 :::warning Important Security Guidelines
 - **Your API key is private** - Do not share it or post it on public code repositories or forums.
 - **Use service accounts for automation** - Create dedicated [service accounts](/testfairy/security/service-accounts) for CI/CD pipelines and automated processes.
-- **Never use Site Manager accounts for API calls** - Site Manager accounts have elevated privileges that are inappropriate for automated API access. Always use a dedicated service account with appropriate permissions.
+- **Never use Site Manager accounts for API calls** - Site Manager accounts have elevated privileges that are inappropriate for automated API access.
 :::
 
-### Finding Your API Key
+#### Finding Your API Key
 
 1. Log in to your Sauce Labs Mobile App Distribution account.
 2. Navigate to **Account** > **Settings**.
 3. Locate the **Access Key** section.
 4. Copy your username and API key.
 
-For detailed guidance on creating service accounts, managing API keys, and security best practices, see [Service Accounts and API Keys](/testfairy/security/service-accounts).
-
-### Authentication Format
-
-Use HTTP Basic Authentication with your email as the username and your API key as the password:
+#### Authentication Format
 
 ```bash
 curl -u "email:api-key" "https://mobile.saucelabs.com/api/1/endpoint"
 ```
+
+### Option 2: OIDC Authentication
+
+Use JWT tokens from your identity provider for enhanced security with short-lived tokens and centralized credential management.
+
+#### Required Headers
+
+| Header | Description |
+| :----- | :---------- |
+| `Authorization` | Bearer token from your OIDC provider (e.g., `Bearer eyJhbGci...`) |
+| `X-OIDC-Config-Key` | Your organization's OIDC config key |
+
+#### Authentication Format
+
+```bash
+curl -X GET "https://mobile.saucelabs.com/api/1/projects/" \
+  -H "Authorization: Bearer <your-access-token>" \
+  -H "X-OIDC-Config-Key: <your-config-key>"
+```
+
+For setup instructions, see [OIDC Authentication](/testfairy/security/oidc-authentication).
 
 ## API Endpoints
 

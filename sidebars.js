@@ -1153,6 +1153,7 @@ module.exports = {
                         },
                         'testfairy/security/acct-settings',
                         'testfairy/security/service-accounts',
+                        'testfairy/security/oidc-authentication',
                         'testfairy/security/gdpr',
                     ],
                 },
@@ -1187,7 +1188,6 @@ module.exports = {
                     items: [
                         'testfairy/api-reference/rest-api',
                         'testfairy/api-reference/upload-api',
-                        'testfairy/api-reference/oidc-api-authentication',
                         'testfairy/api-reference/webhooks',
                     ],
                 },
