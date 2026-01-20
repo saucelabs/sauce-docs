@@ -64,7 +64,7 @@ Use clear naming conventions to identify service accounts:
 
 ## Managing API Keys
 
-Each user account (including service accounts) has an associated API key that is used for authenticating API requests.
+Each user account (including service accounts) has an associated API key that is used for authenticating API requests. For general API key information, see [API Keys](/testfairy/security/api-keys).
 
 ### Finding Your API Key
 
@@ -195,6 +195,7 @@ Before rotating keys, inventory all systems using the current key to avoid servi
 
 ## See Also
 
+- [API Keys](/testfairy/security/api-keys) - API key basics and usage
 - [OIDC API Authentication](/testfairy/security/oidc-authentication) - JWT-based authentication alternative
 - [REST API Reference](/testfairy/api-reference/rest-api) - Complete API documentation
 - [Upload API](/testfairy/api-reference/upload-api) - Build upload automation

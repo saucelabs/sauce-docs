@@ -1152,6 +1152,7 @@ module.exports = {
                             ],
                         },
                         'testfairy/security/acct-settings',
+                        'testfairy/security/api-keys',
                         'testfairy/security/service-accounts',
                         'testfairy/security/oidc-authentication',
                         'testfairy/security/gdpr',

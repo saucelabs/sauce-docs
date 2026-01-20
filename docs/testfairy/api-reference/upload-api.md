@@ -14,26 +14,18 @@ Streamline your build process and upload APKs or IPAs directly to Sauce Labs Mob
 
 The Upload API supports two authentication methods:
 
-| Method | Best For | Documentation |
-| :----- | :------- | :------------ |
-| **API Key** | Simple setups, small teams | [Service Accounts](/testfairy/security/service-accounts) |
-| **OIDC** | Enterprise, centralized credential management | [OIDC Authentication](/testfairy/security/oidc-authentication) |
+| Method | Documentation |
+| :----- | :------------ |
+| **API Key** | [API Keys](/testfairy/security/api-keys) |
+| **OIDC** | [OIDC Authentication](/testfairy/security/oidc-authentication) |
 
-### API Key Authentication
-
-Pass your API key as a form parameter:
+### API Key (Form Parameter)
 
 ```bash
 curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@app.apk
 ```
 
-:::tip Best Practice
-For CI/CD pipelines and automated uploads, use a dedicated [service account](/testfairy/security/service-accounts) rather than personal user credentials.
-:::
-
-### OIDC Authentication
-
-Use JWT tokens from your identity provider with Bearer authentication:
+### OIDC (Bearer Token)
 
 ```bash
 curl -X POST https://app.testfairy.com/api/upload/ \
@@ -42,7 +34,9 @@ curl -X POST https://app.testfairy.com/api/upload/ \
   -F "file=@app.apk"
 ```
 
-For OIDC setup instructions, see [OIDC Authentication](/testfairy/security/oidc-authentication).
+:::tip
+For CI/CD automation, use [service accounts](/testfairy/security/service-accounts).
+:::
 
 ### Usage
 
@@ -249,18 +243,6 @@ In the case of an error, Sauce Labs Mobile App Distribution returns a JSON with 
 ```
 
 </details>
-
-### Where Can I Find My API Key?
-
-To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **TestFairy Access Key**.
-
-### How Can I Create a New API Key?
-
-To create a new API KEY, click on **Regenerate** on your account preferences page.
-
-### Why Is My API Key Empty?
-
-In cases Sauce Labs Mobile App Distribution identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, Sauce Labs Mobile App Distribution automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
 
 ### Can I Add Custom Metadata?
 
