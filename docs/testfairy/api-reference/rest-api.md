@@ -33,13 +33,15 @@ curl -X GET "https://mobile.saucelabs.com/api/1/projects/" \
   -H "X-OIDC-Config-Key: <your-config-key>"
 ```
 
+See [OIDC Authentication: API Usage](/testfairy/security/oidc-authentication#api-usage) for setup and token retrieval.
+
 :::tip
 For CI/CD automation, use [service accounts](/testfairy/security/service-accounts).
 :::
 
 ## API Endpoints
 
-Sauce Mobile App Distribution REST API is available at the following endpoints:
+Sauce Labs Mobile App Distribution REST API is available at the following endpoints:
 
 ### US-East-1 (Primary)
 

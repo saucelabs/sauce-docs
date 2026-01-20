@@ -28,11 +28,13 @@ curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@app
 ### OIDC (Bearer Token)
 
 ```bash
-curl -X POST https://app.testfairy.com/api/upload/ \
+curl -X POST https://mobile.saucelabs.com/api/upload/ \
   -H "Authorization: Bearer <your-access-token>" \
   -H "X-OIDC-Config-Key: <your-config-key>" \
   -F "file=@app.apk"
 ```
+
+See [OIDC Authentication: API Usage](/testfairy/security/oidc-authentication#api-usage) for setup and token retrieval.
 
 :::tip
 For CI/CD automation, use [service accounts](/testfairy/security/service-accounts).

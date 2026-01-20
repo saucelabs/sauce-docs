@@ -175,6 +175,52 @@ When migrating from API keys to OIDC:
 
 ---
 
+## API Usage
+
+### Obtaining a Token
+
+Request an access token from your identity provider using the Client Credentials flow:
+
+```bash
+curl -X POST https://your-identity-provider.example.com/oauth/token \
+  -H "Content-Type: application/json" \
+  -d '{
+    "client_id": "YOUR_CLIENT_ID",
+    "client_secret": "YOUR_CLIENT_SECRET",
+    "audience": "https://api.testfairy.com",
+    "grant_type": "client_credentials"
+  }'
+```
+
+```json title="Sample Response"
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+
+### Making API Requests
+
+Include the token in the `Authorization` header along with your OIDC config key. See [REST API](/testfairy/api-reference/rest-api) for available endpoints.
+
+```bash
+curl -X GET "https://mobile.saucelabs.com/api/1/projects/" \
+  -H "Authorization: Bearer <your-access-token>" \
+  -H "X-OIDC-Config-Key: <your-config-key>"
+```
+
+For file uploads, see [Upload API](/testfairy/api-reference/upload-api) for all parameters:
+
+```bash
+curl -X POST "https://mobile.saucelabs.com/api/upload/" \
+  -H "Authorization: Bearer <your-access-token>" \
+  -H "X-OIDC-Config-Key: <your-config-key>" \
+  -F "file=@app.apk"
+```
+
+---
+
 ## CI/CD Integration Examples
 
 <Tabs
@@ -220,7 +266,7 @@ jobs:
 
       - name: Upload to MAD
         run: |
-          curl -X POST https://app.testfairy.com/api/upload/ \
+          curl -X POST https://mobile.saucelabs.com/api/upload/ \
             -H "Authorization: Bearer ${{ steps.token.outputs.token }}" \
             -H "X-OIDC-Config-Key: ${{ secrets.OIDC_CONFIG_KEY }}" \
             -F "file=@app/build/outputs/apk/release/app-release.apk"
@@ -251,7 +297,7 @@ pipeline {
             steps {
                 script {
                     def tokenResponse = httpRequest(
-                        url: 'https://your-tenant.auth0.com/oauth/token',
+                        url: 'https://your-identity-provider.example.com/oauth/token',
                         httpMode: 'POST',
                         contentType: 'APPLICATION_JSON',
                         requestBody: """{
@@ -264,7 +310,7 @@ pipeline {
                     def token = readJSON(text: tokenResponse.content).access_token
 
                     sh """
-                        curl -X POST https://app.testfairy.com/api/upload/ \
+                        curl -X POST https://mobile.saucelabs.com/api/upload/ \
                             -H "Authorization: Bearer ${token}" \
                             -H "X-OIDC-Config-Key: ${OIDC_CONFIG_KEY}" \
                             -F "file=@app/build/outputs/apk/release/app-release.apk"
@@ -294,7 +340,7 @@ upload-to-testfairy:
           \"grant_type\": \"client_credentials\"
         }" | jq -r '.access_token')
     - |
-      curl -X POST https://app.testfairy.com/api/upload/ \
+      curl -X POST https://mobile.saucelabs.com/api/upload/ \
         -H "Authorization: Bearer $TOKEN" \
         -H "X-OIDC-Config-Key: $OIDC_CONFIG_KEY" \
         -F "file=@app-release.apk"
