@@ -1187,6 +1187,7 @@ module.exports = {
                     items: [
                         'testfairy/api-reference/rest-api',
                         'testfairy/api-reference/upload-api',
+                        'testfairy/api-reference/oidc-api-authentication',
                         'testfairy/api-reference/webhooks',
                     ],
                 },
