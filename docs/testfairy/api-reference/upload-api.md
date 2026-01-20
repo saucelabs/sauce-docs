@@ -40,7 +40,35 @@ See [OIDC Authentication: API Usage](/testfairy/security/oidc-authentication#api
 For CI/CD automation, use [service accounts](/testfairy/security/service-accounts).
 :::
 
-### Usage
+## API Endpoints
+
+The Upload API is available at the following endpoints:
+
+### US-East-1 (Primary)
+
+```bash
+https://mobile.saucelabs.com/api/upload/
+```
+
+### EU-Central-1
+
+```bash
+https://mobile.eu-central-1.saucelabs.com/api/upload/
+```
+
+:::note
+Access keys are different in each Data Center. Ensure you are using the correct API key for the data center you are accessing.
+:::
+
+### Legacy Endpoint (US-East)
+
+The previous TestFairy endpoint remains available:
+
+```bash
+https://app.testfairy.com/api/upload/
+```
+
+## Usage
 
 [Gradle](https://github.com/testfairy/testfairy-gradle-plugin)
 
@@ -59,7 +87,7 @@ For CI/CD automation, use [service accounts](/testfairy/security/service-account
 ### Upload API
 
 <details>
-<summary><span className="api post">POST</span><code>https://app.testfairy.com/api/upload/</code></summary>
+<summary><span className="api post">POST</span><code>/api/upload/</code></summary>
 <p></p>
 
 #### Parameters
@@ -68,7 +96,7 @@ For CI/CD automation, use [service accounts](/testfairy/security/service-account
  <tbody>
  <tr>
  <td><code>api_key</code></td>
- <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://app.testfairy.com/settings for details.</p></td>
+ <td><p><small>| REQUIRED for API Key auth |</small></p><p>Your API application key. Required when using API key authentication; omit when using OIDC. See [API Keys](/testfairy/security/api-keys) for details.</p></td>
  </tr>
  </tbody>
  <tbody>
