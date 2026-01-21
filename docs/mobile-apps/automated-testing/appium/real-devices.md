@@ -54,13 +54,7 @@ The W3C WebDriver Protocol test capability syntax differs from that of JWP, so i
 
 ### How Sauce Labs Determines Your Protocol
 
-When Sauce Labs executes your test configuration, it looks for the presence of certain indicators in the session creation request to determine whether it should apply the JWP or W3C protocol. The following table outlines how Sauce Labs evaluates your creation request.
-
-| Indicator                                                                 | Determination |
-| :------------------------------------------------------------------------ | :------------ |
-| `sauce:options` node is present within the capabilities node.             | W3C           |
-| `desiredCapabilities` node is absent.                                     | W3C           |
-| `desiredCapabilities` node is present AND `sauce:options` node is absent. | JWP           |
+Sauce Labs always prioritizes W3C as the standard appium protocol. Most modern appium clients support sending both W3C and JWP in the session creation request. In this case, the W3C will be considered and the JWP ignored. The only scenario where JWP is used is when it is the only protocol available in the session creation request.
 
 ### Examples of JWP and W3C Configurations
 
