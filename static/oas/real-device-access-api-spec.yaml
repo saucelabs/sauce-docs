@@ -1567,21 +1567,6 @@ components:
             osVersion:
               type: string
               example: "15.0"
-            resolutionWidth:
-              description: Screen width in pixels
-              type: number
-              format: int32
-              example: 1080
-            resolutionHeight:
-              description: Screen height in pixels
-              type: number
-              format: int32
-              example: 2340
-            screenSize:
-              description: Screen size in inches
-              type: number
-              format: int32
-              example: 6
         appium:
           type: object
           properties:
@@ -1607,6 +1592,10 @@ components:
               type: string
               example: "https://app.saucelabs.com/live/mobile/dataCenters/US/devices/Samsung_Galaxy_S8_real2/shared/123e4567-e89b-12d3-a456-426614174000"
               description: Live test view for the openapi session
+            deviceDescriptorUrl:
+              type: string
+              example: "https://api.us-west-1.saucelabs.com/rdc/v2/devices/iPhone_13_real"
+              description: Link to the device descriptor with more details about the device
             self:
               type: string
               example: "https://api.us-west-1.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000"
