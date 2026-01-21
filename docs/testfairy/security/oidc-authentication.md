@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 This guide explains how to configure OpenID Connect (OIDC) authentication for Sauce Labs Mobile App Distribution API access.
 
+:::note Feature Availability
+OIDC authentication is not enabled by default. To use this feature, please [contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to request activation for your account.
+:::
+
 ## Overview
 
 OIDC authentication allows organizations to authenticate API requests using JWT tokens from their identity provider instead of traditional API keys. This is designed for **machine-to-machine (M2M)** authentication using the OAuth 2.0 Client Credentials flow.
