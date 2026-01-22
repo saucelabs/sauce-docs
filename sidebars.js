@@ -689,7 +689,6 @@ module.exports = {
             items: [
                 'dev/api',
                 'dev/api/accounts',
-                'dev/api/api-testing',
                 'dev/api/error-reporting',
                 'dev/api/jobs',
                 'dev/api/builds',
@@ -1153,7 +1152,9 @@ module.exports = {
                             ],
                         },
                         'testfairy/security/acct-settings',
+                        'testfairy/security/api-keys',
                         'testfairy/security/service-accounts',
+                        'testfairy/security/oidc-authentication',
                         'testfairy/security/gdpr',
                     ],
                 },
