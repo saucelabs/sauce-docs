@@ -12,38 +12,36 @@ In this document you can find the reference for the Sauce Labs Mobile App Distri
 
 ## Authentication
 
-All REST API requests require authentication using HTTP Basic Authentication with your email address and API key.
+The REST API supports two authentication methods:
 
-### API Key Overview
+| Method | Documentation |
+| :----- | :------------ |
+| **API Key** | [API Keys](/testfairy/security/api-keys) |
+| **OIDC** | [OIDC Authentication](/testfairy/security/oidc-authentication) |
 
-Your API key is a unique credential that authenticates your API requests. It is **not** your account password.
-
-:::warning Important Security Guidelines
-- **Your API key is private** - Do not share it or post it on public code repositories or forums.
-- **Use service accounts for automation** - Create dedicated [service accounts](/testfairy/security/service-accounts) for CI/CD pipelines and automated processes.
-- **Never use Site Manager accounts for API calls** - Site Manager accounts have elevated privileges that are inappropriate for automated API access. Always use a dedicated service account with appropriate permissions.
-:::
-
-### Finding Your API Key
-
-1. Log in to your Sauce Labs Mobile App Distribution account.
-2. Navigate to **Account** > **Settings**.
-3. Locate the **Access Key** section.
-4. Copy your username and API key.
-
-For detailed guidance on creating service accounts, managing API keys, and security best practices, see [Service Accounts and API Keys](/testfairy/security/service-accounts).
-
-### Authentication Format
-
-Use HTTP Basic Authentication with your email as the username and your API key as the password:
+### API Key (HTTP Basic Auth)
 
 ```bash
-curl -u "email:api-key" "https://mobile.saucelabs.com/api/1/endpoint"
+curl -u "email:api-key" "https://mobile.saucelabs.com/api/1/projects/"
 ```
+
+### OIDC (Bearer Token)
+
+```bash
+curl -X GET "https://mobile.saucelabs.com/api/1/projects/" \
+  -H "Authorization: Bearer <your-access-token>" \
+  -H "X-OIDC-Config-Key: <your-config-key>"
+```
+
+See [OIDC Authentication: API Usage](/testfairy/security/oidc-authentication#api-usage) for setup and token retrieval.
+
+:::tip
+For CI/CD automation, use [service accounts](/testfairy/security/service-accounts).
+:::
 
 ## API Endpoints
 
-Sauce Mobile App Distribution REST API is available at the following endpoints:
+Sauce Labs Mobile App Distribution REST API is available at the following endpoints:
 
 ### US-East-1 (Primary)
 

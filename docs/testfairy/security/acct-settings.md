@@ -16,16 +16,9 @@ To access the Settings page, click **Account** and then click **Sauce Labs Mobil
 
 <img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="Sauce Labs Mobile App Distribution Access Key page" width="700"/>
 
-Your access key (API key) is used to authenticate REST API requests. You can use the Sauce Labs Mobile App Distribution API to upload builds, manage testers, and automate workflows.
+Your access key (API key) authenticates API requests. See [API Keys](/testfairy/security/api-keys) for usage details.
 
-:::tip Best Practice
-For CI/CD pipelines and automated processes, create dedicated [service accounts](/testfairy/security/service-accounts) rather than using personal user accounts. This improves security, auditability, and operational continuity.
-:::
-
-For more information, see:
-- [Service Accounts and API Keys](/testfairy/security/service-accounts) - Creating and managing service accounts
-- [REST API Reference](/testfairy/api-reference/rest-api) - Complete API documentation
-- [Upload API](/testfairy/api-reference/upload-api) - Build upload automation
+For automated workflows, use dedicated [service accounts](/testfairy/security/service-accounts).
 
 ## Sauce Labs Mobile App Distribution
 

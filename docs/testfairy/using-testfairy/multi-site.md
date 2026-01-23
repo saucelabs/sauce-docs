@@ -110,7 +110,7 @@ It is essential first to understand that all accounts are divided into two categ
 | "Site Manager"                                                                                   | Only applicable for Private Cloud + Multi-Site. Can create and manage organizations within the same private instance.          |
 
 :::warning API Access and Service Accounts
-For programmatic API access (CI/CD pipelines, automation scripts, integrations), create dedicated **service accounts** with the **Admin** role. The **Member** role does not receive an API key and has read-only access. Do not use Site Manager, Account Owner, Account Manager, or personal accounts for automated API access. See [Service Accounts and API Keys](/testfairy/security/service-accounts) for detailed guidance.
+For programmatic API access (CI/CD pipelines, automation scripts, integrations), create dedicated **service accounts** with the **Admin** role. The **Member** role does not receive an API key and has read-only access. Do not use Site Manager, Account Owner, Account Manager, or personal accounts for automated API access. See [Service Accounts](/testfairy/security/service-accounts) for detailed guidance.
 :::
 
 ### How to see the current user roles?
