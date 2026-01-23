@@ -14,8 +14,51 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Sauce Labs supports the following test configurations for Replay:
 
-- Browsers: Chrome
-- Platforms: Windows 10, Windows 11, macOS 11, macOS 12, macOS 13
+<table id="table-fw">
+  <tr>
+    <th>Replay Version</th>
+    <th>Node.js Version</th>
+    <th width="10%">Supported Platforms</th>
+    <th width="30%">Supported Browsers</th>
+    <th width="30%">End of Life</th>
+  </tr>
+  <tbody>
+    <tr>
+      <td rowspan='2'>0.30.0</td>
+      <td rowspan='2'>22</td>
+      <td><b>macOS:</b> 11, 12, 13, 14, 15</td>
+      <td rowspan='2'>Chrome</td>
+      <td rowspan='2'>January 23rd, 2027</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>0.29.0</td>
+      <td rowspan='2'>22</td>
+      <td><b>macOS:</b> 11, 12, 13</td>
+      <td rowspan='2'>Chrome</td>
+      <td rowspan='2'>December 1st, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>0.28.0</td>
+      <td rowspan='2'>22</td>
+      <td><b>macOS:</b> 11, 12, 13</td>
+      <td rowspan='2'>Chrome</td>
+      <td rowspan='2'>November 17th, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+</table>
 
 ## How to Get Started
 
