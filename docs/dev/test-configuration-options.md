@@ -2138,7 +2138,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `recordVideo`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | | <span className="sauceGreen">Desktop and Virtual Devices Only</span></small></p>
 
 Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
 
