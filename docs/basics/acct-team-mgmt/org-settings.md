@@ -49,6 +49,41 @@ To access Security settings:
 | Logout URL                                                                                                                 | This option allows you to run custom processes after the user logs out. You can define a secure https:// URL to redirect the user to that URL on logout or if a session times out. If this field is empty, users will be redirected to the default login page.<br></br>Should you decide to use this, you must enter a URL starting with **HTTPS** (HTTP will not work).                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Reset All Access Keys                                                                                                      | All users have a unique access key that they use to authenticate to Sauce Labs, which is usually integrated into their test scripts. Clicking **Reset All Access Keys** will invalidate access keys for all users in your organization, and require users to update their tests scripts with new access keys. You should only click **Reset All Access Keys** in the event of a major security issue.<br/><br/> **Note:** This action does not affect [service accounts](/basics/acct-team-mgmt/managing-service-accounts/). It will only rotate access keys for user accounts.                                                                                                                                                                                                                                                 |
 
+## Concurrency Settings
+:::note
+Customers on legacy plans or those that requested specific terms may not have access to these settings in the Dashboard.If you are unsure about your concurrency plan or billing implications, please consult your Sauce Labs Account Manager.
+:::
+
+Organization Admins can now manage how their Sauce Labs Virtual Device Cloud (VDC) concurrency behaves under peak load.
+The **Concurrency** tab (available only to Orgs on **Fixed** or **On-Demand** plans) provides a toggle between strict concurrency limits and temporary burst capacity.
+
+<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency1.png')} alt="AI Insights View" width="700"/>
+
+**Fixed Concurrency** enforces your organization’s contractual concurrency limits without allowing any burst capacity. When this mode is active, your tests cannot exceed the number of concurrent sessions included in your contract. Any additional jobs that attempt to run are placed into the throttling queue, which is available to Enterprise customers. Fixed Concurrency is generally recommended for organizations that need strict control over usage and predictable testing costs.
+
+**On-Demand Concurrency** allows your organization to temporarily exceed its contracted concurrency by up to 10%, enabling tests to run at up to 110% of your purchased limit. Any usage beyond the contractual threshold is billed according to your agreement. This mode also closes previous multi-resource features ensuring that Mac and non-Mac concurrency limits are enforced consistently. Once the 110% capacity is reached, additional jobs enter the throttling queue. When switching from Fixed to On-Demand, users are shown a confirmation modal that explains the potential cost implications of enabling burst capacity.
+
+Changing concurrency mode applies immediately to the entire organization.
+When the toggle is switched:
+* A confirmation dialog explains the impacts on running and scheduled jobs.
+* Mode changes are logged with timestamp and actor for auditability.
+* Queued jobs may begin running immediately if On-Demand is enabled and headroom is available.
+* Jobs that exceeded the Fixed limit will remain queued once switching back to Fixed.
+
+<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency2.png')} alt="AI Insights View" width="700"/>
+
+### Who Can Access This Feature?
+
+Only Organization Admins can view or modify concurrency mode settings.
+The following customers do not have access to the Concurrency tab:
+* Legacy plan customers
+* Limited plan customers (e.g., JPMC)
+
+:::note
+Some customers with older plans may see this tab or may be migrated into the new naming system. If you are unsure about your concurrency plan or billing implications, please consult your Sauce Labs Account Manager.
+:::
+
+
 ## Single Sign-On Settings (Deprecated Flow)
 
 <p><span className="sauceGold">Deprecated</span></p>
