@@ -72,17 +72,6 @@ When the toggle is switched:
 
 <img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency2.png')} alt="AI Insights View" width="700"/>
 
-### Who Can Access This Feature?
-
-Only Organization Admins can view or modify concurrency mode settings.
-The following customers do not have access to the Concurrency tab:
-* Legacy plan customers
-* Limited plan customers (e.g., JPMC)
-
-:::note
-Some customers with older plans may see this tab or may be migrated into the new naming system. If you are unsure about your concurrency plan or billing implications, please consult your Sauce Labs Account Manager.
-:::
-
 
 ## Single Sign-On Settings (Deprecated Flow)
 
