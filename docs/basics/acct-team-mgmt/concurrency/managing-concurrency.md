@@ -66,18 +66,36 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Exceeding Virtual Cloud Concurrency
 
-The Virtual Cloud is used to run business critical pipelines across large enterprise organizations. This means there will be times when it is difficult to predict exactly how much concurrency you will need at all times. For these situations we allow your organization to exceed it's concurrency limit.
+Sauce Labs provides Organization Admins with configurable controls that determine how their Virtual Device Cloud (VDC) tests behave when the organization reaches its purchased concurrency limits.
 
-The following table describes the maximum amount you are allowed to exceed your concurrency limit.
+Organizations can now choose between two concurrency modes:
 
-| Subscription Amount | % You Can Exceed | Example | 
-|---------------------|-----------------|---------|
-|1-100| 200%| 50 -> 150|
-|101-500|100%|200 -> 400|
-|501-2000|50%|1000 -> 1500|
-|2001+|10%|2500 -> 2750|
+**Fixed Concurrency**
 
-Once your organization attempts to run a test past the maximum amount you can exceed your tests will receive a [You've Exceeded Your Concurrency Limit Error](/dev/error-messages/#youve-exceeded-your-sauce-labs-concurrency-limit)
+In Fixed mode, the organization’s total concurrency cannot exceed the contractual limit.
+If your scheduled or running tests reach the limit:
+* Additional jobs enter the throttling queue (available to Enterprise customers).
+* The queue can hold up to CCY (purchased concurrency total) + 150 jobs.
+* Jobs are executed in order as concurrency becomes available.
+* No burst capacity is allowed.
+This mode is recommended for customers who need strict cost control and predictable usage.
+
+**On-Demand Concurrency**
+
+On-Demand mode allows organizations to temporarily exceed their contracted concurrency by up to 10%. This provides elasticity during peak testing periods.
+When On-Demand is enabled:
+* Tests may run up to 110% of your contracted limit.
+* Additional usage beyond contractual limits is billable.
+* A throttling queue (CCY + 150) is still enforced once the 10% burst limit is reached.
+* Multi-resource features from older plans are closed, Mac and non-Mac concurrency are enforced consistently. Available concurrency includes tests across all virtual platforms — iOS, Android, and desktop browsers.
+
+This mode is ideal for customers who occasionally need more parallelization than their contract provides.
+
+
+#### What Happens to Running or Scheduled Jobs When You Hit the Limit?
+
+When your organization reaches its available concurrency, any additional tests are placed into a throttling queue, which is available to Enterprise customers. These queued jobs remain there until capacity opens and they can be executed in order. If you switch between Fixed and On-Demand concurrency modes, the way these queued jobs are handled may change; refer to the Organization Settings documentation for details on how mode changes affect queued and pending jobs.
+
 
 ## Real Device Cloud Concurrency
 
