@@ -64,7 +64,7 @@ The fixture builds the Sauce session capabilities and metadata (name, build). Yo
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```javascript reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-js/blob/main/playwright/tests/fixture.js#L20-L37
+https://github.com/saucelabs-training/demo-js/blob/docs-1.4/playwright/tests/fixture.js#L20-L37
 ```
 
 The fixture also helps creating and tearing down the remote Sauce session, updating the job status
@@ -76,11 +76,11 @@ Your test code remains unchanged as they use the same `page` API locally and on 
 
 To use the fixture, place it in your project and import it in your test files:
 ```javascript reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-js/blob/main/playwright/tests/cart.spec.js#L1-L13
+https://github.com/saucelabs-training/demo-js/blob/docs-1.4/playwright/tests/cart.spec.js#L1-L13
 ```
 
-You can see the full fixture code in our [demo repository](https://github.com/saucelabs-training/demo-js/blob/main/playwright/tests/fixture.js). 
-For complete working examples and setup instructions, visit our [JS/TS Demo Repository](https://github.com/saucelabs-training/demo-js/blob/main/playwright/README.md).
+You can see the full fixture code in our [demo repository](https://github.com/saucelabs-training/demo-js/blob/docs-1.4/playwright/tests/fixture.js). 
+For complete working examples and setup instructions, visit our [JS/TS Demo Repository](https://github.com/saucelabs-training/demo-js/blob/docs-1.4/playwright/README.md).
 
 </TabItem>
 
@@ -93,7 +93,7 @@ The extension builds the Sauce session capabilities and metadata (name, build). 
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```java reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-java/blob/main/playwright-examples/src/test/java/com/saucelabs/extensions/SaucePlaywrightExtension.java#L47-L68
+https://github.com/saucelabs-training/demo-java/blob/docs-1.3/playwright-examples/src/test/java/com/saucelabs/extensions/SaucePlaywrightExtension.java#L47-L68
 ```
 
 We also recommend using the custom [`SaucePlaywrightSession`](https://github.com/saucelabs-training/demo-java/blob/main/playwright-examples/src/test/java/com/saucelabs/bindings/SaucePlaywrightSession.java)
@@ -106,11 +106,11 @@ the Sauce Labs UI . Your test code remains unchanged as they use the same `page`
 
 To use the extension, add it to your base test class and use the `page` in your test methods:
 ```java reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-java/blob/main/playwright-examples/src/test/java/com/saucedemo/playwright/TestBase.java
+https://github.com/saucelabs-training/demo-java/blob/docs-1.3/playwright-examples/src/test/java/com/saucedemo/playwright/TestBase.java
 ```
 
-You can see the full extension code in our [demo repository](https://github.com/saucelabs-training/demo-java/blob/main/playwright-examples/src/test/java/com/saucelabs/extensions/SaucePlaywrightExtension.java).
-For complete working examples and setup instructions, visit our [Java Demo Repository](https://github.com/saucelabs-training/demo-java/blob/main/playwright-examples/README.md).
+You can see the full extension code in our [demo repository](https://github.com/saucelabs-training/demo-java/blob/docs-1.3/playwright-examples/src/test/java/com/saucelabs/extensions/SaucePlaywrightExtension.java).
+For complete working examples and setup instructions, visit our [Java Demo Repository](https://github.com/saucelabs-training/demo-java/blob/docs-1.3/playwright-examples/README.md).
 
 </TabItem>
 
@@ -123,7 +123,7 @@ The fixture builds the Sauce session capabilities and metadata (name, build). Yo
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```python reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-python/blob/main/examples/playwright/conftest.py#L35-L77
+https://github.com/saucelabs-training/demo-python/blob/docs-1.2/examples/playwright/conftest.py#L35-L77
 ```
 
 The fixture also helps creating and tearing down the remote Sauce session, updating the job status
@@ -135,10 +135,10 @@ Your test code remains unchanged as they use the same `page` API locally and on 
 
 To use the fixture, place it in your project and import it in your test files:
 ```python reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-python/blob/main/examples/playwright/test_login.py
+https://github.com/saucelabs-training/demo-python/blob/docs-1.2/examples/playwright/test_login.py
 ```
 
-You can see the full fixture code in our [demo repository](https://github.com/saucelabs-training/demo-python/blob/main/examples/playwright/conftest.py).
+You can see the full fixture code in our [demo repository](https://github.com/saucelabs-training/demo-python/blob/docs-1.2/examples/playwright/conftest.py).
 For complete working examples and setup instructions, visit our [Python Demo Repository](https://github.com/saucelabs-training/demo-python).
 
 </TabItem>
@@ -152,7 +152,7 @@ The fixture builds the Sauce session capabilities and metadata (name, build). Yo
 capabilities to fit your needs in terms of browser, platform, and other options.
 
 ```csharp reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-csharp/blob/main/PlaywrightExamples/TestBase.cs#L120-L157
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.2/PlaywrightExamples/TestBase.cs#L120-L157
 ```
 
 The fixture also helps creating and tearing down the remote Sauce session, updating the job status
@@ -164,11 +164,11 @@ test code remains unchanged as they use the same `page` API locally and on Sauce
 
 To use the fixture, place it in your project and import it in your test files:
 ```python reference title="Sauce Session Capabilities and Metadata"
-https://github.com/saucelabs-training/demo-csharp/blob/main/PlaywrightExamples/Tests/AuthenticationTests.cs#L8-L20
+https://github.com/saucelabs-training/demo-csharp/blob/docs-1.2/PlaywrightExamples/Tests/AuthenticationTests.cs#L8-L20
 ```
 
-You can see the full fixture code in our [demo repository](https://github.com/saucelabs-training/demo-csharp/blob/main/PlaywrightExamples/TestBase.cs).
-For complete working examples and setup instructions, visit our [.NET Demo Repository](https://github.com/saucelabs-training/demo-csharp/blob/main/PlaywrightExamples/README.md).
+You can see the full fixture code in our [demo repository](https://github.com/saucelabs-training/demo-csharp/blob/docs-1.2/PlaywrightExamples/TestBase.cs).
+For complete working examples and setup instructions, visit our [.NET Demo Repository](https://github.com/saucelabs-training/demo-csharp/blob/docs-1.2/PlaywrightExamples/README.md).
 
 </TabItem>
 
