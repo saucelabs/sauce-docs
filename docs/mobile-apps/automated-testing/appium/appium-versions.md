@@ -1843,6 +1843,7 @@ We are retiring the `stable` image to simplify our versioning model and align wi
         </a>
       </td>
     </tr>
+      <tr>
           <td>iOS 18.0</td>
       <td>
         <ul>
