@@ -57,8 +57,7 @@ except:
 
 #### Arguments
 
-- endpoint  - Required. Example: https://yourcompany.sp.backtrace.io:6098 or https://submit.backtrace.io/{universe}/{token}/json.  Sets the HTTP/HTTPS endpoint that error reports will be sent to. If submit.backtrace.io url is provided, the token argument is not required.
-  token  -  Required only if endpoint is not set to submit.backtrace.io. Example: 51cc8e69c5b62fa8c72dc963e730f1e8eacbd243aeafc35d08d05ded9a024121  Sets the token that will be used for authentication when sending an error report.
+- endpoint  - Required. Example: https://submit.backtrace.io/{universe}/{token}/json.  Sets the HTTP/HTTPS endpoint that error reports will be sent to. If submit.backtrace.io url is provided, the token argument is not required.
 - attributes  - Dictionary that contains additional attributes to be sent along with every error report. These can be overridden on an individual report with `report.set_attribute`  Example: `{ 'application': "ApplicationName", 'serverId': "foo" }`. Attributes values should be set to a primitive value such as boolean, integer or string.
 - attachments - A list of file paths that will be sent with each report.
 - ignore_ssl_certificate - Defaults to False. If True, ssl verification will be ignored during HTTP submission.
