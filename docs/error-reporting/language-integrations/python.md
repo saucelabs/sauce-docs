@@ -57,7 +57,7 @@ except:
 
 | Argument | Explanation |
 | :--- | :--- |
-| `endpoint` | **Required.** Sets the HTTP/HTTPS endpoint that error reports will be sent to. Endpoint URL formats are outlined in our [API documentation](/dev/api/error-reporting/). |
+| `endpoint` | **Required.** Sets the HTTP/HTTPS endpoint that error reports will be sent to. Endpoint URL format: `https://submit.backtrace.io/{subdomain}/{apiToken}/json`. |
 | `attributes` | Dictionary that contains additional attributes to be sent along with every error report. These can be overridden on an individual report with `report.set_attribute`. Example: `{ 'application': "ApplicationName", 'serverId': "foo" }`. Attribute values should be set to a primitive value such as boolean, integer, or string. |
 | `attachments` | A list of file paths that will be sent with each report. |
 | `ignore_ssl_certificate` | Defaults to `False`. If `True`, SSL verification will be ignored during HTTP submission. |
