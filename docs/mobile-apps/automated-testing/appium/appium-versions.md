@@ -1822,7 +1822,6 @@ We are retiring the `stable` image to simplify our versioning model and align wi
       </td>
     </tr>
       <tr>
-       <tr>
       <td>iOS 18.6</td>
       <td>
         <ul>
