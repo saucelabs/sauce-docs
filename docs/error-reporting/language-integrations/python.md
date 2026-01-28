@@ -75,10 +75,10 @@ Create a report object that you can later choose whether or not to send. This ma
 | Argument | Explanation |
 | :--- | :--- |
 | `report.set_attribute(key, value)` | Adds an attribute to a specific report. Valid types for `value` are `str`, `float`, `int`, and `bool`. Attributes are indexed and searchable. See also `addAnnotation`. |
-| <span id="set-dict-attributes">`report.set_dict_attributes(dict)`</span> | Adds all key-value pairs of `dict` into the report recursively. |
+| `report.set_dict_attributes(dict)` | Adds all key-value pairs of `dict` into the report recursively. |
 | `report.get_attributes()` | Returns all report attributes. |
 | `report.set_annotation(key, value)` | Adds an annotation to a specific report. Annotations, unlike attributes, are not indexed and searchable, but are available for inspection when viewing a specific report.<br />**key**: String which is the name of the annotation.<br />**value**: Any type which is JSON-serializable. |
-| <span id="set-dict-annotations">`report.set_dict_annotations(dict)`</span> | Adds all key-value pairs of `dict` into the report. |
+| `report.set_dict_annotations(dict)` | Adds all key-value pairs of `dict` into the report. |
 | `report.add_attachment(attachment_path)` | Adds an attachment to the report. |
 | `report.get_attachments()` | Returns a list of attachment paths. |
 | `report.set_exception(ExceptionType, exception, traceback)` | `error` is an Error object. Backtrace will extract information from this object such as the error message and stack trace and send this information along with the report. |
@@ -90,5 +90,5 @@ Create a report object that you can later choose whether or not to send. This ma
 
 | Argument | Explanation |
 | :--- | :--- |
-| `attributes` | Dictionary of attributes to add to the report. See [`report.set_dict_attributes`](#set-dict-attributes). |
-| `annotations` | Dictionary of annotations to add to the report. See [`report.set_dict_annotations`](#set-dict-annotations). |
+| `attributes` | Dictionary of attributes to add to the report. See `report.set_dict_attributes`. |
+| `annotations` | Dictionary of annotations to add to the report. See `report.set_dict_annotations`. |
