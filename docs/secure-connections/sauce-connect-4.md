@@ -3,9 +3,8 @@ id: sauce-connect-4
 title: Sauce Connect Proxy 4
 sidebar_label: Overview
 ---
-
-:::caution Important Notice: Sauce Connect 4 is reaching end-of-life status.
-Starting Jan 31, 2026, servers will no longer support Sauce Connect version 4 traffic. To avoid interruptions, upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) at your earliest convenience.
+:::caution Important Notice: Sauce Connect 4 is reaching End of Support
+Sauce Connect 4 will reach **End of Support** on **January 31, 2026**. Sauce Labs will continue to accept traffic from Sauce Connect v4, but customers must upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) to stay supported and receive fixes and improvements. We strongly recommend upgrading as soon as possible.
 :::
 
 If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our Sauce Connect Proxy feature to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
