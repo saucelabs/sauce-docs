@@ -868,7 +868,7 @@ The parent property containing the details specific to the TestCafe project.
 
 ```yaml
 testcafe:
-  version: 3.7.2
+  version: 3.7.3
   configFile: .testcaferc.js
 ```
 
@@ -882,7 +882,7 @@ The version of TestCafe that is compatible with the tests defined in this file. 
 
 ```yaml
 testcafe:
-  version: 3.7.2
+  version: 3.7.3
 ```
 
 :::tip
@@ -1740,12 +1740,12 @@ suite:
 When set to `true`, this option adds capability requirement for ARM architecture on the machine running the test.
 
 :::note
-ARM is only available for MacOS 14 and for TestCafe >=3.7.2.
+ARM is available for macOS 14 and macOS 15 with TestCafe >=3.7.2. Note: Firefox is not supported on macOS 15 due to a known macOS firewall issue.
 :::
 
 ```yaml
 suite:
   - name: My Saucy Test
-    platform: 'macOS 14'
+    platform: 'macOS 15'
     armRequired: true
 ```
