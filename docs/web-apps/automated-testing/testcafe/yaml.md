@@ -868,7 +868,7 @@ The parent property containing the details specific to the TestCafe project.
 
 ```yaml
 testcafe:
-  version: 3.7.2
+  version: 3.7.3
   configFile: .testcaferc.js
 ```
 
@@ -882,7 +882,7 @@ The version of TestCafe that is compatible with the tests defined in this file. 
 
 ```yaml
 testcafe:
-  version: 3.7.2
+  version: 3.7.3
 ```
 
 :::tip
