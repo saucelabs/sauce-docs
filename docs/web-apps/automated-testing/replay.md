@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Sauce Labs supports the following test configurations for Replay:
 
 - Browsers: Chrome
-- Platforms: Windows 10, Windows 11, macOS 11, macOS 12, macOS 13, macOS 14, macOS 15
+- Platforms: Windows 10, Windows 11, macOS 11, macOS 12, macOS 13
 
 ## How to Get Started
 
