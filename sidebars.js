@@ -1111,7 +1111,6 @@ module.exports = {
                         'testfairy/app-distribution/managing-dist',
                         'testfairy/app-distribution/app-versioning',
                         'testfairy/app-distribution/landing-pages',
-                        'testfairy/app-distribution/auto-update',
                         'testfairy/app-distribution/app-expiration',
                         'testfairy/app-distribution/release-notes',
                         'testfairy/app-distribution/tags',
