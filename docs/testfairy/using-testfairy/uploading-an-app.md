@@ -64,8 +64,6 @@ Choose the appropriate file type based on your platform to proceed with the uplo
 
 You can define your build settings during the upload process:
 
--- **Auto-Update** - When auto-update is enabled, users using previous versions of this app will get a notification about the new version the next time they open up the app. The latest version will be downloaded automatically, so the user doesn't have to download it manually. Note that no email notification will be sent to the testers in this case.
-
 -- **Custom Comments** - Use this section to add release notes, describe the updates/changes, and anything else you want your testers to know.
 
 More build settings are available on the Account Settings page.

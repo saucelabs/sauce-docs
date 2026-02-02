@@ -67,11 +67,6 @@ Once groups are defined, they will appear on the **Permissions** page.
 
 Selecting the checkbox of a group makes the app (and all its builds) available to that group (and its testers). The app will then be shown on the **Testers Dashboard** for download. Deselecting a group checkbox removes the app from the **Testers Dashboard** for testers in that group.
 
-:::note Auto-Update in Production
-
-For apps in production, Auto-Update must be disabled.
-
-:::
 
 ## Stopping Distribution
 
