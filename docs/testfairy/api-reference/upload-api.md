@@ -8,9 +8,67 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Streamline your build process and upload APKs or IPAs directly to Sauce Mobile App Distribution.
+Streamline your build process and upload APKs or IPAs directly to Sauce Labs Mobile App Distribution.
 
-### Usage
+## Authentication
+
+The Upload API supports two authentication methods:
+
+| Method | Documentation |
+| :----- | :------------ |
+| **API Key** | [API Keys](/testfairy/security/api-keys) |
+| **OIDC** | [OIDC Authentication](/testfairy/security/oidc-authentication) |
+
+### API Key (Form Parameter)
+
+```bash
+curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@app.apk
+```
+
+### OIDC (Bearer Token)
+
+```bash
+curl -X POST https://mobile.saucelabs.com/api/upload/ \
+  -H "Authorization: Bearer <your-access-token>" \
+  -H "X-OIDC-Config-Key: <your-config-key>" \
+  -F "file=@app.apk"
+```
+
+See [OIDC Authentication: API Usage](/testfairy/security/oidc-authentication#api-usage) for setup and token retrieval.
+
+:::tip
+For CI/CD automation, use [service accounts](/testfairy/security/service-accounts).
+:::
+
+## API Endpoints
+
+The Upload API is available at the following endpoints:
+
+### US-East-1 (Primary)
+
+```bash
+https://mobile.saucelabs.com/api/upload/
+```
+
+### EU-Central-1
+
+```bash
+https://mobile.eu-central-1.saucelabs.com/api/upload/
+```
+
+:::note
+Access keys are different in each Data Center. Ensure you are using the correct API key for the data center you are accessing.
+:::
+
+### Legacy Endpoint (US-East)
+
+The previous TestFairy endpoint remains available:
+
+```bash
+https://app.testfairy.com/api/upload/
+```
+
+## Usage
 
 [Gradle](https://github.com/testfairy/testfairy-gradle-plugin)
 
@@ -29,7 +87,7 @@ Streamline your build process and upload APKs or IPAs directly to Sauce Mobile A
 ### Upload API
 
 <details>
-<summary><span className="api post">POST</span><code>https://app.testfairy.com/api/upload/</code></summary>
+<summary><span className="api post">POST</span><code>/api/upload/</code></summary>
 <p></p>
 
 #### Parameters
@@ -38,7 +96,7 @@ Streamline your build process and upload APKs or IPAs directly to Sauce Mobile A
  <tbody>
  <tr>
  <td><code>api_key</code></td>
- <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://app.testfairy.com/settings for details.</p></td>
+ <td><p><small>| REQUIRED for API Key auth |</small></p><p>Your API application key. Required when using API key authentication; omit when using OIDC. See [API Keys](/testfairy/security/api-keys) for details.</p></td>
  </tr>
  </tbody>
  <tbody>
@@ -158,7 +216,7 @@ curl https://app.testfairy.com/api/upload \
 
 #### Responses
 
-In the case of an error, Sauce Mobile App Distribution returns a JSON with `status` => `fail` and `code` with one of the values listed below. Sauce Mobile App Distribution supplies an additional human-readable error message to detail the cause of the specific error.
+In the case of an error, Sauce Labs Mobile App Distribution returns a JSON with `status` => `fail` and `code` with one of the values listed below. Sauce Labs Mobile App Distribution supplies an additional human-readable error message to detail the cause of the specific error.
 
 <table id="table-api">
  <tbody>
@@ -215,18 +273,6 @@ In the case of an error, Sauce Mobile App Distribution returns a JSON with `stat
 ```
 
 </details>
-
-### Where Can I Find My API Key?
-
-To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **TestFairy Access Key**.
-
-### How Can I Create a New API Key?
-
-To create a new API KEY, click on **Regenerate** on your account preferences page.
-
-### Why Is My API Key Empty?
-
-In cases Sauce Mobile App Distribution identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, Sauce Mobile App Distribution automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
 
 ### Can I Add Custom Metadata?
 

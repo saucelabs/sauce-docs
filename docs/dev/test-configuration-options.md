@@ -727,18 +727,6 @@ Set `noReset` to `true` to keep a device allocated to you during the device clea
 
 This capability will have no effect on Sauce Labs virtual devices, it will only work on local Android Emulators/iOS Simulators. For local executions, you will likely only have one device available, in Sauce Labs you will have a pool of devices available depending on your concurrency. Each session will start a new clean session which will make this capability redundant.
 
-**Specifics for Android Real Devices:**
-
-If `noReset` is set to `true`:
-
-- The app does not stop after a test/session.
-- The app data will not be cleared between tests/sessions.
-- Apk will not be uninstalled after a test/session.
-
-**Specifics for iOS Real Devices:**
-
-On iOS devices, the `noReset` value is permanently set to `true` and cannot be overridden using `noReset:false`. If you check your Appium logs, you'll see that the value is `true`, even though the default setting technically is false. We've done this intentionally to ensure that your post-test iOS device cleaning process is optimal and secure.
-
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:noReset", true);
@@ -2150,7 +2138,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `recordVideo`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | | <span className="sauceGreen">Desktop and Virtual Devices Only</span></small></p>
 
 Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
 

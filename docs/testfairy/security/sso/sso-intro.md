@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Single Sign-on (SSO) enables you to manage users and testers outside of Sauce Mobile App Distribution, providing enhanced security and a streamlined user experience. With Sauce Mobile App Distribution's SAML support (for more information, see [SAML Custom roles](/testfairy/security/sso/saml/)), you can seamlessly integrate with popular SSO providers such as Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS.
+Single Sign-on (SSO) enables you to manage users and testers outside of Sauce Labs Mobile App Distribution, providing enhanced security and a streamlined user experience. With Sauce Labs Mobile App Distribution's SAML support (for more information, see [SAML Custom roles](/testfairy/security/sso/saml/)), you can seamlessly integrate with popular SSO providers such as Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS.
 
-## Integrating Sauce Mobile App Distribution
+## Integrating Sauce Labs Mobile App Distribution
 
-To integrate Sauce Mobile App Distribution with your preferred SAML/SSO provider, refer to our integration guides for each supported provider below. These guides provide detailed instructions on configuring Sauce Mobile App Distribution with Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS, respectively :
+To integrate Sauce Labs Mobile App Distribution with your preferred SAML/SSO provider, refer to our integration guides for each supported provider below. These guides provide detailed instructions on configuring Sauce Labs Mobile App Distribution with Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS, respectively :
 
 |                                                                                                                   |                                                         |
 | :---------------------------------------------------------------------------------------------------------------: |---------------------------------------------------------|
@@ -23,4 +23,4 @@ To integrate Sauce Mobile App Distribution with your preferred SAML/SSO provider
 |  <img src={useBaseUrl('/img/testfairy/acct-mgmt/pingidentity-logo.png')} alt="pingidentity logo" width="100" />   | [Ping Identity](/testfairy/security/sso/ping-id)        |
 
 
-Once SSO is properly configured, the Sauce Mobile App Distribution login page will be replaced with a **Login with SSO** button. This button serves as the entry point to authenticate via your SSO provider and gain access to Sauce Mobile App Distribution.
+Once SSO is properly configured, the Sauce Labs Mobile App Distribution login page will be replaced with a **Login with SSO** button. This button serves as the entry point to authenticate via your SSO provider and gain access to Sauce Labs Mobile App Distribution.

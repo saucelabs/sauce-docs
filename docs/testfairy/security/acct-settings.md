@@ -8,49 +8,45 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To access the Settings page, click **Account** and then click **Sauce Mobile App Distribution Settings**.
+To access the Settings page, click **Account** and then click **Sauce Labs Mobile App Distribution Settings**.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-nav.png')} alt="Accessing Settings page" width="250"/>
 
-## SDK App Token
+## Sauce Labs Mobile App Distribution Access Key
 
-<img src={useBaseUrl('img/testfairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
+<img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="Sauce Labs Mobile App Distribution Access Key page" width="700"/>
 
-Your app token initializes the Sauce Mobile App Distribution SDK. See [Adding the Sauce Mobile App Distribution SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
+Your access key (API key) authenticates API requests. See [API Keys](/testfairy/security/api-keys) for usage details.
 
-## Sauce Mobile App Distribution Access Key
+For automated workflows, use dedicated [service accounts](/testfairy/security/service-accounts).
 
-<img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="Sauce Mobile App Distribution Access Key page" width="700"/>
+## Sauce Labs Mobile App Distribution
 
-You can use the Sauce Mobile App Distribution API to upload builds and invite testers directly. For more information, see [Upload API](/testfairy/api-reference/upload-api).
+On the Sauce Labs Mobile App Distribution page you can access the **Rename version number if file already exists** setting.
 
-## Sauce Mobile App Distribution
-
-On the Sauce Mobile App Distribution page you can access the **Rename version number if file already exists** setting.
-
-<img src={useBaseUrl('img/testfairy/acct-settings-app-distribution.png')} alt="Sauce Mobile App Distribution page" width="450"/>
+<img src={useBaseUrl('img/testfairy/acct-settings-app-distribution.png')} alt="Sauce Labs Mobile App Distribution page" width="450"/>
 
 ## Notifications
 
-On the Notifications page, you can define what types of messages you want to receive about new builds, crashes, and user feedback.
+On the Notifications page, you can define what types of messages you want to receive about new builds.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-notifications.png')} alt="Notifications page" width="700"/>
 
 ## Integrations
 
-You can integrate your Sauce Mobile App Distribution account with different services to customize and streamline your work processes.
+You can integrate your Sauce Labs Mobile App Distribution account with different services to customize and streamline your work processes.
 
 - Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
 
-- Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with Sauce Mobile App Distribution.
+- Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with Sauce Labs Mobile App Distribution.
 
-- Webhooks - You can use Sauce Mobile App Distribution webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
+- Webhooks - You can use Sauce Labs Mobile App Distribution webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
 
 ## Email Templates
 
-Sauce Mobile App Distribution lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for more information.
+Sauce Labs Mobile App Distribution lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for more information.
 
 The email is HTML based and can use custom tags.
 
@@ -72,7 +68,6 @@ On the **Account** page you can access the following settings:
 
 - Change Timezone
 - Data Retention
-- Session Quota
 
 <img src={useBaseUrl('img/testfairy/acct-settings-account.png')} alt="Account page" width="700"/>
 

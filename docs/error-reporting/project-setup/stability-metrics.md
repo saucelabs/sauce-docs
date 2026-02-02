@@ -17,6 +17,28 @@ For more information, see [Importing Metrics and Generating Stability Scores](/e
 
 Now, Backtrace's SDKs have built-in functionality to automatically generate these metrics. This means that you can see session and user stability metrics like "Error-free sessions" in the Backtrace Web Console out of the box. Our APIs also allow you to create your own events so you can track custom metrics and have them sent to your Backtrace instance as well.
 
+### Supported SDKs
+
+As of October 2025, Stability Metrics are available for the following SDKs:
+
+#### Mobile Applications
+
+- [Android](/error-reporting/platform-integrations/android/configuration/#error-free-metrics)
+- [iOS](/error-reporting/platform-integrations/ios/configuration/#error-free-metrics)
+
+#### Language Integrations
+
+- [Electron](/error-reporting/language-integrations/electron/#application-stability-metrics)
+- [Javascript](/error-reporting/language-integrations/javascript/#application-stability-metrics)
+- [NestJS](/error-reporting/language-integrations/nestjs/#application-stability-metrics)
+- [Node.js](/error-reporting/language-integrations/node/#application-stability-metrics)
+- [React](/error-reporting/language-integrations/react/#application-stability-metrics)
+- [React Native](/error-reporting/language-integrations/react-native/#application-stability-metrics)
+
+#### Video Game Consoles
+
+- [Unity](/error-reporting/platform-integrations/unity/metrics/)
+
 ### How Does This Feature Help Me?
 
 Often, assessing an end user's experience by looking at crash/error data alone can be difficult. Stability metrics allow you as a developer, producer, or project manager to more easily monitor your project's health in those terms.
@@ -64,21 +86,4 @@ For example, you can configure metrics to normalize for:
 - How many minutes of app usage were crash/error-free?
 - How many "levels" in your game had a crash/error occur?
 
-The configuration steps for this functionality vary by SDK. For more information about the required configuration steps, see the SDK-specific documentation below.
-
-## Data Resolution
-
-Data retention limitations require us to aggregate session data into time slices and discard the original session-level data. The resolution of stability metrics is dependent on the time slices, which are 30 minutes for recent events, and larger over longer periods of time.
-
-Note also that the following factors influence stability metrics. These factors are unique to each performance and observability tool and, because they are unique, 1:1 comparison will not be possible between tools.
-
-- The precise definitions of user and application sessions
-- The exact moment in the application lifecycle when session reports begin sending (For Sauce Labs Error Reporting, this excludes application startup time before SDK initialization)
-- The time slice selected for view (older periods have less granular calculations)
-- Time span and customer-applied filters
-
-## SDK Support Links
-
-As of August 2021, only our Unity SDK supports this functionality. Support for the Unreal Engine, native Android and iOS SDKs will be introduced in a future release.
-
-[Unity SDK - Stability Metrics Configuration Documentation](/error-reporting/platform-integrations/unity/metrics/)
+The configuration steps for this functionality vary by SDK. Refer to the [Supported SDKs](#supported-sdks) section for SDK-specific documentation.

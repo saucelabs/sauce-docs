@@ -20,9 +20,9 @@ The code of our command line uploader, Jenkins plugin, and Gradle plugin is open
 
 ### Supported Platforms
 
-- **Android**: Sauce Mobile App Distribution supports uploading and distributing Android Applications. Distributing Android apps with Sauce Mobile App Distribution must be packaged as a `.apk` or `.aab` file.
-- **iOS**: Sauce Mobile App Distribution supports uploading and distributing iOS applications. You can sign iOS apps with AdHoc, Development, or Enterprise certificates. Distributing iOS apps with Sauce Mobile App Distribution must be packaged as a `.ipa` file.
-- **MacOS**: MacOS apps are bundled as `.app` files, however, to distribute MacOS apps with Sauce Mobile App Distribution, those `.app` files must be zipped into a `.zip` file.
+- **Android**: Sauce Labs Mobile App Distribution supports uploading and distributing Android Applications. Distributing Android apps with Sauce Labs Mobile App Distribution must be packaged as a `.apk` or `.aab` file.
+- **iOS**: Sauce Labs Mobile App Distribution supports uploading and distributing iOS applications. You can sign iOS apps with AdHoc, Development, or Enterprise certificates. Distributing iOS apps with Sauce Labs Mobile App Distribution must be packaged as a `.ipa` file.
+- **MacOS**: MacOS apps are bundled as `.app` files, however, to distribute MacOS apps with Sauce Labs Mobile App Distribution, those `.app` files must be zipped into a `.zip` file.
 
 ### Expanding iOS Platform Support: Now Including VisionOS (XROS)
 
@@ -64,13 +64,7 @@ Choose the appropriate file type based on your platform to proceed with the uplo
 
 You can define your build settings during the upload process:
 
--- **In-app reporting** - Check this box to enable/disable the "shake to report" feature in your app. When enabled, users can shake their device to send a feedback report, along with a video recording, screenshots, logs, and metrics of their test.
-
--- **Auto-Update** - When auto-update is enabled, users using previous versions of this app will get a notification about the new version the next time they open up the app. The latest version will be downloaded automatically, so the user doesn't have to download it manually. Note that no email notification will be sent to the testers in this case.
-
 -- **Custom Comments** - Use this section to add release notes, describe the updates/changes, and anything else you want your testers to know.
-
-**Note:** These settings are relevant only if you add the SDK to your app.
 
 More build settings are available on the Account Settings page.
 
@@ -80,7 +74,7 @@ To update a build, upload the same file again (that is., the same build with the
 
 ### Uploading a New Version
 
-To upload a new build (a new version of the same app), upload the new version as you uploaded the old version. Sauce Mobile App Distribution identifies that both apps have the same package name (bundle identifier) and group them together in the same project.
+To upload a new build (a new version of the same app), upload the new version as you uploaded the old version. Sauce Labs Mobile App Distribution identifies that both apps have the same package name (bundle identifier) and group them together in the same project.
 
 ### Symbols or Mapping file
 

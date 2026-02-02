@@ -10,6 +10,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 If you're the owner of the overall Sauce Labs account, you can view usage information for all accounts on the **Organization Management** page. If you're an individual user, you can view your usage information on the **My Account** page.
 
+Additional Usage charts and export options are available in [Usage report](/insights/usage-report) under Insights.
+
 ## Usage Data - USERS Tab
 
 The **USERS** tab on the **Organization Management** page provides the following information for each user:
@@ -21,39 +23,21 @@ The **USERS** tab on the **Organization Management** page provides the following
 
 <img src={useBaseUrl('img/team-mgmt/usage-data-users-tab.jpg')} alt="Usage data - USERS tab"/>
 
-Click a user name in the list to view the following information on the **User Details** page:
-
-| Section             | Description                                                                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Peak VM Concurrency | The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days. |
-| VM Tests by Day     | The number of tests run by that user in each of the previous 28 days.                                                                                                   |
-
-<img src={useBaseUrl('img/team-mgmt/usage-data-user-details.jpg')} alt="Usage data - User Details tab"/>
-
 ## Usage Data - TEAMS Tab
 
 The **TEAMS** tab on the **Organization Management** page provides the following information for each team:
 
-| Column                  | Description                                                                                                                                                             |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Last VM Test            | The date and time of the last VM test run by the user.                                                                                                                  |
-| VM Tests (last 30 days) | The total number of tests run by that user in the previous 30 days.                                                                                                     |
-| Team VM Concurrency     | The concurrency set for the team.                                                                                                                                       |
-| Peak VM Concurrency     | The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days. |
-| Tests (Last 28 Days)    | The number of tests run by the team in the last 28 days.                                                                                                                |
+| Column                       | Description                                                                                                                                                             |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Active Members               | Current number of active team members.                                                                                                                                  |
+| Team VM Concurrency          | The concurrency set for the team, covering all virtual platforms, Windows, Android, Linux, and Mac                                                                      |
+| Team Mac VM Concurrency      | The concurrency set for the team, specifically for Mac x86 tests                                                                                                        |
+| Team Real Device Concurrency | The concurrency set for the team, covering Real Device tests                                                                                                            |
+| Peak VM Concurrency          | The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days. |
+| Tests (Last 28 Days)         | The number of tests run by the team in the last 28 days.                                                                                                                |
 
 <img src={useBaseUrl('img/team-mgmt/usage-data-teams-tab.jpg')} alt="Usage data - TEAMS tab"/>
 
-## Usage Data - Team Details
-
-Click a team name in the TEAMS list to view the following information on the **Team Details** page:
-
-| Column              | Description                                                                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Peak VM Concurrency | The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days. |
-| VM Tests by Day     | The number of tests run by the team in each of the previous 28 days.                                                                                                    |
-
-<img src={useBaseUrl('img/team-mgmt/usage-data-team-details.jpg')} alt="Usage data - Team Details"/>
 
 ## USAGE Widget
 
