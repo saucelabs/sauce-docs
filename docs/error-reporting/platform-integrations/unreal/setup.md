@@ -74,7 +74,7 @@ values={[
 
 ##### Sauce Labs Error Reporting Account and DataRouterURL
 
-- Create Sauce Labs Error Reporting account at [backtrace.io](backtrace.io)
+- Create Sauce Labs Error Reporting account at [backtrace.io](https://backtrace.io)
 - In the Error Reporting console, locate DataRouter URL for your project in **Project Settings** → **Integration Guides** → **Unreal**
 
 ##### Development Platform
