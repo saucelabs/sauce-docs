@@ -20,6 +20,10 @@ The Backtrace web console includes 4 key navigational components to help you ana
 
 ### Natural Language Query
 
+:::note Preview Beta
+Natural Language Query is available in a closed beta. Contact Sauce Labs Support for more information.
+:::
+
 The fastest way to get to the right data is to click the Ask button in the filter bar and type in a Natural Language Query - no special syntax, just describe what you want to see. The timeline and filter will be set, and your data will be intelligently grouped on the Explore page which is the best way to slice into your error reports.
 
 <img src={useBaseUrl('img/error-reporting/console-views/filter-nlq.png')} alt="Use &quot;Ask&quot; to enter a Natural Language Query" />
