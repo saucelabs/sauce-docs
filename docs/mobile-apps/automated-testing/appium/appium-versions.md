@@ -161,9 +161,13 @@ Each version will include the latest drivers available at the time of its releas
 We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
 [tables below](#appium-3x) and choose the one that fits your requirements.
 
-:::warning Appium Stable Version is Being Retired
-**Why We Made This Decision:**
-We are retiring the `stable` image to simplify our versioning model and align with the industry standard. We believe that using specific, dated versions (like `appium3-2025-10`) is the best way to have a stable environment. This makes version selection more straightforward and consistent.
+
+:::warning Appium Stable Version Being Retired on February 16th, 2026
+The `stable` Appium version for Real Devices is **deprecated and will be retired on February 16th, 2026**. After this date, tests using `appiumVersion: "stable"` will fail.
+
+**Action required:** Update your capabilities to use a specific, dated version such as `appium2-20250901` or migrate to Appium 3 (e.g., `appium3-2026-01`). See the [stable migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) for details.
+
+**Why we made this decision:** We are retiring the `stable` image to simplify our versioning model and align with industry standards. Using specific, dated versions provides a more predictable and stable testing environment.
 :::
 
 ### Appium 3.x
