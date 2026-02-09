@@ -590,22 +590,3 @@ BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration all
 
 </TabItem>
 </Tabs>
-
-## Feature Comparison: macOS vs iOS vs tvOS
-
-| Feature | macOS | iOS | tvOS |
-| --- | --- | --- | --- |
-| Crash reporting | ✅ | ✅ | ✅ |
-| Error/exception reporting | ✅ | ✅ | ✅ |
-| Custom attributes | ✅ | ✅ | ✅ |
-| File attachments | ✅ | ✅ | ✅ |
-| Database (local storage) | ✅ | ✅ | ✅ |
-| Error-free metrics | ✅ | ✅ | ✅ |
-| Breadcrumbs | ✅ | ✅ | ❌ |
-| OOM detection | ✅ | ✅ | ✅ |
-| Automatic battery breadcrumbs | ✅ (IOKit) | ✅ (UIDevice) | ❌ |
-| Automatic memory pressure breadcrumbs | ✅ | ✅ | ❌ |
-| Automatic orientation breadcrumbs | ❌ | ✅ | ❌ |
-| Automatic app state breadcrumbs | ❌ | ✅ | ❌ |
-| Automatic call state breadcrumbs | ❌ | ✅ | ❌ |
-| `BacktraceCrashExceptionApplication` | ✅ | ❌ | ❌ |
