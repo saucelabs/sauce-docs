@@ -127,31 +127,15 @@ To improve your testing experience, we are ending support for select versions of
 
 You can find which versions are currently supported in the [Real Devices](#real-devices), [Android Emulators](#android-emulators) and [iOS Simulators](#ios-simulators) sections, including their end-of-life dates.
 
-:::info Real Devices Only
-The EOL strategy and dates in this section apply to Real Devices. We will announce Emulator and Simulator EOL support shortly.
+:::info
+The EOL strategy and dates apply to Real Devices. We will announce Emulator and Simulator EOL support shortly.
 :::
-
-### Version Status Overview
-
-| Version | Status | EOL Date | Action Required |
-|---------|--------|----------|-----------------|
-| **Appium 3.x** | <span className="sauceGreen">Active</span> | - | Recommended for new projects |
-| **Appium 2.x** (dated versions) | <span className="sauceGreen">Active</span> | Varies by version | [See EOL dates](#appium-2x) |
-| **Appium 2.x** (`stable`) | <span className="sauceGold">Retiring</span> | February 16, 2026 | [Migrate to dated versions](./migration-guides/appium-stable-migration.md) |
-| **Appium 2.x** (`latest`) | <span className="sauceGreen">Active</span> | - | Updated conservatively |
-| **Appium 1.x** | <span className="sauceRed">End-of-Life</span> | January 1, 2022 | [Migrate to Appium 2](./migration-guides/appium-2-migration.md) |
 
 ### Migration Guides
 
-Choose the guide that matches your current setup:
-
-- **Using Appium 1.x?** The Appium core team no longer maintains Appium 1.x, and it is incompatible with Android 13+ and iOS 16+. See [Migrating to Appium 2](./migration-guides/appium-2-migration.md).
-- **Using `appiumVersion: "stable"`?** This version is deprecated for Real Devices and will stop working on February 16, 2026. See [Migrating from stable](./migration-guides/appium-stable-migration.md).
-- **Using Appium 2.x and want Appium 3?** Newer driver versions now require Appium 3. See the official [Appium 2 to 3 Migration Guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/).
-
-:::tip Recommended Version
-For Real Devices, we recommend using **Appium 3** with dated versions (e.g., `appium3-2026-01`) for the best compatibility with the latest mobile OS versions and access to new driver features.
-:::
+- **Using Appium 1.x?** See [Migrating to Appium 2](./migration-guides/appium-2-migration.md).
+- **Using `appiumVersion: "stable"`?** See [Migrating from stable](./migration-guides/appium-stable-migration.md).
+- **Using Appium 2.x and want Appium 3?** See the official [Appium 2 to 3 Migration Guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/).
 
 ## Real Devices
 
