@@ -9,6 +9,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::warning Appium 1 End-of-life
+The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). This means the following:
+
+- Bug-fixes will not be released for Appium 1.x anymore and require you to [migrate to Appium 2](./migration-guides/appium-2-migration.md)
+- Appium 1 and its packaged drivers are no longer 100% compatible with Android 13/iOS 16 and higher and require Appium 2 to run stably.
+
+Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migrating to Appium 2](./migration-guides/appium-2-migration.md) to keep your tests up-to-date and compatible with the latest platform versions.
+:::
+
 ## Selecting Appium Versions
 
 You can select a specific Appium version by using the `appiumVersion` capability as part of the `"sauce:options"`. The below examples show how to select the Appium version for your test and use Android with Chrome as an example. See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to help you construct your capabilities for the specific platform and Real Device/Android Emulator/iOS Simulator you want to test on.
@@ -128,14 +137,8 @@ To improve your testing experience, we are ending support for select versions of
 You can find which versions are currently supported in the [Real Devices](#real-devices), [Android Emulators](#android-emulators) and [iOS Simulators](#ios-simulators) sections, including their end-of-life dates.
 
 :::info
-The EOL strategy and dates apply to Real Devices. We will announce Emulator and Simulator EOL support shortly.
+The current end-of-life strategy outlined above is specific to Real Devices. We are actively working to extend this to Emulators and Simulators and will announce it shortly.
 :::
-
-### Migration Guides
-
-- **Using Appium 1.x?** See [Migrating to Appium 2](./migration-guides/appium-2-migration.md).
-- **Using `appiumVersion: "stable"`?** See [Migrating from stable](./migration-guides/appium-stable-migration.md).
-- **Using Appium 2.x and want Appium 3?** See the official [Appium 2 to 3 Migration Guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/).
 
 ## Real Devices
 
@@ -162,7 +165,7 @@ We provide several specific, dated Appium versions. Please check the supported v
 :::warning Appium Stable Version Being Retired on February 16th, 2026
 The `stable` Appium version for Real Devices is **deprecated and will be retired on February 16th, 2026**. After this date, tests using `appiumVersion: "stable"` will fail.
 
-**Action required:** Update your capabilities to use a specific, dated version such as `appium2-20250901` or migrate to Appium 3 (e.g., `appium3-2026-01`). See the [stable migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) for details.
+**Action required:** Update your capabilities to use a specific, dated version such as `appium2-20250901` or migrate to Appium 3 (e.g., `appium3-2026-01`). See the [stable migration guide](./migration-guides/appium-stable-migration.md) for details.
 
 **Why we made this decision:** We are retiring the `stable` image to simplify our versioning model and align with industry standards. Using specific, dated versions provides a more predictable and stable testing environment.
 :::
