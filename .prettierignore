@@ -11,4 +11,3 @@ tests
 webdriver
 *.yml
 *.json
-docs/api-testing/on-prem/
