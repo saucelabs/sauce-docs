@@ -118,7 +118,7 @@ curl --request PUT \
   --url 'dom-upload-url-here' \
   --header 'Content-MD5: base64-encoded-md5-hash' \
   --header 'Content-Type: text/html' \
-  --data '@my-dom.html'
+  --data-binary '@my-dom.html'
 ```
 
 - `Content-MD5` header: Base64 encoded MD5 hash of the file (`my-dom.html`).
