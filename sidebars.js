@@ -396,6 +396,15 @@ module.exports = {
                                         'error-reporting/platform-integrations/ios/configuration',
                                     ],
                                 },
+                                {
+                                    type: 'category',
+                                    label: 'macOS',
+                                    collapsed: true,
+                                    items: [
+                                        'error-reporting/platform-integrations/macos/setup',
+                                        'error-reporting/platform-integrations/macos/configuration',
+                                    ],
+                                },
                                 'error-reporting/platform-integrations/plcrash-reporter',
                             ],
                         },
