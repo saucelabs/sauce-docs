@@ -3,7 +3,6 @@ id: real-device-access-api-introduction
 title: Real Device Access API
 sidebar_label: Introduction
 ---
-<p><span className="sauceGreen">Open Beta</span></p>
 
 :::info
 **This API is in Open Beta.**
