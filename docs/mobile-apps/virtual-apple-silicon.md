@@ -71,14 +71,13 @@ To test your app on Apple Silicon Simulators, use the following capabilities:
 
 ### Required Capabilities
 
-For full sample configurations and lists of available devices per version, use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).
-
-| OS Version | Appium Version | Device Name (for example)         | `armRequired` |
+For full sample configurations and lists of available devices per version, use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).| OS Version | Appium Version | Device Name (for example)         | `armRequired` |
 |------------|----------------|-----------------------|---------------|
-| iOS 17.5   | 2.1.3          | iPhone 15 Simulator    | true          |
-| iOS 18.0   | 2.11.3         | iPhone 16 Simulator | true          |
-| iOS 26.1   | 2.19.0         | iPhone 17 Simulator | true          |
+| iOS 17.0*<br/>iOS 17.5 | 2.1.3 | iPhone 15 Simulator | true |
+| iOS 16.4<br/>iOS 18.0<br/>iOS 18.6 | 2.11.3 | iPhone 16 Simulator | true |
+| iOS 26.1 | 2.19.0 | iPhone 17 Simulator | true |
 
+*iOS 17.0 with ARM is only available for automated tests.
 ```json
 {
   "platformName": "iOS",
@@ -202,7 +201,7 @@ You may encounter failures when using the visibility_of_element_located Expected
 
 ✅ Works: `EC.presence_of_element_located((AppiumBy.NAME, 'Element_Name'))`
 
-**Recommended Solution**: Update your `WebDriverWait` calls to use `presence_of_element_located`. Since the XCUITest driver often handles visibility checks internally during interaction, verifying presence is sufficient for element discovery and significantly more stable in this release. 
+**Recommended Solution**: Update your `WebDriverWait` calls to use `presence_of_element_located`. Since the XCUITest driver often handles visibility checks internally during interaction, verifying presence is sufficient for element discovery and significantly more stable in this release.
 
 ---
 
