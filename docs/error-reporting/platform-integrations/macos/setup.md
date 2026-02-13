@@ -254,9 +254,9 @@ The following table summarizes the key differences between the macOS and iOS set
 
 | Feature | macOS | iOS |
 | --- | --- | --- |
-| **Minimum OS version** | macOS 12+ | iOS 12+ |
+| **Minimum OS version** | macOS 12+ | iOS 13+ |
 | **App delegate method** | `applicationDidFinishLaunching(_:)` | `application(_:didFinishLaunchingWithOptions:)` |
 | **App delegate protocol** | `NSApplicationDelegate` | `UIApplicationDelegate` |
 | **Uncaught exception handling** | `BacktraceCrashExceptionApplication` via `NSPrincipalClass` | Not needed (UIKit forwards exceptions) |
-| **CocoaPods platform** | `platform :osx, '12.0'` | `platform :ios, '12.0'` |
+| **CocoaPods platform** | `platform :osx, '12.0'` | `platform :ios, '13.0'` |
 | **Framework import** | `Cocoa` / `AppKit` | `UIKit` |
