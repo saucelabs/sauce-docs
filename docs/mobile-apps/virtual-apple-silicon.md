@@ -71,7 +71,9 @@ To test your app on Apple Silicon Simulators, use the following capabilities:
 
 ### Required Capabilities
 
-For full sample configurations and lists of available devices per version, use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).| OS Version | Appium Version | Device Name (for example)         | `armRequired` |
+For full sample configurations and lists of available devices per version, use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).
+
+| OS Version | Appium Version | Device Name (for example)         | `armRequired` |
 |------------|----------------|-----------------------|---------------|
 | iOS 17.0*<br/>iOS 17.5 | 2.1.3 | iPhone 15 Simulator | true |
 | iOS 16.4<br/>iOS 18.0<br/>iOS 18.6 | 2.11.3 | iPhone 16 Simulator | true |
