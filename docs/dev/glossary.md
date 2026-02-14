@@ -27,6 +27,11 @@ See: _[Playtest](#playtest)_.
 
 See: _[Insights](#insights)_.
 
+### API Contract Testing
+
+A lightweight form of API testing that checks each endpoint's contract -- that is, the content and format of static API requests and responses. It ensures that spec files (e.g., Swagger, OpenAPI, and RAML) fulfill the contract between API consumers and producers.
+
+More information: [Accelerating Releases with Quality: Contract Testing vs. E2E Functional Testing](https://saucelabs.com/blog/accelerating-releases-with-quality-contract-testing-vs-e2e-functional-testing).
 
 ### Appium
 
