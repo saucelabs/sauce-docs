@@ -1,9 +1,9 @@
 openapi: "3.0.0"
 info:
   version: "2.0.0"
-  title: "Real Device Access API - (Open Beta)"
+  title: "Real Device Access API"
   x-last-modified: "2025-11-19"
-  x-beta: true
+  x-beta: false
   description: |
     Access Sauce Labs' specialized real device farm to automate, test, and develop on real iOS and Android devices in the cloud. This API opens up our device infrastructure, enabling you to go beyond traditional testing workflows. Reserve a device once, then run multiple operations back-to-back on the same session—whether you're running automated tests, developing new features, or building custom automation workflows.
     
