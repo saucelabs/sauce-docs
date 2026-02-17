@@ -78,7 +78,7 @@ BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configu
 | `dbSettings`                                                      | The [`BacktraceDatabaseSettings`](#database-settings) used to initialize the `BacktraceDatabase`.                                                                                                                                                                                                                                                                                                      | Parameter |
 | `reportsPerMin`                                                   | The maximum number of reports per minute that `BacktraceClient` will send.                                                                                                                                                                                                                                                                                                                             | Integer   | 30            |
 | `allowsAttachingDebugger`                                         | Specifies whether to send reports when the debugger is connected. <br /><br /> The options are: <br /><ul><li>**false** (Swift) / **NO** (Objective-C): `BacktraceClient` will send reports when the debugger is connected.</li><li> **true** (Swift) / **YES** (Objective-C): `BacktraceClient` won't send reports when the debugger is connected.</li></ul>                                          | Boolean   | false / NO    |
-| `oomMode`                                                         | Specifies how the SDK should handle OOM (Out-Of-Memory) detection. See [OOM Detection Modes](#oom-detection-modes) for details. <br /><br /> The options are: <br /><ul><li>**`.none`** (Swift) / **`BacktraceOomModeNone`** (Objective-C): Disables OOM detection.</li><li>**`.light`** (Swift) / **`BacktraceOomModeLight`** (Objective-C): Lightweight OOM report — current thread only, no symbolication.</li><li>**`.full`** (Swift) / **`BacktraceOomModeFull`** (Objective-C): Full OOM report — all threads, symbolicated.</li></ul> | `BacktraceOomMode` | `.none` |
+| `oomMode`                                                         | Specifies how the SDK should handle OOM (Out-Of-Memory) detection. See [OOM Detection Modes](#oom-detection-modes) for details. <br /><br /> The options are: <br /><ul><li>**`.none`** (Swift) / **`BacktraceOomModeNone`** (Objective-C): Disables OOM detection.</li><li>**`.light`** (Swift) / **`BacktraceOomModeLight`** (Objective-C): Lightweight OOM report — current thread only, no symbolication.</li><li>**`.full`** (Swift) / **`BacktraceOomModeFull`** (Objective-C): Full OOM report — all threads, symbolicated.</li></ul> | `BacktraceOomMode` | `.none` / `BacktraceOomModeNone` |
 
 ## Database Settings
 
@@ -225,6 +225,15 @@ BacktraceClient.shared = try? BacktraceClient(
     crashReporter: reporter)
 ```
 
+#### Swift `FileProtectionType` Options
+
+| Protection Level | Description |
+| --- | --- |
+| `.none` | No file protection. Files are accessible at all times, including before the first device unlock. **Use this for crash directories if your app launches before unlock.** |
+| `.complete` | Files are inaccessible whenever the device is locked. |
+| `.completeUnlessOpen` | Files can be created while locked but become protected once closed. |
+| `.completeUntilFirstUserAuthentication` | Files are accessible after the user unlocks the device for the first time after boot. This is the default for most app directories. |
+
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
@@ -255,17 +264,18 @@ BacktraceClient.shared = [[BacktraceClient alloc]
                             error: nil];
 ```
 
-</TabItem>
-</Tabs>
-
-#### `FileProtectionType` Options
+#### Objective-C `FileProtectionType` Options
 
 | Protection Level | Description |
 | --- | --- |
-| `.none` | No file protection. Files are accessible at all times, including before the first device unlock. **Use this for crash directories if your app launches before unlock.** |
-| `.complete` | Files are inaccessible whenever the device is locked. |
-| `.completeUnlessOpen` | Files can be created while locked but become protected once closed. |
-| `.completeUntilFirstUserAuthentication` | Files are accessible after the user unlocks the device for the first time after boot. This is the default for most app directories. |
+| `NSFileProtectionNone` | No file protection. Files are accessible at all times, including before the first device unlock. **Use this for crash directories if your app launches before unlock.** |
+| `NSFileProtectionComplete` | Files are inaccessible whenever the device is locked. |
+| `NSFileProtectionCompleteUnlessOpen` | Files can be created while locked but become protected once closed. |
+| `NSFileProtectionCompleteUntilFirstUserAuthentication` | Files are accessible after the user unlocks the device for the first time after boot. This is the default for most app directories. |
+| `NSFileProtectionCompleteWhenUserInactive` | (iOS 17+) Files are accessible after the user unlocks the device for the first time after boot. This is the default for most app directories. |
+
+</TabItem>
+</Tabs>
 
 :::note
 File protection level tests only work on physical devices — simulators do not enforce file protection.
