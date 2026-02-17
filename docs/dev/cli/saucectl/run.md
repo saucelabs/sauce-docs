@@ -378,11 +378,6 @@ saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
       <td>✅</td>
       <td><span className="sauceGreen">Virtual Devices Only</span></td>
     </tr>
-    <tr>
-      <td>API Testing</td>
-      <td>✅</td>
-      <td></td>
-    </tr>
   </tbody>
 </table>
 
