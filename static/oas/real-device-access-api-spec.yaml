@@ -1513,7 +1513,7 @@ components:
         isPrivateDevice:
           type: boolean
           example: true
-        status:
+        state:
           $ref: "#/components/schemas/DeviceStatus"
         inUseBy:
           type: array
