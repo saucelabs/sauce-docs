@@ -17,4 +17,4 @@ Authorized PlayStation developers can access details in our PS4 Detailed Integra
 
 ## Publication Date
 
-The latest publication date of our PS4 Detailed Integration Guide is 2025-02-06.
+The latest publication date of our PS4 Detailed Integration Guide is 2025-04-16.
