@@ -17,4 +17,4 @@ Authorized Xbox developers can access details in our Xbox Detailed Integration G
 
 ## Publication Date
 
-The latest publication date of our Xbox Detailed Integration Guide is 2025-02-06.
+The latest publication date of our Xbox Detailed Integration Guide is 2025-09-12.
