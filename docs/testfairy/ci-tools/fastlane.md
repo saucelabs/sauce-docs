@@ -80,13 +80,30 @@ If your server's security settings require users to login before downloading, yo
 
 ### Lane Variables
 
-Actions can communicate with each other using a shared hash `lane_context`, that can be accessed in other actions, plugins or your lanes: `lane_context[SharedValues:XYZ]`. The `mad` action generates the following Lane Variables:
+The `mad` action stores the full API response in `lane_context`, which can be accessed in subsequent actions or lanes:
 
-| SharedValue                    | Description                                      |
-|--------------------------------|--------------------------------------------------|
-| `SharedValues::MAD_BUILD_URL`    | URL for the sessions of the newly uploaded build |
-| `SharedValues::MAD_DOWNLOAD_URL` | URL directly to the newly uploaded build         |
-| `SharedValues::MAD_LANDING_PAGE` | URL of the build's landing page                  |
+```ruby
+lane_context[SharedValues::MAD_UPLOAD_RESPONSE]
+```
+
+The response is a hash containing all fields from the upload API, including:
+
+| Key                    | Description                                      |
+|------------------------|--------------------------------------------------|
+| `build_url`            | URL for the sessions of the newly uploaded build |
+| `app_url`              | Direct download URL for the build                |
+| `landing_page_url`     | URL of the build's landing page                  |
+| `build_id`             | ID of the uploaded build                         |
+| `app_name`             | Name of the uploaded app                         |
+| `platform`             | Platform (iOS/Android)                           |
+
+Example:
+
+```ruby
+response = lane_context[SharedValues::MAD_UPLOAD_RESPONSE]
+puts response['build_url']
+puts response['app_url']
+```
 
 ### Documentation
 
