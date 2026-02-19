@@ -8,18 +8,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Upload a new build to Sauce Labs Mobile App Distribution using Fastlane and the `fastlane-plugin-mad` plugin. You can find your API Key in the [Sauce Labs Mobile App Distribution Settings](https://app.testfairy.com/settings/) page.
+Upload a new build to Sauce Labs Mobile App Distribution using Fastlane and the `fastlane-plugin-saucelabs_appdist` plugin. You can find your API Key in the [Sauce Labs Mobile App Distribution Settings](https://app.testfairy.com/settings/) page.
 
 ## Installation
 
 ```bash
-fastlane add_plugin mad
+fastlane add_plugin saucelabs_appdist
 ```
 
 Or add the plugin manually to your project's `fastlane/Pluginfile`:
 
 ```ruby
-gem 'fastlane-plugin-mad'
+gem 'fastlane-plugin-saucelabs_appdist'
 ```
 
 Then run `bundle install` to fetch it.
@@ -30,7 +30,7 @@ Then run `bundle install` to fetch it.
 <TabItem value="ios" label="iOS" default>
 
 ```ruby
-mad(
+saucelabs_appdist(
     api_key: "your_api_key",
     ipa: "./path/to/app.ipa",
     comment: "Build #{lane_context[SharedValues::BUILD_NUMBER]}",
@@ -41,7 +41,7 @@ mad(
 <TabItem value="android" label="Android">
 
 ```ruby
-mad(
+saucelabs_appdist(
     api_key: "your_api_key",
     apk: "../build/app/outputs/apk/qa/release/app-qa-release.apk",
     comment: "Build #{lane_context[SharedValues::BUILD_NUMBER]}",
@@ -80,10 +80,10 @@ If your server's security settings require users to login before downloading, yo
 
 ### Lane Variables
 
-The `mad` action stores the full API response in `lane_context`, which can be accessed in subsequent actions or lanes:
+The `saucelabs_appdist` action stores the full API response in `lane_context`, which can be accessed in subsequent actions or lanes:
 
 ```ruby
-lane_context[SharedValues::MAD_UPLOAD_RESPONSE]
+lane_context[SharedValues::SAUCELABS_APPDIST_UPLOAD_RESPONSE]
 ```
 
 The response is a hash containing all fields from the upload API, including:
@@ -100,7 +100,7 @@ The response is a hash containing all fields from the upload API, including:
 Example:
 
 ```ruby
-response = lane_context[SharedValues::MAD_UPLOAD_RESPONSE]
+response = lane_context[SharedValues::SAUCELABS_APPDIST_UPLOAD_RESPONSE]
 puts response['build_url']
 puts response['app_url']
 ```
@@ -110,7 +110,7 @@ puts response['app_url']
 To show the documentation in your terminal, run
 
 ```bash
-fastlane action mad
+fastlane action saucelabs_appdist
 ```
 
 ### CLI
@@ -118,17 +118,17 @@ fastlane action mad
 It is recommended to add the above action into your Fastfile, however sometimes you might want to run one-offs. To do so, you can run the following command from your terminal
 
 ```bash
-fastlane run mad
+fastlane run saucelabs_appdist
 ```
 
 To pass parameters, make use of the `:` symbol, for example
 
 ```bash
-fastlane run mad api_key:"your_key" ipa:"./app.ipa"
+fastlane run saucelabs_appdist api_key:"your_key" ipa:"./app.ipa"
 ```
 
 It's important to note that the CLI supports primitive types like integers, floats, booleans, and strings. Arrays can be passed as a comma delimited string (e.g. `param:"1,2,3"`). Hashes are not currently supported.
 
 It is recommended to add all fastlane actions you use to your Fastfile.
 
-You can find the plugin on [RubyGems](https://rubygems.org/gems/fastlane-plugin-mad).
+You can find the plugin on [RubyGems](https://rubygems.org/gems/fastlane-plugin-saucelabs_appdist).
