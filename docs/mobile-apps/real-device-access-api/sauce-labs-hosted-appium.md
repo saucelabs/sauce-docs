@@ -1,15 +1,15 @@
 ---
 id: real-device-access-api-sauce-hosted-appium
-title: Appium Over RDC Access API
+title: Appium Over Real Device Access API
 sidebar_label: Sauce Labs Hosted Appium
 ---
 
-# Faster, Smarter Appium Testing with RDC Access API Sessions
+# Faster, Smarter Appium Testing with Real Device Access API Sessions
 
 For testers, time is a critical resource. This guide shows how to pair the Sauce Labs Access API with Sauce-hosted Appium so you can reserve a device once, reuse the Appium server, and finish your suites faster while keeping full control over the device lifecycle.
 
 ### Quick Start Overview
-1. Create an RDC Access API session (`POST /sessions`) and wait until it becomes `ACTIVE`.
+1. Create an Real Device Access API session (`POST /sessions`) and wait until it becomes `ACTIVE`.
 2. Start the Sauce Labs hosted Appium server for that session (`POST /sessions/{id}/appiumserver`).
 3. Reuse the returned Appium URL across every test in your suite.
 4. Run tests back-to-back, performing any device prep you need between them.
