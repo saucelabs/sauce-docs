@@ -1528,7 +1528,7 @@ components:
       required:
         - descriptor
         - isPrivateDevice
-        - status
+        - state
     SessionId:
       type: string
       description: Unique id of device session
