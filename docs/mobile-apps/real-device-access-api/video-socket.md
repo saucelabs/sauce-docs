@@ -4,6 +4,9 @@ title: Streaming and Controlling Devices with the Video Socket
 sidebar_label: Video Socket
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Connect to the Video Socket to receive a real-time stream of the device screen and send touch, keyboard, and navigation commands back to the device.
 
 ## Prerequisites
@@ -66,7 +69,20 @@ websocat -b -H="Authorization: Basic $AUTH_TOKEN" "$IO_URL" > frame.jpg
 `websocat` in binary mode (`-b`) writes raw binary data to stdout. For a richer experience, use a programmatic WebSocket client that can decode frames and render them.
 :::
 
-### Using a WebSocket Library (Java Example)
+### Using a WebSocket Library
+
+<Tabs
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'node.js', value: 'node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
+
+<TabItem value="Java">
 
 ```java
 String wsUrl = session.getLinks().getIoWebsocketUrl();
@@ -97,14 +113,41 @@ client.newWebSocket(request, new WebSocketListener() {
 });
 ```
 
-### Using JavaScript (Node.js Example)
+</TabItem>
+<TabItem value="Python">
+
+```python
+import websocket
+import base64
+
+io_url = session["links"]["ioWebsocketUrl"]
+auth_token = base64.b64encode(f"{username}:{access_key}".encode()).decode()
+
+def on_message(ws, message):
+    if isinstance(message, bytes):
+        # Each binary message is a complete JPEG frame
+        with open("latest_frame.jpg", "wb") as f:
+            f.write(message)
+
+        # Acknowledge to receive the next frame
+        ws.send("n/")
+
+ws = websocket.WebSocketApp(
+    io_url,
+    header=["Authorization: Basic " + auth_token],
+    on_message=on_message,
+)
+ws.run_forever()
+```
+
+</TabItem>
+<TabItem value="node.js">
 
 ```javascript
 const WebSocket = require("ws");
 
-const ioUrl =
-  "wss://api.us-west-1.saucelabs.com/rdc/v2/socket/alternativeIo/YOUR_SESSION_ID";
-const authToken = Buffer.from("username:access_key").toString("base64");
+const ioUrl = session.links.ioWebsocketUrl;
+const authToken = Buffer.from(`${username}:${accessKey}`).toString("base64");
 
 const ws = new WebSocket(ioUrl, {
   headers: { Authorization: `Basic ${authToken}` },
@@ -112,7 +155,7 @@ const ws = new WebSocket(ioUrl, {
 
 ws.on("message", (data, isBinary) => {
   if (isBinary) {
-    // data is a Buffer containing a JPEG image
+    // Each binary message is a complete JPEG image
     fs.writeFileSync("latest_frame.jpg", data);
 
     // Acknowledge to receive the next frame
@@ -120,6 +163,70 @@ ws.on("message", (data, isBinary) => {
   }
 });
 ```
+
+</TabItem>
+<TabItem value="Ruby">
+
+```ruby
+require 'faye/websocket'
+require 'eventmachine'
+require 'base64'
+
+io_url = session["links"]["ioWebsocketUrl"]
+auth_token = Base64.strict_encode64("#{username}:#{access_key}")
+
+EM.run do
+  ws = Faye::WebSocket::Client.new(io_url, nil, {
+    headers: { "Authorization" => "Basic #{auth_token}" }
+  })
+
+  ws.on :message do |event|
+    if event.data.is_a?(Array)
+      # Binary message — each is a complete JPEG frame
+      File.binwrite("latest_frame.jpg", event.data.pack("C*"))
+
+      # Acknowledge to receive the next frame
+      ws.send("n/")
+    end
+  end
+end
+```
+
+</TabItem>
+<TabItem value="C#">
+
+```csharp
+using System.Net.WebSockets;
+using System.Text;
+
+var ioUrl = session.Links.IoWebsocketUrl;
+var authToken = Convert.ToBase64String(
+    Encoding.UTF8.GetBytes($"{username}:{accessKey}"));
+
+var ws = new ClientWebSocket();
+ws.Options.SetRequestHeader("Authorization", $"Basic {authToken}");
+await ws.ConnectAsync(new Uri(ioUrl), CancellationToken.None);
+
+var buffer = new byte[1024 * 1024];
+while (ws.State == WebSocketState.Open)
+{
+    var result = await ws.ReceiveAsync(buffer, CancellationToken.None);
+    if (result.MessageType == WebSocketMessageType.Binary)
+    {
+        // Each binary message is a complete JPEG frame
+        await File.WriteAllBytesAsync("latest_frame.jpg",
+            buffer.AsMemory(0, result.Count).ToArray());
+
+        // Acknowledge to receive the next frame
+        var ack = Encoding.UTF8.GetBytes("n/");
+        await ws.SendAsync(ack, WebSocketMessageType.Text, true,
+            CancellationToken.None);
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## 3. Frame Acknowledgment
 
@@ -238,7 +345,20 @@ tt/i
 
 ## 7. Putting It All Together
 
-Here is a complete Java example that connects to the video socket, renders frames, and sends a tap:
+Here is a complete example that connects to the video socket, renders frames, and sends a tap:
+
+<Tabs
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'node.js', value: 'node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
+
+<TabItem value="Java">
 
 ```java
 // 1. Connect
@@ -273,6 +393,159 @@ ws.send("mt/u 1080 1920 0 1 0 540 960");
 // 5. Press Home
 ws.send("tt/Sauce_Home_Key");
 ```
+
+</TabItem>
+<TabItem value="Python">
+
+```python
+import websocket
+import base64
+
+# 1. Connect
+io_url = session["links"]["ioWebsocketUrl"]
+auth_token = base64.b64encode(f"{username}:{access_key}".encode()).decode()
+
+def on_open(ws):
+    # 4. Tap the center of a 1080x1920 canvas (portrait)
+    ws.send("mt/d 1080 1920 0 1 0 540 960")
+    ws.send("mt/u 1080 1920 0 1 0 540 960")
+
+    # 5. Press Home
+    ws.send("tt/Sauce_Home_Key")
+
+def on_message(ws, message):
+    if isinstance(message, bytes):
+        # 2. Decode and display the frame
+        display(message)
+
+        # 3. Acknowledge
+        ws.send("n/")
+
+ws = websocket.WebSocketApp(
+    io_url,
+    header=["Authorization: Basic " + auth_token],
+    on_open=on_open,
+    on_message=on_message,
+)
+ws.run_forever()
+```
+
+</TabItem>
+<TabItem value="node.js">
+
+```javascript
+const WebSocket = require("ws");
+
+// 1. Connect
+const ioUrl = session.links.ioWebsocketUrl;
+const authToken = Buffer.from(`${username}:${accessKey}`).toString("base64");
+
+const ws = new WebSocket(ioUrl, {
+  headers: { Authorization: `Basic ${authToken}` },
+});
+
+ws.on("open", () => {
+  // 4. Tap the center of a 1080x1920 canvas (portrait)
+  ws.send("mt/d 1080 1920 0 1 0 540 960");
+  ws.send("mt/u 1080 1920 0 1 0 540 960");
+
+  // 5. Press Home
+  ws.send("tt/Sauce_Home_Key");
+});
+
+ws.on("message", (data, isBinary) => {
+  if (isBinary) {
+    // 2. Decode and display the frame
+    display(data);
+
+    // 3. Acknowledge
+    ws.send("n/");
+  }
+});
+```
+
+</TabItem>
+<TabItem value="Ruby">
+
+```ruby
+require 'faye/websocket'
+require 'eventmachine'
+require 'base64'
+
+# 1. Connect
+io_url = session["links"]["ioWebsocketUrl"]
+auth_token = Base64.strict_encode64("#{username}:#{access_key}")
+
+EM.run do
+  ws = Faye::WebSocket::Client.new(io_url, nil, {
+    headers: { "Authorization" => "Basic #{auth_token}" }
+  })
+
+  ws.on :open do
+    # 4. Tap the center of a 1080x1920 canvas (portrait)
+    ws.send("mt/d 1080 1920 0 1 0 540 960")
+    ws.send("mt/u 1080 1920 0 1 0 540 960")
+
+    # 5. Press Home
+    ws.send("tt/Sauce_Home_Key")
+  end
+
+  ws.on :message do |event|
+    if event.data.is_a?(Array)
+      # 2. Decode and display the frame
+      display(event.data.pack("C*"))
+
+      # 3. Acknowledge
+      ws.send("n/")
+    end
+  end
+end
+```
+
+</TabItem>
+<TabItem value="C#">
+
+```csharp
+using System.Net.WebSockets;
+using System.Text;
+
+// 1. Connect
+var ioUrl = session.Links.IoWebsocketUrl;
+var authToken = Convert.ToBase64String(
+    Encoding.UTF8.GetBytes($"{username}:{accessKey}"));
+
+var ws = new ClientWebSocket();
+ws.Options.SetRequestHeader("Authorization", $"Basic {authToken}");
+await ws.ConnectAsync(new Uri(ioUrl), CancellationToken.None);
+
+// 4. Tap the center of a 1080x1920 canvas (portrait)
+await ws.SendAsync(Encoding.UTF8.GetBytes("mt/d 1080 1920 0 1 0 540 960"),
+    WebSocketMessageType.Text, true, CancellationToken.None);
+await ws.SendAsync(Encoding.UTF8.GetBytes("mt/u 1080 1920 0 1 0 540 960"),
+    WebSocketMessageType.Text, true, CancellationToken.None);
+
+// 5. Press Home
+await ws.SendAsync(Encoding.UTF8.GetBytes("tt/Sauce_Home_Key"),
+    WebSocketMessageType.Text, true, CancellationToken.None);
+
+var buffer = new byte[1024 * 1024];
+while (ws.State == WebSocketState.Open)
+{
+    var result = await ws.ReceiveAsync(buffer, CancellationToken.None);
+    if (result.MessageType == WebSocketMessageType.Binary)
+    {
+        // 2. Decode and display the frame
+        Display(buffer.AsSpan(0, result.Count));
+
+        // 3. Acknowledge
+        await ws.SendAsync(Encoding.UTF8.GetBytes("n/"),
+            WebSocketMessageType.Text, true, CancellationToken.None);
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## 8. Reconnection
 
