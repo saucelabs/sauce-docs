@@ -170,6 +170,20 @@ The `stable` Appium version for Real Devices is **deprecated and will be retired
 **Why we made this decision:** We are retiring the `stable` image to simplify our versioning model and align with industry standards. Using specific, dated versions provides a more predictable and stable testing environment.
 :::
 
+:::warning iOS WebDriverAgent Change on Real Devices
+Starting with `appium2-20250901` and all Appium 3 versions, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) instead of the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
+
+**What this means:** Some iOS tests may experience behavioral differences. For example, certain WebDriver endpoints such as `/window/rect` (used by `getWindowRect`) may behave differently under the official WDA.
+
+**If your iOS tests are affected:** You can temporarily opt out by setting `useOfficialWDA` to `false` in your `sauce:options` capabilities to revert to SauceWebDriverAgent. See [WebDriverAgent for iOS Real Devices](./real-devices.md#webdriveragent-for-ios-real-devices) for configuration details.
+
+| Appium Version | iOS WebDriverAgent |
+|---|---|
+| `appium2-20250501` and earlier, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| `appium2-20250901` | Official Appium WebDriverAgent |
+| All `appium3-*` versions | Official Appium WebDriverAgent |
+:::
+
 ### Appium 3.x
 <table>
   <thead>
@@ -189,6 +203,7 @@ The `stable` Appium version for Real Devices is **deprecated and will be retired
       </td>
       <td>
         This is a collection of drivers and plugins that were released in October 28th 2025 <br />
+        <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. To opt out, set <code>useOfficialWDA: false</code> in <code>sauce:options</code>. See <a href="./real-devices#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
@@ -269,6 +284,7 @@ The `stable` Appium version for Real Devices is **deprecated and will be retired
       </td>
       <td>
         This is a collection of drivers and plugins that were released in January 6th 2026 <br />
+        <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. To opt out, set <code>useOfficialWDA: false</code> in <code>sauce:options</code>. See <a href="./real-devices#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
@@ -331,7 +347,8 @@ The `stable` Appium version for Real Devices is **deprecated and will be retired
       </td>
       <td>
         This is the final Appium 2 release provided by Sauce Labs. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
-        <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/3.1/guides/migrating-2-to-3/" target="_blank">migrate to Appium 3</a>.
+        <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/3.1/guides/migrating-2-to-3/" target="_blank">migrate to Appium 3</a>.<br /><br />
+        <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. To opt out, set <code>useOfficialWDA: false</code> in <code>sauce:options</code>. See <a href="./real-devices#webdriveragent-for-ios-real-devices">details</a>.
         <br />
         <ul>
           <li>

@@ -297,6 +297,154 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `autoGrantPermissions`
 - `appiumVersion`
 
+### WebDriverAgent for iOS Real Devices
+
+Starting with `appium2-20250901` and all Appium 3 versions, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) by default. Earlier Appium versions (`appium2-20250501` and below, `latest`, `stable`) continue to use the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
+
+#### What Changed
+
+The [WebDriverAgent](https://github.com/appium/WebDriverAgent) is the component that drives iOS test automation under the XCUITest driver. Previously, Sauce Labs maintained a custom fork (SauceWebDriverAgent) for use on its Real Device Cloud. Starting with the `appium2-20250901` image and all Appium 3 images, Sauce Labs now uses the official Appium WebDriverAgent maintained by the Appium project.
+
+This change ensures that iOS test behavior on Sauce Labs Real Devices is consistent with the open-source Appium ecosystem and receives upstream fixes and improvements directly.
+
+#### Which Versions Are Affected
+
+| Appium Version | iOS WebDriverAgent |
+|---|---|
+| `appium2-20250501` and earlier, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| `appium2-20250901` | Official Appium WebDriverAgent |
+| All `appium3-*` versions | Official Appium WebDriverAgent |
+
+#### Potential Impact
+
+The official WebDriverAgent may handle certain WebDriver endpoints differently than SauceWebDriverAgent. If your iOS tests rely on behavior specific to SauceWebDriverAgent, you may observe failures after upgrading. Known examples include:
+
+- **`getWindowRect`**: The `/window/rect` endpoint may return a `404` error under the official WDA if you are using an older XCUITest driver version that does not support it. This is resolved in newer XCUITest driver versions included in the Appium 3 images.
+
+#### Opting Out of the Official WebDriverAgent
+
+If your iOS tests are affected, you can temporarily revert to SauceWebDriverAgent by setting `useOfficialWDA` to `false` in your `sauce:options` capabilities.
+
+:::caution Temporary Opt-Out
+The `useOfficialWDA: false` option is provided as a temporary measure to give you time to adapt your tests. SauceWebDriverAgent will be deprecated in a future release. We recommend updating your tests to work with the official WebDriverAgent as soon as possible.
+:::
+
+<Tabs
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'node.js', value: 'node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
+
+<TabItem value="Java">
+
+<!-- prettier-ignore -->
+```java
+MutableCapabilities caps = new MutableCapabilities();
+caps.setCapability("platformName", "iOS");
+caps.setCapability("appium:platformVersion", "17");
+caps.setCapability("appium:deviceName", "iPhone .*");
+caps.setCapability("appium:automationName", "xcuitest");
+caps.setCapability("appium:app", "storage:filename=<file-name>");
+
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("username", "SAUCE_USERNAME");
+sauceOptions.setCapability("accessKey", "SAUCE_ACCESS_KEY");
+sauceOptions.setCapability("appiumVersion", "appium2-20250901");
+// Set to false to revert to SauceWebDriverAgent
+sauceOptions.setCapability("useOfficialWDA", false);
+caps.setCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+<TabItem value="Python">
+
+<!-- prettier-ignore -->
+```py
+caps = {
+    "platformName": "iOS",
+    "appium:platformVersion": "17",
+    "appium:deviceName": "iPhone .*",
+    "appium:automationName": "xcuitest",
+    "appium:app": "storage:filename=<file-name>",
+    "sauce:options": {
+        "username": "SAUCE_USERNAME",
+        "accessKey": "SAUCE_ACCESS_KEY",
+        "appiumVersion": "appium2-20250901",
+        # Set to false to revert to SauceWebDriverAgent
+        "useOfficialWDA": False
+    }
+}
+```
+
+</TabItem>
+<TabItem value="node.js">
+
+<!-- prettier-ignore -->
+```js
+const caps = {
+    platformName: 'iOS',
+    'appium:platformVersion': '17',
+    'appium:deviceName': 'iPhone .*',
+    'appium:automationName': 'xcuitest',
+    'appium:app': 'storage:filename=<file-name>',
+    'sauce:options': {
+        username: 'SAUCE_USERNAME',
+        accessKey: 'SAUCE_ACCESS_KEY',
+        appiumVersion: 'appium2-20250901',
+        // Set to false to revert to SauceWebDriverAgent
+        useOfficialWDA: false
+    }
+}
+```
+
+</TabItem>
+<TabItem value="Ruby">
+
+<!-- prettier-ignore -->
+```rb
+caps = Selenium::WebDriver::Remote::Capabilities.new
+caps[:platform_name] = 'iOS'
+caps['appium:platformVersion'] = '17'
+caps['appium:deviceName'] = 'iPhone .*'
+caps['appium:automationName'] = 'xcuitest'
+caps['appium:app'] = 'storage:filename=<file-name>'
+caps['sauce:options'] = {
+    username: 'SAUCE_USERNAME',
+    accessKey: 'SAUCE_ACCESS_KEY',
+    appiumVersion: 'appium2-20250901',
+    # Set to false to revert to SauceWebDriverAgent
+    useOfficialWDA: false
+}
+```
+
+</TabItem>
+<TabItem value="C#">
+
+<!-- prettier-ignore -->
+```csharp
+AppiumOptions options = new AppiumOptions();
+options.AddAdditionalCapability("platformName", "iOS");
+options.AddAdditionalCapability("appium:platformVersion", "17");
+options.AddAdditionalCapability("appium:deviceName", "iPhone .*");
+options.AddAdditionalCapability("appium:automationName", "xcuitest");
+options.AddAdditionalCapability("appium:app", "storage:filename=<file-name>");
+var sauceOptions = new Dictionary<string, object>();
+sauceOptions.Add("username", "SAUCE_USERNAME");
+sauceOptions.Add("accessKey", "SAUCE_ACCESS_KEY");
+sauceOptions.Add("appiumVersion", "appium2-20250901");
+// Set to false to revert to SauceWebDriverAgent
+sauceOptions.Add("useOfficialWDA", false);
+options.AddAdditionalCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+</Tabs>
+
 ## Example Configuration Code Snippets
 
 ### iOS and Android Project Configuration
