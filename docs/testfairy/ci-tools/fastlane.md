@@ -8,54 +8,109 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Upload a new build to Sauce Labs Mobile App Distribution using Fastlane. You can find your API Key in the [Sauce Labs Mobile App Distribution Settings](https://app.testfairy.com/settings/) page.
+Upload a new build to Sauce Labs Mobile App Distribution using Fastlane and the `fastlane-plugin-saucelabs_appdist` plugin. You can find your API Key in the [Sauce Labs Mobile App Distribution Settings](https://app.testfairy.com/settings/) page.
 
+## Installation
+
+```bash
+fastlane add_plugin saucelabs_appdist
 ```
-testfairy(
-    api_key: "...",
-    ipa: "./ipa_file.ipa",
+
+Or add the plugin manually to your project's `fastlane/Pluginfile`:
+
+```ruby
+gem 'fastlane-plugin-saucelabs_appdist'
+```
+
+Then run `bundle install` to fetch it.
+
+## Usage
+
+<Tabs>
+<TabItem value="ios" label="iOS" default>
+
+```ruby
+saucelabs_appdist(
+    api_key: "your_api_key",
+    ipa: "./path/to/app.ipa",
     comment: "Build #{lane_context[SharedValues::BUILD_NUMBER]}",
 )
 ```
 
-```
-testfairy(
-    api_key: "...",
+</TabItem>
+<TabItem value="android" label="Android">
+
+```ruby
+saucelabs_appdist(
+    api_key: "your_api_key",
     apk: "../build/app/outputs/apk/qa/release/app-qa-release.apk",
     comment: "Build #{lane_context[SharedValues::BUILD_NUMBER]}",
 )
 ```
 
+</TabItem>
+</Tabs>
+
 ### Parameters
 
-| Key            | 	Description                                                              | Default                      |
-|----------------|---------------------------------------------------------------------------|------------------------------|
-| api_key        | API Key for Sauce Labs Mobile App Distribution                                                     |                              |
-| ipa            | 	Path to your IPA file for iOS	                                           |                              |
-| apk            | 	Path to your APK file for Android	                                       |                              |
-| symbols_file   | 	Symbols mapping file	                                                    |                              |
-| upload_url     | 	Upload API URL for Sauce Labs Mobile App Distribution	                                            | https://app.testfairy.com |
-| testers_groups | 	Array of tester groups to be notified	                                   | []                           |
-| comment        | 	Additional release notes for this upload. Will be added to sent emails 	 | No comment                   |
-| notify         | 	Send email to testers	                                                   | off                          |
-| timeout        | 	Request timeout in seconds                                               |                              |
+| Key                   | Description                                                    | Default                   |
+|-----------------------|----------------------------------------------------------------|---------------------------|
+| `api_key`             | API Key for Sauce Labs Mobile App Distribution                 |                           |
+| `ipa`                 | Path to your IPA file (iOS)                                    |                           |
+| `apk`                 | Path to your APK file (Android)                                |                           |
+| `symbols_file`        | Symbols mapping file                                           |                           |
+| `upload_url`          | Upload API URL for Sauce Labs Mobile App Distribution          | `https://app.testfairy.com` |
+| `testers_groups`      | Array of tester groups to be notified                          | `[]`                      |
+| `comment`             | Additional release notes for this upload                       | `No comment provided`     |
+| `auto_update`         | Auto-upgrade users (`on`/`off`)                                | `off`                     |
+| `notify`              | Send email to testers (`on`/`off`)                             | `off`                     |
+| `options`             | Array of options                                               | `[]`                      |
+| `custom`              | Custom options string                                          | `""`                      |
+| `timeout`             | Request timeout in seconds                                     |                           |
+| `tags`                | Custom tags for builds                                         | `[]`                      |
+| `metrics`             | Array of metrics to record                                     | `[]`                      |
+| `folder_name`         | Dashboard folder name                                          | `""`                      |
+| `landing_page_mode`   | Landing page visibility (`open`/`closed`)                      | `open`                    |
+| `upload_to_saucelabs` | Upload to Sauce Labs (`on`/`off`)                              | `off`                     |
+| `platform`            | Platform override                                              | `""`                      |
+
+:::note
+If your server's security settings require users to login before downloading, you must set `landing_page_mode: "closed"`. Otherwise the upload will fail with error code 156.
+:::
 
 ### Lane Variables
 
-Actions can communicate with each other using a shared hash lane_context, that can be accessed in other actions, plugins or your lanes: lane_context[SharedValues:XYZ]. The testfairy action generates the following Lane Variables:
+The `saucelabs_appdist` action stores the full API response in `lane_context`, which can be accessed in subsequent actions or lanes:
 
-| SharedValue                          | Description                                      |
-|--------------------------------------|--------------------------------------------------|
-| SharedValues::TESTFAIRY_BUILD_URL    | URL for the sessions of the newly uploaded build |
-| SharedValues::TESTFAIRY_DOWNLOAD_URL | URL directly to the newly uploaded build         |
-| SharedValues::TESTFAIRY_LANDING_PAGE | URL of the build's landing page                  |
+```ruby
+lane_context[SharedValues::SAUCELABS_APPDIST_UPLOAD_RESPONSE]
+```
+
+The response is a hash containing all fields from the upload API, including:
+
+| Key                    | Description                                      |
+|------------------------|--------------------------------------------------|
+| `build_url`            | URL for the sessions of the newly uploaded build |
+| `app_url`              | Direct download URL for the build                |
+| `landing_page_url`     | URL of the build's landing page                  |
+| `build_id`             | ID of the uploaded build                         |
+| `app_name`             | Name of the uploaded app                         |
+| `platform`             | Platform (iOS/Android)                           |
+
+Example:
+
+```ruby
+response = lane_context[SharedValues::SAUCELABS_APPDIST_UPLOAD_RESPONSE]
+puts response['build_url']
+puts response['app_url']
+```
 
 ### Documentation
 
 To show the documentation in your terminal, run
 
 ```bash
-fastlane action testfairy
+fastlane action saucelabs_appdist
 ```
 
 ### CLI
@@ -63,17 +118,17 @@ fastlane action testfairy
 It is recommended to add the above action into your Fastfile, however sometimes you might want to run one-offs. To do so, you can run the following command from your terminal
 
 ```bash
-fastlane run testfairy
+fastlane run saucelabs_appdist
 ```
 
-To pass parameters, make use of the : symbol, for example
+To pass parameters, make use of the `:` symbol, for example
 
 ```bash
-fastlane run testfairy parameter1:"value1" parameter2:"value2"
+fastlane run saucelabs_appdist api_key:"your_key" ipa:"./app.ipa"
 ```
 
-It's important to note that the CLI supports primitive types like integers, floats, booleans, and strings. Arrays can be passed as a comma delimited string (e.g. param:"1,2,3"). Hashes are not currently supported.
+It's important to note that the CLI supports primitive types like integers, floats, booleans, and strings. Arrays can be passed as a comma delimited string (e.g. `param:"1,2,3"`). Hashes are not currently supported.
 
 It is recommended to add all fastlane actions you use to your Fastfile.
 
-You can review this action documentation and code on [docs.fastlane.tools](https://docs.fastlane.tools/actions/testfairy/).
+You can find the plugin on [RubyGems](https://rubygems.org/gems/fastlane-plugin-saucelabs_appdist).
