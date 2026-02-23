@@ -211,7 +211,7 @@ mt/{action} {canvasWidth} {canvasHeight} {orientation} {touchCount} {touchIndex}
 | `{action}` | `d` = touch down, `m` = touch move, `u` = touch up |
 | `{canvasWidth}` | Width of your rendering canvas in pixels |
 | `{canvasHeight}` | Height of your rendering canvas in pixels |
-| `{orientation}` | `0` = portrait, `1` = landscape |
+| `{orientation}` | `0` = portrait, `1` = landscape. Must match the device's current orientation so the server maps coordinates correctly. |
 | `{touchCount}` | Number of simultaneous touch points (`1` for single touch, `2` for multi-touch) |
 | `{touchIndex}` | Index of this touch point (`0` for first finger, `1` for second) |
 | `{x}` | X coordinate of the touch point |
@@ -226,6 +226,30 @@ mt/d 1080 1920 0 1 0 540 960
 mt/u 1080 1920 0 1 0 540 960
 ```
 
+### Long Press
+
+A long press is a touch-down, a delay (typically 500ms or more), and then a touch-up at the same coordinates. The hold duration is controlled by your client — the server treats it as a continuous touch:
+
+```
+mt/d 1080 1920 0 1 0 540 960
+# Wait 500–1000 ms on the client side
+mt/u 1080 1920 0 1 0 540 960
+```
+
+### Double Tap
+
+A double tap is two complete tap sequences in quick succession (typically within 300ms):
+
+```
+# First tap
+mt/d 1080 1920 0 1 0 540 960
+mt/u 1080 1920 0 1 0 540 960
+# Brief pause (~100 ms)
+# Second tap
+mt/d 1080 1920 0 1 0 540 960
+mt/u 1080 1920 0 1 0 540 960
+```
+
 ### Swipe
 
 A swipe is a touch-down, one or more touch-move events, and a touch-up:
@@ -236,6 +260,19 @@ mt/m 1080 1920 0 1 0 540 1200
 mt/m 1080 1920 0 1 0 540 1000
 mt/m 1080 1920 0 1 0 540 800
 mt/u 1080 1920 0 1 0 540 600
+```
+
+### Scroll
+
+Scrolling is a two-finger swipe. Set `touchCount` to `2` and move both fingers in the same direction:
+
+**Scroll down example:**
+
+```
+mt/d 360 640 0 2 0 160 300 1 200 300
+mt/m 360 640 0 2 0 160 250 1 200 250
+mt/m 360 640 0 2 0 160 200 1 200 200
+mt/u 360 640 0 2 0 160 200 1 200 200
 ```
 
 ### Multi-Touch (Pinch / Zoom)
@@ -255,9 +292,20 @@ mt/m 360 640 0 2 0 90 220 1 270 420
 mt/u 360 640 0 2 0 90 220 1 270 420
 ```
 
+**Pinch-in (zoom out) example** — two fingers moving together:
+
+```
+mt/d 360 640 0 2 0 90 220 1 270 420
+mt/m 360 640 0 2 0 120 260 1 240 380
+mt/m 360 640 0 2 0 150 300 1 210 340
+mt/u 360 640 0 2 0 150 300 1 210 340
+```
+
 ### Canvas Coordinates
 
 The canvas dimensions you specify should match the size of the area where you are rendering the device screen. The server translates your canvas coordinates to the device's actual resolution. For example, if you render the stream in a 360x640 panel, use `360 640` as the canvas dimensions and compute touch points relative to that area.
+
+When the device is in **landscape** orientation, swap the canvas dimensions accordingly (e.g., `640 360` instead of `360 640`) and set the orientation parameter to `1`.
 
 ## 5. Send Navigation Commands
 
@@ -301,7 +349,76 @@ tt/h
 tt/i
 ```
 
-## 7. Putting It All Together
+## 7. Change Device Orientation
+
+Device rotation is performed via the REST API, not through the Device Control Socket itself. After the rotation completes, the socket automatically starts sending frames with the new dimensions, and you must update the `{orientation}` parameter in your touch messages accordingly.
+
+### Rotate the Device
+
+Send a `POST` request to the `applySettings` endpoint:
+
+```shell
+curl -X POST -u $AUTH \
+  -H "Content-Type: application/json" \
+  -d '{ "orientation": "LANDSCAPE" }' \
+  "$BASE_URL/sessions/$SESSION_ID/device/applySettings"
+```
+
+| Value | Description |
+|-------|-------------|
+| `PORTRAIT` | Standard vertical orientation |
+| `LANDSCAPE` | Horizontal orientation |
+
+A successful request returns HTTP `204 No Content`.
+
+### Listen for Orientation Events
+
+The [Companion Socket](mastering-companion-socket.md) emits two events during a rotation so your client knows when the transition starts and finishes:
+
+**`device.orientation.start`** — Fired when the device begins rotating:
+
+```json
+{
+  "type": "device.orientation.start",
+  "value": {
+    "orientation": "LANDSCAPE"
+  }
+}
+```
+
+**`device.orientation.finish`** — Fired when the rotation is complete and the device has settled:
+
+```json
+{
+  "type": "device.orientation.finish",
+  "value": {
+    "orientation": "LANDSCAPE"
+  }
+}
+```
+
+### Update Touch Coordinates After Rotation
+
+After a rotation, update your touch messages to match the new orientation:
+
+1. **Swap your canvas dimensions** — e.g., from `1080 1920` to `1920 1080`.
+2. **Set the orientation parameter** — use `1` for landscape, `0` for portrait.
+
+```
+# Portrait tap (before rotation)
+mt/d 1080 1920 0 1 0 540 960
+mt/u 1080 1920 0 1 0 540 960
+
+# Landscape tap (after rotation)
+mt/d 1920 1080 1 1 0 960 540
+mt/u 1920 1080 1 1 0 960 540
+```
+
+:::note
+Wait for the `device.orientation.finish` event before sending touch events. Touch commands sent during the rotation transition may be mapped to incorrect coordinates.
+:::
+
+## 8. Putting It All Together
 
 <Tabs>
 <TabItem value="Java">
@@ -493,7 +610,7 @@ while (ws.State == WebSocketState.Open)
 </TabItem>
 </Tabs>
 
-## 8. Reconnection
+## 9. Reconnection
 
 If the WebSocket connection drops unexpectedly, implement reconnection with exponential backoff:
 
@@ -515,4 +632,6 @@ Normal closure (code `1000`) should not trigger reconnection — it means the se
 | **Multi-touch** | Append second finger: `... 2 0 {x1} {y1} 1 {x2} {y2}` |
 | **Navigation** | `tt/Sauce_Home_Key`, `tt/Sauce_Back_Key`, `tt/Sauce_Menu_Key` |
 | **Keyboard input** | `tt/{key}` — e.g., `tt/a`, `tt/Enter`, `tt/Backspace` |
+| **Orientation** | `POST /sessions/{id}/device/applySettings` with `{"orientation": "LANDSCAPE"\|"PORTRAIT"}` |
+| **Orientation events** | Companion Socket: `device.orientation.start`, `device.orientation.finish` |
 | **Reconnection** | Exponential backoff: 1s, 2s, 4s, 8s, 16s — max 5 attempts |
