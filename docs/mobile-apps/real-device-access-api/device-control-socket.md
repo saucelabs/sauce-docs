@@ -1,13 +1,13 @@
 ---
-id: real-device-access-api-video-socket
-title: Streaming and Controlling Devices with the Video Socket
-sidebar_label: Video Socket
+id: real-device-access-api-device-control-socket
+title: Streaming and Controlling Devices with the Device Control Socket
+sidebar_label: Device Control Socket
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connect to the Video Socket to receive a real-time stream of the device screen and send touch, keyboard, and navigation commands back to the device.
+Connect to the Device Control Socket to receive a real-time stream of the device screen and send touch, keyboard, and navigation commands back to the device.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Connect to the Video Socket to receive a real-time stream of the device screen a
 
 ## How It Works
 
-The Video Socket is a bidirectional WebSocket connection:
+The Device Control Socket is a bidirectional WebSocket connection:
 
 | Direction | Format | Purpose |
 |-----------|--------|---------|
@@ -69,6 +69,8 @@ websocat -b -H="Authorization: Basic $AUTH_TOKEN" "$IO_URL" > frame.jpg
 `websocat` in binary mode (`-b`) writes raw binary data to stdout. For a richer experience, use a programmatic WebSocket client that can decode frames and render them.
 :::
 
+<Tabs>
+<TabItem value="Java">
 
 ```java
 String wsUrl = session.getLinks().getIoWebsocketUrl();
@@ -99,6 +101,8 @@ client.newWebSocket(request, new WebSocketListener() {
 });
 ```
 
+</TabItem>
+<TabItem value="node.js">
 
 ```javascript
 const WebSocket = require("ws");
@@ -299,6 +303,8 @@ tt/i
 
 ## 7. Putting It All Together
 
+<Tabs>
+<TabItem value="Java">
 
 ```java
 // 1. Connect
