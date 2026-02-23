@@ -131,4 +131,4 @@ It's important to note that the CLI supports primitive types like integers, floa
 
 It is recommended to add all fastlane actions you use to your Fastfile.
 
-You can find the plugin on [RubyGems](https://rubygems.org/gems/fastlane-plugin-saucelabs_appdist).
+You can find the plugin on [RubyGems](https://rubygems.org/gems/fastlane-plugin-saucelabs_appdist) and [GitHub](https://github.com/saucelabs/fastlane-plugin-saucelabs_appdist).
