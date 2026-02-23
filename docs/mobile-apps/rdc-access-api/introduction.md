@@ -3,10 +3,8 @@ id: real-device-access-api-introduction
 title: Real Device Access API
 sidebar_label: Introduction
 ---
-<p><span className="sauceGreen">Open Beta</span></p>
 
 :::info
-**This API is in Open Beta.**
 Access is currently limited to customers with **Private Devices**. While we continue to refine the product, 
 we do not plan to introduce breaking changes to the current API specification.
 :::

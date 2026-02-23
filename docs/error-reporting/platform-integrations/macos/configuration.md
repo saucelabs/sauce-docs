@@ -1,11 +1,13 @@
 ---
 id: configuration
-title: Configuring Backtrace for iOS
+title: Configuring Backtrace for macOS
 sidebar_label: Configuration
-description: Configure Backtrace for your iOS project.
+description: Configure Backtrace for your macOS project.
 ---
 
-Configure Backtrace for your iOS project. This page defines the configuration settings, classes, and methods available with the Backtrace Cocoa SDK.
+Configure Backtrace for your macOS project. This page defines the configuration settings, classes, and methods available with the Backtrace Cocoa SDK.
+
+The macOS SDK shares the same core API as the iOS SDK. This page highlights macOS-specific configuration and notes where behavior differs. For the full API reference, see [Configuring Backtrace for iOS](/error-reporting/platform-integrations/ios/configuration).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,15 +18,87 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
-```swift reference title="Usage Example"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS/AppDelegate.swift#L18-L77
+```swift
+import Cocoa
+import Backtrace
+
+@main
+class AppDelegate: NSObject, NSApplicationDelegate {
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        let backtraceCredentials = BacktraceCredentials(
+            endpoint: URL(string: "https://backtrace.io")!,
+            token: "token")
+
+        let backtraceDatabaseSettings = BacktraceDatabaseSettings()
+        backtraceDatabaseSettings.maxRecordCount = 1000
+        backtraceDatabaseSettings.maxDatabaseSize = 10
+        backtraceDatabaseSettings.retryInterval = 5
+        backtraceDatabaseSettings.retryLimit = 3
+        backtraceDatabaseSettings.retryBehaviour = .interval
+        backtraceDatabaseSettings.retryOrder = .stack
+
+        let backtraceConfiguration = BacktraceClientConfiguration(
+            credentials: backtraceCredentials,
+            dbSettings: backtraceDatabaseSettings,
+            reportsPerMin: 10,
+            allowsAttachingDebugger: false,
+            oomMode: .full)
+
+        BacktraceClient.shared = try? BacktraceClient(configuration: backtraceConfiguration)
+
+        // Set custom attributes
+        BacktraceClient.shared?.attributes = ["foo": "bar", "testing": true]
+
+        // Set delegate for event handling
+        BacktraceClient.shared?.delegate = self
+
+        // Enable breadcrumbs
+        BacktraceClient.shared?.enableBreadcrumbs()
+
+        // Enable error-free metrics
+        BacktraceClient.shared?.metrics.enable(settings: BacktraceMetricsSettings())
+    }
+}
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
-```objc reference title="Usage Example"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS-ObjC/AppDelegate.m#L4-L67
+```objc
+#import "AppDelegate.h"
+@import Backtrace;
+
+@interface AppDelegate () <BacktraceClientDelegate>
+@end
+
+@implementation AppDelegate
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
+                                         initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash"]];
+    BacktraceDatabaseSettings *backtraceDatabaseSettings = [[BacktraceDatabaseSettings alloc] init];
+    backtraceDatabaseSettings.maxRecordCount = 1000;
+    backtraceDatabaseSettings.maxDatabaseSize = 10;
+    backtraceDatabaseSettings.retryInterval = 5;
+    backtraceDatabaseSettings.retryLimit = 3;
+    backtraceDatabaseSettings.retryBehaviour = RetryBehaviourInterval;
+    backtraceDatabaseSettings.retryOrder = RetryOrderStack;
+
+    BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
+                                                   initWithCredentials: credentials
+                                                   dbSettings: backtraceDatabaseSettings
+                                                   reportsPerMin: 3
+                                                   allowsAttachingDebugger: TRUE
+                                                   oomMode: BacktraceOomModeNone];
+    BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
+
+    [BacktraceClient.shared setAttributes: @{@"foo": @"bar"}];
+    BacktraceClient.shared.delegate = self;
+    [BacktraceClient.shared enableBreadcrumbs];
+}
+
+@end
 ```
 
 </TabItem>
@@ -74,7 +148,7 @@ BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configu
 
 | Setting                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                            | Type      | Default       |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ------------- |
-| `credentials` (Swift) or <br/>`initWithCredentials` (Objective-C) | The [`BacktraceCredentials`](/error-reporting/platform-integrations/ios/setup/#initialize-the-backtrace-client) (endpoint URL and submission token) used to initialize the `BacktraceClient`.                                                                                                                                                                                                          | Parameter |
+| `credentials` (Swift) or <br/>`initWithCredentials` (Objective-C) | The [`BacktraceCredentials`](/error-reporting/platform-integrations/macos/setup/#initialize-the-backtrace-client) (endpoint URL and submission token) used to initialize the `BacktraceClient`.                                                                                                                                                                                                          | Parameter |
 | `dbSettings`                                                      | The [`BacktraceDatabaseSettings`](#database-settings) used to initialize the `BacktraceDatabase`.                                                                                                                                                                                                                                                                                                      | Parameter |
 | `reportsPerMin`                                                   | The maximum number of reports per minute that `BacktraceClient` will send.                                                                                                                                                                                                                                                                                                                             | Integer   | 30            |
 | `allowsAttachingDebugger`                                         | Specifies whether to send reports when the debugger is connected. <br /><br /> The options are: <br /><ul><li>**false** (Swift) / **NO** (Objective-C): `BacktraceClient` will send reports when the debugger is connected.</li><li> **true** (Swift) / **YES** (Objective-C): `BacktraceClient` won't send reports when the debugger is connected.</li></ul>                                          | Boolean   | false / NO    |
@@ -190,16 +264,13 @@ BacktraceClient.shared = [[BacktraceClient alloc]
 
 ### Custom Crash Directory
 
-By default, PLCrashReporter stores `.plcrash` files in the app's standard cache directory. You can specify a custom directory to control where crash reports are written, and set a `FileProtectionType` to manage file access when the device is locked.
-
-This is useful when you need crash reports to be accessible before the device is first unlocked (for example, if your app runs in the background or launches before user unlock).
+By default, PLCrashReporter stores `.plcrash` files in the app's standard cache directory. You can specify a custom directory to control where crash reports are written.
 
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
 ```swift
-// Create a custom directory with FileProtectionType.none
-// so crash files are accessible even when the device is locked
+// Create a custom directory for crash reports
 let baseURL = try FileManager.default.url(
     for: .libraryDirectory,
     in: .userDomainMask,
@@ -208,8 +279,7 @@ let baseURL = try FileManager.default.url(
 let crashDir = baseURL.appendingPathComponent("btcrash", isDirectory: true)
 try FileManager.default.createDirectory(
     at: crashDir,
-    withIntermediateDirectories: true,
-    attributes: [.protectionKey: FileProtectionType.none])
+    withIntermediateDirectories: true)
 
 // Create a PLCrashReporterConfig with the custom basePath
 guard let plcrashConfig = PLCrashReporterConfig(
@@ -225,20 +295,11 @@ BacktraceClient.shared = try? BacktraceClient(
     crashReporter: reporter)
 ```
 
-#### Swift `FileProtectionType` Options
-
-| Protection Level | Description |
-| --- | --- |
-| `.none` | No file protection. Files are accessible at all times, including before the first device unlock. **Use this for crash directories if your app launches before unlock.** |
-| `.complete` | Files are inaccessible whenever the device is locked. |
-| `.completeUnlessOpen` | Files can be created while locked but become protected once closed. |
-| `.completeUntilFirstUserAuthentication` | Files are accessible after the user unlocks the device for the first time after boot. This is the default for most app directories. |
-
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
 ```objc
-// Create a custom directory with NSFileProtectionNone
+// Create a custom directory for crash reports
 NSError *error = nil;
 NSURL *libraryUrl = [[NSFileManager defaultManager] URLForDirectory:NSLibraryDirectory
                                                            inDomain:NSUserDomainMask
@@ -248,7 +309,7 @@ NSURL *libraryUrl = [[NSFileManager defaultManager] URLForDirectory:NSLibraryDir
 NSURL *crashDir = [libraryUrl URLByAppendingPathComponent:@"btcrash" isDirectory:YES];
 [[NSFileManager defaultManager] createDirectoryAtURL:crashDir
                          withIntermediateDirectories:YES
-                                          attributes:@{NSFileProtectionKey: NSFileProtectionNone}
+                                          attributes:nil
                                                error:&error];
 
 // Create a PLCrashReporterConfig with the custom basePath
@@ -264,21 +325,11 @@ BacktraceClient.shared = [[BacktraceClient alloc]
                             error: nil];
 ```
 
-#### Objective-C `FileProtectionType` Options
-
-| Protection Level | Description |
-| --- | --- |
-| `NSFileProtectionNone` | No file protection. Files are accessible at all times, including before the first device unlock. **Use this for crash directories if your app launches before unlock.** |
-| `NSFileProtectionComplete` | Files are inaccessible whenever the device is locked. |
-| `NSFileProtectionCompleteUnlessOpen` | Files can be created while locked but become protected once closed. |
-| `NSFileProtectionCompleteUntilFirstUserAuthentication` | Files are accessible after the user unlocks the device for the first time after boot. This is the default for most app directories. |
-| `NSFileProtectionCompleteWhenUserInactive` | (iOS 17+) Files are accessible after the user unlocks the device for the first time after boot. This is the default for most app directories. |
-
 </TabItem>
 </Tabs>
 
 :::note
-File protection level tests only work on physical devices — simulators do not enforce file protection.
+On iOS, you can also set a `FileProtectionType` on the custom crash directory to control file access when the device is locked. See the [iOS Custom Crash Directory](/error-reporting/platform-integrations/ios/configuration/#custom-crash-directory) documentation for details on `FileProtectionType` options. File protection is not applicable on macOS.
 :::
 
 ## Handling Events
@@ -368,6 +419,18 @@ BacktraceClient.shared.attributes = @{@"foo": @"bar", @"testing": @YES};
 
 You can also specify a unique set of attributes for a specific report with the `willSend(_:)` method of [`BacktraceClientDelegate`](#handling-events).
 
+### macOS-Specific System Attributes
+
+The SDK automatically collects system attributes. The following attributes are collected differently on macOS compared to iOS:
+
+| Attribute | macOS Behavior | iOS Behavior |
+| --- | --- | --- |
+| **Hardware model** | Uses `HW_MODEL` (e.g., `MacBookPro18,1`) | Uses `HW_MACHINE` (e.g., `iPhone14,5`) |
+| **OS name** | Reports `macOS` | Reports device `systemName` (e.g., `iOS`) |
+| **Screen info** | Uses `NSScreen` API — reports `screen.main.width`, `screen.main.height`, `screen.main.scale`, and screen count | Uses `UIScreen` API — reports `screen.width`, `screen.height`, `screen.scale`, plus native dimensions and brightness |
+| **Device orientation** | Not collected (not applicable) | Collected via `UIDevice` |
+| **Battery state** | Not collected via attributes | Collected via `UIDevice` battery monitoring |
+
 ## File Attachments
 
 ### All Reports
@@ -446,20 +509,18 @@ You can track those metrics at-a-glance, as well as in detail to find out what k
 
 ### Enabling Error-Free Metrics
 
-You can enable error-free metrics as follows:
-
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
-```swift reference title="Code Sample"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/dfe0d9046c6d5706137d9e861a03d54775277e90/Examples/Example-iOS/AppDelegate.swift#L47
+```swift
+BacktraceClient.shared?.metrics.enable(settings: BacktraceMetricsSettings())
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
-```objc reference title="Code Sample"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/dfe0d9046c6d5706137d9e861a03d54775277e90/Examples/Example-iOS-ObjC/AppDelegate.m#L55
+```objc
+[BacktraceClient.shared.metrics enableWithSettings: [[BacktraceMetricsSettings alloc] init]];
 ```
 
 </TabItem>
@@ -471,22 +532,24 @@ https://github.com/backtrace-labs/backtrace-cocoa/blob/dfe0d9046c6d5706137d9e861
 
 Breadcrumbs allow you track events leading up to your crash, error, or other submitted object. When breadcrumbs are enabled, any captured breadcrumbs will automatically be attached as a file to your crash, error, or other submitted object (including native crashes).
 
-### Enabling Breadcrumbs
+:::note
+Breadcrumbs are **not** supported on tvOS.
+:::
 
-You can enable breadcrumbs as follows:
+### Enabling Breadcrumbs
 
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
-```swift reference title="Code Sample"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/a817605c07eb83af412533ac8e185ebcbdf79562/Examples/Example-iOS/AppDelegate.swift#L47
+```swift
+BacktraceClient.shared?.enableBreadcrumbs()
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
-```objc title="Code Sample"
-[BacktraceClient.shared enableBreadCrumbs];
+```objc
+[BacktraceClient.shared enableBreadcrumbs];
 ```
 
 </TabItem>
@@ -494,20 +557,26 @@ https://github.com/backtrace-labs/backtrace-cocoa/blob/a817605c07eb83af412533ac8
 
 ### Adding Manual Breadcrumbs
 
-You can add breadcrumbs as follows:
-
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
-```swift reference title="Code Sample"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/dfe0d9046c6d5706137d9e861a03d54775277e90/Examples/Example-iOS/AppDelegate.swift#L52-L57
+```swift
+let attributes = ["My Attribute": "My Attribute Value"]
+_ = BacktraceClient.shared?.addBreadcrumb("My Breadcrumb",
+                                          attributes: attributes,
+                                          type: .user,
+                                          level: .error)
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
-```objc reference title="Code Sample"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/dfe0d9046c6d5706137d9e861a03d54775277e90/Examples/Example-iOS-ObjC/AppDelegate.m#L61-L65
+```objc
+NSDictionary *attributes = @{@"My Attribute":@"My Attribute Value"};
+[BacktraceClient.shared addBreadcrumb:@"My Breadcrumb"
+                           attributes:attributes
+                                 type:BacktraceBreadcrumbTypeUser
+                                level:BacktraceBreadcrumbLevelError];
 ```
 
 </TabItem>
@@ -517,11 +586,21 @@ https://github.com/backtrace-labs/backtrace-cocoa/blob/dfe0d9046c6d5706137d9e861
 We recommend that you do **not** make calls to `addBreadcrumb` from performance-critical code paths.
 :::
 
-### Automatic Breadcrumbs
+### Automatic Breadcrumbs on macOS
 
-By default, if you enable breadcrumbs, Backtrace registers handlers to capture common iOS system events, such as low memory warnings, battery state, screen orientation changes, background/foreground/inactive changes, and more.
+When breadcrumbs are enabled, the SDK automatically captures system events. The set of automatic breadcrumb events differs between macOS and iOS:
 
-You can limit the types of automatic events that are captured by specifying which automatic breadcrumb types you want to enable. For example:
+| Automatic Breadcrumb Type | macOS | iOS |
+| --- | --- | --- |
+| **Memory pressure** (warning, critical) | ✅ Via `DispatchSourceMemoryPressure` | ✅ Via `UIApplication.didReceiveMemoryWarningNotification` |
+| **Battery / power source changes** | ✅ Via `IOKit` power source monitoring | ✅ Via `UIDevice` battery notifications |
+| **Screen orientation changes** | ❌ Not applicable | ✅ |
+| **App state changes** (foreground/background) | ❌ | ✅ |
+| **Phone call state changes** | ❌ Not applicable | ✅ Via CallKit |
+
+On macOS, the SDK uses `IOKit.ps` (IOKit Power Sources) to monitor battery and power state changes, such as switching between AC power and battery, and charging level changes.
+
+You can limit the types of automatic events that are captured by specifying which automatic breadcrumb types you want to enable:
 
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
@@ -549,7 +628,12 @@ BacktraceBreadcrumbSettings *settings = [[BacktraceBreadcrumbSettings alloc]
 
 ## OOM Detection Modes
 
-The SDK provides configurable OOM (Out-Of-Memory) detection through the `BacktraceOomMode` enum. OOM detection monitors for low-memory pressure events and reports them to your Backtrace instance when the app is terminated due to memory pressure.
+OOM (Out-Of-Memory) detection is supported on macOS. The detection mechanism differs from iOS:
+
+- **macOS**: Uses `DispatchSourceMemoryPressure` to monitor for `.warning` and `.critical` memory pressure events.
+- **iOS**: Uses `UIApplication.didReceiveMemoryWarningNotification`.
+
+The SDK provides configurable OOM detection through the `BacktraceOomMode` enum.
 
 ### `BacktraceOomMode`
 

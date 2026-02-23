@@ -35,7 +35,6 @@ Key characteristics:
   - manage teams and accounts ([Accounts API](/dev/api/accounts/))
   - manage tunnels with Sauce Trusted Connection ([Sauce Connect API](/dev/api/connect/), [SC CLI 4](/dev/cli/sauce-connect-proxy), [SC CLI 5](/dev/cli/sauce-connect-5))
   - manage private real devices ([Private Real Device API](/dev/api/rdc/#private-real-device-management))
-  - use the [API Testing API](/dev/api/api-testing/)
   - submit a crash in the [Crash/Error Reporting](/dev/api/error-reporting/)
   - use the [Virtual USB CLI](/dev/cli/virtual-usb/)
 

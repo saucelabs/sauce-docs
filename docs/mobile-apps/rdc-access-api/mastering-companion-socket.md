@@ -39,13 +39,13 @@ websocat -B 2000000 -H="Authorization: Basic $AUTH_TOKEN" "$EVENTS_URL" | \
 ```
 
 ## 3. Filter Appium Logs
-***Type:*** `appium.log.message`
+***Type:*** `device.appium.message`
 
 If using an Appium server, stream these logs to debug automation commands (like `click` or `findElement`) or view raw WebDriver protocol communication.
 
 ```shell
 websocat -B 2000000 -H="Authorization: Basic $AUTH_TOKEN" "$EVENTS_URL" | \
-  jq --unbuffered 'select(.type == "appium.log.message")'
+  jq --unbuffered 'select(.type == "device.appium.message")'
 ```
 
 ## 4. Stream Network Traffic (HAR)
@@ -80,7 +80,7 @@ This uses `tee` and process substitution to split the stream:
 websocat -B 2000000 -H="Authorization: Basic $AUTH_TOKEN" "$EVENTS_URL" | \
   tee \
     >(jq --unbuffered 'select(.type=="device.log.message")' > device_log.json) \
-    >(jq --unbuffered 'select(.type=="appium.log.message")' > appium_log.json) \
+    >(jq --unbuffered 'select(.type=="device.appium.message")' > appium_log.json) \
     >(jq --unbuffered 'select(.type=="device.har.entry")' > network_log.json) \
   | jq --unbuffered '.' # Optional: Print everything to screen as well
 ```
