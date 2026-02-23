@@ -33,22 +33,6 @@ A lightweight form of API testing that checks each endpoint's contract -- that i
 
 More information: [Accelerating Releases with Quality: Contract Testing vs. E2E Functional Testing](https://saucelabs.com/blog/accelerating-releases-with-quality-contract-testing-vs-e2e-functional-testing).
 
-### API E2E Testing
-
-An API testing method that validates the logic of dynamic APIs, ensuring that the API consumer can fully support the user story’s goals.
-
-More information: [Accelerating Releases with Quality: Contract Testing vs. E2E Functional Testing](https://saucelabs.com/blog/accelerating-releases-with-quality-contract-testing-vs-e2e-functional-testing).
-
-### API Mocking
-
-An API server that mimics a real API server's requests and responses, which are based on the data from the spec file you provide. Commonly used for testing and debugging APIs while they're still in development; environment is stable and third-party dependencies are not required.
-
-The Sauce Labs API Mocking tool is called Piestry. See: _[Piestry](#piestry)_.
-
-### API Monitoring
-
-Refers to the Sauce Labs API Testing functionality accessible from your Project Dashboard, where you can view testing activity, metrics, test outcome reports, tags, schedule tests, and more.
-
 ### Appium
 
 An open source mobile UI automation framework that uses the Selenium WebDriver protocol to control interaction with native apps, mobile web apps, and hybrid apps in your tests. Appium acts as a wrapper that translates Selenium WebDriver commands into iOS and Android commands. With Sauce Labs, you can use Appium to test mobile apps on Emulators, Simulators, and real devices.
@@ -112,18 +96,6 @@ By default, duplicated (already running) tunnels are halted unless a Sauce Conne
 More information: [Tunnel Pool Setup](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel name](#tunnel-name)_.
-
-### Company Vault
-
-A Sauce Labs API Testing storage space where you can save variables and code snippets to use across all of your Projects.
-
-See also: [_vault_](#vault).
-
-### Composer
-
-A Sauce Labs API Testing feature where you can generate API functional tests and write tests from scratch.
-
-See also: [http client](#http-client).
 
 ### Concurrency Limit
 
@@ -273,14 +245,6 @@ A graphics processing unit is a specialized electronic circuit designed to rapid
 
 A browser or browser simulation without a UI. It's considered by developers to be a lightweight and scalable option if you want to test and collect pass/fail data earlier in the development lifecycle. Available only for Chrome and Firefox.
 
-### HTTP Client
-
-A Sauce Labs API Testing tool and workspace where you can:
-
-- Make HTTP API requests (i.e., `GET`, `POST`, `DELETE`) to a web server
-- Generate API functional tests
-- Import, store, and organize OpenAPI specs, Postman Collections, and API requests
-- Use Sauce Connect Proxy to make calls to locally hosted APIs in a development environment
 
 ### Hybrid App
 
@@ -321,10 +285,6 @@ A protocol used to establish a secure VPN connection between apps hosted on an i
 A type of software testing where you execute test cases manually, without using any automation tools. More information: [Live Cross Browser Testing](/web-apps/live-testing/live-cross-browser-testing).
 
 See also: _[manual testing](#manual-testing)_.
-
-### Logger
-
-A Sauce Labs API Testing tool that captures and record API calls (HTTP requests and responses).
 
 ### logfile
 
@@ -419,12 +379,6 @@ tunnel any time by sending a kill signal to the PID recorded in pidfile.
 More information:
 [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect-5/quickstart),
 [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-5).
-
-### Piestry
-
-The name of our API mocking server tool. In keeping with the Sauce tradition of naming things after food, Piestry is a pastry masquerading as a pie. This is analogous to our API mocking server, which mimics a real API server's requests and responses.
-
-See [API Mocking](#api-mocking) to learn more about the concept.
 
 ### Platform Configurator
 
@@ -746,12 +700,6 @@ See: _[systemd](#systemd)_.
 A user account is an account tied to an individual person and linked to an email address. User accounts are used to access the Sauce Labs UI, manage settings, run tests, and perform administrative tasks depending on the assigned role.
 
 ## **V**
-
-### Vault
-
-A Sauce Labs API Testing storage space where you can save Project-specific variables and code snippets.
-
-See also: [_company vault_](#company-vault).
 
 ### Video Game Developers
 

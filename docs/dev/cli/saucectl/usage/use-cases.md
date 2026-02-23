@@ -18,7 +18,6 @@ The configuration file is flexible enough to allow for any customizations and de
 - [Configure Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 - [Configure XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 - [Configure Replay](/web-apps/automated-testing/replay/yaml)
-- [Configure API Testing](/api-testing/integrations/apitesting-saucectl-integration)
 
 ## Setting an Alternative Configuration File
 

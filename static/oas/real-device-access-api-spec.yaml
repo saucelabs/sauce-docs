@@ -1513,7 +1513,7 @@ components:
         isPrivateDevice:
           type: boolean
           example: true
-        status:
+        state:
           $ref: "#/components/schemas/DeviceStatus"
         inUseBy:
           type: array
@@ -1528,7 +1528,7 @@ components:
       required:
         - descriptor
         - isPrivateDevice
-        - status
+        - state
     SessionId:
       type: string
       description: Unique id of device session
