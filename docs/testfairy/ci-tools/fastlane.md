@@ -88,14 +88,28 @@ lane_context[SharedValues::SAUCELABS_APPDIST_UPLOAD_RESPONSE]
 
 The response is a hash containing all fields from the upload API, including:
 
-| Key                    | Description                                      |
-|------------------------|--------------------------------------------------|
-| `build_url`            | URL for the sessions of the newly uploaded build |
-| `app_url`              | Direct download URL for the build                |
-| `landing_page_url`     | URL of the build's landing page                  |
-| `build_id`             | ID of the uploaded build                         |
-| `app_name`             | Name of the uploaded app                         |
-| `platform`             | Platform (iOS/Android)                           |
+| Key                                | Description                                       |
+|------------------------------------|---------------------------------------------------|
+| `status`                           | Upload status (`ok` on success)                   |
+| `build_id`                         | ID of the uploaded build                          |
+| `project_id`                       | ID of the project                                 |
+| `app_name`                         | Name of the uploaded app                          |
+| `app_version`                      | Version of the uploaded app                       |
+| `file_size`                        | Size of the uploaded file in bytes                |
+| `build_url`                        | URL for the sessions of the newly uploaded build  |
+| `download_page_url`                | URL of the download page                          |
+| `app_url`                          | Direct download URL for the build                 |
+| `invite_testers_url`               | URL to invite testers to this build               |
+| `icon_url`                         | URL of the app icon                               |
+| `options`                          | Configured options for this build                 |
+| `platform`                         | Platform (iOS/Android)                            |
+| `tags`                             | Tags associated with the build                    |
+| `metadata`                         | Metadata associated with the build                |
+| `has_testfairy_sdk`                | Whether the app includes the TestFairy SDK        |
+| `symbols_download_url`             | URL to download symbols file (if uploaded)        |
+| `landing_page_url`                 | URL of the build's landing page                   |
+| `build_specific_landing_page_url`  | Landing page URL specific to this build           |
+| `landing_page_mode`                | Landing page visibility (`open` or `closed`)      |
 
 Example:
 
@@ -103,6 +117,7 @@ Example:
 response = lane_context[SharedValues::SAUCELABS_APPDIST_UPLOAD_RESPONSE]
 puts response['build_url']
 puts response['app_url']
+puts response['landing_page_url']
 ```
 
 ### Documentation
