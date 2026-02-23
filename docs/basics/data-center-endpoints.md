@@ -47,19 +47,21 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 ### US West Data Center
 
-| Description                  | Endpoint                                        |
-| ---------------------------- | ----------------------------------------------- |
-| Remote WebDriver Endpoint    | https://ondemand.us-west-1.saucelabs.com/wd/hub |
-| REST API                     | api.us-west-1.saucelabs.com                     |
-| Sauce Connect Tunnel Servers | maki\*.miso.saucelabs.com:443                   |
+| Description                  | Endpoint                                                       |
+|------------------------------|----------------------------------------------------------------|
+| Remote WebDriver Endpoint    | https://ondemand.us-west-1.saucelabs.com/wd/hub                |
+| REST API                     | api.us-west-1.saucelabs.com                                    |
+| Sauce Connect Tunnel Servers | maki\*.miso.saucelabs.com:443                                  |
+| Visual Storage Endpoint      | https://storage.googleapis.com/sauce-iris-prod-us-west4-ybyc/* |
 
 ### US East Data Center
 
-| Description                  | Endpoint                                        |
-| ---------------------------- | ----------------------------------------------- |
-| Remote WebDriver Endpoint    | https://ondemand.us-east-4.saucelabs.com/wd/hub |
-| REST API                     | api.us-east-4.saucelabs.com                     |
-| Sauce Connect Tunnel Servers | \*.tunnels.us-east-4.saucelabs.com:443          |
+| Description                  | Endpoint                                                       |
+|------------------------------|----------------------------------------------------------------|
+| Remote WebDriver Endpoint    | https://ondemand.us-east-4.saucelabs.com/wd/hub                |
+| REST API                     | api.us-east-4.saucelabs.com                                    |
+| Sauce Connect Tunnel Servers | \*.tunnels.us-east-4.saucelabs.com:443                         |
+| Visual Storage Endpoint      | https://storage.googleapis.com/sauce-iris-prod-us-east4-ybyc/* |
 
 ### EU Central Data Center
 
@@ -67,11 +69,12 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU Central data center. See [Running Tests on EU Central](#running-tests-on-eu-central) for details.
 :::
 
-| Description                  | Endpoint                                           |
-| ---------------------------- | -------------------------------------------------- |
-| Remote WebDriver Endpoint    | https://ondemand.eu-central-1.saucelabs.com/wd/hub |
-| REST API                     | api.eu-central-1.saucelabs.com                     |
-| Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443         |
+| Description                  | Endpoint                                                           |
+|------------------------------|--------------------------------------------------------------------|
+| Remote WebDriver Endpoint    | https://ondemand.eu-central-1.saucelabs.com/wd/hub                 |
+| REST API                     | api.eu-central-1.saucelabs.com                                     |
+| Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443                         |
+| Visual Storage Endpoint      | https://storage.googleapis.com/sauce-iris-prod-europe-west3-ybyc/* |
 
 ## IP Address Ranges - Outgoing
 

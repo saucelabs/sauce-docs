@@ -7,7 +7,9 @@ description: Add Backtrace to your Unreal Engine project.
 
 Add Backtrace to your Unreal Engine project to automatically detect and report native crashes that occur in your game.
 
-Backtrace supports Unreal Engine's Crash Reporter, therefore installation of a Backtrace SDK is not required to capture crashes.
+Backtrace supports Unreal Engine's Crash Reporter with the [Sauce Error Reporting](https://www.fab.com/listings/4038fd34-96b1-4922-a0bb-2eef4c454f27) plugin available on Fab marketplace. The plugin provides basic Unreal error reporting without installation of a Backtrace SDK.
+
+Alternatively, integrate Backtrace platform SDKs in your game for error reporting with advanced features.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,7 +17,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Features
 
-The Backtrace Unreal plugin reports on the following types of errors:
+The Sauce Error Reporting plugin reports on the following types of errors:
 
 - Crashes - An end to the game play experience, where the game crashes or restarts.
 - Hangs (mobile only) - Errors that occur when a game or an app is non-responsive.
@@ -46,10 +48,13 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 ## Initialize the Backtrace Client
 
+Use the plugin or a platform-specific integration to initialize Backtrace.
+
 <Tabs
 groupId="platforms"
 defaultValue="windows"
 values={[
+{label: 'Plugin', value: 'plugin'},
 {label: 'Windows', value: 'windows'},
 {label: 'Android', value: 'android'},
 {label: 'iOS', value: 'ios'},
@@ -58,6 +63,86 @@ values={[
 {label: 'Game Consoles', value: 'GameConsoles'},
 {label: 'Steam Deck', value: 'SteamDeck'},
 ]}>
+
+<TabItem value="plugin">
+
+#### Requirements
+
+##### Unreal Engine Version
+
+- Unreal Engine 5.0 or later
+
+##### Sauce Labs Error Reporting Account and DataRouterURL
+
+- Create Sauce Labs Error Reporting account at [backtrace.io](https://backtrace.io)
+- In the Error Reporting console, locate DataRouter URL for your project in **Project Settings** → **Integration Guides** → **Unreal**
+
+##### Development Platform
+
+- Windows 64-bit, macOS, or Linux
+
+#### Installation from Fab
+
+1. Open the Epic Games Launcher/Your UE project
+2. Navigate to the fab window
+3. Search for "Sauce Labs Error Reporting"
+4. Click **Install to Engine**
+5. Open/Restart your UE project
+6. Go to **Edit → Plugins**
+7. Search for "SauceLabs Error Reporting"
+8. Check the **Enabled** checkbox
+9. Restart the editor if prompted
+
+#### Configuration
+
+##### Step 1: Obtain Your DataRouter URL
+
+1. Log in to your [Sauce Labs Error Reporting](https://backtrace.io/) universe
+2. Navigate to **Project Settings** → **Integration Guides** → **Unreal**
+3. Copy your project's **DataRouter URL** for Step 2
+   1. You may create unique projects per-platform, each with a unique DataRouterURL
+
+##### Step 2: Configure & Check with the Plugin Tool
+
+1. In the Unreal Editor, open **Tools → Error Reporting**
+2. Presh Refresh button
+3. Enable the Crash Reporting
+4. Press the SauceLabs Reporting or Navigate to **Plugins → Sauce Labs Error Reporting**
+5. Paste your DataRouter URL into the **Default Data Router URL** field
+6. Go back to the SauceLabs checklist window and press Refresh, check that everything is ok (green)
+   - ✅ DataRouterUrl in DefaultEngine.ini
+   - ✅ DefaultEngine.ini is writable
+   - ✅ Include Crash Reporter (packaging setting)
+   - If "Include Crash Reporter" shows red, click **Enable Crash Reporter** to fix it automatically
+
+#### Usage
+
+Once configured, crash reports will be automatically sent to Sauce Labs when:
+
+- Your packaged game crashes on end-user devices
+- A fatal error occurs in the game
+
+#### Platform-Specific Settings
+
+You can configure unique Error Reporting projects and DataRouterURLs for each target platform:
+
+1. In Error Reporting, create a new project and get DataRouterURL in **Project Settings** → **Integration Guides** → **Unreal**
+1. In Unreal Engine, open **Edit → Project Settings → Plugins → Sauce Labs Error Reporting**
+1. Expand **Platforms To Data Router URL**
+1. Click **+** to add a platform
+1. Select platform (Windows, Android, iOS, etc.)
+1. Enter platform-specific DataRouter URL
+1. **Save** is done automatically
+
+The plugin will automatically create platform-specific configuration files:
+
+- `Config/Windows/WindowsEngine.ini`
+- `Config/Android/AndroidEngine.ini`
+- `Config/IOS/IOSEngine.ini`
+
+See the [Sauce Error Reporting plugin readme](https://github.com/backtrace-labs/unreal) for more detail.
+
+</TabItem>
 
 <TabItem value="windows">
 
