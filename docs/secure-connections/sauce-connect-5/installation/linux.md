@@ -90,7 +90,7 @@ sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.5.0/sauce-connect-5.
   <TabItem value="x86-64">
 
 ```bash
-sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.5.0/sauce-connect-5.5._linux.x86_64.rpm
+sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.5.0/sauce-connect-5.5.0_linux.x86_64.rpm
 ```
 
   </TabItem>
