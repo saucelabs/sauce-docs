@@ -166,8 +166,6 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
 
 **What this means:** Some iOS tests may experience behavioral differences. For example, certain WebDriver endpoints such as `/window/rect` (used by `getWindowRect`) may behave differently under the official WDA.
 
-**If your iOS tests are affected:** You can temporarily opt out by setting `useOfficialWDA` to `false` in your `sauce:options` capabilities to revert to SauceWebDriverAgent. See [WebDriverAgent for iOS Real Devices](./real-devices.md#webdriveragent-for-ios-real-devices) for configuration details.
-
 | Appium Version | iOS WebDriverAgent |
 |---|---|
 | All Appium 2 versions, `appium3-2025-10`, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
@@ -272,8 +270,9 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <span className="sauceGold">January 1st, 2027</span>
       </td>
       <td>
-        This is a collection of drivers and plugins that were released in January 6th 2026 <br />
-        <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. To opt out, set <code>useOfficialWDA: false</code> in <code>sauce:options</code>. See <a href="./real-devices#webdriveragent-for-ios-real-devices">details</a>.<br />
+        This is a collection of drivers and plugins that were released in January 6th 2026.
+        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. 
+        See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
