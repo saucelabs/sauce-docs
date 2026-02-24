@@ -27,14 +27,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported SDKs
 
-- Minimum SDK version 16 (Android 4.1.x or higher)
-- Target SDK version 30 (Android 11.0)
-- Minimum NDK version 16b
-- Maximum NDK version 22
-
-:::note
-The ability to capture the battery status when a device is in power saving mode is available from API version 21.
-:::
+- Minimum SDK version 21 (Android 5.0 Lollipop or higher)
+- Target SDK version 36 (Android 16.0)
+- NDK version: 27
 
 ## Supported Platforms
 
