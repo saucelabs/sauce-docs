@@ -68,6 +68,20 @@ Running an entire suite on one device session introduces a lifecycle to manage. 
 
 This isolates infrastructure concerns (reserving the device, starting Appium, cleaning up) from test logic so each `@Test` can assume an existing session.
 
+## Choosing an Appium Version
+
+When starting the Appium server (`POST /sessions/{id}/appiumserver`), the `appiumVersion` field is **optional**. If omitted, the platform default version is used.
+
+To see which versions are currently available, call the versions endpoint:
+
+```
+GET /rdc/v2/appium/versions
+```
+
+The response returns a `versions` array, each entry containing a `name` (the version identifier to pass to `appiumVersion`) and an `eolDate` (the scheduled end-of-life date, or `null` if none is planned). Results are sorted by EOL date descending, with versions that have no scheduled EOL at the end.
+
+Use this endpoint to programmatically select a version or to verify that a version you depend on is still supported before starting your suite.
+
 ## How It Looks in Practice
 This modern Java and JUnit 5 example shows how elegantly this concept translates to code.
 
@@ -104,9 +118,9 @@ public class DemoAppiumTest {
 
     waitForSessionToBeActive(sessionId);
 
-    var startAppiumServerRequestBody = """
-            { "appiumVersion": "latest" }
-            """;
+    // appiumVersion is optional — omit it to use the platform default,
+    // or specify a version from GET /rdc/v2/appium/versions
+    var startAppiumServerRequestBody = "{}";
     var startAppiumServerResponse = POST("/rdc/v2/sessions/%s/appiumserver".formatted(sessionId), startAppiumServerRequestBody);
     appiumUrl = new URL(startAppiumServerResponse.getString("url"));
   }
