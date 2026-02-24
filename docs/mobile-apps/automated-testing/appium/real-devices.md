@@ -299,11 +299,11 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 
 ### WebDriverAgent for iOS Real Devices
 
-Starting with `appium2-20250901` and all Appium 3 versions, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) by default. Earlier Appium versions (`appium2-20250501` and below, `latest`, `stable`) continue to use the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
+Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) by default. Earlier Appium versions (all Appium 2 versions, `appium3-2025-10`, `latest`, `stable`) continue to use the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
 
 #### What Changed
 
-The [WebDriverAgent](https://github.com/appium/WebDriverAgent) is the component that drives iOS test automation under the XCUITest driver. Previously, Sauce Labs maintained a custom fork (SauceWebDriverAgent) for use on its Real Device Cloud. Starting with the `appium2-20250901` image and all Appium 3 images, Sauce Labs now uses the official Appium WebDriverAgent maintained by the Appium project.
+The [WebDriverAgent](https://github.com/appium/WebDriverAgent) is the component that drives iOS test automation under the XCUITest driver. Previously, Sauce Labs maintained a custom fork (SauceWebDriverAgent) for use on its Real Device Cloud. Starting with the `appium3-2026-01` image, Sauce Labs now uses the official Appium WebDriverAgent maintained by the Appium project.
 
 This change ensures that iOS test behavior on Sauce Labs Real Devices is consistent with the open-source Appium ecosystem and receives upstream fixes and improvements directly.
 
@@ -311,9 +311,8 @@ This change ensures that iOS test behavior on Sauce Labs Real Devices is consist
 
 | Appium Version | iOS WebDriverAgent |
 |---|---|
-| `appium2-20250501` and earlier, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
-| `appium2-20250901` | Official Appium WebDriverAgent |
-| All `appium3-*` versions | Official Appium WebDriverAgent |
+| All Appium 2 versions, `appium3-2025-10`, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| `appium3-2026-01` and later | Official Appium WebDriverAgent |
 
 #### Potential Impact
 
@@ -354,7 +353,7 @@ caps.setCapability("appium:app", "storage:filename=<file-name>");
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("username", "SAUCE_USERNAME");
 sauceOptions.setCapability("accessKey", "SAUCE_ACCESS_KEY");
-sauceOptions.setCapability("appiumVersion", "appium2-20250901");
+sauceOptions.setCapability("appiumVersion", "appium3-2026-01");
 // Set to false to revert to SauceWebDriverAgent
 sauceOptions.setCapability("useOfficialWDA", false);
 caps.setCapability("sauce:options", sauceOptions);
@@ -374,7 +373,7 @@ caps = {
     "sauce:options": {
         "username": "SAUCE_USERNAME",
         "accessKey": "SAUCE_ACCESS_KEY",
-        "appiumVersion": "appium2-20250901",
+        "appiumVersion": "appium3-2026-01",
         # Set to false to revert to SauceWebDriverAgent
         "useOfficialWDA": False
     }
@@ -395,7 +394,7 @@ const caps = {
     'sauce:options': {
         username: 'SAUCE_USERNAME',
         accessKey: 'SAUCE_ACCESS_KEY',
-        appiumVersion: 'appium2-20250901',
+        appiumVersion: 'appium3-2026-01',
         // Set to false to revert to SauceWebDriverAgent
         useOfficialWDA: false
     }
@@ -416,7 +415,7 @@ caps['appium:app'] = 'storage:filename=<file-name>'
 caps['sauce:options'] = {
     username: 'SAUCE_USERNAME',
     accessKey: 'SAUCE_ACCESS_KEY',
-    appiumVersion: 'appium2-20250901',
+    appiumVersion: 'appium3-2026-01',
     # Set to false to revert to SauceWebDriverAgent
     useOfficialWDA: false
 }
@@ -436,7 +435,7 @@ options.AddAdditionalCapability("appium:app", "storage:filename=<file-name>");
 var sauceOptions = new Dictionary<string, object>();
 sauceOptions.Add("username", "SAUCE_USERNAME");
 sauceOptions.Add("accessKey", "SAUCE_ACCESS_KEY");
-sauceOptions.Add("appiumVersion", "appium2-20250901");
+sauceOptions.Add("appiumVersion", "appium3-2026-01");
 // Set to false to revert to SauceWebDriverAgent
 sauceOptions.Add("useOfficialWDA", false);
 options.AddAdditionalCapability("sauce:options", sauceOptions);

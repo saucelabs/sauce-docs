@@ -161,17 +161,8 @@ Each version will include the latest drivers available at the time of its releas
 We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
 [tables below](#appium-3x) and choose the one that fits your requirements.
 
-
-:::warning Appium Stable Version Being Retired on February 16th, 2026
-The `stable` Appium version for Real Devices is **deprecated and will be retired on February 16th, 2026**. After this date, tests using `appiumVersion: "stable"` will fail.
-
-**Action required:** Update your capabilities to use a specific, dated version such as `appium2-20250901` or migrate to Appium 3 (e.g., `appium3-2026-01`). See the [stable migration guide](./migration-guides/appium-stable-migration.md) for details.
-
-**Why we made this decision:** We are retiring the `stable` image to simplify our versioning model and align with industry standards. Using specific, dated versions provides a more predictable and stable testing environment.
-:::
-
 :::warning iOS WebDriverAgent Change on Real Devices
-Starting with `appium2-20250901` and all Appium 3 versions, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) instead of the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
+Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) instead of the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
 
 **What this means:** Some iOS tests may experience behavioral differences. For example, certain WebDriver endpoints such as `/window/rect` (used by `getWindowRect`) may behave differently under the official WDA.
 
@@ -179,9 +170,8 @@ Starting with `appium2-20250901` and all Appium 3 versions, iOS automated test s
 
 | Appium Version | iOS WebDriverAgent |
 |---|---|
-| `appium2-20250501` and earlier, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
-| `appium2-20250901` | Official Appium WebDriverAgent |
-| All `appium3-*` versions | Official Appium WebDriverAgent |
+| All Appium 2 versions, `appium3-2025-10`, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| `appium3-2026-01` and later | Official Appium WebDriverAgent |
 :::
 
 ### Appium 3.x
@@ -203,7 +193,6 @@ Starting with `appium2-20250901` and all Appium 3 versions, iOS automated test s
       </td>
       <td>
         This is a collection of drivers and plugins that were released in October 28th 2025 <br />
-        <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. To opt out, set <code>useOfficialWDA: false</code> in <code>sauce:options</code>. See <a href="./real-devices#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
@@ -347,8 +336,7 @@ Starting with `appium2-20250901` and all Appium 3 versions, iOS automated test s
       </td>
       <td>
         This is the final Appium 2 release provided by Sauce Labs. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
-        <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/3.1/guides/migrating-2-to-3/" target="_blank">migrate to Appium 3</a>.<br /><br />
-        <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. To opt out, set <code>useOfficialWDA: false</code> in <code>sauce:options</code>. See <a href="./real-devices#webdriveragent-for-ios-real-devices">details</a>.
+        <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/3.1/guides/migrating-2-to-3/" target="_blank">migrate to Appium 3</a>.
         <br />
         <ul>
           <li>
