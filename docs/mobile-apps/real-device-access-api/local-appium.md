@@ -1,14 +1,14 @@
 ---
 id: real-device-access-api-local-appium
-title: Local Appium over RDC Access API
+title: Local Appium over Real Device Access API
 sidebar_label: Local Appium
 ---
 
 # Introduction
-Although we encourage using [our hosted Appium solution](/mobile-apps/automated-testing/appium/), certain scenarios benefit from running Appium locally—for example, custom plugins, in-depth debugging, or networking requirements. This guide shows how to connect a local Appium server to Sauce Labs Android and iOS devices through the RDC Access API.
+Although we encourage using [our hosted Appium solution](/mobile-apps/automated-testing/appium/), certain scenarios benefit from running Appium locally—for example, custom plugins, in-depth debugging, or networking requirements. This guide shows how to connect a local Appium server to Sauce Labs Android and iOS devices through the Real Device Access API.
 
 ## Prerequisites
-- RDC Access API enabled for your account (see the [Integration Guide](integration-guide.md)).
+- Real Device Access API enabled for your account (see the [Integration Guide](integration-guide.md)).
 - `curl` and `jq` installed locally.
 - Android workflows: `websocat` and `adb`.
 - iOS workflows: Docker (used for the reference Caddy proxy).

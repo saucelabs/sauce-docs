@@ -22,7 +22,7 @@
 /docs/dev/cli/ @saucelabs/devx
 
 # Backtrace/Error Reporting
-/docs/error-reporting/ @rick-bt @sararasmussen
+/docs/error-reporting/ @rick-bt @sararasmussen @rahuljain-prog
 
 # Sauce Orchestrate
 /docs/orchestrate/ @saucelabs/sauce-orchestrate-team

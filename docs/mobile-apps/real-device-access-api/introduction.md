@@ -39,3 +39,4 @@ Need the full contract? Review the [Real Device Access API specification](/real-
 - **[Local Appium](local-appium.md):** Bridge a local Appium server to Sauce Labs devices using `vusbUrl` (Android) or HTTP forwarding (iOS).
 - **[Sauce Labs Hosted Appium](sauce-labs-hosted-appium.md):** Keep our hosted Appium server running next to your reserved device and run an entire suite on a single session.
 - **[Mastering the Companion Socket](mastering-companion-socket.md):** Learn how to stream real-time device logs, Appium logs, and network traffic using the Companion Socket.
+- **[Device Control Socket](device-control-socket.md):** Stream the live device screen and send touch, gesture, and navigation commands over WebSocket.
