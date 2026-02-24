@@ -1592,6 +1592,21 @@ components:
               type: string
               example: "https://app.saucelabs.com/live/mobile/dataCenters/US/devices/Samsung_Galaxy_S8_real2/shared/123e4567-e89b-12d3-a456-426614174000"
               description: Live test view for the openapi session
+            adbUrl:
+              type: string
+              nullable: true
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/forward"
+              description: ADB forwarding URL for Android devices. Only set when the device OS is Android, null otherwise.
+            usbmuxdUrl:
+              type: string
+              nullable: true
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/usbmuxd"
+              description: usbmuxd URL for iOS devices. Only set when the device OS is iOS, null otherwise.
+            vusbUrl:
+              type: string
+              deprecated: true
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/forward"
+              description: "Deprecated: Use adbUrl for Android or usbmuxdUrl for iOS instead."
             deviceDescriptorUrl:
               type: string
               example: "https://api.us-west-1.saucelabs.com/rdc/v2/devices/iPhone_13_real"
