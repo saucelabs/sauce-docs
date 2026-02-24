@@ -667,18 +667,19 @@ paths:
           schema:
             type: string
       requestBody:
-        required: true
+        required: false
         content:
           application/json:
             schema:
               type: object
-              required:
-                - appiumVersion
               properties:
                 appiumVersion:
                   type: string
-                  description: The appium version to use. Please check https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/#real-devices
-                  example: "latest"
+                  description: >
+                    The Appium version to use. If omitted, the platform default version is used.
+                    Use `GET /appium/versions` to list available versions.
+                    See https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/#real-devices
+                  example: "appium2-202501010004"
       responses:
         "200":
           description: Command executed successfully
@@ -714,6 +715,28 @@ paths:
                 $ref: "#/components/schemas/AppiumSession"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /appium/versions:
+    get:
+      summary: Get the list of supported Appium versions for Real Devices
+      description: |
+        Returns all Appium versions currently available for use on Real Devices,
+        sorted by end-of-life date (latest EOL first). Versions with no scheduled
+        EOL appear at the end of the list.
+      tags:
+        - "Appium Server"
+      responses:
+        "200":
+          description: List of supported Appium versions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  versions:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/AppiumVersion"
 
   /sessions/{sessionId}/device/listFiles:
     post:
@@ -1612,6 +1635,22 @@ components:
           example: "stable"
           description: The hosted appium server version
 
+    AppiumVersion:
+      type: object
+      description: "A supported Appium version available for Real Devices."
+      properties:
+        name:
+          type: string
+          description: "The Appium version identifier. Pass this value as `appiumVersion` when starting an Appium server."
+          example: "appium3-2026-01"
+        eolDate:
+          type: string
+          format: date
+          nullable: true
+          description: "End-of-life date for this version (ISO-8601 date). Null if the version has no scheduled EOL."
+          example: "2027-01-01"
+      required:
+        - name
     SessionCreation:
       type: object
       properties:
