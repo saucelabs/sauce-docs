@@ -161,6 +161,17 @@ Each version will include the latest drivers available at the time of its releas
 We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
 [tables below](#appium-3x) and choose the one that fits your requirements.
 
+:::warning iOS WebDriverAgent Change on Real Devices
+Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) instead of the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
+
+**What this means:** Some iOS tests may experience behavioral differences. For example, certain WebDriver endpoints such as `/window/rect` (used by `getWindowRect`) may behave differently under the official WDA.
+
+| Appium Version | iOS WebDriverAgent |
+|---|---|
+| All Appium 2 versions, `appium3-2025-10`, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| `appium3-2026-01` and later | Official Appium WebDriverAgent |
+:::
+
 ### Appium 3.x
 <table>
   <thead>
@@ -259,7 +270,9 @@ We provide several specific, dated Appium versions. Please check the supported v
         <span className="sauceGold">January 1st, 2027</span>
       </td>
       <td>
-        This is a collection of drivers and plugins that were released in January 6th 2026 <br />
+        This is a collection of drivers and plugins that were released in January 6th 2026.
+        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. 
+        See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
