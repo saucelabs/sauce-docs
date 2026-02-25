@@ -1,6 +1,6 @@
 ---
 id: real-device-access-api-integration-guide
-title: RDC Access API Integration Guide
+title: Real Device Access API Integration Guide
 sidebar_label: Integration Guide
 ---
 
