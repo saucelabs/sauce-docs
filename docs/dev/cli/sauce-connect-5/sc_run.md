@@ -475,6 +475,32 @@ The following example specifies that the API module logs errors, the proxy modul
 
 Log level.
 
+## Time-based access control
+
+Impose time restrictions on connection tunneling operations. User can configure day of week + hour ranges when traffic tunneling over Sauce Connect client is allowed.
+Outside specified time ranges, all HTTP/HTTPS requests over tunnel will be denied using a HTTP 451 error code.
+
+All hour ranges are specified in local time zone specific for the machine running forwarder. Hours are specified using 24h format.
+
+If there is no time frame specified - no time-based access control will be enforced.
+
+Limitations: 
+
+* Access control is enforced only on newly opened connections. Long lasting sessions opened during allowed time-frame will NOT be forcibly closed if allowed time frame ends.
+* Connections for domains matching `--direct-domains` setting will not be affected as those do not pass through Sauce Connect client tunnel on a given machine.
+
+### `--allow-time-frame` {#allow-time-frame}
+
+* Environment variable: `SAUCE_ALLOW_TIME_FRAME`
+* Value Format: `{day-of-week}/{hour_start}-{hour_end},...`
+
+Examples of value format:
+
+* allow tunneling on Mondays between 11:00 and 12:59:59: `mon/11-13`
+* allow tunneling on Tuesdays and Fridays between 18:00 and 23:59:59: `tue/18-24,fri/18-24`
+* allow tunneling on Mondays between 00:00 and 23:59:59: `mon/00-24`
+
+
 ## Kerberos authentication
 
 ### Introduction

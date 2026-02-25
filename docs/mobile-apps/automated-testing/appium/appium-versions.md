@@ -161,13 +161,15 @@ Each version will include the latest drivers available at the time of its releas
 We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
 [tables below](#appium-3x) and choose the one that fits your requirements.
 
+:::warning iOS WebDriverAgent Change on Real Devices
+Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) instead of the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
 
-:::warning Appium Stable Version Being Retired on February 16th, 2026
-The `stable` Appium version for Real Devices is **deprecated and will be retired on February 16th, 2026**. After this date, tests using `appiumVersion: "stable"` will fail.
+**What this means:** Some iOS tests may experience behavioral differences. For example, certain WebDriver endpoints such as `/window/rect` (used by `getWindowRect`) may behave differently under the official WDA.
 
-**Action required:** Update your capabilities to use a specific, dated version such as `appium2-20250901` or migrate to Appium 3 (e.g., `appium3-2026-01`). See the [stable migration guide](./migration-guides/appium-stable-migration.md) for details.
-
-**Why we made this decision:** We are retiring the `stable` image to simplify our versioning model and align with industry standards. Using specific, dated versions provides a more predictable and stable testing environment.
+| Appium Version | iOS WebDriverAgent |
+|---|---|
+| All Appium 2 versions, `appium3-2025-10`, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| `appium3-2026-01` and later | Official Appium WebDriverAgent |
 :::
 
 ### Appium 3.x
@@ -268,7 +270,9 @@ The `stable` Appium version for Real Devices is **deprecated and will be retired
         <span className="sauceGold">January 1st, 2027</span>
       </td>
       <td>
-        This is a collection of drivers and plugins that were released in January 6th 2026 <br />
+        This is a collection of drivers and plugins that were released in January 6th 2026.
+        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. 
+        See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
@@ -504,40 +508,6 @@ The `stable` Appium version for Real Devices is **deprecated and will be retired
           <li>
             <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v1.1.3" target="_blank">
               <code>appium-flutter-integration-driver</code>: 1.1.3
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>stable</code>
-      </td>
-      <td>
-        <span className="sauceGold">February 16th, 2026</span>
-      </td>
-      <td>
-        The `stable` appium version **is deprecated and will be retired on February 16th, 2026**.
-        Please follow the [Migration guide](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration/) to update your configuration. <br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.4.1" target="_blank">
-              <code>appium</code>: 2.4.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.4.1" target="_blank">
-              <code>appium-flutter-driver</code>: 2.4.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.43.4" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 2.43.4
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.15.1" target="_blank">
-              <code>appium-xcuitest-driver</code>: 5.15.1
             </a>
           </li>
         </ul>

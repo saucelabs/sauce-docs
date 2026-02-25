@@ -109,3 +109,9 @@ var report = new BacktraceReport(
   exception: exception,
   attributes: new Dictionary
 ```
+
+## Anti-virus scan
+
+Attachments less than 10MB will be scanned for viruses on download. Attachments greater than 10MB will not be scanned prior to download.
+
+The API response for a file that fails virus scan will be `422 Unprocessable Content.`

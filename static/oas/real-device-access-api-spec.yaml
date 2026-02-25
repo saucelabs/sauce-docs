@@ -667,18 +667,19 @@ paths:
           schema:
             type: string
       requestBody:
-        required: true
+        required: false
         content:
           application/json:
             schema:
               type: object
-              required:
-                - appiumVersion
               properties:
                 appiumVersion:
                   type: string
-                  description: The appium version to use. Please check https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/#real-devices
-                  example: "latest"
+                  description: >
+                    The Appium version to use. If omitted, the platform default version is used.
+                    Use `GET /appium/versions` to list available versions.
+                    See https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/#real-devices
+                  example: "appium2-202501010004"
       responses:
         "200":
           description: Command executed successfully
@@ -714,6 +715,28 @@ paths:
                 $ref: "#/components/schemas/AppiumSession"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /appium/versions:
+    get:
+      summary: Get the list of supported Appium versions for Real Devices
+      description: |
+        Returns all Appium versions currently available for use on Real Devices,
+        sorted by end-of-life date (latest EOL first). Versions with no scheduled
+        EOL appear at the end of the list.
+      tags:
+        - "Appium Server"
+      responses:
+        "200":
+          description: List of supported Appium versions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  versions:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/AppiumVersion"
 
   /sessions/{sessionId}/device/listFiles:
     post:
@@ -1513,7 +1536,7 @@ components:
         isPrivateDevice:
           type: boolean
           example: true
-        status:
+        state:
           $ref: "#/components/schemas/DeviceStatus"
         inUseBy:
           type: array
@@ -1528,7 +1551,7 @@ components:
       required:
         - descriptor
         - isPrivateDevice
-        - status
+        - state
     SessionId:
       type: string
       description: Unique id of device session
@@ -1592,6 +1615,21 @@ components:
               type: string
               example: "https://app.saucelabs.com/live/mobile/dataCenters/US/devices/Samsung_Galaxy_S8_real2/shared/123e4567-e89b-12d3-a456-426614174000"
               description: Live test view for the openapi session
+            adbUrl:
+              type: string
+              nullable: true
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/forward"
+              description: ADB forwarding URL for Android devices. Only set when the device OS is Android, null otherwise.
+            usbmuxdUrl:
+              type: string
+              nullable: true
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/usbmuxd"
+              description: usbmuxd URL for iOS devices. Only set when the device OS is iOS, null otherwise.
+            vusbUrl:
+              type: string
+              deprecated: true
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/forward"
+              description: "Deprecated: Use adbUrl for Android or usbmuxdUrl for iOS instead."
             deviceDescriptorUrl:
               type: string
               example: "https://api.us-west-1.saucelabs.com/rdc/v2/devices/iPhone_13_real"
@@ -1612,6 +1650,22 @@ components:
           example: "stable"
           description: The hosted appium server version
 
+    AppiumVersion:
+      type: object
+      description: "A supported Appium version available for Real Devices."
+      properties:
+        name:
+          type: string
+          description: "The Appium version identifier. Pass this value as `appiumVersion` when starting an Appium server."
+          example: "appium3-2026-01"
+        eolDate:
+          type: string
+          format: date
+          nullable: true
+          description: "End-of-life date for this version (ISO-8601 date). Null if the version has no scheduled EOL."
+          example: "2027-01-01"
+      required:
+        - name
     SessionCreation:
       type: object
       properties:
