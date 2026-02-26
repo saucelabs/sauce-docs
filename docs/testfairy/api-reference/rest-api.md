@@ -888,7 +888,9 @@ Get recent audit trail items.
 <summary><span className="api get">GET</span><code>/api/1/audits?type=admin_trail</code></summary>
 <p></p>
 
-Get paginated admin trail audit logs, including security changes, integration updates, team management actions, and authentication events. Requires account manager permissions.
+Get paginated admin trail audit logs, including security changes, integration updates, team management actions, and webhook modifications. Requires admin permissions with all-projects access.
+
+For multi-site accounts, account managers see logs across all related sites. Admins see logs for their own site only.
 
 #### Query Parameters
 
@@ -900,14 +902,14 @@ Get paginated admin trail audit logs, including security changes, integration up
 			<td>Required. Must be set to <code>admin_trail</code>.</td>
 		</tr>
 		<tr>
-			<td><code>page</code></td>
-			<td><code>int</code></td>
-			<td>Page number (default: 1).</td>
+			<td><code>site</code></td>
+			<td><code>string</code> or <code>int</code></td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
 		</tr>
 		<tr>
-			<td><code>per_page</code></td>
+			<td><code>action_type</code></td>
 			<td><code>int</code></td>
-			<td>Results per page (default: 50, max: 200).</td>
+			<td>Optional. Filter by a specific action type ID.</td>
 		</tr>
 		<tr>
 			<td><code>start_date</code></td>
@@ -920,9 +922,14 @@ Get paginated admin trail audit logs, including security changes, integration up
 			<td>Optional. Filter to date (format: <code>YYYY-MM-DD</code>).</td>
 		</tr>
 		<tr>
-			<td><code>action_type</code></td>
+			<td><code>page</code></td>
 			<td><code>int</code></td>
-			<td>Optional. Filter by a specific action type ID.</td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
 		</tr>
 	</tbody>
 </table>
@@ -945,7 +952,9 @@ Get paginated admin trail audit logs, including security changes, integration up
         {
             "id": 123,
             "timestamp": "2026-02-25 10:30:00",
-            "userId": 456,
+            "enterpriseId": 456,
+            "siteName": "Acme Corp",
+            "userId": 789,
             "userEmail": "admin@example.com",
             "ipAddress": "1.2.3.4",
             "actionType": 1905,
