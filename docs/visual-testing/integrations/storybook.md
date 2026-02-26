@@ -21,13 +21,17 @@ browser driver.
 
 ## Compatibility
 
-This package leverage's Storybook's test-runner and metadata generation system for enabling automatic testing of Storybook stories. We recommend running Storybook `^7.0.0 || ^8.0.0` and an up-to-date version of the Storybook test-runner (`>=0.17.0` at time of writing).
+This package leverage's Storybook's test-runner and metadata generation system for enabling automatic testing of Storybook stories. We recommend running Storybook `^10.0.0` and an up-to-date / compatible version of the Storybook test-runner (`>=0.24.0` at time of writing).
 
 ## Getting Started
 
 ### Step 1 - Install and Configure the Test Runner
 
-Follow [Storybook's instructions](https://github.com/storybookjs/test-runner/blob/next/README.md#getting-started) for setting up, installing, and configuring the test-runner if you haven't done so already. If you have already used or enabled the test-runner, you can skip this step.
+Follow [Storybook's instructions](https://github.com/storybookjs/test-runner/blob/next/README.md#getting-started) for setting up, installing, and configuring the test-runner if you haven't done so already. Alternatively you can use the line below for a quick installation with the default settings. If you have already used or enabled the test-runner, you can skip this step.
+
+```sh
+npm i --save-dev @storybook/test-runner
+```
 
 ### Step 2 - Install the Visual Package
 
@@ -59,7 +63,7 @@ npx @storybook/test-runner --eject
 
 The above should have created a file in the root directory, `test-runner-jest.config.js`. Edit this file and add an import for the sauce visual plugin:
 
-`const { getVisualTestConfig } = require('@saucelabs/visual-storybook');`,
+`import { getVisualTestConfig } from '@saucelabs/visual-storybook';`,
 
 then append
 
@@ -68,33 +72,32 @@ then append
 below the jest config spread. Your file should look similar to the example below:
 
 ```js
-const { getJestConfig } = require('@storybook/test-runner');
-const { getVisualTestConfig } = require('@saucelabs/visual-storybook');
+import { getJestConfig } from '@storybook/test-runner';
+import { getVisualTestConfig } from '@saucelabs/visual-storybook';
 
 /**
  * @type {import('@jest/types').Config.InitialOptions}
  */
-module.exports = {
-  // The default configuration comes from @storybook/test-runner
+export default {
   ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
   ...getVisualTestConfig(),
-  /** Add your own overrides below
+  /** Add your own overrides below, and make sure
+   *  to merge testRunnerConfig properties with your own
    * @see https://jestjs.io/docs/configuration
-   * @see https://github.com/playwright-community/jest-playwright#configuration
    */
 };
 ```
 
 ### Step 4 - Configure the Storybook Test Runner
 
-Create a `test-runner.js` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `preVisit` and `postVisit` hooks into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
+Create a `test-runner.ts` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `preVisit` and `postVisit` hooks into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
 
-```js
-// .storybook/test-runner.js
-const { postVisit, preVisit } = require('@saucelabs/visual-storybook');
+```ts
+// .storybook/test-runner.ts
+import { postVisit, preVisit  } from "@saucelabs/visual-storybook";
 
-module.exports = {
+export default {
   preVisit,
   postVisit,
 };
@@ -186,22 +189,21 @@ export default meta;
 By default, the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
 
 ```js
-const { getJestConfig } = require('@storybook/test-runner');
-const { getVisualTestConfig } = require('@saucelabs/visual-storybook');
+import { getJestConfig } from '@storybook/test-runner';
+import { getVisualTestConfig } from '@saucelabs/visual-storybook';
 
 /**
  * @type {import('@jest/types').Config.InitialOptions}
  */
-module.exports = {
-  // The default configuration comes from @storybook/test-runner
+export default {
   ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
   ...getVisualTestConfig(),
-  /** Add your own overrides below
+  /** Add your own overrides below, and make sure
+   *  to merge testRunnerConfig properties with your own
    * @see https://jestjs.io/docs/configuration
-   * @see https://github.com/playwright-community/jest-playwright#configuration
    */
-
+  
   // Add this to your config
   testEnvironmentOptions: {
     'jest-playwright': {
@@ -239,10 +241,10 @@ import { takeVisualSnapshot } from "@saucelabs/visual-storybook/play";
 Once setup, you can use the `play` function in a story to interact with a component and take snapshots of individual states. See the full example below of a 'Button' component -- paying specific attention to the `play` property in the story declaration.
 
 ```ts
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
-import { takeVisualSnapshot } from "@saucelabs/visual-storybook/play";
-import { expect, userEvent, within } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { takeVisualSnapshot } from '@saucelabs/visual-storybook/play';
+import type { SauceVisualParams } from '@saucelabs/visual-storybook';
+import { expect, fn, userEvent, within } from 'storybook/test';
 
 const meta = {
   title: "Example/Button",
@@ -308,8 +310,8 @@ export interface StoryVariation<Args> {
 Example:
 
 ```ts
-import type { Meta, StoryObj } from "@storybook/react";
-import { SauceVisualParams } from "@saucelabs/visual-storybook";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { SauceVisualParams } from '@saucelabs/visual-storybook';
 import { Button, ButtonProps } from "./Button";
 
 const meta = {
