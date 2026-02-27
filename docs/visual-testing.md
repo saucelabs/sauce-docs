@@ -114,17 +114,18 @@ A **diff** has a status that represents its current state:
 Every integration generates snapshots and compares them against a baseline snapshot to detect differences.
 The following snapshot metadata keys are used to determine the appropriate baseline:
 
-| Property                 | Type     | Description                                                                                                                                                               |
-| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                   | `string` | The name of the snapshot which will be set when the `sauceVisualCheck()` is called. See each language binding.                                                            |
+| Property                 | Type     | Description                                                                                                                                                                  |
+|--------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`                   | `string` | The name of the snapshot which will be set when the `sauceVisualCheck()` is called. See each language binding.                                                               |
 | `testName`               | `string` | The name of the test where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically be determined by the language binding.  |
 | `suiteName`              | `string` | The name of the suite where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically be determined by the language binding. |
-| `browser`                | `string` | The browser used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                             |
-| `operatingSystem`        | `string` | The operating system used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                    |
-| `operatingSystemVersion` | `string` | The operating system version used to take the snapshot. This will automatically be determined by Sauce Visual.                                                            |
-| `project`                | `string` | The project name. This can be set during service initiation, for more information see the language bindings.                                                              |
-| `branch`                 | `string` | The branch name. This can be set during service initiation, for more information see the language bindings.                                                               |
-| `device`                 | `string` | The device name. This will automatically be determined by Sauce Visual.                                                                                                    |
+| `browser`                | `string` | The browser used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                                |
+| `operatingSystem`        | `string` | The operating system used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                       |
+| `operatingSystemVersion` | `string` | The operating system version used to take the snapshot. This will automatically be determined by Sauce Visual.                                                               |
+| `project`                | `string` | The project name. This can be set during service initiation, for more information see the language bindings.                                                                 |
+| `branch`                 | `string` | The branch name. This can be set during service initiation, for more information see the language bindings.                                                                  |
+| `device`                 | `string` | The device name. This will automatically be determined by Sauce Visual.                                                                                                      |
+| `appId`                  | `string` | The package name of the app under test. Only applicable for native mobile tests where `browser` = `NONE`. This will automatically be determined by Sauce Visual.             |
 
 If multiple baselines match, the most recent one is selected for diff computation.
 
