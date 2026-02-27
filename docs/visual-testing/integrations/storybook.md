@@ -23,6 +23,8 @@ browser driver.
 
 This package leverage's Storybook's test-runner and metadata generation system for enabling automatic testing of Storybook stories. We recommend running Storybook `^10.0.0` and an up-to-date / compatible version of the Storybook test-runner (`>=0.24.0` at time of writing).
 
+Users running on Storybook versions 6-8 can use the previous major release, `@saucelabs/visual-storybook@^0.10.x`, until they're able to upgrade.
+
 ## Getting Started
 
 ### Step 1 - Install and Configure the Test Runner
