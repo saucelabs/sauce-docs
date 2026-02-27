@@ -91,7 +91,7 @@ export default {
 
 ### Step 4 - Configure the Storybook Test Runner
 
-Create a `test-runner.ts` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `preVisit` and `postVisit` hooks into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
+Create a `test-runner.ts` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `preVisit` and `postVisit` hooks into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner?tab=readme-ov-file#test-hooks-api) section. It should look something like below:
 
 ```ts
 // .storybook/test-runner.ts
