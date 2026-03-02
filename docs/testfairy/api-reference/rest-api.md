@@ -882,6 +882,100 @@ Get recent audit trail items.
 
 </details>
 
+### Get Admin Trail Audit Logs
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/audits?type=admin_trail</code></summary>
+<p></p>
+
+Get paginated admin trail audit logs, including security changes, integration updates, team management actions, and webhook modifications. Requires admin permissions with all-projects access.
+
+For multi-site accounts, account managers see logs across all related sites. Admins see logs for their own site only.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>type</code></td>
+			<td><code>admin_trail</code></td>
+			<td>Required. Must be set to <code>admin_trail</code>.</td>
+		</tr>
+		<tr>
+			<td><code>site</code></td>
+			<td><code>string</code> or <code>int</code></td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+		</tr>
+		<tr>
+			<td><code>action_type</code></td>
+			<td><code>int</code></td>
+			<td>Optional. Filter by a specific action type ID.</td>
+		</tr>
+		<tr>
+			<td><code>start_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter from date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>end_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter to date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "audits": [
+        {
+            "id": 123,
+            "timestamp": "2026-02-25 10:30:00",
+            "enterpriseId": 456,
+            "siteName": "Acme Corp",
+            "userId": 789,
+            "userEmail": "admin@example.com",
+            "ipAddress": "1.2.3.4",
+            "actionType": 1905,
+            "actionLabel": "Security settings changed",
+            "actionData": {
+                "from": {"mfa_enabled": false},
+                "to": {"mfa_enabled": true}
+            }
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 230,
+        "total_pages": 5
+    }
+}
+```
+
+</details>
+
 ## Permissions
 
 ### Get the List of Admins and Their Permissions
