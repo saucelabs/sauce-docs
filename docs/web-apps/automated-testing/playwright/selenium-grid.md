@@ -47,7 +47,7 @@ different programming languages.
 
 
 :::note Testing on macOS 14/15
-To run tests on macOS 14/15, you need to add `armRequired: true` to your fixture's capabilities. 
+To run tests on macOS 14/15, you need to add `armRequired: true` inside `sauce:options` in your fixture's capabilities. 
 This ensures your tests run on Apple Silicon-based machines. For additional details on testing on macOS 14/15, 
 see [macOS Apple Silicon](/web-apps/macos-apple-silicon/).
 :::
