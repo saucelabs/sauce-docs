@@ -248,6 +248,8 @@ practices are already implemented for you, including test metadata, session mana
 Playwright must run in headed mode for Sauce Labs to capture video recordings. Ensure your test
 configuration or command includes the headed flag:
 
+
+### Use Headed Mode
 ```shell
 npx playwright test --headed
 ```
