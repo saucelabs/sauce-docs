@@ -54,7 +54,7 @@ Clicking the icon opens a compact chat panel directly beside the widget, and you
 Sauce AI understands your intent, retrieves the relevant data, and generates an answer in real time, often with visual context such as a chart or data table. 
 
 ## Diagnosing Test Failures
-Sauce AI for Insights can act as your automated debugging assistant. If you notice a failed test run, you don't need to manually parse through the logs to find the root cause. Open Sauce AI for Insights and ask the agent to investigate the failure using the Job ID (for example: "Why did this job fail dade3074f5da4fc2b2e7c6d4ae7eb0f5?"). The agent will analyze the test execution and return an Execution Health Report, which includes:
+Sauce AI for Insights can act as your automated debugging assistant. If you notice a failed test run, you don't need to manually parse through the logs to find the root cause. Open Sauce AI for Insights and ask the agent to investigate the failure using the Job ID (for example: "Why did this job fail dade3074f5da4fc2b2e7c6d4ae7eb0f5?"). The agent will analyze the test execution and return an analysis, which includes:
 
 * Critical Evidence: The exact point of failure (e.g., a modal or cookie consent banner overlaying a target element).
 * Warning Patterns: A summary of non-critical errors (like "element not found") leading up to the failure that might indicate timing issues or brittleness.
