@@ -839,7 +839,11 @@ Get metadata for 100 of the latest feedbacks recorded.
 
 ## Audits
 
-### Get Recent Audit Trail Items
+### Get Recent Audit Trail Items (Deprecated)
+
+:::caution Deprecated
+This endpoint is deprecated. Use the v2 audit endpoints below instead: `/api/2/audits/`, `/api/2/audits/admin-trail/`, `/api/2/audits/tester-trail/`.
+:::
 
 <details>
 <summary><span className="api get">GET</span><code>/api/1/audits</code></summary>
