@@ -45,6 +45,14 @@ into test execution and results in the Sauce Labs dashboard.
 The following examples demonstrate how to configure Playwright to connect to Sauce Labs in
 different programming languages.
 
+
+:::note Testing on macOS 14/15
+To run tests on macOS 14/15, you need to add `armRequired: true` to your fixture's capabilities. 
+This ensures your tests run on Apple Silicon-based machines. For additional details on testing on macOS 14/15, 
+see [macOS Apple Silicon](/web-apps/macos-apple-silicon/).
+:::
+
+
 <Tabs
 defaultValue="javascript"
 values={[
@@ -237,7 +245,6 @@ If you're using our recommended [fixtures/extensions](#using-fixturesextensions-
 practices are already implemented for you, including test metadata, session management, and job status updates.
 :::
 
-### Use Headed Mode
 Playwright must run in headed mode for Sauce Labs to capture video recordings. Ensure your test
 configuration or command includes the headed flag:
 
