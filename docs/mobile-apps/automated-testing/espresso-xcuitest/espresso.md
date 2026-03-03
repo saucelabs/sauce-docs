@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Espresso tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Espresso tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Espresso tests, modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Espresso tests.
 
 ## Setting an Alternative Configuration File
 
@@ -121,7 +121,7 @@ sauce:
 
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
-Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
+Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1`, `us-east-4`, or `eu-central-1`.
 
 :::note
 If you do not specify a region in your config file, you must set it when running your command with the `--region` flag.
@@ -240,6 +240,21 @@ sauce:
   tunnel:
     name: your_tunnel_name
     owner: tunnel_owner_username
+```
+
+---
+
+#### `timeout`
+
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+How long to wait for the specified tunnel to be ready. Supports duration values like `30s`, `1m`, etc. If not specified, `saucectl` will wait indefinitely for the tunnel.
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    timeout: 30s
 ```
 
 ---
@@ -681,7 +696,7 @@ The max attempt would be 4 times. If the test passed twice, it'd stop and be mar
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     passThreshold: 2
 ```
@@ -697,7 +712,7 @@ Specifies the retry strategy to apply for that suite. It should be used along wi
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
@@ -712,7 +727,7 @@ suite:
 When set to `true`, `saucectl` collects any failed tests from the previous run and performs an automatic retry on them.
 
 ```yaml
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
@@ -781,6 +796,22 @@ If you are using emulators for this test suite, this property is REQUIRED.
   platformVersions:
     - "11.0"
     - "10.0"
+```
+
+---
+
+#### `armRequired`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Specifies whether an ARM-based emulator is required for this test suite. When set to `true`, the emulator runs on ARM architecture. When set to `false` or not specified, the emulator runs on x86 architecture.
+
+```yaml
+emulators:
+  - name: "Android GoogleApi Emulator"
+    platformVersions:
+      - "11.0"
+    armRequired: true
 ```
 
 ---
@@ -1261,30 +1292,6 @@ you can do so in `saucectl` by adding them to the `testOptions` property.
 suites:
   testOptions:
     testUser: "John Doe"
-```
-
----
-
-### `disableImmersiveModePopUp`
-
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Android Virtual Devices Only</span> |</small></p>
-
-Android allows apps to use the full screen, hiding the status bar and navigation bar. This is called ["immersive mode"](https://developer.android.com/develop/ui/views/layout/immersive). When you run an Android test, the device will show a popup asking if you want to allow the app to use immersive mode. This popup can interfere with your test, and by default we disable it. If you want to enable it, set `disableImmersiveModePopUp` to `false`.
-
-:::note
-
-Under the hood, this capability is running this command before the app is started:
-
-```bash
-adb shell settings put secure immersive_mode_confirmations confirmed
-```
-
-:::
-
-```yaml
-suites:
-  testOptions:
-    disableImmersiveModePopUp: false
 ```
 
 ---
