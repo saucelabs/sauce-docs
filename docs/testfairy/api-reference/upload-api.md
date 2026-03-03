@@ -180,6 +180,18 @@ https://app.testfairy.com/api/upload/
  <td><p><small>| OPTIONAL |</small></p><p>In case the app is not iOS or Android, which are detected automatically, use this to mark an app for specific desktop or console platforms. Values can be "Xbox", "PlayStation", "switch", "windows", "macos". This feature is not enabled by default. Contact support for more information.</p></td>
  </tr>
  </tbody>
+ <tbody>
+ <tr>
+ <td><code>community_token</code></td>
+ <td><p><small>| OPTIONAL |</small></p><p>Custom URL token for the landing page (minimum 6 characters, alphanumeric with dots and hyphens).</p></td>
+ </tr>
+ </tbody>
+ <tbody>
+ <tr>
+ <td><code>app_description</code></td>
+ <td><p><small>| OPTIONAL |</small></p><p>Description text to display on the app's landing page. Supports Markdown formatting.</p></td>
+ </tr>
+ </tbody>
 </table>
 
 <Tabs
@@ -268,7 +280,8 @@ In the case of an error, Sauce Labs Mobile App Distribution returns a JSON with 
     "attachments": null,
     "landing_page_url": "https://app.testfairy.com/join/31thr2",
     "build_specific_landing_page_url": "https://app.testfairy.com/join/31thr2?id=106410",
-    "landing_page_mode": "closed"
+    "landing_page_mode": "closed",
+    "app_description": "My app description"
 }
 ```
 
