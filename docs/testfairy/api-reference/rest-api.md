@@ -839,7 +839,11 @@ Get metadata for 100 of the latest feedbacks recorded.
 
 ## Audits
 
-### Get Recent Audit Trail Items
+### Get Recent Audit Trail Items (Deprecated)
+
+:::caution Deprecated
+This endpoint is deprecated. Use the v2 audit endpoints below instead: `/api/2/audits/`, `/api/2/audits/admin-trail/`, `/api/2/audits/tester-trail/`.
+:::
 
 <details>
 <summary><span className="api get">GET</span><code>/api/1/audits</code></summary>
@@ -882,10 +886,101 @@ Get recent audit trail items.
 
 </details>
 
+### Get All Audit Logs
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/audits/</code></summary>
+<p></p>
+
+Get paginated audit logs across all action types. Returns admin trail, tester trail, and all other audit events. Requires admin permissions with all-projects access.
+
+For multi-site accounts, account managers see logs across all related sites. Admins see logs for their own site only.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>site</code></td>
+			<td><code>string</code> or <code>int</code></td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+		</tr>
+		<tr>
+			<td><code>action_type</code></td>
+			<td><code>int</code></td>
+			<td>Optional. Filter by a specific action type ID.</td>
+		</tr>
+		<tr>
+			<td><code>start_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter from date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>end_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter to date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "audits": [
+        {
+            "id": 789,
+            "timestamp": "2026-03-01 09:00:00",
+            "enterpriseId": 456,
+            "siteName": "My Organization",
+            "userId": 789,
+            "userEmail": "admin@example.com",
+            "ipAddress": "1.2.3.4",
+            "actionType": 1905,
+            "actionLabel": "Security settings changed",
+            "actionData": {
+                "from": {"mfa_enabled": false},
+                "to": {"mfa_enabled": true}
+            }
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 315,
+        "total_pages": 7
+    }
+}
+```
+
+</details>
+
+---
+
 ### Get Admin Trail Audit Logs
 
 <details>
-<summary><span className="api get">GET</span><code>/api/1/audits?type=admin_trail</code></summary>
+<summary><span className="api get">GET</span><code>/api/2/audits/admin-trail/</code></summary>
 <p></p>
 
 Get paginated admin trail audit logs, including security changes, integration updates, team management actions, and webhook modifications. Requires admin permissions with all-projects access.
@@ -896,11 +991,6 @@ For multi-site accounts, account managers see logs across all related sites. Adm
 
 <table id="table-api">
 	<tbody>
-		<tr>
-			<td><code>type</code></td>
-			<td><code>admin_trail</code></td>
-			<td>Required. Must be set to <code>admin_trail</code>.</td>
-		</tr>
 		<tr>
 			<td><code>site</code></td>
 			<td><code>string</code> or <code>int</code></td>
@@ -953,7 +1043,7 @@ For multi-site accounts, account managers see logs across all related sites. Adm
             "id": 123,
             "timestamp": "2026-02-25 10:30:00",
             "enterpriseId": 456,
-            "siteName": "Acme Corp",
+            "siteName": "My Organization",
             "userId": 789,
             "userEmail": "admin@example.com",
             "ipAddress": "1.2.3.4",
@@ -970,6 +1060,96 @@ For multi-site accounts, account managers see logs across all related sites. Adm
         "per_page": 50,
         "total": 230,
         "total_pages": 5
+    }
+}
+```
+
+</details>
+
+---
+
+### Get Tester Trail Audit Logs
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/audits/tester-trail/</code></summary>
+<p></p>
+
+Get paginated tester trail audit logs, including tester invitations, deletions, group assignments, and build distribution changes. Requires admin permissions with all-projects access.
+
+For multi-site accounts, account managers see logs across all related sites. Admins see logs for their own site only.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>site</code></td>
+			<td><code>string</code> or <code>int</code></td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+		</tr>
+		<tr>
+			<td><code>action_type</code></td>
+			<td><code>int</code></td>
+			<td>Optional. Filter by a specific action type ID.</td>
+		</tr>
+		<tr>
+			<td><code>start_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter from date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>end_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter to date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "audits": [
+        {
+            "id": 456,
+            "timestamp": "2026-02-25 14:15:00",
+            "enterpriseId": 456,
+            "siteName": "My Organization",
+            "userId": 789,
+            "userEmail": "admin@example.com",
+            "ipAddress": "1.2.3.4",
+            "actionType": 1200,
+            "actionLabel": "Invited testers",
+            "actionData": {
+                "emails": ["tester1@example.com", "tester2@example.com"]
+            }
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 85,
+        "total_pages": 2
     }
 }
 ```
