@@ -8,7 +8,7 @@ Testing on real devices shouldn't mean maintaining a device lab. But until now, 
 
 The Real Device Access API changes that. Reserve a device with a single API call, then connect your existing tools — `adb`, Xcode, Instruments, `idevicesyslog`, any libimobiledevice utility — as if the device were on your desk. All you need is a local reverse proxy and your Sauce Labs credentials. No proprietary software. No Java runtime. Just your tools, talking to our devices.
 
-Here's how it works: when you start a session, the API returns a WebSocket endpoint for your device. This endpoint carries the raw binary device protocol — the same bytes that would normally flow over a USB cable to a device on your desk — encapsulated in WebSocket frames over TLS. A lightweight local reverse proxy like `websocat` bridges your localhost to this endpoint, which directs the bytes straight to the remote device. On Android, `adb connect localhost:50371` then works exactly as if the device were plugged in. On iOS, the local usbmuxd socket at `/var/run/usbmuxd` is bridged to the remote device, so Xcode, Instruments, and every libimobiledevice tool discovers it automatically. You already know `adb shell` and `ideviceinfo` — your existing scripts, profilers, and workflows carry over unchanged.
+Your existing scripts, profilers, and workflows carry over unchanged. See [How It Works](#how-it-works) for the technical details.
 
 ## What You'll Need
 
@@ -20,11 +20,17 @@ Here's how it works: when you start a session, the API returns a WebSocket endpo
 
 When a device is physically connected via USB, your tools communicate through a local protocol — ADB on Android, usbmuxd on iOS. The Real Device Access API preserves this exact interface but routes the connection over the internet.
 
-The technical challenge is getting the raw device protocol bytes from your machine to a device in the Sauce Labs cloud — reliably and securely, across the public internet. The solution: encode them into WebSocket frames on your end, transport them over TLS, and decode them back on the other end. Everything in between — the reverse proxy, the WebSocket connection, the TLS encryption — is just transport. Your tools send the same bytes they always do, and the device receives the same bytes it always would.
+The technical challenge is transporting the same bytes that would normally flow over a USB cable — reliably and securely, across the public internet. The solution: when you start a session, the API returns a WebSocket endpoint for your device. A lightweight local reverse proxy encodes the bytes into WebSocket frames, transports them over TLS to the Sauce Labs API, which decodes them and delivers them to the device. Everything in between — the reverse proxy, the WebSocket connection, the TLS encryption — is just transport. Your tools send the same bytes they always do, and the device receives the same bytes it always would.
 
 ```
-Your Tools ──TCP──▶ Local Reverse Proxy ──WSS──▶ Sauce Labs API ──────▶ Remote Device
-(adb, Xcode)        (websocat, socat)            (api.*.saucelabs.com)   (adb daemon / usbmuxd)
+┌──────────────────┐      ┌──────────────────┐      ┌──────────────────┐      ┌──────────────────┐
+│   Your Tools     │      │  Local Reverse   │      │  Sauce Labs API  │      │  Remote Device   │
+│                  │ TCP  │  Proxy           │ WSS  │                  │      │                  │
+│  adb             ├─────▶│  websocat        ├─────▶│  api.*.saucelabs ├─────▶│  adb daemon      │
+│  Xcode           │      │  socat           │      │  .com            │      │  usbmuxd         │
+│  libimobiledevice│      │                  │      │                  │      │                  │
+└──────────────────┘      └──────────────────┘      └──────────────────┘      └──────────────────┘
+     localhost                  localhost                 internet               Sauce Labs cloud
 ```
 
 1. **Your tools** connect to `localhost` — they don't know or care that the device is remote.
