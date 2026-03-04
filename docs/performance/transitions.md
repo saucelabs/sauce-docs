@@ -37,6 +37,12 @@ test is likely to result in compromised results for both objectives and can obsc
 - Google Chrome (no older than 3 versions from latest) as the test browser.
 - An automation script that performs the interaction with your app during which you want to measure performance.
 
+:::caution WebDriver BiDi Not Supported
+Performance testing is not compatible with WebDriver BiDi at this time. If you are using Selenium, avoid setting 
+`webSocketUrl: true` in your capabilities. For recent versions of WebdriverIO, you must force WebDriver Classic by 
+setting `'wdio:enforceWebDriverClassic': true` in your top-level capabilities.
+:::
+
 ## Setting Performance Capabilities
 
 Before you configure your script to capture performance metrics as it executes, you must update your capabilities 

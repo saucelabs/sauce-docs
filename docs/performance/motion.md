@@ -23,6 +23,12 @@ page performs in motion, such as while scrolling or tabbing.
   See [Set Performance Capabilities](/performance/transitions/#setting-performance-capabilities)
   for instructions.
 
+:::caution WebDriver BiDi Not Supported
+Performance testing is not compatible with WebDriver BiDi at this time. If you are using Selenium, avoid setting 
+`webSocketUrl: true` in your capabilities. For recent versions of WebdriverIO, you must force WebDriver Classic by 
+setting `'wdio:enforceWebDriverClassic': true` in your top-level capabilities.
+:::
+
 ## What is Jankiness?
 
 Web apps sometimes appear to lack smoothness when the app isn't keeping up with the refresh, a condition sometimes 

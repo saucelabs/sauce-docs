@@ -27,6 +27,12 @@ Selenium/WebDriver tests and CI systems, allowing you to capture performance met
 - SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment
 - The `extendedDebugging` and `capturePerformance` capabilities enabled in your test configuration
 
+:::caution WebDriver BiDi Not Supported
+Performance testing is not compatible with WebDriver BiDi at this time. If you are using Selenium, avoid 
+setting `webSocketUrl: true` in your capabilities. For recent versions of WebdriverIO, you must force WebDriver Classic 
+by setting `'wdio:enforceWebDriverClassic': true` in your top-level capabilities.
+:::
+
 ## Enabling Performance Testing
 
 To capture performance metrics in your Sauce Labs tests, you need to enable the `extendedDebugging` and 
