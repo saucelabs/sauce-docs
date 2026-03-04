@@ -96,3 +96,51 @@ idevice_id -l
 ```
 
 The remote device's UDID should appear. From here, Xcode, Instruments, `idevicesyslog`, and all libimobiledevice tools will discover and interact with the device as if it were connected via USB.
+
+## Use Cases
+
+**Android — take a screenshot via ADB:**
+
+```shell
+adb shell screencap -p /sdcard/screen.png
+adb pull /sdcard/screen.png ./screen.png
+```
+
+**iOS — stream device logs via libimobiledevice:**
+
+```shell
+idevicesyslog
+```
+
+## Reference Script
+
+For a turnkey setup that handles both platforms, see the [`api-connect.sh`](https://github.com/saucelabs/real-device-api/blob/main/scripts/api-connect.sh) reference script.
+
+## Cleanup
+
+Close the session and stop the local reverse proxy:
+
+```shell
+# Close the session
+curl -X DELETE -u $AUTH "$BASE_URL/sessions/{session_id}"
+
+# Android: disconnect adb and stop websocat
+adb disconnect localhost:50371
+kill %1
+
+# iOS: stop socat and restore the original usbmuxd socket
+kill %1
+sudo mv /var/run/usbmuxd.real /var/run/usbmuxd
+```
+
+## Troubleshooting
+
+- **`adb connect` times out** — verify `websocat` is still running and the `adbUrl` is correct. Check that your credentials are valid.
+- **`idevice_id -l` returns nothing** — ensure you're running as root, the original socket was backed up successfully, and `socat` is running.
+- **Connection drops after a period of inactivity** — the session may have timed out. Check session state with `GET /sessions/{session_id}`.
+
+## Limitations
+
+- `adb reverse` is not supported — use `adb forward` instead.
+- iOS access requires root to replace the `/var/run/usbmuxd` socket.
+- IDE debugging and attaching debuggers (Xcode, Android Studio) is not supported.
