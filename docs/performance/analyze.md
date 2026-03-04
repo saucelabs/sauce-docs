@@ -78,7 +78,7 @@ The score is a weighted average between:
 - Total Blocking Time
 - Cumulative Layout Shift
 
-See [Metric Values](/performance/one-page.md#metric-values) for definitions of each metric.
+See [Metric Values](/performance/one-page.md#available-metrics) for definitions of each metric.
 
 ## Viewing the Trace Report
 
