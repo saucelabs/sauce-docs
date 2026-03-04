@@ -73,6 +73,8 @@ saucelabs_appdist(
 | `landing_page_mode`   | Landing page visibility (`open`/`closed`)                      | `open`                    |
 | `upload_to_saucelabs` | Upload to Sauce Labs (`on`/`off`)                              | `off`                     |
 | `platform`            | Platform override                                              | `""`                      |
+| `community_token`     | Custom URL token for the landing page                          | `""`                      |
+| `app_description`     | Description text to display on the landing page                | `""`                      |
 
 :::note
 If your server's security settings require users to login before downloading, you must set `landing_page_mode: "closed"`. Otherwise the upload will fail with error code 156.
@@ -109,7 +111,9 @@ The response is a hash containing all fields from the upload API, including:
 | `symbols_download_url`             | URL to download symbols file (if uploaded)        |
 | `landing_page_url`                 | URL of the build's landing page                   |
 | `build_specific_landing_page_url`  | Landing page URL specific to this build           |
+| `attachments`                      | Attachments associated with the build             |
 | `landing_page_mode`                | Landing page visibility (`open` or `closed`)      |
+| `app_description`                  | Description text displayed on the landing page    |
 
 Example:
 
