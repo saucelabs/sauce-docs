@@ -262,6 +262,96 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 ---
 
+### Update a Specific Build
+
+<details>
+<summary><span className="api patch">PATCH</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
+<p></p>
+
+Update editable fields of a specific build. Only the fields included in the request body are modified; omitted fields remain unchanged.
+
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>comment</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Release notes / changelog for the build.</p></td>
+		</tr>
+		<tr>
+			<td><code>tags</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma-separated list of tags.</p></td>
+		</tr>
+		<tr>
+			<td><code>groups</code> or <code>app_permission_groups</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma-separated list of tester group names. If present but empty, clears all groups. If omitted, groups are unchanged.</p></td>
+		</tr>
+		<tr>
+			<td><code>landing_page_mode</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Landing page mode: <code>open</code> or <code>closed</code>.</p></td>
+		</tr>
+		<tr>
+			<td><code>metadata_*</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Custom metadata fields. Use the prefix <code>metadata_</code> followed by a key name (e.g. <code>metadata_title</code>, <code>metadata_env</code>).</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```bash title="Sample Request"
+curl -X PATCH \
+  "https://upload.testfairy.com/api/1/projects/{project-id}/builds/{build-id}" \
+  -H "Api-Key: {your-api-key}" \
+  -d "comment=New release notes" \
+  -d "tags=production,v2" \
+  -d "groups=beta-testers,qa" \
+  -d "landing_page_mode=open" \
+  -d "metadata_title=My App Title"
+```
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "build_id": "8830728",
+    "tags": ["production", "v2"],
+    "metadata": {
+        "title": "My App Title"
+    },
+    "changelog": "New release notes",
+    "groups": ["beta-testers", "qa"],
+    "landing_page_mode": "open"
+}
+```
+
+#### Error Codes
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>1</code></td>
+			<td colSpan='2'>Missing or invalid <code>build_id</code>.</td>
+		</tr>
+		<tr>
+			<td><code>133</code></td>
+			<td colSpan='2'>Tester accounts cannot update builds.</td>
+		</tr>
+	</tbody>
+</table>
+
+</details>
+
+---
+
 ### Copy a Specific Build to a Folder
 
 <details>
