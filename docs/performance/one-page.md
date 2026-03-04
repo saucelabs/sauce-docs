@@ -2,299 +2,239 @@
 id: one-page
 title: Collecting Single URL Performance Statistics
 sidebar_label: Single Page Statistics
-description: Use Sauce's custom Speedo command line to establish a performance baseline for a particular URL or to analyze performance of a previously run test.
+description: Use Sauce Labs Performance Testing to establish a performance baseline for a particular URL or to analyze performance of a previously run test.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Speedo Node JS package is a tool that allows you to enter a simple command from a command line to measure basic performance of your Sauce app and validate any regressions based on previously executed tests. Speedo also easily integrates with any CI system, allowing you to plug Sauce Performance into your pipeline and start capturing performance within seconds.
+Sauce Labs Performance Testing allows you to measure the performance of your web application and validate any 
+regressions based on previously executed tests. Performance testing integrates seamlessly with your existing 
+Selenium/WebDriver tests and CI systems, allowing you to capture performance metrics within your test pipeline.
 
 ## What You'll Learn
 
-- Why the Speedo Node JS package is an easy way to get basic performance data about your app
-- What's required to use Speedo
-- How to install Speedo
-- How to format Speedo commands to return performance metrics
-- How to interpret the Speedo results
-- How to use Speedo commands with your CI pipeline
+- How to enable performance testing in your Sauce Labs tests
+- What's required to use performance testing
+- How to capture and analyze performance metrics
+- How to interpret the performance results
 
 ### What You'll Need
 
 - Google Chrome (no older than 3 versions from latest) as the test browser
-- Node.js v8 or later (for NPM installations)
+- A Selenium/WebDriver test framework (e.g., WebdriverIO, Selenium)
 - SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment
+- The `extendedDebugging` and `capturePerformance` capabilities enabled in your test configuration
 
-## Installing Speedo
+## Enabling Performance Testing
 
-You can install the Speedo package for Sauce using NPM or Docker.
+To capture performance metrics in your Sauce Labs tests, you need to enable the `extendedDebugging` and 
+`capturePerformance` capabilities in your test configuration.
 
 <Tabs
-defaultValue="npm"
+defaultValue="webdriverio"
 values={[
-{label: 'NPM', value: 'npm'},
-{label: 'Docker', value: 'docker'},
+{label: 'WebdriverIO', value: 'webdriverio'},
+{label: 'Selenium', value: 'selenium'},
 ]}>
 
-<TabItem value="npm">
+<TabItem value="webdriverio">
 
-Install the package on your system to make the speedo command available.
+Add the capabilities to your WebdriverIO configuration:
 
-```
-$ npm install speedo -g
-$ speedo --version
-> 1.1.1
+```javascript
+capabilities: [{
+    browserName: 'chrome',
+    platformName: 'Windows 11',
+    browserVersion: 'latest',
+    'sauce:options': {
+        extendedDebugging: true,
+        capturePerformance: true,
+        name: 'My Performance Test'
+    }
+}]
 ```
 
 </TabItem>
-<TabItem value="docker">
+<TabItem value="selenium">
 
-Pull the speedo package and run the installation command using Docker.
+Add the capabilities to your Selenium desired capabilities:
 
-```
-$ docker pull saucelabs/speedo
-$ docker run saucelabs/speedo run http://json.org -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
-> 1.1.1
+```java
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("extendedDebugging", true);
+sauceOptions.setCapability("capturePerformance", true);
+sauceOptions.setCapability("name", "My Performance Test");
+
+ChromeOptions options = new ChromeOptions();
+options.setCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
 </Tabs>
 
-## Executing the Speedo Commands
+## Using Performance Custom Commands
 
-Sauce Performance supports the following Speedo commands:
+Sauce Labs Performance Testing supports the following custom commands that you can execute within your tests:
 
-- speedo run - Get the set of standard performance metrics for any pre-defined URL
-- speedo analyze - Validate the performance of URLs that are accessed by one of the previously run WebDriver tests.
+- `sauce:log` with type `sauce:performance` - Retrieve the captured performance metrics
+- `sauce:log` with type `sauce:network` - Retrieve network request logs
+- `sauce:performanceDisable` - Disable performance capture for subsequent page loads
+- `sauce:performanceEnable` - Re-enable performance capture after disabling
 
 :::note
-The Speedo commands require your SAUCE_USERNAME and SAUCE_ACCESS_KEY. Export the values into your environment in order to avoid passing them as parameters each time you call a Speedo command. For example:
-
+Performance testing requires your SAUCE_USERNAME and SAUCE_ACCESS_KEY. Export the values into your environment to 
+authenticate with Sauce Labs:
 ```bash
-$ export SAUCE_USERNAME=Slavocado
-$ export SAUCE_ACCESS_KEY=XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\
+export SAUCE_USERNAME=your_username
+export SAUCE_ACCESS_KEY=XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
-
 :::
 
-### Run Command: Test a Single URL
+### Retrieving Performance Metrics
 
-The Speedo run command initiates a series of tests on Sauce Labs against a single URL defined in the query and returns the corresponding performance results. As part of the execution, the command facilitates the following functions:
+After navigating to a page in your test, you can retrieve the performance metrics using the custom command. The 
+platform automatically:
 
-- Establishes a baseline for each metric upon initial instantiation by running a diagnostic 10 times
-- Downloads the performance logs as test artifacts, the local directory of which is provided in the command line output
-  `Stored performance logs in /var/folders/11/p0wfqdkd4wgct7jdpfzxk4j40000gn/T/tmp-8379w4yCSzRBXqN2`
-- Automatically updates the job status to PASS or FAIL based on previously established baseline
-- Outputs reference URLs to the job in the Sauce Labs UI and the Google Lighthouse report
-- Exits with a proper exit code so that your pipeline can potentially block the release of your web app in the event a performance regression was introduced
+- Captures performance metrics for each page load
+- Captures performance logs as test artifacts
+- Provides access to detailed Lighthouse-based metrics
 
-#### Run Command Syntax
+#### WebdriverIO Example
 
-`$ speedo run <url> [params]`
-
-#### Run Command Example
-
-Kick off a Speedo test by calling:
-
-```
-$ speedo run <URL> // if SAUCE_USERNAME and SAUCE_ACCESS_KEY already exist in the environment
-$ speedo run <URL> -u Slavocado -k XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX // if SAUCE_USERNAME and SAUCE_ACCESS_KEY are not accessible or have not been exported
-```
-
-The output returned for a passing test may look as follows:
-
-<img src={useBaseUrl('img/performance/speedo-run-output.webp')} alt="Run Command Output" width="750"/>
-
-### Analyze Command: Review Existing Tests
-
-The Speedo analyze command allows you to compare the performance of multiple URLs that are accessed by a test script performed using automation tool like Selenium or WebdriverIO. Once the test completes, run the analyze command, specifying the name of the test as an inline attribute, to evaluate the page performance for each of the URLs accessed during the test. For example, a Login test would include each of the URL pages associated with successful authentication.
-
-#### Analyze Command Syntax
-
-`$ speedo analyze "<test name>"`
-
-:::note
-The specified test must have the appropriate options set for Performance.
-:::
-
-#### Analyze Command Configuration
-
-You can apply parameter specifications to customize the test execution either by including the parameters as inline arguments or through a config file (speedo.config.js) located in the directory from which Speedo is called. Following is a list of common inline arguments.
-
-:::note
-Call $ speedo analyze -h to view the complete list of run command options.
-:::
-
-#### Analyze Command Example
-
-Before you analyze the performance of page loads in an automation script, make sure you have a named test that has run to completion.
-
-The following example is based on a WebdriverIO test in which a user logs into Instagram and successfully accesses the home screen.
-
-```
-$ speedo analyze "Instagram Login Test" // if SAUCE_USERNAME and SAUCE_ACCESS_KEY already exist in the environment
-$ speedo analyze "Instagram Login Test" -u "Slavocado" -k "XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // if SAUCE_USERNAME and SAUCE_ACCESS_KEY haven't been exported as environment variables.
+```javascript
+describe('Performance Test', () => {
+    it('should capture performance metrics', async () => {
+        await browser.url('https://www.saucedemo.com');
+        
+        // Get performance metrics
+        const perfData = await browser.execute('sauce:log', { type: 'sauce:performance' });
+        
+        // perfData contains metrics like load, speedIndex, firstContentfulPaint, etc.
+        console.log('Performance data:', perfData);
+        
+        // Example: Assert on specific metrics
+        expect(perfData.load).toBeLessThan(5000);
+        expect(perfData.firstContentfulPaint).toBeLessThan(2000);
+    });
+});
 ```
 
-The following screenshot shows an example of the returned output for the analysis of the automation test.
+#### Retrieving Network Logs
 
-<img src={useBaseUrl('img/performance/speedo-analyze-output.png')} alt="Analyze Command Output" width="750"/>
+You can also retrieve the network request logs for analysis:
 
-## Integrating with a CI Pipeline
+```javascript
+// Get the network log data
+const networkLogs = await browser.execute('sauce:log', { type: 'sauce:network' });
+console.log('Network logs:', networkLogs);
 
-The Speedo package is designed to organically fit into your existing continuous integration pipeline, as illustrated in the following examples.
-
-<Tabs
-defaultValue="jenkins"
-values={[
-{label: 'Jenkins', value: 'jenkins'},
-{label: 'Jenkins with Docker', value: 'jenkins-docker'},
-{label: 'GitLabs with Docker', value: 'gl-docker'},
-]}>
-
-<TabItem value="jenkins">
-
-This example uses a `sauce` attribute to pass the Sauce Labs credentials into the environment.
-
-```
-node('linux') {
-    stage('Checkout') {
-        echo 'Code checkout'
-        git <repo link>
-    }
-
-    stage('Functional Tests ') {
-        sauce('xxx') {
-             echo 'Running tests'
-             sh 'cd  && npm install && npm update && npm test'
-        }
-    }
-
-    stage('Performance Test') {
-        sauce('xxx') {
-            echo 'Running Performance Tests'
-            sh 'speedo run https://www.saucedemo.com'
-        }
-    }
-}
+// Each request contains url, method, statusCode, headers, timing, etc.
 ```
 
-</TabItem>
-<TabItem value="jenkins-docker">
+The output includes comprehensive metrics such as load time, speed index, first contentful paint, and more.
 
-This example defines a Speedo Docker container and validates that Speedo is available.
+### Controlling Performance Capture
 
-```mdx {20,21,22,23,24}
-pipeline {
-agent none
-stages {
-stage('Code Checkout') {
-agent { node 'intrev'}
-steps {
-echo 'Code checkout'
-git <URL>
-}
-}
-stage('Functional Tests') {
-agent { node 'intrev'}
-steps {
-sauce('xxxx') {
-echo 'Running tests'
-sh 'cd WebDriver.io/ && npm install && npm update && npm test'
-}
-}
-}
-stage('Performance Test') {
-agent {
-docker {
-image 'saucelabs/speedo'
-args '--entrypoint=""'
-}
-}
-steps {
-sauce('xxxx') {
-echo 'Running Performance Tests'
-sh 'speedo run https://www.saucelabs.com'
-}
-}
-}
-}
-}
+You can disable and re-enable performance capture during your test:
+
+```javascript
+describe('Selective Performance Test', () => {
+    it('should only capture performance for specific pages', async () => {
+        // Performance is captured for this page
+        await browser.url('https://www.saucedemo.com');
+        const perfData1 = await browser.execute('sauce:log', { type: 'sauce:performance' });
+        
+        // Disable performance capture
+        await browser.execute('sauce:performanceDisable');
+        
+        // Performance is NOT captured for this navigation
+        await browser.url('https://www.saucedemo.com/inventory.html');
+        
+        // Re-enable performance capture
+        await browser.execute('sauce:performanceEnable');
+        
+        // Performance is captured again
+        await browser.url('https://www.saucedemo.com/cart.html');
+        const perfData2 = await browser.execute('sauce:log', { type: 'sauce:performance' });
+    });
+});
 ```
-
-</TabItem>
-<TabItem value="gl-docker">
-
-```
-variables:
-  SPEEDO_IMAGE: saucelabs/speedo
-
-stages:
-  - lint
-  - test
-  - performance
-  - deploy
-
-# ...
-
-# run performance tests
-performance:
-  stage: performance
-  image: $SPEEDO_IMAGE
-  script:
-    - speedo run https://google.com -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -b $BUILD_NUMBER
-
-# ...
-```
-
-</TabItem>
-</Tabs>
 
 ## Accessing Performance Data
 
-By default, Speedo downloads a log containing all the recorded metrics for your test in a local file, the path to which is provided in the output of the call. If you prefer to specify a different location, use the `--logDir (-l)` parameter. You can also include the `--traceLogs (-t)` parameter to generate a log with trace level details in addition to the standard log in the same directory location. The following example is highlighted to show the parameter settings in the command and the log location in the output.
+Performance logs are automatically captured when the `extendedDebugging` and `capturePerformance` capabilities are 
+enabled. You can retrieve the performance data within your test using the `sauce:log` custom command:
 
-```mdx {1,7}
-$ speedo run https://json.org -t -l ./speedoLogs
-✔ Start performance test run with user cb-onboarding on page https://json.org...
-✔ Run performance test...
-✔ Wait for job to finish...
-✔ Download performance logs...
-✔ Updating job status...
-📃 Stored performance logs in /path/to/project/speedoLogs
+```javascript
+// Get performance metrics
+const perfData = await browser.execute('sauce:log', { type: 'sauce:performance' });
+
+// The response contains metrics like:
+// - load
+// - speedIndex
+// - firstPaint
+// - firstContentfulPaint
+// - largestContentfulPaint
+// - firstInteractive
+// - domContentLoaded
+// - totalBlockingTime
+// - cumulativeLayoutShift
+// - score (Lighthouse performance score)
+// and more...
 ```
 
-Once the test has completed, you can access the data for further use, such as pushing it to a third part analysis service.
+You can also access performance data through the Sauce Labs UI after your test completes.
 
 ## Configuration Options
 
-The Speedo CLI tool supports a high degree of customization to ensure you are only capturing data that is relevant to your organization. You can customize the execution of either Speedo command by passing applicable parameters:
+Sauce Labs Performance Testing can be configured through capabilities to ensure you capture the data most relevant 
+to your organization.
 
-- as inline command arguments to customize only the current command execution
-- through a config file (speedo.config.js) located in the directory from which Speedo is called to apply the customization every time the command is called
+### Capabilities
 
-| Parameter                | Command | Description                                                                                                                                                                                                                                                                                                   | Example                                                                    |
-| ------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `-b`/`--build`           | Run     | Identify your performance test with a build ID.                                                                                                                                                                                                                                                               | `$ speedo run https://saucelabs.com -b "build_id"`                         |
-| `-n`/`--name`            | Run     | Identify your performance test with a name.                                                                                                                                                                                                                                                                   | `$ speedo run https://saucelabs.com -n "my_test"`                          |
-| `-k`/`--access_key`      | Both    | Pass your Sauce Labs access key to authenticate.                                                                                                                                                                                                                                                              | `$ speedo run https://saucelabs.com -k "SAUCE_ACCESS_KEY"`                 |
-| `-u`/`--username`        | Both    | Pass your Sauce Labs username to authenticate.                                                                                                                                                                                                                                                                | `$ speedo run https://saucelabs.com -k "SAUCE_USERNAME"`                   |
-| `-r`/`--region`          | Analyze | Identify the Sauce Labs data center for your account. Valid values include `us` (us-west-1) or `eu` (eu-central-1). The default value is `us`.                                                                                                                                                                | `$ speedo analyze "Login Test" -r "eu"`                                    |
-| `-t`/`--trace_logs`      | Both    | Record trace level data in addition to the default log. If specified, the trace.json file is saved to the same folder as the performance log. If not specified, trace level data is not captured.                                                                                                             | `$ speedo run https://saucelabs.com -t`                                    |
-| `-l`/`--log_directory`   | Both    | Specify a local directory in which to save the performance log file (performance.json). If not specified, the log file is written to a default location in the directory in which you installed Speedo and the path is provided in the output of the call.                                                    | `$ speedo run https://saucelabs.com -l ./speedo_logs`                      |
-| `-o`/`--order_index`     | Analyze | The number of pages accessed during the test.                                                                                                                                                                                                                                                                 | `$ speedo analyze "Login Test" -o "2"`                                     |
-| `-p`/`--page_url`        | Analyze | If only measuring performance for one page in the test, specify the URL of the page to analyze.                                                                                                                                                                                                               | `$ speedo analyze "Login Test" -p "https://www.instagram.com"`             |
-| `-p`/`--platform`        | Run     | Specify the platform on which to run the test. If not specified, the default value is Windows 10.                                                                                                                                                                                                             | `$ speedo run https://saucelabs.com -p "Windows 10"`                       |
-| `-v`/`--browser_version` | Run     | Specify the version of Chrome (only browser supported at this time) on which to run the test. If not specified, the default value is latest, which resolves to the most current version.                                                                                                                      | `$ speedo run https://saucelabs.com -v "74"`                               |
-| `-m`/`--metric`          | Both    | Tailor the command to measure performance for only certain metrics. See [Metric Values](#metric-values) for the list of supported metrics. If not specified, the test defaults to `score`, which automatically tests all metrics that currently make up a Lighthouse Performance Score.                       | `$ speedo run https://saucelabs.com -m "firstPaint" -m "domContentLoaded"` |
-| `--throttleCpu`          | Run     | Tailor the metric measurement standards based on the CPU at which the pages are being accessed. See [CPU Settings](#cpu-settings) for the list of supported values for this parameter. If not specified, the test defaults to 4 (4X).                                                                         | `$ speedo run https://www.saucelabs.com --throttleCpu 2`                   |
-| `--throttleNetwork`      | Run     | Tailor the metric measurement standards based on the specific network environment in which the pages are being accessed. See [Network Conditions Settings](#network-conditions-settings) for the list of supported network profile values for this parameter. If not specified, the test defaults to Good 3G. | `$ speedo run https://www.saucelabs.com --throttleNetwork online`          |
-| `--all`                  | Analyze | Set this boolean to `true` to collect performance data for all available metrics (overrides any specified -m settings). By default, this value is `false`.                                                                                                                                                    | `$ speedo analyze "Login Test" --all`                                      |
+Configure performance testing through the `sauce:options` capability:
 
-### Metric Values
+| Capability | Description | Example |
+| ---------- | ----------- | ------- |
+| `extendedDebugging` | Enable extended debugging features. Required for performance testing. | `true` |
+| `capturePerformance` | Enable performance metrics capture. Required for all performance testing. | `true` |
+| `name` | Identify your test with a name. | `"My Performance Test"` |
 
-The following values can be used with the `-m` parameter of either the `run` or `analyze` command.
+### Network Throttling
+
+You can simulate various network conditions using the `sauce:throttle` custom command:
+
+```javascript
+// Use a predefined network profile
+await browser.execute('sauce:throttle', { condition: 'Good 3G' });
+
+// Use custom network settings (download bytes/s, upload bytes/s, latency ms)
+await browser.execute('sauce:throttle', { 
+    condition: { download: 100000, upload: 50000, latency: 40 } 
+});
+```
+
+### CPU Throttling
+
+Simulate slower CPU conditions using the `sauce:throttleCpu` custom command:
+
+```javascript
+// Apply 4x CPU throttling (emulates mobile performance)
+await browser.execute('sauce:throttleCpu', { rate: 4 });
+```
+
+| Setting | Description |
+| ------- | ----------- |
+| 1 | No throttling |
+| 2 | 2x CPU throttling |
+| 3 | 3x CPU throttling |
+| 4 | 4x CPU throttling (emulates mobile performance) |
+
+### Available Metrics
+
+The following metrics are returned when calling `browser.execute('sauce:log', { type: 'sauce:performance' })`:
 
 | Metric                   | Description                                                                                                                                                                                                                                                | Unit         |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -315,9 +255,8 @@ The following values can be used with the `-m` parameter of either the `run` or 
 
 #### Detailed Metric Values
 
-Detailed metric values can be found in the `performance.json` log file.
-This file is generated when speedo is run with `-l` parameter.<br />
-The log file consists of the following metrics:
+Detailed metric values can be found in the performance logs when using `fullReport: true`.
+The full report includes the following additional metrics:
 
 | Metric                             | Description                                                                                                                                                                                                                                                | Unit         |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -355,7 +294,8 @@ The log file consists of the following metrics:
 
 ### Network Conditions Settings
 
-The following profiles can be used with the `--throttleNetwork` parameter of the `run` command to simulate various network conditions for your test.
+The following profiles can be used with the `sauce:throttle` custom command to simulate various network conditions for 
+your test.
 
 | Profile               | Latency | Downstream  | Upstream    |
 | --------------------- | ------- | ----------- | ----------- |
@@ -371,17 +311,26 @@ The following profiles can be used with the `--throttleNetwork` parameter of the
 
 #### Network Throttling Examples
 
-You can configure your test to run under the network condition of a predefined profile from the table, as in the following example:
+You can configure your test to run under the network condition of a predefined profile from the table:
 
-`$ speedo run https://www.saucelabs.com --throttleNetwork online`
+```javascript
+// Using a predefined profile
+await browser.execute('sauce:throttle', { condition: 'online' });
+```
 
-Alternatively, you can specify custom values in the format `download, upload, latency` (in KB/s):
+Alternatively, you can specify custom values with download, upload (in bytes/second), and latency (in ms):
 
-`$ speedo run https://www.saucelabs.com --throttleNetwork "1000,500,40"`
+```javascript
+// Using custom network settings
+await browser.execute('sauce:throttle', { 
+    condition: { download: 1000 * 1024, upload: 500 * 1024, latency: 40 } 
+});
+```
 
 ### CPU Settings
 
-The following profiles can be used with the `--throttleCpu` parameter of the `run` command to simulate various load conditions for your test.
+The following profiles can be used with the `sauce:throttleCpu` custom command to simulate various load conditions 
+for your test.
 
 | Setting | CPU Condition                                                 |
 | ------- | ------------------------------------------------------------- |
@@ -392,4 +341,7 @@ The following profiles can be used with the `--throttleCpu` parameter of the `ru
 
 #### CPU Throttling Example
 
-`$ speedo run https://www.saucelabs.com --throttleCpu 2`
+```javascript
+// Apply 2x CPU throttling
+await browser.execute('sauce:throttleCpu', { rate: 2 });
+```
