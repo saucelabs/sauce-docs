@@ -265,7 +265,7 @@ Delete a specific build. When all builds of a project are deleted, the project i
 ### Update a Specific Build
 
 <details>
-<summary><span className="api patch">PATCH</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
+<summary><span className="api patch">PATCH</span><code>/api/upload/</code></summary>
 <p></p>
 
 Update editable fields of a specific build. Only the fields included in the request body are modified; omitted fields remain unchanged.
@@ -274,6 +274,10 @@ Update editable fields of a specific build. Only the fields included in the requ
 
 <table id="table-api">
 	<tbody>
+		<tr>
+			<td><code>build_id</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The ID of the build to update.</p></td>
+		</tr>
 		<tr>
 			<td><code>comment</code></td>
 			<td><p><small>| OPTIONAL | STRING |</small></p><p>Release notes / changelog for the build.</p></td>
@@ -310,8 +314,9 @@ Update editable fields of a specific build. Only the fields included in the requ
 
 ```bash title="Sample Request"
 curl -X PATCH \
-  "https://upload.testfairy.com/api/1/projects/{project-id}/builds/{build-id}" \
+  "https://upload.testfairy.com/api/upload/" \
   -H "Api-Key: {your-api-key}" \
+  -d "build_id=8830728" \
   -d "comment=New release notes" \
   -d "tags=production,v2" \
   -d "groups=beta-testers,qa" \
