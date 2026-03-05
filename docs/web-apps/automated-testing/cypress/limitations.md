@@ -33,7 +33,27 @@ See https://github.com/cypress-io/cypress/issues/23897 for more information.
 
 ### Microsoft Edge 120+ on Windows
 
-Cypress does not currently work with Microsoft Edge 120+ on Windows.
+Microsoft Edge 120+ requires an extra launch flag to work properly on Windows. You need to add the `--no-sandbox`
+flag in the launch options inside your Cypress configuration file. Add the `setupNodeEvents` function inside your
+`e2e` section as shown below:
+
+```javascript
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+    e2e: {
+        baseUrl: 'https://www.saucedemo.com',
+        setupNodeEvents(on, config) {
+            on('before:browser:launch', (browser, launchOptions) => {
+                if (browser.family === 'chromium' && browser.name === 'edge') {
+                    launchOptions.args.push('--no-sandbox')
+                }
+                return launchOptions
+            })
+        },
+    },
+})
+```
 
 ### Webkit
 
