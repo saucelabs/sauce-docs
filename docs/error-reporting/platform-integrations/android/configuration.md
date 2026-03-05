@@ -205,7 +205,8 @@ settings.setRetryOrder(RetryOrder.Queue);
 
 BacktraceDatabase database = new BacktraceDatabase(context, settings);
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database);
-// start capturing NDK crashes
+
+// Required to capture NDK crashes
 database.setupNativeIntegration(backtraceClient, credentials);
 ```
 
@@ -566,6 +567,9 @@ backtraceClient.metrics.enable(metricsSettings);
 ## NDK Applications
 
 :::note
+Native integrations require [`BacktraceDatabase.setupNativeIntegration`](#offline-database-settings).
+:::
+:::note
 If your native app is built with NDK 16b, the Breakpad native crash client will be used instead of our recommended Crashpad crash client. To avoid this, use NDK 17c+ to build your native app.
 :::
 :::note
@@ -579,6 +583,7 @@ In general, this should be the final step in setting up your Backtrace client to
 To capture NDK crashes, you can use the `enableNativeIntegration` method as follows:
 
 ```java
+database.setupNativeIntegration(backtraceClient, credentials);
 backtraceClient.enableNativeIntegration();
 ```
 
