@@ -33,8 +33,8 @@ See https://github.com/cypress-io/cypress/issues/23897 for more information.
 
 ### Microsoft Edge 120+ on Windows
 
-Microsoft Edge 120+ requires an extra launch flag to work properly on Windows. You need to add the `--no-sandbox` 
-flag in the launch options inside your Cypress configuration file. Add the `setupNodeEvents` function inside your 
+Microsoft Edge 120+ requires an extra launch flag to work properly on Windows. You need to add the `--no-sandbox`
+flag in the launch options inside your Cypress configuration file. Add the `setupNodeEvents` function inside your
 `e2e` section as shown below:
 
 ```javascript
