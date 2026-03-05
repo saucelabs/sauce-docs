@@ -82,18 +82,24 @@ Verify with `adb devices` — you should see `localhost:50371` listed.
 
 **iOS (requires root):**
 
+We need two tools working together here: `socat` to listen on the Unix socket, and `websocat` to tunnel each connection to the WebSocket endpoint. The problem is that `socat` spawns commands via `EXEC`, which doesn't handle multi-argument commands with quoted values well — the quotes get stripped and arguments break apart. The simplest fix is a small wrapper script that bakes in the correct `websocat` command, so `socat` only needs to call a single file path.
+
 ```shell
 # Back up the real usbmuxd socket
 sudo mv /var/run/usbmuxd /var/run/usbmuxd.real
 
+# Create a wrapper script that socat will call for each connection
+WRAPPER=$(mktemp /tmp/usbmuxd-ws-XXXXXX)
+printf '#!/bin/bash\nexec websocat --binary "%s" --basic-auth "%s:%s" -H "sessionId: %s"\n' \
+  "$USBMUXD_URL" "$SAUCE_USERNAME" "$SAUCE_ACCESS_KEY" "$SESSION_ID" > "$WRAPPER"
+chmod +x "$WRAPPER"
+
 # Bridge the socket to the remote device
-socat UNIX-LISTEN:/var/run/usbmuxd,fork,mode=0666 \
-  EXEC:"websocat --binary $USBMUXD_URL \
-    --basic-auth $SAUCE_USERNAME:$SAUCE_ACCESS_KEY \
-    -H 'sessionId: $SESSION_ID'" &
+sudo socat UNIX-LISTEN:/var/run/usbmuxd,fork,mode=0666 \
+  EXEC:"$WRAPPER" &
 ```
 
-This replaces the system usbmuxd socket with one that tunnels to the remote device. `socat` listens on the Unix socket and, for each incoming connection, spawns a `websocat` process that bridges it to the Sauce Labs endpoint.
+This replaces the system usbmuxd socket with one that tunnels to the remote device. `socat` listens on the Unix socket and, for each incoming connection, spawns the wrapper script which bridges it to the Sauce Labs endpoint via `websocat`.
 
 Wait a few seconds, then verify:
 
