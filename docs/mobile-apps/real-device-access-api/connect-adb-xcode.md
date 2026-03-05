@@ -1,8 +1,12 @@
 ---
 id: connect-adb-and-xcode-to-remote-devices
-title: Connect ADB and Xcode to Sauce Labs Remote Devices
-sidebar_label: Connect ADB and Xcode
+title: Connect ADB, Xcode, and libimobiledevice to Sauce Labs Remote Devices
+sidebar_label: Connect ADB, Xcode, and libimobiledevice
 ---
+
+:::caution Xcode and iOS 17+
+Xcode integration is only supported on iOS 16 and earlier. On iOS 17+, libimobiledevice tools work but Xcode does not. We are working on support for iOS 17+. See [Limitations](#limitations) for details.
+:::
 
 Testing on real devices shouldn't mean maintaining a device lab. But until now, using low-level tools like ADB or Xcode Instruments on cloud devices required a proprietary client and a complex setup.
 
@@ -101,6 +105,10 @@ sudo socat UNIX-LISTEN:/var/run/usbmuxd,fork,mode=0666 \
 
 This replaces the system usbmuxd socket with one that tunnels to the remote device. `socat` listens on the Unix socket and, for each incoming connection, spawns the wrapper script which bridges it to the Sauce Labs endpoint via `websocat`.
 
+:::note
+The wrapper script bakes in the session ID at creation time. When you start a new session, you must recreate the wrapper script and restart socat — the old wrapper will still reference the previous session.
+:::
+
 Wait a few seconds, then verify:
 
 ```shell
@@ -111,14 +119,30 @@ The remote device's UDID should appear. From here, Xcode, Instruments, `idevices
 
 ## Use Cases
 
-**Android — take a screenshot via ADB:**
+### Android Studio
+
+Once `adb connect localhost:50371` is established, Android Studio automatically detects the remote device. It appears in the device dropdown and you can deploy, run, and debug apps just like a locally connected device.
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<img src={useBaseUrl('img/real-device-access-api/android-studio-connected-device.png')} alt="Remote device visible in Android Studio" width="800" />
+
+**Take a screenshot via ADB:**
 
 ```shell
 adb shell screencap -p /sdcard/screen.png
 adb pull /sdcard/screen.png ./screen.png
 ```
 
-**iOS — stream device logs via libimobiledevice:**
+### Xcode (iOS 16 and earlier)
+
+After setting up the usbmuxd bridge, close and reopen Xcode. The remote device will appear in **Window** > **Devices and Simulators** (`Cmd+Shift+2`) after a few seconds. Debugging and other Xcode functions work out of the box.
+
+<img src={useBaseUrl('img/real-device-access-api/xcode-connected-device-ios-16.png')} alt="Remote device visible in Xcode Devices and Simulators" width="800" />
+
+### libimobiledevice (all iOS versions)
+
+**Stream device logs:**
 
 ```shell
 idevicesyslog
@@ -155,4 +179,5 @@ sudo mv /var/run/usbmuxd.real /var/run/usbmuxd
 
 - `adb reverse` is not supported — use `adb forward` instead.
 - iOS access requires root to replace the `/var/run/usbmuxd` socket.
-- IDE debugging and attaching debuggers (Xcode, Android Studio) is not supported.
+- **iOS 17+:** Xcode integration does not work. iOS 17 introduced a new RemoteXPC protocol that Xcode uses for pairing, debugging, and device management — this protocol is not carried over the usbmuxd tunnel. libimobiledevice tools (`idevice_id`, `idevicesyslog`, etc.) still work on iOS 17+ since they use the older lockdownd protocol over usbmuxd. We are working on support for iOS 17+.
+- **iOS 16 and earlier:** Full Xcode support — devices appear in Devices & Simulators, debugging and other Xcode functions work. An Xcode restart may be required after setting up the bridge for the device to appear.
