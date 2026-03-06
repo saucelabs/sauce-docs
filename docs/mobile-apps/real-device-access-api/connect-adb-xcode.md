@@ -192,7 +192,7 @@ The tunnel adds latency compared to a local USB connection — every byte travel
 
 **Screen recording and live view:** Rather than streaming the screen through ADB or Xcode, use the `liveViewUrl` from the session response to open a browser-based live view that streams directly from our infrastructure.
 
-**App installation:** Installing via `adb install` or Xcode pushes the entire binary through the tunnel. Instead, use the [installApp](/real-device-access-api#install-an-app-from-app-storage) API endpoint, which installs from Sauce Labs App Storage directly onto the device. This is significantly faster, and Sauce Labs can instrument your app during installation for features like crash reporting and performance monitoring.
+**App installation:** Installing via `adb install` or Xcode pushes the entire binary through the tunnel. Instead, use the [installApp](/real-device-access-api) API endpoint, which installs from Sauce Labs App Storage directly onto the device. This is significantly faster, and Sauce Labs can instrument your app during installation for features like crash reporting and performance monitoring.
 
 ## Limitations
 
