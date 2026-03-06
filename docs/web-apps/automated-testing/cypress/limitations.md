@@ -55,9 +55,9 @@ module.exports = defineConfig({
 })
 ```
 
-### Webkit
+### WebKit
 
-To enable WebKit support in Cypress, you need to set the `experimentalWebKitSupport` flag in your Cypress configuration 
+To enable WebKit support in Cypress, you need to set the `experimentalWebKitSupport` flag in your Cypress configuration
 file. Note that on macOS, WebKit only works on macOS 13+.
 
 ```javascript
