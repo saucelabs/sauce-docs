@@ -112,4 +112,4 @@ This metadata ensures your exported Figma designs are properly organized and can
 
 When creating a new Snapshot in Sauce Visual we look up the previous snapshot for a configuration using our baseline matching behavior. This generally means that running the same tests with the same device configuration (OS, browser, window size, etc.) will find the last snapshot taken with that setup to compare against.  However, when a Figma design was used to create the baseline, the 'Baseline Overrides' feature is required to override the specific Figma keys created in the baseline creation from the plugin. Using these options, you can test visual snapshots across devices, operating systems, and browsers against a Figma baseline.
 
-You can see more information on the [baseline override feature](../workflows/cross-browser-os#3-configure-baseline-overrides) with code examples. Note: Java does not support Baseline Override.
+You can see more information on the [baseline override feature](../workflows/cross-browser-os.md#3-configure-baseline-overrides) with code examples. Note: Java does not support Baseline Override.
