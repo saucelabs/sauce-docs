@@ -4,15 +4,15 @@ title: Connect ADB, Xcode, and libimobiledevice to Sauce Labs Remote Devices
 sidebar_label: Connect ADB, Xcode, and libimobiledevice
 ---
 
-:::caution Xcode and iOS 17+
-Xcode integration is only supported on iOS 16 and earlier. On iOS 17+, libimobiledevice tools work but Xcode does not. We are working on support for iOS 17+. See [Limitations](#limitations) for details.
-:::
-
 Testing on real devices shouldn't mean maintaining a device lab. But until now, using low-level tools like ADB or Xcode Instruments on cloud devices required a proprietary client and a complex setup.
 
 The Real Device Access API changes that. Reserve a device with a single API call, then connect your existing tools — `adb`, Xcode, Instruments, `idevicesyslog`, any libimobiledevice utility — as if the device were on your desk. All you need is a local reverse proxy and your Sauce Labs credentials. No proprietary software. No Java runtime. Just your tools, talking to our devices.
 
 Your existing scripts, profilers, and workflows carry over unchanged. See [How It Works](#how-it-works) for the technical details.
+
+:::caution Xcode and iOS 17+
+Xcode integration is only supported on iOS 16 and earlier. On iOS 17+, libimobiledevice tools work but Xcode does not. We are working on support for iOS 17+. See [Limitations](#limitations) for details.
+:::
 
 ## What You'll Need
 
@@ -105,10 +105,6 @@ sudo socat UNIX-LISTEN:/var/run/usbmuxd,fork,mode=0666 \
 
 This replaces the system usbmuxd socket with one that tunnels to the remote device. `socat` listens on the Unix socket and, for each incoming connection, spawns the wrapper script which bridges it to the Sauce Labs endpoint via `websocat`.
 
-:::note
-The wrapper script bakes in the session ID at creation time. When you start a new session, you must recreate the wrapper script and restart socat — the old wrapper will still reference the previous session.
-:::
-
 Wait a few seconds, then verify:
 
 ```shell
@@ -117,11 +113,15 @@ idevice_id -l
 
 The remote device's UDID should appear. From here, Xcode, Instruments, `idevicesyslog`, and all libimobiledevice tools will discover and interact with the device as if it were connected via USB.
 
+:::note
+The $WRAPPER script bakes in the session ID at creation time. When you start a new session, you must recreate the wrapper script and restart socat — the old wrapper will still reference the previous session.
+:::
+
 ## Use Cases
 
-### Android Studio
+### Use our remote devices in Android Studio
 
-Once `adb connect localhost:50371` is established, Android Studio automatically detects the remote device. It appears in the device dropdown and you can deploy, run, and debug apps just like a locally connected device.
+Once `adb connect localhost:50371` is established, Android Studio automatically detects the remote device. It appears in the device dropdown and you can deploy, run, and debug apps just like a locally connected device. Profiling tools (CPU, memory, network) also work — follow the [Android Studio profiling guide](https://developer.android.com/studio/profile).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -133,6 +133,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 adb shell screencap -p /sdcard/screen.png
 adb pull /sdcard/screen.png ./screen.png
 ```
+
+### Port forwarding with `adb forward`
+
+You can forward a local port to a port on the remote device. This is useful for communicating with services running on the device — for example, a debug server or a local web server inside your app.
+
+```shell
+adb forward tcp:40000 tcp:50000
+```
+
+This forwards `localhost:40000` on your machine to port `50000` on the device. Note that `adb reverse` (device-to-host forwarding) is not supported — see [Limitations](#limitations).
 
 ### Xcode (iOS 16 and earlier)
 
@@ -174,6 +184,15 @@ sudo mv /var/run/usbmuxd.real /var/run/usbmuxd
 - **`adb connect` times out** — verify `websocat` is still running and the `adbUrl` is correct. Check that your credentials are valid.
 - **`idevice_id -l` returns nothing** — ensure you're running as root, the original socket was backed up successfully, and `socat` is running.
 - **Connection drops after a period of inactivity** — the session may have timed out. Check session state with `GET /sessions/{session_id}`.
+- **Xcode takes a long time on first connection (iOS)** — Xcode downloads iOS device symbols on first connection. Over the tunnel this can take several minutes. Check `~/Library/Developer/Xcode/iOS DeviceSupport/` — the folder for your iOS version should be over 1GB once complete. This is a one-time download per iOS version.
+
+### Performance over the tunnel
+
+The tunnel adds latency compared to a local USB connection — every byte travels from your machine over the internet to the device and back. For most interactive use (ADB shell, debugging, log streaming) this is barely noticeable. However, operations that transfer large amounts of data can be slower:
+
+**Screen recording and live view:** Rather than streaming the screen through ADB or Xcode, use the `liveViewUrl` from the session response to open a browser-based live view that streams directly from our infrastructure.
+
+**App installation:** Installing via `adb install` or Xcode pushes the entire binary through the tunnel. Instead, use the [installApp](/real-device-access-api#install-an-app-from-app-storage) API endpoint, which installs from Sauce Labs App Storage directly onto the device. This is significantly faster, and Sauce Labs can instrument your app during installation for features like crash reporting and performance monitoring.
 
 ## Limitations
 
