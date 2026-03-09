@@ -44,7 +44,7 @@ Understanding how devices are labeled helps you target exactly what you need:
 
 The `deviceName` parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that accepts the `deviceName` parameter.
 
-> Need the full schema for these fields? See `Device` and `Session` definitions in the [Access API spec](/real-device-access-api).
+> Need the full schema for these fields? See `Device` and `Session` definitions in the [Real Device Access API Reference](/real-device-access-api).
 
 ## Quick Start Examples
 

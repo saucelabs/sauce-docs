@@ -9,10 +9,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Capturing page load performance for a specific URL is a great start to detect opportunities to improve performance, but some performance testing requires user interaction to facilitate, such as page load following a successful login or submission of a form. The Sauce Labs custom WebDriver command allows you to trigger performance capturing within an automation script at a precise point of interaction, ensuring you can isolate any issues related to the current app state.
+Capturing page load performance for a specific URL is a great start to detect opportunities to improve performance, 
+but some performance testing requires user interaction to facilitate, such as page load following a successful login 
+or submission of a form. The Sauce Labs custom WebDriver command allows you to trigger performance capturing within 
+an automation script at a precise point of interaction, ensuring you can isolate any issues related to the current 
+app state.
 
 :::note
-Using automation to test performance after targeted interaction with your app in no way implies that you should integrate performance testing in your existing functional test suite. Testing function and performance in the same test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
+Using automation to test performance after targeted interaction with your app in no way implies that you should 
+integrate performance testing in your existing functional test suite. Testing function and performance in the same 
+test is likely to result in compromised results for both objectives and can obscure failure troubleshooting.
 :::
 
 ## What You'll Learn
@@ -31,9 +37,18 @@ Using automation to test performance after targeted interaction with your app in
 - Google Chrome (no older than 3 versions from latest) as the test browser.
 - An automation script that performs the interaction with your app during which you want to measure performance.
 
+:::caution WebDriver BiDi Not Supported
+Performance testing is not compatible with WebDriver BiDi at this time. If you are using Selenium, avoid setting 
+`webSocketUrl: true` in your capabilities. For recent versions of WebdriverIO, you must force WebDriver Classic by 
+setting `'wdio:enforceWebDriverClassic': true` in your top-level capabilities.
+:::
+
 ## Setting Performance Capabilities
 
-Before you configure your script to capture performance metrics as it executes, you must update your capabilities configuration file to enable performance actions. To do this, set the `extendedDebugging` and `capturePerformance` sauce:options attributes to `True`. The following excerpts show you the Webdriver.io `sauce:options` code samples for a variety of supported languages.
+Before you configure your script to capture performance metrics as it executes, you must update your capabilities 
+configuration file to enable performance actions. To do this, set the `extendedDebugging` and `capturePerformance` 
+sauce:options attributes to `True`. The following excerpts show you the Webdriver.io `sauce:options` code samples 
+for a variety of supported languages.
 
 <Tabs
 defaultValue="python"
@@ -49,18 +64,14 @@ values={[
 def driver(request):
     sauceOptions = {
         "screenResolution": "1280x768",
-        "platformName": "Windows 10",
-        "browserVersion": "61.0",
-        "seleniumVersion": "3.11.0",
-        'name': 'Pytest Chrome W3C Sample',
+        'name': 'Pytest Chrome Performance Sample',
         'extendedDebugging': 'true',
         'capturePerformance': 'true'
     }
     chromeOpts =  {
-        'platformName':"Windows 10",
+        'platformName':"Windows 11",
         'browserName': "chrome",
-        'browserVersion': '61.0',
-        'goog:chromeOptions': {'w3c': True},
+        'browserVersion': '145.0',
         'sauce:options': sauceOptions
     }
 ```
@@ -71,10 +82,10 @@ def driver(request):
 ```js {5,6}
 const { config } = require('./wdio.shared.conf')
 const defaultBrowserSauceOptions = {
-build: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
-name: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
-extendedDebugging: true,
-capturePerformance: true
+  build: `WebdriverIO Front-End Performance-${new Date().getTime()}`,
+  name: `WebdriverIO Front-End Performance-${new Date().getTime()}`,
+  extendedDebugging: true,
+  capturePerformance: true
 }
 ```
 
@@ -85,7 +96,7 @@ capturePerformance: true
 browser_name = ENV['BROWSER_NAME'] || 'chrome'
 
 options = {browser_name: browser_name,
-           platform_name: ENV['PLATFORM_NAME'] || 'Windows 10',
+           platform_name: ENV['PLATFORM_NAME'] || 'Windows 11',
            browser_version: ENV['BROWSER_VERSION'] || 'latest',
            'sauce:options': {name: "#{scenario.feature.name} - #{scenario.name}",
                              build: build_name,
@@ -109,7 +120,9 @@ outside the baseline. A fail result gives you the option to handle
 [regressions](#handling-regressions).
 
 :::caution
-Enabling performance capturing can add up to 60 seconds per URL change in a test. We, therefore, advise separating your performance tests from your functional tests. See our [Performance Requirements and Recommendations](https://docs.saucelabs.com/performance/about/#sauce-performance-requirements-and-recommendations) for more advice on optimizing your performance test results.
+Enabling performance capturing can add up to 60 seconds per URL change in a test. We, therefore, advise separating 
+your performance tests from your functional tests. See our [Performance Requirements and Recommendations](https://docs.saucelabs.com/performance/about/#sauce-performance-requirements-and-recommendations) for 
+more advice on optimizing your performance test results.
 :::
 
 ### Command
@@ -121,7 +134,7 @@ Enabling performance capturing can add up to 60 seconds per URL change in a test
 | Argument                                     | Description                                                                                                                                                                                                                                                                                                    |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`<br/><font size="2">Required</font>    | A name of the test as it would appear on Sauce Labs.                                                                                                                                                                                                                                                           |
-| `metrics`<br/><font size="2">Optional</font> | Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/one-page.md#metric-values) for the list of supported metric values. |
+| `metrics`<br/><font size="2">Optional</font> | Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/one-page.md#available-metrics) for the list of supported metric values. |
 
 ### Script Examples
 
@@ -149,70 +162,54 @@ See the complete [JavaScript performance demo](https://github.com/saucelabs/perf
 
 ```js
 describe('Sauce Labs Front-End Performance', () => {
-beforeEach(() => {
-//
-// Adding extra logs to the Sauce Commands Dashboard
-browser.execute('sauce:context=########## Start beforeEach ##########')
-//
-// Now load the url and wait for it to be displayed
-browser.url('')
+  beforeEach(() => {
+    // Adding extra logs to the Sauce Commands Dashboard
+    browser.execute('sauce:context=########## Start beforeEach ##########')
+    // Now load the url and wait for it to be displayed
+    browser.url('')
+    // Adding extra logs to the Sauce Commands Dashboard
+    browser.execute('sauce:context=########## End beforeEach ##########')
+  })
 
-//
-// Adding extra logs to the Sauce Commands Dashboard
-browser.execute('sauce:context=########## End beforeEach ##########')
-})
+  afterEach(() => {
+    // Adding extra logs to the Sauce Commands Dashboard
+    browser.execute('sauce:context=########## Enf of test ##########')
+  })
 
-afterEach(() => {
-//
-// Adding extra logs to the Sauce Commands Dashboard
-browser.execute('sauce:context=########## Enf of test ##########')
-})
+  it('logs (sauce:performance) should check if all metrics were captured', () => {
+    // The expected metrics
+    const metrics = [
+    'load',
+    'speedIndex',
+    'firstInteractive',
+    'firstVisualChange',
+    'lastVisualChange',
+    'firstMeaningfulPaint',
+    'firstCPUIdle',
+    'timeToFirstByte',
+    'firstPaint',
+    'estimatedInputLatency',
+    'firstContentfulPaint',
+    'totalBlockingTime',
+    'score',
+    'domContentLoaded',
+    'cumulativeLayoutShift',
+    'serverResponseTime',
+    'largestContentfulPaint'
+    ]
+    // Get the performance logs
+    const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
+    // Verify that all logs have been captured
+    metrics.forEach((metric) =>
+    expect(metric in performance, `${metric} metric is missing`))
+  })
 
-it('logs (sauce:performance) should check if all metrics were captured', () => {
-//
-// The expected metrics
-const metrics = [
-'load',
-'speedIndex',
-'firstInteractive',
-'firstVisualChange',
-'lastVisualChange',
-'firstMeaningfulPaint',
-'firstCPUIdle',
-'timeToFirstByte',
-'firstPaint',
-'estimatedInputLatency',
-'firstContentfulPaint',
-'totalBlockingTime',
-'score',
-'domContentLoaded',
-'cumulativeLayoutShift',
-'serverResponseTime',
-'largestContentfulPaint'
-]
-//
-// Get the performance logs
-const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
-
-//
-// Verify that all logs have been captured
-metrics.forEach((metric) =>
-expect(metric in performance, `${metric} metric is missing`)
-)
-})
-
-it('(sauce:performance) should validate speedIndex', () => {
-//
-// Get the performance logs
-const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
-
-//
-// Verify that all logs have been captured
-expect(
-performance.speedIndex < 1000,
-`${performance.speedIndex} is equal or bigger than 100`
-)
-})
+  it('(sauce:performance) should validate speedIndex', () => {
+    // Get the performance logs
+    const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
+    // Verify that all logs have been captured
+    expect(performance.speedIndex < 1000, `${performance.speedIndex} is equal or bigger than 100`)
+  })
 })
 ```
 
@@ -221,7 +218,10 @@ performance.speedIndex < 1000,
 
 ## Target Specific URLs in a Script
 
-You can use the `sauce:performanceDisable` and `sauce:performanceEnable` commands to limit the collection of performance metrics to specific URL pages. Implementing these pauses in metrics collection allows you to bypass navigational pages such as login so your tests are faster and more efficient, and your performance results are more relevant.
+You can use the `sauce:performanceDisable` and `sauce:performanceEnable` commands to limit the collection of 
+performance metrics to specific URL pages. Implementing these pauses in metrics collection allows you to bypass 
+navigational pages such as login so your tests are faster and more efficient, and your performance results are more 
+relevant.
 
 ### Example
 
@@ -236,39 +236,38 @@ In the preceding example, performance metrics will only be collected for `https:
 
 ## Defining a Performance Budget
 
-Rather than letting a baseline determine the acceptable metric values for your pages, you can define your own metric value limits for individual pages in your app and then assert against those values to ensure your performance results are always within the range that your deem optimal.
+Rather than letting a baseline determine the acceptable metric values for your pages, you can define your own metric 
+value limits for individual pages in your app and then assert against those values to ensure your performance results 
+are always within the range that your deem optimal.
 
 First, create a separate file in which you define your target metric limits, as in the following example.
 
 ```json title="budget.json"
 {
-"https://saucelabs.com/": {
-"speedIndex": 2300,
-"lastVisualChange": 2200,
-"load": 4200
-},
-"https://saucelabs.com/platform/analytics-performance/sauce-performance": {
-"score": 0.78
-}
+  "https://saucelabs.com/": {
+    "speedIndex": 2300,
+    "lastVisualChange": 2200,
+    "load": 4200
+  },
+  "https://saucelabs.com/platform/analytics-performance/sauce-performance": {
+    "score": 0.78
+  }
 }
 ```
 
-Then, import your budget file in your test script and assert your performance call against the values in your budget, as shown in the following sample.
+Then, import your budget file in your test script and assert your performance call against the values in your budget, 
+as shown in the following sample.
 
 ```js {1,9,19,11}
 const budgets = require('./budget.json')
 
 for (const [url, budget] of Object.entries(budgets)) {
-await browser.url(url)
-const performanceLogs = await browser.execute('sauce:log', {
-type: 'sauce:performance'
-})
+  await browser.url(url)
+  const performanceLogs = await browser.execute('sauce:log', {type: 'sauce:performance'})
 
-for (const [metric, value] of Object.keys(budget)) {
-assert.ok(
-performanceLogs[metric] < value`metric ${metric} is over the performance budget`
-)
-}
+  for (const [metric, value] of Object.keys(budget)) {
+    assert.ok(performanceLogs[metric] < value`metric ${metric} is over the performance budget`)
+  }
 }
 ```
 
@@ -283,13 +282,17 @@ measure performance against those new values until another regression is
 detected, when you will again have the option to troubleshoot or update the
 baselines.
 
-Since the command can be called throughout the test script, create tests that check for performance regressions across core business flows and screens. For example, evaluate pages that load following a successful login event or require multiple steps to trigger.
+Since the command can be called throughout the test script, create tests that check for performance regressions across 
+core business flows and screens. For example, evaluate pages that load following a successful login event or require 
+multiple steps to trigger.
 
 :::note
-`sauce:performance` is only aware of the performance metrics of the get URL command that was called before it and not able to capture metrics for views that were navigated via webdriver actions (e.g button clicks). In this example, the custom command returns performance metrics for the `/inventory.html` URL.
+`sauce:performance` is only aware of the performance metrics of the get URL command that was called before it and not 
+able to capture metrics for views that were navigated via webdriver actions (e.g button clicks). In this example, 
+the custom command returns performance metrics for the `/inventory.html` URL.
 :::
 
-```
+```js
 describe('Performance Demo Test', function () {
     const { title } = this;
 
@@ -336,7 +339,8 @@ You can also send your performance results to the log that is viewable from the 
 
 <p/>
 
-To enable this, configure `sauce:performance` within the `sauce:log` command. Set the `fullReport` option to `true` in the configuration to capture extended details about the performance configuration, aside from just the metrics output.
+To enable this, configure `sauce:performance` within the `sauce:log` command. Set the `fullReport` option to `true` 
+in the configuration to capture extended details about the performance configuration, aside from just the metrics output.
 
 <Tabs
 defaultValue="python"
@@ -367,8 +371,8 @@ See the complete [JavaScript performance demo](https://github.com/saucelabs/perf
 ```js {2}
 // Get the performance logs
 const performance = browser.execute('sauce:log', {
-type: 'sauce:performance',
-options: { fullReport: true }
+  type: 'sauce:performance',
+  options: { fullReport: true }
 })
 ```
 
