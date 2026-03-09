@@ -1188,6 +1188,8 @@ module.exports = {
             items: [
                 'sauce-ai/ai-insights',
                 'sauce-ai/ai-insights-prompting-guide',
+                'sauce-ai/ai-authoring',
+                'sauce-ai/ai-authoring-prompting-guide',
             ],
         },
         {

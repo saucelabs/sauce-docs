@@ -45,3 +45,4 @@ nohup.out
 *.idea/
 
 .vscode/
+.claude/
