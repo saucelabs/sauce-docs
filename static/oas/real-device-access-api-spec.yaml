@@ -29,7 +29,7 @@ tags:
   - name: Device Interactions
     description: Interact with your Device.
   - name: Device File Management
-    description: Manage files on the device storage. Supported on Android and iOS. For iOS, a `bundleId` is required to identify the app sandbox.
+    description: Manage files on the device storage.
   - name: Appium Server
     description: Start an Appium Server in our Sauce Cloud. This server runs next to your device and will remain active as long as the device session is active.
   - name: HTTP Proxy
@@ -842,7 +842,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/FileInfo"
         "400":
-          $ref: "#/components/responses/BadRequest"
+         oneOf:
+            - $ref: "#/components/responses/BadRequest"
+            - $ref: "#/components/responses/BundleIdMissing"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
