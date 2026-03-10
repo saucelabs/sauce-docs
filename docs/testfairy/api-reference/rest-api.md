@@ -514,6 +514,17 @@ Invite one or more tester groups to this specific build. You can optionally send
 
 List all testers in this account.
 
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>buildId</code></td>
+			<td><p><small>| OPTIONAL | INTEGER |</small></p><p>When provided, each tester includes build-specific fields: <code>isInvitedToBuild</code>, <code>buildInviteStatus</code>, <code>buildInviteTime</code>, and <code>appDownloadLink</code>.</p></td>
+		</tr>
+	</tbody>
+</table>
+
 #### Responses
 
 <table id="table-api">
@@ -530,21 +541,25 @@ List all testers in this account.
     "status": "ok",
     "testers": [
         {
-            "email":"james@example.com",
-            "groups":[{
-                id: 100,
-                name: "friends"
-            }]
+            "email": "james@example.com",
+            "groups": [{
+                "id": 100,
+                "name": "friends"
+            }],
+            "lastLogin": "2025-11-20 14:30:00",
+            "createdAt": "2024-06-15 09:00:00"
         },
         {
-            "email":"alice@testfairy.com",
-            "groups":[{
-                id: 100,
-                name: "friends"
+            "email": "alice@testfairy.com",
+            "groups": [{
+                "id": 100,
+                "name": "friends"
             }, {
-                id: 200,
-                name: "family"
-            }]
+                "id": 200,
+                "name": "family"
+            }],
+            "lastLogin": "2026-01-10 08:45:00",
+            "createdAt": "2024-03-22 11:30:00"
         }
     ]
 }
@@ -600,6 +615,46 @@ Add a new tester to account. Optionally can add them to a group.
 ```json title="Sample Response"
 {
     "status": "ok"
+}
+```
+
+</details>
+
+---
+
+### Get a Single Tester
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/testers/&#123;tester-id&#125;</code></summary>
+<p></p>
+
+Get details for a single tester by ID.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "tester": {
+        "id": 123,
+        "email": "james@example.com",
+        "isBlocked": false,
+        "groups": [{
+            "id": 100,
+            "name": "friends"
+        }],
+        "lastLogin": "2025-11-20 14:30:00",
+        "createdAt": "2024-06-15 09:00:00"
+    }
 }
 ```
 
