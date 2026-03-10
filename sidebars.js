@@ -1018,6 +1018,7 @@ module.exports = {
                         'mobile-apps/real-device-access-api/real-device-access-api-sauce-hosted-appium',
                         'mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket',
                         'mobile-apps/real-device-access-api/real-device-access-api-device-control-socket',
+                        'mobile-apps/real-device-access-api/connect-adb-and-xcode-to-remote-devices',
                     ],
                 },
                 'mobile-apps/ms-app-center',
