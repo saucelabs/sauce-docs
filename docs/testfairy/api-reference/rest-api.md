@@ -270,7 +270,7 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 Update editable fields of a specific build. Only the fields included in the request body are modified; omitted fields remain unchanged.
 
-**Content Types:** `application/x-www-form-urlencoded` (default) or `application/json`. Note: `multipart/form-data` is not supported for this endpoint.
+**Content Types:** `application/x-www-form-urlencoded` or `application/json`. Note: `multipart/form-data` is not supported for this endpoint.
 
 #### Parameters
 
