@@ -205,7 +205,8 @@ settings.setRetryOrder(RetryOrder.Queue);
 
 BacktraceDatabase database = new BacktraceDatabase(context, settings);
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database);
-// start capturing NDK crashes
+
+// Required to capture native crashes
 database.setupNativeIntegration(backtraceClient, credentials);
 ```
 
@@ -576,7 +577,7 @@ Breakpad crash reports are submitted on the next app startup, instead of at cras
 
 In general, this should be the final step in setting up your Backtrace client to ensure all attributes and file attachment paths are captured properly by the native crash handler.
 
-To capture NDK crashes, you can use the `enableNativeIntegration` method as follows:
+To capture native crashes, set up an offline database as noted in [Offline Database Settings](#offline-database-settings) and use the `enableNativeIntegration` method as follows:
 
 ```java
 backtraceClient.enableNativeIntegration();
