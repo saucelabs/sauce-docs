@@ -29,7 +29,7 @@ tags:
   - name: Device Interactions
     description: Interact with your Device.
   - name: Device File Management
-    description: Manage files on the device storage (Android only).
+    description: Manage files on the device storage.
   - name: Appium Server
     description: Start an Appium Server in our Sauce Cloud. This server runs next to your device and will remain active as long as the device session is active.
   - name: HTTP Proxy
@@ -745,7 +745,6 @@ paths:
       summary: List files in a directory on the device
       description: |
         Returns a list of files and directories at the specified path on the device storage.
-        **Supported OS**: Android only.
       tags:
         - "Device File Management"
       parameters:
@@ -772,7 +771,9 @@ paths:
                   type: string
                   example: "/sdcard/Download/file.txt"
         "400":
-          $ref: "#/components/responses/BadRequest"
+          oneOf:
+            - $ref: "#/components/responses/BadRequest"
+            - $ref: "#/components/responses/BundleIdMissing"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -785,7 +786,6 @@ paths:
       summary: Remove a file from the device
       description: |
         Deletes a specific file from the device storage.
-        **Supported OS**: Android only.
       tags:
         - "Device File Management"
       parameters:
@@ -805,7 +805,47 @@ paths:
         "204":
           description: File removed successfully
         "400":
-          $ref: "#/components/responses/BadRequest"
+          oneOf:
+            - $ref: "#/components/responses/BadRequest"
+            - $ref: "#/components/responses/BundleIdMissing"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+        "422":
+          $ref: "#/components/responses/CapabilityNotSupported"
+        "500":
+          $ref: "#/components/responses/DeviceFileOperationError"
+
+  /sessions/{sessionId}/device/statFile:
+    post:
+      summary: Get file information from the device
+      description: |
+        Returns metadata about a specific file or directory on the device storage, including its path, size, and whether it is a directory.
+      tags:
+        - "Device File Management"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StatFileRequest"
+      responses:
+        "200":
+          description: File information retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileInfo"
+        "400":
+          oneOf:
+            - $ref: "#/components/responses/BadRequest"
+            - $ref: "#/components/responses/BundleIdMissing"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -818,7 +858,6 @@ paths:
       summary: Push a file to the device
       description: |
         Uploads a file to the specified destination path on the device storage.
-        **Supported OS**: Android only.
         **Format**: Multipart Form Data.
       tags:
         - "Device File Management"
@@ -843,6 +882,8 @@ paths:
                   type: string
                   description: "The absolute path on the device where the file should be saved (e.g., /sdcard/Download/image.png)."
                   example: "/sdcard/Download/test-image.png"
+                bundleId:
+                  $ref: "#/components/schemas/BundleId"
                 file:
                   type: string
                   format: binary
@@ -851,7 +892,9 @@ paths:
         "204":
           description: File uploaded successfully
         "400":
-          $ref: "#/components/responses/BadRequest"
+          oneOf:
+            - $ref: "#/components/responses/BadRequest"
+            - $ref: "#/components/responses/BundleIdMissing"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -864,7 +907,6 @@ paths:
       summary: Pull a file from the device
       description: |
         Retrieves a file from the device storage as a binary stream.
-        **Supported OS**: Android only.
       tags:
         - "Device File Management"
       parameters:
@@ -895,7 +937,9 @@ paths:
                 type: string
                 example: 'attachment; filename="report.txt"'
         "400":
-          $ref: "#/components/responses/BadRequest"
+          oneOf:
+            - $ref: "#/components/responses/BadRequest"
+            - $ref: "#/components/responses/BundleIdMissing"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1332,7 +1376,28 @@ components:
                 example: "Capability not supported"
               detail:
                 type: string
-                example: "Listing files is currently only supported on Android."
+                example: "The requested capability is not supported on this device."
+    BundleIdMissing:
+      description: |
+        Returned when a file operation is performed on an iOS device without providing the required `bundleId` parameter.
+        On iOS, each app runs inside its own **sandbox** — an isolated file system container that prevents apps from accessing each other's data.
+        Unlike Android, where you can access shared storage paths like `/sdcard/`, iOS requires you to specify which app's sandbox to operate on by providing its bundle identifier.
+        To resolve this error, include the `bundleId` field in your request body with the target app's bundle identifier (e.g., `com.example.app`).
+        See [Apple's File System documentation](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) for more details on how iOS app sandboxing works.
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: "about:blank"
+              title:
+                type: string
+                example: "Bundle ID required"
+              detail:
+                type: string
+                example: "The `bundleId` parameter is required for file operations on iOS devices. Each iOS app has its own sandboxed file system — provide the bundle identifier of the app whose files you want to access."
     DeviceFileOperationError:
       description: Device File Operation Error
       content:
@@ -1808,10 +1873,8 @@ components:
           type: string
           description: "The path to the directory to list files from."
           example: "/sdcard/Download/"
-        id:
-          type: string
-          description: "The application ID (optional)."
-          example: "com.example.app"
+        bundleId:
+          $ref: "#/components/schemas/BundleId"
       required:
         - path
     RemoveFilesRequest:
@@ -1819,12 +1882,21 @@ components:
       properties:
         path:
           type: string
-          description: "The name of the file to remove."
+          description: "The path of the file to remove."
           example: "/sdcard/folder/test.txt"
-        id:
+        bundleId:
+          $ref: "#/components/schemas/BundleId"
+      required:
+        - path
+    StatFileRequest:
+      type: object
+      properties:
+        path:
           type: string
-          description: "The application ID (optional)."
-          example: "com.example.app"
+          description: "The absolute path of the file or directory on the device to get information about."
+          example: "/sdcard/Download/report.txt"
+        bundleId:
+          $ref: "#/components/schemas/BundleId"
       required:
         - path
     PullFileRequest:
@@ -1834,9 +1906,32 @@ components:
           type: string
           description: "The absolute path of the file on the device to retrieve."
           example: "/sdcard/Download/report.txt"
-        id:
-          type: string
-          description: "The application ID (optional)."
-          example: "com.example.app"
+        bundleId:
+          $ref: "#/components/schemas/BundleId"
       required:
         - path
+    BundleId:
+      type: string
+      description: |
+        The iOS app bundle identifier (e.g., `com.example.app`). Required for iOS devices, not needed for Android.
+        On iOS, each app runs in its own **sandbox** — an isolated file system container that restricts access to only that app's data.
+        This means you must specify which app's sandbox to operate on by providing its bundle ID.
+        You can find the bundle ID in Xcode, in the app's `Info.plist`, or via the Sauce Labs app management API.
+        See [Apple's File System documentation](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) for more details.
+      example: "com.example.app"
+    FileInfo:
+      type: object
+      properties:
+        path:
+          type: string
+          description: "The absolute path of the file or directory on the device."
+          example: "/sdcard/Download/report.txt"
+        size:
+          type: integer
+          format: int64
+          description: "The size of the file in bytes. 0 for directories."
+          example: 1024
+        isDirectory:
+          type: boolean
+          description: "Whether the path is a directory."
+          example: false
