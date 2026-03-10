@@ -270,13 +270,15 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 Update editable fields of a specific build. Only the fields included in the request body are modified; omitted fields remain unchanged.
 
+**Content Types:** `application/x-www-form-urlencoded` (default) or `application/json`. Note: `multipart/form-data` is not supported for this endpoint.
+
 #### Parameters
 
 <table id="table-api">
 	<tbody>
 		<tr>
 			<td><code>comment</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>Release notes / changelog for the build.</p></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Release notes / changelog for the build. Also accepted as <code>changelog</code> or <code>release_notes</code>.</p></td>
 		</tr>
 		<tr>
 			<td><code>tags</code></td>
@@ -310,8 +312,8 @@ Update editable fields of a specific build. Only the fields included in the requ
 
 ```bash title="Sample Request"
 curl -X PATCH \
-  "https://app.testfairy.com/api/1/projects/{project-id}/builds/{build-id}/" \
-  -H "Api-Key: {your-api-key}" \
+  "https://mobile.saucelabs.com/api/1/projects/{project-id}/builds/{build-id}/" \
+  -u "john@example.com:00001234cafecafe" \
   -d "comment=New release notes" \
   -d "tags=production,v2" \
   -d "groups=beta-testers,qa" \
@@ -342,8 +344,16 @@ curl -X PATCH \
 			<td colSpan='2'>Missing or invalid <code>build-id</code>.</td>
 		</tr>
 		<tr>
+			<td><code>99</code></td>
+			<td colSpan='2'>No permissions — the authenticated user does not have write access to this project.</td>
+		</tr>
+		<tr>
 			<td><code>133</code></td>
 			<td colSpan='2'>Tester accounts cannot update builds.</td>
+		</tr>
+		<tr>
+			<td><code>156</code></td>
+			<td colSpan='2'>Cannot set <code>landing_page_mode</code> to <code>open</code> when login is required by the account settings.</td>
 		</tr>
 	</tbody>
 </table>
