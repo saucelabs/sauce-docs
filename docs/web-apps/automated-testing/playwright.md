@@ -38,6 +38,19 @@ Sauce Labs supports the following test configurations for Playwright:
   </tr>
     <tbody>
       <tr>
+        <td rowspan='2'>1.58.1</td>
+        <td rowspan='2'>22</td>
+        <td rowspan='2'>✅</td>
+        <td><b>macOS:</b> 14, 15</td>
+        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+        <td rowspan='2'>February 25th, 2027</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
         <td rowspan='2'>1.57.0</td>
         <td rowspan='2'>22</td>
         <td rowspan='2'>✅</td>
@@ -128,6 +141,8 @@ Sauce Labs supports the following test configurations for Playwright:
     </tr>
   </tbody>
 </table>
+
+Playwright 1.58.1 runs on ARM architecture (macOS 14 and 15) and requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/playwright/yaml#armrequired).
 
 ## How to Get Started
 

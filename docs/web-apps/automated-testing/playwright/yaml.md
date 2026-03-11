@@ -864,7 +864,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.57.0
+  version: 1.58.1
   configFile: config.ts
 ```
 
@@ -878,7 +878,7 @@ The version of Playwright that is compatible with the tests defined in this file
 
 ```yaml
 playwright:
-  version: 1.57.0
+  version: 1.58.1
 ```
 
 :::tip
@@ -1331,4 +1331,23 @@ suite:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
+```
+
+---
+
+### `armRequired`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">saucectl 0.196.0+</span></small></p>
+
+When set to `true`, this option adds capability requirement for ARM architecture on the machine running the test.
+
+:::note
+ARM is available for macOS 14 and macOS 15 with Playwright >=1.58.1. Note: Firefox is not supported on macOS 15 due to a known macOS firewall issue.
+:::
+
+```yaml
+suite:
+  - name: My Saucy Test
+    platform: 'macOS 15'
+    armRequired: true
 ```
