@@ -42,7 +42,7 @@ Sauce Labs tests may be included in one or more of those steps.
 ### The .yml File
 
 GitLab uses `.yml` for configuration. GitLab allows you to configure your environment the same way you would to run a
-shell script. For ultimate flexibility, GitLab allows you to launch docker images as “services”. This gives you 
+shell script. For ultimate flexibility, GitLab allows you to launch docker images as “services”. This gives you
 ephemeral and/or shared APIs or other services to be available at any time in the build process, which can be created
 or torn down at a moment’s notice.
 
@@ -91,7 +91,7 @@ This first method is recommended for those with a supportive DevOps team who is 
 :::
 Users download the Sauce Connect Binary and run it as a service on a dedicated machine (VM/server) that is available
 24/7. This instance of Sauce Connect is shared by the organization and utilized by the tests running in the CI
-pipeline. Running Sauce Connect as a service is the recommended method of running the Sauce Connect Proxy, which 
+pipeline. Running Sauce Connect as a service is the recommended method of running the Sauce Connect Proxy, which
 we call “[Tunnel Pool](/secure-connections/sauce-connect-5/guides/tunnel-pool/)”.
 
 #### Ephemeral Tunnel, Started in Every Build
