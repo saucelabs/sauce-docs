@@ -1506,6 +1506,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 Delete a job and all of its assets from the Sauce Labs test history.
 
+:::note Authorization
+Only the **job owner**, **team admins**, or **organization admins** can delete a job. Team admins can only delete jobs belonging to their own team.
+:::
+
 #### Parameters
 
 <table id="table-api">
@@ -1551,6 +1555,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tr>
     <td><code>200</code></td>
     <td colSpan='2'>Job successfully deleted.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Forbidden. The requesting user is not the job owner and does not have team admin or organization admin privileges.</td>
   </tr>
 </tbody>
 <tbody>
