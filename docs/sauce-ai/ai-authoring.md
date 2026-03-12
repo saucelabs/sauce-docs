@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::note
+:::info
 This feature is available as a paid add on for Enterprise users. Talk to Sales to give it a try!
 :::
 
@@ -57,31 +57,41 @@ To create the test script, follow the steps below:
 
     The platform remembers the last-used configurations for convenience. If you don't set those, then Sauce Labs will use predetermined defaults that are available for the type of app you are testing.
 
-4. **Write and run** the prompt. Once you've provided the application context, you can write a prompt to describe the test intent, either in plain language (e.g., “log into the app and verify the dashboard appears”) or in structured formats like Gherkin-style steps. Both are supported. Check out guidelines for prompting [here](https://docs.saucelabs.com/sauce-ai/ai-authoring/#prompt-writing-guidance). 
+4. **Write and run** the prompt. Once you've provided the application context, you can write a prompt to describe the test intent, either in plain language (e.g., “log into the app and verify the dashboard appears”) or in structured formats like Gherkin-style steps. Both are supported. Check out guidelines for prompting [here](/sauce-ai/ai-authoring/#prompt-writing-guidance). 
 
     You can submit the prompt by clicking the **Submit** icon, and a live session will be launched. The LLM connects to the target device or browser and interprets your prompt as a set of interactive test actions. The system supports the click, input, and scroll interactions, while others such as right click, drag, or long press are going to be added at a later stage. These actions are executed in real time, and their outcomes are captured step by step for you to review.
 
-    <img src={useBaseUrl('/img/ai-authoring/authoring5.png')} alt="AI Insights View" width="700"/>
+    <img src={useBaseUrl('/img/ai-authoring/authoring5.png')} alt="AI Authoring prompt" width="700"/>
 
     Initially, what you see is a natural language breakdown of what was done: what pages were visited, what buttons were clicked, what inputs were typed. The tool captures the input values and unique locators of the elements interacted with. When the test generation session finishes, the entire test flow is displayed for review. 
 
 ## Test Case Editing and Saving
-After running a prompt, you're automatically moved into **edit mode**, where the test steps are fully available for review and customization. Here, the generated steps are displayed in a human-readable format, and each action is accompanied by detailed metadata: Step intent, XPath selectors, input values, step screenshots. You can modify individual steps, adjust test parameters, or regenerate the flow with a new prompt if needed. 
+After running a prompt, you're automatically moved into **edit mode**, where the test steps are available for review and customization. Here, the generated steps are displayed in a human-readable format, and each action is accompanied by detailed metadata: Step intent, XPath selectors, input values, step screenshots. You can adjust test parameters, or refine your existing steps by prompting for edits.
 
-Once you are happy with the result, you can **Save** the test case by assigning a name to it.
+### Prompt-Based Editing
+When you edit the prompts, you can request a specific change to be made or an additional flow to be added (e.g., "Change step 3 to select 'size M'", or "After adding an item to cart, verify the success message is displayed."). In this case, the system will present to you the updated test intent as a combination of your previous and new prompt, and ask for your review. You will have an option to **Refine** the prompt further or to let the system **Proceed** with generating test steps based on it's proposal. To ensure high-quality, reliable automation, every change is validated in a live browser environment before being finalized.
+
+<img src={useBaseUrl('/img/ai-authoring/authoring-edit.png')} alt="AI Authoring - Editing prompt" width="400"/>
+
+The following diagram illustrates how to refine a test using a follow-up prompt to add a new action.
+
+<img src={useBaseUrl('/img/ai-authoring/authoring-edit-diagram.png')} alt="AI Authoring - Editing flow"/>
+
+
+Once you are happy with the result, you can **Save Test Case** at the bottom of the page. This will open a modal dialog where you can name the test case and add it into a test suite.
 
 ### Getting the Script Code
 
 Additionally, you can generate the test code (Selenium or Appium) and use it in your own testing environment by clicking on **Get Code**. The generated test is not locked to a single framework. You can choose from multiple supported languages (currently **Python**, **Java**, and **JavaScript**).
 
-<img src={useBaseUrl('/img/ai-authoring/authoring6.png')} alt="AI Insights View" width="700"/>
+<img src={useBaseUrl('/img/ai-authoring/authoring6.png')} alt="Generated code - Copy option"/>
 
 The generated test script code includes the capabilities required to run on Sauce Labs, along with the test steps, making it easy to transfer into your own CI/CD pipeline or local repo. You can copy the code by clicking the **Copy** button on the top right.
 
 ## Managing and Modifying Test Cases
 Saved test cases are listed in the main Test Authoring view, where you can search and filter, rename, delete, or open scripts to edit them. 
 
-<img src={useBaseUrl('/img/ai-authoring/authoring7.png')} alt="AI Insights View" width="700"/>
+<img src={useBaseUrl('/img/ai-authoring/authoring7.png')} alt="Editing test cases" width="700"/>
 
 Renaming is done directly from the list by clicking the “…” icon. Device types, apps, and prompt details can all be changed later, making it easy to adapt tests for different platforms or conditions.
 
@@ -145,7 +155,7 @@ Test suites have the following options accessible directly from the list view:
   When deleting a test suite, you have the option to remove just the test suite as a grouping mechanism and leave the test cases intact, or to also delete all test cases within a test suite.
   :::
 
-<img src={useBaseUrl('/img/ai-authoring/authoring13.png')} alt="Group by test suite" width="500" />
+<img src={useBaseUrl('/img/ai-authoring/authoring13.png')} alt="Delete test suite" width="500" />
 
 ## Scheduling Test Runs
 
