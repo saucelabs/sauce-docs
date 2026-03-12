@@ -15,7 +15,7 @@ Structured prompts, including pseudo-code or formalized syntax like Gherkin, are
 **Follow these guidelines for best success:**
 * Avoid vague language. Use clear, accurate language (verbs and nouns) to pinpoint elements on the page where you would like the LLM to go. For example, if the item on the page has a specific text label, use that in your prompt.
     * **Avoid**: "Handle the login."
-    * **Use**: "Navigate to the Login Page URL.", "Enter valid_username in the Username field.", "Click the 'Sign In' button."
+    * **Use**: "Navigate to the User Profile page.", "Enter valid_username in the Username field.", "Click the 'Sign In' button."
 
 * Give advice to the model where to find elements if it's not obvious from looking at the page. For example, if the navigation item is hidden in an off-screen navigation, instruct the model to find the navigation trigger first.
     * **Avoid**: "Go to the Settings page and change the theme." (If Settings is hidden in a menu)

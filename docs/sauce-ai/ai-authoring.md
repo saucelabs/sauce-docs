@@ -57,7 +57,7 @@ To create the test script, follow the steps below:
 
     The platform remembers the last-used configurations for convenience. If you don't set those, then Sauce Labs will use predetermined defaults that are available for the type of app you are testing.
 
-4. **Write and run** the prompt. Once you've provided the application context, you can write a prompt to describe the test intent, either in plain language (e.g., “log into the app and verify the dashboard appears”) or in structured formats like Gherkin-style steps. Both are supported. Check out guidelines for prompting [here](/sauce-ai/ai-authoring/#prompt-writing-guidance). 
+4. **Write and run** the prompt. Once you've provided the application context, you can write a prompt to describe the test intent, either in plain language (e.g., “log into the app and verify the dashboard appears”) or in structured formats like Gherkin-style steps. Both are supported. Check out guidelines for prompting [here](/sauce-ai/ai-authoring-prompting-guide). 
 
     You can submit the prompt by clicking the **Submit** icon, and a live session will be launched. The LLM connects to the target device or browser and interprets your prompt as a set of interactive test actions. The system supports the click, input, and scroll interactions, while others such as right click, drag, or long press are going to be added at a later stage. These actions are executed in real time, and their outcomes are captured step by step for you to review.
 
