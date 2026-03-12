@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 This feature is available as a paid add on for Enterprise users. Talk to Sales to give it a try!
 :::
 
-Sauce AI for Test Authoring is a new way to create, edit, manage, and run test scripts at scale, all without writing a single line of code. This tool enables you to write your test goal in the form of natural-language prompts, connect to your web or mobile application on a real device, virtual device, or browser session, and let the large language model generate structured, editable, and runnable test flows for you.
+Sauce AI for Test Authoring is a new way to create, edit, manage, and run test scripts at scale, all without writing a single line of code. This tool enables you to write your test goal in the form of natural-language prompts, connect to your web or mobile application via a real device, virtual device, or browser, and let a large language model generate structured, editable, and runnable test flows for you.
 
 Sauce AI for Test Authoring is an intelligent agent for testing built into the Sauce Labs platform that solves the constraint of needing specialized coding knowledge. 
 
@@ -20,9 +20,9 @@ How it works:
 2. You can then save those generated test scripts and run them at scale using low-code automation.
 3. The test results are visible as automated test runs on Sauce Labs.
 
-Sauce AI for Test Authoring lives inside the Sauce Labs platform as a standalone offering where generated test scripts are stored. You can access it from its own page by clicking Test Authoring in the left navigation.
+Sauce AI for Test Authoring lives inside the Sauce Labs platform as an add-on offering where generated test scripts are stored. You can access it from its own page by clicking Test Authoring in the left navigation.
 
-<img src={useBaseUrl('/img/ai-authoring/authoring1.png')} alt="AI Insights View" width="700"/>
+<img src={useBaseUrl('/img/ai-authoring/authoring1.png')} alt="AI Insights dashboard" width="700"/>
 
 ## Prerequisites for Use
 
@@ -36,11 +36,11 @@ To create the test script, follow the steps below:
 
 1. Click on **Create Test Script** to start generating a test script.
 
-    <img src={useBaseUrl('/img/ai-authoring/authoring2.png')} alt="AI Insights View" width="700"/>
+    <img src={useBaseUrl('/img/ai-authoring/authoring2.png')} alt="AI Authoring initial view" width="700"/>
 
 2. Select the type of test you want to perform: **Web** or **Mobile app**:
 
-    <img src={useBaseUrl('/img/ai-authoring/authoring3.png')} alt="AI Insights View" width="700"/>
+    <img src={useBaseUrl('/img/ai-authoring/authoring3.png')} alt="AI Authoring setup" width="700"/>
 
     For web tests, you enter the full URL of the application under test. 
 
@@ -48,7 +48,7 @@ To create the test script, follow the steps below:
 
 3. Optionally, you can set additional settings for test generation before starting the prompt. Click on the **Cog** icon to fill in required settings for generation.
 
-    <img src={useBaseUrl('/img/ai-authoring/authoring4.png')} alt="AI Insights View" width="700"/>
+    <img src={useBaseUrl('/img/ai-authoring/authoring4.png')} alt="AI Authoring" width="700"/>
 
     You can select the following options here:
     * Select the specific OS and device/browser to use for test generation.
@@ -63,9 +63,7 @@ To create the test script, follow the steps below:
 
     <img src={useBaseUrl('/img/ai-authoring/authoring5.png')} alt="AI Insights View" width="700"/>
 
-    Initially, what you see is a natural language breakdown of what was done: what pages were visited, what buttons were clicked, what inputs were typed. The tool captures the input values and unique locators of the elements interacted with. 
-
-    When the test generation session finishes, the entire test flow is displayed for review. 
+    Initially, what you see is a natural language breakdown of what was done: what pages were visited, what buttons were clicked, what inputs were typed. The tool captures the input values and unique locators of the elements interacted with. When the test generation session finishes, the entire test flow is displayed for review. 
 
 ## Test Case Editing and Saving
 After running a prompt, you're automatically moved into **edit mode**, where the test steps are fully available for review and customization. Here, the generated steps are displayed in a human-readable format, and each action is accompanied by detailed metadata: Step intent, XPath selectors, input values, step screenshots. You can modify individual steps, adjust test parameters, or regenerate the flow with a new prompt if needed. 
@@ -96,8 +94,6 @@ Once a test case is finalized and saved, execution is just a click away. Sauce L
 
 <img src={useBaseUrl('/img/ai-authoring/authoring8.png')} alt="Run Test Configuration" width="700"/>
 <img src={useBaseUrl('/img/ai-authoring/authoring9.png')} alt="Run Test Device Selection" width="700"/>
-
-Behind the scenes, these tests run using Sauce-supported frameworks like **WebDriverIO**, **Selenium**, and **Appium**.
 
 ## Test Suites
 
@@ -155,7 +151,7 @@ Test suites have the following options accessible directly from the list view:
 
 To ensure consistent quality without manual triggers, you can schedule your test suites to run at a regular cadence directly from the Sauce Labs platform. You can access the Scheduled Runs view from within Test Authoring navigation.
 
-<img src={useBaseUrl('/img/ai-authoring/authoring13b.png')} alt="Schedules list" width="300" />
+<img src={useBaseUrl('/img/ai-authoring/authoring13b.png')} alt="Schedules list"/>
 
 ### Setting Up and Editing a Schedule
 
@@ -176,8 +172,8 @@ You can create a scheduled run for one or more test suites. When configuring a s
 A dedicated space on the UI allows you to manage all active schedules.
 
 * **States**: Schedules can be Active, Running, Paused (manual or system-triggered due to errors), or Deleted.
-* **Editing**: You can update the timeframe, runners, or test selections within an existing schedule at any time.
-* **Alerting**: If a schedule fails to run (e.g., the Job Owner is deactivated), you will receive an error notification in the schedules list.
+* **Editing**: You can update the timeframe, run configuration, or test suite selection within an existing schedule at any time.
+* **Alerting**: If a schedule fails to run (e.g., the Job Owner is deactivated), you will receive an error notification in the schedules list. If a schedule completes due to the set end date or a number of runs, it will show as Paused.
 
 ## Viewing Test Results
 
