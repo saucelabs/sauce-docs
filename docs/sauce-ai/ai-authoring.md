@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-This feature is available as a paid add on for Enterprise users. Talk to Sales to give it a try!
+This feature is available as a paid add on for Enterprise users. Contact us to learn more!
 :::
 
 Sauce AI for Test Authoring is a new way to create, edit, manage, and run test scripts at scale, all without writing a single line of code. This tool enables you to write your test goal in the form of natural-language prompts, connect to your web or mobile application via a real device, virtual device, or browser, and let a large language model generate structured, editable, and runnable test flows for you.
