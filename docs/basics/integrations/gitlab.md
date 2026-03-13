@@ -139,24 +139,50 @@ script:
 
 :::note
 This script requires a GitLab Runner configured with a PowerShell executor on Windows.
+In Windows, we recommend to start Sauce Connect in the same job as the tests that will use it, to ensure that the
+tunnel is properly closed after the tests finish and the job ends.
 :::
 
 ```yaml title="gitlab-sc.yml"
-script:
-  - Invoke-WebRequest -Uri "https://saucelabs.com/downloads/sauce-connect/5.2.2/sauce-connect-5.2.2_windows.x86_64.zip" -OutFile "sauce-connect.zip"
-  - Expand-Archive -Path "sauce-connect.zip" -DestinationPath ".\sauce-connect"
-  - $env:PATH = ".\sauce-connect;$env:PATH"
-  # The --api-address flag starts a local API server to enable readiness checks
-  - Start-Process -NoNewWindow -FilePath ".\sauce-connect\sauce-connect.exe" -ArgumentList "run","--region","us-west","--api-address",":8032","--tunnel-name","gitlabTunnel"
-  - |
-    $timeout = 180; $elapsed = 0
-    while ($elapsed -lt $timeout) {
-      try { if ((Invoke-WebRequest -Uri "http://localhost:8032/readyz" -UseBasicParsing).StatusCode -eq 200) { break } } catch { }
-      Write-Host "Waiting for Sauce Connect to be ready... ($elapsed seconds)"
-      Start-Sleep -Seconds 1; $elapsed++
-    }
-    if ($elapsed -ge $timeout) { Write-Error "Sauce Connect failed to start within $timeout seconds"; exit 1 }
-  - Write-Host "Sauce Connect Proxy is ready"
+build_test_windows:
+  stage: build_test
+  before_script:
+    # Getting Sauce Connect ready
+    - echo "Sauce Connect on Windows"
+    - Invoke-WebRequest -Uri "https://saucelabs.com/downloads/sauce-connect/5.5.0/sauce-connect-5.5.0_windows.x86_64.zip" -OutFile "sauce-connect.zip"
+    - Expand-Archive -Path "sauce-connect.zip" -DestinationPath ".\sauce-connect"
+    - $env:PATH = ".\sauce-connect;$env:PATH"
+    # The --api-address flag starts a local API server to enable readiness checks
+    - |
+      $scProcess = Start-Process -NoNewWindow -FilePath ".\sauce-connect\sauce-connect.exe" -ArgumentList "run","--region","us-west","--api-address",":8032","--tunnel-name","gitlabTunnelWindows"
+      Write-Host "Sauce Connect process started with PID: $($scProcess.Id)"
+      # Store PID for cleanup
+      $scProcess.Id | Out-File -FilePath "sc_pid.txt"
+    - |
+      $timeout = 180; $elapsed = 0
+      while ($elapsed -lt $timeout) {
+        try { if ((Invoke-WebRequest -Uri "http://localhost:8032/readyz" -UseBasicParsing).StatusCode -eq 200) { break } } catch { }
+        Write-Host "Waiting for Sauce Connect to be ready... ($elapsed seconds)"
+        Start-Sleep -Seconds 1; $elapsed++
+      }
+      if ($elapsed -ge $timeout) { Write-Error "Sauce Connect failed to start within $timeout seconds"; exit 1 }
+    - Write-Host "Sauce Connect Proxy is ready"
+  script:
+    - run tests
+    # Kill Sauce Connect process
+    - |
+      try {
+        if (Test-Path "sc_pid.txt") {
+          $scPid = Get-Content "sc_pid.txt"
+          Write-Host "Stopping Sauce Connect process (PID: $scPid)"
+          Stop-Process -Id $scPid -Force -ErrorAction SilentlyContinue
+        }
+        # Also kill by process name as backup
+        Get-Process | Where-Object {$_.ProcessName -like "*sauce-connect*"} | Stop-Process -Force -ErrorAction SilentlyContinue
+        Write-Host "Sauce Connect stopped"
+      } catch {
+        Write-Host "Error stopping Sauce Connect: $_"
+      }
 ```
 
 </TabItem>
