@@ -28,9 +28,9 @@ macOS 14 and 15 are only available to Enterprise customers with the appropriate 
 | macOS 15   | Firefox | 136+    |
 | macOS 15   | Edge    | 138+    |
 
-## Required Capabilities
+## Test Capabilities*
 
-Tests on macOS 14 and newer require the `armRequired` parameter to be passed with "true" such as in this example: 
+Tests on macOS 14 and newer can include the `armRequired` parameter passed with "true" in the Sauce Options to ensure they are routed to the correct architecture. Prior to March 15th 2026, this was required for tests to execute, but is now optional and can be excluded for future test runs. 
 
 ```javascript
 {
