@@ -136,7 +136,3 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-cent
 
 </TabItem>
 </Tabs>
-
-## API Testing Setup
-
-See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing.

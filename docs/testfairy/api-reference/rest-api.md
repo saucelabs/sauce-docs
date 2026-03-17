@@ -262,6 +262,106 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 ---
 
+### Update a Specific Build
+
+<details>
+<summary><span className="api patch">PATCH</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/</code></summary>
+<p></p>
+
+Update editable fields of a specific build. Only the fields included in the request body are modified; omitted fields remain unchanged.
+
+**Content Types:** `application/x-www-form-urlencoded` or `application/json`. Note: `multipart/form-data` is not supported for this endpoint.
+
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>comment</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Release notes / changelog for the build. Also accepted as <code>changelog</code> or <code>release_notes</code>.</p></td>
+		</tr>
+		<tr>
+			<td><code>tags</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma-separated list of tags.</p></td>
+		</tr>
+		<tr>
+			<td><code>groups</code> or <code>app_permission_groups</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma-separated list of tester group names. If present but empty, clears all groups. If omitted, groups are unchanged.</p></td>
+		</tr>
+		<tr>
+			<td><code>landing_page_mode</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Landing page mode: <code>open</code> or <code>closed</code>.</p></td>
+		</tr>
+		<tr>
+			<td><code>metadata_*</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Custom metadata fields. Use the prefix <code>metadata_</code> followed by a key name (e.g. <code>metadata_title</code>, <code>metadata_env</code>).</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```bash title="Sample Request"
+curl -X PATCH \
+  "https://mobile.saucelabs.com/api/1/projects/{project-id}/builds/{build-id}/" \
+  -u "john@example.com:00001234cafecafe" \
+  -d "comment=New release notes" \
+  -d "tags=production,v2" \
+  -d "groups=beta-testers,qa" \
+  -d "landing_page_mode=open" \
+  -d "metadata_title=My App Title"
+```
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "build_id": "8830728",
+    "tags": ["production", "v2"],
+    "metadata": {
+        "title": "My App Title"
+    },
+    "changelog": "New release notes",
+    "groups": ["beta-testers", "qa"],
+    "landing_page_mode": "open"
+}
+```
+
+#### Error Codes
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>1</code></td>
+			<td colSpan='2'>Missing or invalid <code>build-id</code>.</td>
+		</tr>
+		<tr>
+			<td><code>99</code></td>
+			<td colSpan='2'>No permissions — the authenticated user does not have write access to this project.</td>
+		</tr>
+		<tr>
+			<td><code>133</code></td>
+			<td colSpan='2'>Tester accounts cannot update builds.</td>
+		</tr>
+		<tr>
+			<td><code>156</code></td>
+			<td colSpan='2'>Cannot set <code>landing_page_mode</code> to <code>open</code> when login is required by the account settings.</td>
+		</tr>
+	</tbody>
+</table>
+
+</details>
+
+---
+
 ### Copy a Specific Build to a Folder
 
 <details>
@@ -414,6 +514,17 @@ Invite one or more tester groups to this specific build. You can optionally send
 
 List all testers in this account.
 
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>buildId</code></td>
+			<td><p><small>| OPTIONAL | INTEGER |</small></p><p>When provided, each tester includes build-specific fields: <code>isInvitedToBuild</code>, <code>buildInviteStatus</code>, <code>buildInviteTime</code>, and <code>appDownloadLink</code>.</p></td>
+		</tr>
+	</tbody>
+</table>
+
 #### Responses
 
 <table id="table-api">
@@ -430,21 +541,25 @@ List all testers in this account.
     "status": "ok",
     "testers": [
         {
-            "email":"james@example.com",
-            "groups":[{
-                id: 100,
-                name: "friends"
-            }]
+            "email": "james@example.com",
+            "groups": [{
+                "id": 100,
+                "name": "friends"
+            }],
+            "lastLogin": "2025-11-20 14:30:00",
+            "createdAt": "2024-06-15 09:00:00"
         },
         {
-            "email":"alice@testfairy.com",
-            "groups":[{
-                id: 100,
-                name: "friends"
+            "email": "alice@testfairy.com",
+            "groups": [{
+                "id": 100,
+                "name": "friends"
             }, {
-                id: 200,
-                name: "family"
-            }]
+                "id": 200,
+                "name": "family"
+            }],
+            "lastLogin": "2026-01-10 08:45:00",
+            "createdAt": "2024-03-22 11:30:00"
         }
     ]
 }
@@ -500,6 +615,46 @@ Add a new tester to account. Optionally can add them to a group.
 ```json title="Sample Response"
 {
     "status": "ok"
+}
+```
+
+</details>
+
+---
+
+### Get a Single Tester
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/testers/&#123;tester-id&#125;</code></summary>
+<p></p>
+
+Get details for a single tester by ID.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "tester": {
+        "id": 123,
+        "email": "james@example.com",
+        "isBlocked": false,
+        "groups": [{
+            "id": 100,
+            "name": "friends"
+        }],
+        "lastLogin": "2025-11-20 14:30:00",
+        "createdAt": "2024-06-15 09:00:00"
+    }
 }
 ```
 
@@ -839,7 +994,11 @@ Get metadata for 100 of the latest feedbacks recorded.
 
 ## Audits
 
-### Get Recent Audit Trail Items
+### Get Recent Audit Trail Items (Deprecated)
+
+:::caution Deprecated
+This endpoint is deprecated. Use the v2 audit endpoints below instead: `/api/2/audits/`, `/api/2/audits/admin-trail/`, `/api/2/audits/tester-trail/`.
+:::
 
 <details>
 <summary><span className="api get">GET</span><code>/api/1/audits</code></summary>
@@ -877,6 +1036,276 @@ Get recent audit trail items.
             }
         }
     ]
+}
+```
+
+</details>
+
+### Get All Audit Logs
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/audits/</code></summary>
+<p></p>
+
+Get paginated audit logs across all action types. Returns admin trail, tester trail, and all other audit events. Requires admin permissions with all-projects access.
+
+For multi-site accounts, account managers see logs across all related sites. Admins see logs for their own site only.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>site</code></td>
+			<td><code>string</code> or <code>int</code></td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+		</tr>
+		<tr>
+			<td><code>action_type</code></td>
+			<td><code>int</code></td>
+			<td>Optional. Filter by a specific action type ID.</td>
+		</tr>
+		<tr>
+			<td><code>start_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter from date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>end_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter to date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "audits": [
+        {
+            "id": 789,
+            "timestamp": "2026-03-01 09:00:00",
+            "enterpriseId": 456,
+            "siteName": "My Organization",
+            "userId": 789,
+            "userEmail": "admin@example.com",
+            "ipAddress": "1.2.3.4",
+            "actionType": 1905,
+            "actionLabel": "Security settings changed",
+            "actionData": {
+                "from": {"mfa_enabled": false},
+                "to": {"mfa_enabled": true}
+            }
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 315,
+        "total_pages": 7
+    }
+}
+```
+
+</details>
+
+---
+
+### Get Admin Trail Audit Logs
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/audits/admin-trail/</code></summary>
+<p></p>
+
+Get paginated admin trail audit logs, including security changes, integration updates, team management actions, and webhook modifications. Requires admin permissions with all-projects access.
+
+For multi-site accounts, account managers see logs across all related sites. Admins see logs for their own site only.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>site</code></td>
+			<td><code>string</code> or <code>int</code></td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+		</tr>
+		<tr>
+			<td><code>action_type</code></td>
+			<td><code>int</code></td>
+			<td>Optional. Filter by a specific action type ID.</td>
+		</tr>
+		<tr>
+			<td><code>start_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter from date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>end_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter to date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "audits": [
+        {
+            "id": 123,
+            "timestamp": "2026-02-25 10:30:00",
+            "enterpriseId": 456,
+            "siteName": "My Organization",
+            "userId": 789,
+            "userEmail": "admin@example.com",
+            "ipAddress": "1.2.3.4",
+            "actionType": 1905,
+            "actionLabel": "Security settings changed",
+            "actionData": {
+                "from": {"mfa_enabled": false},
+                "to": {"mfa_enabled": true}
+            }
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 230,
+        "total_pages": 5
+    }
+}
+```
+
+</details>
+
+---
+
+### Get Tester Trail Audit Logs
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/audits/tester-trail/</code></summary>
+<p></p>
+
+Get paginated tester trail audit logs, including tester invitations, deletions, group assignments, and build distribution changes. Requires admin permissions with all-projects access.
+
+For multi-site accounts, account managers see logs across all related sites. Admins see logs for their own site only.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>site</code></td>
+			<td><code>string</code> or <code>int</code></td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+		</tr>
+		<tr>
+			<td><code>action_type</code></td>
+			<td><code>int</code></td>
+			<td>Optional. Filter by a specific action type ID.</td>
+		</tr>
+		<tr>
+			<td><code>start_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter from date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>end_date</code></td>
+			<td><code>string</code></td>
+			<td>Optional. Filter to date (format: <code>YYYY-MM-DD</code>).</td>
+		</tr>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "audits": [
+        {
+            "id": 456,
+            "timestamp": "2026-02-25 14:15:00",
+            "enterpriseId": 456,
+            "siteName": "My Organization",
+            "userId": 789,
+            "userEmail": "admin@example.com",
+            "ipAddress": "1.2.3.4",
+            "actionType": 1200,
+            "actionLabel": "Invited testers",
+            "actionData": {
+                "emails": ["tester1@example.com", "tester2@example.com"]
+            }
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 85,
+        "total_pages": 2
+    }
 }
 ```
 

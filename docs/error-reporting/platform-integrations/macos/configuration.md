@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             dbSettings: backtraceDatabaseSettings,
             reportsPerMin: 10,
             allowsAttachingDebugger: false,
-            detectOOM: true)
+            oomMode: .full)
 
         BacktraceClient.shared = try? BacktraceClient(configuration: backtraceConfiguration)
 
@@ -90,7 +90,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                                    dbSettings: backtraceDatabaseSettings
                                                    reportsPerMin: 3
                                                    allowsAttachingDebugger: TRUE
-                                                   detectOOM: FALSE];
+                                                   oomMode: BacktraceOomModeNone];
     BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
 
     [BacktraceClient.shared setAttributes: @{@"foo": @"bar"}];
@@ -117,7 +117,7 @@ let configuration = BacktraceClientConfiguration(credentials: backtraceCredentia
                                                  dbSettings: BacktraceDatabaseSettings(),
                                                  reportsPerMin: 10,
                                                  allowsAttachingDebugger: false,
-                                                 detectOOM: true)
+                                                 oomMode: .full)
 BacktraceClient.shared = try? BacktraceClient(configuration: configuration)
 ```
 
@@ -134,7 +134,7 @@ BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration all
                                                dbSettings: [[BacktraceDatabaseSettings alloc] init]
                                                reportsPerMin: 3
                                                allowsAttachingDebugger: NO
-                                               detectOOM: TRUE];
+                                               oomMode: BacktraceOomModeFull];
 
 BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
 ```
@@ -152,7 +152,7 @@ BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configu
 | `dbSettings`                                                      | The [`BacktraceDatabaseSettings`](#database-settings) used to initialize the `BacktraceDatabase`.                                                                                                                                                                                                                                                                                                      | Parameter |
 | `reportsPerMin`                                                   | The maximum number of reports per minute that `BacktraceClient` will send.                                                                                                                                                                                                                                                                                                                             | Integer   | 30            |
 | `allowsAttachingDebugger`                                         | Specifies whether to send reports when the debugger is connected. <br /><br /> The options are: <br /><ul><li>**false** (Swift) / **NO** (Objective-C): `BacktraceClient` will send reports when the debugger is connected.</li><li> **true** (Swift) / **YES** (Objective-C): `BacktraceClient` won't send reports when the debugger is connected.</li></ul>                                          | Boolean   | false / NO    |
-| `detectOOM`                                                       | Specifies whether to detect and send reports for out of memory (OOM) crashes. <br /><br /> The options are: <br /> <ul><li> **false** (Swift) / **FALSE** (Objective-C): `BacktraceClient` won't detect or send reports for out of memory (OOM) crashes.</li><li> **true** (Swift) / **TRUE** (Objective-C): `BacktraceClient` will detect and send reports for out of memory (OOM) crashes.</li></ul> | Boolean   | false / FALSE |
+| `oomMode`                                                         | Specifies how the SDK should handle OOM (Out-Of-Memory) detection. See [OOM Detection Modes](#oom-detection-modes) for details. <br /><br /> The options are: <br /><ul><li>**`.none`** (Swift) / **`BacktraceOomModeNone`** (Objective-C): Disables OOM detection.</li><li>**`.light`** (Swift) / **`BacktraceOomModeLight`** (Objective-C): Lightweight OOM report — current thread only, no symbolication.</li><li>**`.full`** (Swift) / **`BacktraceOomModeFull`** (Objective-C): Full OOM report — all threads, symbolicated.</li></ul> | `BacktraceOomMode` | `.none` / `BacktraceOomModeNone` |
 
 ## Database Settings
 
@@ -261,6 +261,76 @@ BacktraceClient.shared = [[BacktraceClient alloc]
 
 </TabItem>
 </Tabs>
+
+### Custom Crash Directory
+
+By default, PLCrashReporter stores `.plcrash` files in the app's standard cache directory. You can specify a custom directory to control where crash reports are written.
+
+<Tabs groupId="languages">
+<TabItem value="swift" label="Swift">
+
+```swift
+// Create a custom directory for crash reports
+let baseURL = try FileManager.default.url(
+    for: .libraryDirectory,
+    in: .userDomainMask,
+    appropriateFor: nil,
+    create: true)
+let crashDir = baseURL.appendingPathComponent("btcrash", isDirectory: true)
+try FileManager.default.createDirectory(
+    at: crashDir,
+    withIntermediateDirectories: true)
+
+// Create a PLCrashReporterConfig with the custom basePath
+guard let plcrashConfig = PLCrashReporterConfig(
+    signalHandlerType: .BSD,
+    symbolicationStrategy: .all,
+    basePath: crashDir.path) else {
+    fatalError("Could not create PLCrashReporterConfig")
+}
+
+let reporter = BacktraceCrashReporter(config: plcrashConfig)
+BacktraceClient.shared = try? BacktraceClient(
+    configuration: backtraceConfiguration,
+    crashReporter: reporter)
+```
+
+</TabItem>
+<TabItem value="objc" label="Objective-C">
+
+```objc
+// Create a custom directory for crash reports
+NSError *error = nil;
+NSURL *libraryUrl = [[NSFileManager defaultManager] URLForDirectory:NSLibraryDirectory
+                                                           inDomain:NSUserDomainMask
+                                                  appropriateForURL:nil
+                                                             create:YES
+                                                              error:&error];
+NSURL *crashDir = [libraryUrl URLByAppendingPathComponent:@"btcrash" isDirectory:YES];
+[[NSFileManager defaultManager] createDirectoryAtURL:crashDir
+                         withIntermediateDirectories:YES
+                                          attributes:nil
+                                               error:&error];
+
+// Create a PLCrashReporterConfig with the custom basePath
+PLCrashReporterConfig *plcrashConfig = [[PLCrashReporterConfig alloc]
+    initWithSignalHandlerType: PLCrashReporterSignalHandlerTypeBSD
+        symbolicationStrategy: PLCrashReporterSymbolicationStrategyAll
+                     basePath: crashDir.path];
+
+BacktraceCrashReporter *reporter = [[BacktraceCrashReporter alloc] initWithConfig: plcrashConfig];
+BacktraceClient.shared = [[BacktraceClient alloc]
+                            initWithConfiguration: configuration
+                            crashReporter: reporter
+                            error: nil];
+```
+
+</TabItem>
+</Tabs>
+
+:::note
+On iOS, you can also set a `FileProtectionType` on the custom crash directory to control file access when the device is locked. See the [iOS Custom Crash Directory](/error-reporting/platform-integrations/ios/configuration/#custom-crash-directory) documentation for details on `FileProtectionType` options. File protection is not applicable on macOS.
+:::
 
 ## Handling Events
 
@@ -556,37 +626,123 @@ BacktraceBreadcrumbSettings *settings = [[BacktraceBreadcrumbSettings alloc]
 </TabItem>
 </Tabs>
 
-## OOM Detection on macOS
+## OOM Detection Modes
 
-Out of memory (OOM) detection is supported on macOS. The detection mechanism differs from iOS:
+OOM (Out-Of-Memory) detection is supported on macOS. The detection mechanism differs from iOS:
 
 - **macOS**: Uses `DispatchSourceMemoryPressure` to monitor for `.warning` and `.critical` memory pressure events.
 - **iOS**: Uses `UIApplication.didReceiveMemoryWarningNotification`.
 
-Enable OOM detection via the `detectOOM` parameter in `BacktraceClientConfiguration`:
+The SDK provides configurable OOM detection through the `BacktraceOomMode` enum.
+
+### `BacktraceOomMode`
+
+| Mode | Swift | Objective-C | Description |
+| --- | --- | --- | --- |
+| **None** | `.none` | `BacktraceOomModeNone` | OOM detection is disabled. No launch-time overhead. |
+| **Light** | `.light` | `BacktraceOomModeLight` | Lightweight OOM report. Captures only the current thread without symbolication. Minimal performance impact. |
+| **Full** | `.full` | `BacktraceOomModeFull` | Full OOM report. Captures all threads with symbolication. Provides the most diagnostic detail but has higher overhead at launch. |
+
+### Choosing the Right Mode
+
+| Use Case | Recommended Mode | Rationale |
+| --- | --- | --- |
+| **Games and performance-critical apps** | `.light` | Avoids launch-time stalls from symbolication and thread enumeration. Games are especially sensitive to frame drops and launch latency. |
+| **Standard apps** | `.full` | Provides complete stack traces across all threads, making it easier to diagnose memory issues. The overhead at launch is acceptable for most apps. |
+| **Apps where launch time is critical** | `.light` | The `.light` mode skips symbolication and runs on the current thread only, keeping launch fast. |
+| **OOM detection not needed** | `.none` | Zero overhead. Use when OOM crashes are not a concern or are tracked through other means. |
+
+### How It Works
+
+- **`.light` mode** captures a snapshot of the current thread at the moment of the low-memory warning. It skips symbolication, so the report is fast to generate but contains less detail. If the lightweight capture fails, it automatically falls back to `.full` mode.
+- **`.full` mode** captures all threads with full symbolication. This runs on a dedicated background dispatch queue (`com.backtrace.oom`) to avoid blocking the main thread, but the I/O and symbolication work can still impact launch performance.
+- Both modes capture the resident memory footprint at the time of the low-memory warning.
+
+### Usage
 
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
 ```swift
-let configuration = BacktraceClientConfiguration(credentials: backtraceCredentials,
-                                                 dbSettings: BacktraceDatabaseSettings(),
-                                                 reportsPerMin: 10,
-                                                 allowsAttachingDebugger: false,
-                                                 detectOOM: true)
+// Lightweight mode — recommended for games and performance-sensitive apps
+let configuration = BacktraceClientConfiguration(
+    credentials: backtraceCredentials,
+    dbSettings: BacktraceDatabaseSettings(),
+    reportsPerMin: 10,
+    allowsAttachingDebugger: false,
+    oomMode: .light)
+
+// Full mode — recommended for standard apps that need complete diagnostics
+let configuration = BacktraceClientConfiguration(
+    credentials: backtraceCredentials,
+    dbSettings: BacktraceDatabaseSettings(),
+    reportsPerMin: 10,
+    allowsAttachingDebugger: false,
+    oomMode: .full)
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
 ```objc
+// Lightweight mode — recommended for games and performance-sensitive apps
+BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
+                                               initWithCredentials: credentials
+                                               dbSettings: [[BacktraceDatabaseSettings alloc] init]
+                                               reportsPerMin: 10
+                                               allowsAttachingDebugger: NO
+                                               oomMode: BacktraceOomModeLight];
+
+// Full mode — recommended for standard apps that need complete diagnostics
+BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
+                                               initWithCredentials: credentials
+                                               dbSettings: [[BacktraceDatabaseSettings alloc] init]
+                                               reportsPerMin: 10
+                                               allowsAttachingDebugger: NO
+                                               oomMode: BacktraceOomModeFull];
+```
+
+</TabItem>
+</Tabs>
+
+### Legacy API (`detectOOM`)
+
+The `detectOOM` boolean parameter is deprecated but still supported for backward compatibility. It maps to the new `oomMode` as follows:
+
+| Legacy `detectOOM` | Equivalent `oomMode` |
+| --- | --- |
+| `false` (default) | `.none` |
+| `true` | `.full` |
+
+<Tabs groupId="languages">
+<TabItem value="swift" label="Swift">
+
+```swift
+// Legacy API (deprecated) — still works but prefer oomMode
+let configuration = BacktraceClientConfiguration(
+    credentials: backtraceCredentials,
+    dbSettings: BacktraceDatabaseSettings(),
+    reportsPerMin: 10,
+    allowsAttachingDebugger: false,
+    detectOOM: true) // maps to oomMode: .full
+```
+
+</TabItem>
+<TabItem value="objc" label="Objective-C">
+
+```objc
+// Legacy API (deprecated) — still works but prefer oomMode
 BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
                                                initWithCredentials: credentials
                                                dbSettings: [[BacktraceDatabaseSettings alloc] init]
                                                reportsPerMin: 3
                                                allowsAttachingDebugger: NO
-                                               detectOOM: TRUE];
+                                               detectOOM: TRUE]; // maps to oomMode: BacktraceOomModeFull
 ```
 
 </TabItem>
 </Tabs>
+
+:::note
+The legacy `detectOOM` API does not support `.light` mode. To use lightweight OOM reporting, you must migrate to `oomMode`.
+:::

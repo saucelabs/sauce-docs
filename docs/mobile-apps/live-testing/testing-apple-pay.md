@@ -113,3 +113,19 @@ Disabling re-signing will break the installation of the app on public devices. T
 :::
 
 4. Once the app has been uploaded and re-signing has been disabled with Passcode capability, you can start the device and let Sauce Labs install the app on the device.
+
+## Automation
+
+Outside of manual testing, ApplePay can also be used with Appium automation, in both browser and mobile app testing. Call the following Sauce-specific Appium command whenever an ApplePay pop-up is visible on-screen, replacing `{passcode}` with the previously configured passcode for the device:
+
+```python
+driver.execute_script(f"sauce:applepay={passcode}")
+```
+This will automatically confirm the ApplePay transaction using AssistiveTouch, entering the designated passcode when required. Using this method should be more reliable than automation via the Appium script itself, as it does not require context switching. 
+
+:::note
+ApplePay automation is currently supported only on devices running iOS 16 to 18. iOS 26 support is coming soon. 
+:::
+:::note
+Because passcodes need to be cleared from devices during post-session cleaning, any test cards saved to the device will also be cleared. The set-up for any ApplePay test suite will need to include adding cards to the wallet. However, this is made easier by having them saved to the list of "previous cards" synced with the AppleId. 
+:::

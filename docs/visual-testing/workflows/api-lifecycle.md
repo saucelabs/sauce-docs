@@ -101,7 +101,7 @@ curl --request PUT \
   --url 'upload-url-here' \
   --header 'Content-MD5: base64-encoded-md5-hash' \
   --header 'Content-Type: image/png' \
-  --data '@my-screenshot.png'
+  --data-binary '@my-screenshot.png'
 ```
 
 - `Content-MD5` header: Base64 encoded MD5 hash of the file (`my-screenshot.png`).

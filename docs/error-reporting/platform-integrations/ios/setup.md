@@ -22,9 +22,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported Platforms
 
-- iOS 12+
-- macOS 10.13+
-- tvOS 12+
+- iOS 13+
+- macOS 12+
+- tvOS 13+
 
 ### Privacy manifest
 

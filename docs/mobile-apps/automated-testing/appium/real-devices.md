@@ -297,6 +297,29 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `autoGrantPermissions`
 - `appiumVersion`
 
+### WebDriverAgent for iOS Real Devices
+
+Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) by default. Earlier Appium versions (all Appium 2 versions, `appium3-2025-10`, `latest`, `stable`) continue to use the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
+
+#### What Changed
+
+The [WebDriverAgent](https://github.com/appium/WebDriverAgent) is the component that drives iOS test automation under the XCUITest driver. Previously, Sauce Labs maintained a custom fork (SauceWebDriverAgent) for use on its Real Device Cloud. Starting with the `appium3-2026-01` image, Sauce Labs now uses the official Appium WebDriverAgent maintained by the Appium project.
+
+This change ensures that iOS test behavior on Sauce Labs Real Devices is consistent with the open-source Appium ecosystem and receives upstream fixes and improvements directly.
+
+#### Which Versions Are Affected
+
+| Appium Version | iOS WebDriverAgent |
+|---|---|
+| All Appium 2 versions, `appium3-2025-10`, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| `appium3-2026-01` and later | Official Appium WebDriverAgent |
+
+#### Potential Impact
+
+The official WebDriverAgent may handle certain WebDriver endpoints differently than SauceWebDriverAgent. If your iOS tests rely on behavior specific to SauceWebDriverAgent, you may observe failures after upgrading. Known examples include:
+
+- **`getWindowRect`**: The `/window/rect` endpoint may return a `404` error under the official WDA if you are using an older XCUITest driver version that does not support it. This is resolved in newer XCUITest driver versions included in the Appium 3 images.
+
 ## Example Configuration Code Snippets
 
 ### iOS and Android Project Configuration

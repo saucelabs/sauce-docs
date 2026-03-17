@@ -44,12 +44,6 @@ function Home() {
                             </a>
                             <a
                                 className='hero__popular-searches'
-                                href='/api-testing/index.html'
-                            >
-                                &nbsp;API Testing |
-                            </a>
-                            <a
-                                className='hero__popular-searches'
                                 href='/web-apps/automated-testing/selenium/selenium4/'
                             >
                                 &nbsp;Selenium 4 |
