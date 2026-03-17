@@ -69,90 +69,21 @@ You can upload the `.zip` archive in the following ways:
 
 To test your app on Apple Silicon Simulators, use the following capabilities:
 
-### Required Capabilities
+### Specific Capabilities
 
 For full sample configurations and lists of available devices per version, use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).
 
-| OS Version | Appium Version | Device Name (for example)         | `armRequired` |
+| OS Version | Appium Version | Device Name (for example)         | `armRequired`†|
 |------------|----------------|-----------------------|---------------|
 | iOS 17.0*<br/>iOS 17.5 | 2.1.3 | iPhone 15 Simulator | true |
 | iOS 16.4<br/>iOS 18.0<br/>iOS 18.6 | 2.11.3 | iPhone 16 Simulator | true |
 | iOS 26.1 | 2.19.0 | iPhone 17 Simulator | true |
 
 *iOS 17.0 with ARM is only available for automated tests.
-```json
-{
-  "platformName": "iOS",
-  "appium:deviceName": "iPhone 15 Simulator",
-  "appium:platformVersion": "17.5",
-  "appium:automationName": "XCUITest",
-  "sauce:options": {
-    "appiumVersion": "2.1.3",
-    "armRequired": true
-  }
-}
-```
 
-### Java Example for iOS
-
-```java
-MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("platformName", "iOS");
-caps.setCapability("appium:app", "storage:filename=<your app>.zip");
-caps.setCapability("appium:deviceName", "iPhone 15 Simulator");
-caps.setCapability("appium:deviceOrientation", "portrait");
-caps.setCapability("appium:platformVersion", "17.5");
-caps.setCapability("appium:automationName", "XCUITest");
-
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("appiumVersion", "2.1.3");
-sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
-sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-sauceOptions.setCapability("name", "<your test name>");
-sauceOptions.setCapability("armRequired", true);
-
-caps.setCapability("sauce:options", sauceOptions);
-```
-
----
-
-## Appium Capabilities for iPadOS
-
-For iPad Simulators with iOS 18.0:
-
-```json
-{
-  "platformName": "iOS",
-  "appium:deviceName": "iPad Simulator",
-  "appium:platformVersion": "18.0",
-  "appium:automationName": "XCUITest",
-  "sauce:options": {
-    "appiumVersion": "2.11.3",
-    "armRequired": true
-  }
-}
-```
-
-### Java Example for iPadOS
-
-```java
-MutableCapabilities caps = new MutableCapabilities();
-caps.setCapability("platformName", "iOS");
-caps.setCapability("appium:app", "storage:filename=<your app>.zip");
-caps.setCapability("appium:deviceName", "iPad Simulator");
-caps.setCapability("appium:deviceOrientation", "portrait");
-caps.setCapability("appium:platformVersion", "18.0");
-caps.setCapability("appium:automationName", "XCUITest");
-
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("appiumVersion", "2.11.3");
-sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
-sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-sauceOptions.setCapability("name", "<your test name>");
-sauceOptions.setCapability("armRequired", true);
-
-caps.setCapability("sauce:options", sauceOptions);
-```
+:::note †armRequired now optional
+Prior to March 15th, 2026 the `armRequired` parameter was required for tests to execute, but is now optional and can be excluded for future test runs.
+:::
 
 ---
 
