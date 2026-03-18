@@ -32,6 +32,8 @@ tags:
     description: Manage files on the device storage.
   - name: Appium Server
     description: Start an Appium Server in our Sauce Cloud. This server runs next to your device and will remain active as long as the device session is active.
+  - name: Network Throttling
+    description: Simulate different network conditions on the device to test your app under various connectivity scenarios.
   - name: HTTP Proxy
     description: Allows you to proxy HTTP/S to your device. Can be used as a port-forward to your device.
 paths:
@@ -655,6 +657,112 @@ paths:
             $ref: "#/components/responses/BadRequest"
           "404":
             $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /sessions/{sessionId}/network/profiles:
+    get:
+      summary: List predefined network profiles
+      description: Returns the list of predefined network profiles that can be applied to the device session.
+      tags:
+        - "Network Throttling"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of available network profiles
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NetworkProfiles"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /sessions/{sessionId}/network/profile:
+    post:
+      summary: Set a predefined network profile
+      description: Applies a predefined network profile (e.g. `2G`, `4G-fast`) to the device session. Profiles are mapped to network conditions internally—the resolved conditions are returned in the response. Use `DELETE /sessions/{sessionId}/network/condition` to reset.
+      tags:
+        - "Network Throttling"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NetworkProfileRequest"
+      responses:
+        "200":
+          description: Network profile applied successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NetworkConditions"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /sessions/{sessionId}/network/condition:
+    post:
+      summary: Set custom network conditions
+      description: Applies custom network conditions to the device session. Only specified parameters will be conditioned. The applied network conditions are returned in the response.
+      tags:
+        - "Network Throttling"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NetworkConditionsRequest"
+      responses:
+        "200":
+          description: Network conditions applied successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NetworkConditions"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+    delete:
+      summary: Reset network conditions
+      description: Removes all network throttling from the device session, restoring normal network connectivity. This resets conditions regardless of whether they were set via a predefined profile or custom conditions, since profiles are mapped to conditions internally.
+      tags:
+        - "Network Throttling"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Network conditions reset successfully
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
 
   /sessions/{sessionId}/appiumserver:
     post:
@@ -1935,3 +2043,59 @@ components:
           type: boolean
           description: "Whether the path is a directory."
           example: false
+    NetworkConditions:
+      type: object
+      description: Network condition parameters applied to the device.
+      properties:
+        downloadSpeed:
+          type: integer
+          description: "Download speed in kbps (0 - 50000)."
+          example: 5000
+        uploadSpeed:
+          type: integer
+          description: "Upload speed in kbps (0 - 50000)."
+          example: 3000
+        latency:
+          type: integer
+          description: "Latency in ms (0 - 3000)."
+          example: 200
+        loss:
+          type: integer
+          description: "Packet loss percentage (0 - 100)."
+          example: 2
+    NetworkProfile:
+      type: object
+      properties:
+        id:
+          type: string
+          description: "The profile identifier."
+          example: "4G-fast"
+        name:
+          type: string
+          description: "Human-readable profile name."
+          example: "4G Fast"
+        conditions:
+          $ref: "#/components/schemas/NetworkConditions"
+    NetworkProfiles:
+      type: object
+      properties:
+        networkProfiles:
+          type: array
+          items:
+            $ref: "#/components/schemas/NetworkProfile"
+    NetworkProfileRequest:
+      type: object
+      required:
+        - networkProfile
+      properties:
+        networkProfile:
+          type: string
+          description: "The ID of the predefined network profile to apply."
+          example: "4G-fast"
+    NetworkConditionsRequest:
+      type: object
+      required:
+        - networkConditions
+      properties:
+        networkConditions:
+          $ref: "#/components/schemas/NetworkConditions"
