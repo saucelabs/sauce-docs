@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <p><small><span className="sauceGreen">Live Testing Only</span></small></p>
 <p><span className="sauceGreen">Closed Beta</span></p>
 
-Sauce Labs provides a custom-built, native Accessibility Inspector for iOS live testing on real devices. This tool lets you navigate and interact with UI elements using accessibility-based navigation:the same way VoiceOver works. A focus rectangle highlights the currently focused element on the device screen, and audio feedback reads aloud the element's spoken description.
+Sauce Labs provides a custom-built, native Accessibility Inspector for iOS live testing on real devices. The inspector works system-wide, allowing you to navigate and interact with any UI element on the device, including your app, system applications, system pop-ups, and webviews. It uses accessibility-based navigation, the same way VoiceOver works. A focus rectangle highlights the currently focused element on the device screen, and audio feedback reads aloud the element's spoken description.
 
 The inspector supports all iOS devices and versions available on Sauce Labs.
 
@@ -67,10 +67,7 @@ The following interactions work with the tap action:
 - **App icons on the home screen**:Tap to launch the app.
 - **List items**:Tap to navigate into sub-screens (e.g., Settings rows).
 - **Toggle switches**:The inspector detects switch elements and taps the toggle control directly. For example, tapping an "Airplane Mode" row taps the switch itself, not the row label.
-
-:::note
-Only native app elements are tappable. Webviews and browser content are not supported for tap actions at this time.
-:::
+- **System applications and pop-ups**:Tap elements in system apps (e.g., Settings) and system dialogs (e.g., permission prompts).
 
 ### Screen Change Detection
 
@@ -108,11 +105,9 @@ When the screen changes (e.g., after tapping into a new page), the inspector:
 
 The following capabilities are planned for future releases:
 
-- **System element interaction**:Tap support for system applications, system pop-ups, webviews, and browser content.
 - **New shortcuts**:Actions to go to the home screen, app switcher, and more.
 - **Enhanced input control**:Ability to move the cursor on the on-screen keyboard.
 - **User preferences**:Mute audio, display caption text.
-- **Focus management improvements**:Better handling of screen changes and focus synchronization.
 
 ## More Information
 
