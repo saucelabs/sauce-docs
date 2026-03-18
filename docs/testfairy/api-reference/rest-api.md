@@ -127,6 +127,146 @@ Returns a list of all projects (iOS and Android apps) in this account.
 
 </details>
 
+## Projects V2
+
+### List All Projects (V2)
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/projects/</code></summary>
+<p></p>
+
+Returns a paginated list of all projects for the authenticated user.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 25, max: 100).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "projects": [
+        {
+            "id": 6905338,
+            "name": "GroupShot",
+            "packageName": "com.groupshot",
+            "platform": "Android",
+            "icon": "[URL TO APP ICON]"
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 25,
+        "total": 12,
+        "total_pages": 1
+    }
+}
+```
+
+</details>
+
+---
+
+### Get a Single Project (V2)
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/projects/&#123;project-id&#125;</code></summary>
+<p></p>
+
+Returns a single project with its paginated builds and linked tester groups.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>builds_page</code></td>
+			<td><code>int</code></td>
+			<td>Builds page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>builds_per_page</code></td>
+			<td><code>int</code></td>
+			<td>Builds per page (default: 25, max: 100).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "project": {
+        "id": 6905338,
+        "name": "GroupShot",
+        "packageName": "com.groupshot",
+        "platform": "Android",
+        "icon": "[URL TO APP ICON]",
+        "builds": [
+            {
+                "id": 8830728,
+                "version": "1.0 (10)",
+                "uploadDate": "2026-03-01 12:00:00"
+            }
+        ],
+        "buildsPagination": {
+            "page": 1,
+            "per_page": 25,
+            "total": 3,
+            "total_pages": 1
+        },
+        "groups": [
+            {
+                "id": 100,
+                "name": "beta-testers",
+                "testers": [
+                    {
+                        "email": "james@example.com"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+</details>
+
+---
+
 ## Builds
 
 ### Get All Builds in a Project
@@ -942,6 +1082,97 @@ Create a new tester group
     "status": "ok",
     "id": "40",
     "name": "group3"
+}
+```
+
+</details>
+
+---
+
+## Groups
+
+### List All Groups
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/groups/</code></summary>
+<p></p>
+
+Returns all tester groups for the authenticated user.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "groups": [
+        {
+            "id": 100,
+            "name": "beta-testers",
+            "private": false
+        },
+        {
+            "id": 200,
+            "name": "internal-qa",
+            "private": true
+        }
+    ]
+}
+```
+
+</details>
+
+---
+
+### Get a Single Group
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Returns a single group with its testers and linked projects.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "group": {
+        "id": 100,
+        "name": "beta-testers",
+        "private": false,
+        "testers": [
+            {
+                "email": "james@example.com"
+            },
+            {
+                "email": "alice@example.com"
+            }
+        ],
+        "projects": [
+            {
+                "id": 6905338,
+                "name": "GroupShot"
+            }
+        ]
+    }
 }
 ```
 
