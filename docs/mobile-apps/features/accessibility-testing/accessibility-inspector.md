@@ -32,6 +32,14 @@ This feature is useful for:
 - An iOS real device session (Live Testing).
 - Your app must be **debuggable**, or you need to enable the **instrumentation** flag in App Settings. This is a security limitation imposed by Apple.
 
+## Enabling the Inspector
+
+1. Start a **Live Testing** session on an iOS real device.
+2. Open the **Device Settings** from the left side toolbar.
+3. Toggle **VoiceOver** to On. This enables the Accessibility Inspector.
+
+<img src={useBaseUrl('/img/mobile-apps/accessibility-inspector.png')} alt="Enabling the Accessibility Inspector via Device Settings" width="751"/>
+
 ## Key Capabilities
 
 ### Full Keyboard Navigation
