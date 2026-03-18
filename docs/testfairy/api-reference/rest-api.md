@@ -196,24 +196,7 @@ Returns a paginated list of all projects for the authenticated user.
 <summary><span className="api get">GET</span><code>/api/2/projects/&#123;project-id&#125;</code></summary>
 <p></p>
 
-Returns a single project with its paginated builds and linked tester groups.
-
-#### Query Parameters
-
-<table id="table-api">
-	<tbody>
-		<tr>
-			<td><code>builds_page</code></td>
-			<td><code>int</code></td>
-			<td>Builds page number (default: 1).</td>
-		</tr>
-		<tr>
-			<td><code>builds_per_page</code></td>
-			<td><code>int</code></td>
-			<td>Builds per page (default: 25, max: 100).</td>
-		</tr>
-	</tbody>
-</table>
+Returns project metadata only. Use the `/builds` and `/testers` sub-resource endpoints to retrieve related data.
 
 #### Responses
 
@@ -235,30 +218,132 @@ Returns a single project with its paginated builds and linked tester groups.
         "packageName": "com.groupshot",
         "platform": "Android",
         "icon": "[URL TO APP ICON]",
-        "builds": [
-            {
-                "id": 8830728,
-                "version": "1.0 (10)",
-                "uploadDate": "2026-03-01 12:00:00"
-            }
-        ],
-        "buildsPagination": {
-            "page": 1,
-            "per_page": 25,
-            "total": 3,
-            "total_pages": 1
+        "folderName": "groupshot",
+        "landingPageMode": "closed-beta"
+    }
+}
+```
+
+</details>
+
+---
+
+### Get Project Builds (V2)
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/projects/&#123;project-id&#125;/builds</code></summary>
+<p></p>
+
+Returns a paginated list of builds for a project.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 25, max: 100).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "builds": [
+        {
+            "id": 8830728,
+            "appName": "GroupShot",
+            "appVersion": "1.0",
+            "appVersionCode": "10",
+            "iconUrl": "[URL TO APP ICON]",
+            "uploadDate": "2026-03-01 12:00:00"
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 25,
+        "total": 3,
+        "total_pages": 1
+    }
+}
+```
+
+</details>
+
+---
+
+### Get Project Testers (V2)
+
+<details>
+<summary><span className="api get">GET</span><code>/api/2/projects/&#123;project-id&#125;/testers</code></summary>
+<p></p>
+
+Returns a paginated list of testers linked to a project via tester groups.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "testers": [
+        {
+            "id": 12345,
+            "email": "james@example.com"
         },
-        "groups": [
-            {
-                "id": 100,
-                "name": "beta-testers",
-                "testers": [
-                    {
-                        "email": "james@example.com"
-                    }
-                ]
-            }
-        ]
+        {
+            "id": 12346,
+            "email": "alice@example.com"
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 2,
+        "total_pages": 1
     }
 }
 ```
@@ -1138,7 +1223,7 @@ Returns all tester groups for the authenticated user.
 <summary><span className="api get">GET</span><code>/api/1/groups/&#123;group-id&#125;</code></summary>
 <p></p>
 
-Returns a single group with its testers and linked projects.
+Returns group metadata only. Use the `/testers` and `/projects` sub-resource endpoints to retrieve related data.
 
 #### Responses
 
@@ -1157,21 +1242,125 @@ Returns a single group with its testers and linked projects.
     "group": {
         "id": 100,
         "name": "beta-testers",
-        "private": false,
-        "testers": [
-            {
-                "email": "james@example.com"
-            },
-            {
-                "email": "alice@example.com"
-            }
-        ],
-        "projects": [
-            {
-                "id": 6905338,
-                "name": "GroupShot"
-            }
-        ]
+        "private": false
+    }
+}
+```
+
+</details>
+
+---
+
+### Get Group Testers
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/groups/&#123;group-id&#125;/testers</code></summary>
+<p></p>
+
+Returns a paginated list of testers in a group.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 50, max: 200).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "testers": [
+        {
+            "email": "james@example.com"
+        },
+        {
+            "email": "alice@example.com"
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 50,
+        "total": 2,
+        "total_pages": 1
+    }
+}
+```
+
+</details>
+
+---
+
+### Get Group Projects
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/groups/&#123;group-id&#125;/projects</code></summary>
+<p></p>
+
+Returns a paginated list of projects linked to a group.
+
+#### Query Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>page</code></td>
+			<td><code>int</code></td>
+			<td>Page number (default: 1).</td>
+		</tr>
+		<tr>
+			<td><code>per_page</code></td>
+			<td><code>int</code></td>
+			<td>Results per page (default: 25, max: 100).</td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "projects": [
+        {
+            "id": 6905338,
+            "name": "GroupShot"
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "per_page": 25,
+        "total": 1,
+        "total_pages": 1
     }
 }
 ```
