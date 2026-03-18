@@ -96,7 +96,7 @@ Follow these steps:
 
 5. Keyboard navigation:
   * On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element.
-  * On iOS Keyboard navigation **is not supported** for VoiceOver. As an alternative, you can use the [Accessibility Inspector](/mobile-apps/features/accessibility-inspector) which provides full keyboard navigation and tap support for iOS elements.
+  * On iOS Keyboard navigation **is not supported** for VoiceOver. As an alternative, you can use the [Accessibility Inspector](/mobile-apps/features/accessibility-testing/accessibility-inspector) which provides full keyboard navigation and tap support for iOS elements.
 
 For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
 
