@@ -901,7 +901,15 @@ module.exports = {
                     label: 'Features',
                     collapsed: true,
                     items: [
-                        'mobile-apps/features/accessibility-inspector',
+                        {
+                            type: 'category',
+                            label: 'Accessibility Testing',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/features/accessibility-testing/accessibility-inspector',
+                                'mobile-apps/features/accessibility-testing/android-talkback',
+                            ],
+                        },
                         'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/audio-capture',
                         'mobile-apps/features/biometric-authentication',

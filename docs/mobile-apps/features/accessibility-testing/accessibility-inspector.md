@@ -16,11 +16,15 @@ Sauce Labs provides a custom-built, native Accessibility Inspector for iOS live 
 
 The inspector supports all iOS devices and versions available on Sauce Labs.
 
+:::caution VoiceOver Deprecation
+The Accessibility Inspector replaces VoiceOver for iOS accessibility testing on Sauce Labs. VoiceOver had partial implementation with no keyboard navigation support. The Accessibility Inspector provides complete keyboard navigation, tap support, and audio feedback. VoiceOver for iOS will be deprecated in a future release.
+:::
+
 This feature is useful for:
 
-- **Accessibility testing**:Verify that your app's elements have correct labels, are in the right order, and are reachable via assistive technologies.
-- **Screen reader simulation**:Hear audio feedback for each element, simulating the VoiceOver experience.
-- **Exploratory testing**:Navigate element by element to discover UI structure and identify hard-to-reach elements.
+- **Accessibility testing:** Verify that your app's elements have correct labels, are in the right order, and are reachable via assistive technologies.
+- **Screen reader simulation:** Hear audio feedback for each element, simulating the VoiceOver experience.
+- **Exploratory testing:** Navigate element by element to discover UI structure and identify hard-to-reach elements.
 
 ## What You'll Need
 
@@ -63,11 +67,11 @@ The inspector follows the same element ordering that VoiceOver uses on iOS. Elem
 
 The following interactions work with the tap action:
 
-- **Buttons and links**:Standard tap to activate.
-- **App icons on the home screen**:Tap to launch the app.
-- **List items**:Tap to navigate into sub-screens (e.g., Settings rows).
-- **Toggle switches**:The inspector detects switch elements and taps the toggle control directly. For example, tapping an "Airplane Mode" row taps the switch itself, not the row label.
-- **System applications and pop-ups**:Tap elements in system apps (e.g., Settings) and system dialogs (e.g., permission prompts).
+- **Buttons and links:** Standard tap to activate.
+- **App icons on the home screen:** Tap to launch the app.
+- **List items:** Tap to navigate into sub-screens (e.g., Settings rows).
+- **Toggle switches:** The inspector detects switch elements and taps the toggle control directly. For example, tapping an "Airplane Mode" row taps the switch itself, not the row label.
+- **System applications and pop-ups:** Tap elements in system apps (e.g., Settings) and system dialogs (e.g., permission prompts).
 
 ### Screen Change Detection
 
@@ -83,11 +87,10 @@ When the screen changes (e.g., after tapping into a new page), the inspector:
 
 - **Stale focus after screen change.** After a screen transition, the focus rectangle may briefly remain on elements from the previous screen. You may need to navigate past stale elements for the inspector to synchronize with the new screen.
 - **Strange rectangles during navigation.** Occasionally, unexpected focus rectangles may appear during navigation. Press **Up Arrow** to jump to the first element and start navigating again.
-- **Initial focus may not land on the first element.** After enabling the inspector, the focus should land on the first element. In some cases this does not work:press **Right Arrow** a few times, then **Up Arrow** to reset focus to the first element.
+- **Initial focus may not land on the first element.** After enabling the inspector, the focus should land on the first element. In some cases this does not work. Press **Right Arrow** a few times, then **Up Arrow** to reset focus to the first element.
 
 ### Tap Behavior
 
-- **Only native app elements are tappable.** System pop-ups, webviews, and browser content cannot be tapped through the inspector.
 - **Weather app widget.** The Weather widget on the home screen is not tappable on some devices.
 - **Some Files app folders.** Certain folders in the Files app may not be tappable.
 - **Tapping blocks other commands.** While a tap is being processed, navigation commands are queued and will execute once the tap completes.
@@ -105,11 +108,11 @@ When the screen changes (e.g., after tapping into a new page), the inspector:
 
 The following capabilities are planned for future releases:
 
-- **New shortcuts**:Actions to go to the home screen, app switcher, and more.
-- **Enhanced input control**:Ability to move the cursor on the on-screen keyboard.
-- **User preferences**:Mute audio, display caption text.
+- **New shortcuts:** Actions to go to the home screen, app switcher, and more.
+- **Enhanced input control:** Ability to move the cursor on the on-screen keyboard.
+- **User preferences:** Mute audio, display caption text.
 
 ## More Information
 
-- [Audio Capture with VoiceOver](/mobile-apps/features/audio-capture):Enable text-to-speech audio streaming with VoiceOver during live testing.
-- [Live Mobile App Testing](/mobile-apps/live-testing/live-mobile-app-testing):Overview of live testing features on real devices.
+- [Audio Capture](/mobile-apps/features/audio-capture): Audio capture and streaming on iOS devices.
+- [Live Mobile App Testing](/mobile-apps/live-testing/live-mobile-app-testing): Overview of live testing features on real devices.
