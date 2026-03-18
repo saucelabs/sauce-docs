@@ -1,7 +1,7 @@
 ---
-id: accessibility-inspector
+id: ios-live-accessibility-testing
 title: iOS Live Accessibility Testing
-sidebar_label: Accessibility Inspector
+sidebar_label: iOS Live Accessibility Testing
 description: Navigate and interact with iOS app elements using accessibility-based navigation during live testing sessions on real devices.
 ---
 

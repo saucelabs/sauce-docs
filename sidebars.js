@@ -906,7 +906,8 @@ module.exports = {
                             label: 'Accessibility Testing',
                             collapsed: true,
                             items: [
-                                'mobile-apps/features/accessibility-testing/accessibility-inspector',
+                                'mobile-apps/features/accessibility-testing/accessibility-testing',
+                                'mobile-apps/features/accessibility-testing/ios-live-accessibility-testing',
                                 'mobile-apps/features/accessibility-testing/android-talkback',
                             ],
                         },
