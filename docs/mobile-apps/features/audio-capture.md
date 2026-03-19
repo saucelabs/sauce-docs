@@ -81,7 +81,7 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 ## Enabling TalkBack/VoiceOver on your Devices
 
-To enable accessibility tools and use text-to-speech audio streaming during live testing, see [Accessibility Testing](/mobile-apps/features/accessibility-testing/accessibility-testing) for setup instructions on both iOS and Android.
+To enable accessibility tools and use text-to-speech audio streaming during live testing, see [Accessibility Testing](/mobile-apps/features/accessibility-testing) for setup instructions on both iOS and Android.
 
 ## Using Audio Capture on iOS/iPadOS
 
