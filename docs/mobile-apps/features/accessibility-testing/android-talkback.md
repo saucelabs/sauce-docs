@@ -7,9 +7,7 @@ description: Test your Android app's accessibility using TalkBack on real device
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><small><span className="sauceGreen">Real Devices Only</span></small></p>
-<p><small><span className="sauceGreen">Android Only</span></small></p>
-<p><small><span className="sauceGreen">Live Testing Only</span></small></p>
+<p><small><span className="sauceGreen">Real Devices Only</span></small> <small><span className="sauceGreen">Android Only</span></small> <small><span className="sauceGreen">Live Testing Only</span></small></p>
 
 TalkBack is Android's built-in screen reader. Sauce Labs allows you to enable TalkBack on real devices with a single click during live testing sessions, without going to the OS settings. You can navigate through elements using the keyboard and hear audio feedback for each focused element.
 

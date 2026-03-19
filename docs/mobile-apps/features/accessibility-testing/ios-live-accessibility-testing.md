@@ -7,10 +7,7 @@ description: Navigate and interact with iOS app elements using accessibility-bas
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><small><span className="sauceGreen">Real Devices Only</span></small></p>
-<p><small><span className="sauceGreen">iOS Only</span></small></p>
-<p><small><span className="sauceGreen">Live Testing Only</span></small></p>
-<p><span className="sauceGreen">Closed Beta</span></p>
+<p><small><span className="sauceGreen">Real Devices Only</span></small> <small><span className="sauceGreen">iOS Only</span></small> <small><span className="sauceGreen">Live Testing Only</span></small> <span className="sauceGreen">Closed Beta</span></p>
 
 Sauce Labs provides a custom-built, native Accessibility Inspector for iOS live testing on real devices. The inspector works system-wide, allowing you to navigate and interact with any UI element on the device, including your app, system applications, system pop-ups, and webviews. It uses accessibility-based navigation, the same way VoiceOver works. A focus rectangle highlights the currently focused element on the device screen, and audio feedback reads aloud the element's spoken description.
 

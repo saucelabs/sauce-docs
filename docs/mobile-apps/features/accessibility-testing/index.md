@@ -5,8 +5,7 @@ sidebar_label: Overview
 description: Test your app's accessibility on iOS and Android real devices during live testing sessions.
 ---
 
-<p><small><span className="sauceGreen">Real Devices Only</span></small></p>
-<p><small><span className="sauceGreen">Live Testing Only</span></small></p>
+<p><small><span className="sauceGreen">Real Devices Only</span></small> <small><span className="sauceGreen">Live Testing Only</span></small></p>
 
 Sauce Labs provides built-in accessibility testing tools for both iOS and Android real devices. These tools allow you to navigate through your app's UI elements using keyboard shortcuts, hear audio feedback for each focused element, and verify that your app is accessible to users with assistive technologies.
 
