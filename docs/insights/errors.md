@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Using the Errors breakdown and trends from the Errors page will allow you to use the same familiar filters like OS, test owner, or Framework to analyze your testing errors and understand what actions to take based upon the resulting set of errors. Errors shows visualization of errors over time based upon your selected filters, and then surfaces the most pervasive errors in that data set for you to debug and take action on. 
 
-<img src={useBaseUrl('img/insights/errors-overview.png')} alt="errors data visualization"/>
+<img src={useBaseUrl('img/insights/errors.png')} alt="errors data visualization"/>
 
 ###  Filtering Your Error Data
 To get the most out of the Errors page, start by narrowing down your data using the filter bar at the top of the dashboard. By default, the page displays data for the last 7 days across all your tests, but you can isolate specific problems by filtering by:
