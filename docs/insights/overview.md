@@ -58,12 +58,3 @@ Job Breakdown gives you insight into your test suite by categorizing all your in
 :::note
 Read more about how your testing strategy might benefit from our [Virtual and Real device clouds](/mobile-apps/supported-devices.md) to ensure proper coverage across your user base.
 :::
-
-## Errors Tab 
-The **Job Overview** page also offers insight into your testing errors over time via the Errors tab.
-
-### Errors
-
-Using the Errors tab from the Job Overview page you can use the same familiar filters like OS, test owner, or Framework to analyze your testing errors and understand what actions to take based upon the resulting set of errors. Errors shows visualization of errors over time based upon your selected filters, and then surfaces the most pervasive errors in that data set for you to debug and take action on. 
-
-<img src={useBaseUrl('img/insights/errors-overview.png')} alt="errors data visualization"/>

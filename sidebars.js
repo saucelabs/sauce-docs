@@ -1173,6 +1173,7 @@ module.exports = {
                 'insights/home',
                 'insights/scope',
                 'insights/overview',
+                'insights/errors',
                 'insights/history',
                 'insights/trends',
                 'insights/usage-report',

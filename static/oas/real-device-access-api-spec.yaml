@@ -9,7 +9,7 @@ info:
 
     Once you have an active device session, interact with the device directly—install apps, execute shell commands, modify device settings, capture screenshots, and launch applications. For Android devices, access low-level ADB capabilities as if the device is connected locally. For iOS devices, access WebDriverAgent directly, or deploy your own fork of WebDriverAgent on the device. Our app resigning and instrumentation capabilities automatically handle code signing and provisioning for our diverse device fleet. Start a hosted Appium server, connect your own automation tools, or use the HTTP proxy for advanced scenarios.
 
-    **New to this API?** Start with the [Real Device Access API Guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/introduction/) for authentication setup, integration walkthroughs, and advanced usage patterns.
+    **New to this API?** Start with the [Real Device Access API Guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-introduction/) for authentication setup, integration walkthroughs, and advanced usage patterns.
 
 servers:
   - url: https://api.us-west-1.saucelabs.com/rdc/v2/
