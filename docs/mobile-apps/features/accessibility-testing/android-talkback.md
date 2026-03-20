@@ -1,7 +1,7 @@
 ---
 id: android-talkback
-title: Android TalkBack
-sidebar_label: Android TalkBack
+title: Android Live Accessibility Testing
+sidebar_label: Android Live Accessibility Testing
 description: Test your Android app's accessibility using TalkBack on real devices during live testing sessions.
 ---
 
