@@ -85,7 +85,7 @@ We use a proprietary process that wipes every real device clean at the end of th
   - On Android, only the default browser remains installed.
 - AppleID’s are removed between sessions.
 - WiFi/network and DNS configuration settings are reset.
-- System locale, language, and time zone are reset to match those of the hosting Data Center.
+- System locale, language, and time zone are reset to match those of the hosting Data Center. On iOS, changing the device language requires a device reboot, which terminates the active session. Because of this, the cleaning process cannot restore a non-English language after cleanup, as it relies on English menu texts to navigate the device UI. As a result, every new iOS session starts with the device language set to English, regardless of any language changes made during a previous session.
   - EU devices are reset to UK-English, in the CET (UTC+1) time zone.
   - US devices are reset to US-English, in the PST (UTC-8) time zone.
 - Mock GPS location is reset to that of the hosting Data Center
