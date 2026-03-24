@@ -14,7 +14,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## What You'll Need
 
-- A Sauce Labs enterprise account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/)
+- A Sauce Labs enterprise account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/))
 - Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 
 ## Test Cases
@@ -135,7 +135,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       {
         "id": "69c164bcd27d5bfc3e3ef8a7",
         "orgId": "<orgId>",
-        "teamId": "<teamId>>",
+        "teamId": "<teamId>",
         "creatorUserId": "<creatorID>",
         "lastModifierUserId": "<userId>",
         "testSuiteId": "<suiteId>",
@@ -586,7 +586,7 @@ Returns a paginated list of runs for a specific test case.
   <tbody>
     <tr>
      <td><code>endDate</code></td>
-     <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>ISO 8601 end date filter — only returns runs created on or before this date.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>ISO 8601 end date filter — only returns runs created on or before this date</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -760,7 +760,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Successfully getting test case run details</td>
+    <td colSpan='2'>Success in getting test case run details</td>
   </tr>
 </tbody>
 <tbody>
@@ -971,7 +971,7 @@ Creates a new test suite.
 
 #### Parameters
 
-No parameters.
+Request body parameters.
 
 <Tabs
 groupId="dc-url"
@@ -1119,7 +1119,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success getting test suite details</td>
+    <td colSpan='2'>Success in getting test suite details</td>
   </tr>
 </tbody>
 <tbody>
@@ -1213,7 +1213,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/<id>' \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/<id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Updated smoke tests",
@@ -1426,7 +1426,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>400</code></td>
-      <td>
+      <td colSpan='2'>
       <ul>
         <li>Invalid path parameters</li>
         <li>Invalid request body</li>
@@ -1472,13 +1472,68 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <details>
 <summary><span className="api get">GET</span> <code>/v1/ai-authoring/test-schedules</code></summary>
-<p/>
 
-Returns a list of all test schedules in your account.
+Returns a paginated list of test schedules. Supports filtering by IDs, search term, date range, user, team, and test suite IDs.
 
 #### Parameters
 
-This method takes no parameters.
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>ids</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY&lt;STRING&gt; |</small></p><p>Filter by specific schedule UUID(s). Accepts a single value or an array.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>search</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Case-insensitive search term matched against the schedule name</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>startDate</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>ISO 8601 start date filter — only return schedules created on or after this date</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>endDate</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>ISO 8601 end date filter — only return schedules created on or before this date</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>userId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter by creator user UUID</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>teamId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter by team UUID</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>skip</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Number of results to skip (for offset-based pagination). Defaults to <code>0</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Maximum number of results to return</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>testSuiteIds</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY&lt;STRING&gt; |</small></p><p>Filter schedules that contain any of these test suite UUID(s). Accepts a single value or an array.</p></td>
+    </tr>
+  </tbody>
+</table>
+
 
 <Tabs
 groupId="dc-url"
@@ -1513,30 +1568,60 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
+    <td colSpan='2'>Paginated list of test schedules</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Invalid query string parameters</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
-[
-    {
-        "id": "sc1b2c3d4-e5f6-7890-abcd-ef1234567890",
-        "name": "Nightly regression",
-        "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-        "cron": "0 0 * * *",
-        "enabled": true,
-        "createdAt": "2024-01-15T10:00:00Z",
-        "updatedAt": "2024-01-15T10:00:00Z"
-    },
-    {...}
-]
+{
+   "data" : {
+      "items" : [
+         {
+            "creationDate" : "2026-03-04T15:52:46.615Z",
+            "creatorUserId" : "<userId>",
+            "creatorUserName" : "sauceBot",
+            "id" : "<id>",
+            "lastModifierUserId" : "<userId>",
+            "lastModifierUserName" : "sauceBot",
+            "lastUpdateDate" : "2026-03-17T14:06:14.927Z",
+            "name" : "E-Commerce App - Nightly",
+            "orgId" : "<orgId>",
+            "settings" : {
+               "cron" : "0 15 12 * * *",
+               "maxRuns" : 5,
+               "runningUserId" : "<userId>",
+               "startDate" : "2026-03-05T11:15:00.000Z",
+               "timezone" : "Europe/Berlin"
+            },
+            "state" : {
+               "lastRunDate" : "2026-03-10T11:15:00.652Z",
+               "runCount" : 7,
+               "stateName" : "DISABLED"
+            },
+            "teamId" : "<teamId>",
+            "testSuiteIds" : [
+               "<testSuiteId>"
+            ]
+         },
+         { ... }
+      ],
+      "total" : 2
+   }
+}
+
 ```
 
 </details>
@@ -1547,38 +1632,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <details>
 <summary><span className="api post">POST</span> <code>/v1/ai-authoring/test-schedules</code></summary>
-<p/>
 
 Creates a new test schedule.
 
 #### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name for the new test schedule.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>suiteId</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique identifier of the test suite to schedule.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>cron</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A cron expression defining the schedule frequency.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>enabled</code></td>
-     <td><p><small>| BODY | OPTIONAL | BOOLEAN |</small></p><p>Whether the schedule is active. Defaults to <code>true</code>.</p></td>
-    </tr>
-  </tbody>
-</table>
+Request body parameters.
 
 <Tabs
 groupId="dc-url"
@@ -1595,10 +1653,21 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Nightly regression",
-    "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "cron": "0 0 * * *",
-    "enabled": true
+  "name": "string",
+  "settings": {
+    "cron": "0 */1 * * *",
+    "timezone": "America/New_York",
+    "runningUserId": "string",
+    "startDate": "string",
+    "endDate": "string",
+    "maxRuns": 0,
+    "scTunnelName": "string",
+    "buildName": "string"
+  },
+  "testSuiteIds": [
+    "string"
+  ],
+  "stateName": "ENABLED"
 }' | json_pp
 ```
 
@@ -1611,10 +1680,21 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Nightly regression",
-    "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "cron": "0 0 * * *",
-    "enabled": true
+  "name": "string",
+  "settings": {
+    "cron": "0 */1 * * *",
+    "timezone": "America/New_York",
+    "runningUserId": "string",
+    "startDate": "string",
+    "endDate": "string",
+    "maxRuns": 0,
+    "scTunnelName": "string",
+    "buildName": "string"
+  },
+  "testSuiteIds": [
+    "string"
+  ],
+  "stateName": "ENABLED"
 }' | json_pp
 ```
 
@@ -1627,32 +1707,62 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>201</code></td>
-    <td colSpan='2'>Created.</td>
+    <td colSpan='2'>Created test schedule</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request.</td>
+    <td colSpan='2'>
+      <ul>
+        <li>Invalid request body</li>
+        <li>Test suites not found</li>
+        <li>Running user not found</li>
+      </ul>
+    </td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-    "id": "sc1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Nightly regression",
-    "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "cron": "0 0 * * *",
-    "enabled": true,
-    "createdAt": "2024-01-15T10:00:00Z",
-    "updatedAt": "2024-01-15T10:00:00Z"
+   "data" : {
+      "creationDate" : "2026-03-24T23:28:37.264Z",
+      "creatorUserId" : "<userId>",
+      "creatorUserName" : "sauceBot",
+      "id" : "<id>",
+      "lastModifierUserId" : "<userId>",
+      "lastModifierUserName" : "sauceBot",
+      "lastUpdateDate" : "2026-03-24T23:28:37.264Z",
+      "name" : "Regression scheduled run",
+      "orgId" : "<orgId>",
+      "settings" : {
+         "buildName" : "Build",
+         "cron" : "0 1 * * *",
+         "endDate" : "2026-06-25T12:00:00.000Z",
+         "maxRuns" : 5,
+         "runningUserId" : "<userId>",
+         "scTunnelName" : "none",
+         "startDate" : "2026-06-24T12:00:00.000Z",
+         "timezone" : "America/New_York"
+      },
+      "state" : {
+         "nextRunDate" : "2026-06-25T05:00:00.000Z",
+         "remainingRuns" : 5,
+         "runCount" : 0,
+         "stateName" : "ENABLED"
+      },
+      "teamId" : "<teamId>",
+      "testSuiteIds" : [
+         "<testSuiteId>"
+      ]
+   }
 }
 ```
 
@@ -1664,7 +1774,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <details>
 <summary><span className="api get">GET</span> <code>/v1/ai-authoring/test-schedules/&#123;id&#125;</code></summary>
-<p/>
 
 Returns the details of a specific test schedule.
 
@@ -1674,7 +1783,7 @@ Returns the details of a specific test schedule.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test schedule.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The UUID of the test schedule</p></td>
     </tr>
   </tbody>
 </table>
@@ -1691,7 +1800,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
+--request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>" | json_pp
 ```
 
 </TabItem>
@@ -1700,7 +1809,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
+--request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>" | json_pp
 ```
 
 </TabItem>
@@ -1712,32 +1821,62 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
+    <td colSpan='2'>Success fetching test schedule details</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Invalid path parameters</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Test schedule not found.</td>
+    <td colSpan='2'>Test schedule not found</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-    "id": "sc1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Nightly regression",
-    "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "cron": "0 0 * * *",
-    "enabled": true,
-    "createdAt": "2024-01-15T10:00:00Z",
-    "updatedAt": "2024-01-15T10:00:00Z"
+   "data" : {
+      "creationDate" : "2026-03-24T23:28:37.264Z",
+      "creatorUserId" : "<userId>",
+      "creatorUserName" : "sauceBot",
+      "id" : "<id>",
+      "lastModifierUserId" : "<userId>",
+      "lastModifierUserName" : "sauceBot",
+      "lastUpdateDate" : "2026-03-24T23:28:37.264Z",
+      "name" : "Regression scheduled run",
+      "orgId" : "<orgId>",
+      "settings" : {
+         "buildName" : "Build",
+         "cron" : "0 1 * * *",
+         "endDate" : "2026-06-25T12:00:00.000Z",
+         "maxRuns" : 5,
+         "runningUserId" : "<userId>",
+         "scTunnelName" : "none",
+         "startDate" : "2026-06-24T12:00:00.000Z",
+         "timezone" : "America/New_York"
+      },
+      "state" : {
+         "nextRunDate" : "2026-06-25T05:00:00.000Z",
+         "remainingRuns" : 5,
+         "runCount" : 0,
+         "stateName" : "ENABLED"
+      },
+      "teamId" : "<teamId>",
+      "testSuiteIds" : [
+         "<testSuiteId>"
+      ]
+   }
 }
 ```
 
@@ -1749,7 +1888,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <details>
 <summary><span className="api post">POST</span> <code>/v1/ai-authoring/test-schedules/&#123;id&#125;</code></summary>
-<p/>
 
 Updates the specified test schedule.
 
@@ -1759,31 +1897,7 @@ Updates the specified test schedule.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test schedule to update.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>name</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A new name for the test schedule.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>suiteId</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The unique identifier of the test suite to assign to this schedule.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>cron</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated cron expression defining the schedule frequency.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>enabled</code></td>
-     <td><p><small>| BODY | OPTIONAL | BOOLEAN |</small></p><p>Whether the schedule is active.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The UUID of the test schedule to update</p></td>
     </tr>
   </tbody>
 </table>
@@ -1800,7 +1914,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Updated nightly regression",
@@ -1815,7 +1929,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Updated nightly regression",
@@ -1833,37 +1947,70 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
+    <td colSpan='2'>Success updating test schedule</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request.</td>
+    <td colSpan='2'>
+      <ul>
+        <li>Invalid path parameters</li>
+        <li>Invalid request body</li>
+        <li>Invalid test suites</li>
+        <li>Test suites not found</li>
+        <li>Running user not found</li>
+      </ul>
+    </td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Test schedule not found.</td>
+    <td colSpan='2'>Test schedule not found</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-    "id": "sc1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Updated nightly regression",
-    "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "cron": "0 2 * * *",
-    "enabled": true,
-    "updatedAt": "2024-01-15T15:00:00Z"
+   "data" : {
+      "creationDate" : "2026-03-24T23:28:37.264Z",
+      "creatorUserId" : "<userId>",
+      "creatorUserName" : "sauceBot",
+      "id" : "<id>",
+      "lastModifierUserId" : "<userId>",
+      "lastModifierUserName" : "sauceBot",
+      "lastUpdateDate" : "2026-03-24T23:28:37.264Z",
+      "name" : "Updated nightly regression",
+      "orgId" : "<orgId>",
+      "settings" : {
+         "buildName" : "Build",
+         "cron" : "0 1 * * *",
+         "endDate" : "2026-06-25T12:00:00.000Z",
+         "maxRuns" : 5,
+         "runningUserId" : "<userId>",
+         "scTunnelName" : "none",
+         "startDate" : "2026-06-24T12:00:00.000Z",
+         "timezone" : "America/New_York"
+      },
+      "state" : {
+         "nextRunDate" : "2026-06-25T05:00:00.000Z",
+         "remainingRuns" : 5,
+         "runCount" : 0,
+         "stateName" : "ENABLED"
+      },
+      "teamId" : "<teamId>",
+      "testSuiteIds" : [
+         "<testSuiteId>"
+      ]
+   }
 }
 ```
 
@@ -1875,7 +2022,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 <details>
 <summary><span className="api delete">DELETE</span> <code>/v1/ai-authoring/test-schedules/&#123;id&#125;</code></summary>
-<p/>
 
 Deletes the specified test schedule.
 
@@ -1885,7 +2031,7 @@ Deletes the specified test schedule.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test schedule to delete.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The UUID of the test schedule to delete.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1902,7 +2048,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
+--request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890"
 ```
 
 </TabItem>
@@ -1911,7 +2057,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
+--request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890"
 ```
 
 </TabItem>
@@ -1923,24 +2069,22 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>204</code></td>
-    <td colSpan='2'>No Content.</td>
+    <td colSpan='2'>Test schedule deleted</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Test schedule not found.</td>
+    <td colSpan='2'>Test schedule not found</td>
   </tr>
 </tbody>
 </table>
-
-No payload is returned with the successful deletion.
 
 </details>
 
