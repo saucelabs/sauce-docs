@@ -378,6 +378,7 @@ module.exports = {
                 'dev/api/builds',
                 'dev/api/connect',
                 'dev/api/insights',
+                'dev/api/authoring',
                 'dev/api/usage',
                 'dev/api/performance',
                 'dev/api/platform',
