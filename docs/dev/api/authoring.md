@@ -292,7 +292,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testcases/<id>" | json_pp
+--request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testcases/<id>"
 ```
 
 </TabItem>
@@ -301,7 +301,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testcases/<id>" | json_pp
+--request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testcases/<id>"
 ```
 
 </TabItem>
@@ -828,7 +828,57 @@ Returns a list of all test suites in your account.
 
 #### Parameters
 
-This method takes no parameters.
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>ids</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY&lt;STRING&gt; |</small></p><p>Filter by specific test suite UUID(s). Accepts a single value or an array</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>search</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Case-insensitive search term matched against the suite name</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>startDate</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>ISO 8601 start date filter — only return suites created on or after this date</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>endDate</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>ISO 8601 end date filter — only return suites created on or before this date</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>userId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter by creator user UUID</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>teamId</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter by team UUID</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>skip</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Number of results to skip (for offset-based pagination). Defaults to <code>0</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Maximum number of results to return</p></td>
+    </tr>
+  </tbody>
+</table>
+
 
 <Tabs
 groupId="dc-url"
@@ -841,9 +891,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites" | json_pp
 ```
 
 </TabItem>
@@ -851,9 +900,8 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites" | json_pp
 ```
 
 </TabItem>
@@ -865,30 +913,48 @@ curl --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
+    <td colSpan='2'>Success. Returns paginated list of test suites</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Invalid query string parameters</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
-[
-    {
-        "id": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
+{ 
+  "data": {
+    "items": [
+      {
+        "id": "<id>",
+        "orgId": "<orgId>",
+        "teamId": "<teamId>",
         "name": "Smoke tests",
-        "testCaseIds": [
-            "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        "tags": [
+            "string"
         ],
-        "createdAt": "2024-01-15T10:00:00Z",
-        "updatedAt": "2024-01-15T11:00:00Z"
+        "creationDate": "2024-01-15T10:00:00Z",
+        "lastUpdate": "2024-01-15T10:00:00Z",
+        "creatorUserId": "<userId>",
+        "creatorUserName": "<userId>",
+        "lastModifierUserId": "<userId>",
+        "lastModifierUserName": "sauceBot",
+        "testCaseCount": 10
     },
     {...}
-]
+    ],
+    "total": 30
+  }
+}
 ```
 
 </details>
@@ -905,20 +971,7 @@ Creates a new test suite.
 
 #### Parameters
 
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name for the new test suite.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>testCaseIds</code></td>
-     <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>An array of test case IDs to include in the suite.</p></td>
-    </tr>
-  </tbody>
-</table>
+No parameters.
 
 <Tabs
 groupId="dc-url"
@@ -931,16 +984,15 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Smoke tests",
-    "testCaseIds": [
-        "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    "name": "Sauce Smoke tests",
+    "testCases": [
+        "<testCaseId>"
     ]
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -948,16 +1000,15 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Smoke tests",
-    "testCaseIds": [
-        "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    "name": "Sauce Smoke tests",
+    "testCases": [
+        "<testCaseId>"
     ]
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -969,32 +1020,46 @@ curl --location \
 <tbody>
   <tr>
     <td><code>201</code></td>
-    <td colSpan='2'>Created.</td>
+    <td colSpan='2'>Created test suite</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request.</td>
+    <td colSpan='2'>Invalid request body</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>One or more test cases not found</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-    "id": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Smoke tests",
-    "testCaseIds": [
-        "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
-    ],
-    "createdAt": "2024-01-15T10:00:00Z",
-    "updatedAt": "2024-01-15T10:00:00Z"
+   "data" : {
+      "creationDate" : "2026-03-24T22:28:20.224Z",
+      "creatorUserId" : "<userId>",
+      "creatorUserName" : "sauceBot",
+      "id" : "<id>",
+      "lastModifierUserId" : "<userId>",
+      "lastModifierUserName" : "sauceBot",
+      "lastUpdate" : "2026-03-24T22:28:20.224Z",
+      "name" : "Sauce Smoke Tests",
+      "orgId" : "<orgId>",
+      "runCount" : 0,
+      "tags" : [],
+      "teamId" : "<teamId>",
+      "testCaseCount" : 0
+   }
 }
 ```
 
@@ -1016,7 +1081,7 @@ Returns the details of a specific test suite.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test suite.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>UID of the test suite</p></td>
     </tr>
   </tbody>
 </table>
@@ -1032,9 +1097,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/<id>" | json_pp
 ```
 
 </TabItem>
@@ -1042,9 +1106,8 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/<id>" | json_pp
 ```
 
 </TabItem>
@@ -1056,32 +1119,46 @@ curl --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
+    <td colSpan='2'>Success getting test suite details</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Invalid path parameters</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Test suite not found.</td>
+    <td colSpan='2'>Test suite not found</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-    "id": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Smoke tests",
-    "testCaseIds": [
-        "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
-    ],
-    "createdAt": "2024-01-15T10:00:00Z",
-    "updatedAt": "2024-01-15T11:00:00Z"
+   "data" : {
+      "creationDate" : "2026-03-24T22:28:20.224Z",
+      "creatorUserId" : "<userId>",
+      "creatorUserName" : "sauceBot",
+      "id" : "<id>",
+      "lastModifierUserId" : "<userId>",
+      "lastModifierUserName" : "sauceBot",
+      "lastUpdate" : "2026-03-24T22:28:20.224Z",
+      "name" : "Sauce Smoke Tests",
+      "orgId" : "<orgId>",
+      "runCount" : 0,
+      "tags" : [],
+      "teamId" : "<teamId>",
+      "testCaseCount" : 0
+   }
 }
 ```
 
@@ -1103,19 +1180,7 @@ Updates the specified test suite.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test suite to update.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>name</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A new name for the test suite.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>testCaseIds</code></td>
-     <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The updated set of test case IDs to include in the suite. Replaces the existing set.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>UUID of the test suite to update</p></td>
     </tr>
   </tbody>
 </table>
@@ -1131,17 +1196,15 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/<id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Updated smoke tests",
     "testCaseIds": [
-        "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-        "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+        "<testCaseId>"
     ]
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -1149,17 +1212,15 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/<id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Updated smoke tests",
     "testCaseIds": [
-        "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-        "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+        "<testCaseId>"
     ]
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -1171,38 +1232,53 @@ curl --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
+    <td colSpan='2'>Success updating test suite</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request.</td>
+    <td colSpan='2'>
+      <ul>
+        <li>Invalid path parameters</li>
+        <li>Invalid request body</li>
+        <li>Invalid or missing test cases</li>
+        <li>Test cases not found</li>
+      </ul>
+    </td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Test suite not found.</td>
+    <td colSpan='2'>Test suite not found</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-    "id": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "name": "Updated smoke tests",
-    "testCaseIds": [
-        "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-        "b2c3d4e5-f6a7-8901-bcde-f12345678901"
-    ],
-    "updatedAt": "2024-01-15T14:00:00Z"
+   "data" : {
+      "creationDate" : "2026-03-24T22:40:55.113Z",
+      "creatorUserId" : "<userId>",
+      "creatorUserName" : "sauceBot",
+      "id" : "<id>",
+      "lastModifierUserId" : "<userId>",
+      "lastModifierUserName" : "sauceBot",
+      "lastUpdate" : "2026-03-24T22:42:48.163Z",
+      "name" : "Updated smoke tests",
+      "orgId" : "<orgId>",
+      "runCount" : 15,
+      "tags" : [],
+      "teamId" : "<teamId>",
+      "testCaseCount" : 3
+   }
 }
 ```
 
@@ -1214,7 +1290,6 @@ curl --location \
 
 <details>
 <summary><span className="api delete">DELETE</span> <code>/v1/ai-authoring/testsuites/&#123;id&#125;</code></summary>
-<p/>
 
 Deletes the specified test suite.
 
@@ -1240,9 +1315,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/<id>"
 ```
 
 </TabItem>
@@ -1250,9 +1324,8 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/<id>"
 ```
 
 </TabItem>
@@ -1264,24 +1337,33 @@ curl --location \
 <tbody>
   <tr>
     <td><code>204</code></td>
-    <td colSpan='2'>No Content.</td>
+    <td colSpan='2'>Test suite deleted (No Content)</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>
+      <ul>
+        <li>Invalid path parameters</li>
+        <li>Invalid request body</li>
+      </ul>
+    </td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Test suite not found.</td>
+    <td colSpan='2'>Test suite not found</td>
   </tr>
 </tbody>
 </table>
-
-No payload is returned with the successful deletion.
 
 </details>
 
@@ -1291,9 +1373,8 @@ No payload is returned with the successful deletion.
 
 <details>
 <summary><span className="api post">POST</span> <code>/v1/ai-authoring/testsuites/&#123;id&#125;/run</code></summary>
-<p/>
 
-Triggers a run of all test cases in the specified test suite.
+Queues test case runs for every test case in the suite.
 
 #### Parameters
 
@@ -1301,7 +1382,7 @@ Triggers a run of all test cases in the specified test suite.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test suite to run.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The UUID of the test suite to run</p></td>
     </tr>
   </tbody>
 </table>
@@ -1317,9 +1398,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890/run' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testsuites/<id>/run" | json_pp
 ```
 
 </TabItem>
@@ -1327,9 +1407,8 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/s1b2c3d4-e5f6-7890-abcd-ef1234567890/run' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testsuites/<id>/run" | json_pp
 ```
 
 </TabItem>
@@ -1341,33 +1420,45 @@ curl --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success. Runs initiated for all test cases in the suite.</td>
+    <td colSpan='2'>Success. Runs initiated for all test cases in the suite</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+      <td>
+      <ul>
+        <li>Invalid path parameters</li>
+        <li>Invalid request body</li>
+        <li>No jobs to run</li>
+      </ul>
+    </td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Test suite not found.</td>
+    <td colSpan='2'>Test suite not found</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-    "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
-    "runs": [
-        {
-            "runId": "r1b2c3d4-e5f6-7890-abcd-ef1234567890",
-            "testCaseId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-            "status": "running"
-        }
-    ]
+   "data" : {
+      "buildName" : "E-Commerce app suite - 1",
+      "id" : "<id>",
+      "orgId" : "<orgId>",
+      "runCount" : 12,
+      "teamId" : "<teamId>",
+      "userId" : "<userId>"
+   }
 }
 ```
 
@@ -1400,9 +1491,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules" | json_pp
 ```
 
 </TabItem>
@@ -1410,9 +1500,8 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules" | json_pp
 ```
 
 </TabItem>
@@ -1502,16 +1591,15 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Nightly regression",
     "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
     "cron": "0 0 * * *",
     "enabled": true
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -1519,16 +1607,15 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Nightly regression",
     "suiteId": "s1b2c3d4-e5f6-7890-abcd-ef1234567890",
     "cron": "0 0 * * *",
     "enabled": true
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -1603,9 +1690,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
 ```
 
 </TabItem>
@@ -1613,9 +1699,8 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
 ```
 
 </TabItem>
@@ -1714,15 +1799,14 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Updated nightly regression",
     "cron": "0 2 * * *",
     "enabled": true
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -1730,15 +1814,14 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "Updated nightly regression",
     "cron": "0 2 * * *",
     "enabled": true
-}'
+}' | json_pp
 ```
 
 </TabItem>
@@ -1818,9 +1901,8 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
 ```
 
 </TabItem>
@@ -1828,9 +1910,8 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890" | json_pp
 ```
 
 </TabItem>
