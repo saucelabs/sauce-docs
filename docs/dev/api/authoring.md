@@ -1873,7 +1873,7 @@ No payload is returned with the successful deletion.
 <summary><span className="api get">GET</span> <code>/v1/ai-authoring/storage/&#123;id&#125;</code></summary>
 <p/>
 
-Downloads a stored artifact (e.g. screenshot) by its UUID. Supports both dashed and dashless UUID formats.
+Downloads a stored artifact (e.g. screenshot) by its UUID.
 
 #### Parameters
 
@@ -1881,7 +1881,7 @@ Downloads a stored artifact (e.g. screenshot) by its UUID. Supports both dashed 
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Artifact UUID. Accepts both dashed (<code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>) and dashless (<code>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>) formats.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Artifact UUID. Accepts both dashed (<code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>) and dashless (<code>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>) formats</p></td>
     </tr>
   </tbody>
 </table>
@@ -1897,10 +1897,9 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/storage/a1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
---output './artifact'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/storage/<id>" \
+--output <FILE>
 ```
 
 </TabItem>
@@ -1908,10 +1907,9 @@ curl --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/storage/a1b2c3d4-e5f6-7890-abcd-ef1234567890' \
---header 'Authorization: Bearer $SAUCE_ACCESS_KEY' \
---output './artifact'
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/storage/<id>" \
+--output <FILE>
 ```
 
 </TabItem>
@@ -1923,39 +1921,30 @@ curl --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Artifact file stream.</td>
+    <td colSpan='2'>Artifact file stream</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Invalid path parameters.</td>
+    <td colSpan='2'>Invalid path parameters</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token.</td>
+    <td colSpan='2'>Missing or invalid Bearer token</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
     <td><code>404</code></td>
-    <td colSpan='2'>Artifact not found.</td>
+    <td colSpan='2'>Artifact not found</td>
   </tr>
 </tbody>
 </table>
 
-The `200` response returns the artifact as a binary file stream (`application/octet-stream`). Error responses return JSON:
-
-```jsx title="Sample Error Response"
-{
-    "error": {
-        "code": "FILE_NOT_FOUND",
-        "detail": "No artifact found for the given ID"
-    }
-}
-```
+The `200` response returns the artifact as a binary file stream (`application/octet-stream`). Error responses return JSON.
 
 </details>
 
