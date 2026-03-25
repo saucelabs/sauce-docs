@@ -66,7 +66,7 @@ Navigate between accessible elements using keyboard shortcuts:
 | **Up Arrow** | **Up Arrow** | Jump to the first element on the screen |
 | **Down Arrow** | **Down Arrow** | Jump to the last element on the screen |
 | **Enter** | **Enter** | Tap the currently focused element |
-| **Option + A** | **Alt + A** | Toggle Accessibility Inspector on/off |
+| **Ctrl + Shift + A** | **Ctrl + Shift + A** | Toggle Accessibility Inspector on/off |
 | **Option + M** | **Alt + M** | Mute/unmute audio feedback |
 | **Option + H** | **Alt + H** | Navigate to Home screen |
 
