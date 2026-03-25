@@ -789,7 +789,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-{ 
+{
   "data": {
     "items": [
       {
@@ -1956,7 +1956,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <summary><span className="api get">GET</span> <code>/v1/ai-authoring/storage/&#123;id&#125;</code></summary>
 <p/>
 
-Downloads a stored artifact (e.g. screenshot) by its UUID.
+Downloads a stored artifact (for example, screenshot) by its UUID.
 
 #### Parameters
 

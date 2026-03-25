@@ -81,7 +81,7 @@ Once you are happy with the result, you can **Save Test Case** at the bottom of 
 
 ### Getting the Script Code
 
-Additionally, you can generate the test code and use it in your own testing environment by clicking on **Get Code**. The generated test is not locked to a single framework. You can choose from multiple supported languages and testing frameworks. 
+Additionally, you can generate the test code and use it in your own testing environment by clicking on **Get Code**. The generated test is not locked to a single framework. You can choose from multiple supported languages and testing frameworks.
 
 | Language | Web | Mobile iOS | Mobile Android |
 |---|---|---|---|
