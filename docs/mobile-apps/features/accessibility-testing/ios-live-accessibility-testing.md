@@ -11,6 +11,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This feature is now generally available for all Sauce Labs users.
 :::
 
+:::caution VoiceOver Deprecation
+The Accessibility Inspector replaces VoiceOver for iOS accessibility testing on Sauce Labs. VoiceOver had partial implementation with no keyboard navigation support. The Accessibility Inspector provides complete keyboard navigation, tap support, and audio feedback. VoiceOver for iOS will be deprecated in a future release.
+:::
+
 <p><small><span className="sauceGreen">GA</span></small> <small><span className="sauceGreen">Real Devices Only</span></small> <small><span className="sauceGreen">iOS Only</span></small> <small><span className="sauceGreen">Live Testing Only</span></small></p>
 
 Sauce Labs provides a custom-built, native Accessibility Inspector for iOS live testing on real devices. The inspector works system-wide, allowing you to navigate and interact with any UI element on the device, including your app, system applications, system pop-ups, and webviews. It uses accessibility-based navigation, the same way VoiceOver works. A focus rectangle highlights the currently focused element on the device screen, and audio feedback reads aloud the element's spoken description.
