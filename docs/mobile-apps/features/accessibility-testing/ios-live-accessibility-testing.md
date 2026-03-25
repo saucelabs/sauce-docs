@@ -59,13 +59,16 @@ The Action Toolbar provides quick access to accessibility navigation actions. It
 
 Navigate between accessible elements using keyboard shortcuts:
 
-| Keyboard Shortcut | Action |
-|-------------------|--------|
-| **Right Arrow** | Move to the next accessible element |
-| **Left Arrow** | Move to the previous accessible element |
-| **Up Arrow** | Jump to the first element on the screen |
-| **Down Arrow** | Jump to the last element on the screen |
-| **Enter** | Tap the currently focused element |
+| Mac | Windows | Action |
+|-----|---------|--------|
+| **Right Arrow** | **Right Arrow** | Move to the next accessible element |
+| **Left Arrow** | **Left Arrow** | Move to the previous accessible element |
+| **Up Arrow** | **Up Arrow** | Jump to the first element on the screen |
+| **Down Arrow** | **Down Arrow** | Jump to the last element on the screen |
+| **Enter** | **Enter** | Tap the currently focused element |
+| **Option + A** | **Alt + A** | Toggle Accessibility Inspector on/off |
+| **Option + M** | **Alt + M** | Mute/unmute audio feedback |
+| **Option + H** | **Alt + H** | Navigate to Home screen |
 
 Each time the cursor moves, the spoken description of the newly focused element is announced via audio and displayed in the toolbar. This description includes the element's label, its type (button, text field, image, etc.), and its position in the list (e.g., "Settings, Icon, 3 of 24").
 
