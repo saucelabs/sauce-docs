@@ -81,31 +81,7 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 ## Enabling TalkBack/VoiceOver on your Devices
 
-To utilize TalkBack/VoiceOver on your Android/iOS devices, make sure you have access to supported devices, We support Android 10 and above, and iOS 13 and above.
-We are automatically enabling these Accessibility tools for you with a single click without going to the OS setting!
-
-Follow these steps:
-
-1. **Open a Live Testing Session**: Start any Live Testing session, whether it's a Cross Browser or Native Application test.
-
-2. Open the **Device Settings** from the left side toolbar.
-
-3. Select and toggle **Talkback** or **VoiceOver**
-
-4. Skip with OK or Cancel the native Talkback/VoiceOver guide.
-
-5. Keyboard navigation:
-  * On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element.
-  * On iOS Keyboard navigation **is not supported** for VoiceOver.
-
-For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
-
-<img src={useBaseUrl('/img/mobile-apps/talkBack-live.png')} alt="Sauce Labs TalkBack" width="751"/>
-<img src={useBaseUrl('/img/mobile-apps/voiceOver-live.png')} alt="Sauce Labs Voiceover" width="751"/>
-
-### Text to Speech
-
-Text to speech audio of the focused element will be streamed to your browser as you interact with the devices. Text to speech audio will not be available for download once the session is over.
+To enable accessibility tools and use text-to-speech audio streaming during live testing, see [Accessibility Testing](/mobile-apps/features/accessibility-testing) for setup instructions on both iOS and Android.
 
 ## Using Audio Capture on iOS/iPadOS
 

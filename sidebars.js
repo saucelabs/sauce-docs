@@ -901,6 +901,16 @@ module.exports = {
                     label: 'Features',
                     collapsed: true,
                     items: [
+                        {
+                            type: 'category',
+                            label: 'Accessibility Testing',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/features/accessibility-testing/accessibility-testing',
+                                'mobile-apps/features/accessibility-testing/ios-live-accessibility-testing',
+                                'mobile-apps/features/accessibility-testing/android-talkback',
+                            ],
+                        },
                         'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/audio-capture',
                         'mobile-apps/features/biometric-authentication',
@@ -1173,6 +1183,7 @@ module.exports = {
                 'insights/home',
                 'insights/scope',
                 'insights/overview',
+                'insights/errors',
                 'insights/history',
                 'insights/trends',
                 'insights/usage-report',
@@ -1188,6 +1199,8 @@ module.exports = {
             items: [
                 'sauce-ai/ai-insights',
                 'sauce-ai/ai-insights-prompting-guide',
+                'sauce-ai/ai-authoring',
+                'sauce-ai/ai-authoring-prompting-guide',
             ],
         },
         {
