@@ -794,6 +794,90 @@ suites:
 
 ---
 
+### `networkProfile`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Use a predefined network profile to apply [network throttling](/mobile-apps/features/network-throttling/) to the test suite. See the [list of predefined network profiles](/mobile-apps/features/network-throttling/#predefined-network-profiles) for available options.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    networkProfile: "3G-slow"
+```
+
+---
+
+### `networkConditions`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Use custom network conditions to apply [network throttling](/mobile-apps/features/network-throttling/) to the test suite. See the [supported network conditions](/mobile-apps/features/network-throttling/#supported-network-conditions) for value ranges.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    networkConditions:
+      downloadSpeed: 5000
+      uploadSpeed: 3000
+      latency: 200
+      loss: 2
+```
+
+---
+
+#### `downloadSpeed`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Download speed in kbps (0-50000).
+
+```yaml
+    networkConditions:
+      downloadSpeed: 5000
+```
+
+---
+
+#### `uploadSpeed`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Upload speed in kbps (0-50000).
+
+```yaml
+    networkConditions:
+      uploadSpeed: 3000
+```
+
+---
+
+#### `latency`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Latency in ms (0-3000).
+
+```yaml
+    networkConditions:
+      latency: 200
+```
+
+---
+
+#### `loss`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Packet loss in % (0-100).
+
+```yaml
+    networkConditions:
+      loss: 2
+```
+
+---
+
 ### `appSettings`
 
 <p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
