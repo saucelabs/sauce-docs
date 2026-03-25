@@ -7,11 +7,11 @@ description: Navigate and interact with iOS app elements using accessibility-bas
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::caution Closed Beta
-This feature is currently in Closed Beta. Reach out to your Sauce Labs representative for access.
+:::tip GA
+This feature is now generally available for all Sauce Labs users.
 :::
 
-<p><small><span className="sauceGreen">Real Devices Only</span></small> <small><span className="sauceGreen">iOS Only</span></small> <small><span className="sauceGreen">Live Testing Only</span></small></p>
+<p><small><span className="sauceGreen">GA</span></small> <small><span className="sauceGreen">Real Devices Only</span></small> <small><span className="sauceGreen">iOS Only</span></small> <small><span className="sauceGreen">Live Testing Only</span></small></p>
 
 Sauce Labs provides a custom-built, native Accessibility Inspector for iOS live testing on real devices. The inspector works system-wide, allowing you to navigate and interact with any UI element on the device, including your app, system applications, system pop-ups, and webviews. It uses accessibility-based navigation, the same way VoiceOver works. A focus rectangle highlights the currently focused element on the device screen, and audio feedback reads aloud the element's spoken description.
 
@@ -32,10 +32,26 @@ This feature is useful for:
 ## Enabling the Inspector
 
 1. Start a **Live Testing** session on an iOS real device.
-2. Open the **Device Settings** from the left side toolbar.
-3. Toggle **VoiceOver** to On. This enables the Accessibility Inspector.
+2. In the left toolbar, toggle **Accessibility** to On. This enables the Accessibility Inspector.
 
-<img src={useBaseUrl('/img/mobile-apps/accessibility-inspector.png')} alt="Enabling the Accessibility Inspector via Device Settings" width="751"/>
+Once enabled, an **Action Toolbar** appears next to the device screen with buttons for common accessibility actions.
+
+<img src={useBaseUrl('/img/mobile-apps/accessibility-action-toolbar.png')} alt="Accessibility Action Toolbar with navigation buttons next to the device screen" width="751"/>
+
+## Action Toolbar
+
+The Action Toolbar provides quick access to accessibility navigation actions. It appears to the right of the device screen when the Accessibility Inspector is enabled.
+
+| Button | Action |
+|--------|--------|
+| **X** | Disable the Accessibility Inspector |
+| **Home** | Go to the home screen |
+| **Tap** | Tap the currently focused element |
+| **Up** | Jump to the first element on the screen |
+| **Down** | Jump to the last element on the screen |
+| **Next** | Move to the next accessible element |
+| **Previous** | Move to the previous accessible element |
+| **Mute/Unmute** | Mute or unmute the spoken audio feedback |
 
 ## Key Capabilities
 
@@ -49,18 +65,19 @@ Navigate between accessible elements using keyboard shortcuts:
 | **Left Arrow** | Move to the previous accessible element |
 | **Up Arrow** | Jump to the first element on the screen |
 | **Down Arrow** | Jump to the last element on the screen |
+| **Enter** | Tap the currently focused element |
 
 Each time the cursor moves, the spoken description of the newly focused element is announced via audio and displayed in the toolbar. This description includes the element's label, its type (button, text field, image, etc.), and its position in the list (e.g., "Settings, Icon, 3 of 24").
 
 ### Tap Action
 
-Press **Enter** to tap the currently focused element. The inspector taps the element at its exact screen position, just like a finger tap.
+Press **Enter** or use the **Tap** button in the Action Toolbar to tap the currently focused element. The inspector taps the element at its exact screen position, just like a finger tap.
 
 After tapping an element that triggers navigation (e.g., tapping an app icon on the home screen or a menu item in Settings), the inspector automatically detects the screen change and repositions the cursor to the first element of the new screen.
 
 ### Audio Feedback
 
-The inspector provides audible cues for each focused element, simulating the VoiceOver screen reader experience. The audio reads the same spoken description that VoiceOver would announce.
+The inspector provides audible cues for each focused element, simulating the VoiceOver screen reader experience. The audio reads the same spoken description that VoiceOver would announce. You can mute or unmute the audio using the speaker button in the Action Toolbar.
 
 ## Supported Interactions
 
@@ -108,14 +125,6 @@ When the screen changes (e.g., after tapping into a new page), the inspector:
 ### Navigation
 
 - **Rapid navigation.** Sending navigation commands very quickly (e.g., holding down an arrow key) may cause delayed responses as commands queue up on the device. Allow each navigation to complete before sending the next for the most reliable experience.
-
-## Upcoming Features
-
-The following capabilities are planned for future releases:
-
-- **New shortcuts:** Actions to go to the home screen, app switcher, and more.
-- **Enhanced input control:** Ability to move the cursor on the on-screen keyboard.
-- **User preferences:** Mute audio, display caption text.
 
 ## More Information
 
