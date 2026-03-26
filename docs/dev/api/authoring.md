@@ -114,7 +114,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>200</code></td>
-    <td colSpan='2'>Success (Paginated list of test cases)</td>
+    <td colSpan='2'>Success. Returns paginated list of test cases</td>
   </tr>
     <tr>
     <td><code>400</code></td>
@@ -365,7 +365,7 @@ Starts a test case run. Optionally target a specific revision by appending <code
 <tbody>
   <tr>
     <td><code>targets</code></td>
-    <td><p><small>| BODY | OPTIONAL | ARRAY of OBJECTS |</small></p><p>A list of target device configurations. Each object can contain the following attributes:<ul><li><code>capabilities</code> - <small>OBJECT</small> - The desired Sauce Labs capabilities for the run.</li></ul></p></td>
+    <td><p><small>| BODY | OPTIONAL | ARRAY of OBJECTS |</small></p><p>A list of target device configurations. Each object can contain the following attributes:</p><ul><li><code>capabilities</code> - <small>OBJECT</small> - The desired Sauce Labs capabilities for the run.</li></ul></td>
   </tr>
 </tbody>
 <tbody>
@@ -482,8 +482,13 @@ Renames the specified test case.
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Test case Id (24 character hex string)</p></td>
     </tr>
   </tbody>
+    <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The updated name of the test case</p></td>
+    </tr>
+  </tbody>
 </table>
-Note: The name parameter must be passed in the request body using <code>--data-raw</code>.
 
 <Tabs
 groupId="dc-url"
@@ -1061,13 +1066,13 @@ Deletes the specified test suite.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test suite to delete.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test suite to delete</p></td>
     </tr>
   </tbody>
     <tbody>
     <tr>
      <td><code>deleteTestCases</code></td>
-     <td><p><small>| BODY | OPTIONAL | BOOLEAN |</small></p><p>Asserts if test cases within the suite are deleted.</p></td>
+     <td><p><small>| BODY | OPTIONAL | BOOLEAN |</small></p><p>If set to true, test cases assigned to this test suite will be deleted</p></td>
     </tr>
   </tbody>
 </table>
@@ -1410,6 +1415,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 Creates a new test schedule.
 
 #### Parameters
+<table id="table-api">
+  <tbody>
+  <tr>
+    <td><code>name</code></td>
+    <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated name for the schedule</p></td>
+  </tr>
+</tbody>
 <tbody>
   <tr>
     <td><code>settings</code></td>
@@ -1429,6 +1441,19 @@ Creates a new test schedule.
     </td>
   </tr>
 </tbody>
+<tbody>
+  <tr>
+    <td><code>testSuiteIds</code></td>
+    <td><p><small>| BODY | OPTIONAL | ARRAY of STRINGS |</small></p><p>The suite IDs to run as part of the schedule</p></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>stateName</code></td>
+    <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The state of the schedule</p></td>
+  </tr>
+</tbody>
+</table>
 
 
 <Tabs
@@ -1706,9 +1731,22 @@ Updates the specified test schedule.
       <p><small>| BODY | OPTIONAL | OBJECT |</small></p>
       <p>The updated schedule configuration. The available attributes are:</p>
       <ul>
-        <li><code>cron</code> - <small>STRING</small> - A cron expression defining the schedule interval.</li>
+        <li><code>cron</code> - <small>OPTIONAL | STRING</small> - A cron expression defining the schedule interval</li>
+        <li><code>timezone</code> - <small>OPTIONAL | STRING</small> - The timezone for the schedule</li>
+        <li><code>runningUserId</code> - <small>OPTIONAL | STRING</small> - The user or service account under which the scheduled runs execute</li>
+        <li><code>startDate</code> - <small>OPTIONAL | STRING</small> - The date when the schedule becomes active. Can be set to <code>null</code>, which will clear the field</li>
+        <li><code>endDate</code> - <small>OPTIONAL | STRING</small> - The date when the schedule stops running. Can be set to <code>null</code>, which will clear the field</li>
+        <li><code>maxRuns</code> - <small>OPTIONAL | INTEGER</small> - The maximum number of scheduled runs. Can be set to <code>null</code>, which will clear the field</li>
+        <li><code>scTunnelName</code> - <small>OPTIONAL | STRING</small> - The name of the Sauce Connect tunnel to use. Can be set to <code>null</code>, which will clear the field</li>
+        <li><code>buildName</code> - <small>OPTIONAL | STRING</small> - The name of the build to associate with scheduled runs. Can be set to <code>null</code>, which will clear the field</li>
       </ul>
     </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>testSuiteIds</code></td>
+    <td><p><small>| BODY | OPTIONAL | ARRAY of STRINGS |</small></p><p>The suite IDs to run as part of the schedule</p></td>
   </tr>
 </tbody>
 <tbody>
@@ -1869,7 +1907,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890"
+--request DELETE "https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>"
 ```
 
 </TabItem>
@@ -1878,7 +1916,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/sc1b2c3d4-e5f6-7890-abcd-ef1234567890"
+--request DELETE "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>"
 ```
 
 </TabItem>
