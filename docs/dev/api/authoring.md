@@ -122,7 +122,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   </tr>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 </table>
@@ -228,7 +228,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -325,7 +325,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -356,6 +356,24 @@ Starts a test case run. Optionally target a specific revision by appending <code
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Test case Id (24-character hex string).</p></td>
     </tr>
   </tbody>
+  <tbody>
+  <tr>
+    <td><code>buildName</code></td>
+    <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The name of the build to associate with the test case run. Defaults to test case name if not set.</p></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>targets</code></td>
+    <td><p><small>| BODY | OPTIONAL | ARRAY of OBJECTS |</small></p><p>A list of target device configurations. Each object can contain the following attributes:<ul><li><code>capabilities</code> - <small>OBJECT</small> - The desired Sauce Labs capabilities for the run.</li></ul></p></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>scTunnelName</code></td>
+    <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The name of the Sauce Connect tunnel to use for the run.</p></td>
+  </tr>
+</tbody>
 </table>
 
 <Tabs
@@ -410,7 +428,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -525,7 +543,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -553,120 +571,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       "teamId" : "<teamId>",
       "testSuiteId" : "<testSuiteId>"
    }
-}
-
-```
-
-</details>
-
----
-
-### Get a Test Case Run
-
-<details>
-<summary><span className="api get">GET</span> <code>/v1/ai-authoring/testcases/&#123;id&#125;/runs/&#123;runId&#125;</code></summary>
-
-Returns the details of a specific run for a test case.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test case</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>runId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test case run</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testcases/<id>/runs/<runID>" | json_pp
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testcases/<id>/runs/<runID>" | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success in getting test case run details</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>400</code></td>
-    <td colSpan='2'>Invalid path parameters</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Test case or run not found</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-  "data": {
-    "id": "<id>",
-    "orgId": "<orgId>",
-    "teamId": "<teamId>",
-    "userId": "<userId>",
-    "testCaseId": "<testCaseId>",
-    "build": "Sauce demo - Backpack",
-    "jobs": [
-      {
-        "id": "<id>",
-        "target": {
-          "capabilities": { ... },
-          "isRdc": true
-        },
-        "name": "Sauce demo - Backpack - 1",
-        "url": "https://www.saucedemo.com/inventory.html",
-        "isRdc": true,
-        "success": true,
-        "error": "string"
-      }
-    ],
-    "creationDate": "2024-01-15T12:00:00Z",
-    "testUrl": "https://www.saucedemo.com/inventory.html"
-  }
 }
 ```
 
@@ -783,7 +687,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 </table>
@@ -890,7 +794,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -989,7 +893,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -1109,7 +1013,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -1158,6 +1062,12 @@ Deletes the specified test suite.
     <tr>
      <td><code>id</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the test suite to delete.</p></td>
+    </tr>
+  </tbody>
+    <tbody>
+    <tr>
+     <td><code>deleteTestCases</code></td>
+     <td><p><small>| BODY | OPTIONAL | BOOLEAN |</small></p><p>Asserts if test cases within the suite are deleted.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1212,7 +1122,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -1241,6 +1151,12 @@ Queues test case runs for every test case in the suite.
     <tr>
      <td><code>id</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The UUID of the test suite to run</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>buildName</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Name of the automated test build that will run as a result of suite execution. Defaults to the test suite name.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1296,7 +1212,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -1438,7 +1354,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 </table>
@@ -1494,7 +1410,26 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 Creates a new test schedule.
 
 #### Parameters
-Request body parameters.
+<tbody>
+  <tr>
+    <td><code>settings</code></td>
+    <td>
+      <p><small>| BODY | OPTIONAL | OBJECT |</small></p>
+      <p>The schedule configuration for the test suite. The available attributes are:</p>
+      <ul>
+        <li><code>cron</code> - <small>STRING</small> - A cron expression defining the schedule interval</li>
+        <li><code>timezone</code> - <small>STRING</small> - The timezone for the schedule</li>
+        <li><code>runningUserId</code> - <small>STRING</small> - The user or service account under which the scheduled runs execute</li>
+        <li><code>startDate</code> - <small>OPTIONAL | STRING</small> - The date when the schedule becomes active</li>
+        <li><code>endDate</code> - <small>OPTIONAL | STRING</small> - The date when the schedule stops running</li>
+        <li><code>maxRuns</code> - <small>OPTIONAL | INTEGER</small> - The maximum number of scheduled runs</li>
+        <li><code>scTunnelName</code> - <small>OPTIONAL | STRING</small> - The name of the Sauce Connect tunnel to use</li>
+        <li><code>buildName</code> - <small>OPTIONAL | STRING</small> - The name of the build to associate with scheduled runs</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+
 
 <Tabs
 groupId="dc-url"
@@ -1583,7 +1518,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 </table>
@@ -1691,7 +1626,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -1758,6 +1693,30 @@ Updates the specified test schedule.
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The UUID of the test schedule to update</p></td>
     </tr>
   </tbody>
+  <tbody>
+  <tr>
+    <td><code>name</code></td>
+    <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated name for the schedule</p></td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>settings</code></td>
+    <td>
+      <p><small>| BODY | OPTIONAL | OBJECT |</small></p>
+      <p>The updated schedule configuration. The available attributes are:</p>
+      <ul>
+        <li><code>cron</code> - <small>STRING</small> - A cron expression defining the schedule interval.</li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>stateName</code></td>
+    <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The state of the schedule</p></td>
+  </tr>
+</tbody>
 </table>
 
 <Tabs
@@ -1775,9 +1734,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Updated nightly regression",
-    "cron": "0 2 * * *",
-    "enabled": true
+  "name": "Updated nightly regression",
+  "settings": {
+    "cron": "0 2 * * *"
+  },
+  "stateName": "ENABLED"
 }' | json_pp
 ```
 
@@ -1790,9 +1751,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/test-schedules/<id>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Updated nightly regression",
-    "cron": "0 2 * * *",
-    "enabled": true
+  "name": "Updated nightly regression",
+  "settings": {
+    "cron": "0 2 * * *"
+  },
+  "stateName": "ENABLED"
 }' | json_pp
 ```
 
@@ -1825,7 +1788,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -1933,7 +1896,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
@@ -1964,7 +1927,7 @@ Downloads a stored artifact (for example, screenshot) by its UUID.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Artifact UUID. Accepts both dashed (<code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>) and dashless (<code>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>) formats</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Artifact UUID</p></td>
     </tr>
   </tbody>
 </table>
@@ -2016,7 +1979,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>401</code></td>
-    <td colSpan='2'>Missing or invalid Bearer token</td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
   </tr>
 </tbody>
 <tbody>
