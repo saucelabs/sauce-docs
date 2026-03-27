@@ -85,8 +85,8 @@ Additionally, you can generate the test code and use it in your own testing envi
 
 | Language | Web | Mobile iOS | Mobile Android |
 |---|---|---|---|
-| **JavaScript** | WebdriverIO, WD15, Playwright | Appium | Appium |
-| **TypeScript** | WebdriverIO, WD15, Playwright | Appium | Appium |
+| **JavaScript** | WebdriverIO, WDI5, Playwright | Appium | Appium |
+| **TypeScript** | WebdriverIO, WDI5, Playwright | Appium | Appium |
 | **Python** | Selenium | Appium | Appium |
 | **Java** | Selenium | Appium | Appium, Espresso |
 | **C#** | Selenium | Appium | Appium |
