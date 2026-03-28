@@ -133,7 +133,7 @@ backtraceClient.addAttribute(attributes)
 
 ## File Attachments
 
-You can enable default file attachments which will be sent with all Backtrace reports both managed and native.
+You can enable default file attachments that will be sent with all Backtrace reports both managed and native.
 
 ```java
 String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
@@ -144,7 +144,24 @@ List<String> attachments = new ArrayList<String>(){{
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
 ```
 
-File attachment paths for crash reports can only be specified on initialization. If you have rotating file logs or another situation where the exact filename won't be known when you initialize your Backtrace client, you can use symlinks:
+<Tabs>
+
+<TabItem value="3.11" label="Version >= 3.11">
+You can manage file attachments dynamically after `BacktraceClient` initialization:
+
+```java
+// Adding new file attachment
+backtraceClient.addAttachment(fileName);
+```
+
+```java
+// Removing file attachment
+backtraceClient.getAttachments().remove(fileName);
+```
+</TabItem>
+
+<TabItem value="3.10" label="Version < 3.11">
+In earlier versions, file attachment paths could only be specified during client initialization. File attachment paths for crash reports can only be specified on initialization. If you have rotating file logs or another situation where the exact filename won't be known when you initialize your `BacktraceClient`, you can use symlinks:
 
 ```java
 // The file simlink path to pass to Backtrace
@@ -160,6 +177,17 @@ String fileNameDateString = context.getFilesDir() + "/" + "myCustomFile06_11_202
 // Create symlink
 Os.symlink(fileNameDateString, fileName);
 ```
+</TabItem>
+
+</Tabs>
+
+You can also attach files to a single report instead of keeping them permanently in the `BacktraceClient`. To do this, pass a list of attachment paths to the `BacktraceReport` when creating it.
+
+```java
+String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
+new BacktraceReport("error", List.of(fileName));
+```
+
 
 :::note
 If you create any new files in the same directory as your `BacktraceDatabase` directory, they will be deleted when you create a new `BacktraceClient`.
