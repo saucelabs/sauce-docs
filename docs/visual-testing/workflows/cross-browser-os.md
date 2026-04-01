@@ -9,6 +9,7 @@ import BaselineOverridesWDIO from '../_partials/_baseline-overrides-wdio.md';
 import BaselineOverridesCSharp from '../_partials/_baseline-overrides-csharp.md';
 import BaselineOverridesPython from '../_partials/_baseline-overrides-python.md';
 import BaselineOverridesPythonRobot from '../_partials/_baseline-overrides-python-robot.md';
+import BaselineOverridesJava from '../_partials/_baseline-overrides-java.md';
 
 # Cross Browser / OS Visual Testing
 
@@ -48,6 +49,7 @@ You may want to target a browser height of ~1200px. We'll be using 1920x1200 as 
         { label: 'C#', value: 'csharp' },
         { label: 'Python', value: 'python' },
         { label: 'Python (Robot)', value: 'robot' },
+        { label: 'Java', value: 'java' },
     ]}
 >
     <TabItem value="wdio">
@@ -104,6 +106,20 @@ You may want to target a browser height of ~1200px. We'll be using 1920x1200 as 
             Set Window Size    ${dims}[0]    ${dims}[1]
         ```
     </TabItem>
+    <TabItem value="java">
+        ```java
+        // In a before / Setup of a fixture following driver initialization
+        driver.manage().window().setSize(new Dimension(800, 600));
+        List<Long> dims = (List) driver.executeScript(
+          "return [window.outerWidth - window.innerWidth + arguments[0], window.outerHeight - window.innerHeight + arguments[1]];",
+          1920,
+          1200
+        );
+        driver.manage().window().setSize(
+          new Dimension(dims.get(0).intValue(), dims.get(1).intValue())
+        );
+        ```
+    </TabItem>
 </Tabs>
 
 ### 2. Set a baseline
@@ -134,6 +150,7 @@ Use the baseline override feature of your binding (see the documentation for you
         { label: 'C#', value: 'csharp' },
         { label: 'Python', value: 'python' },
         { label: 'Python (Robot)', value: 'robot' },
+        { label: 'Java', value: 'java' },
     ]}
 >
     <TabItem value="wdio">
@@ -147,6 +164,9 @@ Use the baseline override feature of your binding (see the documentation for you
     </TabItem>
     <TabItem value="robot">
         <BaselineOverridesPythonRobot />
+    </TabItem>
+    <TabItem value="java">
+        <BaselineOverridesJava />
     </TabItem>
 </Tabs>
 
