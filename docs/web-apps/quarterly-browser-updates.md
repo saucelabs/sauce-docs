@@ -12,7 +12,7 @@ keywords:
 - safari
 - chromedriver
 - browser versions
-toc_max_heading_level: 2
+toc_max_heading_level: 3
 ---
 
 This page tracks every browser version released on Sauce Labs each quarter, along with changes that matter for test automation and relevant framework updates.

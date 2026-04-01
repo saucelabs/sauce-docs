@@ -15,15 +15,15 @@ Sauce Labs now supports **macOS 26 Tahoe** on Apple Silicon-powered Macs. These 
 macOS 14, 15, and 26 are only available to Enterprise customers with the appropriate Premium plan. Contact your account manager to discuss upgrading.
 :::
 
-## Browsers available on macOS 14/15/26
+## Browsers available on macOS
 
 | OS Version | Browser | Versions|
 |------------|---------|---------|
-| macOS 14,15   | Safari  | 18      |
-| macOS 14,15,26   | Chrome  | 134+    |
-| macOS 14,15,26   | Firefox | 136+    |
-| macOS 14,15,26   | Edge    | 138+    |
-| macOS 26   | Safari  | 26      |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia   | Safari  | 18      |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Chrome  | 134+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Firefox | 136+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Edge    | 138+    |
+| macOS 26 Tahoe   | Safari  | 26      |
 
 ## Test Capabilities
 
