@@ -133,15 +133,20 @@ backtraceClient.addAttribute(attributes)
 
 ## File Attachments
 
-Enable file attachments when initializing Backtrace client. Attachments can be added to the list after client initialization. Attachments will be sent with both managed and native error reports.
+Critical diagnostic files like configuration dumps or state snapshots can be added to error reports. These file attachments will be included with both managed and native errors. Attachments can be specified when initializing the Backtrace client, or by calling `addAttachment`.
 
 ```java
+// Initialize BacktraceClient with attachments
 String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
 List<String> attachments = new ArrayList<String>(){{
     add(fileName);
 }};
 
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
+
+// Add attachments post-initialization
+String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
+client.addAttachment(fileName);
 ```
 
 :::note
