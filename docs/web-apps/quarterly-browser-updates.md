@@ -111,12 +111,12 @@ Google announced that starting with **Chrome 153 in September 2026**, Chrome wil
 
 #### Playwright 1.58.1 — Now on macOS 14 and 15 (ARM)
 
-[Playwright 1.58.1](https://docs.saucelabs.com/web-apps/automated-testing/playwright/) is now available on Sauce Labs with support for **macOS 14 (Sonoma) and macOS 15 (Sequoia)** running on ARM architecture. This is the first Playwright version on Sauce Labs to run on Apple Silicon. Supported browsers: Chromium, Chrome, Firefox, and WebKit.
+[Playwright 1.58.1](/web-apps/automated-testing/playwright/) is now available on Sauce Labs with support for **macOS 14 (Sonoma) and macOS 15 (Sequoia)** running on ARM architecture. This is the first Playwright version on Sauce Labs to run on Apple Silicon. Supported browsers: Chromium, Chrome, Firefox, and WebKit.
 
 #### Cypress 15.9.0
 
-[Cypress 15.9.0](https://docs.saucelabs.com/web-apps/automated-testing/cypress/) is available on Sauce Labs, supporting Chrome, Firefox, Microsoft Edge, and WebKit (Experimental) on macOS 11–13 and Windows 10–11.
+[Cypress 15.9.0](/web-apps/automated-testing/cypress/) is available on Sauce Labs, supporting Chrome, Firefox, Microsoft Edge, and WebKit (Experimental) on macOS 11–13 and Windows 10–11.
 
 #### Sauce Connect 5.5.0
 
-Sauce Connect had two releases in Q1 with security and reliability improvements. [Version 5.5.0](https://changelog.saucelabs.com/en/now-available-sauce-connect-550) (released March 2026) added a new [Time-Based Access Control](https://docs.saucelabs.com/dev/cli/sauce-connect-5/run/#time-based-access-control) feature. If you haven't migrated to Sauce Connect 5 yet, it offers up to 5x performance improvement and 50x less memory usage compared to version 4.
+Sauce Connect had two releases in Q1 with security and reliability improvements. [Version 5.5.0](https://changelog.saucelabs.com/en/now-available-sauce-connect-550) (released March 2026) added a new [Time-Based Access Control](/dev/cli/sauce-connect-5/run/#time-based-access-control) feature. If you haven't migrated to Sauce Connect 5 yet, it offers up to 5x performance improvement and 50x less memory usage compared to version 4.
