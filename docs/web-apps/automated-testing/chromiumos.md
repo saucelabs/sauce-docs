@@ -40,6 +40,25 @@ web testing purposes, ChromiumOS provides functionally equivalent coverage to Ch
 
 ## How to Run Tests on ChromiumOS
 
+### Live Testing
+
+You can run interactive manual testing sessions on ChromiumOS virtual machines through the
+Sauce Labs Live Testing interface.
+
+1. Navigate to **Live Testing** > **Cross Browser** in Sauce Labs.
+2. Select **Chrome 144** from the browser version dropdown. This is the only version
+   supported during the beta.
+3. In the **OS Version** selector, choose **ChromiumOS**.
+4. Click **Start Test Session** to launch the virtual machine.
+
+:::note Scrolling in Live Testing
+ChromiumOS live testing sessions use touch-based scrolling. To scroll the page, click and
+drag inside the browser viewport — standard mouse wheel or trackpad scrolling is not
+supported.
+:::
+
+### Automated Tests
+
 Set the following capabilities in your test configuration to target a ChromiumOS virtual
 machine on Sauce Labs.
 
@@ -173,8 +192,6 @@ available but are planned for delivery ahead of general availability in Q2 2026:
 
 - **Additional screen resolutions** — More display size options to match a wider range
   of user environments.
-- **Live Testing** — Interactive manual testing sessions on ChromiumOS virtual machines
-  through the Sauce Labs Live Testing interface.
 - **Sauce Connect support** — Tunnel connectivity for testing applications behind
   firewalls or on staging environments.
 

@@ -77,16 +77,26 @@ The following diagram illustrates how to refine a test using a follow-up prompt 
 
 <img src={useBaseUrl('/img/ai-authoring/authoring-edit-diagram.png')} alt="AI Authoring - Editing flow"/>
 
-
 Once you are happy with the result, you can **Save Test Case** at the bottom of the page. This will open a modal dialog where you can name the test case and add it into a test suite.
 
 ### Getting the Script Code
 
-Additionally, you can generate the test code (Selenium or Appium) and use it in your own testing environment by clicking on **Get Code**. The generated test is not locked to a single framework. You can choose from multiple supported languages (currently **Python**, **Java**, and **JavaScript**).
+Additionally, you can generate the test code and use it in your own testing environment by clicking on **Get Code**. The generated test is not locked to a single framework. You can choose from multiple supported languages and testing frameworks.
+
+| Language | Web | Mobile iOS | Mobile Android |
+|---|---|---|---|
+| **JavaScript** | WebdriverIO, WDI5, Playwright | Appium | Appium |
+| **TypeScript** | WebdriverIO, WDI5, Playwright | Appium | Appium |
+| **Python** | Selenium | Appium | Appium |
+| **Java** | Selenium | Appium | Appium, Espresso |
+| **C#** | Selenium | Appium | Appium |
+| **Swift** | — | XCUITest | — |
+| **Kotlin** | — | — | Espresso |
+
+The generated test script code includes the capabilities required to run on Sauce Labs, along with the test steps, making it easy to transfer into your own CI/CD pipeline or local repo. You can copy the code by clicking the **Copy** button on the top right.
 
 <img src={useBaseUrl('/img/ai-authoring/authoring6.png')} alt="Generated code - Copy option"/>
 
-The generated test script code includes the capabilities required to run on Sauce Labs, along with the test steps, making it easy to transfer into your own CI/CD pipeline or local repo. You can copy the code by clicking the **Copy** button on the top right.
 
 ## Managing and Modifying Test Cases
 Saved test cases are listed in the main Test Authoring view, where you can search and filter, rename, delete, or open scripts to edit them. 

@@ -17,6 +17,10 @@ This AI agent brings generative AI directly into the Sauce Labs experience, allo
 
 and receive tailored natural-language answers, data visualizations, and curated reports in seconds. The result is a dramatically reduced time-to-quality and a faster path to confident, data-driven releases.
 
+:::info
+After your test finishes running, please allow up to two hours for the data to reach the AI for Insights agent.
+:::
+
 ## How It Works
 
 Each widget in the Sauce Home page now features our Sauce AI icon. When clicked, the AI agent is launched, already aware of the widget’s context, filters, and the data it represents. You can type a question about that data, and the system immediately interprets and processes it through a large language model (LLM) configured to understand the Sauce data structure. Sauce AI for Insights agent will provide suggestions and recommendations for follow-ups based on conversation context.
