@@ -271,7 +271,7 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
       </td>
       <td>
         This is a collection of drivers and plugins that were released in January 6th 2026.
-        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. 
+        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>.
         See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
@@ -321,7 +321,7 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
       </td>
       <td>
         This is a collection of drivers and plugins that were released in April 1st 2026.
-        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>. 
+        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>.
         See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
