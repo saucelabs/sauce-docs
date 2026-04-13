@@ -879,9 +879,7 @@ paths:
                   type: string
                   example: "/sdcard/Download/file.txt"
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          $ref: "#/components/responses/FileOperationBadRequest"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -913,9 +911,7 @@ paths:
         "204":
           description: File removed successfully
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          $ref: "#/components/responses/FileOperationBadRequest"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -951,9 +947,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/FileInfo"
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          $ref: "#/components/responses/FileOperationBadRequest"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1000,9 +994,7 @@ paths:
         "204":
           description: File uploaded successfully
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          $ref: "#/components/responses/FileOperationBadRequest"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1045,9 +1037,7 @@ paths:
                 type: string
                 example: 'attachment; filename="report.txt"'
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          $ref: "#/components/responses/FileOperationBadRequest"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1525,6 +1515,42 @@ components:
               status:
                 type: integer
                 example: 500
+    FileOperationBadRequest:
+      description: |
+        Bad request for a file operation. Two common causes:
+
+        1. **Malformed request** — the payload was invalid or referenced a non-existent device, path, or app.
+        2. **Missing `bundleId` on iOS** — file operations on iOS devices require the `bundleId` of the target app because each iOS app runs inside its own sandboxed file system. Unlike Android, where shared storage paths like `/sdcard/` are accessible, iOS requires the bundle identifier (e.g., `com.example.app`) of the app whose files you want to access.
+
+        See [Apple's File System documentation](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) for background on iOS app sandboxing.
+      content:
+        application/problem+json:
+          schema:
+            oneOf:
+              - type: object
+                title: Bad Request
+                properties:
+                  type:
+                    type: string
+                    example: "about:blank"
+                  title:
+                    type: string
+                    example: "Device does not exist."
+                  detail:
+                    type: string
+                    example: 'The deviceId "Samsung XR" does not exist. Please ensure you provide an existing device Id.'
+              - type: object
+                title: Bundle ID Missing
+                properties:
+                  type:
+                    type: string
+                    example: "about:blank"
+                  title:
+                    type: string
+                    example: "Bundle ID required"
+                  detail:
+                    type: string
+                    example: "The `bundleId` parameter is required for file operations on iOS devices. Each iOS app has its own sandboxed file system — provide the bundle identifier of the app whose files you want to access."
   schemas:
     DeviceDescriptor:
       type: object
