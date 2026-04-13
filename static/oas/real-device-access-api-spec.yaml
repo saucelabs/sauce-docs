@@ -879,9 +879,13 @@ paths:
                   type: string
                   example: "/sdcard/Download/file.txt"
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -913,9 +917,13 @@ paths:
         "204":
           description: File removed successfully
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -951,9 +959,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/FileInfo"
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1000,9 +1012,13 @@ paths:
         "204":
           description: File uploaded successfully
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1045,9 +1061,13 @@ paths:
                 type: string
                 example: 'attachment; filename="report.txt"'
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1526,6 +1546,35 @@ components:
                 type: integer
                 example: 500
   schemas:
+    BadRequestBody:
+      type: object
+      properties:
+        type:
+          type: string
+          example: about:blank
+        title:
+          type: string
+          example: Device does not exist.
+        detail:
+          type: string
+          example: 'The deviceId "Samsung XR" does not exist. Please ensure you provide an existing device Id.'
+    BundleIdMissingBody:
+      type: object
+      description: |
+        Returned when a file operation is performed on an iOS device without providing the required `bundleId` parameter.
+        On iOS, each app runs inside its own **sandbox** — an isolated file system container that prevents apps from accessing each other's data.
+        Unlike Android, where you can access shared storage paths like `/sdcard/`, iOS requires you to specify which app's sandbox to operate on by providing its bundle identifier.
+        To resolve this error, include the `bundleId` field in your request body with the target app's bundle identifier (e.g., `com.example.app`).
+      properties:
+        type:
+          type: string
+          example: "about:blank"
+        title:
+          type: string
+          example: "Bundle ID required"
+        detail:
+          type: string
+          example: "The `bundleId` parameter is required for file operations on iOS devices. Each iOS app has its own sandboxed file system — provide the bundle identifier of the app whose files you want to access."
     DeviceDescriptor:
       type: object
       description: "Device descriptor containing hardware and software specifications for a device type in the Sauce Labs device catalog. For public devices there can be multiple physical devices that share one descriptor."
