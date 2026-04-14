@@ -20,8 +20,12 @@ The Backtrace web console includes 4 key navigational components to help you ana
 
 ### Natural Language Query
 
-:::note Preview Beta
+:::info Preview Beta
 Natural Language Query is available in a closed beta. Contact Sauce Labs Support for more information.
+:::
+
+:::tip AI Feature
+<img src={useBaseUrl('img/error-reporting/console-views/ai-spark.png')} alt="AI spark" width="20" height="20" /> Natural Language Query is an AI feature. Only attribute names and attribute descriptions are used. No application or user data is used.
 :::
 
 The fastest way to get to the right data is to click the Ask button in the filter bar and type in a Natural Language Query - no special syntax, just describe what you want to see. The timeline and filter will be set, and your data will be intelligently grouped on the Explore page which is the best way to slice into your error reports.
