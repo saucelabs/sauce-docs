@@ -39,6 +39,7 @@ tags:
 paths:
   /devices:
     get:
+      operationId: listDevices
       summary: "List all device descriptors"
       description: "List our catalog of devices available to you. Use this endpoint to retrieve 'device descriptors'. Note: for public devices there can be multiple physical devices that share one 'device descriptor'"
       tags:
@@ -64,6 +65,7 @@ paths:
           $ref: "#/components/responses/NotAuthorized"
   /devices/status:
     get:
+      operationId: listDeviceStatus
       summary: "List the status of all devices"
       description: "Lists the current status of all devices. For private devices, additional details are available, including the precise state and current user. The delay of this state is < 1s."
       tags:
@@ -103,6 +105,7 @@ paths:
           $ref: "#/components/responses/NotAuthorized"
   /sessions:
     post:
+      operationId: createSession
       summary: "Allocate a device and create a new session"
       description: |
         Creates a new device session.
@@ -147,6 +150,7 @@ paths:
         "400":
           $ref: "#/components/responses/BadRequest"
     get:
+      operationId: listSessions
       summary: List device sessions
       description: Retrieves a list of device sessions, including pending, active and recently closed sessions.
       tags:
@@ -180,6 +184,7 @@ paths:
           $ref: "#/components/responses/NotAuthorized"
   /sessions/{sessionId}:
     get:
+      operationId: getSession
       summary: Get details of a specific device session
       tags:
         - "Session Lifecycle"
@@ -200,6 +205,7 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
     delete:
+      operationId: deleteSession
       summary: Close and release a device session
       tags:
         - "Session Lifecycle"
@@ -226,6 +232,7 @@ paths:
 
   /sessions/{sessionId}/device/executeShellCommand:
     post:
+      operationId: executeShellCommand
       summary: Execute an adb shell command on an Android device
       tags:
         - "Device Interactions"
@@ -300,6 +307,7 @@ paths:
 
   /sessions/{sessionId}/device/openUrl:
     post:
+      operationId: openUrl
       summary: Open a url (through browser) or a deeplink to an app
       description: "Opens a URL or deeplink based on the URL scheme. iOS supports deeplinking; Android opens all URLs in Chrome."
       tags:
@@ -333,6 +341,7 @@ paths:
 
   /sessions/{sessionId}/device/installApp:
     post:
+      operationId: installApp
       summary: Install an app from App Storage
       description: Install an app on the device. The installation will take place in the background. Use listAppInstallations to query for status.
       tags:
@@ -365,6 +374,7 @@ paths:
 
   /sessions/{sessionId}/device/listAppInstallations:
     post:
+      operationId: listAppInstallations
       summary: List ongoing, completed and failed app installations
       tags:
         - "Device Interactions"
@@ -394,6 +404,7 @@ paths:
 
   /sessions/{sessionId}/device/uninstallApp:
     post:
+      operationId: uninstallApp
       summary: Uninstall an app currently installed on the device
       tags:
         - "Device Interactions"
@@ -437,6 +448,7 @@ paths:
 
   /sessions/{sessionId}/device/applySettings:
     post:
+      operationId: applyDeviceSettings
       summary: Change device configuration
       description: |
         Changes device settings such as orientation, locale, or animations during an active session.
@@ -484,6 +496,7 @@ paths:
 
   /sessions/{sessionId}/device/launchApp:
     post:
+      operationId: launchApp
       summary: Launch an app on device
       tags:
         - "Device Interactions"
@@ -529,6 +542,7 @@ paths:
 
   /sessions/{sessionId}/device/launchWebDriverAgent:
     post:
+      operationId: launchWebDriverAgent
       summary: Launch WDA installed on the device
       tags:
         - "Device Interactions"
@@ -563,6 +577,7 @@ paths:
 
   /sessions/{sessionId}/device/checkWebDriverAgentStatus:
     post:
+      operationId: getWebDriverAgentStatus
       summary: Get launching status for WDA
       tags:
         - "Device Interactions"
@@ -594,6 +609,7 @@ paths:
 
   /sessions/{sessionId}/device/takeScreenshot:
     post:
+      operationId: takeScreenshot
       summary: Take a screenshot from device
       description: Takes a screenshot from the device and returns a PNG representation.
       tags:
@@ -618,6 +634,7 @@ paths:
 
   /sessions/{sessionId}/device/enableNetworkCapture:
     post:
+      operationId: startNetworkCapture
       summary: Start network traffic capture
       description: Initiates system-wide network traffic capture for the device session.
       tags:
@@ -639,6 +656,7 @@ paths:
 
   /sessions/{sessionId}/device/disableNetworkCapture:
     post:
+      operationId: stopNetworkCapture
       summary: Stop network traffic capture
       description: Stops the ongoing system-wide network traffic capture for the device session. Returns HTTP 204.
       tags:
@@ -660,6 +678,7 @@ paths:
 
   /sessions/{sessionId}/network/profiles:
     get:
+      operationId: listNetworkProfiles
       summary: List predefined network profiles
       description: Returns the list of predefined network profiles that can be applied to the device session.
       tags:
@@ -685,6 +704,7 @@ paths:
 
   /sessions/{sessionId}/network/profile:
     post:
+      operationId: setNetworkProfile
       summary: Set a predefined network profile
       description: Applies a predefined network profile (e.g. `2G`, `4G-fast`) to the device session. Profiles are mapped to network conditions internally—the resolved conditions are returned in the response. Use `DELETE /sessions/{sessionId}/network/condition` to reset.
       tags:
@@ -716,6 +736,7 @@ paths:
 
   /sessions/{sessionId}/network/condition:
     post:
+      operationId: setNetworkConditions
       summary: Set custom network conditions
       description: Applies custom network conditions to the device session. Only specified parameters will be conditioned. The applied network conditions are returned in the response.
       tags:
@@ -745,6 +766,7 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
     delete:
+      operationId: resetNetworkConditions
       summary: Reset network conditions
       description: Removes all network throttling from the device session, restoring normal network connectivity. This resets conditions regardless of whether they were set via a predefined profile or custom conditions, since profiles are mapped to conditions internally.
       tags:
@@ -766,6 +788,7 @@ paths:
 
   /sessions/{sessionId}/appiumserver:
     post:
+      operationId: startAppiumServer
       summary: Start an Appium server that runs next to the device.
       tags:
         - "Appium Server"
@@ -805,6 +828,7 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
     get:
+      operationId: getAppiumServerStatus
       summary: Get details of the status of the hosted appium server
       tags:
         - "Appium Server"
@@ -828,6 +852,7 @@ paths:
 
   /appium/versions:
     get:
+      operationId: listAppiumVersions
       summary: Get the list of supported Appium versions for Real Devices
       description: |
         Returns all Appium versions currently available for use on Real Devices,
@@ -850,6 +875,7 @@ paths:
 
   /sessions/{sessionId}/device/listFiles:
     post:
+      operationId: listFiles
       summary: List files in a directory on the device
       description: |
         Returns a list of files and directories at the specified path on the device storage.
@@ -895,6 +921,7 @@ paths:
 
   /sessions/{sessionId}/device/removeFile:
     post:
+      operationId: removeFile
       summary: Remove a file from the device
       description: |
         Deletes a specific file from the device storage.
@@ -933,6 +960,7 @@ paths:
 
   /sessions/{sessionId}/device/statFile:
     post:
+      operationId: statFile
       summary: Get file information from the device
       description: |
         Returns metadata about a specific file or directory on the device storage, including its path, size, and whether it is a directory.
@@ -975,6 +1003,7 @@ paths:
 
   /sessions/{sessionId}/device/pushFile:
     post:
+      operationId: pushFile
       summary: Push a file to the device
       description: |
         Uploads a file to the specified destination path on the device storage.
@@ -1028,6 +1057,7 @@ paths:
 
   /sessions/{sessionId}/device/pullFile:
     post:
+      operationId: pullFile
       summary: Pull a file from the device
       description: |
         Retrieves a file from the device storage as a binary stream.
@@ -1077,6 +1107,7 @@ paths:
 
   /sessions/{sessionId}/device/proxy/http/{targetHost}/{targetPort}/{targetPath}:
     get:
+      operationId: proxyGet
       summary: Forward a single http GET request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided GET request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1125,6 +1156,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     post:
+      operationId: proxyPost
       summary: Forward a single http POST request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided POST request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1173,6 +1205,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     put:
+      operationId: proxyPut
       summary: Forward a single http PUT request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided PUT request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1221,6 +1254,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     delete:
+      operationId: proxyDelete
       summary: Forward a single http DELETE request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided DELETE request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1269,6 +1303,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     head:
+      operationId: proxyHead
       summary: Forward a single http HEAD request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided HEAD request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1317,6 +1352,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     options:
+      operationId: proxyOptions
       summary: Forward a single http OPTIONS request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided OPTIONS request and proxies the response from the server as the proxy in the device receives it
       tags:
