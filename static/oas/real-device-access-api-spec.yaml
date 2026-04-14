@@ -500,8 +500,7 @@ paths:
           application/json:
             schema:
               type: object
-              required:
-                - id
+              description: "Requires either a 'bundleId' for iOS or a 'packageName' for Android, but not both."
               properties:
                 bundleId:
                   type: string
