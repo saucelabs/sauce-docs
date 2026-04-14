@@ -130,7 +130,6 @@ paths:
                   type: object
                   properties:
                     tunnel:
-                      type: object
                       $ref: "#/components/schemas/TunnelConfiguration"
                     sessionDuration:
                       type: string
@@ -356,7 +355,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/AppInstallationStatus"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -544,7 +542,6 @@ paths:
         content:
           application/json:
             schema:
-              type: object
               $ref: "#/components/schemas/LaunchWDARequest"
       responses:
         "200":
@@ -552,7 +549,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/RunningWDA"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -585,7 +581,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/RunningWDA"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -796,7 +791,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/AppiumSession"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -821,7 +815,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/AppiumSession"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
