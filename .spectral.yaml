@@ -1,0 +1,29 @@
+extends:
+  - spectral:oas
+
+rules:
+  # --- Standard OpenAPI rules (severity overrides) ---
+
+  # Every operation must have an operationId (standard best practice)
+  operation-operationId: error
+
+  # Every operation must have a description (not just summary)
+  operation-description: warn
+
+  # Operation IDs must be unique
+  operation-operationId-unique: error
+
+  # Every operation must define at least one response
+  oas3-valid-schema-example: warn
+
+  # Path parameters must be defined
+  path-params: error
+
+  # No duplicate parameters
+  no-eval-in-markdown: warn
+  no-script-tags-in-markdown: warn
+
+  # Schema best practices
+  oas3-schema: error
+  oas3-unused-component: warn
+  typed-enum: warn

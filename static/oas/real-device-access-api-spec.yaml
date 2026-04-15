@@ -511,8 +511,7 @@ paths:
           application/json:
             schema:
               type: object
-              required:
-                - id
+              description: "Requires either a 'bundleId' for iOS or a 'packageName' for Android, but not both."
               properties:
                 bundleId:
                   type: string
@@ -1501,7 +1500,6 @@ components:
                 $ref: "#/components/schemas/SessionId"
               state:
                 $ref: "#/components/schemas/SessionState"
-                example: CLOSING
     DeviceIsNotReady:
       description: Device not ready
       content:
