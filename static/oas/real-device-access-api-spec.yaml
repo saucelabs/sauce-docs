@@ -1850,7 +1850,7 @@ components:
               example: "https://api.us-west-1.saucelabs.com/rdc/v2/sessions/2fe09ae3-5d01-4712-bfc0-1d873d20e554/appium/wd/hub"
               description: The hosted appium server endpoint associated to this session
             version:
-              type: object
+              type: string
               example: "stable"
               description: The hosted appium server version
         links:
@@ -1898,7 +1898,7 @@ components:
           example: "https://api.us-west-1.saucelabs.com/rdc/v2/sessions/2fe09ae3-5d01-4712-bfc0-1d873d20e554/appium/wd/hub"
           description: The hosted appium server endpoint associated to this session
         version:
-          type: object
+          type: string
           example: "stable"
           description: The hosted appium server version
 
