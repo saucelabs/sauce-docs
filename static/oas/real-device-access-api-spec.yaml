@@ -1500,7 +1500,6 @@ components:
                 $ref: "#/components/schemas/SessionId"
               state:
                 $ref: "#/components/schemas/SessionState"
-                example: CLOSING
     DeviceIsNotReady:
       description: Device not ready
       content:
