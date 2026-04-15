@@ -185,6 +185,10 @@ paths:
     get:
       operationId: getSession
       summary: Get details of a specific device session
+      description: |
+        Returns full session metadata including device info (name, OS, version), session state (PENDING, ACTIVE, CLOSING, CLOSED),
+        WebSocket URLs for I/O and companion channels, and the live view URL. Use the session state to determine if the device is
+        ready for interaction. The response includes links to related resources like the device descriptor.
       tags:
         - "Session Lifecycle"
       parameters:
@@ -206,6 +210,10 @@ paths:
     delete:
       operationId: deleteSession
       summary: Close and release a device session
+      description: |
+        Closes an active device session and releases the device back to the pool. The session transitions to CLOSING state
+        and then CLOSED. For private devices, set rebootDevice to true to reboot the device after release. Once closed,
+        the session cannot be reused — create a new session to continue testing.
       tags:
         - "Session Lifecycle"
       parameters:
@@ -233,6 +241,10 @@ paths:
     post:
       operationId: executeShellCommand
       summary: Execute an adb shell command on an Android device
+      description: |
+        Runs an adb shell command on the device and returns stdout. This command is not available for iOS devices.
+        The adbShellCommand should be the shell command without the 'adb shell' prefix (e.g., 'ls /' not 'adb shell ls /').
+        Use for checking device properties, listing packages, granting permissions, or any operation available through adb.
       tags:
         - "Device Interactions"
       parameters:
@@ -374,6 +386,10 @@ paths:
     post:
       operationId: listAppInstallations
       summary: List ongoing, completed and failed app installations
+      description: |
+        Returns the status of all app installations for this session. Each entry includes an installationId, the app
+        reference, and a status (PENDING, FINISHED, or ERROR). Use this to poll for installation completion after
+        calling installApp, since app installation runs in the background.
       tags:
         - "Device Interactions"
       parameters:
@@ -404,6 +420,9 @@ paths:
     post:
       operationId: uninstallApp
       summary: Uninstall an app currently installed on the device
+      description: |
+        Removes an installed app from the device. Requires either a bundleId for iOS or a packageName for Android,
+        but not both. The request body must contain exactly one of these identifiers.
       tags:
         - "Device Interactions"
       parameters:
@@ -496,6 +515,10 @@ paths:
     post:
       operationId: launchApp
       summary: Launch an app on device
+      description: |
+        Launches an installed app on the device. For iOS, provide the bundleId (e.g., 'com.apple.mobilesafari').
+        For Android, provide the packageName and optionally the activityName for the main activity.
+        The app must already be installed on the device — use installApp first if needed.
       tags:
         - "Device Interactions"
       parameters:
@@ -541,6 +564,10 @@ paths:
     post:
       operationId: launchWebDriverAgent
       summary: Launch WDA installed on the device
+      description: |
+        Launches WebDriverAgent (WDA) on an iOS device. WDA enables Appium-based automation by providing
+        a WebDriver-compatible interface to the device. Optionally provide a custom bundleId if you've deployed
+        your own WDA fork. Use getWebDriverAgentStatus to check if WDA is already running before launching.
       tags:
         - "Device Interactions"
       parameters:
@@ -574,6 +601,10 @@ paths:
     post:
       operationId: getWebDriverAgentStatus
       summary: Get launching status for WDA
+      description: |
+        Returns the current state of WebDriverAgent on the device. The state can be PENDING, LAUNCHING, RUNNING,
+        or ERROR. When RUNNING, the response includes the device port and host port for connecting automation tools.
+        Use this to poll after calling launchWebDriverAgent to confirm WDA is ready.
       tags:
         - "Device Interactions"
       parameters:
@@ -784,6 +815,10 @@ paths:
     post:
       operationId: startAppiumServer
       summary: Start an Appium server that runs next to the device.
+      description: |
+        Starts a hosted Appium server co-located with the device. Once started, the response includes the Appium
+        server URL that you can use with any Appium client. Optionally specify an Appium version — use
+        listAppiumVersions to see available versions. If omitted, the platform default version is used.
       tags:
         - "Appium Server"
       parameters:
@@ -823,6 +858,10 @@ paths:
     get:
       operationId: getAppiumServerStatus
       summary: Get details of the status of the hosted appium server
+      description: |
+        Returns the current status of the hosted Appium server for this session, including the server URL
+        and version. Use this to check if the Appium server is running and to retrieve the endpoint URL
+        for connecting your Appium client.
       tags:
         - "Appium Server"
       parameters:
