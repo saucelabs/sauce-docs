@@ -406,18 +406,20 @@ We do not allow more than ten concurrent Appium commands per Appium session. Thi
 - Ideally, your test scripts should implement a retry strategy with exponential backoff to prevent overloading the Appium server.
 
 
-### Your test timed out. Sauce Labs forcefully cancelled your Appium Session due to x seconds of inactivity
+### Your test timed out. Your Appium session was ended after x seconds of inactivity
 
 ** Description**
 
-You'll see this error when Sauce Labs does not receive a new command from your Appium script in more then 90 seconds (or the `newCommandTimeout` capability). In this case we forcefully terminate your session, to avoid sessions running for too long. 
+You'll see this error when Sauce Labs does not receive a new command from your Appium script in more then 90 seconds (or the `newCommandTimeout` capability). In this case we terminate your Appium session, to avoid sessions running for too long. 
 
 **Cause(s)**
 
-- The most common cause is that an Appium command you sent, did not return a response within 90s, because your app crashed or some network issue between you and the device. If the server does not respond, your appium-client will not send the next command, so we terminated your session after 90s.
-- You set an incorrect timeout for your Appium command. By default the appium-server is very lax when it comes to timing out requests, if you set a 30 minute `implicitWait` the server will try for 30 minutes whatever you request it to do. We want to protect your concurrency, so if an appium server did not respond within 90s, we assume that it never will.
-- The driver that is executing your command crashed. If WebDriverAgent, Chromedriver or UIAutomator2 crashed while excecuting your command, it can happen that the appium server does not respond within 90s.
 - You forgot to send the `DELETE /session/<id>` command (i.e. `driver.quit()`). It is easy to handle exceptions in an appium script incorrectly and mistakenly not include some sort of `finally` or `deferred` block that quits the driver.
+- The most common cause is that an Appium command you sent, did not return a response within 90s.
+  - This could be because your app crashed or some network issue between you and the device. If the server does not respond, your appium-client will not send the next command, so we terminated your session after 90s.
+  - Another cause is that you set an incorrect timeout for your Appium command. By default the appium-server is very lax when it comes to timing out requests, if you set a 30 minute `implicitWait` the server will try for 30 minutes whatever you request it to do. We want to protect your concurrency, so if an appium server did not respond within 90s, we assume that it never will.
+  - Thirtly it is possible that the driver that is executing your command crashed. If WebDriverAgent, Chromedriver or UIAutomator2 crashed while excecuting your command, it can happen that the appium server does not respond within 90s.
+
 
 **How to Resolve**
 
