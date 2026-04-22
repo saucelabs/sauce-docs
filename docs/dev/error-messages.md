@@ -408,7 +408,7 @@ We do not allow more than ten concurrent Appium commands per Appium session. Thi
 
 ### Your test timed out. Your Appium session was ended after x seconds of inactivity
 
-** Description**
+**Description**
 
 You'll see this error when Sauce Labs does not receive a new command from your Appium script in more then 90 seconds (or the `newCommandTimeout` capability). In this case we terminate your Appium session, to avoid sessions running for too long. 
 
