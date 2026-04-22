@@ -387,6 +387,8 @@ If you're already using storage, check to make sure that:
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 - Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
 
+## RDC Testing only
+
 ### Rate limit exceeded
 
 **Description**
@@ -403,6 +405,27 @@ We do not allow more than ten concurrent Appium commands per Appium session. Thi
   4. **Async/Await Mismanagement in Loops:** Using loops like `forEach` or `map` with async functions without proper await can cause all iterations to start simultaneously, leading to concurrent commands.
 - Ideally, your test scripts should implement a retry strategy with exponential backoff to prevent overloading the Appium server.
 
+
+### Your test timed out. Sauce Labs forcefully cancelled your Appium Session due to x seconds of inactivity
+
+** Description**
+
+You'll see this error when Sauce Labs does not receive a new command from your Appium script in more then 90 seconds (or the `newCommandTimeout` capability). In this case we forcefully terminate your session, to avoid sessions running for too long. 
+
+**Cause(s)**
+
+- The most common cause is that an Appium command you sent, did not return a response within 90s, because your app crashed or some network issue between you and the device. If the server does not respond, your appium-client will not send the next command, so we terminated your session after 90s.
+- You set an incorrect timeout for your Appium command. By default the appium-server is very lax when it comes to timing out requests, if you set a 30 minute `implicitWait` the server will try for 30 minutes whatever you request it to do. We want to protect your concurrency, so if an appium server did not respond within 90s, we assume that it never will.
+- The driver that is executing your command crashed. If WebDriverAgent, Chromedriver or UIAutomator2 crashed while excecuting your command, it can happen that the appium server does not respond within 90s.
+- You forgot to send the `DELETE /session/<id>` command (i.e. `driver.quit()`). It is easy to handle exceptions in an appium script incorrectly and mistakenly not include some sort of `finally` or `deferred` block that quits the driver.
+
+**How to Resolve**
+
+- Avoid long appium timeouts: verify that the `implicitWait` (and other timeouts) you are setting in your client are not larger than 90s or your `newCommandTimeout` capability.
+- Always use `driver.quit`: ensure that your test scripts have some `finally` `deferred` blocks that close the appium session. Alternatively you can use a concepts suchas [junits TestWatcher](https://www.baeldung.com/junit-testwatcher), to always call `driver.quit` once your test is finished.
+- Figure out what Appium-server was doing: Inspect the appium logs around the time of your failed command (usually the last thing in the log), to look for inconsistencies.
+- Figure out if something crashed: Go to the test video and see if your app crashed. Inspect the device logs and search for your application name, to see if it crashed. Inspect the device logs to see if the WebDriver agent or UIAutomator2 crashed (search for `uiautomator2` or `WebDriverAgent`). Make sure to also search for 'Verbose' logs.
+- Consider cancelling requests on the client side, so that your appium script does not wait for too long until sending the next command.
 
 ## Web App Testing Only
 
