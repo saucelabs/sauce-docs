@@ -41,7 +41,7 @@ Sauce Labs supports the following test configurations for Playwright:
         <td rowspan='2'>1.58.2</td>
         <td rowspan='2'>22</td>
         <td rowspan='2'>✅</td>
-        <td><b>macOS:</b> 14, 15</td>
+        <td><b>macOS:</b> 14*, 15*</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
         <td rowspan='2'>March 25th, 2027</td>
       </tr>
@@ -54,7 +54,7 @@ Sauce Labs supports the following test configurations for Playwright:
         <td rowspan='2'>1.58.1</td>
         <td rowspan='2'>22</td>
         <td rowspan='2'>✅</td>
-        <td><b>macOS:</b> 14, 15</td>
+        <td><b>macOS:</b> 14*, 15*</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
         <td rowspan='2'>February 25th, 2027</td>
       </tr>
@@ -154,6 +154,8 @@ Sauce Labs supports the following test configurations for Playwright:
     </tr>
   </tbody>
 </table>
+
+*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 ## How to Get Started
 
