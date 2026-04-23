@@ -44,14 +44,6 @@ paths:
       description: "List our catalog of devices available to you. Use this endpoint to retrieve 'device descriptors'. Note: for public devices there can be multiple physical devices that share one 'device descriptor'"
       tags:
         - "Device Catalog"
-      parameters:
-        - name: deviceId
-          in: query
-          description: "Filter by device identifier (supports regex). Matches the descriptor ID or device name."
-          required: false
-          schema:
-            type: string
-            example: "iPhone.*"
       responses:
         "200":
           description: Ok
