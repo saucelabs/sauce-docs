@@ -190,33 +190,6 @@ To generate an RSA public and private key pair, run the following commands in yo
    For more information about the settings, see [Jira Integration Settings](#jira-integration-settings).
 1. Click **Save**.
 
-## Jira Cloud (Legacy)
-
-1. Go to **Project settings** > **Workflow Integrations**.
-1. Click **+**, then select **issue tracking** > **Jira**. <br></br>
-   You can configure the following settings:
-   - Jira API (required): The Jira Endpoint URL (see below for examples).
-   - Email (required): email associated with your Jira instance. For some users, the username of the Jira instance may be used.
-   - API Token (required): Jira API Token obtained here. Some Jira instances also support passwords in lieu of API Tokens, but that functionality is deprecated and will be removed.
-   - Project Key (required): The Jira Project Key.
-   - Issue Type: Jira Issue Type. Defaults to Bug if not present.
-   - Subject (required): Content to put in the Summary field of the ticket.
-   - Custom Field Mapping - Labels: See below
-   - Custom Field Mapping - Description: See below
-   - Custom Fields: See below
-
-Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.
-
-### Jira URL Examples
-
-The Jira URL generally takes one of the following formats:
-
-- https:<span>//yourhost.yourdomain.com/rest/api/2/</span>
-- https:<span>//yourhost.yourdomain.com/jira/rest/api/2/</span>
-- https:<span>//yourname.atlassian.net/rest/api/2/</span> (for Atlassian-hosted Jira sites)
-
-Atlassian now also offers a v3 API that is currently in Beta, at this time v3 is not currently supported. Be sure to use a v2 endpoint. For more detailed information, see the reference for [Jira's REST APIs](https://developer.atlassian.com/server/jira/platform/rest-apis/).
-
 ## Jira Integration Settings
 
 ### Data Synchronization
@@ -309,7 +282,6 @@ To further automate your workflow, you can configure automated actions for your 
 
 If you've set up a Backtrace integration with Jira, but are not receiving any new Jira issues from Backtrace, verify the following:
 
-- Is your Jira endpoint correct? Your Jira endpoint must end in /Jira/rest/api/2/ or /rest/api/2/, depending on your Jira configuration. Atlassian has recently released v3 in Beta, at this time it is not supported. Be sure to use a v2 endpoint.
 - Is your project key correct?
 - Does the Jira user associated with the email you provided have permissions to create new issues in the project you specified?
 - Are you using email/password or username/password combination instead of email/API Token or username/API Token?
