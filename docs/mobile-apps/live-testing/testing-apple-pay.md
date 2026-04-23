@@ -124,7 +124,7 @@ driver.execute_script(f"sauce:applepay={passcode}")
 This will automatically confirm the ApplePay transaction using AssistiveTouch, entering the designated passcode when required. Using this method should be more reliable than automation via the Appium script itself, as it does not require context switching. 
 
 :::note
-ApplePay automation is currently supported only on devices running iOS 16 to 18. iOS 26 support is coming soon. 
+ApplePay automation is supported on devices running iOS 15 to 26. 
 :::
 :::note
 Because passcodes need to be cleared from devices during post-session cleaning, any test cards saved to the device will also be cleared. The set-up for any ApplePay test suite will need to include adding cards to the wallet. However, this is made easier by having them saved to the list of "previous cards" synced with the AppleId. 
