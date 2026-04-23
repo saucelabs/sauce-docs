@@ -16,7 +16,7 @@ Landing pages provide a convenient location for testers to access apps. Each app
 
 - **Landing page URL** - The URL is automatically generated for each landing page. The last token of the URL is configurable.
 
-- **App version** - The app version displayed on the landing page indicates which version of the app will be shown. You can choose to show the latest version, always display the auto-updated version, or freeze the landing page on a specific version.
+- **App version** - The app version displayed on the landing page indicates which version of the app will be shown. You can choose to show the latest version or freeze the landing page on a specific version.
 
 - **Visibility**
 

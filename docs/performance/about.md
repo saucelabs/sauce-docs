@@ -26,16 +26,33 @@ Consider the following guidelines to optimize your performance testing implement
 
 ### Chrome Browser Required
 
-Sauce Performance works in conjunction with Google Lighthouse and must be run on one of the latest 3 versions of the Chrome desktop browser on Windows or macOS.
+Sauce Performance works in conjunction with Google Lighthouse and must be run on one of the latest 3 versions of the 
+Chrome desktop browser on Windows, macOS, or Linux.
+
+### WebDriver BiDi Not Supported
+
+Performance testing is not compatible with WebDriver BiDi at this time. If you are using Selenium, avoid setting 
+`webSocketUrl: true` in your capabilities. For recent versions of WebdriverIO, you must force WebDriver Classic by 
+setting `'wdio:enforceWebDriverClassic': true` in your top-level capabilities.
 
 ### Separating Performance Scripts from Functional Scripts
 
-Capturing all the individual metrics associated with page rendering is more time consuming than evaluating functional behavior. Therefore, we recommend that you keep your performance test suite separate from your functional test suite so the performance data collection process doesn't compromise the efficiency and accuracy of your functional tests.
+Capturing all the individual metrics associated with page rendering is more time consuming than evaluating functional 
+behavior. Therefore, we recommend that you keep your performance test suite separate from your functional test suite 
+so the performance data collection process doesn't compromise the efficiency and accuracy of your functional tests.
 
 ### Understanding Your Baselines
 
-Baselines are determined by calculating a confidence interval over multiple runs of the same test name for each URL rendered during the test. The confidence interval is calculated to estimate the range of values which are expected in future runs, based on past observed performance. Results outside of the baseline range are statistically unlikely to be observed in the absence of some fundamental change in the app’s performance and should, therefore, be investigated as to root cause before resetting the baseline.
+Baselines are determined by calculating a confidence interval over multiple runs of the same test name for each URL 
+rendered during the test. The confidence interval is calculated to estimate the range of values which are expected in 
+future runs, based on past observed performance. Results outside of the baseline range are statistically unlikely to 
+be observed in the absence of some fundamental change in the app’s performance and should, therefore, be investigated 
+as to root cause before resetting the baseline.
 
 ### Using Explicit Page Transitions
 
-Performance metrics are captured for hard and soft page transitions, such as those that are triggered by a navigate command or a click, but some less explicit page transitions, such as programmatic responses, are not captured. For this reason, write your performance testing scripts to trigger hard or soft page transitions for any URL page for which you wish to capture performance metrics. Please file a support ticket if performance metrics for a specific page load in your test are not captured.
+Performance metrics are captured for hard and soft page transitions, such as those that are triggered by a navigate 
+command or a click, but some less explicit page transitions, such as programmatic responses, are not captured. For 
+this reason, write your performance testing scripts to trigger hard or soft page transitions for any URL page for 
+which you wish to capture performance metrics. Please file a support ticket if performance metrics for a specific page 
+load in your test are not captured.

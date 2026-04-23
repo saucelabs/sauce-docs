@@ -198,6 +198,54 @@ To disable network throttling, use the predefined network profile `no-throttling
 driver.executeScript("sauce: network-profile", "no-throttling");
 ```
 
+### saucectl - Native Framework Testing
+
+To use Network Throttling in your Espresso, XCUITest, or XCTest tests run via `saucectl`, add `networkProfile` or `networkConditions` to your suite configuration.
+
+```yaml title="Using a predefined network profile"
+suites:
+  - name: "My Test Suite"
+    networkProfile: "3G-slow"
+    devices:
+      - name: "Device Name"
+```
+
+```yaml title="Using custom network conditions"
+suites:
+  - name: "My Test Suite"
+    networkConditions:
+      downloadSpeed: 5000
+      uploadSpeed: 3000
+      latency: 200
+      loss: 2
+    devices:
+      - name: "Device Name"
+```
+
+For full configuration details, see:
+- [Espresso Configuration](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkprofile)
+- [XCUITest Configuration](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkprofile)
+- [XCTest Configuration](/mobile-apps/automated-testing/espresso-xcuitest/xctest-config/#networkprofile)
+
+
+### Access API
+
+You can control network throttling programmatically via the [Real Device Access API](/real-device-access-api).
+
+```bash title="Set custom network conditions"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+  -X POST "https://api.us-west-1.saucelabs.com/rdc/v2/sessions/$SESSION_ID/network/condition" \
+  -H "Content-Type: application/json" \
+  -d '{"networkConditions": {"downloadSpeed": 5000, "uploadSpeed": 3000, "latency": 200, "loss": 2}}'
+```
+
+The response returns the applied conditions. Once active, all HTTP traffic from the device is throttled according to the configured conditions until they are reset. To view available profiles, use `GET /rdc/v2/sessions/{id}/network/profiles`.
+
+```bash title="Reset network conditions"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+  -X DELETE "https://api.us-west-1.saucelabs.com/rdc/v2/sessions/$SESSION_ID/network/condition"
+```
+
 ## Live Testing
 Apply network throttling dynamically to your manual Live tests by selecting a predefined profile or by providing network conditions. 
 
@@ -216,11 +264,6 @@ An active network throttling is indicated by the **pulsing red dot** on the top 
 3. Click on the **pulsing red dot** to **pause** the network throttling. A paused throttling is indicated by the **pause icon**.
 
 <img src={useBaseUrl('img/mobile-apps/throttle-network-4.png')} alt="Throttle Network profile selection" width="650"/>
-
-## Upcoming
-
-* Apply network throttling to your native Espresso and XCUITest tests
-
 
 ## Limitations
 :::note Limitations

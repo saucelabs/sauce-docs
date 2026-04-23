@@ -26,7 +26,6 @@ The **Builds** page displays a list of all the builds for the app. For each buil
 - **STATUS**:
 
   - Build is not loaded into the system <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-app-not-uploaded.png')} alt="builds not loaded"/>
-  - Build is defined as auto-update <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-auto-update.png')} alt="builds not defined"/>
   - Build has metadata <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-metadata.png')} alt="builds has metadata"/>
   - Build has release notes <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-comment.png')} alt="builds has release notes"/>
   - Build distribution is disabled <img src={useBaseUrl('/img/testfairy/using-tf/ic_close_black_36.png')} alt="build distribution is disabled"/>

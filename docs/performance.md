@@ -5,7 +5,10 @@ sidebar_label: Getting Started
 description: Gain insight into how quickly and accurately your app renders, which directly affects your users' perception of quality.
 ---
 
-Does your app render quickly and flawlessly every time on every device and operating system? Are your page transitions fast and smooth? Are your users satisfied with the pace of their transactions on your site? Measuring and monitoring front end performance can help you answer these questions and is an important complement to your overall testing strategy. Learn how Sauce Labs can help you integrate this useful aspect of digital confidence.
+Does your app render quickly and flawlessly every time on every device and operating system? Are your page transitions 
+fast and smooth? Are your users satisfied with the pace of their transactions on your site? Measuring and monitoring 
+front end performance can help you answer these questions and is an important complement to your overall testing 
+strategy. Learn how Sauce Labs can help you integrate this useful aspect of digital confidence.
 
 <div>
   <div className="box boxwidetop card">
@@ -19,7 +22,7 @@ Does your app render quickly and flawlessly every time on every device and opera
   <div className="box box1 card">
     <div className="container">
     <a href="/performance/one-page"><h2>Test a Single URL</h2></a>
-    <p>Use the Speedo CLI to quickly collect performance statistics for a single URL and generate a baseline.</p>
+    <p>Quickly collect performance statistics for a single URL and generate a baseline.</p>
     </div>
   </div>
   <div className="box box2 card">

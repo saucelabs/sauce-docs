@@ -11,8 +11,7 @@ import TabItem from '@theme/TabItem';
 Below are some tips to help troubleshoot Sauce Connect Proxy.
 
 :::caution Important
-Make sure you're using the latest version of Sauce Connect Proxy, which you can download [here](/secure-connections/sauce-connect-4/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
-
+Make sure you're using the latest version of Sauce Connect Proxy, which you can download [here](/secure-connections/sauce-connect-5/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
 :::
 
 ## Generating Tunnel Logs to Help with Troubleshooting

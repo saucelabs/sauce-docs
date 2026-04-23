@@ -21,7 +21,7 @@ Sauce Labs currently supports the following test configurations for Electron.
   - MacOS 13
   - (Linux support to be decided)
 - Electron versions
-  - versions 5 - 32 inclusive
+  - versions 5 - 40 inclusive
 
 ## How to Get Started
 
@@ -83,4 +83,4 @@ Test results are visible on the UI under “Automated Tests > Test Results.’ Y
 
 - Electron support is only enabled for automated testing on Windows 10 and 11, and MacOS 11, 12 and 13.
 - Electron apps uploaded via REST API are not currently visible within the App Management of the UI. 
-- Live testing and UI enhancements to come in a future release.
+- Live testing is not currently supported.

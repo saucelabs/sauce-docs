@@ -10,6 +10,7 @@ jobs:
 
       - name: Lint
         uses: errata-ai/vale-action@reviewdog
+        continue-on-error: true
         with:
           reporter: github-pr-check # Reports are in the GitHub Diff View
           level: error

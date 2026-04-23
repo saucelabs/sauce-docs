@@ -35,7 +35,7 @@ The Backtrace Unity SDK reports on the following types of errors:
 | Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch.               |
 
 :::note
-Native Crashes on MacOS and WeBGL are not supported via backtrace-unity.
+Native Crashes on MacOS and WebGL are not supported via backtrace-unity.
 :::
 
 :::note
@@ -179,3 +179,8 @@ catch(Exception exception){
     backtraceClient.Send(report);
 }
 ```
+
+:::note
+Unity WebGL has a specific set of platform limitations.
+Please review the [Known Limitations](/error-reporting/platform-integrations/unity/limitations) page to understand how these constraints affect error reporting.
+:::

@@ -1,0 +1,20 @@
+name: OpenAPI Spec Linter
+
+on:
+  pull_request:
+    paths:
+      - "static/oas/**"
+      - ".spectral.yaml"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Lint OpenAPI specs
+        uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: "static/oas/*.yaml"
+          spectral_ruleset: ".spectral.yaml"

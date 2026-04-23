@@ -133,21 +133,10 @@ backtraceClient.addAttribute(attributes)
 
 ## File Attachments
 
-You can enable default file attachments which will be sent with all Backtrace reports both managed and native.
+Critical diagnostic files like configuration dumps or state snapshots can be added to error reports. These file attachments will be included with both managed and native errors. Attachments can be specified when initializing the Backtrace client, or by calling `addAttachment`.
 
 ```java
-String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
-List<String> attachments = new ArrayList<String>(){{
-    add(fileName);
-}};
-
-BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
-```
-
-File attachment paths for crash reports can only be specified on initialization. If you have rotating file logs or another situation where the exact filename won't be known when you initialize your Backtrace client, you can use symlinks:
-
-```java
-// The file simlink path to pass to Backtrace
+// Initialize BacktraceClient with attachments
 String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
 List<String> attachments = new ArrayList<String>(){{
     add(fileName);
@@ -155,10 +144,9 @@ List<String> attachments = new ArrayList<String>(){{
 
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
 
-// The actual filename of the desired log, not known to the BacktraceClient on initialization
-String fileNameDateString = context.getFilesDir() + "/" + "myCustomFile06_11_2021.txt";
-// Create symlink
-Os.symlink(fileNameDateString, fileName);
+// Add attachments post-initialization
+String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
+client.addAttachment(fileName);
 ```
 
 :::note
@@ -205,7 +193,8 @@ settings.setRetryOrder(RetryOrder.Queue);
 
 BacktraceDatabase database = new BacktraceDatabase(context, settings);
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database);
-// start capturing NDK crashes
+
+// Required to capture native crashes
 database.setupNativeIntegration(backtraceClient, credentials);
 ```
 
@@ -576,7 +565,7 @@ Breakpad crash reports are submitted on the next app startup, instead of at cras
 
 In general, this should be the final step in setting up your Backtrace client to ensure all attributes and file attachment paths are captured properly by the native crash handler.
 
-To capture NDK crashes, you can use the `enableNativeIntegration` method as follows:
+To capture native crashes, set up an offline database as noted in [Offline Database Settings](#offline-database-settings) and use the `enableNativeIntegration` method as follows:
 
 ```java
 backtraceClient.enableNativeIntegration();

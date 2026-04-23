@@ -5,6 +5,10 @@ sidebar_label: Limitations
 ---
 
 
+### Firefox on macOS 15 (Sequoia)
+
+Firefox is not supported on macOS 15 (Sequoia) due to a [known macOS firewall bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1919173) that blocks Firefox network connections. Use macOS 14 for Firefox testing on ARM.
+
 ### Special Characters in Test Names
 
 We recommend that you avoid using special characters when naming your tests. If your test name contains any special characters, your test may not run, or its artifacts may not be visible on our platform.
