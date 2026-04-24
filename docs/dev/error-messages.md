@@ -414,7 +414,7 @@ You'll see this error when Sauce Labs does not receive a new command from your A
 
 **Cause(s)**
 
-- You forgot to send the `DELETE /session/<id>` command (as in: `driver.quit()`). Appium scripts often handle exceptions incorrectly, by  not including some sort of `finally` or `deferred` block that quits the driver.
+- You forgot to send the `DELETE /session/<id>` command (as in: `driver.quit()`). Appium scripts often handle exceptions incorrectly, by not including some sort of `finally` or `deferred` block that quits the driver.
 - The most common cause is that an Appium command you sent, did not return a response in 90s.
   - This could be because your app crashed or some network issue between you and the device. If the server does not respond, your Appium-client will not send the next command, so we terminated your session after 90s.
   - Another cause is that you set an incorrect timeout for your Appium command. By default the Appium-server is very lax when it comes to timing out requests, if you set a 30 minute `implicitWait` the Appium-server will try for 30 minutes whatever you request it to do. We want to protect your concurrency, so if an Appium-server did not respond in 90s, we assume that it never will.
