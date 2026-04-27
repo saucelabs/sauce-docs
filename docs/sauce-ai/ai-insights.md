@@ -17,6 +17,8 @@ This AI agent brings generative AI directly into the Sauce Labs experience, allo
 
 and receive tailored natural-language answers, data visualizations, and curated reports in seconds. The result is a dramatically reduced time-to-quality and a faster path to confident, data-driven releases.
 
+For more detailed information on how to prompt the Insights agent, visit our [AI for Insights Prompting Guide](/sauce-ai/ai-insights-prompting-guide.md). 
+
 :::info
 After your test finishes running, please allow up to 30 minutes for the data to reach the AI for Insights agent.
 :::
