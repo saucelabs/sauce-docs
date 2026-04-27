@@ -23,26 +23,26 @@ A well-structured prompt transforms Sauce AI from a search tool into a dedicated
 
 Here is how a clear prompt directly impacts the quality of your insights:
 
-1. Analyzing Performance Trends
-- Bad Prompt: "What's up with my tests?"
-- Result: The agent provides a generic, unactionable summary based on the page's default filters.
+### Analyzing Performance Trends
+* Bad Prompt: "What's up with my tests?"
+* Result: The agent provides a generic, unactionable summary based on the page's default filters.
 
-- Good Prompt: "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
-- Result: The agent calculates the exact metric within your specified 7-day window and generates a trend breakdown or chart.
+* Good Prompt: "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
+* Result: The agent calculates the exact metric within your specified 7-day window and generates a trend breakdown or chart.
 
-2. Diagnosing Failures
-- Bad Prompt: "Why are my tests failing?"
-- Result: Too broad. The agent cannot analyze general organization-wide failures and will ask for more context.
+### Diagnosing Failures
+* Bad Prompt: "Why are my tests failing?"
+* Result: Too broad. The agent cannot analyze general organization-wide failures and will ask for more context.
 
-- Good Prompt: "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?"
-- Result: By providing a specific Job ID, the agent instantly performs a detailed failure analysis, comparing commands and pinpointing the exact error.
+* Good Prompt: "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?"
+* Result: By providing a specific Job ID, the agent instantly performs a detailed failure analysis, comparing commands and pinpointing the exact error.
 
-3. Investigating Test Coverage
-- Bad Prompt: "What's my coverage?"
-- Result: The agent won't know if you mean device, OS, or browser coverage.
+### Investigating Test Coverage
+* Bad Prompt: "What's my coverage?"
+* Result: The agent won't know if you mean device, OS, or browser coverage.
 
-- Good Prompt: "Visualize the test coverage by device for my RDC jobs over the last 30 days."
-- Result: The agent knows exactly what to fetch (Real Device Cloud jobs, last 30 days, grouped by device) and generates a chart because you used the word "visualize."
+* Good Prompt: "Visualize the test coverage by device for my RDC jobs over the last 30 days."
+* Result: The agent knows exactly what to fetch (Real Device Cloud jobs, last 30 days, grouped by device) and generates a chart because you used the word "visualize."
 
 For more detailed information on how to prompt the Insights agent, visit our [AI for Insights Prompting Guide](/sauce-ai/ai-insights-prompting-guide.md). 
 
