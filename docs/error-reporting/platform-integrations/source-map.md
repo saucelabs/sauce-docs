@@ -223,6 +223,8 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
      plugins: [new BacktracePlugin({
        // enable upload only on production builds
        uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+       // If a specific source map cannot be processed, "warn" (log warning and continue (default)), "skip" (continue without logging) or "exit".
+       assetErrorBehavior: "warn",
      })]
    }
    ```
@@ -267,6 +269,8 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
      plugins: [BacktracePlugin({
        // enable upload only on production builds
        uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+       // If a specific source map cannot be processed, "warn" (log warning and continue (default)), "skip" (continue without logging) or "exit".
+       assetErrorBehavior: "warn",
      })]
    }
    ```
@@ -311,35 +315,11 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
      plugins: [BacktracePlugin({
        // enable upload only on production builds
        uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+       // If a specific source map cannot be processed, "warn" (log warning and continue (default)), "skip" (continue without logging) or "exit".
+       assetErrorBehavior: "warn",
      })]
    }
    ```
 
 </TabItem>
 </Tabs>
-
-:::note Asset Error Behavior
-
-By default, if a JS file in the build output doesn't have a corresponding sourcemap, the plugin logs a warning and continues uploading the remaining sourcemaps. You can control this with the assetErrorBehavior option:
-
-```js
-  new BacktracePlugin({
-    uploadUrl: "<your upload URL>",                                                                                                                                                                                                           
-    assetErrorBehavior: "warn",                                                                                                                                                                                                
-  })
-```
-
-| Value | Description |
-| --- | --- |
-| `warn` (default) | Log a warning for each failed asset, upload the rest. |
-| `skip` | Silently skip failed assets, upload the rest. |
-| `exit` | Fail the build if any asset cannot be processed. |
-
-:::
-
-
-:::note Don't See Your Tool Described Here?
-
-We are adding support for the most popular tools regularly. You can always use `@backtrace/javascript-cli`; it works with any output JS files.
-
-:::
