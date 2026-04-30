@@ -323,7 +323,7 @@ sauceOptions.Add("tunnelOwner", "<tunnel-owner-username>");
 :::note Sauce Connect Version
 ChromiumOS supports **Sauce Connect 5 only**. Earlier Sauce Connect versions are not
 compatible with ChromiumOS sessions. If you're upgrading, see the
-[Sauce Connect 5 migration guide](/secure-connections/sauce-connect-5/migrating-to-sauce-connect-5/).
+[Sauce Connect 5 migration guide](/secure-connections/sauce-connect-5/migrating/).
 :::
 
 ## Limitations
