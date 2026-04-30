@@ -46,7 +46,7 @@ The technical challenge is transporting the same bytes that would normally flow 
 
 ### 1. Create a Session and Get the WebSocket Endpoint
 
-Start a session and, once it's active, grab the WebSocket endpoint from the response — `links.adbUrl` for Android, `links.usbmuxdUrl` for iOS.
+Start a session via Access API:
 
 ```shell
 export BASE_URL="https://api.us-west-1.saucelabs.com/rdc/v2"
@@ -57,24 +57,28 @@ curl -X POST -u $AUTH \
   -H "Content-Type: application/json" \
   -d '{"device": {"os": "android"}}' \
   "$BASE_URL/sessions"
-
-# Once active, extract the endpoint
-curl -s -u $AUTH "$BASE_URL/sessions/{session_id}" | jq '.links'
 ```
 
 ### 2. Connect Your Tools
 
+Use the [`api-connect.sh`](https://github.com/saucelabs/real-device-api/blob/main/scripts/api-connect.sh) script to connect your tooling. You'll need the following environment variables set:
+
+* `SAUCE_USERNAME`: The username owning the device session.
+* `SAUCE_ACCESS_KEY`: Access key used to create the session.
+* `SAUCE_API_URL`: One of the following
+  * https://api.eu-central-1.saucelabs.com (EU)
+  * https://api.us-west-1.saucelabs.com (US-WEST)
+  * https://api.us-east-4.saucelabs.com (US-EAST)
+
 **Android:**
 
 ```shell
-websocat -b tcp-l:127.0.0.1:50371 "$ADB_URL" \
-  --basic-auth "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
-  -H "sessionId: $SESSION_ID" &
+api-connect.sh $SESSION_ID
 ```
 
 This starts `websocat` listening on local TCP port 50371. Every byte that arrives on that port is wrapped into a WebSocket frame and sent to the Sauce Labs endpoint, which forwards it to the device's ADB daemon. The `-b` flag ensures binary mode — no text conversion, just raw bytes in both directions.
 
-Now point `adb` at that local port:
+The `api-connect.sh` also takes care of configuring adb so that all adb commands go through the WebSocket tunnel established  in the previous step by issuing the following command internally:
 
 ```shell
 adb connect localhost:50371
@@ -86,21 +90,8 @@ Verify with `adb devices` — you should see `localhost:50371` listed.
 
 **iOS (requires root):**
 
-We need two tools working together here: `socat` to listen on the Unix socket, and `websocat` to tunnel each connection to the WebSocket endpoint. The problem is that `socat` spawns commands via `EXEC`, which doesn't handle multi-argument commands with quoted values well — the quotes get stripped and arguments break apart. The simplest fix is a small wrapper script that bakes in the correct `websocat` command, so `socat` only needs to call a single file path.
-
 ```shell
-# Back up the real usbmuxd socket
-sudo mv /var/run/usbmuxd /var/run/usbmuxd.real
-
-# Create a wrapper script that socat will call for each connection
-WRAPPER=$(mktemp /tmp/usbmuxd-ws-XXXXXX)
-printf '#!/bin/bash\nexec websocat --binary "%s" --basic-auth "%s:%s" -H "sessionId: %s"\n' \
-  "$USBMUXD_URL" "$SAUCE_USERNAME" "$SAUCE_ACCESS_KEY" "$SESSION_ID" > "$WRAPPER"
-chmod +x "$WRAPPER"
-
-# Bridge the socket to the remote device
-sudo socat UNIX-LISTEN:/var/run/usbmuxd,fork,mode=0666 \
-  EXEC:"$WRAPPER" &
+sudo -E api-connect.sh $SESSION_ID
 ```
 
 This replaces the system usbmuxd socket with one that tunnels to the remote device. `socat` listens on the Unix socket and, for each incoming connection, spawns the wrapper script which bridges it to the Sauce Labs endpoint via `websocat`.
@@ -112,10 +103,6 @@ idevice_id -l
 ```
 
 The remote device's UDID should appear. From here, Xcode, Instruments, `idevicesyslog`, and all libimobiledevice tools will discover and interact with the device as if it were connected via USB.
-
-:::note
-The $WRAPPER script bakes in the session ID at creation time. When you start a new session, you must recreate the wrapper script and restart socat — the old wrapper will still reference the previous session.
-:::
 
 ## Use Cases
 
@@ -157,10 +144,6 @@ After setting up the usbmuxd bridge, close and reopen Xcode. The remote device w
 ```shell
 idevicesyslog
 ```
-
-## Reference Script
-
-For a turnkey setup that handles both platforms, see the [`api-connect.sh`](https://github.com/saucelabs/real-device-api/blob/main/scripts/api-connect.sh) reference script.
 
 ## Cleanup
 

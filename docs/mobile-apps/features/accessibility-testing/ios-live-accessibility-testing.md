@@ -63,6 +63,8 @@ The Action Toolbar provides quick access to accessibility navigation actions. It
 
 Navigate between accessible elements using keyboard shortcuts:
 
+#### Accessibility Inspector Navigation
+
 | Mac | Windows | Action |
 |-----|---------|--------|
 | **Right Arrow** | **Right Arrow** | Move to the next accessible element |
@@ -74,7 +76,20 @@ Navigate between accessible elements using keyboard shortcuts:
 | **Option + M** | **Alt + M** | Mute/unmute audio feedback |
 | **Option + H** | **Alt + H** | Navigate to Home screen |
 
-Each time the cursor moves, the spoken description of the newly focused element is announced via audio and displayed in the toolbar. This description includes the element's label, its type (button, text field, image, etc.), and its position in the list (e.g., "Settings, Icon, 3 of 24").
+#### On-Screen Keyboard Cursor Navigation
+
+While the Accessibility Inspector is enabled, you can still move the on-screen keyboard cursor in text inputs using a modifier key:
+
+| Mac | Windows | Action |
+|-----|---------|--------|
+| **Option + Right Arrow** | **Alt + Right Arrow** | Move keyboard cursor right |
+| **Option + Left Arrow** | **Alt + Left Arrow** | Move keyboard cursor left |
+| **Option + Up Arrow** | **Alt + Up Arrow** | Move keyboard cursor up |
+| **Option + Down Arrow** | **Alt + Down Arrow** | Move keyboard cursor down |
+
+Without the modifier, arrow keys navigate the Accessibility Inspector. With **Option** (Mac) or **Alt** (Windows), arrow keys move the on-screen keyboard cursor within text inputs on the device instead.
+
+Each time the inspector cursor moves, the spoken description of the newly focused element is announced via audio and displayed in the toolbar. This description includes the element's label, its type (button, text field, image, etc.), and its position in the list (e.g., "Settings, Icon, 3 of 24").
 
 ### Tap Action
 

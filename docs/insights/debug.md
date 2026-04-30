@@ -19,74 +19,38 @@ Extended Debugging generates additional assets that impact test performance and 
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-- Google Chrome (no older than 3 versions from latest) **_or_** Firefox browser (versions 53 and above) as the test browser
-  :::caution Multi-Window Limitation on Chrome Browser
-  In rare instances, tests running in Chrome that launch multiple browser windows may result in a Chrome DevTools socket interruption that throws a `408 Automation Server Error`. If this happens, discontinue extended debugging for tests that utilize multiple windows.
-  :::
+- Google Chrome (no older than 3 versions from latest) as the test browser
+
+:::caution Chrome and OS Compatibility
+Check the [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to verify your selected 
+operating system supports the latest three versions of Chrome; otherwise, you might run into issues when using Extended 
+Debugging.
+:::
+
+:::caution Multi-Window Limitation on Chrome Browser
+In rare instances, tests running in Chrome that launch multiple browser windows may result in a Chrome DevTools socket interruption that throws a `408 Automation Server Error`. If this happens, discontinue extended debugging for tests that utilize multiple windows.
+:::
 
 ## Enabling Extended Debugging
 
-To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
-
-<Tabs
-defaultValue="w3c"
-values={[
-{label: 'W3C', value: 'w3c'},
-{label: 'JSONWP', value: 'jsonwp'},
-]}>
-
-<TabItem value="w3c">
-
-```
-const capabilities: {
-  browserName: 'chrome',
-  browserVersion: 'latest',
-  platformName: 'Windows 10',
-  'sauce:options': {
-        extendedDebugging: true,
-  }
-}
-```
-
-</TabItem>
-<TabItem value="jsonwp">
+To generate the JS console logs and HAR files, add the `extendedDebugging` capability to your test capabilities and set it to `true`.
 
 ```
 const capabilities = {
   browserName: 'chrome',
-  version: 'latest',
-  platform: 'Windows 10',
-  extendedDebugging: true,
+  browserVersion: 'latest',
+  platformName: 'Windows 11',
+  'sauce:options': {
+    extendedDebugging: true,
+  }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 For more information and additional examples, see our
 [Extended Debugging Example GitHub repo](https://github.com/saucelabs-training/demo-js/blob/docs-1.0/webdriverio/webdriver/examples/extended-debugging).
 
 When a test with extended debugging enabled completes, you can access the logs and files through Sauce Labs or with the REST API.
 
-### Edit Your Firefox Profile
-
-If you're testing on a Firefox browser, edit the Firefox `about:config` file to configure your profile as follows to allow Extended Debugging:
-
-```
-about:config Settings
-'mozz:firefoxOptions': {
-    'profile': '<CUSTOM_PROFILE_ID>',
-    'args': [
-        '-start-debugger-server',
-        '9222'
-    ],
-    prefs: {
-        'devtools.debugger.remote-enabled': true,
-        'devtools.debugger.prompt-connection': false,
-        'devtools.chrome.enabled': true
-    }
-},
-```
 
 ## Using the JavaScript Executor to Simulate Network Conditions
 

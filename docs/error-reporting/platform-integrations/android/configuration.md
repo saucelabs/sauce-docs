@@ -133,21 +133,10 @@ backtraceClient.addAttribute(attributes)
 
 ## File Attachments
 
-You can enable default file attachments which will be sent with all Backtrace reports both managed and native.
+Critical diagnostic files like configuration dumps or state snapshots can be added to error reports. These file attachments will be included with both managed and native errors. Attachments can be specified when initializing the Backtrace client, or by calling `addAttachment`.
 
 ```java
-String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
-List<String> attachments = new ArrayList<String>(){{
-    add(fileName);
-}};
-
-BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
-```
-
-File attachment paths for crash reports can only be specified on initialization. If you have rotating file logs or another situation where the exact filename won't be known when you initialize your Backtrace client, you can use symlinks:
-
-```java
-// The file simlink path to pass to Backtrace
+// Initialize BacktraceClient with attachments
 String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
 List<String> attachments = new ArrayList<String>(){{
     add(fileName);
@@ -155,10 +144,9 @@ List<String> attachments = new ArrayList<String>(){{
 
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database, attributes, attachments);
 
-// The actual filename of the desired log, not known to the BacktraceClient on initialization
-String fileNameDateString = context.getFilesDir() + "/" + "myCustomFile06_11_2021.txt";
-// Create symlink
-Os.symlink(fileNameDateString, fileName);
+// Add attachments post-initialization
+String fileName = context.getFilesDir() + "/" + "myCustomFile.txt";
+client.addAttachment(fileName);
 ```
 
 :::note

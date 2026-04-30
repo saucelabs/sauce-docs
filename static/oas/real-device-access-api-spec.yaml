@@ -39,6 +39,7 @@ tags:
 paths:
   /devices:
     get:
+      operationId: listDevices
       summary: "List all device descriptors"
       description: "List our catalog of devices available to you. Use this endpoint to retrieve 'device descriptors'. Note: for public devices there can be multiple physical devices that share one 'device descriptor'"
       tags:
@@ -64,6 +65,7 @@ paths:
           $ref: "#/components/responses/NotAuthorized"
   /devices/status:
     get:
+      operationId: listDeviceStatus
       summary: "List the status of all devices"
       description: "Lists the current status of all devices. For private devices, additional details are available, including the precise state and current user. The delay of this state is < 1s."
       tags:
@@ -103,6 +105,7 @@ paths:
           $ref: "#/components/responses/NotAuthorized"
   /sessions:
     post:
+      operationId: createSession
       summary: "Allocate a device and create a new session"
       description: |
         Creates a new device session.
@@ -130,7 +133,6 @@ paths:
                   type: object
                   properties:
                     tunnel:
-                      type: object
                       $ref: "#/components/schemas/TunnelConfiguration"
                     sessionDuration:
                       type: string
@@ -147,6 +149,7 @@ paths:
         "400":
           $ref: "#/components/responses/BadRequest"
     get:
+      operationId: listSessions
       summary: List device sessions
       description: Retrieves a list of device sessions, including pending, active and recently closed sessions.
       tags:
@@ -180,7 +183,12 @@ paths:
           $ref: "#/components/responses/NotAuthorized"
   /sessions/{sessionId}:
     get:
+      operationId: getSession
       summary: Get details of a specific device session
+      description: |
+        Returns full session metadata including device info (name, OS, version), session state (PENDING, ACTIVE, CLOSING, CLOSED),
+        WebSocket URLs for I/O and companion channels, and the live view URL. Use the session state to determine if the device is
+        ready for interaction. The response includes links to related resources like the device descriptor.
       tags:
         - "Session Lifecycle"
       parameters:
@@ -200,7 +208,12 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
     delete:
+      operationId: deleteSession
       summary: Close and release a device session
+      description: |
+        Closes an active device session and releases the device back to the pool. The session transitions to CLOSING state
+        and then CLOSED. For private devices, set rebootDevice to true to reboot the device after release. Once closed,
+        the session cannot be reused — create a new session to continue testing.
       tags:
         - "Session Lifecycle"
       parameters:
@@ -226,7 +239,12 @@ paths:
 
   /sessions/{sessionId}/device/executeShellCommand:
     post:
+      operationId: executeShellCommand
       summary: Execute an adb shell command on an Android device
+      description: |
+        Runs an adb shell command on the device and returns stdout. This command is not available for iOS devices.
+        The adbShellCommand should be the shell command without the 'adb shell' prefix (e.g., 'ls /' not 'adb shell ls /').
+        Use for checking device properties, listing packages, granting permissions, or any operation available through adb.
       tags:
         - "Device Interactions"
       parameters:
@@ -300,6 +318,7 @@ paths:
 
   /sessions/{sessionId}/device/openUrl:
     post:
+      operationId: openUrl
       summary: Open a url (through browser) or a deeplink to an app
       description: "Opens a URL or deeplink based on the URL scheme. iOS supports deeplinking; Android opens all URLs in Chrome."
       tags:
@@ -333,6 +352,7 @@ paths:
 
   /sessions/{sessionId}/device/installApp:
     post:
+      operationId: installApp
       summary: Install an app from App Storage
       description: Install an app on the device. The installation will take place in the background. Use listAppInstallations to query for status.
       tags:
@@ -356,7 +376,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/AppInstallationStatus"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -365,7 +384,12 @@ paths:
 
   /sessions/{sessionId}/device/listAppInstallations:
     post:
+      operationId: listAppInstallations
       summary: List ongoing, completed and failed app installations
+      description: |
+        Returns the status of all app installations for this session. Each entry includes an installationId, the app
+        reference, and a status (PENDING, FINISHED, or ERROR). Use this to poll for installation completion after
+        calling installApp, since app installation runs in the background.
       tags:
         - "Device Interactions"
       parameters:
@@ -394,7 +418,11 @@ paths:
 
   /sessions/{sessionId}/device/uninstallApp:
     post:
+      operationId: uninstallApp
       summary: Uninstall an app currently installed on the device
+      description: |
+        Removes an installed app from the device. Requires either a bundleId for iOS or a packageName for Android,
+        but not both. The request body must contain exactly one of these identifiers.
       tags:
         - "Device Interactions"
       parameters:
@@ -437,6 +465,7 @@ paths:
 
   /sessions/{sessionId}/device/applySettings:
     post:
+      operationId: applyDeviceSettings
       summary: Change device configuration
       description: |
         Changes device settings such as orientation, locale, or animations during an active session.
@@ -484,7 +513,12 @@ paths:
 
   /sessions/{sessionId}/device/launchApp:
     post:
+      operationId: launchApp
       summary: Launch an app on device
+      description: |
+        Launches an installed app on the device. For iOS, provide the bundleId (e.g., 'com.apple.mobilesafari').
+        For Android, provide the packageName and optionally the activityName for the main activity.
+        The app must already be installed on the device — use installApp first if needed.
       tags:
         - "Device Interactions"
       parameters:
@@ -500,8 +534,7 @@ paths:
           application/json:
             schema:
               type: object
-              required:
-                - id
+              description: "Requires either a 'bundleId' for iOS or a 'packageName' for Android, but not both."
               properties:
                 bundleId:
                   type: string
@@ -516,12 +549,8 @@ paths:
                   description: Main Activity Name of app to launch (Android)
                   example: "com.android.XXX.Activity"
       responses:
-        "200":
-          description: Command executed successfully
-          content:
-            application/json:
-              schema:
-                type: object
+        "204":
+          description: App launched successfully
         "400":
           $ref: "#/components/responses/BadRequest"
         "404":
@@ -529,7 +558,12 @@ paths:
 
   /sessions/{sessionId}/device/launchWebDriverAgent:
     post:
+      operationId: launchWebDriverAgent
       summary: Launch WDA installed on the device
+      description: |
+        Launches WebDriverAgent (WDA) on an iOS device. WDA enables Appium-based automation by providing
+        a WebDriver-compatible interface to the device. Optionally provide a custom bundleId if you've deployed
+        your own WDA fork. Use getWebDriverAgentStatus to check if WDA is already running before launching.
       tags:
         - "Device Interactions"
       parameters:
@@ -544,7 +578,6 @@ paths:
         content:
           application/json:
             schema:
-              type: object
               $ref: "#/components/schemas/LaunchWDARequest"
       responses:
         "200":
@@ -552,7 +585,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/RunningWDA"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -563,7 +595,12 @@ paths:
 
   /sessions/{sessionId}/device/checkWebDriverAgentStatus:
     post:
+      operationId: getWebDriverAgentStatus
       summary: Get launching status for WDA
+      description: |
+        Returns the current state of WebDriverAgent on the device. The state can be PENDING, LAUNCHING, RUNNING,
+        or ERROR. When RUNNING, the response includes the device port and host port for connecting automation tools.
+        Use this to poll after calling launchWebDriverAgent to confirm WDA is ready.
       tags:
         - "Device Interactions"
       parameters:
@@ -585,7 +622,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/RunningWDA"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -594,6 +630,7 @@ paths:
 
   /sessions/{sessionId}/device/takeScreenshot:
     post:
+      operationId: takeScreenshot
       summary: Take a screenshot from device
       description: Takes a screenshot from the device and returns a PNG representation.
       tags:
@@ -618,6 +655,7 @@ paths:
 
   /sessions/{sessionId}/device/enableNetworkCapture:
     post:
+      operationId: startNetworkCapture
       summary: Start network traffic capture
       description: Initiates system-wide network traffic capture for the device session.
       tags:
@@ -637,29 +675,31 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
-    /sessions/{sessionId}/device/disableNetworkCapture:
-      post:
-        summary: Stop network traffic capture
-        description: Stops the ongoing system-wide network traffic capture for the device session. Returns HTTP 204.
-        tags:
-          - "Device Interactions"
-        parameters:
-          - name: sessionId
-            in: path
-            required: true
-            description: The id of the device session
-            schema:
-              type: string
-        responses:
-          "204":
-            description: Network capture stopped successfully
-          "400":
-            $ref: "#/components/responses/BadRequest"
-          "404":
-            $ref: "#/components/responses/DeviceSessionNotFound"
+  /sessions/{sessionId}/device/disableNetworkCapture:
+    post:
+      operationId: stopNetworkCapture
+      summary: Stop network traffic capture
+      description: Stops the ongoing system-wide network traffic capture for the device session. Returns HTTP 204.
+      tags:
+        - "Device Interactions"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Network capture stopped successfully
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
 
   /sessions/{sessionId}/network/profiles:
     get:
+      operationId: listNetworkProfiles
       summary: List predefined network profiles
       description: Returns the list of predefined network profiles that can be applied to the device session.
       tags:
@@ -685,6 +725,7 @@ paths:
 
   /sessions/{sessionId}/network/profile:
     post:
+      operationId: setNetworkProfile
       summary: Set a predefined network profile
       description: Applies a predefined network profile (e.g. `2G`, `4G-fast`) to the device session. Profiles are mapped to network conditions internally—the resolved conditions are returned in the response. Use `DELETE /sessions/{sessionId}/network/condition` to reset.
       tags:
@@ -716,6 +757,7 @@ paths:
 
   /sessions/{sessionId}/network/condition:
     post:
+      operationId: setNetworkConditions
       summary: Set custom network conditions
       description: Applies custom network conditions to the device session. Only specified parameters will be conditioned. The applied network conditions are returned in the response.
       tags:
@@ -745,6 +787,7 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
     delete:
+      operationId: resetNetworkConditions
       summary: Reset network conditions
       description: Removes all network throttling from the device session, restoring normal network connectivity. This resets conditions regardless of whether they were set via a predefined profile or custom conditions, since profiles are mapped to conditions internally.
       tags:
@@ -766,7 +809,12 @@ paths:
 
   /sessions/{sessionId}/appiumserver:
     post:
+      operationId: startAppiumServer
       summary: Start an Appium server that runs next to the device.
+      description: |
+        Starts a hosted Appium server co-located with the device. Once started, the response includes the Appium
+        server URL that you can use with any Appium client. Optionally specify an Appium version — use
+        listAppiumVersions to see available versions. If omitted, the platform default version is used.
       tags:
         - "Appium Server"
       parameters:
@@ -796,7 +844,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/AppiumSession"
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -805,7 +852,12 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
     get:
+      operationId: getAppiumServerStatus
       summary: Get details of the status of the hosted appium server
+      description: |
+        Returns the current status of the hosted Appium server for this session, including the server URL
+        and version. Use this to check if the Appium server is running and to retrieve the endpoint URL
+        for connecting your Appium client.
       tags:
         - "Appium Server"
       parameters:
@@ -821,13 +873,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/AppiumSession"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
   /appium/versions:
     get:
+      operationId: listAppiumVersions
       summary: Get the list of supported Appium versions for Real Devices
       description: |
         Returns all Appium versions currently available for use on Real Devices,
@@ -850,6 +902,7 @@ paths:
 
   /sessions/{sessionId}/device/listFiles:
     post:
+      operationId: listFiles
       summary: List files in a directory on the device
       description: |
         Returns a list of files and directories at the specified path on the device storage.
@@ -879,9 +932,13 @@ paths:
                   type: string
                   example: "/sdcard/Download/file.txt"
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -891,6 +948,7 @@ paths:
 
   /sessions/{sessionId}/device/removeFile:
     post:
+      operationId: removeFile
       summary: Remove a file from the device
       description: |
         Deletes a specific file from the device storage.
@@ -913,9 +971,13 @@ paths:
         "204":
           description: File removed successfully
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -925,6 +987,7 @@ paths:
 
   /sessions/{sessionId}/device/statFile:
     post:
+      operationId: statFile
       summary: Get file information from the device
       description: |
         Returns metadata about a specific file or directory on the device storage, including its path, size, and whether it is a directory.
@@ -951,9 +1014,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/FileInfo"
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -963,6 +1030,7 @@ paths:
 
   /sessions/{sessionId}/device/pushFile:
     post:
+      operationId: pushFile
       summary: Push a file to the device
       description: |
         Uploads a file to the specified destination path on the device storage.
@@ -1000,9 +1068,13 @@ paths:
         "204":
           description: File uploaded successfully
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1012,6 +1084,7 @@ paths:
 
   /sessions/{sessionId}/device/pullFile:
     post:
+      operationId: pullFile
       summary: Pull a file from the device
       description: |
         Retrieves a file from the device storage as a binary stream.
@@ -1045,9 +1118,13 @@ paths:
                 type: string
                 example: 'attachment; filename="report.txt"'
         "400":
-          oneOf:
-            - $ref: "#/components/responses/BadRequest"
-            - $ref: "#/components/responses/BundleIdMissing"
+          description: Bad request or missing bundleId for iOS file operations
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/BundleIdMissingBody"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "422":
@@ -1057,6 +1134,7 @@ paths:
 
   /sessions/{sessionId}/device/proxy/http/{targetHost}/{targetPort}/{targetPath}:
     get:
+      operationId: proxyGet
       summary: Forward a single http GET request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided GET request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1105,6 +1183,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     post:
+      operationId: proxyPost
       summary: Forward a single http POST request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided POST request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1153,6 +1232,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     put:
+      operationId: proxyPut
       summary: Forward a single http PUT request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided PUT request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1201,6 +1281,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     delete:
+      operationId: proxyDelete
       summary: Forward a single http DELETE request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided DELETE request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1249,6 +1330,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     head:
+      operationId: proxyHead
       summary: Forward a single http HEAD request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided HEAD request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1297,6 +1379,7 @@ paths:
         "429":
           $ref: "#/components/responses/TooManyRequests"
     options:
+      operationId: proxyOptions
       summary: Forward a single http OPTIONS request via a proxy running on the device.
       description: Forward a single http request via a proxy running on the device. Transparently forwards the provided OPTIONS request and proxies the response from the server as the proxy in the device receives it
       tags:
@@ -1452,7 +1535,6 @@ components:
                 $ref: "#/components/schemas/SessionId"
               state:
                 $ref: "#/components/schemas/SessionState"
-                example: CLOSING
     DeviceIsNotReady:
       description: Device not ready
       content:
@@ -1526,6 +1608,35 @@ components:
                 type: integer
                 example: 500
   schemas:
+    BadRequestBody:
+      type: object
+      properties:
+        type:
+          type: string
+          example: about:blank
+        title:
+          type: string
+          example: Device does not exist.
+        detail:
+          type: string
+          example: 'The deviceId "Samsung XR" does not exist. Please ensure you provide an existing device Id.'
+    BundleIdMissingBody:
+      type: object
+      description: |
+        Returned when a file operation is performed on an iOS device without providing the required `bundleId` parameter.
+        On iOS, each app runs inside its own **sandbox** — an isolated file system container that prevents apps from accessing each other's data.
+        Unlike Android, where you can access shared storage paths like `/sdcard/`, iOS requires you to specify which app's sandbox to operate on by providing its bundle identifier.
+        To resolve this error, include the `bundleId` field in your request body with the target app's bundle identifier (e.g., `com.example.app`).
+      properties:
+        type:
+          type: string
+          example: "about:blank"
+        title:
+          type: string
+          example: "Bundle ID required"
+        detail:
+          type: string
+          example: "The `bundleId` parameter is required for file operations on iOS devices. Each iOS app has its own sandboxed file system — provide the bundle identifier of the app whose files you want to access."
     DeviceDescriptor:
       type: object
       description: "Device descriptor containing hardware and software specifications for a device type in the Sauce Labs device catalog. For public devices there can be multiple physical devices that share one descriptor."
@@ -1773,7 +1884,7 @@ components:
               example: "https://api.us-west-1.saucelabs.com/rdc/v2/sessions/2fe09ae3-5d01-4712-bfc0-1d873d20e554/appium/wd/hub"
               description: The hosted appium server endpoint associated to this session
             version:
-              type: object
+              type: string
               example: "stable"
               description: The hosted appium server version
         links:
@@ -1821,7 +1932,7 @@ components:
           example: "https://api.us-west-1.saucelabs.com/rdc/v2/sessions/2fe09ae3-5d01-4712-bfc0-1d873d20e554/appium/wd/hub"
           description: The hosted appium server endpoint associated to this session
         version:
-          type: object
+          type: string
           example: "stable"
           description: The hosted appium server version
 

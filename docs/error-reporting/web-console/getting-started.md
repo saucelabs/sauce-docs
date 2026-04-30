@@ -18,6 +18,20 @@ The Backtrace web console includes 4 key navigational components to help you ana
 
 ## Filters
 
+### Natural Language Query
+
+:::info Preview Beta
+Natural Language Query is available in a closed beta. Contact Sauce Labs Support for more information.
+:::
+
+:::tip AI Feature
+<img src={useBaseUrl('img/error-reporting/console-views/ai-spark.png')} alt="AI spark" width="20" height="20" /> Natural Language Query is an AI feature. Only attribute names and attribute descriptions are used. No application or user data is used.
+:::
+
+The fastest way to get to the right data is to click the Ask button in the filter bar and type in a Natural Language Query - no special syntax, just describe what you want to see. The timeline and filter will be set, and your data will be intelligently grouped on the Explore page which is the best way to slice into your error reports.
+
+<img src={useBaseUrl('img/error-reporting/console-views/filter-nlq.png')} alt="Use &quot;Ask&quot; to enter a Natural Language Query" />
+
 ### Time Frame
 
 On the top left, you'll see the Time frame filter. This allows you to filter for issues that have occurred during a certain time period or to identify when an issue has first occurred.

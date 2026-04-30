@@ -29,6 +29,12 @@ Consider the following guidelines to optimize your performance testing implement
 Sauce Performance works in conjunction with Google Lighthouse and must be run on one of the latest 3 versions of the 
 Chrome desktop browser on Windows, macOS, or Linux.
 
+:::caution Chrome and OS Compatibility
+Check the [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to verify your selected
+operating system supports the latest three versions of Chrome; otherwise, you might run into issues when using Sauce
+Performance.
+:::
+
 ### WebDriver BiDi Not Supported
 
 Performance testing is not compatible with WebDriver BiDi at this time. If you are using Selenium, avoid setting 
