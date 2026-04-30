@@ -187,7 +187,7 @@ platform to `ChromiumOS` and use the standard Chrome browser and Sauce options.
 ### Configuring Screen Resolution
 
 ChromiumOS virtual machines support multiple screen resolutions. If you don't set a
-`screenResolution` capability, sessions launch at the default resolution of `1366x768`.
+`screenResolution` capability, sessions launch at the default resolution of `1920x1080`.
 
 To request a specific resolution, set `screenResolution` inside `sauce:options`:
 
@@ -330,10 +330,8 @@ compatible with ChromiumOS sessions. If you're upgrading, see the
 
 This feature is in **Beta**. The following constraints apply during the beta period:
 
-- **Two Chrome version** — Only Chrome 144 and 146 is supported. Additional versions will be
-  added through general availability.
-- **Live Testing scrolling** — Mouse wheel and trackpad scrolling are not supported in
-  live sessions; click-and-drag scrolling only.
+- **Limited Chrome versions** — Only Chrome 144 and 146 is supported. Additional versions will be
+  added through general availability, including monthly releases alongside Chrome browser updates.
 
 ## Known Issues
 
