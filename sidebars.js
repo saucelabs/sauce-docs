@@ -1147,6 +1147,7 @@ module.exports = {
                         },
                     ],
                 },
+                'web-apps/chromiumos',
                 'web-apps/macos-apple-silicon',
                 'web-apps/quarterly-browser-updates',
                 'web-apps/automated-testing/web-automated-faq',
