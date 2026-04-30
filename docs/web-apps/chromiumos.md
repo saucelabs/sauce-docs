@@ -51,7 +51,7 @@ You can run interactive manual testing sessions on ChromiumOS virtual machines t
 Sauce Labs Live Testing interface.
 
 1. Navigate to **Live Testing** > **Cross Browser** in Sauce Labs.
-2. Select **Chrome 144** from the browser version dropdown. This is the only version
+2. Select **Chrome 144** or **146** from the browser version dropdown. These are the only two versions
    supported during the beta.
 3. In the **OS Version** selector, choose **ChromiumOS**.
 4. Click **Start Test Session** to launch the virtual machine.
@@ -194,7 +194,7 @@ To request a specific resolution, set `screenResolution` inside `sauce:options`:
 | Resolution | Aspect Ratio | Notes |
 |---|---|---|
 | `1280x720` | 16:9 | HD — smallest supported size |
-| `1366x768` | 16:9 | Default; common Chromebook native resolution |
+| `1366x768` | 16:9 | common Chromebook native resolution |
 | `1536x864` | 16:9 | |
 | `1600x900` | 16:9 | |
 | `1920x1080` | 16:9 | Full HD |
