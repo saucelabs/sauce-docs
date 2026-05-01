@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Backtrace](https://backtrace.io) captures and reports handled and unhandled exceptions in your production software so
+Backtrace captures and reports handled and unhandled exceptions in your production software so
 you can manage application quality through the complete product lifecycle.
 
 The [@backtrace/browser](https://www.npmjs.com/package/@backtrace/browser) SDK connects your JavaScript application to Backtrace. The basic integration is quick
@@ -280,7 +280,7 @@ The optional `@backtrace/session-replay` module allows you to capture and replay
 
 The Session Replay module is designed with privacy as a top priority. By default, it automatically masks all text and input fields to avoid capturing sensitive user data.
 
-For full details on session replay configuration, sampling, and advanced privacy controls, please see the **[Session Replay Module Documentation](../platform-integrations/session-replay.md)**.
+For full details on session replay configuration, sampling, and advanced privacy controls, please see the [Session Replay Module Documentation](../platform-integrations/session-replay.md).
 
 #### 1. Install the additional package
 
