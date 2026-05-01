@@ -97,8 +97,6 @@ It can effectively detect multiple forms of heap corruption, including but not l
 
 Additionally, Backtrace is capable of detecting latent bugs in your software and can be applied to live processes. This capability not only aids in root cause investigation for faults but also helps uncover hidden bugs that could potentially lead to instability.
 
-[For more examples and detailed information, refer to this link](https://backtrace.io/blog/backtrace/debugging-memory-allocation/).
-
 ### Environment and Architectural Constraints
 
 Backtrace automatically highlights faults caused by environmental or architectural conditions, saving potentially hours of research on false leads. It allows for quick identification of cases where an assertion related to failed resource acquisition or memory lock is a result of exceeding environmental or architectural limits.
