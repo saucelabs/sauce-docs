@@ -17,7 +17,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Download
 
-The `backtracepython` package is available on `pip` or at [https://github.com/backtrace-labs/backtrace-python](https://github.com/backtrace-labs/backtrace-python).
+The `backtracepython` package is available on `pip` or at the [backtrace-python](https://github.com/backtrace-labs/backtrace-python) GitHub repository.
 
 ## Supported Platforms
 
