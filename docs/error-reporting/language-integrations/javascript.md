@@ -280,7 +280,7 @@ The optional `@backtrace/session-replay` module allows you to capture and replay
 
 The Session Replay module is designed with privacy as a top priority. By default, it automatically masks all text and input fields to avoid capturing sensitive user data.
 
-For full details on session replay configuration, sampling, and advanced privacy controls, please see the [Session Replay Module Documentation](../platform-integrations/session-replay.md).
+See [Session Replay](../platform-integrations/session-replay.md) for full details on session replay configuration, sampling, and advanced privacy controls
 
 #### 1. Install the additional package
 
