@@ -20,7 +20,7 @@ Cucumber.js is not directly supported by Playwright. However, Playwright can be 
 Supported OS:
 
 - Windows 10 / Windows 11
-- macOS 10.15+
+- macOS 12+
 - Linux
 
 ## Supported Testing Platforms
@@ -41,7 +41,7 @@ Sauce Labs supports the following test configurations for Playwright:
         <td rowspan='2'>1.58.2</td>
         <td rowspan='2'>22</td>
         <td rowspan='2'>✅</td>
-        <td><b>macOS:</b> 14, 15</td>
+        <td><b>macOS:</b> 14*, 15*</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
         <td rowspan='2'>March 25th, 2027</td>
       </tr>
@@ -54,7 +54,7 @@ Sauce Labs supports the following test configurations for Playwright:
         <td rowspan='2'>1.58.1</td>
         <td rowspan='2'>22</td>
         <td rowspan='2'>✅</td>
-        <td><b>macOS:</b> 14, 15</td>
+        <td><b>macOS:</b> 14*, 15*</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
         <td rowspan='2'>February 25th, 2027</td>
       </tr>
@@ -155,7 +155,7 @@ Sauce Labs supports the following test configurations for Playwright:
   </tbody>
 </table>
 
-Playwright 1.58.1 runs on ARM architecture (macOS 14 and 15) and requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/playwright/yaml#armrequired).
+*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 ## How to Get Started
 

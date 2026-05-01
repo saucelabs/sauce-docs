@@ -549,12 +549,8 @@ paths:
                   description: Main Activity Name of app to launch (Android)
                   example: "com.android.XXX.Activity"
       responses:
-        "200":
-          description: Command executed successfully
-          content:
-            application/json:
-              schema:
-                type: object
+        "204":
+          description: App launched successfully
         "400":
           $ref: "#/components/responses/BadRequest"
         "404":

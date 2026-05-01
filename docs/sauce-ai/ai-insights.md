@@ -17,6 +17,35 @@ This AI agent brings generative AI directly into the Sauce Labs experience, allo
 
 and receive tailored natural-language answers, data visualizations, and curated reports in seconds. The result is a dramatically reduced time-to-quality and a faster path to confident, data-driven releases.
 
+## The Power of a Good Prompt
+
+A well-structured prompt transforms Sauce AI from a search tool into a dedicated data analyst. Providing specific details like exact time windows, specific entities (Jobs, Builds, or Test Cases), and targeted filters eliminates ambiguity. Without these details, the agent defaults to broad assumptions that may not match what you're looking for.
+
+Here is how a clear prompt directly impacts the quality of your insights:
+
+**Analyzing Performance Trends**
+* Good Prompt: "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
+* Result: The agent calculates the exact metric within your specified 7-day window and generates a trend breakdown or chart.
+  
+* Bad Prompt: "What's up with my tests?"
+* Result: The agent provides a generic, unactionable summary based on the page's default filters.
+
+**Diagnosing Failures**
+* Good Prompt: "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?"
+* Result: By providing a specific Job ID, the agent instantly performs a detailed failure analysis, comparing commands and pinpointing the exact error.
+
+* Bad Prompt: "Why are my tests failing?"
+* Result: Too broad. The agent cannot analyze general organization-wide failures and will ask for more context.
+
+**Investigating Test Coverage**
+* Good Prompt: "Visualize the test coverage by device for my RDC jobs over the last 30 days."
+* Result: The agent knows exactly what to fetch (Real Device Cloud jobs, last 30 days, grouped by device) and generates a chart because you used the word "visualize."
+  
+* Bad Prompt: "What's my coverage?"
+* Result: The agent won't know if you mean device, OS, or browser coverage.
+
+For more detailed information on how to prompt the Insights agent, visit our [AI for Insights Prompting Guide](/sauce-ai/ai-insights-prompting-guide.md). 
+
 :::info
 After your test finishes running, please allow up to 30 minutes for the data to reach the AI for Insights agent.
 :::
