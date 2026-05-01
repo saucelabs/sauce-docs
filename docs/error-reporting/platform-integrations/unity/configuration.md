@@ -70,6 +70,27 @@ To enable stack traces for WebGL, in your Unity project's **Player Settings**, u
 
 <img src={useBaseUrl('img/error-reporting/unity/unity-webgl-player-settings-enable-exceptions.png')} alt="Player setting in Unity required to enable stack traces for WebGL." />
 
+#### WebGL Log-Callback Diagnostics
+
+Unity WebGL can emit exception-like log callback events with a valid exception message but an empty `stackTrace` string. The Backtrace Unity SDK records explicit diagnostics for these reports and, on WebGL, can observe original exceptions passed through `Debug.LogException(exception)` so the report can include real managed frames when available. For details on the diagnostic attributes and stack-source classification, see [WebGL log-callback exceptions with empty stack traces](/error-reporting/platform-integrations/unity/limitations/#unity-webgl-log-callback-exceptions-with-empty-stack-traces).
+
+| Setting | Description | Type | Default |
+| --- | --- | --- | --- |
+| Unity log handler exception capture | Controls whether the SDK wraps `Debug.unityLogger.logHandler` to observe original `Exception` objects passed through `Debug.LogException`. The log handler records the original exception only and forwards to Unity's original handler; Unity's log callback remains the send trigger. <ul><li>Automatic: Enabled on WebGL builds, disabled elsewhere.</li><li>Disabled: Never wrap the Unity log handler.</li><li>Enabled: Always wrap the Unity log handler.</li></ul> | Enum | Automatic |
+| WebGL JavaScript stack fallback | WebGL only. Optional supplemental browser JavaScript stack annotation captured at SDK report creation time for stackless Unity log-callback reports. This stack is context only; it is not used as the managed C# faulting stack. <ul><li>Disabled: Do not capture a browser JavaScript stack.</li><li>StacklessUnityLogsOnly: Capture a browser JavaScript stack only when Unity sends an Error or Exception log callback with an empty `stackTrace` string.</li></ul> | Enum | Disabled |
+
+You can also set these in code:
+
+```csharp
+using Backtrace.Unity.Types;
+
+backtraceClient.Configuration.UnityLogHandlerExceptionCapture =
+    BacktraceUnityLogHandlerExceptionCaptureMode.Automatic;
+
+backtraceClient.Configuration.WebGLJavaScriptStackFallback =
+    BacktraceWebGLJavaScriptStackFallbackMode.Disabled;
+```
+
 ### Advanced Client Settings
 
 | Setting                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type    | Default |
