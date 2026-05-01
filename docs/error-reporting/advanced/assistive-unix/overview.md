@@ -113,8 +113,6 @@ The screenshot below illustrates an example where a stale pointer is narrowed do
 
 <img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bfbae347.png')} alt="Example"/>
 
-[For more examples and in-depth information, visit this link](http://69.164.212.57/blog/blog/2016/09/27/memory-error-stale-pointer/index.html).
-
 ### Security and Malware Analysis
 
 The Backtrace debugger includes features for detecting security vulnerabilities, exploitable crash conditions, and more. It can help identify malware in executables and post-mortem crashes that present security problems. By default, Backtrace automatically highlights faults involving execution attempts of non-executable pages, faults involving instructions controlling execution flow, stack overflows, and fortification assertion failures indicate heap and stack smashing possibilities.
