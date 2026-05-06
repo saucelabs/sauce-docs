@@ -38,6 +38,6 @@ Select **GitHub** and fill in the required settings.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/github-settings.png')} alt="" />
 
-For more information about these settings, please refer to the [GitHub API Documentation](https://developer.github.com/enterprise/2.3/v3/issues/#create-an-issue).
+For more information about these settings, please refer to the [GitHub API Documentation](https://docs.github.com/en/enterprise-server@3.20/rest/issues/issues?apiVersion=2022-11-28#create-an-issue).
 
 Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.

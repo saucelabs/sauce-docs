@@ -29,7 +29,7 @@ Advanced instructions are available at [the Crashpad home page](https://chromium
 
 ### Update Your Application
 
-After Crashpad has been integrated into your application, using CMake or using prebuilt binaries, you'll need to specify the right options to `StartHandler` to start it up, as you can see in the example app code for [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/windows/demo/demo.cpp), [MacOS](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/macos/demo/demo.cpp), [Android](https://github.com/backtrace-labs/backtrace-android/blob/cf9d827bada51bf4332e2904b0ea06d39b99db8a/backtrace-library/src/main/cpp/backends/crashpad-backend.cpp#L124) and [Linux](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/linux/demo/demo.cpp).
+After Crashpad has been integrated into your application, using CMake or using prebuilt binaries, you'll need to specify the right options to `StartHandler` to start it up, as you can see in the example app code for [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/windows/demo/demo.cpp), [MacOS](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/macos/demo/demo.cpp), [Android](https://github.com/backtrace-labs/backtrace-android/blob/master/backtrace-library/src/main/cpp/backends/crashpad-backend.cpp#L208) and [Linux](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/linux/demo/demo.cpp).
 
 ### Set the URL Parameter
 
@@ -71,7 +71,7 @@ arguments.push_back(
 
 ### Example Code
 
-See [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/windows/demo/demo.cpp), [macOS](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/macos/demo/demo.cpp), [Android](https://github.com/backtrace-labs/backtrace-android/blob/cf9d827bada51bf4332e2904b0ea06d39b99db8a/backtrace-library/src/main/cpp/backends/crashpad-backend.cpp#L124) and [Linux](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/linux/demo/demo.cpp) for self-contained example code.
+See [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/windows/demo/demo.cpp), [macOS](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/macos/demo/demo.cpp), [Android](https://github.com/backtrace-labs/backtrace-android/blob/master/backtrace-library/src/main/cpp/backends/crashpad-backend.cpp#L208) and [Linux](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/linux/demo/demo.cpp) for self-contained example code.
 
 ### Manage Symbols
 
