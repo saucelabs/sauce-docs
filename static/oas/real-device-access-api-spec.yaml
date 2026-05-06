@@ -40,8 +40,8 @@ paths:
   /devices:
     get:
       operationId: listDevices
-      summary: "List all device descriptors"
-      description: "List our catalog of devices available to you. Use this endpoint to retrieve 'device descriptors'. Note: for public devices there can be multiple physical devices that share one 'device descriptor'"
+      summary: "List all device descriptors elegible for AccessAPI"
+      description: "List our catalog of devices available for AccessAPI usage. Use this endpoint to retrieve 'device descriptors'."
       tags:
         - "Device Catalog"
       parameters:
