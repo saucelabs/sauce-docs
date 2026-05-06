@@ -246,17 +246,17 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-xcuitest-driver </code>: 1.2.0
+                    <code>axe-appium3-xcuitest-driver </code>: 1.3.0
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-uiautomator2-driver </code>: 1.2.0
+                    <code>axe-appium3-uiautomator2-driver </code>: 1.3.0
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%403.2.0" target="_blank">
-                    <code>appium</code>: 3.2.0
+                <a href="https://github.com/appium/appium/releases/tag/appium%403.3.1" target="_blank">
+                    <code>appium</code>: 3.3.1
                 </a>
             </li>
         </ul>
@@ -471,12 +471,12 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 2.3.0
+                    <code>axe-appium-xcuitest-driver </code>: 2.4.0
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 2.3.0
+                    <code>axe-appium-uiautomator2-driver </code>: 2.4.0
                 </a>
             </li>
             <li>
