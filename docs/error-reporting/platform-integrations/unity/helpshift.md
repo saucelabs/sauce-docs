@@ -22,9 +22,9 @@ Integrate the respective SDKs for Backtrace and HelpShift first.
 ### HelpShift SDK
 
 - iOS
-  - [HelpShift for iOS](https://developers.helpshift.com/unity/getting-started-ios/)
+  - [HelpShift for iOS](https://developers.helpshift.com/sdkx-unity/getting-started-ios/)
 - Android
-  - [HelpShift for Android](https://developers.helpshift.com/unity/getting-started-android/)
+  - [HelpShift for Android](https://developers.helpshift.com/sdkx-unity/getting-started-android/)
 - WebGL (web chat)
   - [Helpshift WebChat](https://developers.helpshift.com/web-chat/getting-started/)
   - Refer to the [Unity documentation](https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html) on how to embed a JavaScript library.
@@ -107,4 +107,4 @@ Call it where appropriate (you need a reference to the Backtrace client):
 <YourGameClass>.EnableHelpshift(backtraceClient["guid"]);
 ```
 
-Also, refer to the source in our [example game for JavaScript](https://github.com/backtrace-labs/unity-asterax/blob/Helpshift-Webinar/Assets/Plugins/AsteraX.jslib) and for [C# bridge](https://github.com/backtrace-labs/unity-asterax/blob/62746bf2aba85176ace268eabc547dc5ef64e79c/Assets/__Scripts/PlayerShip.cs#L141) (take note of the DLL Import).
+Also, refer to the source in our [example game for JavaScript](https://github.com/backtrace-labs/unity-asterax/blob/Helpshift-Webinar/Assets/Plugins/AsteraX.jslib) and for [C# bridge](https://github.com/backtrace-labs/unity-asterax/blob/main/Assets/__Scripts/PlayerShip.cs#L141) (take note of the DLL Import).
