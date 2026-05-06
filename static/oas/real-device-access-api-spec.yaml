@@ -40,18 +40,39 @@ paths:
   /devices:
     get:
       operationId: listDevices
-      summary: "List all device descriptors"
-      description: "List our catalog of devices available to you. Use this endpoint to retrieve 'device descriptors'. Note: for public devices there can be multiple physical devices that share one 'device descriptor'"
+      summary: "List all device descriptors elegible for AccessAPI"
+      description: "List our catalog of devices available for AccessAPI usage. Use this endpoint to retrieve 'device descriptors'."
       tags:
         - "Device Catalog"
       parameters:
-        - name: deviceId
+        - name: deviceName
           in: query
           description: "Filter by device identifier (supports regex). Matches the descriptor ID or device name."
           required: false
           schema:
             type: string
             example: "iPhone.*"
+        - name: os
+          in: query
+          description: "Filter by device OS. Accepted values are ANDROID or IOS."
+          required: false
+          schema:
+            type: string
+            example: "ANDROID"
+        - name: osVersion
+          in: query
+          description: "Filter by device OS version. Will match major version or Regex."
+          required: false
+          schema:
+            type: string
+            example: "17"
+        - name: deviceType
+          in: query
+          description: "Filter by device type. Accepted values are TABLET or PHONE."
+          required: false
+          schema:
+            type: string
+            example: "PHONE"
       responses:
         "200":
           description: Ok
@@ -61,6 +82,8 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/DeviceDescriptor"
+        "400":
+          $ref: "#/components/responses/BadRequest"
         "401":
           $ref: "#/components/responses/NotAuthorized"
   /devices/status:
