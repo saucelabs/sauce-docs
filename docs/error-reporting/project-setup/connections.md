@@ -9,11 +9,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Integrations such as Jira and Slack, which have an application installed or use another mechanism to connect with Backtrace to a third-party domain, will create a workflow connection. This process simplifies linking new Jira projects or Slack channels to receive Backtrace data. Backtrace elevates these connections to an organization level, allowing different Backtrace projects to use the configured Jira and Slack applications. These connections are established as part of the normal integration flow found in **Project settings** > **Integrations**.
+Integrations such as Jira and Slack, which have an application installed or use another mechanism to connect with Backtrace to a third-party domain, will create a workflow connection. This process simplifies linking new Jira projects or Slack channels to receive Backtrace data. Backtrace elevates these connections to a universe level, allowing different Backtrace projects to use the configured Jira and Slack applications. These connections are established as part of the normal integration flow found in **Project settings** > **Integrations**.
 
 ## Workflow Connections Page
 
-Admins have the ability to manage workflow connections in **Organization Settings** > **Workflow Connections**. They can easily view the various projects that are utilizing the connection at a glance.
+Admins have the ability to manage workflow connections in **Universe Settings** > **Workflow Connections**. They can easily view the various projects that are utilizing the connection at a glance.
 
 <img src={useBaseUrl('/img/error-reporting/project-settings/connection-page.png')} alt="connection page"/>
 
