@@ -288,7 +288,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Organization Settings',
+                    label: 'Universe Settings',
                     collapsed: true,
                     items: [
                         'error-reporting/org-settings/user-mgmnt',
