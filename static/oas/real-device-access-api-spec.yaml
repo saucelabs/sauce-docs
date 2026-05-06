@@ -930,7 +930,7 @@ paths:
                 type: array
                 items:
                   type: string
-                  example: "/sdcard/Download/file.txt"
+                  example: "/Download/file.txt"
         "400":
           description: Bad request or missing bundleId for iOS file operations
           content:
@@ -1056,8 +1056,8 @@ paths:
               properties:
                 destinationPath:
                   type: string
-                  description: "The absolute path on the device where the file should be saved (e.g., /sdcard/Download/image.png)."
-                  example: "/sdcard/Download/test-image.png"
+                  description: "The absolute path on the device where the file should be saved (e.g., /Download/image.png)."
+                  example: "/Download/test-image.png"
                 bundleId:
                   $ref: "#/components/schemas/BundleId"
                 file:
@@ -1571,7 +1571,7 @@ components:
       description: |
         Returned when a file operation is performed on an iOS device without providing the required `bundleId` parameter.
         On iOS, each app runs inside its own **sandbox** — an isolated file system container that prevents apps from accessing each other's data.
-        Unlike Android, where you can access shared storage paths like `/sdcard/`, iOS requires you to specify which app's sandbox to operate on by providing its bundle identifier.
+        Unlike Android, where you can access shared storage paths, iOS requires you to specify which app's sandbox to operate on by providing its bundle identifier.
         To resolve this error, include the `bundleId` field in your request body with the target app's bundle identifier (e.g., `com.example.app`).
         See [Apple's File System documentation](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) for more details on how iOS app sandboxing works.
       content:
@@ -1625,7 +1625,7 @@ components:
       description: |
         Returned when a file operation is performed on an iOS device without providing the required `bundleId` parameter.
         On iOS, each app runs inside its own **sandbox** — an isolated file system container that prevents apps from accessing each other's data.
-        Unlike Android, where you can access shared storage paths like `/sdcard/`, iOS requires you to specify which app's sandbox to operate on by providing its bundle identifier.
+        Unlike Android, where you can access shared storage paths, iOS requires you to specify which app's sandbox to operate on by providing its bundle identifier.
         To resolve this error, include the `bundleId` field in your request body with the target app's bundle identifier (e.g., `com.example.app`).
       properties:
         type:
@@ -2091,7 +2091,7 @@ components:
         path:
           type: string
           description: "The path to the directory to list files from."
-          example: "/sdcard/Download/"
+          example: "/Download/"
         bundleId:
           $ref: "#/components/schemas/BundleId"
       required:
@@ -2102,7 +2102,7 @@ components:
         path:
           type: string
           description: "The path of the file to remove."
-          example: "/sdcard/folder/test.txt"
+          example: "/folder/test.txt"
         bundleId:
           $ref: "#/components/schemas/BundleId"
       required:
@@ -2113,7 +2113,7 @@ components:
         path:
           type: string
           description: "The absolute path of the file or directory on the device to get information about."
-          example: "/sdcard/Download/report.txt"
+          example: "/Download/report.txt"
         bundleId:
           $ref: "#/components/schemas/BundleId"
       required:
@@ -2124,7 +2124,7 @@ components:
         path:
           type: string
           description: "The absolute path of the file on the device to retrieve."
-          example: "/sdcard/Download/report.txt"
+          example: "/Download/report.txt"
         bundleId:
           $ref: "#/components/schemas/BundleId"
       required:
@@ -2144,7 +2144,7 @@ components:
         path:
           type: string
           description: "The absolute path of the file or directory on the device."
-          example: "/sdcard/Download/report.txt"
+          example: "/Download/report.txt"
         size:
           type: integer
           format: int64
