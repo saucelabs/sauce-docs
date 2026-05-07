@@ -72,7 +72,7 @@ To enable stack traces for WebGL, in your Unity project's **Player Settings**, u
 
 #### WebGL Log-Callback Diagnostics
 
-Unity WebGL can emit exception-like log callback events with a valid exception message but an empty `stackTrace` string. The Backtrace Unity SDK records explicit diagnostics for these reports and, on WebGL, can observe original exceptions passed through `Debug.LogException(exception)` so the report can include real managed frames when available. For details on the diagnostic attributes and stack-source classification, see [WebGL log-callback exceptions with empty stack traces](/error-reporting/platform-integrations/unity/limitations/#unity-webgl-log-callback-exceptions-with-empty-stack-traces).
+Unity WebGL can emit exception-like log callback events with a valid exception message but an empty `stackTrace` string. The Backtrace Unity SDK records explicit diagnostics for these reports and, on WebGL, can observe original exceptions passed through `Debug.LogException(exception)` so the report can include real managed frames when available. For details on the diagnostic attributes and stack-source classification, see [WebGL log-callback exceptions with empty stack traces](/error-reporting/platform-integrations/unity/troubleshooting/#unity-webgl-log-callback-exceptions-with-empty-stack-traces).
 
 | Setting | Description | Type | Default |
 | --- | --- | --- | --- |
