@@ -1,7 +1,7 @@
 ---
-id: limitations
-title: Known Limitations
-sidebar_label: Known Limitations
+id: troubleshooting
+title: Troubleshooting
+sidebar_label: Troubleshooting
 description: Learn about known platform-specific limitations of the Backtrace Unity SDK.
 ---
 
