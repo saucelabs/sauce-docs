@@ -370,7 +370,8 @@ A successful response contains an <code>_rxid</code>, which is the unique identi
 
 ### Submit Raw Error Data
 
-<details><summary><span className="api post">POST</span><code>http://api.backtrace.io/post</code></summary>
+<details>
+<summary><span className="api post">POST</span> <code>http://api.backtrace.io/post</code></summary>
 <p/>
 
 Submit raw error data to Backtrace.
