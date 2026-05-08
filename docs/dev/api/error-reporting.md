@@ -542,17 +542,7 @@ Submit raw error data to Backtrace.
             <p>
               <ul>
                 <li><code>name</code> - On some systems the running program can be run with a different arch than the system itself. <code>attributes.uname.machine</code> has to do with the system arch; this field has to do with the running process arch.</li>
-                <li><code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are:
-                  <ul>
-                    <li><code>i32</code></li>
-                    <li><code>u32</code></li>
-                    <li><code>i64</code></li>
-                    <li><code>u64</code></li>
-                    <li><code>f32</code></li>
-                    <li><code>string</code></li>
-                  </ul>
-                  <p>If you use <code>string</code>, you can format the value as you want.</p>
-                </li>
+                <li><code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are: <code>i32</code>, <code>u32</code>, <code>i64</code>, <code>u64</code>, <code>f32</code>, <code>string</code>. If you use <code>string</code>, you can format the value as you want.</li>
               </ul>
             </p>
          </td>
