@@ -197,11 +197,9 @@ The <code>&#123;format&#125;</code> parameter in the request URL specifies the f
 
 ---
 
-<p>
 :::note NOTE
 This APIs below are intended for hosted Backtrace instances. If you are an on-premise user, please use the appropriate endpoint format: <code>https://&#123;onpremHost&#125;/api/post?&#123;format&#125;&amp;token=&#123;apiToken&#125;</code>.
 :::
-</p>
 
 ## Errors
 
@@ -276,7 +274,7 @@ This APIs below are intended for hosted Backtrace instances. If you are an on-pr
           </li>
           <li><strong>Supported Extensions:</strong> JSON, log, and txt.</li>
           <li>
-            <strong>Note:</strong> Files with the txt & log extension require
+            <strong>Note:</strong> Files with the txt &amp; log extension require
             the type to be set to <code>text/plain</code>.
           </li>
         </ul>
@@ -521,7 +519,8 @@ Submit raw error data to Backtrace.
                <li><code>sourcemap</code>.</li>
                <li><code>proguard</code>.</li>
             </ul>
-            </p>This should not be specified for client-symbolicated objects.
+            </p>
+            <p>This should not be specified for client-symbolicated objects.</p>
          </td>
       </tr>
    </tbody>
