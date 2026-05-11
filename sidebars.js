@@ -97,7 +97,7 @@ module.exports = {
                                         'error-reporting/platform-integrations/unity/attributes',
                                         'error-reporting/platform-integrations/unity/metrics',
                                         'error-reporting/platform-integrations/unity/helpshift',
-                                        'error-reporting/platform-integrations/unity/limitations',
+                                        'error-reporting/platform-integrations/unity/troubleshooting',
                                     ],
                                 },
                                 {

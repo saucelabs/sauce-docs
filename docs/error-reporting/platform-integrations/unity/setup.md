@@ -182,5 +182,5 @@ catch(Exception exception){
 
 :::note
 Unity WebGL has a specific set of platform limitations.
-Please review the [Known Limitations](/error-reporting/platform-integrations/unity/limitations) page to understand how these constraints affect error reporting.
+Please review the [Troubleshooting](/error-reporting/platform-integrations/unity/troubleshooting) page to understand how these constraints affect error reporting.
 :::
