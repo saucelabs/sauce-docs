@@ -67,7 +67,7 @@ static void SetGameData
 )
 ```
 
-For more information, see [SetGameData](https://docs.unrealengine.com/4.27/en-US/API/Runtime/Core/GenericPlatform/FGenericCrashContext/SetGameData/).
+For more information, see [SetGameData](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Core/FGenericCrashContext#static).
 
 </TabItem>
 <TabItem value="android" label="Android">

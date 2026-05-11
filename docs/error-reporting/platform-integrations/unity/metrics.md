@@ -32,7 +32,7 @@ By default, the Unity SDK sends events that contribute to the `Application Launc
 
 Stability metrics like Crash Free Users/Sessions are calculated using events sent from the Unity SDK. To ensure that stability metrics respond to queries and filters in the Web Console (for example., widgets on the Overview page), the attribute you want to use for filtering must be included in the events sent by the SDK. Refer to the following list of attributes that are sent by default with events from the Unity SDK:
 
-To add new attributes to be sent for a given metric group's event, use the [AddSummedEvent method (IBacktraceMetrics)](https://github.com/backtrace-labs/backtrace-unity/blob/7a4a67bbb256a8105b7efdacd1ebe359721942ec/Runtime/Interfaces/IBacktraceMetrics.cs).
+To add new attributes to be sent for a given metric group's event, use the [AddSummedEvent method (IBacktraceMetrics)](https://github.com/backtrace-labs/backtrace-unity/blob/master/Runtime/Interfaces/IBacktraceMetrics.cs).
 
 For example, the following code adds an event to the `levels_played` metric group and links the attributes `application.version` and `score` to the events. Therefore, any metrics calculated using the `levels_played` metric group respond to queries involving the `application.version` and/or `score` attributes.
 
@@ -97,7 +97,7 @@ application.session
 
 ### Web Console Metric Group / Attribute Linking
 
-Refer to [this documentation](https://github.com/backtrace-labs/backtrace-unity/blob/7a4a67bbb256a8105b7efdacd1ebe359721942ec/Runtime/Interfaces/IBacktraceMetrics.cs) for instructions on how to set up a metric group and link attributes to it in the Web Console.
+Refer to [this documentation](https://github.com/backtrace-labs/backtrace-unity/blob/master/Runtime/Interfaces/IBacktraceMetrics.cs) for instructions on how to set up a metric group and link attributes to it in the Web Console.
 
 :::note
 

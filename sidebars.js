@@ -288,7 +288,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Organization Settings',
+                    label: 'Universe Settings',
                     collapsed: true,
                     items: [
                         'error-reporting/org-settings/user-mgmnt',
@@ -1147,6 +1147,7 @@ module.exports = {
                         },
                     ],
                 },
+                'web-apps/chromiumos',
                 'web-apps/macos-apple-silicon',
                 'web-apps/quarterly-browser-updates',
                 'web-apps/automated-testing/web-automated-faq',

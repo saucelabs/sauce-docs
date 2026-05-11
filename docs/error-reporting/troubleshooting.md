@@ -187,7 +187,7 @@ On Windows, 64-bit applications store some unwinding information exclusively in 
 Direct login to Morgue using an SSO-only account is not supported. However, there is a workaround available:
 
 1. Start by logging into the Backtrace UI as you normally would.
-2. Next, navigate to the account page under Organization settings (https://youruniverse.sp.backtrace.io/settings/me)
+2. Next, navigate to the account page under Universe settings (https://youruniverse.sp.backtrace.io/settings/me)
 3. Copy the "Command line login" 
 
 Paste the provided command to login:
