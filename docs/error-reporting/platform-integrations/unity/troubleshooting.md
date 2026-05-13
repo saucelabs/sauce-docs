@@ -1,8 +1,8 @@
 ---
 id: troubleshooting
-title: Troubleshooting
+title: Troubleshoot common Unity SDK issues
 sidebar_label: Troubleshooting
-description: Learn about known platform-specific limitations of the Backtrace Unity SDK.
+description: Learn more about known platform-specific limitations, common issues, and troubleshooting steps.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -191,7 +191,7 @@ A stable, persistent machine identifier cannot be guaranteed on WebGL because:
 
 ---
 
-## Troubleshooting
+## Common scenarios 
 
 ### WebGL reports are missing stack traces
 - Confirm **Exception Support** is set to **Full With Stacktrace**.
