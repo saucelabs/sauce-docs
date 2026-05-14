@@ -612,9 +612,9 @@ Starts an asynchronous test case generation task from a natural-language prompt.
        <p><small>| BODY | REQUIRED | OBJECT |</small></p>
        <p>Run configuration applied to the generated test case. The available attributes are:</p>
        <ul>
-         <li><code>target.capabilities</code> - <small>REQUIRED | OBJECT</small> - W3C WebDriver capabilities (for example, <code>browserName</code>, <code>platformName</code>, <code>browserVersion</code>, <code>sauce:options</code>).</li>
-         <li><code>testUrl</code> - <small>OPTIONAL | STRING</small> - Fully qualified URL the generated test will navigate to (max 2048 chars).</li>
-         <li><code>scTunnelName</code> - <small>OPTIONAL | STRING</small> - The name of the Sauce Connect tunnel to use for the run (max 1000 chars).</li>
+         <li><code>target.capabilities</code> - <small>REQUIRED | OBJECT</small> - W3C WebDriver capabilities (for example, <code>browserName</code>, <code>platformName</code>, <code>browserVersion</code>, <code>sauce:options</code>). See the <a href="https://saucelabs.com/products/platform-configurator">Platform Configurator</a> for help selecting a target. For mobile flows, the app under test is supplied through this object.</li>
+         <li><code>testUrl</code> - <small>OPTIONAL | STRING</small> - Fully qualified URL the generated test will navigate to. Required for web flows; for mobile flows, supply the app through <code>target.capabilities</code> instead.</li>
+         <li><code>scTunnelName</code> - <small>OPTIONAL | STRING</small> - The name of an active Sauce Connect tunnel to route the run through. The tunnel must be running when the test executes.</li>
        </ul>
      </td>
     </tr>
@@ -626,8 +626,8 @@ Starts an asynchronous test case generation task from a natural-language prompt.
        <p><small>| BODY | REQUIRED | OBJECT |</small></p>
        <p>Prompt configuration that drives generation. The available attributes are:</p>
        <ul>
-         <li><code>intent</code> - <small>REQUIRED | STRING</small> - Natural-language description of what the test should do (max 20,000 chars).</li>
-         <li><code>maxSteps</code> - <small>OPTIONAL | INTEGER</small> - Cap on the number of generation steps.</li>
+         <li><code>intent</code> - <small>REQUIRED | STRING</small> - Natural-language description of what the test should do.</li>
+         <li><code>maxSteps</code> - <small>OPTIONAL | INTEGER</small> - Cap on the number of AI actions taken during generation. Defaults to <code>50</code>; maximum <code>200</code>.</li>
        </ul>
      </td>
     </tr>
@@ -635,7 +635,7 @@ Starts an asynchronous test case generation task from a natural-language prompt.
   <tbody>
     <tr>
      <td><code>timeout</code></td>
-     <td><p><small>| BODY | OPTIONAL | INTEGER |</small></p><p>Generation timeout in milliseconds (1–3,600,000).</p></td>
+     <td><p><small>| BODY | OPTIONAL | INTEGER |</small></p><p>Generation timeout in milliseconds. Minimum <code>60000</code> (1 minute), maximum <code>3600000</code> (1 hour). Defaults to <code>300000</code> (5 minutes).</p></td>
     </tr>
   </tbody>
 </table>
