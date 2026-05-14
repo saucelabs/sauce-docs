@@ -1056,6 +1056,7 @@ module.exports = {
                     label: 'Automated Testing',
                     collapsed: true,
                     items: [
+                        'web-apps/automated-testing/electron',
                         {
                             type: 'category',
                             label: 'Selenium',

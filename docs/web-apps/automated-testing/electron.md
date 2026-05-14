@@ -1,14 +1,21 @@
 ---
 id: electron
-title: Electron Support on Sauce Labs [Beta]
+title: Electron Support on Sauce Labs
 sidebar_label: Using Electron
+description: Test Electron apps with Selenium and WebDriver on virtual machines in the Sauce Labs cloud.
+keywords:
+- electron
+- virtual-device
+- web-testing
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Electron](https://electronjs.org/) embeds Chromium and Node.js to enable web developers to create desktop applications. Sauce Labs is beta trialing support for automated testing with Electron-based apps on Windows 10 and 11, available to all users with VDC concurrency at US West or EU Central.
+<p><span className="sauceGreen">Beta</span></p>
+
+[Electron](https://electronjs.org/) embeds Chromium and Node.js to enable web developers to create desktop applications. Sauce Labs is beta trialing support for automated testing with Electron-based apps on Windows and MacOS platforms. This support is available to all users with VDC concurrency at US West or EU Central.
 
 ## Supported Testing Platforms
 
@@ -19,9 +26,13 @@ Sauce Labs currently supports the following test configurations for Electron.
   - MacOS 11
   - MacOS 12
   - MacOS 13
-  - (Linux support to be decided)
+  - MacOS 14*
+  - MacOS 15*
+  - MacOS 26*
 - Electron versions
-  - versions 5 - 40 inclusive
+  - versions 5 - 42 inclusive
+
+*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 ## How to Get Started
 
@@ -81,6 +92,5 @@ Test results are visible on the UI under “Automated Tests > Test Results.’ Y
 
 ## Limitations
 
-- Electron support is only enabled for automated testing on Windows 10 and 11, and MacOS 11, 12 and 13.
 - Electron apps uploaded via REST API are not currently visible within the App Management of the UI. 
 - Live testing is not currently supported.
