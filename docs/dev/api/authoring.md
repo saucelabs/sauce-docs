@@ -588,9 +588,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details>
 <summary><span className="api post">POST</span> <code>/v1/ai-authoring/testcases/generate</code></summary>
 
-Starts an asynchronous test case generation task from a natural-language prompt. Returns a `taskId` that you poll via [Get Generation Status](#get-generation-status). The `Location` response header points at the polling URL.
-
-For an overview of the feature and a UI walkthrough, see the [AI Test Authoring guide](/sauce-ai/ai-authoring). For tips on writing effective `intent` prompts, see the [prompting guide](/sauce-ai/ai-authoring-prompting-guide).
+Starts an asynchronous test case generation task from a natural-language prompt. Returns a `taskId` to poll via [Get Generation Status](#get-generation-status); the `Location` response header points at the polling URL.
 
 #### Parameters
 
@@ -614,7 +612,7 @@ For an overview of the feature and a UI walkthrough, see the [AI Test Authoring 
        <p><small>| BODY | REQUIRED | OBJECT |</small></p>
        <p>Run configuration applied to the generated test case. The available attributes are:</p>
        <ul>
-         <li><code>target.capabilities</code> - <small>REQUIRED | OBJECT</small> - W3C WebDriver capabilities (e.g. <code>browserName</code>, <code>platformName</code>, <code>browserVersion</code>, <code>sauce:options</code>).</li>
+         <li><code>target.capabilities</code> - <small>REQUIRED | OBJECT</small> - W3C WebDriver capabilities (for example, <code>browserName</code>, <code>platformName</code>, <code>browserVersion</code>, <code>sauce:options</code>).</li>
          <li><code>testUrl</code> - <small>OPTIONAL | STRING</small> - Fully qualified URL the generated test will navigate to (max 2048 chars).</li>
          <li><code>scTunnelName</code> - <small>OPTIONAL | STRING</small> - The name of the Sauce Connect tunnel to use for the run (max 1000 chars).</li>
        </ul>
@@ -705,8 +703,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 #### Responses
 
-A successful response sets the `Location` header to <code>/v1/ai-authoring/testcases/generate/&#123;taskId&#125;</code> so you can poll for status.
-
 <table id="table-api">
 <tbody>
   <tr>
@@ -745,7 +741,7 @@ A successful response sets the `Location` header to <code>/v1/ai-authoring/testc
 <details>
 <summary><span className="api get">GET</span> <code>/v1/ai-authoring/testcases/generate/&#123;taskId&#125;</code></summary>
 
-Returns the current status of a generation task previously started by [Generate a Test Case](#generate-a-test-case). Clients should poll this endpoint until `status` is `COMPLETED` or `FAILED`. While the task is running, `status` is one of `QUEUED` or `IN_PROGRESS`. On `COMPLETED`, the response includes the generated `testCaseId`. On `FAILED`, the response includes an `error` object describing the failure.
+Returns the current status of a generation task started by [Generate a Test Case](#generate-a-test-case). Poll until `status` is `COMPLETED` (response includes `testCaseId`) or `FAILED` (response includes `error`); otherwise `status` is `QUEUED` or `IN_PROGRESS`.
 
 #### Parameters
 
