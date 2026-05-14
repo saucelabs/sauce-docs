@@ -583,6 +583,246 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+### Generate a Test Case
+
+<details>
+<summary><span className="api post">POST</span> <code>/v1/ai-authoring/testcases/generate</code></summary>
+
+Starts an asynchronous test case generation task from a natural-language prompt. Returns a `taskId` to poll via [Get Generation Status](#get-generation-status); the `Location` response header points at the polling URL.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name for the generated test case (1–255 characters).</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>testSuiteId</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>UUID of an existing test suite to attach the generated test case to.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>runSettings</code></td>
+     <td>
+       <p><small>| BODY | REQUIRED | OBJECT |</small></p>
+       <p>Run configuration applied to the generated test case. The available attributes are:</p>
+       <ul>
+         <li><code>target.capabilities</code> - <small>REQUIRED | OBJECT</small> - W3C WebDriver capabilities (for example, <code>browserName</code>, <code>platformName</code>, <code>browserVersion</code>, <code>sauce:options</code>).</li>
+         <li><code>testUrl</code> - <small>OPTIONAL | STRING</small> - Fully qualified URL the generated test will navigate to (max 2048 chars).</li>
+         <li><code>scTunnelName</code> - <small>OPTIONAL | STRING</small> - The name of the Sauce Connect tunnel to use for the run (max 1000 chars).</li>
+       </ul>
+     </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>promptSettings</code></td>
+     <td>
+       <p><small>| BODY | REQUIRED | OBJECT |</small></p>
+       <p>Prompt configuration that drives generation. The available attributes are:</p>
+       <ul>
+         <li><code>intent</code> - <small>REQUIRED | STRING</small> - Natural-language description of what the test should do (max 20,000 chars).</li>
+         <li><code>maxSteps</code> - <small>OPTIONAL | INTEGER</small> - Cap on the number of generation steps.</li>
+       </ul>
+     </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>timeout</code></td>
+     <td><p><small>| BODY | OPTIONAL | INTEGER |</small></p><p>Generation timeout in milliseconds (1–3,600,000).</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/ai-authoring/testcases/generate' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Saucedemo login flow",
+  "runSettings": {
+    "target": {
+      "capabilities": {
+        "browserName": "chrome",
+        "platformName": "Windows 11",
+        "browserVersion": "latest"
+      }
+    },
+    "testUrl": "https://www.saucedemo.com/"
+  },
+  "promptSettings": {
+    "intent": "Log in with standard_user / secret_sauce and assert the inventory page is visible."
+  }
+}' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testcases/generate' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Saucedemo login flow",
+  "runSettings": {
+    "target": {
+      "capabilities": {
+        "browserName": "chrome",
+        "platformName": "Windows 11",
+        "browserVersion": "latest"
+      }
+    },
+    "testUrl": "https://www.saucedemo.com/"
+  },
+  "promptSettings": {
+    "intent": "Log in with standard_user / secret_sauce and assert the inventory page is visible."
+  }
+}' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>202</code></td>
+    <td colSpan='2'>Generation task accepted</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Invalid request body</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "data": {
+    "taskId": "f9c2e1a4-7b3d-4e2a-9c11-2b8e0d5f4c33"
+  }
+}
+```
+
+</details>
+
+---
+
+### Get Generation Status
+
+<details>
+<summary><span className="api get">GET</span> <code>/v1/ai-authoring/testcases/generate/&#123;taskId&#125;</code></summary>
+
+Returns the current status of a generation task started by [Generate a Test Case](#generate-a-test-case). Poll until `status` is `COMPLETED` (response includes `testCaseId`) or `FAILED` (response includes `error`); otherwise `status` is `QUEUED` or `IN_PROGRESS`.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>taskId</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>UUID returned by <code>POST /v1/ai-authoring/testcases/generate</code>.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v1/ai-authoring/testcases/generate/<taskId>" | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/v1/ai-authoring/testcases/generate/<taskId>" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Current generation task status</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Invalid path parameters</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Missing or invalid authentication header</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Generation task not found</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "data": {
+    "status": "COMPLETED",
+    "testCaseId": "69c164bcd27d5bfc3e3ef8a7"
+  }
+}
+```
+
+</details>
+
+---
+
 ## Test Suites
 
 ### List Test Suites

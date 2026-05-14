@@ -110,7 +110,7 @@ Sauce Labs supports the following test configurations for TestCafe:
   </tbody>
 </table>
 
-*macOS 14+ requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/testcafe/yaml#armrequired)
+*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 ## How to Get Started
 

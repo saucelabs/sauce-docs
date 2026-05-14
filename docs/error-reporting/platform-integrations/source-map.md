@@ -223,6 +223,8 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
      plugins: [new BacktracePlugin({
        // enable upload only on production builds
        uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+       // If a specific source map cannot be processed, "warn" (log warning and continue (default)), "skip" (continue without logging) or "exit".
+       assetErrorBehavior: "warn",
      })]
    }
    ```
@@ -267,6 +269,8 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
      plugins: [BacktracePlugin({
        // enable upload only on production builds
        uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+       // If a specific source map cannot be processed, "warn" (log warning and continue (default)), "skip" (continue without logging) or "exit".
+       assetErrorBehavior: "warn",
      })]
    }
    ```
@@ -311,15 +315,11 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
      plugins: [BacktracePlugin({
        // enable upload only on production builds
        uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+       // If a specific source map cannot be processed, "warn" (log warning and continue (default)), "skip" (continue without logging) or "exit".
+       assetErrorBehavior: "warn",
      })]
    }
    ```
 
 </TabItem>
 </Tabs>
-
-:::note Don't See Your Tool Described Here?
-
-We are adding support for the most popular tools regularly. You can always use `@backtrace/javascript-cli`; it works with any output JS files.
-
-:::
