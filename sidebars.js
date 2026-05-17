@@ -1050,6 +1050,12 @@ module.exports = {
                         'mobile-games/live-testing/live-mobile-game-testing',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Automated Testing',
+                    collapsed: true,
+                    items: ['mobile-games/automated-testing'],
+                },
             ],
         },
         {
