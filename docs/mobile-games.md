@@ -5,47 +5,30 @@ sidebar_label: Getting Started
 hide_table_of_contents: true
 ---
 
-Test your iOS and Android mobile games on real devices in the Sauce Labs Cloud. Sauce Labs supports automated testing with AltTester for Unity-instrumented C# tests, Appium for native and hybrid game UIs, and live (manual) testing for exploratory and reproduction work.
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Uploading Your Game
-
-<div>
-  <div className="box boxwidetop card">
-    <div className="container">
-    <a href="/mobile-apps/app-storage"><h3>App Storage</h3></a>
-    <p>Upload your <code>.apk</code> or <code>.ipa</code> game build to Sauce Labs to start testing on real devices. Unity, Unreal, and native game builds all use the same App Storage product as any other mobile app.</p>
-    </div>
-  </div>
-</div>
-
-## Live Testing
-
-Play your game manually on Sauce real devices to validate touch, multi-touch, performance, and reproduce production bugs.
-
-<div>
-  <div className="box boxwidetop card">
-    <div className="container">
-    <a href="/mobile-games/live-testing/live-mobile-game-testing"><h3>Live Mobile Game Testing</h3></a>
-    <p>Manually test your iOS and Android mobile games on real devices, with game-specific guidance on gestures, orientation, and performance.</p>
-    </div>
-  </div>
-</div>
-
-## Automated Testing
-
-Automate your mobile game tests on Sauce real devices using AltTester for Unity-instrumented C# tests, or Appium when your game exposes native accessibility hooks.
+Test your iOS and Android mobile games on real devices in the Sauce Labs Cloud. Upload your `.apk` or `.ipa` build via [App Storage](/mobile-apps/app-storage) — Unity, Unreal, and native game builds use the same upload product as any other mobile app — then follow the guides below.
 
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-    <a href="/mobile-games/automated-testing/alttester"><h3>AltTester for Unity</h3></a>
-    <p>Run C# tests against AltTester-instrumented Unity builds on Sauce Labs real devices. End-to-end walkthrough: instrumentation, upload, capabilities, sample test.</p>
+    <img src={useBaseUrl('img/overview/live-testing.svg')} alt="live testing icon" width="20px"/>
+    <h2>Live Testing</h2>
+    <p>Play your game manually on Sauce Labs real devices to validate touch and multi-touch gestures, check performance, and reproduce production bugs.</p>
+    <ul>
+        <li><a href="/mobile-games/live-testing/live-mobile-game-testing">Live Mobile Game Testing</a></li>
+    </ul>
     </div>
   </div>
   <div className="box box2 card">
     <div className="container">
-    <a href="/mobile-games/automated-testing/appium-for-games"><h3>Appium for Games</h3></a>
-    <p>Use Appium against game menus, hybrid lobby UIs, and companion apps. Includes game-specific techniques like image-based locators, multi-touch gestures, and orientation handling.</p>
+    <img src={useBaseUrl('img/overview/automated.svg')} alt="automated testing icon" height="20px"/>
+    <h2>Automated Testing</h2>
+    <p>Automate your mobile game tests on Sauce real devices using AltTester for Unity-instrumented C# tests, or Appium when your game exposes native accessibility hooks.</p>
+    <ul>
+        <li><a href="/mobile-games/automated-testing/alttester">AltTester for Unity</a></li>
+        <li><a href="/mobile-games/automated-testing/appium-for-games">Appium for Games</a></li>
+    </ul>
     </div>
   </div>
 </div>
