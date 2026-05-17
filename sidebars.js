@@ -1038,6 +1038,12 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Mobile Games',
+            collapsed: true,
+            items: ['mobile-games'],
+        },
+        {
+            type: 'category',
             label: 'Web Apps',
             collapsed: true,
             items: [
