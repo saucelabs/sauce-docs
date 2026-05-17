@@ -44,6 +44,12 @@ const items = [
         </a>
     </div>,
     <div className='quickstart' onDragStart={handleDragStart}>
+        <a href='/mobile-games/automated-testing/alttester' target='_self'>
+            <img src='img/quickstart/alttester.png' alt='AltTester Logo' />
+            <h3>AltTester</h3>
+        </a>
+    </div>,
+    <div className='quickstart' onDragStart={handleDragStart}>
         <a
             href='/web-apps/automated-testing/cypress/quickstart/'
             target='_self'
