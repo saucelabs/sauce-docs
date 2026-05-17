@@ -1057,6 +1057,7 @@ module.exports = {
                     items: [
                         'mobile-games/automated-testing',
                         'mobile-games/automated-testing/alttester',
+                        'mobile-games/automated-testing/appium-for-games',
                     ],
                 },
             ],
