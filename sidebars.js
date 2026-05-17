@@ -1054,7 +1054,10 @@ module.exports = {
                     type: 'category',
                     label: 'Automated Testing',
                     collapsed: true,
-                    items: ['mobile-games/automated-testing'],
+                    items: [
+                        'mobile-games/automated-testing',
+                        'mobile-games/automated-testing/alttester',
+                    ],
                 },
             ],
         },
