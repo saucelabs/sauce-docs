@@ -1040,7 +1040,17 @@ module.exports = {
             type: 'category',
             label: 'Mobile Games',
             collapsed: true,
-            items: ['mobile-games'],
+            items: [
+                'mobile-games',
+                {
+                    type: 'category',
+                    label: 'Live Testing',
+                    collapsed: true,
+                    items: [
+                        'mobile-games/live-testing/live-mobile-game-testing',
+                    ],
+                },
+            ],
         },
         {
             type: 'category',
