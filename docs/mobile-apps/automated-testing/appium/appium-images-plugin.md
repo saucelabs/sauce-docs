@@ -29,11 +29,9 @@ For the full reference of the plugin's behavior and parameters, see the upstream
 The images plugin is currently supported on **Real Devices** only. It is not available on Emulators or Simulators.
 :::
 
-## Enabling and Disabling the Plugin
+## Enabling the Plugin
 
-The plugin is controlled by the `imagesPlugin` boolean capability inside `sauce:options`. It is **enabled by default** for all Real Device Appium sessions, so you can use the plugin's commands without any additional configuration.
-
-If you want to be explicit, or if you want to disable the plugin (for example, to avoid loading it when you don't need image features), set the capability as shown below.
+The plugin is controlled by the `imagesPlugin` boolean capability inside `sauce:options`. It is **disabled by default** — to use the plugin's commands you must explicitly opt in by setting `imagesPlugin: true` on your session capabilities.
 
 <Tabs
 groupId="images-plugin-capability"
@@ -55,8 +53,8 @@ capabilities.setCapability("platformName", "iOS");
 capabilities.setCapability("appium:automationName", "XCUITest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
-sauceOptions.put("appiumVersion", "latest"); // any Appium 2 or 3 Real Device image
-sauceOptions.put("imagesPlugin", true); // default: true. Set to false to disable.
+sauceOptions.put("appiumVersion", "appium3-2026-04"); // any Appium 2 or 3 Real Device image
+sauceOptions.put("imagesPlugin", true); // required: the plugin is opt-in
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -69,8 +67,8 @@ const capabilities = {
     platformName: 'iOS',
     'appium:automationName': 'XCUITest',
     'sauce:options': {
-        appiumVersion: 'latest', // any Appium 2 or 3 Real Device image
-        imagesPlugin: true, // default: true. Set to false to disable.
+        appiumVersion: 'appium3-2026-04', // any Appium 2 or 3 Real Device image
+        imagesPlugin: true, // required: the plugin is opt-in
     }
 }
 ```
@@ -84,8 +82,8 @@ capabilities = {
     "platformName": "iOS",
     "appium:automationName": "XCUITest",
     "sauce:options": {
-        "appiumVersion": "latest",  # any Appium 2 or 3 Real Device image
-        "imagesPlugin": True,  # default: True. Set to False to disable.
+        "appiumVersion": "appium3-2026-04",  # any Appium 2 or 3 Real Device image
+        "imagesPlugin": True,  # required: the plugin is opt-in
     }
 }
 ```
@@ -99,8 +97,8 @@ capabilities = {
     "platformName" => "iOS",
     "appium:automationName" => "XCUITest",
     "sauce:options" => {
-        "appiumVersion" => "latest", # any Appium 2 or 3 Real Device image
-        "imagesPlugin" => true, # default: true. Set to false to disable.
+        "appiumVersion" => "appium3-2026-04", # any Appium 2 or 3 Real Device image
+        "imagesPlugin" => true, # required: the plugin is opt-in
     }
 }
 ```
@@ -115,8 +113,8 @@ capabilities.AddAdditionalCapability("platformName", "iOS");
 capabilities.AddAdditionalCapability("appium:automationName", "XCUITest");
 
 var sauceOptions = new Dictionary<string, object>();
-sauceOptions.Add("appiumVersion", "latest"); // any Appium 2 or 3 Real Device image
-sauceOptions.Add("imagesPlugin", true); // default: true. Set to false to disable.
+sauceOptions.Add("appiumVersion", "appium3-2026-04"); // any Appium 2 or 3 Real Device image
+sauceOptions.Add("imagesPlugin", true); // required: the plugin is opt-in
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 

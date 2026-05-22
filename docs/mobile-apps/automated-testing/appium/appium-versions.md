@@ -162,7 +162,7 @@ We provide several specific, dated Appium versions. Please check the supported v
 [tables below](#appium-3x) and choose the one that fits your requirements.
 
 :::info Appium Images Plugin
-All Real Device Appium images (Appium 2, Appium 3, and the Deque accessibility variants) include the [`@appium/images-plugin`](./appium-images-plugin.md), which lets you find elements by image template and compare images during your tests. The plugin is enabled by default; see [Appium Images Plugin](./appium-images-plugin.md) for usage details and the `sauce:options.imagesPlugin` capability.
+All Real Device Appium images (Appium 2, Appium 3, and the Deque accessibility variants) support the [`@appium/images-plugin`](./appium-images-plugin.md), which lets you find elements by image template and compare images during your tests. The plugin is **opt-in**: set `sauce:options.imagesPlugin: true` on your session capabilities to enable it. See [Appium Images Plugin](./appium-images-plugin.md) for usage details.
 :::
 
 :::warning iOS WebDriverAgent Change on Real Devices
