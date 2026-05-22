@@ -161,6 +161,10 @@ Each version will include the latest drivers available at the time of its releas
 We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
 [tables below](#appium-3x) and choose the one that fits your requirements.
 
+:::info Appium Images Plugin
+All Real Device Appium images (Appium 2, Appium 3, and the Deque accessibility variants) include the [`@appium/images-plugin`](./appium-images-plugin.md), which lets you find elements by image template and compare images during your tests. The plugin is enabled by default; see [Appium Images Plugin](./appium-images-plugin.md) for usage details and the `sauce:options.imagesPlugin` capability.
+:::
+
 :::warning iOS WebDriverAgent Change on Real Devices
 Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) instead of the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
 
