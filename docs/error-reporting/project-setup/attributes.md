@@ -22,20 +22,23 @@ To create an attribute for a given project, select **Project Settings** from the
 ## Configuration
 
 - Name: Name of the attribute
-- Description: Description of the attribute
+- Description: A short description of the attribute
 - Format: Format of data type, used for rendering the value. The following formats are supported:
-  - Bytes - kilobytes, gigabytes, terabytes, bytes: The underlying column is storing integer values, and those values are expected to be treated as the specified unit. This is only valid for integer types.
-  - Miscellaneous - callstack: The underlying column is storing a serialized JSON object that represents a callstack as a sequence of strings, where every element is a function. This is only valid for dictionary.
-  - Miscellaneous - memory_address: The values represent memory addresses. They should be rendered as such. This is only valid for integer types.
-  - Miscellaneous - sha256: The column stores a sha256 value. Only valid for dictionary type.
-  - Miscellaneous - UUID: The column stores a unique identifier value.
-  - Networking - hostname: The underlying column name is a machine hostname. This is only valid for dictionary.
-  - Networking - ipv4: The column stores ipv4 addresses. This should be only be used with uint32 type. Javascript must render value as an IP address (see morgue for example).
-  - Networking - ipv6: The column stores ipv6 addresses. This can be used with dictionary type only.
-  - Time - The column can store one of various time stamp formats, including GPS Timestamp, Javascript Timestamp, Unix Timestamp, Nanoseconds, Milliseconds, Seconds
-  - Version Control: A semantic version or commit hash string.
-  - None: Just render the value as is.
-- Type: Data type of attribute. The system will try to choose an appropriate Type based on the Format selected, and the user can modify this is warranted. The following types are supported:
-  - boolean: True / false values
-  - string: This type should be used to store low cardinality strings (less than 2B unique values). Examples would include commits, versions, environment, etc. This encoding is efficient in that any string already present in the dictionary only requires 4 bytes of space to store in the column.
-  - uint64, uint32, uint16, uint8: These are unsigned integer types and can be used to store 64-bit, 32-bit, 16-bit and 8-bit integers respectively.
+
+| Category | Format | Type | Description |
+| ---------- | -------- | ------ | ------------- |
+| Bytes | Bytes, Kilobytes, Gigabytes | 8–128-bit | Integer values representing a quantity of data. The specified unit determines how the value is interpreted. |
+| Miscellaneous | Callstack | String | Serialized JSON array representing a call stack, where each element is a function name in the call sequence. |
+| Miscellaneous | Labels | String | Collection of key-value tags or metadata labels associated with an event or object. |
+| Miscellaneous | Memory address | 64-bit | Raw memory address as a 64-bit integer. |
+| Miscellaneous | SHA-256 | String | SHA-256 cryptographic hash. |
+| Miscellaneous | UUID | UUID | Universally unique identifier. |
+| Networking | Hostname | String | Hostname of the machine or server where an event originated. |
+| Networking | IPv4 | 32-bit | IPv4 address. |
+| Networking | IPv6 | 128-bit | IPv6 address. |
+| Time | GPS, JS, UNIX timestamps, Milliseconds, Nanoseconds, Seconds | 64-bit | Timestamp in one of several supported formats. The selected format determines the epoch and precision used when parsing the value. |
+| Version control | Commit hash, Semantic version | String | Version identifier, either a Git commit hash or a semantic version string, used to correlate errors with a specific code release. |
+| None | None | Boolean | True/false value. |
+| None | None | String | Low-cardinality string values suited for bounded attribute sets like environment, release channel, or region. |
+| None | None | Unsigned Integer | Non-negative integer using the selected bit width. |
+| None | None | UUID | Universally unique identifier for entities requiring global uniqueness. |
