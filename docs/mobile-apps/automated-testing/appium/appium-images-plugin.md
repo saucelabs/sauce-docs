@@ -54,7 +54,7 @@ capabilities.setCapability("appium:automationName", "XCUITest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 sauceOptions.put("appiumVersion", "appium3-2026-04"); // any Appium 2 or 3 Real Device image
-sauceOptions.put("imagesPlugin", true); // required: the plugin is opt-in
+sauceOptions.put("imagesPlugin", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -68,7 +68,7 @@ const capabilities = {
     'appium:automationName': 'XCUITest',
     'sauce:options': {
         appiumVersion: 'appium3-2026-04', // any Appium 2 or 3 Real Device image
-        imagesPlugin: true, // required: the plugin is opt-in
+        imagesPlugin: true,
     }
 }
 ```
@@ -83,7 +83,7 @@ capabilities = {
     "appium:automationName": "XCUITest",
     "sauce:options": {
         "appiumVersion": "appium3-2026-04",  # any Appium 2 or 3 Real Device image
-        "imagesPlugin": True,  # required: the plugin is opt-in
+        "imagesPlugin": True,
     }
 }
 ```
@@ -98,7 +98,7 @@ capabilities = {
     "appium:automationName" => "XCUITest",
     "sauce:options" => {
         "appiumVersion" => "appium3-2026-04", # any Appium 2 or 3 Real Device image
-        "imagesPlugin" => true, # required: the plugin is opt-in
+        "imagesPlugin" => true,
     }
 }
 ```
@@ -114,7 +114,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "XCUITest");
 
 var sauceOptions = new Dictionary<string, object>();
 sauceOptions.Add("appiumVersion", "appium3-2026-04"); // any Appium 2 or 3 Real Device image
-sauceOptions.Add("imagesPlugin", true); // required: the plugin is opt-in
+sauceOptions.Add("imagesPlugin", true);
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
