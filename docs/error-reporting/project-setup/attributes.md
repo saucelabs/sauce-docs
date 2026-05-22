@@ -17,7 +17,7 @@ We recommend you create an attribute for each metadata point added to your snaps
 
 To create an attribute for a given project, select **Project Settings** from the top right menu and then **Attributes** from the left menu. Click the **+** at the top of the Attributes section, and enter name, type, format, and description of the attribute (see section below). Alternatively, if your project is already attaching attributes, click the Recommended tab to see a list of all attributes that have recently been attached to error submission but do not yet have an index created.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/add-attributes.png')} alt="" />
+<img src={useBaseUrl('/img/error-reporting/project-settings/projectAttributes.png')} alt="" />
 
 ## Configuration
 
