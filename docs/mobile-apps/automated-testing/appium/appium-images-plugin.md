@@ -26,7 +26,7 @@ For the full reference of the plugin's behavior and parameters, see the upstream
 - A Real Device session. See [Appium Versions](/mobile-apps/automated-testing/appium/appium-versions/#real-devices) for the list of supported Appium images.
 
 :::info Real Devices only
-The images plugin is currently supported on **Real Devices** only. It is not available on Emulators or Simulators.
+The images plugin is supported on **Real Devices** only. It is not available on Emulators or Simulators.
 :::
 
 ## Enabling the Plugin
@@ -188,9 +188,9 @@ Image matching behavior is tuned through Appium's `updateSettings` command. The 
 | Setting | Default | Description |
 |---|---|---|
 | `imageMatchThreshold` | `0.4` | Confidence threshold between `0` and `1`. Lower the value to allow looser matches. |
-| `fixImageTemplateScale` | `false` | When `true`, the plugin scales the template to the device screen scale. Useful for high-DPI devices. |
+| `fixImageTemplateScale` | `false` | When `true`, the plugin scales the template to the device screen scale. Set to `true` for high-DPI devices. |
 | `defaultImageTemplateScale` | `1.0` | Default scaling factor applied to the template before matching. |
-| `getMatchedImageResult` | `false` | When `true`, the matched element exposes a `visual` attribute containing the base64-encoded match visualization. Useful for debugging. |
+| `getMatchedImageResult` | `false` | When `true`, the matched element exposes a `visual` attribute containing the base64-encoded match visualization for debugging. |
 | `imageElementTapStrategy` | `"w3cActions"` | Tap API used when clicking image elements. Set to `"touchActions"` for the legacy strategy. |
 | `checkForImageElementStaleness` | `true` | When `true`, the plugin re-verifies the image element on the screen before each interaction. |
 | `autoUpdateImageElementPosition` | `false` | When `true`, the plugin re-runs the match before each interaction to adjust for elements that may have moved. |
@@ -209,9 +209,9 @@ await driver.updateSettings({
 
 The plugin also exposes a `compareImages` command with three modes:
 
-- **`matchFeatures`** — feature-based matching, robust to rotation and scaling. Useful for finding the same logo or icon under different conditions.
-- **`matchTemplate`** — occurrence lookup; locate where a partial image appears within a larger image. Best when the two images share the same scale and orientation.
-- **`getSimilarity`** — compute a similarity score between two equal-sized images. Useful for visual regression checks.
+- **`matchFeatures`** — feature-based matching, robust to rotation and scaling. Use this to find the same logo or icon under different conditions.
+- **`matchTemplate`** — occurrence lookup; locate where a partial image appears in a larger image. Best when the two images share the same scale and orientation.
+- **`getSimilarity`** — compute a similarity score between two equal-sized images for visual regression checks.
 
 <Tabs
 groupId="compare-images"
@@ -264,6 +264,6 @@ For the full list of modes and per-mode options (such as `detectorName`, `matchF
 
 ## Limitations
 
-- Available on **Real Devices only**. Not currently available on Emulators or Simulators.
+- Available on **Real Devices only**. Not available on Emulators or Simulators.
 - Template matching is sensitive to scaling, rotation, and theming differences. Tune `imageMatchThreshold` and the scaling settings to your app and target device.
 - Image elements only support operations that rely on screen coordinates. Text-based attributes (such as `getText`) are not supported on image elements.
