@@ -74,5 +74,5 @@ Spots which devices are failing the most often and surfaces those devices with m
 
 Bridges pre-production testing with production stability by surfacing data from Error Reporting directly in Sauce Home. Each project in your connected Error Reporting universe is listed alongside its current Error-Free Rate — the percentage of unique users experiencing your application without errors — giving you a real-time read on application health. To populate the widget, log into Error Reporting from the Sauce sidebar and confirm stability metrics are enabled for your projects via the SDK. [(Setup Guide Here)](/error-reporting/project-setup/stability-metrics)
 
-<img src={useBaseUrl('img/insights/error_reporting.png')} alt="Production Errors Widget"/>
+<img src={useBaseUrl('img/insights/home_error_reporting.png')} alt="Production Errors Widget"/>
 
