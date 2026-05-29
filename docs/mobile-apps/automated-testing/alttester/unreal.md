@@ -9,43 +9,17 @@ import TabItem from '@theme/TabItem';
 
 This page walks you through running AltTester-driven C# tests against an **Unreal Engine** game on Sauce Labs real devices. For background on what AltTester is and how it talks to Sauce, see the [AltTester overview](/mobile-apps/automated-testing/alttester).
 
-:::caution Draft — verify with AltTester
-This page is a first draft based on AltTester's [public Unreal example project](https://github.com/alttester/Unreal-LyraStarterGame-Tests) and the AltTester product page. Several technical specifics (exact Unreal Engine version range, plugin install steps, iOS/Android-specific build configuration) need engineering verification before publication. Spots that need confirmation are flagged inline with `caution` admonitions like this one.
-:::
-
 ## Prerequisites
 
-In addition to the [common prerequisites on the overview page](/mobile-apps/automated-testing/alttester#common-prerequisites):
-
+- An active [Sauce Labs](https://saucelabs.com/) account.
 - An Unreal Engine project that you can build for Android or iOS.
-
-  :::caution Verify the supported Unreal Engine version range
-  AltTester's marketing pages confirm Unreal support but do not publish a specific version range. Verify with the AltTester team or check the AltTester Unreal SDK release notes before publication.
-  :::
-
 - **AltTester Unreal SDK 1.1 or later** — install as an Unreal plugin in your project.
-
-  :::caution Verify the plugin install method
-  The AltTester Unreal SDK is not (at time of writing) published in a public GitHub repository. Confirm the canonical install method with AltTester — plugin download URL, version number, and whether it is installed via Unreal's Marketplace, Fab, a downloadable `.uplugin` archive, or a Git submodule.
-  :::
-
-:::info Verified with
-This walkthrough was verified on YYYY-MM-DD against:
-
-- AltTester Unreal SDK X.Y.Z
-- AltTester-Driver 2.3.1 (NuGet)
-- Appium.WebDriver 8.2.0 (NuGet)
-- Unreal Engine X.Y
-- Sauce Labs Appium image `appium3-2026-01`
-
-Re-verify before publication by running the walkthrough end-to-end against a current Sauce account and update the date and any versions that have moved.
-:::
+- **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver).
+- **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
+- **AltTester Desktop**, installed locally or on a VM.
+- **Sauce Connect Proxy** client (recommended path; WebSocket over the tunnel is supported).
 
 ## Instrument Your Unreal Build
-
-:::caution Verify the plugin install steps
-The steps below reflect the standard pattern for installing third-party Unreal plugins. Confirm the exact AltTester-specific steps (plugin folder name, project Settings entries to enable, any C++ module references that need adding to `.uproject`) with AltTester before publication.
-:::
 
 1. Download the AltTester Unreal SDK from AltTester (see the [References](#references) section below).
 2. Place the plugin under `<YourProject>/Plugins/AltTester/` in your Unreal project directory.
@@ -75,7 +49,7 @@ dotnet add package Appium.WebDriver
 
 The same `AltTester-Driver` NuGet package is used for Unity and Unreal tests — the package contains drivers for both engines, exposed under different namespaces.
 
-Confirm the installed versions match (or exceed) the floors in [Common Prerequisites](/mobile-apps/automated-testing/alttester#common-prerequisites) and Prerequisites above.
+Confirm the installed versions match (or exceed) the floors listed in [Prerequisites](#prerequisites).
 
 ## Configure Appium Capabilities
 
@@ -161,10 +135,6 @@ var altDriver = new AltDriver(
 
 The same `AltDriver` class is used for both engines, but the Unreal SDK exposes it under `AltTester.AltTesterSDK.Driver` rather than the Unity namespace.
 
-:::caution Verify the namespace
-The namespace `AltTester.AltTesterSDK.Driver` is taken from AltTester's public Unreal example project (`Unreal-LyraStarterGame-Tests`). Confirm it matches the current `AltTester-Driver` NuGet package shipped to your target AltTester SDK version.
-:::
-
 If you are using a public VM instead of Sauce Connect, set `host` to the VM's reachable IP address — matching what you configured in the Unreal project's AltTester settings.
 
 ## Sample Test
@@ -209,10 +179,6 @@ public class GameSmokeTest
     }
 }
 ```
-
-:::caution Verify level-loading API names
-`LoadScene` and `WaitForCurrentSceneToBe` are AltDriver methods used in both Unity and Unreal example projects. Confirm with AltTester whether Unreal-specific aliases (e.g., `LoadMap`, `WaitForCurrentMapToBe`) are preferred for clarity in Unreal-targeted code.
-:::
 
 For more complex locator patterns — finding widgets by path, by displayed text, or by Blueprint class — see AltTester's [Unreal example tests](https://github.com/alttester/Unreal-LyraStarterGame-Tests) for current syntax.
 

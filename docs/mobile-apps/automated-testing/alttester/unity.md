@@ -11,21 +11,13 @@ This page walks you through running AltTester-driven C# tests against a **Unity*
 
 ## Prerequisites
 
-In addition to the [common prerequisites on the overview page](/mobile-apps/automated-testing/alttester#common-prerequisites):
-
+- An active [Sauce Labs](https://saucelabs.com/) account.
 - A Unity project (Unity 2021 LTS or later recommended; check the [AltTester SDK release notes](https://github.com/alttester/AltTester-Unity-SDK/releases) for the exact supported range).
 - **AltTester Unity SDK 2.3 or later** — install via Unity Package Manager from the [AltTester releases page](https://github.com/alttester/AltTester-Unity-SDK/releases).
-
-:::info Verified with
-This walkthrough was verified on YYYY-MM-DD against:
-
-- AltTester Unity SDK 2.3.1
-- AltTester-Driver 2.3.1 (NuGet)
-- Appium.WebDriver 8.2.0 (NuGet)
-- Sauce Labs Appium image `appium3-2026-01`
-
-Re-verify before publication by running the walkthrough end-to-end against a current Sauce account and update the date and any versions that have moved.
-:::
+- **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver).
+- **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
+- **AltTester Desktop**, installed locally or on a VM.
+- **Sauce Connect Proxy** client (recommended path; WebSocket over the tunnel is supported).
 
 ## Instrument Your Unity Build
 
@@ -54,7 +46,7 @@ dotnet add package AltTester-Driver
 dotnet add package Appium.WebDriver
 ```
 
-Confirm the installed versions match (or exceed) the floors in [Common Prerequisites](/mobile-apps/automated-testing/alttester#common-prerequisites) and Prerequisites above.
+Confirm the installed versions match (or exceed) the floors listed in [Prerequisites](#prerequisites).
 
 ## Configure Appium Capabilities
 

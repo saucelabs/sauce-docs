@@ -1,7 +1,7 @@
 ---
 id: alttester
-title: AltTester
-sidebar_label: AltTester
+title: AltTester for Mobile Game Automation
+sidebar_label: Overview
 hide_table_of_contents: true
 ---
 
@@ -43,21 +43,3 @@ The architecture above is identical for Unity and Unreal — the difference is i
     </div>
   </div>
 </div>
-
-## Common Prerequisites
-
-These apply to both engines. Engine-specific SDK requirements are listed on the dedicated pages.
-
-- An active [Sauce Labs](https://saucelabs.com/) account.
-- **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver). The same C# driver works for both Unity and Unreal targets.
-- **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
-- **AltTester Desktop**, installed locally or on a VM.
-- **Sauce Connect Proxy** client (recommended path; WebSocket over the tunnel is supported).
-
-## References
-
-- [AltTester documentation](https://alttester.com/docs/) — full SDK, driver, and engine-specific reference.
-- [AltTester-Unity-SDK releases on GitHub](https://github.com/alttester/AltTester-Unity-SDK/releases) — current Unity SDK versions and changelogs.
-- [AltTester-Driver on NuGet](https://www.nuget.org/packages/AltTester-Driver) — current .NET driver versions (works for both engines).
-- [Appium.WebDriver on NuGet](https://www.nuget.org/packages/Appium.WebDriver) — current Appium .NET client versions.
-- [Sauce Labs ↔ AltTester partner tutorial](https://alttester.com/sauce-labs-integration-execute-alttester-based-c-tests/) — partner-maintained walkthrough, last updated 2023-12; the engine-specific pages below are the current canonical reference for the Sauce-side flow.
