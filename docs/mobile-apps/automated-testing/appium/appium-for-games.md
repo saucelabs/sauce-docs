@@ -1,13 +1,13 @@
 ---
 id: appium-for-games
-title: Automated Game Testing with Appium
+title: Appium for Games
 sidebar_label: Appium for Games
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Appium is a strong fit for game testing when the part of the game you need to drive — menus, lobbies, settings, companion apps — exposes native accessibility metadata. For gameplay inside a Unity or Unreal scene, see [AltTester for Unity](/mobile-games/automated-testing/alttester); Appium does not see inside game engines' internal scene graphs.
+Appium is a strong fit for game testing when the part of the game you need to drive — menus, lobbies, settings, companion apps — exposes native accessibility metadata. For gameplay inside a Unity or Unreal scene, see [AltTester](/mobile-apps/automated-testing/alttester); Appium does not see inside game engines' internal scene graphs.
 
 ## When to Use Appium for a Game
 
@@ -20,7 +20,7 @@ Appium is a strong fit for game testing when the part of the game you need to dr
 
 Appium relies on the operating system's accessibility tree. Unity and Unreal render to a single full-screen surface and do not, by default, expose their internal UI to that tree. Inside a running game scene, Appium typically sees a single opaque view — locators by accessibility ID, XPath, or class name won't find game-specific objects.
 
-For tests that need to interact with GameObjects (find an enemy by name, tap an in-world button, read score state), use [AltTester](/mobile-games/automated-testing/alttester). For everything around the game — store flows, settings, account linking, native overlays — Appium is the simpler choice.
+For tests that need to interact with GameObjects (find an enemy by name, tap an in-world button, read score state), use [AltTester](/mobile-apps/automated-testing/alttester). For everything around the game — store flows, settings, account linking, native overlays — Appium is the simpler choice.
 
 ## Game-Specific Appium Techniques
 
@@ -150,5 +150,5 @@ options.AddAdditionalAppiumOption("sauce:options", new Dictionary<string, object
 ## See Also
 
 - [Appium Testing with Real Devices](/mobile-apps/automated-testing/appium/real-devices) — full Appium-on-Sauce reference, including the iOS WebDriverAgent change in `appium3-2026-01`.
-- [AltTester for Unity](/mobile-games/automated-testing/alttester) — when you need scene-graph visibility inside the running game.
+- [AltTester](/mobile-apps/automated-testing/alttester) — when you need scene-graph visibility inside the running game (Unity or Unreal).
 - [Gestures](/mobile-apps/features/gestures) — supported gesture catalog on Sauce real devices.
