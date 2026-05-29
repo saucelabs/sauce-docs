@@ -980,6 +980,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/appium-flutter',
                                 'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
                                 'mobile-apps/automated-testing/appium/appium-deque-accessibility-testing',
+                                'mobile-apps/automated-testing/appium/appium-images-plugin',
                                 'mobile-apps/automated-testing/appium/appium-for-games',
                             ],
                         },
