@@ -1014,6 +1014,15 @@ module.exports = {
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-ios',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'AltTester',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/automated-testing/alttester',
+                                'mobile-apps/automated-testing/alttester/unity',
+                            ],
+                        },
                         'mobile-apps/automated-testing/ipa-files',
                         'mobile-apps/automated-testing/app-files',
                     ],
