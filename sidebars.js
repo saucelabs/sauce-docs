@@ -1021,6 +1021,7 @@ module.exports = {
                             items: [
                                 'mobile-apps/automated-testing/alttester',
                                 'mobile-apps/automated-testing/alttester/unity',
+                                'mobile-apps/automated-testing/alttester/unreal',
                             ],
                         },
                         'mobile-apps/automated-testing/ipa-files',
