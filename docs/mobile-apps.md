@@ -7,10 +7,6 @@ hide_table_of_contents: true
 
 Test your iOS and Android native mobile apps and hybrid apps on Emulators, Simulators, and real devices in the Sauce Labs Cloud.
 
-:::info Testing a mobile game?
-See [Mobile Game Testing](/mobile-games) for Unity, AltTester, and game-specific live testing guidance.
-:::
-
 ## Uploading Your App
 
 <div>

@@ -1049,31 +1049,6 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Mobile Games',
-            collapsed: true,
-            items: [
-                'mobile-games',
-                {
-                    type: 'category',
-                    label: 'Live Testing',
-                    collapsed: true,
-                    items: [
-                        'mobile-games/live-testing/live-mobile-game-testing',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Automated Testing',
-                    collapsed: true,
-                    items: [
-                        'mobile-games/automated-testing',
-                        'mobile-games/automated-testing/alttester',
-                    ],
-                },
-            ],
-        },
-        {
-            type: 'category',
             label: 'Web Apps',
             collapsed: true,
             items: [

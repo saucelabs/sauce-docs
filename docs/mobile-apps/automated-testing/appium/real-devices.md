@@ -21,8 +21,8 @@ Sauce Labs now supports ADB commands for Appium. To use ADB and mobile:shell com
 ADB can already be used during live testing.
 :::
 
-:::info Automating a Unity game?
-See [AltTester on Sauce real devices](/mobile-games/automated-testing/alttester) for the C#-based path that sees inside Unity's scene graph.
+:::info Automating a Unity or Unreal Engine game?
+See [AltTester](/mobile-apps/automated-testing/alttester) for the C#-based path that sees inside Unity and Unreal Engine scene graphs.
 :::
 
 ## What You'll Need
