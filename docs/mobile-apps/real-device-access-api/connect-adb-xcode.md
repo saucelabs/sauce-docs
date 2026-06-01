@@ -16,9 +16,10 @@ Xcode integration is only supported on iOS 16 and earlier. On iOS 17+, libimobil
 
 ## What You'll Need
 
-- `curl`, `jq`
-- **Android:** `websocat`, `adb`
-- **iOS:** `websocat`, `socat`, `libimobiledevice`, root access
+- `curl`, `jq` (to create the session)
+- The [`access-api-connect`](https://github.com/saucelabs/access-api-connect) binary on your `PATH` — pre-built for macOS, Linux, and Windows on the project's [Releases page](https://github.com/saucelabs/access-api-connect/releases).
+- **Android:** `adb`
+- **iOS:** root access (sudo). macOS or Linux host. *Windows is not supported for the iOS path — there is no `/var/run/usbmuxd` equivalent.*
 
 ## How It Works
 
@@ -28,17 +29,17 @@ The technical challenge is transporting the same bytes that would normally flow 
 
 ```
 ┌──────────────────┐      ┌──────────────────┐      ┌──────────────────┐      ┌──────────────────┐
-│   Your Tools     │      │  Local Reverse   │      │  Sauce Labs API  │      │  Remote Device   │
-│                  │ TCP  │  Proxy           │ WSS  │                  │      │                  │
-│  adb             ├─────▶│  websocat        ├─────▶│  api.*.saucelabs ├─────▶│  adb daemon      │
-│  Xcode           │      │  socat           │      │  .com            │      │  usbmuxd         │
+│   Your Tools     │      │ access-api-      │      │  Sauce Labs API  │      │  Remote Device   │
+│                  │ TCP/ │ connect          │ WSS  │                  │      │                  │
+│  adb             ├ unix▶│ (local agent)    ├─────▶│  api.*.saucelabs ├─────▶│  adb daemon      │
+│  Xcode           │      │                  │      │  .com            │      │  usbmuxd         │
 │  libimobiledevice│      │                  │      │                  │      │                  │
 └──────────────────┘      └──────────────────┘      └──────────────────┘      └──────────────────┘
      localhost                  localhost                 internet               Sauce Labs cloud
 ```
 
 1. **Your tools** connect to `localhost` — they don't know or care that the device is remote.
-2. **The local reverse proxy** (`websocat`, `socat`) accepts that local connection, encodes the bytes into WebSocket frames, and sends them over TLS to the Sauce Labs API.
+2. **The local agent** ([`access-api-connect`](https://github.com/saucelabs/access-api-connect)) accepts the local connection (TCP for Android, `/var/run/usbmuxd` for iOS), encodes the bytes into WebSocket frames, and forwards them to the Sauce Labs API over TLS. A single multiplexed WebSocket carries every concurrent connection, so parallel work like Xcode debugging next to `idevicesyslog` stays fast.
 3. **The Sauce Labs API** decodes the frames and delivers the raw bytes to the device in our cloud.
 4. **The remote device** receives the same protocol stream it would over USB.
 
@@ -61,54 +62,51 @@ curl -X POST -u $AUTH \
 
 ### 2. Connect Your Tools
 
-Use the [`api-connect.sh`](https://github.com/saucelabs/real-device-api/blob/main/scripts/api-connect.sh) script to connect your tooling. You'll need the following environment variables set:
+Use [`access-api-connect`](https://github.com/saucelabs/access-api-connect) to bridge your local tools to the remote device. Download the binary for your platform from the [Releases page](https://github.com/saucelabs/access-api-connect/releases), put it on your `PATH`, and set the following environment variables:
 
-* `SAUCE_USERNAME`: The username owning the device session.
-* `SAUCE_ACCESS_KEY`: Access key used to create the session.
-* `SAUCE_API_URL`: One of the following
-  * https://api.eu-central-1.saucelabs.com (EU)
-  * https://api.us-west-1.saucelabs.com (US-WEST)
-  * https://api.us-east-4.saucelabs.com (US-EAST)
+* `SAUCE_USERNAME` — your Sauce Labs username.
+* `SAUCE_ACCESS_KEY` — the access key used to create the session.
+* `SAUCE_REGION` — one of `US` (us-west-1), `US_EAST` (us-east-4), `EU` (eu-central-1). Case-insensitive.
+
+(If you need a non-standard endpoint, set `SAUCE_API_URL` instead — it takes precedence over `SAUCE_REGION`.)
 
 **Android:**
 
 ```shell
-api-connect.sh $SESSION_ID
+access-api-connect $SESSION_ID
 ```
 
-This starts `websocat` listening on local TCP port 50371. Every byte that arrives on that port is wrapped into a WebSocket frame and sent to the Sauce Labs endpoint, which forwards it to the device's ADB daemon. The `-b` flag ensures binary mode — no text conversion, just raw bytes in both directions.
-
-The `api-connect.sh` also takes care of configuring adb so that all adb commands go through the WebSocket tunnel established  in the previous step by issuing the following command internally:
+The agent listens on local TCP port `7001`. Every accepted TCP connection is bridged to the device's ADB daemon over a WebSocket transport — no extra `websocat` or `socat` needed. Once it prints `Ready`, point `adb` at it:
 
 ```shell
-adb connect localhost:50371
+adb connect localhost:7001
 ```
 
-`adb` thinks it's talking to a device on the local network. In reality, every command — `adb shell`, `adb install`, `adb push` — travels through the WebSocket tunnel to the remote device.
+`adb` thinks it's talking to a device on the local network. In reality, every command — `adb shell`, `adb install`, `adb push` — travels through the agent to the remote device.
 
-Verify with `adb devices` — you should see `localhost:50371` listed.
+Verify with `adb devices` — you should see `localhost:7001` listed.
 
-**iOS (requires root):**
+**iOS (macOS or Linux, requires root):**
 
 ```shell
-sudo -E api-connect.sh $SESSION_ID
+sudo -E access-api-connect $SESSION_ID
 ```
 
-This replaces the system usbmuxd socket with one that tunnels to the remote device. `socat` listens on the Unix socket and, for each incoming connection, spawns the wrapper script which bridges it to the Sauce Labs endpoint via `websocat`.
-
-Wait a few seconds, then verify:
+The agent takes over `/var/run/usbmuxd` (moving the original aside to `/var/run/usbmuxd.real` and restoring it on clean exit) and serves it from a single multiplexed WebSocket. Wait until you see `Ready. usbmuxd mounted at /var/run/usbmuxd.`, then verify:
 
 ```shell
 idevice_id -l
 ```
 
-The remote device's UDID should appear. From here, Xcode, Instruments, `idevicesyslog`, and all libimobiledevice tools will discover and interact with the device as if it were connected via USB.
+The remote device's UDID should appear. From here, Xcode, Instruments, `idevicesyslog`, and all libimobiledevice tools will discover and interact with the device as if it were connected via USB. Press `Ctrl+C` to stop the agent — the original `usbmuxd` socket is restored automatically.
+
+For full reference (flag-by-flag descriptions, troubleshooting, building from source) see the [project README](https://github.com/saucelabs/access-api-connect#readme).
 
 ## Use Cases
 
 ### Use our remote devices in Android Studio
 
-Once `adb connect localhost:50371` is established, Android Studio automatically detects the remote device. It appears in the device dropdown and you can deploy, run, and debug apps just like a locally connected device. Profiling tools (CPU, memory, network) also work — follow the [Android Studio profiling guide](https://developer.android.com/studio/profile).
+Once `adb connect localhost:7001` is established, Android Studio automatically detects the remote device. It appears in the device dropdown and you can deploy, run, and debug apps just like a locally connected device. Profiling tools (CPU, memory, network) also work — follow the [Android Studio profiling guide](https://developer.android.com/studio/profile).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -147,27 +145,32 @@ idevicesyslog
 
 ## Cleanup
 
-Close the session and stop the local reverse proxy:
+Stop the local agent and close the session:
 
 ```shell
-# Close the session
+# Stop access-api-connect: just Ctrl+C in the terminal running it.
+# On iOS, the original /var/run/usbmuxd is restored automatically.
+
+# Optionally tell adb to forget the local endpoint (Android only):
+adb disconnect localhost:7001
+
+# Close the remote session:
 curl -X DELETE -u $AUTH "$BASE_URL/sessions/{session_id}"
+```
 
-# Android: disconnect adb and stop websocat
-adb disconnect localhost:50371
-kill %1
+If the agent was killed uncleanly on iOS, restore the original socket manually once:
 
-# iOS: stop socat and restore the original usbmuxd socket
-kill %1
+```shell
 sudo mv /var/run/usbmuxd.real /var/run/usbmuxd
 ```
 
 ## Troubleshooting
 
-- **`adb connect` times out** — verify `websocat` is still running and the `adbUrl` is correct. Check that your credentials are valid.
-- **`idevice_id -l` returns nothing** — ensure you're running as root, the original socket was backed up successfully, and `socat` is running.
+- **`adb connect` times out** — verify `access-api-connect` is still running and printed `Ready`. Re-run it with `-v` (or `--verbose`) to log a line per accepted connection. Confirm `SAUCE_USERNAME`, `SAUCE_ACCESS_KEY`, and `SAUCE_REGION` match the region the session was created in.
+- **`idevice_id -l` returns nothing** — ensure you're running as root and the agent has printed `Ready. usbmuxd mounted at /var/run/usbmuxd`. If a previous run left `/var/run/usbmuxd.real` behind, the agent refuses to start; restore it once with `sudo mv /var/run/usbmuxd.real /var/run/usbmuxd` and re-run.
 - **Connection drops after a period of inactivity** — the session may have timed out. Check session state with `GET /sessions/{session_id}`.
 - **Xcode takes a long time on first connection (iOS)** — Xcode downloads iOS device symbols on first connection. Over the tunnel this can take several minutes. Check `~/Library/Developer/Xcode/iOS DeviceSupport/` — the folder for your iOS version should be over 1GB once complete. This is a one-time download per iOS version.
+- **`iOS sessions are not supported on Windows`** — expected. The iOS path requires `/var/run/usbmuxd`, which has no Windows equivalent. Run the iOS workflow from macOS or Linux instead; Android works on all three.
 
 ### Performance over the tunnel
 
