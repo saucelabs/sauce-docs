@@ -20,6 +20,7 @@ yarn.lock
 
 # Optional npm cache directory
 **/.npm
+.npm-cache/
 
 # files
 **/.DS_Store
