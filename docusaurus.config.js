@@ -134,7 +134,7 @@ const docusaurusConfig = {
                 {
                     label: 'Real Device Access API',
                     position: 'left',
-                    to: '/dev/api/real-device-access-scalar',
+                    to: '/dev/api/real-device-access',
                 },
             ],
         },
@@ -193,7 +193,7 @@ const docusaurusConfig = {
                 label: 'Real Device Access API',
                 route: '/real-device-access-api',
                 // Nav link is provided manually in `navbar.items` above so it
-                // points at the embedded Scalar page (/dev/api/real-device-access-scalar).
+                // points at the embedded Scalar page (/dev/api/real-device-access).
                 showNavLink: false,
                 configuration: {
                     hideClientButton: true,
