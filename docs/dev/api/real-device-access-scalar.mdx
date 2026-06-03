@@ -20,7 +20,12 @@ export const ApiReference = () => {
         return (
           <ApiReferenceReact
             configuration={{
-              url: specUrl,
+              sources: [
+                {
+                  title: 'Real Device Access API',
+                  url: specUrl,
+                },
+              ],
               layout: 'classic',
               showSidebar: true,
               defaultOpenAllTags: true,
