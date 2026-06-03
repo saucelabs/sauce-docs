@@ -5,9 +5,17 @@ description: AI Test Authoring API reference.
 hide_table_of_contents: true
 ---
 
+import Head from '@docusaurus/Head';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import '@scalar/api-reference-react/style.css';
+
+{/* Tags <body> with a class so the full-width API-reference styling in
+    custom.css applies only to these embedded Scalar pages. */}
+
+<Head>
+  <body className="api-reference-page" />
+</Head>
 
 export const ApiReference = () => {
   // useBaseUrl prefixes the site baseUrl so the spec resolves correctly under

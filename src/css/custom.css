@@ -1129,3 +1129,16 @@ ul.dropdown__menu li a:hover {
 .theme-doc-markdown section.introduction-section h1.section-header-label {
     display: none;
 }
+.scalar-app .section-container section.section-accordion-wrapper,
+.scalar-app div.section-container {
+    padding: 48px 0;
+}
+.scalar-app section.section-accordion-wrapper {
+    padding: 0 30px;
+}
+
+.api-reference-page .container,
+.api-reference-page .container .section,
+.api-reference-page .container .section-accordion {
+    max-width: 1800px;
+}
