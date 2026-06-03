@@ -381,8 +381,8 @@ module.exports = {
                 'dev/api/jobs', // Jobs
                 'dev/api/performance', // Performance
                 'dev/api/platform', // Platform
-                'dev/api/real-device-access', // Real Device Access API
                 'dev/api/rdc', // Real Devices
+                'dev/api/real-device-access', // Real Device Access API
                 'dev/api/connect', // Sauce Connect
                 'dev/api/storage', // Storage
                 'dev/api/test-authoring', // Test Authoring
