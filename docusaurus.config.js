@@ -199,7 +199,9 @@ const docusaurusConfig = {
                             // This title will appear in the top left dropdown within Scalar API doc.
                             title: 'Real Device Access API',
                             url: `${siteBaseUrl}oas/real-device-access-api-spec.yaml`,
-                            title: 'Second Real Deivce access API',
+                        },
+                        {
+                            title: 'Second Real Device Access API',
                             url: `${siteBaseUrl}oas/real-device-access-api-spec.yaml`,
                         },
                     ],
