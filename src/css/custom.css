@@ -570,7 +570,9 @@ html[data-theme="dark"] .sauceGreen {
         rgb(255, 255, 255) 100%
     );
     color: var(--dark-100);
-    box-shadow: 0px 1px 0px #b71d15, 0px 1px 1px rgba(0, 0, 0, 0.4),
+    box-shadow:
+        0px 1px 0px #b71d15,
+        0px 1px 1px rgba(0, 0, 0, 0.4),
         inset 0px 1px 0px rgba(255, 255, 255, 0.3),
         inset 0px 0px 1px rgba(255, 255, 255, 0.5);
     transform: translate(0, 2px);
@@ -1116,4 +1118,14 @@ ul.dropdown__menu li a:hover {
     .container-reverse {
         padding: 0;
     }
+}
+
+/* On the embedded Scalar API doc pages we keep the Docusaurus page title (the
+   frontmatter `title`) and hide Scalar's own spec-title heading so there is
+   only one title per page. The spec is left unchanged; this only hides the
+   duplicate heading (the description / "What You'll Need" intro below it, and
+   the per-tag section headers, are not affected). Scoped to `.theme-doc-markdown`
+   so the standalone /real-device-access-api route is untouched. */
+.theme-doc-markdown section.introduction-section h1.section-header-label {
+    display: none;
 }

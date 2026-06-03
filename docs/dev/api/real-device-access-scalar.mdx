@@ -1,0 +1,28 @@
+---
+title: Real Device Access API
+sidebar_label: Real Device Access API
+description: Real Device Access API reference
+hide_table_of_contents: true
+---
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import '@scalar/api-reference-react/style.css';
+
+<BrowserOnly fallback={<div>Loading API reference…</div>}>
+  {() => {
+    const { ApiReferenceReact } = require('@scalar/api-reference-react');
+    return (
+      <ApiReferenceReact
+        configuration={{
+          url: '/oas/real-device-access-api.yaml',
+          layout: 'classic',
+          showSidebar: true,
+          defaultOpenAllTags: true,
+          hideClientButton: true,
+          hideTestRequestButton: true,
+          hideSearch: true,
+        }}
+      />
+    );
+  }}
+</BrowserOnly>
