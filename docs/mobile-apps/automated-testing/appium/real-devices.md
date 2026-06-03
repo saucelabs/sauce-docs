@@ -231,7 +231,7 @@ The following sample values are presented using case for readability, but capabi
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
     <td>No</td>
-    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
+    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. The regex is evaluated against both the device's Display Name (e.g., <code>iPhone SE 2022</code>) and its Device ID (e.g., <code>iPhone_SE_2020_18_real_sjc1</code>); a device matches if either value matches. See the caution below before writing exclusion patterns. Some examples include:</p>
     <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
     <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
     <p>Either <i>iPhone 7</i> or <i>iPhone 6</i>: <code>"appium:deviceName", "iPhone [67]"</code> or <code>"iPhone [6-7]"</code></p>
@@ -250,6 +250,14 @@ The following sample values are presented using case for readability, but capabi
   </tr>
   </tbody>
 </table>
+
+:::caution Regex is evaluated against both the Display Name and the Device ID
+When you provide a regex to `deviceName`, it is matched against **both** the device's Display Name (e.g., `iPhone SE 2022`, `Google Pixel 10`) **and** its Device ID (e.g., `iPhone_SE_2020_18_real_sjc1`, `Google_Pixel_10_real_us`). A device is allocated if the regex matches either value.
+
+This matters most for **exclusion** patterns: a regex that excludes a model based on its Display Name may still match the underscore-separated Device ID. For example, `^iPhone(?! SE).*` matches the ID `iPhone_SE_2020_18_real_sjc1` because the lookahead checks for a literal space followed by `SE`, not an underscore.
+
+When excluding a device, account for both forms — match the space-separated display name **and** the underscore-separated ID. For example, to exclude all iPhone SE devices, use `^iPhone(?!_SE)(?! SE).*` instead of `^iPhone(?! SE).*`. Similarly, to exclude Google Pixel 10 devices use `^(Google)(?!.*(Pixel 10$|Pixel_10)).*`.
+:::
 
 In addition to the required capabilities for device matching, you can also specify any of the following optional Sauce custom capabilities to ensure your tests run on a device that matches your ideal environment. These capabilities need to be put in the `"sauce:options": {}`.
 
