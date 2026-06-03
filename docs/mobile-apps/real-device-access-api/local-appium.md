@@ -10,8 +10,9 @@ Although we encourage using [our hosted Appium solution](/mobile-apps/automated-
 ## Prerequisites
 - Real Device Access API enabled for your account (see the [Integration Guide](integration-guide.md)).
 - `curl` and `jq` installed locally.
-- Android workflows: `websocat` and `adb`.
-- iOS workflows: Docker (used for the reference Caddy proxy).
+- The [`access-api-connect`](https://github.com/saucelabs/access-api-connect) binary on your `PATH` — pre-built for macOS, Linux, and Windows on the project's [Releases page](https://github.com/saucelabs/access-api-connect/releases).
+- Android workflows: `adb`.
+- iOS workflows: a macOS or Linux host with `sudo`. *Windows is not supported for iOS — see the iOS section below.*
 
 ## Technical Specification
 
@@ -48,10 +49,24 @@ Copy the WebSocket URL in `links -> vusbUrl`. The API returns this value in the 
 
 #### 3. Establish an ADB Proxy Between Your Local Machine and the Remote Device
 
-Use `websocat` to create a bridge between your local machine and the remote device. The `vusbUrl` encapsulates a binary ADB connection, so your local `adb` client can interact with the device as if it were plugged in.
-:::tip
-For more information on using `websocat` and connecting to WebSockets, refer to the [Integration Guide](integration-guide.md#websocket-for-live-event-streaming).
-:::
+Use [`access-api-connect`](https://github.com/saucelabs/access-api-connect) to bridge `adb` to the remote device:
+
+```shell
+export SAUCE_USERNAME=...        # your Sauce Labs username
+export SAUCE_ACCESS_KEY=...      # your access key
+export SAUCE_REGION=US           # or US_EAST / EU — case-insensitive
+
+access-api-connect <sessionId>   # listens on 127.0.0.1:7001
+```
+
+Once it prints `Ready`, point `adb` at it:
+
+```shell
+adb connect localhost:7001
+adb devices                       # should list localhost:7001
+```
+
+`access-api-connect` uses the session's multiplex-capable `vusbUrl` to carry the ADB connection over a single WebSocket — your local `adb` client interacts with the device as if it were plugged in. Press `Ctrl+C` to stop the agent.
 
 ## iOS
 
@@ -92,49 +107,48 @@ Any reverse proxy works; our reference script uses [Caddy](https://caddyserver.c
 /sessions/{session_id}/device/proxy/http/localhost/8100
 ```
 
-## Reference Script (`api-connect.sh`)
+## Reference Agent (`access-api-connect`)
 
-Use `api-connect.sh` to automate the setup for both Android and iOS.
+Use the official [`access-api-connect`](https://github.com/saucelabs/access-api-connect) agent to automate the bridge setup. It replaces the older `api-connect.sh` shell reference and ships as a single binary for macOS, Linux, and Windows.
 
 ### Requirements
 
-For the script to run correctly, you'll need the following tools installed locally:
-
-* `curl`
-* `jq`
-* `websocat` (Android only)
-* `adb` (Android only)
-* `docker` (iOS only)
+* `curl` and `jq` (only to create the session)
+* `adb` (Android workflows)
+* macOS or Linux + `sudo` (iOS workflows — required to take over `/var/run/usbmuxd`)
+* The `access-api-connect` binary on your `PATH` — download from the [Releases page](https://github.com/saucelabs/access-api-connect/releases) or `make build` from source.
 
 ### Environment Variables
 
-Set the following environment variables:
+Set the following before invoking the agent:
 
-* `SAUCE_USERNAME`: Your Sauce Labs username.
-* `SAUCE_ACCESS_KEY`: Your Sauce Labs API access key.
-* `SAUCE_API_URL`: One of:
-    * https://api.us-west-1.saucelabs.com
-    * https://api.eu-central-1.saucelabs.com
-    * https://api.us-east-4.saucelabs.com
+* `SAUCE_USERNAME` — your Sauce Labs username.
+* `SAUCE_ACCESS_KEY` — your Sauce Labs API access key.
+* `SAUCE_REGION` — one of `US` (us-west-1), `US_EAST` (us-east-4), `EU` (eu-central-1). Case-insensitive.
+
+(`SAUCE_API_URL` is also accepted and takes precedence over `SAUCE_REGION` when both are set — use it only for non-standard endpoints.)
 
 ### Usage
 
-1. **Start an Access API session:** Use the `curl` commands above or a REST client to create a session.
-2. **Wait for activation:** Poll the session endpoint until the state becomes `ACTIVE`.
-3. **Save the script:** Copy [The Script](#the-script) content into `api-connect.sh`.
-4. **Run the script:** Provide your `sessionId`:
-```shell
-./api-connect.sh <sessionId>
-```
+1. **Create an Access API session** using the `curl` commands above (or a REST client).
+2. **Wait for it to become `ACTIVE`** by polling the session endpoint.
+3. **Run the agent** with your `sessionId`:
 
-Depending on the device OS, the script will:
+   ```shell
+   # Android
+   access-api-connect <sessionId>
 
-- **Android:** Forward the ADB connection to `localhost:50371`.
-- **iOS:** Start a local Caddy proxy that forwards WebDriverAgent to `localhost:8100`.
+   # iOS (macOS / Linux only)
+   sudo -E access-api-connect <sessionId>
+   ```
 
-### The Script
-Save the following content to a file named `api-connect.sh` and mark it as runnable (`chmod +x api-connect.sh`).
+Depending on the device OS, the agent will:
 
-```shell reference
-https://github.com/saucelabs/real-device-api/blob/main/scripts/api-connect.sh
-```
+- **Android:** Listen on `127.0.0.1:7001`. Run `adb connect localhost:7001` in another terminal.
+- **iOS:** Mount the session over `/var/run/usbmuxd`. Appium with `appium:automationName: XCUITest` can address the device by its UDID and use the bundled WDA over usbmuxd — no separate Caddy forwarder needed.
+
+For flag-by-flag documentation, troubleshooting, and building from source, see the [project README](https://github.com/saucelabs/access-api-connect#readme).
+
+### Alternative: WDA-only iOS forwarder (no root)
+
+If you specifically need to expose only WebDriverAgent on `localhost:8100` and want to avoid `sudo`, you can still run any reverse proxy (e.g. [Caddy](https://caddyserver.com/)) against the Access API's HTTP proxy path described in the [iOS section above](#3-forward-the-wda-port). That approach doesn't require root but only exposes WDA — Xcode, Instruments, and `libimobiledevice` tools won't see the device.

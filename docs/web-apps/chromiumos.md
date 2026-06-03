@@ -51,8 +51,7 @@ You can run interactive manual testing sessions on ChromiumOS virtual machines t
 Sauce Labs Live Testing interface.
 
 1. Navigate to **Live Testing** > **Cross Browser** in Sauce Labs.
-2. Select **Chrome 144** or **146** from the browser version dropdown. These are the only two versions
-   supported during the beta.
+2. Select a current **Chrome** version from the browser version dropdown. Only the two latest Chrome versions are offered for ChromiumOS.
 3. In the **OS Version** selector, choose **ChromiumOS**.
 4. Click **Start Test Session** to launch the virtual machine.
 
@@ -65,13 +64,13 @@ supported.
 ### Automated Tests
 
 Set the following capabilities in your test configuration to target a ChromiumOS virtual
-machine on Sauce Labs.
+machine on Sauce Labs. It's recommend to use `latest` or `latest-1` for `browserVersion` in order to stay current with each monthly release.
 
 | Capability | Value |
 |---|---|
 | `platformName` | `ChromiumOS` |
 | `browserName` | `googlechrome` |
-| `browserVersion` | `144` |
+| `browserVersion` | `latest` |
 
 <Tabs groupId="lang-ex">
   <TabItem value="java" label="Java" default>
@@ -79,7 +78,7 @@ machine on Sauce Labs.
 ```java title="ChromiumOS Test Configuration"
 ChromeOptions options = new ChromeOptions();
 options.setPlatformName("ChromiumOS");
-options.setBrowserVersion("144");
+options.setBrowserVersion("latest");
 
 Map<String, Object> sauceOptions = new HashMap<>();
 sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
@@ -100,7 +99,7 @@ WebDriver driver = new RemoteWebDriver(
 const capabilities = {
   platformName: 'ChromiumOS',
   browserName: 'googlechrome',
-  browserVersion: '144',
+  browserVersion: 'latest',
   'sauce:options': {
     username: process.env.SAUCE_USERNAME,
     accessKey: process.env.SAUCE_ACCESS_KEY,
@@ -122,7 +121,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 options = ChromeOptions()
 options.platform_name = "ChromiumOS"
-options.browser_version = "144"
+options.browser_version = "latest"
 
 sauce_options = {
     "username": os.environ["SAUCE_USERNAME"],
@@ -143,7 +142,7 @@ driver = webdriver.Remote(
 ```ruby title="ChromiumOS Test Configuration"
 options = Selenium::WebDriver::Options.chrome(
   platform_name: 'ChromiumOS',
-  browser_version: '144',
+  browser_version: 'latest',
   'sauce:options': {
     username: ENV['SAUCE_USERNAME'],
     access_key: ENV['SAUCE_ACCESS_KEY'],
@@ -164,7 +163,7 @@ driver = Selenium::WebDriver.for(
 ```csharp title="ChromiumOS Test Configuration"
 var options = new ChromeOptions();
 options.PlatformName = "ChromiumOS";
-options.BrowserVersion = "144";
+options.BrowserVersion = "latest";
 options.AddAdditionalOption("sauce:options", new Dictionary<string, object>
 {
     { "username", Environment.GetEnvironmentVariable("SAUCE_USERNAME") },
@@ -325,16 +324,3 @@ ChromiumOS supports **Sauce Connect 5 only**. Earlier Sauce Connect versions are
 compatible with ChromiumOS sessions. If you're upgrading, see the
 [Sauce Connect 5 migration guide](/secure-connections/sauce-connect-5/migrating/).
 :::
-
-## Limitations
-
-This feature is in **Beta**. The following constraints apply during the beta period:
-
-- **Limited Chrome versions** — Only Chrome 144 and 146 is supported. Additional versions will be
-  added through general availability, including monthly releases alongside Chrome browser updates.
-
-## Known Issues
-
-| Area | Description | Status |
-|---|---|---|
-| Screen Recordings | Screen recordings for ChromiumOS tests may occasionally display flickering or visual artifacts during playback. | Investigating |
