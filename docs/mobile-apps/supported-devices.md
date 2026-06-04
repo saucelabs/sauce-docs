@@ -202,6 +202,7 @@ You can find the Display Name or OS Version under **Live** > **Mobile-App** > **
 The more strict you set the capabilities, the smaller the pool of available devices will be and the longer you might need to wait for an available device.
 :::
 
+{/* KEEP IN SYNC with the matching caution block in docs/mobile-apps/automated-testing/appium/real-devices.md */}
 :::caution Real Device Cloud only: patterns are evaluated against both the Display Name and the Device ID
 This behavior applies to real devices in the Sauce Labs Real Device Cloud. It does **not** apply to Emulators or Simulators.
 

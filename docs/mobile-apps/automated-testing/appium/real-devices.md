@@ -231,7 +231,7 @@ The following sample values are presented using case for readability, but capabi
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
     <td>No</td>
-    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. The pattern is evaluated against both the device's Display Name (such as <code>iPhone SE 2022</code>) and its Device ID (such as <code>iPhone_SE_2020_18_real_sjc1</code>); a device matches if either value matches. See the caution below before writing exclusion patterns. Some examples include:</p>
+    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. The pattern is matched against both the device's Display Name and Device ID. See the caution below before writing <strong>exclusion</strong> patterns. Some examples include:</p>
     <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
     <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
     <p>Either <i>iPhone 7</i> or <i>iPhone 6</i>: <code>"appium:deviceName", "iPhone [67]"</code> or <code>"iPhone [6-7]"</code></p>
@@ -251,6 +251,7 @@ The following sample values are presented using case for readability, but capabi
   </tbody>
 </table>
 
+{/* KEEP IN SYNC with the matching caution block in docs/mobile-apps/supported-devices.md */}
 :::caution Patterns are evaluated against both the Display Name and the Device ID
 When you provide a regular expression to `deviceName`, it is matched against **both** the device's Display Name (such as `iPhone SE 2022` or `Google Pixel 10`) **and** its Device ID (such as `iPhone_SE_2020_18_real_sjc1` or `Google_Pixel_10_real_us`). A device is allocated if the pattern matches either value.
 
