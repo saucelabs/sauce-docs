@@ -14,7 +14,7 @@
 }
 
 .DocSearch-Container .DocSearch-Input {
-    color: var(--neutral-100);
+    color: var(--dark-500);
 }
 
 .DocSearch-Container .DocSearch-Hit-source {
@@ -57,7 +57,8 @@
 }
 
 .DocSearch-Container .DocSearch-Hit-title:hover,
-.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title {
+.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title,
+.DocSearch-Container .DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title {
     color: var(--dark-500);
 }
 
@@ -66,6 +67,15 @@
 }
 
 .DocSearch-Container .DocSearch-Container .DocSearch-Hit-path:hover {
+    color: var(--dark-500);
+}
+
+html[data-theme="dark"] .DocSearch-Container .DocSearch-Hit-path,
+html[data-theme="dark"] .DocSearch-Label {
+    color: var(--dark-300);
+}
+
+html[data-theme="dark"] .DocSearch-Hit[aria-selected="true"] .DocSearch-Label {
     color: var(--dark-500);
 }
 
