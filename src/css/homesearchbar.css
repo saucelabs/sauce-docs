@@ -2,7 +2,7 @@
 .DocSearch-Container .DocSearch-Form,
 .DocSearch-Container .DocSearch-Hit-source,
 .DocSearch-Container .DocSearch-Footer {
-    background: var(--dark-500);
+    background: var(--neutral-100);
 }
 
 .DocSearch-Container .DocSearch-Form {
@@ -18,7 +18,7 @@
 }
 
 .DocSearch-Container .DocSearch-Hit-source {
-    color: var(--green-200);
+    color: var(--green-500);
 }
 
 .DocSearch-Container .DocSearch-Hits mark {
@@ -31,7 +31,7 @@
     background: none;
     border-bottom: 1px solid var(--dark-300);
     box-shadow: none;
-    color: var(--neutral-100);
+    color: var(--neutral-500);
     margin-bottom: 0.5rem;
 }
 
@@ -43,7 +43,7 @@
 .DocSearch-Container .DocSearch-Hits a:hover,
 .DocSearch-Container .DocSearch-Hit[aria-selected="true"] a {
     border-bottom: 2px solid var(--yellow-500);
-    background: var(--dark-500);
+    background: var(--dark-100);
     box-shadow: none;
 }
 

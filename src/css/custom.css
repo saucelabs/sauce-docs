@@ -1136,10 +1136,17 @@ ul.dropdown__menu li a:hover {
 .scalar-app .introduction-section .section-content > div:has(> .badge) {
     display: none;
 }
+.references-classic-header-container {
+    display: none;
+}
 
 .scalar-app .section-container section.section-accordion-wrapper,
 .scalar-app div.section-container {
-    padding: 48px 0;
+    padding: 0 0 48px 0;
+}
+
+.scalar-app .section-container .section.introduction-section {
+    padding: 0;
 }
 .scalar-app section.section-accordion-wrapper {
     padding: 0 30px;
