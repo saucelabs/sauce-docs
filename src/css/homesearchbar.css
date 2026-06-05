@@ -56,7 +56,8 @@
     color: var(--dark-500);
 }
 
-.DocSearch-Container .DocSearch-Hit-title:hover {
+.DocSearch-Container .DocSearch-Hit-title:hover,
+.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title {
     color: var(--dark-500);
 }
 
