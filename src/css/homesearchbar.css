@@ -53,7 +53,7 @@
 }
 
 .DocSearch-Container .DocSearch-Hit-title {
-    color: var(--neutral-100);
+    color: var(--dark-500);
 }
 
 .DocSearch-Container .DocSearch-Hit-title:hover {
