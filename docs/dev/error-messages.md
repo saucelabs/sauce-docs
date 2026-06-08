@@ -441,15 +441,16 @@ You'll see this error when an Appium command receives a `socket hang up` or `ECO
 A `socket hang up` or `ECONNRESET` response means one of the following happened:
 
 - The Appium server lost its USB connection to the device. This is rare (under 1% of jobs).
-- The on-device agent died — UiAutomator2 (Android) or WebDriverAgent (iOS). This can be a bug in the agent, or the OS killing it for exceeding its memory or CPU limits (often triggered by an operation your test performed).
+- Most common cause: The on-device agent died — UiAutomator2 (Android) or WebDriverAgent (iOS). This can be a bug in the agent, or the OS killing it for exceeding its memory or CPU limits (often triggered by an operation your test performed). For instance we are aware of Oppo agressively killing UIAutomator2.
 - Your app crashed.
 
 **How to Resolve**
 
 - Retry the job. In most cases this error does not mean your test actually failed — it's usually a transient, hardware-related hiccup that a retry recovers from.
 - If you see this error consistently or can reproduce it, investigate further:
+  - Search the device logs about UiAutomator2 (search for 'uiautomator2') or WebDriverAgent (search for 'WebDriverAgent') being killed by the OS.
   - Check the test result page to see if the app crashed. If resigning is enabled, Sauce Labs detects crashes for you automatically.
-  - Check the verbose device logs around the time of the first command that received the `socket hang up` or `ECONNRESET` error. Search for UiAutomator2 or WebDriverAgent being killed by the OS, USB-level errors, or signs that your app crashed.
+  - Check the verbose device logs around the time of the first command that received the `socket hang up` or `ECONNRESET` error.
 - If this yields no conclusive results and the error keeps reappearing, reach out to your Sauce Labs representative with the affected job IDs so we can take a closer look.
 
 ## Web App Testing Only
