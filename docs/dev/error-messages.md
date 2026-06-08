@@ -448,7 +448,7 @@ A `socket hang up` or `ECONNRESET` response means one of the following happened:
 
 - Retry the job. In most cases this error does not mean your test actually failed — it's usually a transient, hardware-related hiccup that a retry recovers from.
 - If you see this error consistently or can reproduce it, investigate further:
-  - Search the device logs about UiAutomator2 (search for 'uiautomator2') or WebDriverAgent (search for 'WebDriverAgent') being killed by the OS.
+  - Search the device logs about UiAutomator2 (search for 'uiautomator2') or WebDriverAgent (search for 'WebDriverAgent') being killed by the OS. If this is the case, make sure you are not overloading your agent app with too many requests at a time.
   - Check the test result page to see if the app crashed. If resigning is enabled, Sauce Labs detects crashes for you automatically.
   - Check the verbose device logs around the time of the first command that received the `socket hang up` or `ECONNRESET` error.
 - If this yields no conclusive results and the error keeps reappearing, reach out to your Sauce Labs representative with the affected job IDs so we can take a closer look.
