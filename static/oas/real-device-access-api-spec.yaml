@@ -47,7 +47,7 @@ paths:
       parameters:
         - name: deviceName
           in: query
-          description: "Filter by device identifier (supports regex). Matches the descriptor ID or device name."
+          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
           required: false
           schema:
             type: string
@@ -108,7 +108,7 @@ paths:
             type: boolean
         - name: deviceName
           in: query
-          description: "Filter by device identifier (supports regex). Matches both descriptor and deviceName fields."
+          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
           schema:
             type: string
             example: "iPhone.*"
@@ -145,7 +145,7 @@ paths:
                   properties:
                     deviceName:
                       type: string
-                      description: "Device identifier (supports regex). If omitted, any device will be selected. Matches both descriptor and deviceName fields."
+                      description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches. If omitted, any device will be selected."
                       example: "iPhone_16_real"
                     os:
                       description: Filter by operating system (Android or iOS). The enum is case insensitive.
@@ -187,7 +187,7 @@ paths:
         - name: deviceName
           in: query
           required: false
-          description: "Filter by device identifier (supports regex). Matches both descriptor and deviceName fields."
+          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
           schema:
             type: string
       responses:
