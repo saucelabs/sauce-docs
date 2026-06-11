@@ -429,6 +429,30 @@ You'll see this error when Sauce Labs does not receive a new command from your A
 - Figure out if something crashed: Go to the test video and see if your app crashed. Inspect the device logs and search for your application name, to see if it crashed. Inspect the device logs to see if the WebDriver agent or UIAutomator2 crashed (search for `uiautomator2` or `WebDriverAgent`). Make sure to also search for 'Verbose' logs.
 - Consider cancelling requests on the client side, so that your Appium script does not wait for too long until sending the next command.
 
+
+### Device Connection Lost
+
+**Description**
+
+You'll see this error when an Appium command receives a `socket hang up` or `ECONNRESET` response from the Appium server. The session is unrecoverable — every subsequent command would fail the same way — so Sauce Labs ends it with an explicit error, allowing you to retry your test run.
+
+**Cause(s)**
+
+A `socket hang up` or `ECONNRESET` response means one of the following happened:
+
+- The Appium server lost its USB connection to the device. This is rare (under 1% of jobs).
+- Most common cause: The on-device agent died — UiAutomator2 (Android) or WebDriverAgent (iOS). This can be a bug in the agent, or the OS killing it for exceeding its memory or CPU limits (often triggered by an operation your test performed). For instance we are aware of Oppo agressively killing UIAutomator2.
+- Your app crashed.
+
+**How to Resolve**
+
+- Retry the job. In most cases this error does not mean your test actually failed — it's usually a transient, hardware-related hiccup that a retry recovers from.
+- If you see this error consistently or can reproduce it, investigate further:
+  - Search the device logs about UiAutomator2 (search for 'uiautomator2') or WebDriverAgent (search for 'WebDriverAgent') being killed by the OS. If this is the case, make sure you are not overloading your agent app with too many requests at a time.
+  - Check the test result page to see if the app crashed. If resigning is enabled, Sauce Labs detects crashes for you automatically.
+  - Check the verbose device logs around the time of the first command that received the `socket hang up` or `ECONNRESET` error.
+- If this yields no conclusive results and the error keeps reappearing, reach out to your Sauce Labs representative with the affected job IDs so we can take a closer look.
+
 ## Web App Testing Only
 
 ### Test Didn't See a New Command for 90 Seconds

@@ -1129,9 +1129,24 @@ ul.dropdown__menu li a:hover {
 .theme-doc-markdown section.introduction-section h1.section-header-label {
     display: none;
 }
+
+/* Hide Scalar's version badges ("vX.Y.Z" / "OpenAPI 3.0.0") in the intro.
+   Targets the badge row directly under the intro section content; the
+   Download OpenAPI Document button (and its json/yaml badges) is left intact. */
+.scalar-app .introduction-section .section-content > div:has(> .badge) {
+    display: none;
+}
+.references-classic-header-container {
+    display: none;
+}
+
 .scalar-app .section-container section.section-accordion-wrapper,
 .scalar-app div.section-container {
-    padding: 48px 0;
+    padding: 0 0 48px 0;
+}
+
+.scalar-app .section-container .section.introduction-section {
+    padding: 0;
 }
 .scalar-app section.section-accordion-wrapper {
     padding: 0 30px;

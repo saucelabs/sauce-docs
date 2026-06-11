@@ -20,7 +20,7 @@ import '@scalar/api-reference-react/style.css';
 export const ApiReference = () => {
   // useBaseUrl prefixes the site baseUrl so the spec resolves correctly under
   // PR-preview deploys (where BASE_URL is set) as well as locally/production.
-  const specUrl = useBaseUrl('/oas/real-device-access-api.yaml');
+  const specUrl = useBaseUrl('/oas/real-device-access-api-spec.yaml');
   return (
     <BrowserOnly fallback={<div>Loading API reference…</div>}>
       {() => {
@@ -40,6 +40,7 @@ export const ApiReference = () => {
               hideClientButton: true,
               hideTestRequestButton: true,
               hideSearch: true,
+              hideDarkModeToggle: true,
             }}
           />
         );

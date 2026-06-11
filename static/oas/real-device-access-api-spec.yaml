@@ -12,11 +12,11 @@ info:
     **New to this API?** Start with the [Real Device Access API Guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-introduction/) for authentication setup, integration walkthroughs, and advanced usage patterns.
 
 servers:
-  - url: https://api.us-west-1.saucelabs.com/rdc/v2/
+  - url: https://api.us-west-1.saucelabs.com/rdc/v2
     description: US West
-  - url: https://api.eu-central-1.saucelabs.com/rdc/v2/
+  - url: https://api.eu-central-1.saucelabs.com/rdc/v2
     description: EU Central
-  - url: https://api.us-east-4.saucelabs.com/rdc/v2/
+  - url: https://api.us-east-4.saucelabs.com/rdc/v2
     description: US East
 security:
   - basicAuth: []
@@ -47,7 +47,7 @@ paths:
       parameters:
         - name: deviceName
           in: query
-          description: "Filter by device identifier (supports regex). Matches the descriptor ID or device name."
+          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
           required: false
           schema:
             type: string
@@ -108,7 +108,7 @@ paths:
             type: boolean
         - name: deviceName
           in: query
-          description: "Filter by device identifier (supports regex). Matches both descriptor and deviceName fields."
+          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
           schema:
             type: string
             example: "iPhone.*"
@@ -145,7 +145,7 @@ paths:
                   properties:
                     deviceName:
                       type: string
-                      description: "Device identifier (supports regex). If omitted, any device will be selected. Matches both descriptor and deviceName fields."
+                      description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches. If omitted, any device will be selected."
                       example: "iPhone_16_real"
                     os:
                       description: Filter by operating system (Android or iOS). The enum is case insensitive.
@@ -187,7 +187,7 @@ paths:
         - name: deviceName
           in: query
           required: false
-          description: "Filter by device identifier (supports regex). Matches both descriptor and deviceName fields."
+          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
           schema:
             type: string
       responses:
