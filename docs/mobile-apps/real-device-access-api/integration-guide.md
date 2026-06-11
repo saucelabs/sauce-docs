@@ -42,7 +42,7 @@ Understanding how devices are labeled helps you target exactly what you need:
 - `descriptor`: Device identifier, you can look up device IDs on device selection pages (for example, `iPhone_13_real`).
 - `deviceName`: The human-readable name you see in the UI (for example, `iPhone 12 Pro Max`).
 
-Provide a `descriptor` (Device ID) to target a specific device, or use a regular expression matched against the `deviceName` (Display Name) to broaden the pool of matches. This holds true for every endpoint that accepts the `deviceName` parameter.
+The `deviceName` parameter accepts an exact value or regular expression and matches against both `descriptor` and `deviceName`. This holds true for every endpoint that accepts the `deviceName` parameter.
 
 > Need the full schema for these fields? See `Device` and `Session` definitions in the [Real Device Access API Reference](/real-device-access-api).
 
@@ -62,7 +62,7 @@ The `/devices/status` endpoint supports the following query parameters:
 
 - `state`: Filter by device state (`AVAILABLE`, `IN_USE`, `CLEANING`, `REBOOTING`, `MAINTENANCE`, `OFFLINE`).
 - `privateOnly`: Set to `true` to show only your account's private devices.
-- `deviceName`: Provide a `descriptor` (Device ID, for example `iPhone_13_real`) to target a specific device, or a regular expression matched against the Display Name (for example, `iPhone.*`) to broaden the pool of matches.
+- `deviceName`: Filter by descriptor or friendly name. Accepts regular expressions (for example, `iPhone.*`).
 
 #### Examples:
 ```shell
@@ -76,7 +76,7 @@ curl -u $AUTH "$BASE_URL/devices/status?state=AVAILABLE"
 curl -X GET -u $AUTH \
   "$BASE_URL/devices/status?privateOnly=true"
 
-# Filter by descriptor (target one device) or by regex against the Display Name (broaden the pool)
+# Filter by device identifier (supports regular expression patterns)
 curl -X GET -u $AUTH \
   "$BASE_URL/devices/status?deviceName=iPhone.*"
 
@@ -142,7 +142,7 @@ Filter sessions by `state` and `deviceName`.
 The `/sessions` endpoint supports:
 
 - `state`: Session lifecycle state (`PENDING`, `CREATING`, `ACTIVE`, `CLOSING`, `CLOSED`, `ERRORED`).
-- `deviceName`: Provide a `descriptor` (Device ID, for example `iPhone_16_real`) to target a specific device, or a regular expression matched against the Display Name (for example, `Samsung.*`) to broaden the pool of matches.
+- `deviceName`: Specific descriptor or regular expression (for example, `iPhone_16_real` or `Samsung.*`).
 
 ##### Examples
 ```shell
