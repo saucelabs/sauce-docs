@@ -152,7 +152,7 @@ Generate test cases from natural-language intent and manage your saved test case
 
 | Tool | Description | Example prompt | Requirements |
 | --- | --- | --- | --- |
-| `generate_test_case` | Generate a test case from a natural-language intent against a web URL or a mobile app in Sauce Storage. | "Author a test using Chrome latest on Linux that logs into saucedemo.com and adds an item to the cart." | <span className="mcp-tag">Test Authoring</span> |
+| `generate_test_case` | Generate a test case from a natural-language intent against a web URL or a mobile app in Sauce Storage. | "Generate a test case using the latest Chrome version on Linux that logs into saucedemo.com and adds an item to the cart." | <span className="mcp-tag">Test Authoring</span> |
 | `Get_test_case_generation_status` | Check the status of an asynchronous generation task and get the resulting test case ID when it completes. | "Is my test case done generating yet?" | <span className="mcp-tag">Test Authoring</span> |
 | `List_test_cases` | List and search your saved test cases, with filters for search term, date range, user, team, and suite. | "List my test cases that mention checkout." | <span className="mcp-tag">Test Authoring</span> |
 | `Get_a_test_case` | Retrieve the full details and steps of a single test case. | "Show me the steps in the login test case." | <span className="mcp-tag">Test Authoring</span> |

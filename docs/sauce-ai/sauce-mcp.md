@@ -59,14 +59,6 @@ Sauce MCP works with any MCP-compatible client, including:
 
 See [Connect your AI client](/sauce-ai/sauce-mcp-getting-started) for setup instructions.
 
-## Supported data centers
-
-Sauce MCP supports the US West, US East, and EU Central data centers. Connect to the endpoint that matches the data center where your Sauce Labs account and devices live.
-
-## Requirements
-
-The real-device session and on-device interaction tools are powered by the Real Device Access API and require **private (dedicated) devices** and **Real Device Access API concurrency** on your Sauce Labs account. See [Tools](/sauce-ai/sauce-mcp-tools#requirements) for details.
-
 ## Next steps
 
 [Connect your AI client →](/sauce-ai/sauce-mcp-getting-started)
