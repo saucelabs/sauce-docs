@@ -25,7 +25,7 @@ Natural Language Query is available in a closed beta. Contact Sauce Labs Support
 :::
 
 :::tip AI Feature
-Data protection, security, and privacy are central to this product and to Sauce Labs as a whole. Our AI capability is designed to minimize queries on your data and does not use application and user data. Only attribute names and attribute descriptions are used. User authentication remains consistent with Backtrace’ existing security model; each query respects user credentials and permission boundaries. Data processing of attribute names and descriptions is performed within secure and controlled cloud environments utilizing a compliant large language model.
+Natural Language Query is an AI feature. Data protection, security, and privacy are central to this product and to Sauce Labs as a whole. Our AI capability is designed to minimize queries on your data, and does not use application and user data. Only attribute names and attribute descriptions are used. User authentication remains consistent with Backtrace’ existing security model; each query respects user credentials and permission boundaries. Data processing of attribute names and descriptions is performed within secure and controlled cloud environments utilizing a compliant large language model.
 
 Please see our [Responsible use of AI guidelines](https://trust.saucelabs.com/resources?s=tcd1vcgj9ya80ahtrhj65&name=responsible-usage-of-ai-at-sauce-labs) in our [Trust Center](https://trust.saucelabs.com/) for more information.
 :::
