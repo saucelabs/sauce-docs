@@ -10,27 +10,15 @@ Sauce MCP is currently in beta. The available tools may change.
 
 Sauce MCP exposes Sauce Labs capabilities as MCP tools, grouped by capability area below. Each group lists its tools, what they do, an example prompt, and availability. You rarely name a tool yourself: you describe a goal in plain language, and your AI client decides which tools to call. For more prompts, see the [Prompting Guide](/sauce-ai/real-device-cloud-mcp-prompting-guide).
 
-Part of the tool set is generated from the Real Device Access API, so the exact list may evolve.
-
-The **Requirements** column shows what each tool needs. Tools tagged <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> require private (dedicated) devices and Real Device Access API concurrency. Tools tagged <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> require access to those Sauce Labs products. <span className="mcp-tag mcp-tag--muted">Standard</span> tools work with any Sauce Labs account. See [Requirements](#requirements).
-
 ## Requirements
 
 :::important
-Tools tagged <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> (creating sessions, taking screenshots, tapping, installing apps, running shell commands, capturing network traffic, and working with device files) are powered by the **Real Device Access API**. To use them, your Sauce Labs account needs:
+Some tools need entitlements beyond a standard Sauce Labs account:
 
-- **Private (dedicated) devices**
-- **Real Device Access API concurrency**
+- <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> tools (creating sessions, taking screenshots, tapping, installing apps, running shell commands, capturing network traffic, and working with device files) need **private (dedicated) devices** and **Real Device Access API concurrency**.
+- <span className="mcp-tag">Test Authoring</span> tools (generating, managing, running, and scheduling test cases and suites) need **Sauce AI for Test Authoring**, a paid add-on for Enterprise accounts. See [Sauce AI for Test Authoring](/sauce-ai/ai-authoring).
 
-Without these entitlements you can still use the tools that do not require them, but creating and interacting with real-device sessions will not work. Contact your Sauce Labs account team to enable them.
-:::
-
-:::note Organization permissions
 Beyond these entitlements, access to specific tools and capabilities can also depend on your role and permissions within your Sauce Labs organization. If a tool is missing or returns a permissions error, ask your organization administrator to review your team membership and access settings.
-:::
-
-:::note Test Authoring add-on
-Tools tagged <span className="mcp-tag">Test Authoring</span> (generating, managing, running, and scheduling test cases and suites) are powered by **Sauce AI for Test Authoring**, a paid add-on for Enterprise accounts. See [Sauce AI for Test Authoring](/sauce-ai/ai-authoring). Without it, the other tools remain available.
 :::
 
 ## Account &amp; team

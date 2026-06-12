@@ -29,17 +29,19 @@ With Sauce MCP connected, your AI agent can:
 - Configure network conditions and capture network traffic
 - Inspect jobs, builds, and test artifacts
 - Look up account, team, and tunnel information
+- Generate test cases from natural-language intent and export them as runnable source code
+- Run test cases and suites on Sauce Labs and schedule them to run on a recurring cadence
 
-See [Tools](/sauce-ai/sauce-mcp-tools) for the full breakdown of capabilities, and the [Prompting Guide](/sauce-ai/real-device-cloud-mcp-prompting-guide) for ready-to-use prompts.
+See [Tools](/sauce-ai/sauce-mcp-tools) for the full breakdown of capabilities, and the [Prompting Guide](/sauce-ai/real-device-cloud-mcp-prompting-guide) for ready-to-use prompts. Test authoring capabilities are powered by [Sauce AI for Test Authoring](/sauce-ai/ai-authoring), a paid add-on for Enterprise accounts.
 
 ## Who it's for
 
-Sauce MCP is built for both **technical and non-technical** users. If you can describe what you want to test in plain language, you can drive a real device: no Appium scripts, no dashboard navigation, and no prior automation experience required. Technical users get a faster, scriptless way to reach real hardware from the tools they already work in; non-technical users get direct access to device testing that previously required an automation engineer.
+Sauce MCP is built for both **technical and non-technical** users. If you can describe what you want in plain language, you can drive a real device and author tests: no Appium scripts, no dashboard navigation, and no prior automation experience required. Technical users get a faster, scriptless way to reach real hardware and generate test code from the tools they already work in; non-technical users get direct access to device testing and test creation that previously required an automation engineer.
 
-- **Developers** test and debug on real devices without leaving their AI assistant: install a build, reproduce an issue, pull logs, and capture network traffic in one conversation.
-- **QA engineers** automate device selection, bug reproduction, and evidence capture, so setup work happens in a prompt and they can focus on test logic.
-- **Product managers** verify shipped features and triage customer escalations on real hardware in minutes, without pulling in an engineer.
-- **Designers** review layouts across real devices, locales, dark mode, and text sizes, catching issues that simulators and mockups miss.
+- **Developers** test and debug on real devices without leaving their AI assistant, and generate runnable test code for the features they build—exporting authored test cases in the language and framework they already use.
+- **QA engineers** automate device selection, bug reproduction, and evidence capture, and author, run, and schedule test cases and suites from a prompt, so setup work disappears and they can focus on test logic.
+- **Product managers** verify shipped features and triage customer escalations on real hardware in minutes, and create tests by describing them in plain language—no engineer or code required.
+- **Designers** review layouts across real devices, locales, dark mode, and text sizes, and turn what they want to check into runnable test cases without writing code.
 - **Support and QA leads** confirm device compatibility and run quick smoke checks on demand, removing a common bottleneck.
 
 ## Supported AI clients
