@@ -38,7 +38,7 @@ Sauce Labs supports the following test configurations for Playwright:
   </tr>
     <tbody>
       <tr>
-        <td rowspan='2'>1.59.1</td>
+        <td rowspan='2'>1.60.0</td>
         <td rowspan='2'>22</td>
         <td rowspan='2'>✅</td>
         <td><b>macOS:</b> 14*, 15*</td>
