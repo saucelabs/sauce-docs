@@ -43,7 +43,7 @@ Sauce Labs supports the following test configurations for Playwright:
         <td rowspan='2'>✅</td>
         <td><b>macOS:</b> 14*, 15*</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-        <td rowspan='2'>March 25th, 2027</td>
+        <td rowspan='2'>June 15th, 2027</td>
       </tr>
       <tr>
         <td><b>Windows:</b> 10, 11</td>
