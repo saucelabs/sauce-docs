@@ -12,11 +12,11 @@ info:
     **New to this API?** Start with the [Real Device Access API Guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-introduction/) for authentication setup, integration walkthroughs, and advanced usage patterns.
 
 servers:
-  - url: https://api.us-west-1.saucelabs.com/rdc/v2/
+  - url: https://api.us-west-1.saucelabs.com/rdc/v2
     description: US West
-  - url: https://api.eu-central-1.saucelabs.com/rdc/v2/
+  - url: https://api.eu-central-1.saucelabs.com/rdc/v2
     description: EU Central
-  - url: https://api.us-east-4.saucelabs.com/rdc/v2/
+  - url: https://api.us-east-4.saucelabs.com/rdc/v2
     description: US East
 security:
   - basicAuth: []
