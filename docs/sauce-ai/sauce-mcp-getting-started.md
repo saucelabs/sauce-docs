@@ -34,10 +34,14 @@ For full details, see [Managing User Information](/basics/acct-team-mgmt/managin
 | Setting | Value |
 | --- | --- |
 | Transport | Streamable HTTP |
-| Endpoint | `https://<sauce-mcp-endpoint>` <!-- TODO: replace with the real hosted endpoint(s) per data center --> |
+| Endpoint | `https://mcp.saucelabs.com` |
 | Authentication | HTTP Basic Auth with your Sauce Labs `username` and `access key` |
 
-Authentication uses HTTP Basic Auth. The credential is your `username:access_key`, Base64-encoded, sent in an `Authorization: Basic <credentials>` header. Many clients build this header for you when you provide a username and password.
+Authentication uses HTTP Basic Auth. The credential is your `username:access_key`, Base64-encoded, sent in an `Authorization: Basic <credentials>` header. Many clients build this header for you when you provide a username and password. Tip: You can also set it as an environment variable for convenience:
+
+`export SAUCE_AUTH_TOKEN=$(echo -n "your_username:your_access_key" | base64)`
+
+
 ## Configure your client
 
 <Tabs

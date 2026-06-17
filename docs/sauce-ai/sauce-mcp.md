@@ -32,7 +32,7 @@ With Sauce MCP connected, your AI agent can:
 - Generate test cases from natural-language intent and export them as runnable source code
 - Run test cases and suites on Sauce Labs and schedule them to run on a recurring cadence
 
-See [Tools](/sauce-ai/sauce-mcp-tools) for the full breakdown of capabilities, and the [Prompting Guide](/sauce-ai/real-device-cloud-mcp-prompting-guide) for ready-to-use prompts. Test authoring capabilities are powered by [Sauce AI for Test Authoring](/sauce-ai/ai-authoring), a paid add-on for Enterprise accounts.
+See [Tools](/sauce-ai/sauce-mcp-tools) for the full breakdown of capabilities, and the [Prompting Guide](/sauce-ai/real-device-cloud-mcp-prompting-guide) for ready-to-use prompts. Test authoring capabilities are powered by [Sauce AI for Test Authoring](/sauce-ai/ai-authoring), a paid add-on for Enterprise accounts. Mobile device capabilities are currently limited only to Private Devices using Access API, a paid add-on to Real Device Cloud.
 
 ## Who it's for
 
