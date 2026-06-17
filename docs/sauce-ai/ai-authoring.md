@@ -17,8 +17,13 @@ Sauce AI for Test Authoring is an intelligent agent for testing built into the S
 
 How it works:
 1. The LLM interprets your goals based on natural language and converts them into executable test steps, which are then captured, reviewed, and translated into test code.
-2. You can then save those generated test scripts and run them at scale using low-code automation.
+2. You can then save those generated test scripts and run them at scale.
 3. The test results are visible as automated test runs on Sauce Labs.
+
+You can work with Sauce AI for Test Authoring in two ways:
+
+* **Low-code:** Use the Test Authoring UI in the Sauce Labs platform to generate, review, edit, save, organize, schedule, and run test cases without writing any code. This is the approach described throughout this guide.
+* **Programmatic:** Use the [AI Test Authoring API](/dev/api/test-authoring) to generate, manage, and run test cases, test suites, and test schedules directly from your own tooling or CI/CD pipeline. The same generation and execution capabilities available in the UI are exposed as REST endpoints (for example, generating a test case from a prompt and triggering a test case or suite run), so you can integrate AI-authored tests into automated workflows.
 
 Sauce AI for Test Authoring lives inside the Sauce Labs platform as an add-on offering where generated test scripts are stored. You can access it from its own page by clicking Test Authoring in the left navigation.
 
@@ -53,7 +58,7 @@ To create the test script, follow the steps below:
     You can select the following options here:
     * Select the specific OS and device/browser to use for test generation.
     * Set the tunnel if you are testing in gated environments.
-    * Adjust the step cut-off to limit the number of steps the test should have (maximum is 50 steps).
+    * Adjust the step cut-off to limit the number of steps the test should have (maximum is 200 steps).
 
     The platform remembers the last-used configurations for convenience. If you don't set those, then Sauce Labs will use predetermined defaults that are available for the type of app you are testing.
 
@@ -64,6 +69,10 @@ To create the test script, follow the steps below:
     <img src={useBaseUrl('/img/ai-authoring/authoring5.png')} alt="AI Authoring prompt" width="700"/>
 
     Initially, what you see is a natural language breakdown of what was done: what pages were visited, what buttons were clicked, what inputs were typed. The tool captures the input values and unique locators of the elements interacted with. When the test generation session finishes, the entire test flow is displayed for review. 
+
+:::note Known limitations when generating on Safari
+Some Test Authoring capabilities aren't fully supported on Safari. When generating on Safari, session data may not be completely cleared between restarts, and certain types of selector generation—such as selectors nested inside a shadow DOM—may not be available. For the most reliable results, we recommend generating on a Chromium-based browser such as Chrome.
+:::
 
 ## Test Case Editing and Saving
 After running a prompt, you're automatically moved into **edit mode**, where the test steps are available for review and customization. Here, the generated steps are displayed in a human-readable format, and each action is accompanied by detailed metadata: Step intent, XPath selectors, input values, step screenshots. You can adjust test parameters, or refine your existing steps by prompting for edits.
