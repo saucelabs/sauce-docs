@@ -33,7 +33,9 @@ Look up account, user, team, and region information. Useful for confirming which
 | `lookup_teams` | Search the teams in your organization. | "List the teams in my organization." | <span className="mcp-tag mcp-tag--muted">Standard</span> |
 | `get_active_region` | Report which Sauce Labs data center the server is connected to. | "Which Sauce Labs region am I connected to?" | <span className="mcp-tag mcp-tag--muted">Standard</span> |
 
-## Device discovery
+
+## Real Device Access API
+### Device discovery
 
 List devices in the Sauce Labs catalog and check their live availability before provisioning a session.
 
@@ -43,7 +45,7 @@ List devices in the Sauce Labs catalog and check their live availability before 
 | `listDeviceStatus` | Show the live status (available, in use, cleaning, offline) of devices. | "Is a Galaxy S24 free right now?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `get_specific_device` | Retrieve the full descriptor for a single device. | "Show details for the iPhone 15 Pro." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-## Real device sessions
+### Real device sessions
 
 Start, inspect, and end real-device sessions, and interact with the device directly.
 
@@ -59,7 +61,7 @@ Start, inspect, and end real-device sessions, and interact with the device direc
 | `applyDeviceSettings` | Change device settings such as orientation, locale, or animations. | "Switch the device to dark mode." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `executeShellCommand` | Run an ADB shell command on an Android device. | "Run `pm list packages` on the device." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-## App management
+### App management
 
 Install, launch, and uninstall apps from Sauce Storage on a device, and check installation status.
 
@@ -71,7 +73,7 @@ Install, launch, and uninstall apps from Sauce Storage on a device, and check in
 | `listAppInstallations` | List apps currently installed in the session. | "What apps are installed in this session?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `waitForAppInstallation` | Wait until an app finishes installing. | "Wait until the app finishes installing." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-## Device files
+### Device files
 
 Browse and manage files on the device filesystem during a session.
 
@@ -81,7 +83,7 @@ Browse and manage files on the device filesystem during a session.
 | `statFile` | Get metadata for a file on the device. | "Show the metadata for that file." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `removeFile` | Delete a file on the device. | "Delete /sdcard/Download/report.csv." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-## Network
+### Network
 
 Shape network conditions and capture traffic during a session.
 
