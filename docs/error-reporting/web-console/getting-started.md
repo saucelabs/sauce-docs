@@ -20,8 +20,8 @@ The Backtrace web console includes 4 key navigational components to help you ana
 
 ### Natural Language Query
 
-:::info Preview Beta
-Natural Language Query is available in a closed beta. Contact Sauce Labs Support for more information.
+:::info Public Beta
+Natural language query is available in a public beta for cloud customers. Admins can enable the feature from the Universe Settings, AI Features, and use the toggle to enable the new capability for the organization. This centralized location will serve as the control point for all future admin-managed AI capabilities.
 :::
 
 :::tip AI Feature
