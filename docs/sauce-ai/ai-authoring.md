@@ -134,7 +134,6 @@ You can create a test suite by clicking the **Create Test Suite** button on the 
 
 <img src={useBaseUrl('/img/ai-authoring/authoring10.png')} alt="Create test suite" width="300"/>
 
-
 Use the dedicated UI to select and group individual test cases into a single Test Suite entity. 
 
 <img src={useBaseUrl('/img/ai-authoring/authoring11.png')} alt="Create test suite" />
@@ -209,3 +208,11 @@ A dedicated space on the UI allows you to manage all active schedules.
 All test executions triggered from Test Authoring are bundled under a named automated build on Sauce Labs, allowing for better tracking through the Insights dashboard.
 
 Each device configuration that you add to your test case creates a separate automated test session. Once a test case is executed, the test results are aggregated under the **Automated Test Results and Builds** page. Test results comprise the standard Sauce Labs test artifacts such as screenshots, logs, video replays, and metadata.
+
+On the Test Details page, results generated from an authored test case display an Authored Test Case button in the toolbar that opens the source test case directly. The details are also captured under the test's Metadata tab, which includes:
+
+- `aiAuthoring_testCaseId` — the unique identifier of the authored test case
+- `name` — the authored test case name (e.g., New vt test case login)
+- `build` - the test automation build that the test run was part of
+
+<img src={useBaseUrl('/img/ai-authoring/authoring-link.png')} alt="Schedule setup" />
