@@ -13,7 +13,7 @@ This page walks you through running AltTester-driven C# tests against a **Unity*
 
 - An active [Sauce Labs](https://saucelabs.com/) account.
 - A Unity project (Unity 2021 LTS or later recommended; check the [AltTester® SDK documentation](https://alttester.com/docs/sdk/latest/home.html) for the exact supported range).
-- **AltTester Unity SDK 2.3 or later** — install via Unity Package Manager from the [AltTester releases page](https://github.com/alttester/AltTester-Unity-SDK/releases).
+- **AltTester Unity SDK 2.3 or later** — download the `.unitypackage` from the [AltTester® website](https://alttester.com/downloads/), or install via OpenUPM (https://openupm.com/packages/com.alttester.sdk/). See the [Get Started guide](https://alttester.com/docs/sdk/latest/pages/get-started.html) for full instructions.
 - **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver).
 - **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
 - **AltTester Desktop**, installed locally or on a VM.
