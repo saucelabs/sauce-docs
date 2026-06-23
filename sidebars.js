@@ -371,19 +371,22 @@ module.exports = {
             label: 'API Reference',
             collapsed: true,
             items: [
-                'dev/api',
-                'dev/api/accounts',
-                'dev/api/error-reporting',
-                'dev/api/jobs',
-                'dev/api/builds',
-                'dev/api/connect',
-                'dev/api/insights',
-                'dev/api/authoring',
-                'dev/api/usage',
-                'dev/api/performance',
-                'dev/api/platform',
-                'dev/api/rdc',
-                'dev/api/storage',
+                // Getting Started pinned first; the rest are sorted
+                // alphabetically by their sidebar label.
+                'dev/api', // Getting Started
+                'dev/api/accounts', // Accounts
+                'dev/api/builds', // Builds
+                'dev/api/error-reporting', // Error Reporting
+                'dev/api/insights', // Insights
+                'dev/api/jobs', // Jobs
+                'dev/api/performance', // Performance
+                'dev/api/platform', // Platform
+                'dev/api/rdc', // Real Devices
+                'dev/api/real-device-access', // Real Device Access API
+                'dev/api/connect', // Sauce Connect
+                'dev/api/storage', // Storage
+                'dev/api/test-authoring', // Test Authoring
+                'dev/api/usage', // Usage Analytics
             ],
         },
         {
