@@ -21,8 +21,8 @@ This page walks you through running AltTester-driven C# tests against an **Unrea
 
 ## Instrument Your Unreal Build
 
-1. Download the AltTester Unreal SDK from AltTester (see the [References](#references) section below).
-2. Place the plugin under `<YourProject>/Plugins/AltTester/` in your Unreal project directory.
+1. Download the AltTester Unreal SDK from the [AltTester® website](https://alttester.com/downloads/)
+2. Set up the AltTester® Unreal SDK in your project following the [AltTester® documentation](https://alttester.com/docs/unreal-sdk/latest/pages/get-started.html#set-up-the-alttester-unreal-sdk-in-your-project)
 3. Open the project in Unreal Editor. The editor regenerates project files and prompts to rebuild any missing modules — accept the rebuild.
 4. In **Edit → Plugins**, confirm the AltTester plugin is listed and enabled. Restart the editor if prompted.
 5. Configure the AltTester connection settings:
