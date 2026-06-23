@@ -7,7 +7,7 @@ hide_table_of_contents: true
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[AltTester](https://alttester.com/) is an open-source UI test automation tool for **game engines**. It instruments your build with a small SDK that exposes the in-game scene graph to C# tests over WebSocket, so tests can find GameObjects (Unity) or actors and widgets (Unreal) by name and drive real input on them. Sauce Labs supports AltTester for both Unity and Unreal Engine on real iOS and Android devices.
+[AltTester](https://alttester.com/) is an open-source test automation framework for Unity and Unreal Engine games. It instruments your build so that automated tests can inspect the live scene graph, simulate user input, and assert on game state in real time. Tests communicate with the instrumented build over WebSocket and can be written in C#, Java, Python or Robot Framework. Sauce Labs supports AltTester for both Unity and Unreal Engine on real iOS and Android devices.
 
 ## How It Works with Sauce Labs
 
