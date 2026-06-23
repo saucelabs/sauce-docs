@@ -50,6 +50,7 @@ The Action Toolbar provides quick access to accessibility navigation actions. It
 |--------|--------|
 | **X** | Disable the Accessibility Inspector |
 | **Home** | Go to the home screen |
+| **App Switcher** | Open the app switcher (Face ID devices only) |
 | **Tap** | Tap the currently focused element |
 | **Up** | Jump to the first element on the screen |
 | **Down** | Jump to the last element on the screen |
@@ -73,6 +74,7 @@ Navigate between accessible elements using keyboard shortcuts:
 | **Down Arrow** | **Down Arrow** | Jump to the last element on the screen |
 | **Enter** | **Enter** | Tap the currently focused element |
 | **Ctrl + Shift + A** | **Ctrl + Shift + A** | Toggle Accessibility Inspector on/off |
+| **Ctrl + Shift + S** | **Ctrl + Shift + S** | Open app switcher (Face ID devices only) |
 | **Option + M** | **Alt + M** | Mute/unmute audio feedback |
 | **Option + H** | **Alt + H** | Navigate to Home screen |
 
@@ -132,6 +134,10 @@ When the screen changes (e.g., after tapping into a new page), the inspector:
 - **Stale focus after screen change.** After a screen transition, the focus rectangle may briefly remain on elements from the previous screen. You may need to navigate past stale elements for the inspector to synchronize with the new screen.
 - **Strange rectangles during navigation.** Occasionally, unexpected focus rectangles may appear during navigation. Press **Up Arrow** to jump to the first element and start navigating again.
 - **Initial focus may not land on the first element.** After enabling the inspector, the focus should land on the first element. In some cases this does not work. Press **Right Arrow** a few times, then **Up Arrow** to reset focus to the first element.
+
+### App Switcher
+
+- **Face ID devices only.** The app switcher gesture (swipe up and hold) is only supported on Face ID devices (iPhone X and later). Home button devices (iPhone 8, iPhone SE 1st–3rd gen) are not supported because the app switcher requires a physical double home press which cannot be simulated.
 
 ### Tap Behavior
 
