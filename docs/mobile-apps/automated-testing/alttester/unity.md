@@ -143,7 +143,7 @@ If you are using a public VM instead of Sauce Connect, set `host` to the VM's re
 
 ```csharp
 using NUnit.Framework;
-using AltTester.AltTesterUnitySDK.Driver;
+using AltTester.AltTesterSDK.Driver;
 
 [TestFixture]
 public class GameSmokeTest
