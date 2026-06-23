@@ -16,7 +16,7 @@ This page walks you through running AltTester-driven C# tests against an **Unrea
 - **AltTester Unreal SDK 1.1 or later** — download the AltTester® Plugin from the [AltTester® website](https://alttester.com/downloads/). See the [Get Started guide](https://alttester.com/docs/unreal-sdk/latest/pages/get-started.html) for full instructions..
 - **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver).
 - **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
-- **AltTester Desktop**, installed locally or on a VM.
+- **AltTester Desktop**, installed locally or on a VM. Can be downloaded from the [AltTester® website](https://alttester.com/downloads/).
 - **Sauce Connect Proxy** client (recommended path; WebSocket over the tunnel is supported).
 
 ## Instrument Your Unreal Build
