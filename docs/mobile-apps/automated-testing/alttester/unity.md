@@ -127,7 +127,7 @@ Starting with `appium3-2026-01`, iOS sessions on Sauce Labs real devices use the
 After the Appium session starts and the game has launched, connect the AltTester C# driver:
 
 ```csharp
-using AltTester.AltTesterUnitySDK.Driver;
+using AltTester.AltTesterSDK.Driver;
 
 // After driver = new AndroidDriver(...) or new IOSDriver(...)
 // and after waiting for the game's initial loading screen to finish:
