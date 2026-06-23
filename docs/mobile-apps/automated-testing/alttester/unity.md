@@ -1,42 +1,34 @@
 ---
 id: unity
-title: AltTester for Unity
+title: AltTester® for Unity
 sidebar_label: Unity
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page walks you through running AltTester-driven C# tests against a **Unity** game on Sauce Labs real devices. For background on what AltTester is and how it talks to Sauce, see the [AltTester overview](/mobile-apps/automated-testing/alttester).
+This page walks you through running AltTester-driven C# tests against a **Unity** game on Sauce Labs real devices. For background on what AltTester® is and how it talks to Sauce, see the [AltTester® overview](/mobile-apps/automated-testing/alttester).
 
 ## Prerequisites
 
 - An active [Sauce Labs](https://saucelabs.com/) account.
 - A Unity project (Unity 2021 LTS or later recommended; check the [AltTester® SDK documentation](https://alttester.com/docs/sdk/latest/home.html) for the exact supported range).
-- **AltTester Unity SDK 2.3 or later** — download the `.unitypackage` from the [AltTester® website](https://alttester.com/downloads/), or install via OpenUPM (https://openupm.com/packages/com.alttester.sdk/). See the [Get Started guide](https://alttester.com/docs/sdk/latest/pages/get-started.html) for full instructions.
+- **AltTester® Unity SDK 2.3 or later** — download the `.unitypackage` from the [AltTester® website](https://alttester.com/downloads/), or install via OpenUPM (https://openupm.com/packages/com.alttester.sdk/). See the [Get Started guide](https://alttester.com/docs/sdk/latest/pages/get-started.html) for full instructions.
 - **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver).
 - **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
-- **AltTester Desktop**, installed locally or on a VM. Can be downloaded from the [AltTester® website](https://alttester.com/downloads/).
+- **AltTester® Desktop**, installed locally or on a VM. Can be downloaded from the [AltTester® website](https://alttester.com/downloads/).
 - **Sauce Connect Proxy** client (recommended path; WebSocket over the tunnel is supported).
 
 ## Instrument Your Unity Build
 
-1. In your Unity project, open **Window → Package Manager**.
-2. Add the AltTester Unity SDK from a Git URL or local package — see the [AltTester documentation](https://alttester.com/docs/) for the current install method.
-3. Open the **AltTester Editor** window (top menu: `AltTester` → `AltTester Editor`).
-4. Configure the connection settings:
-   - **Sauce Connect path (recommended):** leave the AltTester host IP at its default. Your tests will connect via the Sauce Connect tunnel.
-   - **Public VM path:** enter the VM's reachable IP address.
-5. In **Player Settings**, ensure the **Internet Access** permission is enabled (Android) or the appropriate network entitlement is set (iOS).
-6. Build the player for your target platform (Android `.apk` or iOS `.ipa`).
 1. Import the AltTester® Unity SDK into your Unity project by simply drag and drop the `.unitypackage`. Alternatively, install via OpenUPM (https://openupm.com/packages/com.alttester.sdk/). See the [Import AltTester® package in Unity Editor](https://alttester.com/docs/sdk/latest/pages/get-started.html#import-alttester-package-in-unity-editor) guide for full instructions.
-2. Open the **AltTester Editor** window (top menu: `AltTester` → `AltTester Editor`).
+2. Open the **AltTester® Editor** window (top menu: `AltTester®` → `AltTester® Editor`).
 3. Configure the connection settings:
-   - **Sauce Connect path (recommended):** leave the AltTester host IP at its default. Your tests will connect via the Sauce Connect tunnel.
+   - **Sauce Connect path (recommended):** leave the AltTester® host IP at its default. Your tests will connect via the Sauce Connect tunnel.
    - **Public VM path:** enter the VM's reachable IP address.
 4. In **Player Settings**, ensure the **Internet Access** permission is enabled (Android) or the appropriate network entitlement is set (iOS).
 5. Build the player for your target platform (Android `.apk` or iOS `.ipa`).
-6. Smoke-test the instrumented build locally by launching it on a USB-connected device or simulator and connecting AltTester Desktop. Confirm the scene graph appears in the desktop client.
+6. Smoke-test the instrumented build locally by launching it on a USB-connected device or simulator and connecting AltTester® Desktop. Confirm the scene graph appears in the desktop client.
 
 ## Upload the Build to Sauce Labs
 
@@ -79,7 +71,7 @@ options.AddAdditionalAppiumOption("appium:automationName", "UiAutomator2");
 options.AddAdditionalAppiumOption("sauce:options", new Dictionary<string, object> {
     { "appiumVersion", "stable" },
     { "build", "my-game-build-001" },
-    { "name", "AltTester Unity sample test" },
+    { "name", "AltTester® Unity sample test" },
     { "tunnelName", "<your-sauce-connect-tunnel-name>" },
 });
 
@@ -100,7 +92,7 @@ options.AddAdditionalAppiumOption("appium:automationName", "XCUITest");
 options.AddAdditionalAppiumOption("sauce:options", new Dictionary<string, object> {
     { "appiumVersion", "stable" },
     { "build", "my-game-build-001" },
-    { "name", "AltTester Unity sample test" },
+    { "name", "AltTester® Unity sample test" },
     { "tunnelName", "<your-sauce-connect-tunnel-name>" },
 });
 
@@ -122,9 +114,9 @@ The remote URL above points to the EU-Central-1 data center. For other regions, 
 Starting with `appium3-2026-01`, iOS sessions on Sauce Labs real devices use the official Appium WebDriverAgent instead of the Sauce Labs fork (SauceWebDriverAgent). Setting `sauce:options.appiumVersion` to `stable` will pick up this image once it becomes the default. Some XCUITest endpoints may behave differently — see [Appium Testing with Real Devices](/mobile-apps/automated-testing/appium/real-devices) for details.
 :::
 
-## Connect the AltTester Driver
+## Connect the AltTester® Driver
 
-After the Appium session starts and the game has launched, connect the AltTester C# driver:
+After the Appium session starts and the game has launched, connect the AltTester® C# driver:
 
 ```csharp
 using AltTester.AltTesterSDK.Driver;
@@ -137,7 +129,7 @@ var altDriver = new AltDriver(
 );
 ```
 
-If you are using a public VM instead of Sauce Connect, set `host` to the VM's reachable IP address — matching what you configured in the AltTester Editor window.
+If you are using a public VM instead of Sauce Connect, set `host` to the VM's reachable IP address — matching what you configured in the AltTester® Editor window.
 
 ## Sample Test
 
@@ -189,13 +181,13 @@ Open the [Sauce Labs dashboard](https://app.saucelabs.com/) and find your job un
 
 ## Troubleshooting
 
-- **Port or tunnel mismatch:** the AltTester host/port configured in the Unity Editor window must match what your test's `AltDriver(...)` call passes. With Sauce Connect, both ends use `127.0.0.1:13000` by default.
-- **SDK version mismatch:** the AltTester Unity SDK version in the build and the AltTester-Driver NuGet version in your test project must be compatible. The "Verified with" callout above lists a known-good combination.
-- **Build not instrumented:** if `AltDriver` cannot connect, confirm the AltTester GameObject was added to a scene loaded at app start, and that the build was made with the AltTester package present.
+- **Port or tunnel mismatch:** the AltTester® host/port configured in the Unity Editor window must match what your test's `AltDriver(...)` call passes. With Sauce Connect, both ends use `127.0.0.1:13000` by default.
+- **SDK version mismatch:** the AltTester® Unity SDK version in the build and the AltTester-Driver NuGet version in your test project must be compatible. The "Verified with" callout above lists a known-good combination.
+- **Build not instrumented:** if `AltDriver` cannot connect, confirm the AltTester® GameObject was added to a scene loaded at app start, and that the build was made with the AltTester® package present.
 - **Wrong data center:** the `sauceUrl` and the data center where your account lives must match. Check the upper-right corner of the Sauce Labs dashboard for your account's region.
 - **iOS XCUITest behavior differences:** on `appium3-2026-01` and later, the official Appium WebDriverAgent is used. Some endpoints — for example `getWindowRect` — may behave differently than on older images that used SauceWebDriverAgent. If you see new failures after switching Appium images, check the [Appium real-devices page](/mobile-apps/automated-testing/appium/real-devices#webdriveragent-for-ios-real-devices) for details.
 
 ## See Also
 
-- [AltTester overview](/mobile-apps/automated-testing/alttester) — architecture diagram and common prerequisites shared with Unreal.
-- [AltTester for Unreal Engine](/mobile-apps/automated-testing/alttester/unreal) — the parallel walkthrough for Unreal builds.
+- [AltTester® overview](/mobile-apps/automated-testing/alttester) — architecture diagram and common prerequisites shared with Unreal.
+- [AltTester® for Unreal Engine](/mobile-apps/automated-testing/alttester/unreal) — the parallel walkthrough for Unreal builds.

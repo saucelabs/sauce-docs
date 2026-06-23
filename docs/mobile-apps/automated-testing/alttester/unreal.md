@@ -1,36 +1,36 @@
 ---
 id: unreal
-title: AltTester for Unreal Engine
+title: AltTester® for Unreal Engine
 sidebar_label: Unreal Engine
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page walks you through running AltTester-driven C# tests against an **Unreal Engine** game on Sauce Labs real devices. For background on what AltTester is and how it talks to Sauce, see the [AltTester overview](/mobile-apps/automated-testing/alttester).
+This page walks you through running AltTester-driven C# tests against an **Unreal Engine** game on Sauce Labs real devices. For background on what AltTester® is and how it talks to Sauce, see the [AltTester® overview](/mobile-apps/automated-testing/alttester).
 
 ## Prerequisites
 
 - An active [Sauce Labs](https://saucelabs.com/) account.
 - An Unreal Engine project that you can build for Android or iOS.
-- **AltTester Unreal SDK 1.1 or later** — download the AltTester® Plugin from the [AltTester® website](https://alttester.com/downloads/). See the [Get Started guide](https://alttester.com/docs/unreal-sdk/latest/pages/get-started.html) for full instructions..
+- **AltTester® Unreal SDK 1.1 or later** — download the AltTester® Plugin from the [AltTester® website](https://alttester.com/downloads/). See the [Get Started guide](https://alttester.com/docs/unreal-sdk/latest/pages/get-started.html) for full instructions..
 - **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver).
 - **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
-- **AltTester Desktop**, installed locally or on a VM. Can be downloaded from the [AltTester® website](https://alttester.com/downloads/).
+- **AltTester® Desktop**, installed locally or on a VM. Can be downloaded from the [AltTester® website](https://alttester.com/downloads/).
 - **Sauce Connect Proxy** client (recommended path; WebSocket over the tunnel is supported).
 
 ## Instrument Your Unreal Build
 
-1. Download the AltTester Unreal SDK from the [AltTester® website](https://alttester.com/downloads/)
+1. Download the AltTester® Unreal SDK from the [AltTester® website](https://alttester.com/downloads/)
 2. Set up the AltTester® Unreal SDK in your project following the [AltTester® documentation](https://alttester.com/docs/unreal-sdk/latest/pages/get-started.html#set-up-the-alttester-unreal-sdk-in-your-project)
 3. Open the project in Unreal Editor. The editor regenerates project files and prompts to rebuild any missing modules — accept the rebuild.
-4. In **Edit → Plugins**, confirm the AltTester plugin is listed and enabled. Restart the editor if prompted.
-5. Configure the AltTester connection settings:
-   - **Sauce Connect path (recommended):** leave the AltTester host IP at its default. Your tests will connect via the Sauce Connect tunnel.
+4. In **Edit → Plugins**, confirm the AltTester® plugin is listed and enabled. Restart the editor if prompted.
+5. Configure the AltTester® connection settings:
+   - **Sauce Connect path (recommended):** leave the AltTester® host IP at its default. Your tests will connect via the Sauce Connect tunnel.
    - **Public VM path:** enter the VM's reachable IP address.
 6. In **Project Settings → Platforms**, ensure the appropriate network permissions are configured for your target platform (Android: `INTERNET` permission; iOS: appropriate network entitlement).
 7. **Package** the project for your target platform (Android `.apk` or iOS `.ipa`) via **File → Package Project**.
-8. Smoke-test the instrumented build locally by launching it on a USB-connected device and connecting AltTester Desktop. Confirm the widget tree and actors appear in the desktop client.
+8. Smoke-test the instrumented build locally by launching it on a USB-connected device and connecting AltTester® Desktop. Confirm the widget tree and actors appear in the desktop client.
 
 ## Upload the Build to Sauce Labs
 
@@ -75,7 +75,7 @@ options.AddAdditionalAppiumOption("appium:automationName", "UiAutomator2");
 options.AddAdditionalAppiumOption("sauce:options", new Dictionary<string, object> {
     { "appiumVersion", "stable" },
     { "build", "my-game-build-001" },
-    { "name", "AltTester Unreal sample test" },
+    { "name", "AltTester® Unreal sample test" },
     { "tunnelName", "<your-sauce-connect-tunnel-name>" },
 });
 
@@ -96,7 +96,7 @@ options.AddAdditionalAppiumOption("appium:automationName", "XCUITest");
 options.AddAdditionalAppiumOption("sauce:options", new Dictionary<string, object> {
     { "appiumVersion", "stable" },
     { "build", "my-game-build-001" },
-    { "name", "AltTester Unreal sample test" },
+    { "name", "AltTester® Unreal sample test" },
     { "tunnelName", "<your-sauce-connect-tunnel-name>" },
 });
 
@@ -118,9 +118,9 @@ The remote URL above points to the EU-Central-1 data center. For other regions, 
 Starting with `appium3-2026-01`, iOS sessions on Sauce Labs real devices use the official Appium WebDriverAgent instead of the Sauce Labs fork (SauceWebDriverAgent). Setting `sauce:options.appiumVersion` to `stable` will pick up this image once it becomes the default. Some XCUITest endpoints may behave differently — see [Appium Testing with Real Devices](/mobile-apps/automated-testing/appium/real-devices) for details.
 :::
 
-## Connect the AltTester Driver
+## Connect the AltTester® Driver
 
-After the Appium session starts and the game has launched, connect the AltTester C# driver. Note the namespace difference from the Unity walkthrough:
+After the Appium session starts and the game has launched, connect the AltTester® C# driver. Note the namespace difference from the Unity walkthrough:
 
 ```csharp
 using AltTester.AltTesterSDK.Driver;
@@ -135,7 +135,7 @@ var altDriver = new AltDriver(
 
 The same `AltDriver` class is used for both engines, but the Unreal SDK exposes it under `AltTester.AltTesterSDK.Driver` rather than the Unity namespace.
 
-If you are using a public VM instead of Sauce Connect, set `host` to the VM's reachable IP address — matching what you configured in the Unreal project's AltTester settings.
+If you are using a public VM instead of Sauce Connect, set `host` to the VM's reachable IP address — matching what you configured in the Unreal project's AltTester® settings.
 
 ## Sample Test
 
@@ -180,7 +180,7 @@ public class GameSmokeTest
 }
 ```
 
-For more complex locator patterns — finding widgets by path, by displayed text, or by Blueprint class — see AltTester's [Unreal example tests](https://github.com/alttester/Unreal-LyraStarterGame-Tests) for current syntax.
+For more complex locator patterns — finding widgets by path, by displayed text, or by Blueprint class — see AltTester®'s [Unreal example tests](https://github.com/alttester/Unreal-LyraStarterGame-Tests) for current syntax.
 
 ## Run It
 
@@ -196,21 +196,21 @@ Open the [Sauce Labs dashboard](https://app.saucelabs.com/) and find your job un
 
 ## Troubleshooting
 
-- **Port or tunnel mismatch:** the AltTester host/port configured in your Unreal project must match what your test's `AltDriver(...)` call passes. With Sauce Connect, both ends use `127.0.0.1:13000` by default.
-- **Plugin not loaded:** if `AltDriver` cannot connect, confirm the AltTester plugin is enabled in **Edit → Plugins** and that the packaged build includes the plugin (some Unreal packaging options strip optional modules — check **Project Settings → Packaging**).
-- **Locators not finding widgets:** Unreal UMG widget Blueprints often produce class names with a `_C` suffix at runtime (`W_StartGameButton_C` rather than `W_StartGameButton`). Use `By.PATH` with `contains()` when in doubt, or inspect the live widget tree in AltTester Desktop to see the exact names.
+- **Port or tunnel mismatch:** the AltTester® host/port configured in your Unreal project must match what your test's `AltDriver(...)` call passes. With Sauce Connect, both ends use `127.0.0.1:13000` by default.
+- **Plugin not loaded:** if `AltDriver` cannot connect, confirm the AltTester® plugin is enabled in **Edit → Plugins** and that the packaged build includes the plugin (some Unreal packaging options strip optional modules — check **Project Settings → Packaging**).
+- **Locators not finding widgets:** Unreal UMG widget Blueprints often produce class names with a `_C` suffix at runtime (`W_StartGameButton_C` rather than `W_StartGameButton`). Use `By.PATH` with `contains()` when in doubt, or inspect the live widget tree in AltTester® Desktop to see the exact names.
 - **Wrong data center:** the `sauceUrl` and the data center where your account lives must match. Check the upper-right corner of the Sauce Labs dashboard for your account's region.
 - **iOS XCUITest behavior differences:** on `appium3-2026-01` and later, the official Appium WebDriverAgent is used. Some endpoints may behave differently than on older images that used SauceWebDriverAgent. See [Appium real-devices](/mobile-apps/automated-testing/appium/real-devices#webdriveragent-for-ios-real-devices) for details.
 
 ## References
 
-- [AltTester for Unreal Engine](https://alttester.com/alttester-unreal/) — AltTester product page for Unreal.
-- [AltTester documentation](https://alttester.com/docs/) — full SDK and driver reference.
-- [Unreal-LyraStarterGame-Tests](https://github.com/alttester/Unreal-LyraStarterGame-Tests) — AltTester's public C# test project against the Lyra Starter Game, useful as a copy-from-and-adapt example.
-- [Unreal-LyraStarterGame](https://github.com/alttester/Unreal-LyraStarterGame) — the example Unreal project with the AltTester plugin pre-installed.
+- [AltTester® for Unreal Engine](https://alttester.com/alttester-unreal/) — AltTester® product page for Unreal.
+- [AltTester® documentation](https://alttester.com/docs/) — full SDK and driver reference.
+- [Unreal-LyraStarterGame-Tests](https://github.com/alttester/Unreal-LyraStarterGame-Tests) — AltTester®'s public C# test project against the Lyra Starter Game, useful as a copy-from-and-adapt example.
+- [Unreal-LyraStarterGame](https://github.com/alttester/Unreal-LyraStarterGame) — the example Unreal project with the AltTester® plugin pre-installed.
 - [AltTester-Driver on NuGet](https://www.nuget.org/packages/AltTester-Driver) — current .NET driver versions (works for both engines).
 
 ## See Also
 
-- [AltTester overview](/mobile-apps/automated-testing/alttester) — architecture diagram and common prerequisites shared with Unity.
-- [AltTester for Unity](/mobile-apps/automated-testing/alttester/unity) — the parallel walkthrough for Unity builds.
+- [AltTester® overview](/mobile-apps/automated-testing/alttester) — architecture diagram and common prerequisites shared with Unity.
+- [AltTester® for Unity](/mobile-apps/automated-testing/alttester/unity) — the parallel walkthrough for Unity builds.
