@@ -22,7 +22,7 @@ ADB can already be used during live testing.
 :::
 
 :::info Automating a Unity or Unreal Engine game?
-See [AltTester](/mobile-apps/automated-testing/alttester) for the C#-based path that sees inside Unity and Unreal Engine scene graphs.
+See [AltTester®](/mobile-apps/automated-testing/alttester) for the C#-based path that sees inside Unity and Unreal Engine scene graphs.
 :::
 
 ## What You'll Need

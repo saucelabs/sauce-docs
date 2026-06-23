@@ -1021,7 +1021,7 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'AltTester',
+                            label: 'AltTester®',
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/alttester',
