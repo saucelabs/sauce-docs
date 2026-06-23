@@ -17,6 +17,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 |  AltTester-Driver | <----> |  Desktop or       | <----> |  on Sauce real       |
 |  Appium.WebDriver |  HTTP  |  Sauce Connect    |        |  device (Appium)     |
 +-------------------+        +-------------------+        +----------------------+
+|                      |  WS / WSS    |  AltTester        |  WS / WSS    |  Instrumented game   |
+|  AltTester-Driver | <----> |  Desktop or       | <----> |  on Sauce real       |
+|  Appium.WebDriver |  HTTP |  Sauce Connect    |        |  device (Appium)     |
++-------------------+        +-------------------+        +----------------------+
 ```
 
 1. You instrument your Unity or Unreal build with the AltTester SDK and produce a `.apk` or `.ipa`.
