@@ -29,7 +29,14 @@ This page walks you through running AltTester-driven C# tests against a **Unity*
    - **Public VM path:** enter the VM's reachable IP address.
 5. In **Player Settings**, ensure the **Internet Access** permission is enabled (Android) or the appropriate network entitlement is set (iOS).
 6. Build the player for your target platform (Android `.apk` or iOS `.ipa`).
-7. Smoke-test the instrumented build locally by launching it on a USB-connected device or simulator and connecting AltTester Desktop. Confirm the scene graph appears in the desktop client.
+1. Import the AltTester® Unity SDK into your Unity project by simply drag and drop the `.unitypackage`. Alternatively, install via OpenUPM (https://openupm.com/packages/com.alttester.sdk/). See the [Import AltTester® package in Unity Editor](https://alttester.com/docs/sdk/latest/pages/get-started.html#import-alttester-package-in-unity-editor) guide for full instructions.
+2. Open the **AltTester Editor** window (top menu: `AltTester` → `AltTester Editor`).
+3. Configure the connection settings:
+   - **Sauce Connect path (recommended):** leave the AltTester host IP at its default. Your tests will connect via the Sauce Connect tunnel.
+   - **Public VM path:** enter the VM's reachable IP address.
+4. In **Player Settings**, ensure the **Internet Access** permission is enabled (Android) or the appropriate network entitlement is set (iOS).
+5. Build the player for your target platform (Android `.apk` or iOS `.ipa`).
+6. Smoke-test the instrumented build locally by launching it on a USB-connected device or simulator and connecting AltTester Desktop. Confirm the scene graph appears in the desktop client.
 
 ## Upload the Build to Sauce Labs
 
