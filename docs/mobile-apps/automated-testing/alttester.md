@@ -21,7 +21,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 1. You instrument your Unity or Unreal build with the AltTester® SDK and produce a `.apk` or `.ipa`.
 2. You upload that build to **Sauce App Storage**.
 3. Your C# test starts an **Appium** session on a Sauce real device, which installs and launches the game.
-4. Once the game is running, your test connects to the **AltTester® C# driver**, which talks to the in-game SDK over WebSocket (tunneled through Sauce Connect Proxy or a public VM).
+4. Once the game is running, your test connects to the **AltTester® Driver**, which talks to the in-game SDK over WebSocket (tunneled through Sauce Connect Proxy or a public VM).
 5. Your test queries in-game objects, simulates input, and asserts on game state.
 
 The architecture above is identical for Unity and Unreal — the difference is in the SDK you install and the way you express locators against the engine's scene graph.
