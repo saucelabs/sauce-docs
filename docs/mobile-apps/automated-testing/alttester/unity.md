@@ -189,5 +189,6 @@ Open the [Sauce Labs dashboard](https://app.saucelabs.com/) and find your job un
 
 ## See Also
 
+- See the [AltTester® Sauce Labs integration guide](https://alttester.com/docs/sdk/latest/pages/alttester-with-cloud.html#saucelabs) for the full walkthrough including Sauce Connect setup and the complete `BaseTest.cs` example.
 - [AltTester® overview](/mobile-apps/automated-testing/alttester) — architecture diagram and common prerequisites shared with Unreal.
 - [AltTester® for Unreal Engine](/mobile-apps/automated-testing/alttester/unreal) — the parallel walkthrough for Unreal builds.
