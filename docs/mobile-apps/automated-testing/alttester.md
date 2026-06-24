@@ -31,13 +31,13 @@ The architecture above is identical for Unity and Unreal — the difference is i
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-    <a href="/mobile-apps/automated-testing/alttester/unity"><h3>AltTester® for Unity</h3></a>
+    <a href={useBaseUrl('/mobile-apps/automated-testing/alttester/unity')}><h3>AltTester® for Unity</h3></a>
     <p>Instrument a Unity build with the AltTester® Unity SDK and run C# tests against it on Sauce Labs real devices. End-to-end walkthrough.</p>
     </div>
   </div>
   <div className="box box2 card">
     <div className="container">
-    <a href="/mobile-apps/automated-testing/alttester/unreal"><h3>AltTester® for Unreal Engine</h3></a>
+    <a href={useBaseUrl('/mobile-apps/automated-testing/alttester/unreal')}><h3>AltTester® for Unreal Engine</h3></a>
     <p>Instrument an Unreal Engine build with the AltTester® Unreal plugin and run C# tests against it on Sauce Labs real devices.</p>
     </div>
   </div>
