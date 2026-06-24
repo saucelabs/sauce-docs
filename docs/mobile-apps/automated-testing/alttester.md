@@ -12,11 +12,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## How It Works with Sauce Labs
 
 ```text
-+-------------------+              +-------------------+              +----------------------+
-|  AltTester®          |  WS / WSS    |  AltTester®       |  WS / WSS    |  Instrumented game   |
-|  Driver and          | <----------> |  Desktop or       | <----------> |  on Sauce real       |
-|  Appium.WebDriver |    HTTP      |  Sauce Connect    |              |  device (Appium)     |
-+-------------------+              +-------------------+              +----------------------+
++--------------------------+              +--------------------+              +----------------------+
+|  C# test (NUnit)         |              |                    |              |                      |
+|  AltTester® Driver       |  WS / WSS    |  AltTester®        |  WS / WSS    |  Instrumented game   |
+|  Appium.WebDriver        | <----------> |  Desktop or        | <----------> |  on Sauce real       |
+|                          |    HTTP      |  Sauce Connect     |              |  device (Appium)     |
++--------------------------+              +--------------------+              +----------------------+
+```
 
 1. You instrument your Unity or Unreal build with the AltTester® SDK and produce a `.apk` or `.ipa`.
 2. You upload that build to **Sauce App Storage**.
