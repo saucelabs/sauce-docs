@@ -13,11 +13,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ```text
 +-------------------+              +-------------------+              +----------------------+
-|  C# test (NUnit)  |  WS / WSS    |  AltTester®       |  WS / WSS    |  Instrumented game   |
-|  AltTester-Driver | <----------> |  Desktop or       | <----------> |  on Sauce real       |
+|  AltTester®          |  WS / WSS    |  AltTester®       |  WS / WSS    |  Instrumented game   |
+|  Driver and          | <----------> |  Desktop or       | <----------> |  on Sauce real       |
 |  Appium.WebDriver |    HTTP      |  Sauce Connect    |              |  device (Appium)     |
 +-------------------+              +-------------------+              +----------------------+
-```
 
 1. You instrument your Unity or Unreal build with the AltTester® SDK and produce a `.apk` or `.ipa`.
 2. You upload that build to **Sauce App Storage**.
