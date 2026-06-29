@@ -1,15 +1,19 @@
 ---
 id: ai-insights-prompting-guide
-title: Sauce AI for Insights Prompting Guide
-sidebar_label: Sauce AI for Insights Prompting Guide
+title: Insights Prompting Guide
+sidebar_label: Insights
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# AI for Insights - Agent Prompting Guide
+Sauce AI enables you to explore your Sauce Labs Insights data using natural language. Instead of manually filtering dashboards or navigating multiple reports, you can simply describe the information you want to investigate. Sauce AI interprets your request, retrieves the relevant data, and presents the results in an easy-to-understand format.
 
-Unlocking the true power of your AI for Insights agent starts with knowing how to ask the right questions. This guide acts as your strategic playbook for turning raw information into profound business intelligence. Our goal is to empower you to communicate effectively with the agent, transforming it from a simple tool into a dedicated analyst that understands your specific context. From foundational best practices to expert-level techniques, this document covers everything you need to drive smarter, data-backed outcomes with confidence.
+The quality of the insights you receive depends on the quality of the prompts you provide. Clear, specific prompts allow Sauce AI to better understand your intent and return more accurate and meaningful results.
+
+## Principles for Writing Effective Prompts
+
+When writing prompts, follow these general principles.
 
 | Principle           | Don't Say This                                         | Do Say This                                          | Why?                                                                                   |
 |:--------------------|:-------------------------------------------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------|
@@ -18,171 +22,251 @@ Unlocking the true power of your AI for Insights agent starts with knowing how t
 | Use Comparison      | "Is this bad?"                                         | "Compare this failure rate to the last 30 days."     | The agent is best at spotting anomalies when given a baseline to compare against.      |
 | Drill Down          | "Tell me everything about the errors."                 | "Filter by 'Timeout' errors, then group by Browser." | Start broad, then narrow down using follow-up prompts.
 
-### 1. Be Specific About Time Windows
+Here is how a clear prompt directly impacts the quality of your insights:
+
+### **Analyzing Performance Trends**
+**✅ Good Prompt:** "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
+
+> **Result:** The agent calculates the exact metric within your specified 7-day window and generates a trend breakdown or chart.
+  
+**❌ Bad Prompt:** "What's up with my tests?"
+
+> **Result:** The agent provides a generic, unactionable summary based on the page's default filters.
+
+### **Diagnosing Failures**
+**✅ Good Prompt:** "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?"
+
+> **Result:** By providing a specific Job ID, the agent instantly performs a detailed failure analysis, comparing commands and pinpointing the exact error.
+
+**❌ Bad Prompt:** "Why are my tests failing?"
+
+> **Result:** Too broad. The agent cannot analyze general organization-wide failures and will ask for more context.
+
+### **Investigating Test Coverage**
+✅ **Good Prompt:** "Visualize the test coverage by device for my RDC jobs over the last 30 days."
+
+> **Result:** The agent knows exactly what to fetch (Real Device Cloud jobs, last 30 days, grouped by device) and generates a chart because you used the word "visualize."
+  
+❌ **Bad Prompt:** "What's my coverage?"
+
+> **Result:** The agent won't know if you mean device, OS, or browser coverage.
+
+:::info
+After your test finishes running, please allow up to 30 minutes for the data to reach the AI for Insights agent.
+:::
+
+## Write Effective Prompts
+
+To receive the most relevant results, write prompts that clearly describe the information you want to investigate. Including details such as a timeframe, data type, filters, or comparison criteria helps Sauce AI generate more focused and meaningful responses.
+
+The following sections describe the key elements of an effective prompt.
+
+### **1. Be Specific About Time Windows**
 If you don't specify a time window, the agent will use the period set in the page filter. Always clarify if you need a different period.
-- Good: "Show me the number of passed and failed jobs in the last 7 days."
-- Good: "What was the pass rate for my jobs between October 1st and October 31st, 2025?"
-- Less Effective: "Show me my jobs." (This will default to the period set in the time filter on the top of the page, which might not be what you want.)
+> **Good:** "Show me the number of passed and failed jobs in the last 7 days."
 
-### 2. Clearly Identify the Entity You're Asking About
+> **Good:** "What was the pass rate for my jobs between October 1st and October 31st, 2025?"
 
-- Jobs (individual test executions):
-  - "How many of my jobs failed yesterday?"
-  - "What is the average duration of VDC jobs?"
-  - "Show me the jobs in build 'MyWebApp-v1.2'."
-- Builds (collections of jobs):
-  - "What are the builds that ran last week?"
-  - "Compare the pass rates of builds 'LoginFlow-A' and 'LoginFlow-B'."
-  - "Show me the status of my latest build."
-- Test Cases (groups of jobs with the same name):
-  - "Which test cases are consistently failing?"
-  - "Show me the top 5 test cases by total runs."
-  - "Are there any flaky test cases in the last month?"
+> **Less Effective:** "Show me my jobs." (This will default to the period set in the time filter on the top of the page, which might not be what you want.)
 
-### 3. Specify Filters and Conditions
+### **2. Clearly Identify the Entity You're Asking About**
+
+#### **Jobs (individual test executions):**
+  > "How many of my jobs failed yesterday?"
+
+  > "What is the average duration of VDC jobs?"
+
+  > "Show me the jobs in build 'MyWebApp-v1.2'."
+#### **Builds (collections of jobs):**
+  > "What are the builds that ran last week?"
+
+  > "Compare the pass rates of builds 'LoginFlow-A' and 'LoginFlow-B'."
+
+  > "Show me the status of my latest build."
+#### **Test Cases (groups of jobs with the same name):**
+  > "Which test cases are consistently failing?"
+  
+  > "Show me the top 5 test cases by total runs."
+
+  > "Are there any flaky test cases in the last month?"
+
+### **3. Specify Filters and Conditions**
 Use keywords to filter the data you're interested in.
-- Status: "Show me all failed jobs."
-- Source (VDC/RDC): "How many RDC jobs passed last week?"
-- Browser/OS/Device: "What is the pass rate for jobs run on Chrome on Windows 10?" or "Show me test coverage by device for iOS jobs."
-- User/Team: "Show me the jobs run by me." (The agent will automatically use your user_id). "What is the pass rate for my team's jobs?" (I will automatically use your team_id).
-- Build Name: "Show me the jobs in the build named 'Release-2025-12-15'."
+> **Status:** "Show me all failed jobs."
 
-### 4. Ask for Trends and Comparisons
+> **Source (VDC/RDC):** "How many RDC jobs passed last week?"
+
+> **Browser/OS/Device:** "What is the pass rate for jobs run on Chrome on Windows 10?" or "Show me test coverage by device for iOS jobs."
+
+> **User/Team:** "Show me the jobs run by me." (The agent will automatically use your user_id). "What is the pass rate for my team's jobs?" (I will automatically use your team_id).
+
+> **Build Name:** "Show me the jobs in the build named 'Release-2025-12-15'."
+
+### **4. Ask for Trends and Comparisons**
 If you want to see how metrics change over time or compare different entities, mention "trends," "over time," or "compare."
-- "Show me the trend of failed jobs over the last month, broken down by week."
-- "Compare the pass rates of jobs run on Android vs. iOS devices."
-- "What is the daily pass rate trend for my VDC jobs?"
+> "Show me the trend of failed jobs over the last month, broken down by week."
 
-### 5. Inquire About Failure Analysis
+> "Compare the pass rates of jobs run on Android vs. iOS devices."
+
+> "What is the daily pass rate trend for my VDC jobs?"
+
+### **5. Inquire About Failure Analysis**
 If you have a specific job ID or want to understand why something failed, ask about root causes or failure patterns.
-- "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?"
-- "Can you identify the root cause for the failure in that job?"
+> "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?"
 
-### 6. Request Visualizations
+> "Can you identify the root cause for the failure in that job?"
+
+### **6. Request Visualizations**
 If you want to see data in a chart, indicate that. I will automatically choose the best chart type (line for trends, bar for comparisons/distributions).
-- "Chart the number of passed and failed jobs over the last 30 days."
-- "Show me a breakdown of job statuses for the last week."
-- "Visualize the device coverage for my RDC jobs."
+> "Chart the number of passed and failed jobs over the last 30 days."
 
-### Examples of Less Effective vs. More Effective Questions:
-- Less Effective: "What's up with my tests?"
-- More Effective: "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
+> "Show me a breakdown of job statuses for the last week."
+
+> "Visualize the device coverage for my RDC jobs."
+
+### **Examples of Less Effective vs. More Effective Questions:**
+> **Less Effective:** "What's up with my tests?"
+
+> **More Effective:** "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
   
-- Less Effective: "Tell me about builds."
-- More Effective: "List the 5 most recent builds, including their status and the number of jobs they contain."
+> **Less Effective:** "Tell me about builds."
+
+> **More Effective:** "List the 5 most recent builds, including their status and the number of jobs they contain."
   
-- Less Effective: "Errors?"
-- More Effective: "Are there any specific error types that are frequently occurring in my VDC jobs from the last 24 hours?"
+> **Less Effective:** "Errors?"
 
-## Using the Agent to Focus on Specific Data Types
+> **More Effective:** "Are there any specific error types that are frequently occurring in my VDC jobs from the last 24 hours?"
 
-### 1. General Job & Build Data
+## Common Prompt Scenarios
+
+### **1. General Job & Build Data**
 These prompts are used for flexible queries about individual jobs and builds when other specialized APIs don't perfectly fit. It's great for detailed lists, specific aggregations, or combining information from jobs and builds.
 
-Good Prompts:
-- "List the names, statuses, and creation times of the top 10 most recent VDC jobs that failed in the last 7 days."
-- "What are the IDs and names of all builds that ran yesterday, and how many jobs were completed in each?"
-- "Show me the browser and OS for my 5 most recent passing VDC jobs from last week."
-- "What is the average duration of all jobs in the build 'MyFeatureBranch-123'?"
+✅ **Good Prompts:**
+> "List the names, statuses, and creation times of the top 10 most recent VDC jobs that failed in the last 7 days."
 
-Bad Prompts:
-- "Show me everything about jobs." (Too broad, the agent needs more specific criteria.)
-- "Give me a chart of pass rates."
-- "What's wrong with my tests?" (Too vague; for specific failures, provide a job ID for root cause analysis.)
+> "What are the IDs and names of all builds that ran yesterday, and how many jobs were completed in each?"
 
-### 2. Listing Specific Test Cases 
+> "Show me the browser and OS for my 5 most recent passing VDC jobs from last week."
+
+> "What is the average duration of all jobs in the build 'MyFeatureBranch-123'?"
+
+❌ **Bad Prompts:**
+> "Show me everything about jobs." (Too broad, the agent needs more specific criteria.)
+
+> "Give me a chart of pass rates."
+
+> "What's wrong with my tests?" (Too vague; for specific failures, provide a job ID for root cause analysis.)
+
+### **2. Listing Specific Test Cases** 
 These prompts help you find and filter specific test cases based on various criteria like status, browser, OS, or device.
 
-Good Prompts:
-- "List all failed test cases from last week that ran on iOS."
-- "Which test cases ran on 'Samsung Galaxy S24 Ultra' in the last month and had a mixed status?"
-- "Show me the top 5 test cases by average duration that ran on Chrome in the last 30 days."
-- "Are there any test cases with 'login' in their name that passed yesterday?"
+✅ **Good Prompts:**
+> "List all failed test cases from last week that ran on iOS."
 
-Bad Prompts:
-- "Show me tests." (Ambiguous; specify "jobs" or "test cases" and a time frame.)
-- "What are the fastest test cases?" (Needs a time frame and a clear metric like "average duration" or "median duration.")
+> "Which test cases ran on 'Samsung Galaxy S24 Ultra' in the last month and had a mixed status?"
 
-### 3. Test Coverage Analysis 
+> "Show me the top 5 test cases by average duration that ran on Chrome in the last 30 days."
+
+> "Are there any test cases with 'login' in their name that passed yesterday?"
+
+❌ **Bad Prompts:**
+> "Show me tests." (Ambiguous; specify "jobs" or "test cases" and a time frame.)
+
+> "What are the fastest test cases?" (Needs a time frame and a clear metric like "average duration" or "median duration.")
+
+### **3. Test Coverage Analysis** 
 Use these prompts to understand how your jobs are distributed across different environments (devices, browsers, operating systems).
 
-Good Prompts:
-- "Show me the test coverage by device for the last 30 days."
-- "What is the OS coverage for my RDC jobs this month?"
-- "Which browsers have my VDC jobs run on the most in the last week, and can you sort them by count?"
-- "Visualize the device coverage for my jobs from last quarter."
+✅ **Good Prompts:**
+> "Show me the test coverage by device for the last 30 days."
 
-Bad Prompts:
-- "What's my coverage?" (Too vague; specify data like "device", "browser", or "os" and a time frame.)
-- "Show me device coverage for a specific job."
+> "What is the OS coverage for my RDC jobs this month?"
 
-### 4. Job Performance Trends 
+> "Which browsers have my VDC jobs run on the most in the last week, and can you sort them by count?"
+
+> "Visualize the device coverage for my jobs from last quarter."
+
+❌ **Bad Prompts:**
+> "What's my coverage?" (Too vague; specify data like "device", "browser", or "os" and a time frame.)
+
+> "Show me device coverage for a specific job."
+
+### **4. Job Performance Trends**
 These prompts are ideal for monitoring how job performance metrics (like pass rates, failure rates) change over time.
 
-Good Prompts:
-- "Show me the daily trend of passed vs. failed jobs for the last month."
-- "What is the weekly trend of job duration for VDC jobs over the last 3 months?"
-- "Chart the hourly pass rate for my jobs today."
-- "How has the number of errored jobs changed daily over the past two weeks?"
+✅ **Good Prompts:**
+> "Show me the daily trend of passed vs. failed jobs for the last month."
 
-Bad Prompts:
-- "How many jobs passed?" (This is a single number, not a trend.)
-- "Show me trends." (Needs specific metrics, an interval (e.g., daily, weekly), and a time frame.)
+> "What is the weekly trend of job duration for VDC jobs over the last 3 months?"
 
-### 5. Test Case Statistics 
+> "Chart the hourly pass rate for my jobs today."
+
+> "How has the number of errored jobs changed daily over the past two weeks?"
+
+❌ **Bad Prompts:**
+> "How many jobs passed?" (This is a single number, not a trend.)
+
+> "Show me trends." (Needs specific metrics, an interval (e.g., daily, weekly), and a time frame.)
+
+### **5. Test Case Statistics** 
 These prompts provide high-level summary statistics about your test cases, including counts of consistently passing, failing, erroring, and flaky test cases.
 
-Good Prompts:
-- "How many flaky test cases do I have in the last 30 days?"
-- "Give me a summary of consistently passing and failing test cases for the last week, and compare it to the previous week."
-- "What are the statistics for test cases run on iOS devices this month?"
-- "Show me the total number of test cases and how many are consistently passing for the last 90 days."
+✅ **Good Prompts:**
+> "How many flaky test cases do I have in the last 30 days?"
 
-Bad Prompts:
-- "Tell me about test cases." (Too broad; specify what statistics you're interested in.)
+> "Give me a summary of consistently passing and failing test cases for the last week, and compare it to the previous week."
 
-### 6. Jobs Overview Summary 
+> "What are the statistics for test cases run on iOS devices this month?"
+
+> "Show me the total number of test cases and how many are consistently passing for the last 90 days."
+
+❌ **Bad Prompts:**
+> "Tell me about test cases." (Too broad; specify what statistics you're interested in.)
+
+### **6. Jobs Overview Summary**
 These prompts give you a quick, high-level summary of overall job activity, including total job counts, average runtime, and median runtime.
 
-Good Prompts:
-- "Give me an overview of all jobs run by my team in the last 90 days."
-- "What's the average runtime and total job count for my VDC jobs last month?"
-- "Summarize my RDC job activity for the current week."
-- "How many jobs were run by me in the last 24 hours, and what was their median runtime?"
+✅ **Good Prompts:**
+> "Give me an overview of all jobs run by my team in the last 90 days."
 
-Bad Prompts:
-- "Show me job details." (This is a summary tool; for details on individual jobs, you'd need a job ID and other tools.)
-- "What's the problem with my jobs?" (This tool doesn't diagnose issues, it provides aggregate metrics.)
+> "What's the average runtime and total job count for my VDC jobs last month?"
 
-### 7. Failure Analysis 
+> "Summarize my RDC job activity for the current week."
+
+> "How many jobs were run by me in the last 24 hours, and what was their median runtime?"
+
+❌ **Bad Prompts:**
+> "Show me job details." (This is a summary tool; for details on individual jobs, you'd need a job ID and other tools.)
+
+> "What's the problem with my jobs?" (This tool doesn't diagnose issues, it provides aggregate metrics.)
+
+### **7. Failure Analysis**
 These prompts are crucial for debugging. It helps identify the specific commands that differed between passing and failing runs of the same test, pinpointing the root cause of a failure.
 
-Good Prompts:
-- "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?" (Provide a specific job ID.)
-- "Can you find the root cause for the failure in job another_job_id_here?"
-- "What were the differing commands in job xyz-123 that led to its failure?"
+✅ **Good Prompts:**
+> "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?" (Provide a specific job ID.)
 
-Bad Prompts:
-- "Why are my tests failing?" (Too general; Needs a specific job ID to perform root cause analysis.)
-- "Show me all root causes." (This tool requires a job_id; it doesn't list all root causes across the organization.)
+> "Can you find the root cause for the failure in job another_job_id_here?"
 
-### 8. Charting Data 
+> "What were the differing commands in job xyz-123 that led to its failure?"
+
+❌ **Bad Prompts:**
+> "Why are my tests failing?" (Too general; Needs a specific job ID to perform root cause analysis.)
+
+> "Show me all root causes." (This tool requires a job_id; it doesn't list all root causes across the organization.)
+
+### **8. Charting Data**
 This is an output tool, not a data retrieval tool. It will automatically choose the best chart type (line for trends, bar for comparisons/distributions).
 
-Good Prompts (that lead to a chart):
-- "Show me the daily pass rate trend for my jobs over the last month." (Implies retrieving trend data, then charting it.)
-- "Compare the number of passed, failed, and errored jobs for the last week in a chart." (Implies retrieving job counts, then charting them.)
-- "Visualize the distribution of jobs across different operating systems for the last 30 days." (Implies retrieving coverage data, then charting it.)
+✅ **Good Prompts (that lead to a chart):**
+> "Show me the daily pass rate trend for my jobs over the last month." (Implies retrieving trend data, then charting it.)
 
-Bad Prompts (that might not lead to a chart or are ambiguous):
-- "Chart something." (Needs specific data to chart.)
-- "Show me a chart of job ID." (Job IDs are unique identifiers, not typically charted as a trend or distribution.)
+> "Compare the number of passed, failed, and errored jobs for the last week in a chart." (Implies retrieving job counts, then charting them.)
 
-### Glossary: 
-- ID (Identifier): Unique labels used to distinguish specific entities within the system, such as:
-- Job ID: A unique string identifying a specific test execution.
-- User ID / Team ID: Identifiers for specific users or teams.
-- iOS (iPhone Operating System): Apple's mobile operating system, used here to classify tests run on Apple mobile devices.
-- OS (Operating System): Refers to the underlying software that the tests are running on (e.g., Windows 10, macOS).
-- RDC (Real Device Cloud): A Sauce Labs service that allows you to run automated or manual tests on actual physical mobile devices.
-- VDC (Virtual Device Cloud): A Sauce Labs service that provides virtual machines and emulators/simulators for running automated tests on various browser and OS combinations.
+> "Visualize the distribution of jobs across different operating systems for the last 30 days." (Implies retrieving coverage data, then charting it.)
+
+❌ **Bad Prompts (that might not lead to a chart or are ambiguous):**
+> "Chart something." (Needs specific data to chart.)
+
+> "Show me a chart of job ID." (Job IDs are unique identifiers, not typically charted as a trend or distribution.)
