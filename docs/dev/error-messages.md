@@ -453,6 +453,25 @@ A `socket hang up` or `ECONNRESET` response means one of the following happened:
   - Check the verbose device logs around the time of the first command that received the `socket hang up` or `ECONNRESET` error.
 - If this yields no conclusive results and the error keeps reappearing, reach out to your Sauce Labs representative with the affected job IDs so we can take a closer look.
 
+
+### Your Test Was Ended Because the Device Battery Reached a Critically Low Level
+
+**Description**
+
+You'll see this error when Sauce Labs ends your real device session because the device's battery dropped to a critically low level during the test. We end the session proactively so the device can be put back on charge, rather than letting it power off mid-test and produce unreliable results. The message shown is: `Your test was ended because the device battery reached a critically low level.` Live sessions also display it on screen when the session ends.
+
+**Cause(s)**
+
+- The real device running your test reached the battery level at which Sauce Labs terminates active sessions.
+- This is most common in long-running sessions, or when a device starts a session already low on charge.
+
+**How to Resolve**
+
+- Retry the job. The device is returned to the pool to recharge, and a subsequent run will typically be allocated a device with sufficient battery.
+- For long-running tests, break your suite into shorter, more atomic tests so a single session is less likely to drain the device.
+- If you see this error repeatedly on a specific private device, reach out to your Sauce Labs representative so we can check that device's battery health.
+
+
 ## Web App Testing Only
 
 ### Test Didn't See a New Command for 90 Seconds
