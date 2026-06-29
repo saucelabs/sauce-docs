@@ -836,6 +836,7 @@ module.exports = {
                                 'testfairy/security/sso/onelogin',
                                 'testfairy/security/sso/saml',
                                 'testfairy/security/sso/ping-id',
+                                'testfairy/security/sso/single-logout',
                             ],
                         },
                         'testfairy/security/acct-settings',
