@@ -19,7 +19,7 @@ Android 12 virtual devices on Sauce Labs are built with API level 32 (also known
 
 We offer emulators for Android 15, 16, and 17 which include critical support for the 16KB page size memory architecture. The Google Play Store requires that all new apps and app [updates submitted after November 1, 2025](https://developer.android.com/guide/practices/page-sizes), are compatible with 16KB pages. Testing on these emulator configurations is essential to ensure your application meets this requirement and functions correctly for all users. Look for Pixel devices with the `ps16k` label in their name to get started with these new emulators.
 
-Android 17 is available on the **Pixel 9a ps16kb Emulator** and **Medium Phone ps16kb Emulator** devices, which require [Appium 2.11.0](./automated-testing/appium/appium-versions.md#android-emulators).
+Android 17 is available on the **Pixel 9a ps16k Emulator** and **Medium Phone ps16k Emulator** devices, which require [Appium 2.11.0](./automated-testing/appium/appium-versions.md#android-emulators).
 
 ### Legacy Device Mapping for Automated Testing
 
