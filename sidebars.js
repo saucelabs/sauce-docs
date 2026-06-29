@@ -1206,42 +1206,10 @@ module.exports = {
             collapsed: true,
             items: [
                 'sauce-ai',
-                {
-                    type: 'category',
-                    label: 'Test Authoring',
-                    collapsed: true,
-                    items: [
-                        'sauce-ai/ai-authoring',
-                        'sauce-ai/test-authoring/generate-your-test-case',
-                        'sauce-ai/test-authoring/generate-the-script-code',
-                        'sauce-ai/test-authoring/manage-your-test-cases',
-                        'sauce-ai/test-authoring/run-your-test-cases',
-                        'sauce-ai/test-authoring/create-and-manage-test-suites',
-                        'sauce-ai/test-authoring/run-your-test-suite',
-                        'sauce-ai/test-authoring/schedule-your-test-runs',
-                        'sauce-ai/test-authoring/view-your-test-results',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'AI Insights',
-                    collapsed: true,
-                    items: [
-                        'sauce-ai/ai-insights',
-                        'sauce-ai/ai-insights/use-sause-ai-assistants',
-                        'sauce-ai/ai-insights/automated-bug-troubleshooting',
-                        'sauce-ai/ai-insights/privacy-safety-and-trust',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Error Reporting',
-                    collapsed: true,
-                    items: [
-                        'sauce-ai/error-reporting/overview',
-                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
-                    ],
-                },
+                'sauce-ai/ai-insights',
+                'sauce-ai/ai-insights-prompting-guide',
+                'sauce-ai/ai-authoring',
+                'sauce-ai/ai-authoring-prompting-guide',
                 {
                     type: 'category',
                     label: 'Sauce MCP',
@@ -1249,30 +1217,7 @@ module.exports = {
                     items: [
                         'sauce-ai/sauce-mcp',
                         'sauce-ai/sauce-mcp-getting-started',
-                        {
-                            type: 'category',
-                            label: 'MCP Tools',
-                            collapsed: true,
-                            items: [
-                                'sauce-ai/sauce-mcp-tools',
-                                'sauce-ai/sauce-mcp/sauce-mcp-tools/account-and-team',
-                                'sauce-ai/sauce-mcp/sauce-mcp-tools/jobs-builds-assets',
-                                'sauce-ai/sauce-mcp/sauce-mcp-tools/real-device-access-api',
-                                'sauce-ai/sauce-mcp/sauce-mcp-tools/storage',
-                                'sauce-ai/sauce-mcp/sauce-mcp-tools/test-authoring',
-                                'sauce-ai/sauce-mcp/sauce-mcp-tools/tunnels',
-                            ],
-                        },
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Prompting Guides',
-                    collapsed: true,
-                    items: [
-                        'sauce-ai/ai-authoring-prompting-guide',
-                        'sauce-ai/ai-insights-prompting-guide',
-                        'sauce-ai/prompting-guides/error-reporting',
+                        'sauce-ai/sauce-mcp-tools',
                         'sauce-ai/real-device-cloud-mcp-prompting-guide',
                     ],
                 },
