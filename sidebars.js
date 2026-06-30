@@ -1206,10 +1206,22 @@ module.exports = {
             label: 'Sauce AI',
             collapsed: true,
             items: [
+                'sauce-ai',
                 'sauce-ai/ai-insights',
                 'sauce-ai/ai-insights-prompting-guide',
                 'sauce-ai/ai-authoring',
                 'sauce-ai/ai-authoring-prompting-guide',
+                {
+                    type: 'category',
+                    label: 'Sauce MCP',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/sauce-mcp',
+                        'sauce-ai/sauce-mcp-getting-started',
+                        'sauce-ai/sauce-mcp-tools',
+                        'sauce-ai/real-device-cloud-mcp-prompting-guide',
+                    ],
+                },
             ],
         },
         {

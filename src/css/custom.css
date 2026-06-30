@@ -1157,3 +1157,130 @@ ul.dropdown__menu li a:hover {
 .api-reference-page .container .section-accordion {
     max-width: 1800px;
 }
+
+/* Small, minimal availability tags for the Sauce MCP tools table */
+.mcp-tag {
+    display: inline-block;
+    padding: 0.1em 0.5em;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    border-radius: 4px;
+    color: #157347;
+    background-color: var(--green-100);
+    border: 1px solid var(--green-300);
+    white-space: nowrap;
+}
+
+html[data-theme="dark"] .mcp-tag {
+    color: var(--green-200);
+    background-color: rgba(126, 217, 159, 0.12);
+    border-color: rgba(126, 217, 159, 0.4);
+}
+
+.mcp-tag--muted {
+    color: #6b7280;
+    background-color: #f1f3f5;
+    border-color: #dfe3e8;
+}
+
+html[data-theme="dark"] .mcp-tag--muted {
+    color: #a0a6ad;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Connector pill (& / or) between requirement tags: same shape, different color */
+.mcp-conn {
+    display: inline-block;
+    padding: 0.1em 0.45em;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    border-radius: 4px;
+    color: #3b6fb0;
+    background-color: #eaf1fb;
+    border: 1px solid #c5d9f3;
+    white-space: nowrap;
+}
+
+html[data-theme="dark"] .mcp-conn {
+    color: #9bc1f0;
+    background-color: rgba(120, 170, 240, 0.12);
+    border-color: rgba(120, 170, 240, 0.4);
+}
+
+/* Supported AI clients logo grid */
+.client-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 1.25rem 0 1.5rem;
+}
+
+.client-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 132px;
+    padding: 18px 12px;
+    background-color: #ffffff;
+    border: 1px solid #e3e6ea;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.client-tile img {
+    height: 36px;
+    width: auto;
+    max-width: 85%;
+    object-fit: contain;
+}
+
+.client-tile span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1c1e21;
+    line-height: 1.2;
+}
+
+html[data-theme="dark"] .client-tile {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Logo chip inside the "Configure your client" tabs */
+.tab-client {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
+
+.tab-client-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background-color: #ffffff;
+    border: 1px solid #e3e6ea;
+    border-radius: 5px;
+    flex: 0 0 auto;
+}
+
+.tab-client-logo img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    display: block;
+}
+
+html[data-theme="dark"] .tab-client-logo {
+    border-color: rgba(255, 255, 255, 0.2);
+}

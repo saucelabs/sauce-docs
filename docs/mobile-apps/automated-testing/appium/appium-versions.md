@@ -610,6 +610,28 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
   </thead>
   <tbody>
     <tr>
+      <td>Android 17.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.0</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Android 16.0</td>
       <td>
         <ul>
