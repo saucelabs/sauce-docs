@@ -65,7 +65,7 @@ You can connect Claude Code in either of two ways.
 **Option 1: Add it with the CLI**
 
 ```bash
-claude mcp add --transport http sauce-labs https://<sauce-mcp-endpoint> \
+claude mcp add --transport http sauce-labs https://mcp.saucelabs.com \
   --header "Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
 ```
 
@@ -78,7 +78,7 @@ Add the server to a `.mcp.json` file in your project root (or to your user-level
   "mcpServers": {
     "sauce-labs": {
       "type": "http",
-      "url": "https://<sauce-mcp-endpoint>",
+      "url": "https://mcp.saucelabs.com",
       "headers": {
         "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       }
@@ -103,7 +103,7 @@ Edit `claude_desktop_config.json` (Settings → Developer → Edit Config). Clau
       "args": [
         "-y",
         "mcp-remote",
-        "https://<sauce-mcp-endpoint>",
+        "https://mcp.saucelabs.com",
         "--header",
         "Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       ]
@@ -123,7 +123,7 @@ Edit `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (per project):
 {
   "mcpServers": {
     "sauce-labs": {
-      "url": "https://<sauce-mcp-endpoint>",
+      "url": "https://mcp.saucelabs.com",
       "headers": {
         "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       }
@@ -142,7 +142,7 @@ Edit your Windsurf MCP config (`~/.codeium/windsurf/mcp_config.json`):
 {
   "mcpServers": {
     "sauce-labs": {
-      "serverUrl": "https://<sauce-mcp-endpoint>",
+      "serverUrl": "https://mcp.saucelabs.com",
       "headers": {
         "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       }
@@ -162,7 +162,7 @@ Create `.vscode/mcp.json` in your workspace:
   "servers": {
     "sauce-labs": {
       "type": "http",
-      "url": "https://<sauce-mcp-endpoint>",
+      "url": "https://mcp.saucelabs.com",
       "headers": {
         "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       }
@@ -183,7 +183,7 @@ In your JetBrains IDE (IntelliJ IDEA and others), open **Settings | Tools | AI A
 {
   "mcpServers": {
     "sauce-labs": {
-      "url": "https://<sauce-mcp-endpoint>",
+      "url": "https://mcp.saucelabs.com",
       "headers": {
         "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       }
@@ -201,7 +201,7 @@ In Antigravity, open the MCP settings and add a server, or edit its MCP configur
 {
   "mcpServers": {
     "sauce-labs": {
-      "serverUrl": "https://<sauce-mcp-endpoint>",
+      "serverUrl": "https://mcp.saucelabs.com",
       "headers": {
         "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       }
@@ -219,7 +219,7 @@ Edit `~/.gemini/settings.json`:
 {
   "mcpServers": {
     "sauce-labs": {
-      "httpUrl": "https://<sauce-mcp-endpoint>",
+      "httpUrl": "https://mcp.saucelabs.com",
       "headers": {
         "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
       }
@@ -235,7 +235,7 @@ Edit `~/.gemini/settings.json`:
 Add an extension in Goose with these settings:
 
 - **Type:** Remote (Streamable HTTP)
-- **Endpoint:** `https://<sauce-mcp-endpoint>`
+- **Endpoint:** `https://mcp.saucelabs.com`
 - **Header:** `Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>`
 
 </TabItem>
