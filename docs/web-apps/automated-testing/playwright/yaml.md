@@ -1342,7 +1342,7 @@ suite:
 When set to `true`, this option adds capability requirement for ARM architecture on the machine running the test.
 
 :::note
-ARM is available for macOS 14 and macOS 15 with Playwright >=1.58.1. Note: Firefox is not supported on macOS 15 due to a known macOS firewall issue. As of March 20th, 2026 this parameter is no longer required in order for tests to execute on macOS 14+ and can be omitted from your configuration.
+ARM is available for macOS 14, macOS 15, and macOS 26 with Playwright >=1.58.1. Note: Firefox is not supported on macOS 15 due to a known macOS firewall issue. As of March 20th, 2026 this parameter is no longer required in order for tests to execute on macOS 14+ and can be omitted from your configuration.
 :::
 
 ```yaml
