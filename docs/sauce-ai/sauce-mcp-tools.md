@@ -55,11 +55,23 @@ Start, inspect, and end real-device sessions, and interact with the device direc
 | `listSessions` | List your active real-device sessions. | "What sessions do I have open?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `deleteSession` | End an active session and release the device. | "Close my current session." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `take_screenshot` | Capture a PNG screenshot of the current device screen. | "Take a screenshot of the current screen." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
-| `tap_element` | Tap an element or screen coordinates on the device. | "Tap the Login button." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
-| `dump_ui` | Return the device's current UI hierarchy for inspection. | "What elements are on the screen right now?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `openUrl` | Open a URL on the device. | "Open example.com on the device." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `applyDeviceSettings` | Change device settings such as orientation, locale, or animations. | "Switch the device to dark mode." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `executeShellCommand` | Run an ADB shell command on an Android device. | "Run `pm list packages` on the device." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
+
+### UI interaction
+
+Read the on-screen UI and drive the device by tapping, swiping, and typing. These tools are platform-specific.
+
+| Tool | Description | Example prompt | Requirements |
+| --- | --- | --- | --- |
+| `get_source_android` | Read the Android UI source (text, resource-id, bounds) to find elements. Android only. | "What elements are on the screen right now?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
+| `get_source_ios` | Read the iOS UI element tree (labels, types, and coordinates). iOS only. | "What's on the screen so I can tap something?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
+| `tap_android` | Tap an Android element by selector (text, content-desc, or resource-id). Android only. | "Tap the element with text 'Sign in'." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
+| `tap_ios` | Tap an iOS element by its accessibility label. iOS only. | "Tap the Login button." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
+| `tap_at_ios` | Tap an iOS screen coordinate when no unique label is available. iOS only. | "Tap the menu icon in the top-left corner." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
+| `type_text_ios` | Type text into the focused iOS field. iOS only. | "Type my email address into the field." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
+| `swipe_ios` | Swipe or scroll between two screen coordinates. iOS only. | "Scroll down to the bottom of the page." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
 ### App management
 
