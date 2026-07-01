@@ -1229,6 +1229,25 @@ suites:
 
 ---
 
+#### `workers`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the maximum number of parallel worker processes Playwright uses to run the tests within a suite. Defaults to `1`.
+
+```yaml
+suites:
+  - name: "saucy test"
+    params:
+      workers: 4
+```
+
+:::note
+Set `workers` here in `params` — not in your `playwright.config.js|ts`. `saucectl` passes this value to Playwright as a command-line flag, which takes precedence over the `workers` field in your Playwright config file, so the config-file value has no effect when running on Sauce Cloud. This setting controls parallelism _within_ a single suite; to run suites in parallel, see [`concurrency`](#concurrency) and [`numShards`](#numshards).
+:::
+
+---
+
 ### `timeout`
 
 <p><small>| OPTIONAL | DURATION |</small></p>
