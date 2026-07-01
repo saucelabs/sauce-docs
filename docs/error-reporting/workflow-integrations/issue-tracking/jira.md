@@ -303,7 +303,7 @@ For example, you can create a rule for each development environment and version 
 
 ### Ticket Link URL
 
-The **Ticket link URL** setting allows you to specify a custom URL that Backtrace uses to build "view in Jira" links for the tickets it creates (for example, `https://yourcompany.atlassian.net/browse/PROJ-123`). This setting is optional and applies to both Jira Cloud and Jira Server / Data Center integrations.
+Use **Ticket link URL** to specify a base URL for Backtrace to build "view in Jira" links (e.g., `https://yourcompany.atlassian.net/browse/PROJ-123`). This setting is optional and applies to both Jira Cloud and Jira Server / Data Center integrations.
 
 **Ticket link URL** is only required if tickets open at a different address than the URL the Backtrace connector uses for API access. By default, ticket links are built from the Jira connection's API base URL. This works for most integrations, but the API URL isn't always the same as the URL used to access Jira in a browser. When the two differ, enter the Jira URL used to access the instance in a browser so that ticket links resolve correctly. Most integrations don't need this and should leave the field blank.
 
