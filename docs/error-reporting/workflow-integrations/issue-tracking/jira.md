@@ -301,31 +301,19 @@ You can use the Advanced Rules Builder to configure advanced rules for custom Fi
 
 For example, you can create a rule for each development environment and version number match to determine which issues are fixed.
 
-### Custom URL for Jira Ticket Links
+### Ticket Link URL
 
-The **Custom URL for Jira ticket links** setting allows you to specify a custom URL that Backtrace uses to build "view in Jira" links for the tickets it creates (for example, `https://yourcompany.atlassian.net/browse/PROJ-123`). This setting is optional and applies to both Jira Cloud and Jira Server / Data Center integrations.
+The **Ticket link URL** setting allows you to specify a custom URL that Backtrace uses to build "view in Jira" links for the tickets it creates (for example, `https://yourcompany.atlassian.net/browse/PROJ-123`). This setting is optional and applies to both Jira Cloud and Jira Server / Data Center integrations.
 
-By default, ticket links are built from the Jira connection's API base URL. This works for most integrations, but the API URL isn't always the same as the URL used to access Jira in a browser. Set a custom URL when the two differ, such as:
-
-- Jira Cloud accessed through Atlassian's gateway (the API base looks like `https://api.atlassian.com/ex/jira/{cloudid}`)
-- Jira behind a reverse proxy
-- Self-hosted or on-prem Jira with separate internal and external URLs
-- Custom or vanity domains
-
-In those cases, enter the Jira URL used to access the instance in a browser so that ticket links resolve correctly. Most integrations don't need this and should leave the field blank.
+By default, ticket links are built from the Jira connection's API base URL. This works for most integrations, but the API URL isn't always the same as the URL used to access Jira in a browser. When the two differ, enter the Jira URL used to access the instance in a browser so that ticket links resolve correctly. Most integrations don't need this and should leave the field blank.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-custom-ticket-url.png')} alt="Shows the optional custom URL field for Jira ticket links." width="700" />
 
 The field behaves as follows:
 
 - **Optional**: Leave it blank to use the connection's base URL (the default, unchanged behavior).
-- **Format**: Must be a full URL starting with `http://` or `https://`. Self-hosted, on-prem, proxy, localhost, and custom-port URLs are all supported.
+- **Format**: Must be a full URL starting with `http://` or `https://`. Enter the instance's base URL (for example `https://yourcompany.atlassian.net`), not a link to a specific ticket such as `.../browse/PROJ-123`. Self-hosted, on-prem, proxy, localhost, and custom-port URLs are all supported.
 - **Reverting**: Clearing the field and saving reverts to the default (connection URL).
-- **Create and edit**: Works on both new and existing integrations. When editing, the field pre-fills with the saved value.
-
-:::note
-This setting only affects ticket links created after it is set. Jira ticket links are generated and stored when the ticket is created, so tickets created before you set a custom URL keep their original links.
-:::
 
 ## Issue Based Alerts
 
