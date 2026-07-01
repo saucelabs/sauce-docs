@@ -463,7 +463,7 @@ You'll see this error when Sauce Labs ends your real device session because the 
 **Cause(s)**
 
 - The real device running your test reached the battery level at which Sauce Labs terminates active sessions.
-- This is most common in long-running sessions, or when a device starts a session already low on charge.
+- Low battery session termination is more likely to happen on long-running sessions with resource intensive applications.
 
 **How to Resolve**
 
