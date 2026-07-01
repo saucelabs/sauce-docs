@@ -985,6 +985,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
                                 'mobile-apps/automated-testing/appium/appium-deque-accessibility-testing',
                                 'mobile-apps/automated-testing/appium/appium-images-plugin',
+                                'mobile-apps/automated-testing/appium/appium-for-games',
                             ],
                         },
                         {
@@ -1017,6 +1018,16 @@ module.exports = {
                                 'mobile-apps/automated-testing/flutter',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-ios',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'AltTester®',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/automated-testing/alttester',
+                                'mobile-apps/automated-testing/alttester/unity',
+                                'mobile-apps/automated-testing/alttester/unreal',
                             ],
                         },
                         'mobile-apps/automated-testing/ipa-files',
