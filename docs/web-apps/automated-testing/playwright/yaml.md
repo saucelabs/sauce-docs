@@ -1089,6 +1089,10 @@ suites:
       grepInvert: "should exclude"
 ```
 
+:::note
+Any option you set under `params` is passed to `playwright test` as a command-line flag, which takes precedence over the same setting in your `playwright.config.js|ts`. Options not set here are read from your Playwright config as usual. A few settings are always managed by Sauce Labs regardless of your config file: browser selection, `headless`, video capture, the test reporters, and — when a [tunnel](#tunnel) is active — the proxy.
+:::
+
 #### `browserName`
 
 <p><small>| OPTIONAL | STRING |</small></p>
