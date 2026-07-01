@@ -109,6 +109,10 @@ Google announced that starting with **Chrome 153 in September 2026**, Chrome wil
 
 ### Framework and Integration Updates
 
+#### Cypress on macOS 14 and 15 (Apple Silicon)
+
+[Cypress 15.14.2](/web-apps/automated-testing/cypress/) now runs on **macOS 14 (Sonoma) and macOS 15 (Sequoia)** on Apple Silicon. Supported browsers: Chrome, Microsoft Edge, and WebKit (Experimental). Firefox is not supported on macOS 15 due to a macOS firewall issue. Chrome, Firefox, Microsoft Edge, and WebKit (Experimental) remain available on macOS 11.00, 12, 13, and 14.
+
 #### Playwright 1.58.1 — Now on macOS 14 and 15 (ARM)
 
 [Playwright 1.58.1](/web-apps/automated-testing/playwright/) is now available on Sauce Labs with support for **macOS 14 (Sonoma) and macOS 15 (Sequoia)** running on ARM architecture. This is the first Playwright version on Sauce Labs to run on Apple Silicon. Supported browsers: Chromium, Chrome, Firefox, and WebKit.
