@@ -1207,10 +1207,20 @@ module.exports = {
             collapsed: true,
             items: [
                 'sauce-ai',
-                'sauce-ai/ai-insights',
                 'sauce-ai/ai-insights-prompting-guide',
                 'sauce-ai/ai-authoring',
                 'sauce-ai/ai-authoring-prompting-guide',
+                {
+                    type: 'category',
+                    label: 'AI Insights',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-insights',
+                        'sauce-ai/ai-insights/use-sause-ai-assistants',
+                        'sauce-ai/ai-insights/automated-bug-troubleshooting',
+                        'sauce-ai/ai-insights/privacy-safety-and-trust',
+                    ],
+                },
                 {
                     type: 'category',
                     label: 'Sauce MCP',

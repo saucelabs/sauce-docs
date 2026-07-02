@@ -7,60 +7,21 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs is introducing a major step forward in how you can interact with your test data: **Sauce AI for Insights**, an intuitive natural language AI agent seamlessly integrated into the Sauce Home experience.
+Sauce AI for Insights brings generative AI directly into the **[Sauce Home widgets](/docs/insights/home.md#digging-into-the-data-with-widgets)** you already use. Each widget comes equipped with a conversational interface to which you can ask complex queries such as:
 
-This AI agent brings generative AI directly into the Sauce Labs experience, allowing you to explore, analyze, and understand your testing data in a conversational and visual way, directly from within the Sauce Home widgets you already use. Each widget, where generative AI is valuable, now comes equipped with a conversational interface that understands the context of the data it represents, transforming how engineering and quality teams extract insights and make decisions. With this AI agent, you can ask complex questions such as:
+> “What’s the most recurring error in our regression tests?”
 
-* “What’s the most recurring error in our regression tests?”
-* “Which devices fail the most often?”
-* “Was there any decrease in pass rate between this week and last, and why?” 
+> “Which devices fail the most often?”
 
-and receive tailored natural-language answers, data visualizations, and curated reports in seconds. The result is a dramatically reduced time-to-quality and a faster path to confident, data-driven releases.
+> “Was there any decrease in pass rate between this week and last, and why?”
 
-## The Power of a Good Prompt
+You receive tailored natural-language answers, data visualizations, and curated reports in seconds. The result is a dramatically reduced time-to-quality and a faster path to confident, data-driven releases.
 
-A well-structured prompt transforms Sauce AI from a search tool into a dedicated data analyst. Providing specific details like exact time windows, specific entities (Jobs, Builds, or Test Cases), and targeted filters eliminates ambiguity. Without these details, the agent defaults to broad assumptions that may not match what you're looking for.
-
-Here is how a clear prompt directly impacts the quality of your insights:
-
-**Analyzing Performance Trends**
-* Good Prompt: "What is the overall pass rate for my jobs in the last 7 days, and are there any significant trends?"
-* Result: The agent calculates the exact metric within your specified 7-day window and generates a trend breakdown or chart.
-  
-* Bad Prompt: "What's up with my tests?"
-* Result: The agent provides a generic, unactionable summary based on the page's default filters.
-
-**Diagnosing Failures**
-* Good Prompt: "Why did job e4319979582d4c0eb77fc7a66a0d8123 fail?"
-* Result: By providing a specific Job ID, the agent instantly performs a detailed failure analysis, comparing commands and pinpointing the exact error.
-
-* Bad Prompt: "Why are my tests failing?"
-* Result: Too broad. The agent cannot analyze general organization-wide failures and will ask for more context.
-
-**Investigating Test Coverage**
-* Good Prompt: "Visualize the test coverage by device for my RDC jobs over the last 30 days."
-* Result: The agent knows exactly what to fetch (Real Device Cloud jobs, last 30 days, grouped by device) and generates a chart because you used the word "visualize."
-  
-* Bad Prompt: "What's my coverage?"
-* Result: The agent won't know if you mean device, OS, or browser coverage.
-
-For more detailed information on how to prompt the Insights agent, visit our [AI for Insights Prompting Guide](/sauce-ai/ai-insights-prompting-guide.md). 
-
-:::info
-After your test finishes running, please allow up to 30 minutes for the data to reach the AI for Insights agent.
-:::
-
-## How It Works
-
-Each widget in the Sauce Home page now features our Sauce AI icon. When clicked, the AI agent is launched, already aware of the widget’s context, filters, and the data it represents. You can type a question about that data, and the system immediately interprets and processes it through a large language model (LLM) configured to understand the Sauce data structure. Sauce AI for Insights agent will provide suggestions and recommendations for follow-ups based on conversation context.
-
-If a question cannot be answered due to access permissions or unsupported topics, AI for Insights agent clearly communicates why, helping you to re-frame the query. Transparency is built into the core: each response includes metadata describing the source APIs and filters used to generate the insight when prompted.
-
-You can copy or share the visualization or data tables, as well as rate the response using a thumbs-up or thumbs-down feedback mechanism, with the ability to add a note about your experience to help improve future results.
 
 :::note
-We only use your responses in AI for Insights to improve our prompting and data structures. We do not use any of your responses, feedback, or data to train the LLM.
+If a question cannot be answered due to access permissions, unavailable data, or unsupported topics, the AI assistant clearly explains the limitation and helps you refine your question to get more relevant Insights.
 :::
+
 
 ## Key Capabilities
 
@@ -72,40 +33,12 @@ The initial rollout focuses on making Sauce AI for Insights agent a trusted, tra
 * **Feedback Loop**: You can rate the helpfulness of each answer to continually refine the model.
 * **Automated Test Diagnostics**: Job and Test level root cause analysis of failures for quicker debugging. 
 
-## Accessing Sauce AI for Insights
+## Explore AI Insights Workflows
 
-**Sauce AI for Insights** is embedded directly within the Sauce Home page, designed to feel intuitive and accessible from the very first interaction.
+Learn how to use AI Insights capabilities through the following guides:
 
-To access the service, simply select the Home tab from the left-hand navigation bar and **Locate the AI Icon in the top right corner of your widgets**.
-
-<img src={useBaseUrl('/img/ai-insights/sauceai1.png')} alt="AI Insights View" width="600"/>
-
-Clicking the icon opens a compact chat panel directly beside the widget, and you can start asking questions without needing to restate your setup or data context window. 
-
-<img src={useBaseUrl('/img/ai-insights/sauceai2.png')} alt="AI Insights View" width="600"/>
-
-Sauce AI understands your intent, retrieves the relevant data, and generates an answer in real time, often with visual context such as a chart or data table. 
-
-## Diagnosing Test Failures
-Sauce AI for Insights is your automated debugging assistant. When a test fails, you no longer need to manually parse through logs to find the root cause. Simply open Sauce AI for Insights and ask the agent to investigate using the Job ID (for example: "Why did this job fail dade3074f5da4fc2b2e7c6d4ae7eb0f5?"). The agent will analyze the test execution and return a detailed analysis, which includes:
-
-* Critical Evidence: The exact point of failure (e.g., a modal or cookie consent banner overlaying a target element).
-* Warning Patterns: A summary of non-critical errors (like "element not found") leading up to the failure that might indicate timing issues or brittleness.
-* Summary of Findings: A plain-language explanation of why the test broke.
-* Recommendations: Actionable next steps for your QA or engineering teams, such as implementing explicit waits or modifying the script to dismiss blocking UI elements.
-
-<img src={useBaseUrl('/img/insights/Insights_ATD.png')} alt="AI Insights Automated Test Diagnostics" width="600"/>
-
-:::note 
-Sauce AI for Insights uses advanced language models to interpret questions and generate insights based on available data. While the service is built to be accurate and contextually aware, its responses may occasionally include inaccuracies or incomplete interpretations of the underlying data due to the nature of LLMs. It is important that users read and critically evaluate the responses, as human judgment is essential in understanding and applying the insights.
-:::
-
-## Security and Compliance
-
-Data protection, security, and privacy are central to this product and to Sauce Labs as a whole. Our AI for Insights product is designed to minimize queries on your data by only sending the relevant portions of data required to answer a given question, not entire datasets. While the model may receive raw data, we avoid sending personally identifiable information (PII) whenver possible. Currently, the only user-related data sent to the LLM are user IDs and usernames.
-
-Users utilizing Sauce AI for Insights will have the same data access as they have all other places in the platform. If a user only has access to certain team’s tests in another area of the platform, that access will be mirrored by Sauce AI for Insights. User authentication remains consistent with Sauce Labs’ existing security model; each query respects user credentials and permission boundaries. Data processing is performed within secure and controlled cloud environments utilizing a powerful, compliant large language model.
-
-Please see our [Responsible use of AI guidelines](https://trust.saucelabs.com/resources?s=tcd1vcgj9ya80ahtrhj65&name=responsible-usage-of-ai-at-sauce-labs) in our [Trust Center](https://trust.saucelabs.com/) for more information.
-
-**No customer data is used in the training of the LLMs used in Sauce AI for Insights.**
+| Guide | Description | Reference |
+| ------ | ----------- | --------- |
+| **Use Sauce AI Assistants** | Learn how to access the AI assistant, ask effective questions, and explore your testing data using natural-language conversations. | **[See more](/docs/sauce-ai/ai-insights/use-sause-ai-assistants.md)** |
+| **Automated Bug Troubleshooting** | Learn how to investigate failed tests, identify root causes, and understand AI-generated diagnostic recommendations. | **[See more](/docs/sauce-ai/ai-insights/automated-bug-troubleshooting.md)** |
+| **Privacy, Safety, and Trust** | Learn how Sauce AI protects your data, maintains security and access permissions, and follows responsible AI practices. | **[See more](/docs/sauce-ai/ai-insights/privacy-safety-and-trust.md)** |
