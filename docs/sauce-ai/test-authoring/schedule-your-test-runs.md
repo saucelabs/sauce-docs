@@ -1,7 +1,7 @@
 ---
 id: schedule-your-test-runs
-title: Schedule Your Test Runs
-sidebar_label: Schedule Your Test Runs
+title: Schedule Test Runs
+sidebar_label: Schedule Test Runs
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -26,7 +26,7 @@ Scheduling test runs allows you to automatically **trigger your test suites** at
 | :---: | ----- | ----- | ----- |
 | **1** | **Schedule Name** | A unique and descriptive name for the scheduled test execution. | Daily Regression Suite |
 | **2** | **Select test suite(s) to run** | Select one or more existing test suites that should be triggered according to the schedule. | Login Test Suite, Checkout Flow Suite |
-| **3** | **Tunnel Proxies** | **[Enable this option](/docs/secure-connections/sauce-connect-4/proxy-tunnels.md)** to override individual test case tunnel settings and use a specific tunnel for all tests in the schedule. | Enabled – `QA-Tunnel-US-West` |
+| **3** | **Tunnel Proxies** | **[Enable this option](/docs/secure-connections/sauce-connect-4/proxy-tunnels.md)** to override individual test case tunnel settings and use a specific tunnel for all tests in the schedule. | Enabled – `johndoe-1029` |
 | **4** | **Automated run (build) name** | Optional name used to identify the automated test run. If not provided, the schedule name is used by default. | Daily Regression Build |
 | **5** | **Run as** | Select the user or service account that will own the test runs triggered by the schedule. | John Smith `john.smith@example.com` |
 | **6** | **Start time** | Define the date and time when the schedule should begin running. | 15 June 2025, 10:00 AM |

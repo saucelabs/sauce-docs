@@ -1,7 +1,7 @@
 ---
 id: generate-your-test-case
-title: Generate Your Test Case
-sidebar_label: Generate Your Test Case
+title: Generate Test Case
+sidebar_label: Generate Test Case
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -18,7 +18,7 @@ Before getting started, please refer to the **[Prerequisites](/docs/sauce-ai/ai-
 
 ## Navigation
 
-**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu,expand its available options, and select **Test Cases and Suites.** 
+**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu, expand its available options, and select **Test Cases and Suites.** 
 
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-1.png')} alt=" test case" width="100%"/>
 
@@ -47,11 +47,11 @@ The following configuration options are available:
 
 | Ref. | Option | Description |
 | :---: | ----- | ----- |
-| **1** | **Application Type** | Select whether you want to generate a test for a **Website** or a **Mobile** application. The available configuration options are updated based on the selected application type. |
+| **1** | **Application Type** | Select whether you want to generate a test for a **Website** or a **Mobile** application. The available device configuration options are updated based on the selected application type. |
 | **2** | **Platform to Generate On** | Select the operating system or mobile platform where Sauce AI will perform the test generation.  |
 | **3** | **Browser to Generate On** | For web applications, select the browser that Sauce AI will use to interact with your application during test generation. |
-| **4** | **Tunnel Proxies** | Enable this option if your application is hosted on a private or restricted network that requires a **[Sauce Connect tunnel](/docs/secure-connections/sauce-connect-5/guides/tunnel-pool.md)** to establish secure access during test generation. |
-| **5** | **Cut Off Test Steps At** | Define the maximum number of steps Sauce AI can generate during the test creation process. This helps control the size and complexity of the generated test flow. |
+| **4** | **Tunnel Proxies** | Enable this option if your application is hosted on a private or restricted network that requires a **[Sauce Connect tunnel](/docs/secure-connections/sauce-connect-5/guides/tunnel-pool.md)** to establish secure access during test generation. If your organization enforces tunnel usage, the default tunnel is automatically selected for your test runs. |
+| **5** | **Cut Off Test Steps At** | Define the maximum number of steps Sauce AI can generate during the test creation process. The maximum supported value is **200 steps**. This helps control the size and complexity of the generated test flow. |
 
 :::note
 If you do not modify these settings, Sauce Labs automatically applies the default configuration based on your selected application type. Your most recently used settings are also saved and applied to future test generation sessions. 
@@ -72,11 +72,11 @@ Sauce AI understands the intent behind your instructions and translates them int
 :::note
 If your team already maintains test cases using **Gherkin** or other behavior-driven development (BDD) formats, you can provide those scenarios directly as prompts. 
 
-For example: 
-- `Given I am on the login page.` 
-- `When I enter valid username and password` 
-- `And I click the Sign In button` 
-- `Then I should be redirected to the dashboard`
+**For example:** 
+`Given I am on the login page.` 
+`When I enter valid username and password` 
+`And I click the Sign In button` 
+`Then I should be redirected to the dashboard`
 :::
 
 Clear and specific prompts produce more reliable test flows. Include important details such as the exact UI elements to interact with and the expected outcome of each action.
@@ -121,7 +121,7 @@ The generated test flow includes details such as:
 Reviewing the generated steps helps you verify that the test accurately reflects the intended user workflow.
 
 :::tip
-If the generated test flow does not match your expected behavior, you can stop the generation and provide a more specific prompt to improve the results. |
+If the generated test flow does not match your expected behavior, you can stop the generation, refine your prompt, and try again. During generation, the start prompt button changes into stop while prompt result is being generated.
 :::
 
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-7.png')} alt=" test case" width="100%"/>
@@ -130,19 +130,20 @@ If the generated test flow does not match your expected behavior, you can stop t
 
 The **Session** view provides a video recording of the test generation session. This allows you to watch the actions performed by Sauce AI in the browser and visually confirm that the generated workflow matches the expected behavior of your application.
 
-Reviewing the session recording can help you better understand how the test was created and identify any areas that may require refinement before saving or executing the test.
-
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-8.png')} alt=" test case" width="100%"/>
 
 ### Code View
 
 The **Code** view allows you to generate automation scripts from the test case using your preferred programming language and automation framework.
 
-After reviewing the generated test flow, you can select the desired language and framework to generate a corresponding test script. The generated script can then be copied, downloaded, and incorporated into your existing test automation projects and CI/CD pipelines.
+Code generation is an on-demand action. The generated script is created when requested and is not saved as part of the test case. You can regenerate the script at any time using different language and framework combinations.
 
-For detailed instructions on generating automation code from a test case, see [**Generate Test Scripts**](generate-the-script-code.md).
+After generating the script, you can review, copy, or download it for use in your existing test automation projects and CI/CD pipelines.
+
+For detailed instructions, see [**Generate Test Scripts**](generate-the-script-code.md).
 
 This view helps you convert authored test cases into reusable automation code while maintaining the workflow defined in the generated test.
+
 :::caution
 **Known limitations when generating on Safari**
 
@@ -181,6 +182,6 @@ After providing the required details, click **Save** to store your test case.
 
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-10.png')} alt=" test case" width="100%"/>
 
-The saved test case will be available in the **Test Cases and Suites** page for future execution, modification, and management.
+The saved test case will be available in the **Test Cases and Suites** page for future execution, modification, and [management](/docs/sauce-ai/test-authoring/create-and-manage-test-suites.md).
 
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-11.png')} alt=" test case" width="100%"/>

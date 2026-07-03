@@ -1,14 +1,16 @@
 ---
 id: manage-your-test-cases
-title: Manage Your Test Cases
-sidebar_label: Manage Your Test Cases
+title: Manage Test Cases
+sidebar_label: Manage Test Cases
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once you have [generated and saved your test cases](/docs/sauce-ai/test-authoring/generate-your-test-case.md), you can return to them at any time to update, organize, duplicate, or delete them as your testing requirements evolve. You can keep your test cases organized and up to date as your application changes.
+Once you have [generated and saved your test cases](/docs/sauce-ai/test-authoring/generate-your-test-case.md), you can return to them at any time to update, organize, duplicate, or delete them as your testing requirements evolve. 
+
+All saved test cases, schedules, and test suites are stored within the active Sauce Labs data center associated with your organization. This ensures your test assets remain isolated and accessible within the same regional environment. You can keep your test cases organized and up to date as your application changes.
 
 ## Visit Your Test Cases
 
@@ -20,6 +22,7 @@ The **Test Cases and Suites** page displays all the test cases you have generate
 * Creator information  
 * Creation date  
 * Number of generated test steps  
+* Test suite information (if applicable)
 * Target operating system, browser, or device configuration.
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-1.png')} alt="Manage Your Test Cases" width="100%"/>
@@ -31,7 +34,7 @@ As your test library grows, you can use the available search and filtering optio
 | Ref. | Options | Description |
 | :---: | ----- | ----- |
 | **1** | **Search** | Use the **Search** bar to quickly locate a specific test case by entering its name. |
-| **2** | **Group By** | Organize test cases based on **[Test Case](/docs/sauce-ai/test-authoring/generate-your-test-case.md)** and **[Test Suite](/docs/sauce-ai/test-authoring/create-and-manage-test-suites.md)** to make the test list easier to navigate. |
+| **2** | **Group By** | View test cases using either the **[Test Case](/docs/sauce-ai/test-authoring/generate-your-test-case.md)** or **[Test Suite](/docs/sauce-ai/test-authoring/create-and-manage-test-suites.md)** hierarchy. |
 | **3** | **Time Filter** | Filter test cases based on their creation or modification time to quickly find recently created or older test cases. |
 | **4** | **Suite Filter** | Display test cases associated with a specific **test suite** or view test cases that are not assigned to any suite. |
 | **5** | **Organization Filter** | Filter test cases based on the selected organization to view only the relevant test cases. |
@@ -87,7 +90,7 @@ The system then displays the updated test intent along with the proposed test fl
 | Ref | Option | Description |
 | ----- | ----- | ----- |
 | **1** | **Edit** | Edit the proposed test intent to provide additional details or adjust the requested changes. |
-| **2** | **Proceed** | Accept the updated test flow and allow Test Authoring to generate the revised test steps. |
+| **2** | **Proceed** | Accept the updated test flow and regenerate the test case using **step replay**. Previously validated steps are replayed and retained, while only the updated or affected steps are regenerated. Use the split button menu to regenerate the entire test case from scratch instead. |
 | **3** | **Cancel** | Discard the refinement and return to the existing test flow without applying the proposed changes. |
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-5.png')} alt="Manage Your Test Cases" width="100%"/>
@@ -125,9 +128,5 @@ The following management actions are available:
 | **Edit** | Opens the selected test case in the test case workspace, allowing you to:<ul><li>Review the test flow</li><li>Modify existing test steps</li><li>Refine the test using natural-language prompts</li><li>Save the updated test case</li></ul>  |
 | **Rename** | Allows you to change the name of the test case without modifying the test steps or execution flow. Using clear and descriptive names helps you easily identify and organize test cases within your test library. |
 | **Delete** | Permanently removes the selected test case from the Test Cases and Suites library. Once deleted, the test case and its associated details can no longer be accessed. Confirm the deletion only when the test case is no longer required. |
-
-:::caution
-Deleting a test case permanently removes it from the Test Cases and Suites library. Ensure that the test case is no longer needed before confirming the deletion. 
-:::
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-9.png')} alt="Manage Your Test Cases" width="100%"/>

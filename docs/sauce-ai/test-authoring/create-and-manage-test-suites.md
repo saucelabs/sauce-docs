@@ -16,7 +16,7 @@ For example, you might create a test suite for login functionality, checkout wor
 
 You can create a Test Suite by grouping one or more existing test cases from the **Test Cases and Suites** page.
 
-**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu,expand its available options, and select **Test Cases and Suites.**
+**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu, expand its available options, and select **Test Cases and Suites.**
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-1.png')} alt="Create and Manage Test Suites" width="100%"/>
 

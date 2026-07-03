@@ -1,7 +1,7 @@
 ---
 id: run-your-test-suite
-title: Run Your Test Suite
-sidebar_label: Run Your Test Suite
+title: Run Test Suite
+sidebar_label: Run Test Suite
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -18,7 +18,7 @@ Test suites inherit the execution configurations from the individual test cases 
 
 ## Run Test Suite
 
-**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu,expand its available options, and select **Test Cases and Suites.**
+**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu, expand its available options, and select **Test Cases and Suites.**
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-suite/run-test-suite-1.png')} alt="Run Your Test Suite" width="100%"/>
 

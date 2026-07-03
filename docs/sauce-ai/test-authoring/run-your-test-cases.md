@@ -1,7 +1,7 @@
 ---
 id: run-your-test-cases
-title: Run Your Test Cases
-sidebar_label: Run Your Test Cases
+title: Run Test Cases
+sidebar_label: Run Test Cases
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -14,7 +14,7 @@ You can run your test cases on the selected browser, operating system, or device
 
 ## Access the Test Case Execution
 
-**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu,expand its available options, and select **Test Cases and Suites**
+**Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu, expand its available options, and select **Test Cases and Suites**
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-cases/run-test-case-1.png')} alt="Run Your Test Cases" width="100%"/>
 
@@ -34,7 +34,7 @@ Before triggering the workflow, review and configure the required test execution
 | **4** | **Add Configuration (+)** | Click the **+** icon to add additional browser, device, or platform configurations and execute the same test case across multiple environments simultaneously. |
 | **5** | **Remove Configuration (Delete)** | Click the delete icon to remove an existing device configuration from the test run setup. |
 | **6** | **Tunnel Proxies** | Enable this option to execute tests against applications that are hosted in a private or internal network using Sauce Connect Proxy. |
-| **7** | **Automated Run (Build) Name** | Enter a custom name for the test execution to help identify and organize the run in the test results. |
+| **7** | **Automated Run (Build) Name** | Enter a custom name for the test execution. If no name is provided, Test Authoring automatically assigns a default name using the test case name and an incrementing number |
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-cases/run-test-case-3.png')} alt="Run Your Test Cases" width="100%"/>
 
