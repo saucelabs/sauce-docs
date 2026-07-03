@@ -1222,6 +1222,15 @@ module.exports = {
                         'sauce-ai/real-device-cloud-mcp-prompting-guide',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Error Reporting',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/error-reporting/overview',
+                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
+                    ],
+                },
             ],
         },
         {
