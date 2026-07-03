@@ -23,9 +23,10 @@ For example, you can ask:
 
 Sauce AI interprets your request and automatically:
 
-* Applies relevant filters.  
-* Adjusts the timeframe based on your query.  
-* Groups error data intelligently in the **[Explore](/docs/error-reporting/web-console/explore.md)** view.
+- Applies relevant filters.  
+
+- Adjusts the timeframe based on your query.  
+- Groups error data intelligently in the **[Explore](/docs/error-reporting/web-console/explore.md)** view.
 
 This reduces the time spent manually searching through error reports and allows teams to identify issues faster.
 
