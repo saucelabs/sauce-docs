@@ -111,7 +111,7 @@ Google announced that starting with **Chrome 153 in September 2026**, Chrome wil
 
 #### Cypress on macOS 14 and 15 (Apple Silicon)
 
-[Cypress 15.14.2](/web-apps/automated-testing/cypress/) now runs on **macOS 14 (Sonoma) and macOS 15 (Sequoia)** on Apple Silicon. Supported browsers: Chrome, Microsoft Edge, and WebKit (Experimental). Firefox is not supported on macOS 15 due to a macOS firewall issue. Chrome, Firefox, Microsoft Edge, and WebKit (Experimental) remain available on macOS 11.00, 12, 13, and 14.
+[Cypress 15.14.2](/web-apps/automated-testing/cypress/) now runs on **macOS 14 (Sonoma) and macOS 15 (Sequoia)** on Apple Silicon. On macOS 14, all four browsers are supported: Chrome, Firefox, Microsoft Edge, and WebKit (Experimental). On macOS 15, Firefox is not supported due to a macOS firewall issue, so the supported browsers are Chrome, Microsoft Edge, and WebKit (Experimental). Chrome, Firefox, Microsoft Edge, and WebKit (Experimental) also remain available on macOS 11.00, 12, and 13.
 
 #### Playwright 1.58.1 — Now on macOS 14 and 15 (ARM)
 
