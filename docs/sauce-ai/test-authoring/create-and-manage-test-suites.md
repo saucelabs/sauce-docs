@@ -39,23 +39,23 @@ You can create a Test Suite by grouping one or more existing test cases from the
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-3.png')} alt="Create and Manage Test Suites" width="100%"/>
 
-**Step 4:** Click on the **Save Suite** button to create the test suite. The new test suite will then be available from the **Test Cases and Suites** page for future execution and management.
+**Step 4:** Click on the **Save Suite** to create the test suite. The new test suite will then be available from the **Test Cases and Suites** page for future execution and management.
 
 :::note
-A single test case can be associated with only one test suite at a time. 
+A single test case can be associated with only one test suite at a time.
 :::
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-4.png')} alt="Create and Manage Test Suites" width="100%"/>
 
-## View & Organize Test Suites
+## View and Organize Test Suites
 
-By default, the **Test Cases and Suites** page displays individual test cases. 
+By default, the **Test Cases and Suites** page displays individual test cases.
 
-To view your test suites, select **Test Suites** from the **Group By** dropdown menu.
+To view your test suites, select **Test Suites** from the **Group By** dropdown list.
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-5.png')} alt="Create and Manage Test Suites" width="100%"/>
 
-The page updates to display test cases grouped under their respective test suites, making it easier to review and manage related test scenarios together. 
+The page updates to display test cases grouped under their respective test suites, making it easier to review and manage related test scenarios together.
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/grouped-test-cases.png')} alt="Create and Manage Test Suites" width="100%"/>
 
@@ -64,7 +64,7 @@ Any test cases that are not associated with a test suite are displayed separatel
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/ungrouped-test-cases.png')} alt="Create and Manage Test Suites" width="100%"/>
 
 :::note
-Your selected **Group By** preference is saved at the user level and remains applied for future sessions until you change it again. 
+Your selected **Group By** preference is saved at the user level and remains applied for future sessions until you change it again.
 :::
 
 ### Edit a Test Suite
@@ -79,9 +79,9 @@ You can update an existing test suite whenever your testing requirements change.
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-7.png')} alt="Create and Manage Test Suites" width="100%"/>
 
-**Step 3:** Update the test suite as required by adding additional test cases to expand test coverage, removing existing test cases that are no longer relevant, or reviewing and adjusting the overall test suite composition. 
+**Step 3:** Update the test suite as required by adding additional test cases to expand test coverage, removing existing test cases that are no longer relevant, or reviewing and adjusting the overall test suite composition.
 
-Once you have completed the required changes, click **Save Suite** to apply and save the updated test suite.
+After you have completed the required changes, click **Save Suite** to apply and save the updated test suite.
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-8.png')} alt="Create and Manage Test Suites" width="100%"/>
 
@@ -101,7 +101,7 @@ You can remove test suites that are no longer required while keeping your testin
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-7.png')} alt="Create and Manage Test Suites" width="100%"/>
 
-**Step 3:** When you delete a test suite, Sauce Labs displays a confirmation dialog to prevent accidental deletion. Type “delete” in the confirmation field to verify the action. 
+**Step 3:** When you delete a test suite, Sauce Labs displays a confirmation dialog to prevent accidental deletion. Type “delete” in the confirmation field to verify the action.
 
 You can then choose one of the following options:
 
@@ -111,7 +111,7 @@ You can then choose one of the following options:
 
 <img src={useBaseUrl('/img/ai-authoring/create-test-suite/create-test-suite-9.png')} alt="Create and Manage Test Suites" width="100%"/>
 
-**Step 4:** Click on the **Delete** button to permanently remove the test suite based on the selected deletion option.
+**Step 4:** Click **Delete** to permanently remove the test suite based on the selected deletion option.
 
 :::note
 Deleting a test suite cannot be undone. If you delete only the test suite, the associated test cases remain available in your account and become ungrouped. Test cases are permanently removed only if you explicitly select the option to delete the nested test cases during the deletion process.

@@ -10,15 +10,15 @@ import TabItem from '@theme/TabItem';
 
 After running a test case or test suite from **Test Authoring**, Sauce Labs automatically groups all generated test sessions under an **Automated Build**. This makes it easier to organize, track, and analyze test executions through the **Automated Test Results** and **Builds** pages as well as the Home dashboard.
 
-Each device or platform configuration included in a test case creates a separate automated test session during execution. 
+Each device or platform configuration included in a test case creates a separate automated test session during execution.
 
 For example, if a test case is configured to run on **Chrome** and **Firefox** using the same Linux operating system, Sauce Labs creates a separate test session for each browser configuration.
 
 The test results include standard Sauce Labs execution artifacts that help you analyze and troubleshoot test outcomes, such as:
 
-* Screenshots captured during test execution.  
-* Execution logs and diagnostic information.  
-* Video recordings of the test session.  
+* Screenshots captured during test execution.
+* Execution logs and diagnostic information.
+* Video recordings of the test session.
 * Additional test metadata and execution details.
 
 ## Access Test Results

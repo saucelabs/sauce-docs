@@ -8,26 +8,26 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once you have [generated and saved your test cases](/docs/sauce-ai/test-authoring/generate-your-test-case.md), you can return to them at any time to update, organize, duplicate, or delete them as your testing requirements evolve. 
+After you have [generated and saved your test cases](/docs/sauce-ai/test-authoring/generate-your-test-case.md), you can return to them at any time to update, organize, duplicate, or delete them as your testing requirements evolve.
 
-All saved test cases, schedules, and test suites are stored within the active Sauce Labs data center associated with your organization. This ensures your test assets remain isolated and accessible within the same regional environment. You can keep your test cases organized and up to date as your application changes.
+All saved test cases, schedules, and test suites are stored in the active Sauce Labs data center associated with your organization. This ensures your test assets remain isolated and accessible in the same regional environment. You can keep your test cases organized and up to date as your application changes.
 
 ## Visit Your Test Cases
 
 **Step 1:** Inside your Sauce Labs account, find **Test Authoring** from the left-hand navigation menu, expand its available options, and select **Test Cases and Suites.**
 
-The **Test Cases and Suites** page displays all the test cases you have generated and saved along with useful information, including:
+The **Test Cases and Suites** page displays all the test cases you have generated and saved along with the following details:
 
-* Test case name  
-* Creator information  
-* Creation date  
-* Number of generated test steps  
+* Test case name
+* Creator information
+* Creation date
+* Number of generated test steps
 * Test suite information (if applicable)
 * Target operating system, browser, or device configuration.
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-1.png')} alt="Manage Your Test Cases" width="100%"/>
 
-## Search & Filter Test Cases
+## Search and Filter Test Cases
 
 As your test library grows, you can use the available search and filtering options to quickly locate, organize, and manage your test cases.
 
@@ -54,7 +54,7 @@ To review an existing test case, click on the **test case name** of your prefere
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-3.png')} alt="Manage Your Test Cases" width="100%"/>
 
-## Review & Edit Generated Test Steps
+## Review and Edit Generated Test Steps
 
 After opening a test case, you can review the generated test steps in a human-readable format. Each step contains detailed information that helps you understand how the automated test interacts with your application.
 
@@ -62,7 +62,7 @@ The following information is available for each generated test step:
 
 | Ref. | Component | Description |
 | ----- | ----- | ----- |
-| **1** | **Step Intent** | Displays the purpose of the test step in simple language, describing the action performed and the expected interaction with the application. |
+| **1** | **Step Intent** | Displays the purpose of the test step, describing the action performed and the expected interaction with the application. |
 | **2** | **Element Selector** | Displays the locator (such as a CSS selector) used by the automation engine to identify and interact with the application element. |
 | **3** | **Input Value** | Shows the data or value entered during the step, such as usernames, passwords, text inputs, or other user-provided information. |
 | **4** | **Step Screenshot** | Displays a screenshot captured during the test generation process, providing visual confirmation of the application state when the action was performed. |
@@ -83,7 +83,7 @@ For example, you can provide prompts such as:
 
 > *“Leave the password field empty and verify that the appropriate validation message is displayed.”*
 
-After you submit the refinement prompt, Test Authoring analyzes your request and combines the original test intent with the new instructions. 
+After you submit the refinement prompt, Test Authoring analyzes your request and combines the original test intent with the new instructions.
 
 The system then displays the updated test intent along with the proposed test flow for your review. During the review process, you can perform following options:
 
@@ -95,7 +95,7 @@ The system then displays the updated test intent along with the proposed test fl
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-5.png')} alt="Manage Your Test Cases" width="100%"/>
 
-Once you select **Proceed**, Test Authoring validates the updated test flow in a live browser or device environment and generates the revised test steps. 
+After you select **Proceed**, Test Authoring validates the updated test flow in a live browser or device environment and generates the revised test steps.
 
 You can then review the updated steps, make additional refinements if necessary, and save the modified test case.
 
@@ -107,15 +107,15 @@ The following diagram illustrates how to refine a test using a follow-up prompt 
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-6.png')} alt="Manage Your Test Cases" width="100%"/>
 
-Once you are happy with the result, you can **Save Test Case** at the bottom of the page.
+If you are happy with the result, you can **Save Test Case** at the bottom of the page.
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-7.png')} alt="Manage Your Test Cases" width="100%"/>
 
 ## Edit, Rename, or Delete a Test Case
 
-Once your test cases are created and saved, you may need to make changes to  them as your testing requirements change. For this purpose, you can edit an existing test case, update its name that aligns with the new goal, or permanently remove it if it is no longer needed.
+Once your test cases are created and saved, you may need to make changes to them as your testing requirements change. For this purpose, you can edit an existing test case, update its name that aligns with the new goal, or permanently remove it if it is no longer needed.
 
-**Step 1:** To access these options, navigate to **Test Authoring**, select **Test Cases and Suites** from the available options. 
+**Step 1:** To access these options, navigate to **Test Authoring**, select **Test Cases and Suites** from the available options.
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-8.png')} alt="Manage Your Test Cases" width="100%"/>
 
@@ -126,7 +126,7 @@ The following management actions are available:
 | Actions | Description |
 | ----- | ----- |
 | **Edit** | Opens the selected test case in the test case workspace, allowing you to:<ul><li>Review the test flow</li><li>Modify existing test steps</li><li>Refine the test using natural-language prompts</li><li>Save the updated test case</li></ul>  |
-| **Rename** | Allows you to change the name of the test case without modifying the test steps or execution flow. Using clear and descriptive names helps you easily identify and organize test cases within your test library. |
+| **Rename** | Allows you to change the name of the test case without modifying the test steps or execution flow. Using clear and descriptive names helps you identify and organize test cases in your test library. |
 | **Delete** | Permanently removes the selected test case from the Test Cases and Suites library. Once deleted, the test case and its associated details can no longer be accessed. Confirm the deletion only when the test case is no longer required. |
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-9.png')} alt="Manage Your Test Cases" width="100%"/>

@@ -8,12 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-After **[creating a test suite](/docs/sauce-ai/test-authoring/create-and-manage-test-suites.md)**, you can run it to execute all the test cases included in the suite as part of a single test run. During test execution, Sauce Labs will automatically run each test case using the browser, platform, device, and other configurations defined for the individual test cases.
+After **[creating a test suite](/docs/sauce-ai/test-authoring/create-and-manage-test-suites.md)**, you can run it to run all the test cases included in the suite as part of a single test run. During test execution, Sauce Labs will automatically run each test case using the browser, platform, device, and other configurations defined for the individual test cases.
 
 This allows you to validate multiple workflows and application features in a single execution without having to run each test case separately. You can save time, simplify test execution, and ensure consistent test coverage across different environments.
 
 :::note
-Test suites inherit the execution configurations from the individual test cases included in the suite. 
+Test suites inherit the execution configurations from the individual test cases included in the suite.
 :::
 
 ## Run Test Suite
@@ -22,7 +22,7 @@ Test suites inherit the execution configurations from the individual test cases 
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-suite/run-test-suite-1.png')} alt="Run Your Test Suite" width="100%"/>
 
-**Step 2:** From the **Group By** dropdown, select **Test Suites** to display your available test suites.
+**Step 2:** From the **Group By** drop down list, select **Test Suites** to display your available test suites.
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-suite/run-test-suite-2.png')} alt="Run Your Test Suite" width="100%"/>
 
@@ -40,7 +40,7 @@ Test suites inherit the execution configurations from the individual test cases 
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-suite/run-test-suite-4.png')} alt="Run Your Test Suite" width="100%"/>
 
-**Step 5:** Click on the **Run Tests** button to start executing all test cases included in the selected test suite.
+**Step 5:** Click on the **Run Tests** to start executing all test cases included in the selected test suite.
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-suite/run-test-suite-5.png')} alt="Run Your Test Suite" width="100%"/>
 
@@ -48,13 +48,13 @@ After the execution begins, Sauce Labs creates automated test sessions based on 
 
 ## View Test Suite Results
 
-Once the run is complete, navigate to **Automated** from the left-hand navigation menu, expand its available options, and select **Test Results.**
+After the run is complete, navigate to **Automated** from the left-hand navigation menu, expand its available options, and select **Test Results.**
 
 The Test Results page provides details such as:
 
-* Overall execution status (**Passed** or **Failed**)  
-* Test case execution results within the suite  
-* Execution duration and environment information  
+* Overall execution status (**Passed** or **Failed**)
+* Test case execution results in the suite
+* Execution duration and environment information
 * Available debugging artifacts, such as logs, screenshots, and videos when applicable
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-suite/run-test-suite-6.png')} alt="Run Your Test Suite" width="100%"/>
