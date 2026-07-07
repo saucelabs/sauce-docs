@@ -476,16 +476,18 @@ You'll see this error when Sauce Labs ends your real device session because the 
 
 **Description**
 
-You'll see this error when Sauce Labs could not inject an audio file into your app during a real device [Audio Injection](/mobile-apps/features/audio-injection) session. When you inject audio from an automated test with the `sauce:inject-audio=<base64>` command, the failure is returned as a WebDriver error; device-side rejections are surfaced as `Cannot inject audio: <reason>`.
+You'll see this error when Sauce Labs could not inject an audio file into your app during a real device [Audio Injection](/mobile-apps/features/audio-injection) session. When you inject audio from an automated test with the `sauce:inject-audio=<base64>` command, the failure is returned as a WebDriver error. Device-side rejections are surfaced as `Cannot inject audio: <reason>`.
+
+Injecting audio and using it are two separate steps. The causes below happen at injection time. On Android, if Audio Injection is enabled but no valid audio file is available when your app starts listening, speech recognition uses the device microphone instead of returning an error.
 
 **Cause(s)**
 
-- **Audio Injection is not enabled for the app** — the app was not instrumented/resigned with Audio Injection enabled, or the setting is turned off for the session (the device returns HTTP 403).
-- **Unsupported audio format** — the file is not a format the device can decode (the device returns HTTP 415, `Unsupported audio format.`). Supported formats are MP3, WAV, M4A, and AAC on iOS, and MP3 on Android.
-- **Empty or missing audio** — no audio payload was sent. From Appium this fails with `Audio data cannot be parsed because it is empty.` (a zero-length upload returns HTTP 400 from the device).
-- **Audio is not base64 encoded** — the `sauce:inject-audio=` payload must be a Base64 string ([RFC 4648](https://www.rfc-editor.org/rfc/rfc4648)); otherwise it fails with `The audio cannot be injected because it is not base64 encoded according to chapter 4 of RFC 4648.`
-- **Audio file is too large** — the audio must be 15 MB or less, otherwise it fails with `The audio cannot be injected because it is too large.`
-- **No app installed** — audio injection was requested before an app was installed on the device (`Audio was not injected because no app is installed.`).
+- The app was not instrumented with Audio Injection enabled, or the setting is turned off for the session. On iOS the device returns HTTP 403 with `Audio injection is not enabled.`
+- The audio is not in a format the device can decode. On iOS the device returns HTTP 415 with `Unsupported audio format.` Supported formats are MP3, WAV, M4A, and AAC on iOS, and MP3 on Android.
+- The `sauce:inject-audio` payload was empty, which fails with `Audio data cannot be parsed because it is empty.`
+- The `sauce:inject-audio` payload is not a base64 string ([RFC 4648](https://www.rfc-editor.org/rfc/rfc4648)), which fails with `The audio cannot be injected because it is not base64 encoded according to chapter 4 of RFC 4648.`
+- The audio is larger than 15 MB, which fails with `The audio cannot be injected because it is too large.`
+- Audio injection was requested before an app was installed on the device, which fails with `Audio was not injected because no app is installed.`
 
 **How to Resolve**
 

@@ -18,7 +18,7 @@ Audio Injection is a Sauce Labs Real Device Cloud (RDC) feature that simulates s
 Sauce Labs plays the audio you upload. The transcription itself comes from the device's own speech service, so the recognized text is whatever that audio would normally produce.
 
 :::caution Beta
-Audio Injection (Speech-to-Text) is currently in **beta** and may have limited availability. Reach out to your Sauce Labs representative or [Support](https://saucelabs.com/support) to have it enabled for your account.
+Audio Injection (Speech-to-Text) is currently in **beta** and may have limited availability. Reach out to your Sauce Labs representative or [Support](https://support.saucelabs.com/) to have it enabled for your account.
 :::
 
 :::caution
@@ -185,9 +185,11 @@ During an automated test, you'll enable Audio Injection for your app and then pa
 
 Here are some common errors you may see while testing with Audio Injection and how to resolve them. For a full reference, see [Audio Injection Failed](/dev/error-messages/#audio-injection-failed).
 
-#### Error: `Audio injection disabled.`
+When you call `sauce:inject-audio`, Sauce Labs checks the request and rejects it right away if something is wrong, so the errors below surface as a failed command in your test. That is separate from what happens when your app actually starts listening, described in [When no audio is available](#when-no-audio-is-available).
 
-Audio Injection is not enabled for the application. Enable it for the app in **App Management** (see [Live Testing](#live-testing)) before running the test.
+#### Error: `Audio data cannot be parsed because it is empty.`
+
+The payload passed to `sauce:inject-audio` was empty. Pass a base64-encoded audio file (see the [Automated Testing](#automated-testing) examples).
 
 #### Error: `The audio cannot be injected because it is not base64 encoded according to chapter 4 of RFC 4648.`
 
@@ -197,13 +199,23 @@ The payload passed to `sauce:inject-audio` is not valid base64. Encode the audio
 
 The audio file is over the 15 MB maximum. Reduce the file size (for example, lower the bitrate or trim the clip) before injecting it.
 
+#### Error: `Cannot inject audio: Unsupported audio format.`
+
+The file is not a supported format. Use MP3, WAV, M4A, or AAC on iOS, or MP3 on Android (see [Key Specs](#key-specs)).
+
+#### Error: `Cannot inject audio: Audio injection is not enabled.`
+
+Audio Injection is not enabled for the app. Enable it in **App Management** (see [Live Testing](#live-testing)), or set the `audioInjection` capability to `true`, before running the test.
+
 #### Error: `Audio was not injected because no app is installed.`
 
 No app is installed on the device, or the app has not fully loaded. Wait until your app has fully launched before injecting audio.
 
-#### Unsupported audio format
+### When No Audio Is Available
 
-Use a [supported format](#key-specs) for the target platform (MP3, WAV, M4A, or AAC on iOS; MP3 only on Android). On Android, if injection is enabled but the audio is missing, empty, or unreadable, speech recognition falls back to the device microphone instead of failing the test.
+Injecting audio and using it are two separate steps. The errors above happen at injection time, when you send a file that Sauce Labs rejects. Using the audio happens later, when your app starts listening for speech.
+
+On Android, if Audio Injection is enabled but no valid audio file is available when your app starts listening (for example, you never injected one), speech recognition uses the device microphone instead of returning an error. A missing file on Android shows up as normal microphone recognition, not as a failed command.
 
 ## Additional Resources
 
