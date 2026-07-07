@@ -1089,6 +1089,10 @@ suites:
       grepInvert: "should exclude"
 ```
 
+:::note
+Any option you set under `params` is passed to `playwright test` as a command-line flag, which takes precedence over the same setting in your `playwright.config.js|ts`. Options not set here are read from your Playwright config as usual. A few settings are always managed by Sauce Labs regardless of your config file: browser selection, `headless`, video capture, the test reporters, and — when a [tunnel](#tunnel) is active — the proxy.
+:::
+
 #### `browserName`
 
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -1229,6 +1233,25 @@ suites:
 
 ---
 
+#### `workers`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the maximum number of parallel worker processes Playwright uses to run the tests in a suite. Defaults to `1`.
+
+```yaml
+suites:
+  - name: "saucy test"
+    params:
+      workers: 4
+```
+
+:::note
+Set `workers` here in `params` — not in your `playwright.config.js|ts`. `saucectl` passes this value to Playwright as a command-line flag, which takes precedence over the `workers` field in your Playwright config file, so the config-file value has no effect when running on Sauce Cloud. This setting controls parallelism in a single suite; to run multiple suites in parallel, see [`concurrency`](#concurrency) and [`numShards`](#numshards).
+:::
+
+---
+
 ### `timeout`
 
 <p><small>| OPTIONAL | DURATION |</small></p>
@@ -1342,7 +1365,7 @@ suite:
 When set to `true`, this option adds capability requirement for ARM architecture on the machine running the test.
 
 :::note
-ARM is available for macOS 14 and macOS 15 with Playwright >=1.58.1. Note: Firefox is not supported on macOS 15 due to a known macOS firewall issue. As of March 20th, 2026 this parameter is no longer required in order for tests to execute on macOS 14+ and can be omitted from your configuration.
+ARM is available for macOS 14, macOS 15, and macOS 26 with Playwright >=1.58.1. Note: Firefox is not supported on macOS 15 due to a known macOS firewall issue. As of March 20th, 2026 this parameter is no longer required in order for tests to run on macOS 14+ and can be omitted from your configuration.
 :::
 
 ```yaml

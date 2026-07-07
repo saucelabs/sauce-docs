@@ -274,19 +274,12 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
   <div className="box box7 card">
     <div className="container">
-        <a href="https://www.scriptworks.io/"> <img src={useBaseUrl('img/integrations/scriptworks.png')} alt="Scriptworks logo" width="50" />
-        <h3>Scriptworks</h3>
-        </a>
-    </div>
-  </div>
-  <div className="box box8 card">
-    <div className="container">
         <a href="https://www.qmetry.com/"> <img src={useBaseUrl('img/integrations/qmetry.png')} alt="QMetry logo" width="50" />
       <h3>QMetry</h3>
         </a>
     </div>
   </div>
-  <div className="box box9 card">
+  <div className="box box8 card">
     <div className="container">
         <a href="https://selenium-toolkit.com/"> <img src={useBaseUrl('img/integrations/selenium-toolkit.png')} alt="Selenium Consulting logo" width="50" />
         <h3>Selenium Toolkit</h3>
