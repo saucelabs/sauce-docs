@@ -918,6 +918,7 @@ module.exports = {
                         },
                         'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/audio-injection',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/bypass-screenshot',
                         'mobile-apps/features/camera-image-injection',

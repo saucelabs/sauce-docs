@@ -472,6 +472,29 @@ You'll see this error when Sauce Labs ends your real device session because the 
 - If you see this error repeatedly on a specific private device, reach out to your Sauce Labs representative so we can check that device's battery health.
 
 
+### Audio Injection Failed
+
+**Description**
+
+You'll see this error when Sauce Labs could not inject an audio file into your app during a real device [Audio Injection](/mobile-apps/features/audio-injection) session. When you inject audio from an automated test with the `sauce:inject-audio=<base64>` command, the failure is returned as a WebDriver error; device-side rejections are surfaced as `Cannot inject audio: <reason>`.
+
+**Cause(s)**
+
+- **Audio Injection is not enabled for the app** — the app was not instrumented/resigned with Audio Injection enabled, or the setting is turned off for the session (the device returns HTTP 403).
+- **Unsupported audio format** — the file is not a format the device can decode (the device returns HTTP 415, `Unsupported audio format.`). Supported formats are MP3, WAV, M4A, and AAC on iOS, and MP3 on Android.
+- **Empty or missing audio** — no audio payload was sent. From Appium this fails with `Audio data cannot be parsed because it is empty.` (a zero-length upload returns HTTP 400 from the device).
+- **Audio is not base64 encoded** — the `sauce:inject-audio=` payload must be a Base64 string ([RFC 4648](https://www.rfc-editor.org/rfc/rfc4648)); otherwise it fails with `The audio cannot be injected because it is not base64 encoded according to chapter 4 of RFC 4648.`
+- **Audio file is too large** — the audio must be 15 MB or less, otherwise it fails with `The audio cannot be injected because it is too large.`
+- **No app installed** — audio injection was requested before an app was installed on the device (`Audio was not injected because no app is installed.`).
+
+**How to Resolve**
+
+- Enable **Audio Injection** for your app in **App Management** > **Settings** (see [Audio Injection](/mobile-apps/features/audio-injection)), and make sure the app is instrumented/resigned.
+- Send the audio as a Base64-encoded string in a supported format (MP3, WAV, M4A, or AAC on iOS; MP3 on Android) and keep the file at or below 15 MB.
+- Make sure your app is installed and fully loaded before issuing the `sauce:inject-audio=` command.
+- If the failure persists with a server error, retry the job; if it continues, reach out to [Sauce Labs Support](https://support.saucelabs.com/) with the affected job ID.
+
+
 ## Web App Testing Only
 
 ### Test Didn't See a New Command for 90 Seconds
