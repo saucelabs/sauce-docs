@@ -113,7 +113,7 @@ If you are happy with the result, you can **Save Test Case** at the bottom of th
 
 ## Edit, Rename, or Delete a Test Case
 
-Once your test cases are created and saved, you may need to make changes to them as your testing requirements change. For this purpose, you can edit an existing test case, update its name that aligns with the new goal, or permanently remove it if it is no longer needed.
+Once your test cases are created and saved, you may need to make changes to them as your testing requirements change. For this purpose, you can edit an existing test case, update its name that aligns with the new goal, update the tags used to organize it, or permanently remove it if it is no longer needed.
 
 **Step 1:** To access these options, navigate to **Test Authoring**, select **Test Cases and Suites** from the available options.
 
@@ -125,8 +125,15 @@ The following management actions are available:
 
 | Actions | Description |
 | ----- | ----- |
-| **Edit** | Opens the selected test case in the test case workspace, allowing you to:<ul><li>Review the test flow</li><li>Modify existing test steps</li><li>Refine the test using natural-language prompts</li><li>Save the updated test case</li></ul>  |
+| **Edit** | Opens the selected test case in the test case workspace, allowing you to:<ul><li>Review the test flow</li><li>Modify existing test steps</li><li>Refine the test using natural-language prompts</li><li>Add or remove the tags assigned to the test case</li><li>Save the updated test case</li></ul>  |
 | **Rename** | Allows you to change the name of the test case without modifying the test steps or execution flow. Using clear and descriptive names helps you identify and organize test cases in your test library. |
 | **Delete** | Permanently removes the selected test case from the Test Cases and Suites library. Once deleted, the test case and its associated details can no longer be accessed. Confirm the deletion only when the test case is no longer required. |
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-9.png')} alt="Manage Your Test Cases" width="100%"/>
+
+### Organize Test Cases with Tags
+
+Tags let you organize and categorize your test cases. Because a test case can carry multiple tags, you can group tests across suites — for example, by feature area, priority, or release — without duplicating them. 
+
+You can assign tags when you save or edit a test case. In the **Save Test Case** dialog, inside the **Tags** field, add one or more tags. Tags are optional, so you can save a test case without any. If a tag is unused by any test case, it gets automatically removed from the system. Maximum allowed number of tags per test case is 20.
+
