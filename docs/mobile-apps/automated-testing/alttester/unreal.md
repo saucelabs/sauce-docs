@@ -9,15 +9,22 @@ import TabItem from '@theme/TabItem';
 
 This page walks you through running AltTester-driven C# tests against an **Unreal Engine** game on Sauce Labs real devices. For background on what AltTester® is and how it talks to Sauce, see the [AltTester® overview](/mobile-apps/automated-testing/alttester).
 
+There are two ways to connect your tests to the game running on a Sauce real device:
+
+- **Sauce Connect Proxy tunnel (recommended)** — run AltTester® Desktop locally and let the tunnel forward localhost to the device.
+- **Public VM** — host AltTester® Desktop on a publicly reachable virtual machine.
+
+This page follows the Sauce Connect path and summarizes the VM alternative at the end.
+
 ## Prerequisites
 
 - An active [Sauce Labs](https://saucelabs.com/) account.
 - An Unreal Engine project that you can build for Android or iOS.
-- **AltTester® Unreal SDK 1.1 or later** — download the AltTester® Plugin from the [AltTester® website](https://alttester.com/downloads/). See the [Get Started guide](https://alttester.com/docs/unreal-sdk/latest/pages/get-started.html) for full instructions..
-- **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver).
+- **AltTester® Unreal SDK 1.1 or later** — download the AltTester® Plugin from the [AltTester® website](https://alttester.com/downloads/). See the [Get Started guide](https://alttester.com/docs/unreal-sdk/latest/pages/get-started.html) for full instructions.
+- **AltTester-Driver 2.3 or later** — .NET NuGet package [`AltTester-Driver`](https://www.nuget.org/packages/AltTester-Driver). The same package is used for Unity and Unreal tests.
 - **Appium.WebDriver 8 or later** — .NET NuGet package [`Appium.WebDriver`](https://www.nuget.org/packages/Appium.WebDriver).
-- **AltTester® Desktop**, installed locally or on a VM. Can be downloaded from the [AltTester® website](https://alttester.com/downloads/).
-- **Sauce Connect Proxy** client (recommended path; WebSocket over the tunnel is supported).
+- **AltTester® Desktop**, installed locally and listening on its default port `13000`. Can be downloaded from the [AltTester® website](https://alttester.com/downloads/).
+- **Sauce Connect Proxy** client installed and available in your `PATH` (the `sc` command). See [Sauce Connect](/secure-connections/sauce-connect-5).
 
 ## Instrument Your Unreal Build
 
@@ -26,8 +33,8 @@ This page walks you through running AltTester-driven C# tests against an **Unrea
 3. Open the project in Unreal Editor. The editor regenerates project files and prompts to rebuild any missing modules — accept the rebuild.
 4. In **Edit → Plugins**, confirm the AltTester® plugin is listed and enabled. Restart the editor if prompted.
 5. Configure the AltTester® connection settings:
-   - **Sauce Connect path (recommended):** leave the AltTester® host IP at its default. Your tests will connect via the Sauce Connect tunnel.
-   - **Public VM path:** enter the VM's reachable IP address.
+   - **Sauce Connect path (recommended):** keep the default settings — host `127.0.0.1`, port `13000`. The tunnel forwards localhost from the device to your machine.
+   - **Public VM path:** enter the VM's reachable IP address instead.
 6. In **Project Settings → Platforms**, ensure the appropriate network permissions are configured for your target platform (Android: `INTERNET` permission; iOS: appropriate network entitlement).
 7. **Package** the project for your target platform (Android `.apk` or iOS `.ipa`) via **File → Package Project**.
 8. Smoke-test the instrumented build locally by launching it on a USB-connected device and connecting AltTester® Desktop. Confirm the widget tree and actors appear in the desktop client.
@@ -47,13 +54,40 @@ dotnet add package AltTester-Driver
 dotnet add package Appium.WebDriver
 ```
 
-The same `AltTester-Driver` NuGet package is used for Unity and Unreal tests — the package contains drivers for both engines, exposed under different namespaces.
+The same `AltTester-Driver` NuGet package is used for Unity and Unreal tests, under the shared `AltTester.AltTesterSDK.Driver` namespace.
 
 Confirm the installed versions match (or exceed) the floors listed in [Prerequisites](#prerequisites).
 
+## Set Environment Variables
+
+Keep credentials out of your test code:
+
+```bash
+export SAUCE_USERNAME="<your-username>"
+export SAUCE_ACCESS_KEY="<your-access-key>"
+export SAUCE_APP_URL="storage:filename=<your-game.apk>"
+export SAUCE_REGION="eu-central-1"
+```
+
+For other data centers, set `SAUCE_REGION` to `us-west-1` or `us-east-4`.
+
+## Start the Sauce Connect Tunnel
+
+Start AltTester® Desktop locally, then launch the tunnel:
+
+```bash
+sc run --username $SAUCE_USERNAME --access-key $SAUCE_ACCESS_KEY \
+  --region $SAUCE_REGION --tunnel-name alttester-tunnel \
+  --proxy-localhost allow
+```
+
+:::caution `--proxy-localhost allow` is required
+Without this flag, the cloud device cannot reach the AltTester® Server running on your machine, and the `AltDriver` connection will time out even though the Appium session starts normally.
+:::
+
 ## Configure Appium Capabilities
 
-The Appium capabilities for an Unreal Engine build on Sauce real devices are the same as for any other native mobile app build. The following examples show W3C capabilities for Android and iOS — replace the placeholder values (`<...>`) with your build's filename, target device, and platform version.
+The following examples show W3C capabilities for an Android and an iOS Unreal Engine game. Replace the placeholder values (`<...>`) with your target device and platform version.
 
 <Tabs
   groupId="platform"
@@ -66,53 +100,65 @@ The Appium capabilities for an Unreal Engine build on Sauce real devices are the
 <TabItem value="android">
 
 ```csharp
-var options = new AppiumOptions();
-options.AddAdditionalAppiumOption("platformName", "Android");
-options.AddAdditionalAppiumOption("appium:app", "storage:filename=<your-game.apk>");
-options.AddAdditionalAppiumOption("appium:deviceName", "Google Pixel.*");
-options.AddAdditionalAppiumOption("appium:platformVersion", "14");
-options.AddAdditionalAppiumOption("appium:automationName", "UiAutomator2");
-options.AddAdditionalAppiumOption("sauce:options", new Dictionary<string, object> {
-    { "appiumVersion", "stable" },
-    { "build", "my-game-build-001" },
-    { "name", "AltTester® Unreal sample test" },
-    { "tunnelName", "<your-sauce-connect-tunnel-name>" },
-});
+var sauceUsername = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
+var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+var sauceRegion = Environment.GetEnvironmentVariable("SAUCE_REGION");
 
-var sauceUrl = new Uri("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
-var driver = new AndroidDriver(sauceUrl, options);
+var capabilities = new AppiumOptions();
+capabilities.PlatformName = "Android";
+capabilities.App = Environment.GetEnvironmentVariable("SAUCE_APP_URL");
+capabilities.DeviceName = "Google Pixel.*";
+capabilities.AutomationName = "UiAutomator2";
+capabilities.AddAdditionalAppiumOption("appium:autoGrantPermissions", true);
+
+var sauceOptions = new Dictionary<string, object>
+{
+    { "username", sauceUsername },
+    { "accessKey", sauceAccessKey },
+    { "tunnelName", "alttester-tunnel" },
+    { "tunnelOwner", sauceUsername },
+    { "appiumVersion", "stable" },
+    { "name", "AltTester® Unreal sample test" },
+};
+capabilities.AddAdditionalAppiumOption("sauce:options", sauceOptions);
+
+var sauceUrl = new Uri($"https://ondemand.{sauceRegion}.saucelabs.com:443/wd/hub");
+var driver = new AndroidDriver(sauceUrl, capabilities);
 ```
 
 </TabItem>
 <TabItem value="ios">
 
 ```csharp
-var options = new AppiumOptions();
-options.AddAdditionalAppiumOption("platformName", "iOS");
-options.AddAdditionalAppiumOption("appium:app", "storage:filename=<your-game.ipa>");
-options.AddAdditionalAppiumOption("appium:deviceName", "iPhone.*");
-options.AddAdditionalAppiumOption("appium:platformVersion", "17");
-options.AddAdditionalAppiumOption("appium:automationName", "XCUITest");
-options.AddAdditionalAppiumOption("sauce:options", new Dictionary<string, object> {
-    { "appiumVersion", "stable" },
-    { "build", "my-game-build-001" },
-    { "name", "AltTester® Unreal sample test" },
-    { "tunnelName", "<your-sauce-connect-tunnel-name>" },
-});
+var sauceUsername = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
+var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+var sauceRegion = Environment.GetEnvironmentVariable("SAUCE_REGION");
 
-var sauceUrl = new Uri("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub");
-var driver = new IOSDriver(sauceUrl, options);
+var capabilities = new AppiumOptions();
+capabilities.PlatformName = "iOS";
+capabilities.App = Environment.GetEnvironmentVariable("SAUCE_APP_URL");
+capabilities.DeviceName = "iPhone 1[5-9].*";
+capabilities.PlatformVersion = "18";
+capabilities.AutomationName = "XCUITest";
+
+var sauceOptions = new Dictionary<string, object>
+{
+    { "username", sauceUsername },
+    { "accessKey", sauceAccessKey },
+    { "tunnelName", "alttester-tunnel" },
+    { "tunnelOwner", sauceUsername },
+    { "appiumVersion", "stable" },
+    { "name", "AltTester® Unreal sample test" },
+};
+capabilities.AddAdditionalAppiumOption("sauce:options", sauceOptions);
+
+var sauceUrl = new Uri($"https://ondemand.{sauceRegion}.saucelabs.com:443/wd/hub");
+// Unreal cold starts can be slow — give the session a generous command timeout.
+var driver = new IOSDriver(sauceUrl, capabilities, TimeSpan.FromSeconds(300));
 ```
 
 </TabItem>
 </Tabs>
-
-Read `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` from environment variables — never hard-code them. See the [Appium .NET client docs](https://github.com/appium/dotnet-client) for the current pattern.
-
-The remote URL above points to the EU-Central-1 data center. For other regions, use:
-
-- US-West-1: `https://ondemand.us-west-1.saucelabs.com:443/wd/hub`
-- US-East-4: `https://ondemand.us-east-4.saucelabs.com:443/wd/hub`
 
 :::note iOS WebDriverAgent change
 Starting with `appium3-2026-01`, iOS sessions on Sauce Labs real devices use the official Appium WebDriverAgent instead of the Sauce Labs fork (SauceWebDriverAgent). Setting `sauce:options.appiumVersion` to `stable` will pick up this image once it becomes the default. Some XCUITest endpoints may behave differently — see [Appium Testing with Real Devices](/mobile-apps/automated-testing/appium/real-devices) for details.
@@ -120,22 +166,19 @@ Starting with `appium3-2026-01`, iOS sessions on Sauce Labs real devices use the
 
 ## Connect the AltTester® Driver
 
-After the Appium session starts and the game has launched, connect the AltTester® C# driver. Note the namespace difference from the Unity walkthrough:
+After the Appium session starts and the game has launched, connect the AltTester® C# driver. Because the Sauce Connect tunnel forwards localhost, the driver connects with its **default host and port** — no custom IP needed:
 
 ```csharp
 using AltTester.AltTesterSDK.Driver;
 
 // After driver = new AndroidDriver(...) or new IOSDriver(...)
 // and after waiting for the game's initial loading screen to finish:
-var altDriver = new AltDriver(
-    host: "127.0.0.1",   // when tunneled through Sauce Connect Proxy
-    port: 13000
-);
+var altDriver = new AltDriver();
 ```
 
-The same `AltDriver` class is used for both engines, but the Unreal SDK exposes it under `AltTester.AltTesterSDK.Driver` rather than the Unity namespace.
-
-If you are using a public VM instead of Sauce Connect, set `host` to the VM's reachable IP address — matching what you configured in the Unreal project's AltTester® settings.
+:::note Unreal cold starts
+Unreal Engine cold starts (shader compilation and asset loading) can take noticeably longer than a typical mobile app launch. If the first connection fails, increase the AltDriver connect timeout — for example `new AltDriver(connectTimeout: 10)` — or wrap the connection in retry logic.
+:::
 
 ## Sample Test
 
@@ -158,7 +201,7 @@ public class GameSmokeTest
     public void SetUp()
     {
         // Appium session setup elided — see "Configure Appium Capabilities" above.
-        _altDriver = new AltDriver("127.0.0.1", 13000);
+        _altDriver = new AltDriver();
     }
 
     [Test]
@@ -184,9 +227,9 @@ For more complex locator patterns — finding widgets by path, by displayed text
 
 ## Run It
 
+With AltTester® Desktop running locally and the tunnel active:
+
 ```bash
-export SAUCE_USERNAME=<your-username>
-export SAUCE_ACCESS_KEY=<your-access-key>
 dotnet test
 ```
 
@@ -194,9 +237,35 @@ dotnet test
 
 Open the [Sauce Labs dashboard](https://app.saucelabs.com/) and find your job under **Automated → Test Results**. Each job has a session video, Appium logs, device logs, and screenshots — use these to debug failures the same way you would for any Appium test.
 
+## Alternative: Public VM
+
+If you can't run Sauce Connect, host AltTester® Desktop on a publicly reachable VM instead:
+
+1. Create a VM (Windows recommended) and install AltTester® Desktop on it, listening on port `13000`.
+2. Add an inbound network rule: protocol TCP, port `13000`, source Any. Make sure the OS firewall does not block the port.
+3. Package your Unreal build with the **VM's IP address** as the AltTester® host (instead of the default `127.0.0.1`).
+4. In your tests, connect `AltDriver` to the same IP:
+
+   ```csharp
+   var altDriver = new AltDriver(
+       host: Environment.GetEnvironmentVariable("HOST_ALT_SERVER"),
+       connectTimeout: 3000
+   );
+   ```
+
+5. On iOS, the game may show a popup asking for permission to connect to devices on the local network. Dismiss it via Appium before connecting the AltDriver:
+
+   ```csharp
+   driver.FindElement(OpenQA.Selenium.By.Id("Allow")).Click();
+   ```
+
+6. If your test suite is long-running, issue a lightweight Appium call in your teardown (for example, reading the device orientation) so the Appium session doesn't idle out between tests.
+
 ## Troubleshooting
 
-- **Port or tunnel mismatch:** the AltTester® host/port configured in your Unreal project must match what your test's `AltDriver(...)` call passes. With Sauce Connect, both ends use `127.0.0.1:13000` by default.
+- **Tunnel missing `--proxy-localhost allow`:** the most common failure. The Appium session starts and the game launches, but `AltDriver` times out — restart the tunnel with the flag included.
+- **Slow cold start:** shader compilation and asset loading on first launch can outlast the default AltDriver connect timeout. Increase it (`new AltDriver(connectTimeout: 10)`) or add retry logic around the connection.
+- **Port or tunnel mismatch:** the AltTester® host/port configured in your Unreal project must match what your test connects to. With Sauce Connect, both ends use the defaults (`127.0.0.1:13000`).
 - **Plugin not loaded:** if `AltDriver` cannot connect, confirm the AltTester® plugin is enabled in **Edit → Plugins** and that the packaged build includes the plugin (some Unreal packaging options strip optional modules — check **Project Settings → Packaging**).
 - **Locators not finding widgets:** Unreal UMG widget Blueprints often produce class names with a `_C` suffix at runtime (`W_StartGameButton_C` rather than `W_StartGameButton`). Use `By.PATH` with `contains()` when in doubt, or inspect the live widget tree in AltTester® Desktop to see the exact names.
 - **Wrong data center:** the `sauceUrl` and the data center where your account lives must match. Check the upper-right corner of the Sauce Labs dashboard for your account's region.
@@ -204,14 +273,15 @@ Open the [Sauce Labs dashboard](https://app.saucelabs.com/) and find your job un
 
 ## References
 
+- [AltTester® Sauce Labs integration guide (Unreal)](https://alttester.com/docs/unreal-sdk/latest/pages/alttester-with-cloud.html#saucelabs) — AltTester's own walkthrough of both connection methods for Unreal.
 - [AltTester® for Unreal Engine](https://alttester.com/alttester-unreal/) — AltTester® product page for Unreal.
 - [AltTester® documentation](https://alttester.com/docs/) — full SDK and driver reference.
 - [Unreal-LyraStarterGame-Tests](https://github.com/alttester/Unreal-LyraStarterGame-Tests) — AltTester®'s public C# test project against the Lyra Starter Game, useful as a copy-from-and-adapt example.
 - [Unreal-LyraStarterGame](https://github.com/alttester/Unreal-LyraStarterGame) — the example Unreal project with the AltTester® plugin pre-installed.
 - [AltTester-Driver on NuGet](https://www.nuget.org/packages/AltTester-Driver) — current .NET driver versions (works for both engines).
+- [Sauce Connect](/secure-connections/sauce-connect-5) — tunnel installation and reference.
 
 ## See Also
 
-- See the [AltTester® Sauce Labs integration guide](https://alttester.com/docs/unreal-sdk/latest/pages/alttester-with-cloud.html#saucelabs) for the full walkthrough including Sauce Connect setup and the complete `BaseTest.cs` example.
-- [AltTester® overview](/mobile-apps/automated-testing/alttester) — architecture diagram and common prerequisites shared with Unity.
+- [AltTester® overview](/mobile-apps/automated-testing/alttester) — architecture diagram and how the pieces fit together.
 - [AltTester® for Unity](/mobile-apps/automated-testing/alttester/unity) — the parallel walkthrough for Unity builds.
