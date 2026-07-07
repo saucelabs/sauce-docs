@@ -37,7 +37,8 @@ As your test library grows, you can use the available search and filtering optio
 | **2** | **Group By** | View test cases using either the **[Test Case](/docs/sauce-ai/test-authoring/generate-your-test-case.md)** or **[Test Suite](/docs/sauce-ai/test-authoring/create-and-manage-test-suites.md)** hierarchy. |
 | **3** | **Time Filter** | Filter test cases based on their creation or modification time to quickly find recently created or older test cases. |
 | **4** | **Suite Filter** | Display test cases associated with a specific **test suite** or view test cases that are not assigned to any suite. |
-| **5** | **Organization Filter** | Filter test cases based on the selected organization to view only the relevant test cases. |
+| **5** | **Tag Filter** | Filter test cases using one or more assigned tags to quickly find tests related to a feature, module, priority, release, or other category. |
+| **6** | **Organization Filter** | Filter test cases based on the selected organization to view only the relevant test cases. |
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-2.png')} alt="Manage Your Test Cases" width="100%"/>
 
@@ -131,9 +132,18 @@ The following management actions are available:
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-9.png')} alt="Manage Your Test Cases" width="100%"/>
 
-### Organize Test Cases with Tags
+### Manage Tags
 
-Tags let you organize and categorize your test cases. Because a test case can carry multiple tags, you can group tests across suites — for example, by feature area, priority, or release — without duplicating them. 
+You can update the tags assigned to a test case at any time to keep your test cases organized and easy to find.
 
-You can assign tags when you save or edit a test case. In the **Save Test Case** dialog, inside the **Tags** field, add one or more tags. Tags are optional, so you can save a test case without any. If a tag is unused by any test case, it gets automatically removed from the system. Maximum allowed number of tags per test case is 20.
+:::note
+If you remove a tag from all test cases, it gets removed entirely from your organization.
+:::
 
+**Step 1:** Open the test case you want to update, then click **Edit** to modify its details.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-10.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 2:** In the **Edit Test Case** dialog, add, remove, or update the tags as needed, then click **Save** to apply your changes.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-11.png')} alt="Manage Your Test Cases" width="100%"/>
