@@ -266,6 +266,30 @@ visualClient.sauceVisualCheck("Long content page",
                 .build());
 ```
 
+## Troubleshooting
+
+### Resolving `kotlin-stdlib` security scan findings
+
+The plugin pulls `org.jetbrains.kotlin:kotlin-stdlib` transitively. Security scanners (e.g. Snyk) flag versions below `2.1.0`. Because of how Android AAR dependency resolution works, the plugin cannot force this version on your build - your project resolves whatever its own dependency graph selects.
+
+If a scan flags `kotlin-stdlib`, add a constraint to your module's `build.gradle` so it resolves to a safe version:
+
+```groovy
+dependencies {
+    constraints {
+        androidTestImplementation 'org.jetbrains.kotlin:kotlin-stdlib:2.4.0'
+        androidTestImplementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.4.0'
+        androidTestImplementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.0'
+    }
+}
+```
+
+You can verify the result with:
+
+```
+./gradlew :<your-module>:dependencies --configuration debugAndroidTestRuntimeClasspath | grep kotlin-stdlib
+```
+
 ## Examples
 
 Click [here](https://github.com/saucelabs/visual-examples/tree/main/espresso) to see the example project.
