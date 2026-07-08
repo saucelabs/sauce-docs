@@ -75,14 +75,6 @@ To start live device sessions you also need **private (dedicated) devices** and 
 
 </Tabs>
 
-### Install from a VSIX file (beta alternative)
-
-During the beta, Sauce Labs may provide a signed `.vsix` package directly. This also works if the listing is not yet available in your editor's extension registry:
-
-1. Open the **Extensions** view.
-2. Click the **...** menu in the view header and choose **Install from VSIX...**.
-3. Select the `.vsix` file you received.
-
 ## Sign in
 
 Before you sign in, the Activity Bar shows a single **Sauce Labs** icon. That is where you log in.
@@ -113,11 +105,10 @@ All three Sauce Labs data centers are supported:
 | US East (Virginia) | `api.us-east-4.saucelabs.com` |
 | EU Central (Frankfurt) | `api.eu-central-1.saucelabs.com` |
 
-You can switch regions three ways, whichever is more convenient:
+You can switch regions two ways, whichever is more convenient:
 
 - Click a region row in the sidebar's **Region** section.
 - Pick one in the region dropdown on the sign-in form.
-- Run **Sauce: Select Data Center Region** from the Command Palette.
 
 Switching re-validates your credentials against the new region and refreshes the device and session lists automatically.
 
