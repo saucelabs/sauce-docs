@@ -44,7 +44,7 @@ For more information about supported file types and application upload methods, 
 
 <img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-3.png')} alt="Mobile App Live Testing" width="auto"/>
 
-## Configure App and Device Settings (Optional)
+## App and Device Settings
 
 Configure the default application and device settings used for live mobile testing. These settings define the application's testing behavior and the device configuration applied when starting a manual test session.
 
@@ -195,7 +195,7 @@ Use this method to launch a live testing session on an Android Emulator or iOS S
 
 <img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-19.png')} alt="Mobile App Live Testing" width="auto"/>
 
-### Public vs.Private Devices
+### Public vs. Private Devices
 
 Sauce Labs provides two types of devices for live mobile testing: **Public Devices** and **Private Devices**.
 
