@@ -8,233 +8,411 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With Sauce Labs, you can test your mobile apps on a variety of Android and iOS/iPadOS devices. If you do not have an app, consider using the [Sauce Labs demo app](https://github.com/saucelabs/my-demo-app-rn) for validating your account functionality as well as your tests.
+With Sauce Labs, you can test Android and iOS/iPadOS applications on real and virtual devices. Upload an application to App Storage, configure app and device settings, select a target device, and launch a live testing session. Live sessions include tools for application inspection, debugging, device interaction, and session management.
 
-## What You'll Need
+:::info NOTE
+If you do not have an application available, you can use one of the Sauce Labs demo applications to familiarize yourself with the live testing workflow: 
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your mobile app file uploaded to our [App Storage](/mobile-apps/app-storage/). If you don't have one on hand, consider using our Demo Apps:
-  - [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
-  - [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
-  - [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
+- **[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)**
 
-## App and Device Settings
-To view [uploaded app builds](/mobile-apps/app-storage/#uploading-apps) or change the app settings, on the **App Management** page, hover over the app and then click **Settings and App Versions**.
+- **[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)** 
 
-<img src={useBaseUrl('img/live-testing/app-management-settings-action.png')} alt="App settings" width="800"/>
+- **[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)**
+:::
 
-### Real Device Settings
-:::warning Limitation
+## Prerequisites
+
+Before starting a live mobile app testing session, ensure the following requirements are met:
+
+- You must have a valid Sauce Labs account. (**[Log in](https://accounts.saucelabs.com/am/XUI/#login/)** or sign up for a **[free trial license](https://saucelabs.com/sign-up)**)
+
+- **[Upload your application](https://docs.saucelabs.com/mobile-apps/app-storage/#uploading-apps)** to App Storage. The uploaded application will be available for selection when launching a live test. 
+
+## Upload an Application
+
+**Step 1:** Inside your Sauce Labs account, click on the **App Management** from the left hand navigation menu.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-1.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 2:** In the **App Management** page, drag and drop your application into the upload area, or click **choose file** to upload it from your local computer storage. 
+
+For more information about supported file types and application upload methods, see the [**Accepted File Types**](https://docs.saucelabs.com/mobile-apps/app-storage/#accepted-file-types) and [**Uploading Apps**](https://docs.saucelabs.com/mobile-apps/app-storage/#uploading-apps) documentation.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-2.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 3:** After the upload is complete, the application is listed in the **App Management**, where you can view application details, uploaded versions, and available actions.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-3.png')} alt="Mobile App Live Testing" width="auto"/>
+
+## Configure App and Device Settings (Optional)
+
+Configure the default application and device settings used for live mobile testing. These settings define the application's testing behavior and the device configuration applied when starting a manual test session.
+
+:::caution LIMITATION
 The Real Device Settings are only applicable for real device testing. Any changes you make to the app and device settings will affect all uploaded versions of the app.
 
-Only organization and team admins have permission to modify these settings.
-If an organization admin wants to grant a member permission to modify these settings, they can [promote the member](/basics/acct-team-mgmt/managing-user-info/#changing-a-users-role) to Team Admin.
-For further assistance, reach out to your Customer Success Manager or Sauce Labs Support.
+Only organization and team admins have permission to modify these settings. If an organization admin wants to grant a member permission to modify these settings, they can **[promote the member](/docs/basics/acct-team-mgmt/managing-user-info.md#changing-a-users-role)** to Team Admin. For further assistance, reach out to your Customer Success Manager or Sauce Labs Support.
 :::
 
-Navigate to the **Settings** tab to view the app and device settings.
+**Step 1:** In the **App Management** page, locate the uploaded application and click the **Settings** (⚙️) icon next to the application of your interest. 
 
-<img src={useBaseUrl('img/live-testing/app-management-settings-tab.png')} alt="App settings" width="800"/>
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-4.png')} alt="Mobile App Live Testing" width="auto"/>
 
-A range of settings can be configured to serve as the default for **manual** test runs (automated tests are running based on the settings defined directly in the test script).
+**Step 2:** On the application details page, select the **Settings** tab to view and configure the available application and device settings.
 
-#### App Settings
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-5.png')} alt="Mobile App Live Testing" width="auto"/>
 
-| Setting                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|:-------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Instrumentation                                                                                                                      | Enable/disable app instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like Image Injection and Bypass Screenshot Restriction.                                                                                                                                                                                                                                                                                                                                       |
-| [Network Capture](/mobile-apps/features/network-capture/)                                                                            | Enable/disable Network Capture. Enabling allows you to capture network packets during tests to see all HTTP/HTTPs API requests and responses. For Android a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically on the fly, right before we install the app to the target device.                                                                                                                                                                |
-| [Device Vitals](/mobile-apps/features/mobile-app-diagnostics/device-vitals/)                                                                              | Enable/disable Device Vitals. Enabling allows you to capture the app's performance during the test session. This exposes various metrics, including CPU performance, memory performance, and UI responsiveness (Android only).                                                                                                                                                                                                                                                                                                 |
-| [Crash/Error Reporting](/mobile-apps/features/mobile-app-diagnostics/crash-error-reporting/)                                                                      | Enables/disables Crash/Error Reporting. Enabling allows you to detect and record fatal errors (crashes) that occur during the test session.                                                                                                                                                                                                                                                                                                                                                                                    |
-| [Image Injection](/mobile-apps/features/camera-image-injection/)                                                                            | Enable/disable Image Injection. Image Injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera.                                                                                                                                                                                                                                                                                                                        |
-| [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot/) <br/><p><span className="sauceGreen">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction. If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
-| System Alerts Display <br/><p><span className="sauceGreen">iOS Only</span></p>                                                       | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup.                                                                                                                                                                                                                                                                                                                                                                           |
-| [Biometrics Interception](/mobile-apps/features/biometric-authentication/)                                                                    | Enable/disable Biometrics Interception. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps.                                                                                                                                                                                                                                |
-| Group Folder Redirect <br/><p><span className="sauceGreen">iOS Only</span></p>                                                       | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible.                                                                                                                                                                                                                                                                                     |
+### Configure App Settings
 
-#### Device Settings
+The **App Settings** lets you configure default application behaviors for live testing sessions. These settings control features such as application instrumentation, network monitoring, performance metrics, crash reporting, and testing utilities. 
 
-| Setting                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|:-------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Device Language                                                                            | Use the dropdown list to select the device language. The language selector will tell your application that the device's locale and region are set to the selected parameter. You won't need to manually change the OS's language during a session inside iOS/Android settings. For more information about the locale setting, see the documentation for [iOS](https://developer.apple.com/documentation/foundation/locale) and [Android](https://developer.android.com/reference/java/util/Locale).                        |
-| Device Orientation                                                                         | Use the dropdown list to set the device orientation (Landscape or Portrait).                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Proxy                                                                                      | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**.                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Device Passcode                                                                            | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device. On Android we are setting 000000, on iOS 089675 as passcode. This feature is available during Live Testing sessions, see it below in the [Live Testing interface section](/mobile-apps/live-testing/live-mobile-app-testing/#live-test-interface).                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Ref. | Settings | Description |
+| :---- | :---- | :---- |
+| 1 | Instrumentation | Enable/disable app instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like Image Injection and Bypass Screenshot Restriction. |
+| 2 | **[Network Capture](https://docs.saucelabs.com/mobile-apps/features/network-capture/)** | Enable/disable Network Capture. Enabling allows you to capture network packets during tests to see all HTTP/HTTPs API requests and responses. For Android a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically on the fly, right before we install the app to the target device. |
+| 3 | **[Device Vitals](https://docs.saucelabs.com/mobile-apps/features/mobile-app-diagnostics/device-vitals/)** | Enable/disable Device Vitals. Enabling allows you to capture the app's performance during the test session. This exposes various metrics, including CPU performance, memory performance, and UI responsiveness (Android only). |
+| 4 | **[Crash/Error Reporting](https://docs.saucelabs.com/mobile-apps/features/mobile-app-diagnostics/crash-error-reporting/)** | Enables/disables Crash/Error Reporting. Enabling allows you to detect and record fatal errors (crashes) that occur during the test session. |
+| 5 | **[Image Injection](https://docs.saucelabs.com/mobile-apps/features/camera-image-injection/)** | Enable/disable Image Injection. Image Injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera. |
+| 6 | Audio Injection | Enable/disable Audio Injection. Enabling allows you to simulate microphone input by uploading an audio file and presenting it to the application as if it were captured through the device's microphone. |
+| 7 | System Alerts Display <br/><p><span className="sauceGreen">iOS Only</span></p> | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup. |
+| 8 | **[Biometrics Interception](https://docs.saucelabs.com/mobile-apps/features/biometric-authentication/)** | Enable/disable Biometrics Interception. Enabling allows you to choose authentication options if your mobile app requires biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS. **This setting is disabled by default for iOS apps.** |
+| 9 | Group Folder Redirect <br/><p><span className="sauceGreen">iOS Only</span></p> | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible. |
+| 10 | **[Bypass Screenshot Restriction](https://docs.saucelabs.com/mobile-apps/features/bypass-screenshot/)** <br/><p><span className="sauceGreen">Android Only</span></p>| Enable/disable Bypass Screenshot Restriction. If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the **Bypass Screenshot Restriction**. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see **[Bypass Screenshot Restriction](https://docs.saucelabs.com/mobile-apps/features/bypass-screenshot/)**. |
 
-#### Example Settings - iOS
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-6.png')} alt="Mobile App Live Testing" width="auto"/>
 
-<img src={useBaseUrl('img/live-testing/app-management-ios-example-settings.png')} alt="App settings - iOS" width="800"/>
+### Configure Device Settings
 
-#### Example Settings - Android
+The **Device Settings** section defines the default configuration applied to **real devices** when a live testing session starts. These settings allow you to customize the device environment without manually configuring the device during each testing session.
 
-<img src={useBaseUrl('img/live-testing/app-management-android-example-settings.png')} alt="App settings - Android" width="800"/>
+| Ref. | Setting | Description |
+| :---- | :---- | :---- |
+| 1 | Device Language | Use the dropdown list to select the device language. The language selector will tell your application that the device's locale and region are set to the selected parameter. You won't need to manually change the OS's language during a session inside iOS/Android settings. For more information about the locale setting, see the documentation for **[iOS](https://developer.apple.com/documentation/foundation/locale)** and **[Android](https://developer.android.com/reference/java/util/Locale)**. |
+| 2 | Device Orientation | Use the dropdown list to set the device orientation (Landscape or Portrait). |
+| 3 | Proxy | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**. |
+| 4 | Device Passcode | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device. On Android we are setting 000000, on iOS 089675 as passcode. This feature is available during Live Testing sessions, see it below in the **[Live Testing interface section](https://docs.saucelabs.com/mobile-apps/live-testing/live-mobile-app-testing/#live-test-interface)**. |
 
-## Selecting an App
-### From App Management
-On the main **App Management** page, you can select an app to test by clicking **Start Test** in the row of the desired app group. The app build chosen will be the most recently uploaded build in that group. The device selection page will open, with the option to test on a real device or a virtual device.
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-7.png')} alt="Mobile App Live Testing" width="auto"/>
 
-<img src={useBaseUrl('img/live-testing/select-app-from-main-page.png')} alt="App settings - Android" width="800"/>
+## Select an Application
 
-### From App Management - App Builds
-In the **App Builds tab** of a selected app group, you can start a test by clicking **Start Test** in the row of the specific app build you wish to test. This is helpful for conducting A/B testing or for documenting and validating feature parity across different versions of the same app.
+You can start a live testing session from the **App Management** page or the **Live > Mobile Apps** page. Depending on where you start the session, you can test either the latest uploaded build or a specific application version.
 
-<img src={useBaseUrl('img/live-testing/select-app-from-app-builds.png')} alt="App settings - Android" width="800"/>
+### Method I: From App Management
 
-### From Live - Mobile Apps
-On the **Live Mobile Apps Testing** page, you can search for and select the desired app build from the dropdown list to begin testing.
+Use this method to start a test using the latest uploaded version of an application.
 
-<img src={useBaseUrl('img/live-testing/select-app-from-live-mobile-apps.png')} alt="App settings - Android" width="800"/>
+**Step 1:** From the **App Management** page, locate the application of your interest, and click the **Start Test** icon next to it. 
 
-## Selecting a Device
-:::note
-If you are testing an iOS app, the device selection will only display the type (real/virtual) configured on the app.
-:::
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-8.png')} alt="Mobile App Live Testing" width="auto"/>
 
-You must select a device prior to launching a session.
+The latest uploaded build is selected automatically, and the **Device Selection** page opens.
 
-<img src={useBaseUrl('img/live-testing/select-device.png')} alt="Favorite a device" width="800"/>
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-9.png')} alt="Mobile App Live Testing" width="auto"/>
 
-To mark a device as a favorite, so you can find it easily in the future, click the pin icon next to the device name.
+### Method II: From App Management - App Builds
 
-<img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
+Use this method to launch a test with a specific application build.
 
-The default sorting for the device list is **Pinned First**.
+**Step 1:** In **App Management**, open the application details page, select the **App Builds** tab, and locate the build you want to test.
 
-To view your recent configurations, click **Recents**.
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-10.png')} alt="Mobile App Live Testing" width="auto"/>
 
-<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
+**Step 2:** Click the **Start Test** icon for the selected build. The **Device Selection** page opens.
 
-### Real Devices
-
-On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-real.png')} alt="Mobile Real tab" width="800"/>
-
-#### **Public vs. Private Devices**
-
-There is a distinction between **Public Devices** and **Private Devices**.
-
-- Public devices are accessible by anyone with a Sauce Labs account and are subject to availability. If a device is in use, you will see a **UNAVAILABLE** flag on the tile.
-
-<img src={useBaseUrl('img/live-testing/public-device-unavailable.png')} alt="Busy public device" width="350"/>
-
-- [Private devices](/basics/acct-team-mgmt/private-device-mgmt/) are associated with your account and are an **enterprise only** feature. Private devices are indicated by the green **PRIVATE** on the tile.
-
-<img src={useBaseUrl('img/live-testing/private-device-tile.png')} alt="Busy public device" width="300"/>
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-11.png')} alt="Mobile App Live Testing" width="auto"/>
 
 :::note
-If you are interested in upgrading to an enterprise plan, contact your Sauce Labs Sales Engineer or Customer Success Manager.
+Use this method to start a test with a specific application build instead of the latest uploaded build.
 :::
 
-### Virtual Devices
+### Method III: From Live - Mobile Apps
 
-On the device selection page, click the **Mobile Virtual** tab. Use the dropdowns to select the details for the virtual device you want to test on, and then click **Start Test**.
+Use this method to start a live testing session by selecting an application build from the **Live Mobile Apps** page.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-virtual.png')} alt="Mobile Virtual tab" width="800"/>
+**Step 1:** From the left navigation menu, click **Live**, then select **Mobile App**.
 
-## Launching a Test
-:::caution
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-12.png')} alt="Mobile App Live Testing" width="auto"/>
 
+**Step 2:** In the **App to test** section, search for the application using the search box, or browse the list of available application builds. 
+
+You can also use the **Platform**, **Tag**, and **Team** filters to narrow the results.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-13.png')} alt="Mobile App Live Testing" width="auto"/>
+
+## Select a Device
+
+After selecting an application, choose the device on which you want to run the live testing session.
+
+| Device Type | Description |
+| ----- | ----- |
+| **Real Device** | Runs the application on a physical Android or iOS device hosted by Sauce Labs. Use this option to validate application behavior on actual hardware. |
+| **Virtual Device** | Runs the application on an Android emulator or iOS simulator. Use this option for functional testing without requiring physical devices. |
+
+:::note
+If you are testing an iOS application, only the device type (Real Device or Virtual Device) supported by the application is displayed.
+:::
+
+### Select from Real Devices
+
+Launch a live testing session on a physical Android or iOS device hosted by Sauce Labs.
+
+**Step 1:** On the **Device Selection** page, select the **Mobile Real** tab to view the list of available physical devices. 
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-14.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 2:** (Optional) Use the **Search** box or the available filters to locate a device by manufacturer, operating system, platform, or compatibility.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-15.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 3:** Browse the list of available devices and review the device details, such as the device model, operating system version, screen resolution, and availability. 
+
+Once you find the device you want to use, click on the device card to select it.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-16.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### Select from Virtual Devices
+
+Use this method to launch a live testing session on an Android emulator or iOS simulator.
+
+**Step 1:** On the **Device Selection** page, select the **Mobile Virtual** tab.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-17.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 2:** Use the available drop-down lists to select the required platform, operating system version, and virtual device model.
+
+| Field | Description |
+| ----- | ----- |
+| **Manufacturer** | Select the device manufacturer for the virtual device (for example, Google or Samsung). |
+| **Device** | Select the virtual device model you want to use for testing. |
+| **OS Version** | Select the operating system version for the virtual device. |
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-18.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 3:** Click **Start Test** to launch the selected virtual device. Once the device is ready, the live testing session starts automatically.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-19.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### Public vs. Private Devices
+
+Sauce Labs provides two types of devices for live mobile testing: **Public Devices** and **Private Devices**.
+
+| Device Type | Description |
+| ----- | ----- |
+| **Public Devices** | Public devices are shared across Sauce Labs users and are available based on current device availability. If a device is already in use, it is marked as **UNAVAILABLE** in the device grid. |
+| **Private Devices** | Private devices are dedicated to your organization and are available only with Enterprise plans. They are identified by the **PRIVATE** label in the device grid and are accessible only to authorized users within your organization. |
+
+:::note
+To learn more about Enterprise plans or private device access, contact your **Sauce Labs Sales Engineer** or **Customer Success Manager**.
+:::
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-20.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### Pin a Device
+
+To quickly access a frequently used device, locate it in the **device grid** and click on the **Pin** (📌) icon on its device card. Pinned devices are displayed at the top of the device list by default.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-21.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### View Recent Configurations
+
+To view your recent configurations, click **Recents** on the **Device Selection** page. The **Recents** section displays your recently used application and device combinations, allowing you to quickly launch a new live testing session with a previously used configuration.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-22.png')} alt="Mobile App Live Testing" width="auto"/>
+
+## Launch a Test
+
+After selecting an application and device, launch the live testing session to begin testing your application.
+
+:::note
 If you have issues starting live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
-
 :::
 
-You can launch a test from the following screens:
+**Step 1:** On the **Device Selection** page, locate the device you want to use.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-16.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 2:** Start the live testing session using one of the following methods:
 
 - Hover over the device in the grid and then click **Start Test**.
-- Click on the device in the grid to open the **Device Details**. On the **Details** screen, click **Start Test**.
+- Click the device card to open the **Device Details** page, On the **Details** screen, click **Start Test**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-start-test.png')} alt="Launch a test from the Details screen" width="750"/>
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-23.png')} alt="Mobile App Live Testing" width="auto"/>
 
+**Step 3:** A loading screen is displayed while the selected device is initialized. When the initialization is complete, the application automatically launches in the live testing window.
 
-You'll see a loading screen, and then the app will launch in a live test window using the device you selected.
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-24.png')} alt="Mobile App Live Testing" width="300"/>
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-demo-app.png')} alt="Mobile real device test interface" width="550"/>
-
-### Time Limits and Timeouts for Real Devices
-
-- Live tests for free users have a 10 minute limit from session start
-- Live tests for all other users are limited to six hours
-- Live tests for paid users will timeout after 15 minutes of inactivity
-
-### Trusting Enterprise Certificates
-<small><span className="sauceGreen">Private Devices Only</span></small>
-
-If you upload an app that is signed with an enterprise certificate, and **Instrumentation** is DISABLED in app settings, you must manually trust the certificate before it will successfully launch.
-
-1. If you receive an app installation failed error, click the **X** in the app loading screen to exit the device home screen.
-1. On the device home screen, navigate to **Settings** -> **General**.
-1. Under **VPN & Device Management**, tap the app you are trying to install and test.
-1. Tap **Trust "app name"** and then tap **Trust**.
-1. Reopen the app to continue the test.
-
-:::caution
-
-Due to constraints introduced by Apple starting from iOS18 it's no longer possible to add enterprise certificates during a running test session in our platform. Please contact our Support team for assistance.
-
+:::info Time Limits and Timeouts for Real Devices
+- Free user sessions are limited to 10 minutes from the time the session starts.
+- Paid user sessions can run for up to 6 hours, provided the session remains active.
+- Live testing sessions automatically end after 15 minutes of inactivity to release the allocated device.
 :::
 
-### Adding a Test Name and Outcome for Your Test
+### Trust Enterprise Certificates (Private Devices)
 
-Sauce Labs has introduced a new feature that allows you to enter a test name and test status (passed/failed) for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
+<br/><p><span className="sauceGreen">Private Devices Only</span></p>
 
-Adding a test name is a straightforward process, and there are two ways to do it:
+If your application is signed with an enterprise certificate and **Instrumentation** is DISABLED in the **App Settings**, you must manually trust the certificate before the application can be launched on a private iOS device.
 
-1. From the end session screen:
+**Applies to:** Private Devices only
 
-   - Start a Live Test session.
-   - End the Live Test Session by clicking on the **End** button from the toolbar. The end session screen will pop up, and from there, you can edit the test name and select test outcome status:
+**Step 1:** If the application installation fails, close the application loading screen by clicking the **X**.
 
-     <img src={useBaseUrl('img/mobile-apps/mobile-live-failed-passed.png')} alt="Test Name" width="550"/>
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-25.png')} alt="Mobile App Live Testing" width="300"/>
 
-1. From the test details page:
-   - Go to **Live** -> **Test results** -> click on a test.
-   - On the test details page, click on the pencil nearby the test name to edit it:
-     <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
+**Step 2:** On the device, open the **Settings** app, select **General**, and then tap **VPN & Device Management**.
 
-:::note
-This feature works the same way for both cross-browser testing and mobile app testing.
-:::
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-26.png')} alt="Mobile App Live Testing" width="300"/>
 
-Use test names to customize your testing experience:
+
+**Step 3:** Under **VPN & Device Management**, select the enterprise application you want to install.
+
+**Step 4:** Tap **Trust "\<Application Name\>"**, then tap **Trust** again to confirm.
+
+**Step 5:** Return to the application and relaunch the live testing session.
+
+## Add a Test Name and Outcome
+
+After completing a live testing session, you can assign a **test name** and record the **test outcome** (**Passed** or **Failed**). This information is displayed in **Test Results** and can be updated later if needed. 
 
 - Add descriptive names to your tests to quickly identify your findings.
+
 - Keep track of tested steps by adding details to test names.
+
 - Easily rename your tests to reflect Jira tickets or other related tasks.
 
-:::note LIMITATIONS
+
+:::caution Limitations
 This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name.
+:::
+
+You can perform this action using either of the following methods discussed below. 
+
+### Method I: From the End Session Dialog
+
+Use this method to add a test name and outcome immediately after ending a live testing session.
+
+**Step 1:** Complete the live testing session, then click **End** in the live testing toolbar to open the **End Session** dialog.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-27.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 2:** In the **End Session** dialog, enter a name in the **Test Name** field, select the appropriate **Test Outcome** (**Passed** or **Failed**), and **save** the changes to complete the session.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-28.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### Method II: From Test Results
+
+Use this method to update the test name after the live testing session has ended.
+
+**Step 1:** From the left navigation menu, click on **Live** and then select **Test Results**.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-29.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 2:** In the **Test Results** page, locate and click on the test you want to update.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-30.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 3:** On the **Test Details** page, click the **Edit** (✏️ ) icon next to the **Test Name**.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-31.png')} alt="Mobile App Live Testing" width="auto"/>
+
+**Step 4:** Enter the new test name, then click **Save & Close** to save your changes.
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-32.png')} alt="Mobile App Live Testing" width="auto"/>
+
+:::note
+This feature works the same way for both cross-browser testing and mobile app testing. 
 :::
 
 ## Live Test Interface
 
-| Icon                                                                                                                     | Name                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| :----------------------------------------------------------------------------------------------------------------------- | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/>                   | Unpin/Pin Toolbar   | Unpins or pins the live testing toolbar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/>                     | Session Info        | Opens the **Current Session** window, which includes app and device details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/>               | Take Screenshot     | Takes a screenshot of the current device screen. The image downloads automatically as a .png file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/>                   | Share Session       | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| <img src={useBaseUrl('img/mobile-apps/rotate-button.png')} alt="Rotate Device icon" width="35"/>                         | Rotate Device       | Rotates the device between portrait and landscape.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/>                                     | Home                | Opens the device home screen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/>       | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/features/camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the [Biometric Authentication](/mobile-apps/features/biometric-authentication) window. <br/> **Performance mode On/Off** - Enables you to increase frame rate per second, or switch back to lower frame rate video streaming, when your network connection or VPN is restrictive and you experience blurred screen. |
-| <img src={useBaseUrl('img/mobile-apps/restart-app-button.png')} alt="Restart App icon" width="35"/>                      | Restart App         | Restarts the app.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/>         | Switch App Version  | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <img src={useBaseUrl('img/mobile-apps/clipboard-button.png')} alt="Clipboard icon" width="35"/>                          | Clipboard           | Opens the **Paste Content Into Device** window.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/>         | Install Dependency  | Opens the **Install Dependent App** window.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| <img src={useBaseUrl('img/mobile-apps/devtools-button.png')} alt="Developer Options icon" width="35"/>                   | Developer Options   | Opens the **Developer Options** panel, which includes the **Device Log** and **Dev Tools** tabs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <img src={useBaseUrl('img/live-testing/live-mobile-app-management-audio.png')} alt="Developer Options icon" width="35"/> | Mute/Unmute         | Mutes or unmutes audio for your testing session.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <img src={useBaseUrl('img/live-testing/passcode.png')} alt="Passcode icon" width="35"/> | Passcode - Android Only         | If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device. On Android we are setting 000000.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+After a live testing session starts, the **Live Test Interface** provides access to the tools and controls required to interact with the device, monitor the testing session, capture diagnostics, and perform debugging tasks. 
+
+The toolbar includes options for device navigation, application management, session sharing, screenshots, developer tools, and additional testing features.
+
+The following table describes the available controls in the Live Test Interface.
+
+### Basic Controls
+
+These controls provide quick access to the most commonly used actions during a live testing session.
+
+| Ref. | Control | Description | Learn More |
+| ----- | ----- | ----- | ----- |
+| **1** | **Home** | Returns the device to its home screen without ending the live testing session, allowing you to manually navigate and relaunch applications if needed. | — |
+| **2** | **Developer Options** | Opens the developer tools panel, where you can access the **Device Log** and other debugging tools to monitor application behavior and troubleshoot issues. | **[Device Logs](#device-log)** |
+| **3** | **Take Screenshot** | Captures the current device screen and automatically downloads it as a **PNG** image for documentation, reporting, or issue tracking. | — |
+| **4** | **Rotate Device** | Change the device orientation between **portrait** and **landscape** to verify that the application responds correctly to screen rotation. | — |
+| **5** | **Restart App** | Closes and relaunches the application without ending the testing session, allowing you to quickly restart the application after making changes or reproducing an issue. | — |
+| **6** | **Device Settings** | Configures device-specific settings, including **audio**, **Wi-Fi**, **language**, **performance mode**, **animations**, and **passcode**. Use these settings to simulate different device configurations during testing. | **[Device Settings](#device-settings)** |
+| **7** | **Tools** | Provides additional testing utilities, such as **location simulation**, **camera image injection**, **biometric authentication**, and **clipboard management**, to help simulate real-world testing scenarios. | **[Tools](#tools)** |
+| **8** | **Application** | Provides options for managing the application during the testing session, including switching between uploaded app versions, installing dependent applications, and configuring application-specific testing features. | **[Application](#application)** |
+| **9** | **Throttle Network** | Simulates different network conditions, such as slower or unstable connections, allowing you to evaluate application performance and behavior under varying network environments. |— |
+| **10** | **Accessibility** | Enables accessibility features for the testing session, allowing you to verify how the application behaves when accessibility options are enabled on the device. | — |
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-33.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### Device Settings
+
+Use **Device Settings** to configure device behavior during the current live testing session. These settings help simulate different device conditions and testing scenarios.
+
+| Ref. | Setting | Description |
+| ----- | ----- | ----- |
+| **1** | **Audio** | Enables or disables device audio during the testing session, allowing you to verify audio playback and sound-related functionality. |
+| **2** | **Performance Mode** | Increases the streaming frame rate for a smoother viewing experience. This setting is useful when testing over slower or restricted network connections. |
+| **3** | **Wi-Fi** | Enables or disables the device's Wi-Fi connection to observe how the application behaves when network connectivity changes. |
+| **4** | **Language** | Change the device language to verify application localization, translations, and region-specific content. |
+| **5** | **Animations** | Enables or disables system animations to evaluate application behavior with reduced or disabled device animations. |
+| **6** | **Passcode** | Enables a predefined device passcode for testing applications that require screen lock authentication before access. |
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-34.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### Tools
+
+The Tools menu provides additional utilities that help simulate real-world scenarios, interact with the device, and perform advanced testing tasks during a live testing session.
+
+| Ref. | Tool | Description |
+| ----- | ----- | ----- |
+| **1** | **Back (Device)** | Returns to the main live testing controls without making any changes. |
+| **2** | **ADB Shell** | Opens an interactive Android Debug Bridge (ADB) shell, allowing you to execute ADB commands directly on the connected Android device for debugging and troubleshooting. |
+| **3** | **Set GPS Location** | Simulates a GPS location by entering coordinates or selecting a location on a map. Use this option to test location-based features and services. |
+| **4** | **Camera Upload** | Uploads an image and presents it to the application as if it were captured by the device camera, allowing you to test camera-dependent workflows. |
+| **5** | **Audio Upload** | Uploads an audio file and plays it through the device as microphone input, enabling testing of voice commands, speech recognition, and other audio-related features. |
+| **6** | **Biometric Authentication** | Simulates biometric authentication, such as **Face ID**, **Touch ID**, or **Fingerprint Authentication**, to test secure login and authentication flows. |
+| **7** | **Upload File to SD Card** | Uploads a file to the device's SD card or external storage, allowing the application to access the file during testing. |
+| **8** | **Copy to Clipboard** | Copies text to the device clipboard so it can be pasted into the application during testing. |
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-35.png')} alt="Mobile App Live Testing" width="auto"/>
+
+### Application
+
+The **Application** menu provides options for managing the application while the live testing session is in progress.
+
+| Ref. | Option | Description |
+| ----- | ----- | ----- |
+| **1** | **Install App** | Installs an additional application on the current device during the live testing session. Use this option when your application depends on another app, such as an authentication app, payment app, or companion application, to complete testing scenarios. |
+| **2** | **Switch App Version** | Switches to another uploaded version of the current application without leaving the live testing session. This is useful for comparing application behavior across different versions or validating fixes in a newer build. |
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-36.png')} alt="Mobile App Live Testing" width="auto"/>
 
 ### Device Log
 
-<img src={useBaseUrl('img/live-testing/device-log.png')} alt="Device Log" width="450"/>
+The **Device Log** provides real-time application and system logs generated during a live testing session. These logs help you monitor application behavior, troubleshoot issues, identify runtime errors, and verify system events during application interactions.
 
-| Icon                                                                                                               | Name                                                              | Description                                                                                                                                                                                             |
-| :----------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <img src={useBaseUrl('img/live-testing/log-level.png')} alt="Log Level" width="85"/>                               | Log Level                                                         | <ul><li>VERBOSE </li><li>DEBUG </li><li>INFO </li><li>WARN </li><li>ERROR </li><li>ASSERT </li></ul>                                                                                                    |
-| <img src="https://user-images.githubusercontent.com/68342451/236323299-3e75d296-a6ec-4130-b131-e9c901c43429.png"/> | [App Log](/mobile-apps/features/mobile-app-diagnostics/app-logs/) | <ul><li>VERBOSE </li><li>DEBUG </li><li>INFO </li><li>WARN </li><li>ERROR </li><li>ASSERT </li></ul>                                                                                                    |
-| <img src={useBaseUrl('img/live-testing/search-log-icon.png')} alt="Search Log icon" width="40"/>                   | Search Log                                                        | Opens the **Search log** interface. Enter a term or terms in the search box and select or deselect the following checkboxes as necessary: <ul><li>REGEX </li><li>IGNORE CASE </li><li>INVERT </li></ul> |
-| <img src={useBaseUrl('img/live-testing/pause-log-icon.png')} alt="Pause Log icon" width="40"/>                     | Pause Log                                                         | Pauses the log feed.                                                                                                                                                                                    |
-| <img src={useBaseUrl('img/live-testing/wrap-text-icon.png')} alt="Wrap Text icon" width="40"/>                     | Wrap Text                                                         | Wraps text in the log for easier reading.                                                                                                                                                               |
-| <img src={useBaseUrl('img/live-testing/clear-log-icon.png')} alt="Clear Log icon" width="40"/>                     | Clear Log                                                         | Clears the log feed.                                                                                                                                                                                    |
-| <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/>               | Download Log                                                      | Downloads the log as a .txt file.                                                                                                                                                                       |
+You can use the Device Log to filter log messages, search for specific entries, pause log streaming, clear the current log output, or download the logs for further analysis.
+
+| Ref. | Control | Description |
+| ----- | ----- | ----- |
+| **1** | **Application Selector** | Select the application whose logs you want to display when multiple applications or processes are running on the device. |
+| **2** | **Log Level Filter** | Filter the displayed logs by severity level, such as **VERBOSE**, **DEBUG**, **INFO**, **WARN**, **ERROR**, or **ASSERT**, to focus on the most relevant log messages. |
+| **3** | **Search Log** | Search the log output for specific keywords or messages to quickly locate relevant log entries. |
+| **4** | **Pause Log** | Pause or resume the live log stream to inspect log messages without new entries being added. |
+| **5** | **Wrap Text** | Enable or disable text wrapping to improve the readability of long log messages. |
+| **6** | **Clear Log** | Remove all currently displayed log entries from the log viewer. This clears only the display and does not affect the application's actual log data. |
+| **7** | **Download Log** | Download the current device log as a **.txt** file for offline analysis, troubleshooting, or sharing with your team. |
+
+:::note
+The Device Log displays logs in real time. The amount and type of information shown depend on the selected log level and the activity occurring in the application during the testing session.
+:::
+
+<img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-37.png')} alt="Mobile App Live Testing" width="auto"/>
