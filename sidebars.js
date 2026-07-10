@@ -1217,6 +1217,7 @@ module.exports = {
                     items: [
                         'sauce-ai/ai-authoring',
                         'sauce-ai/test-authoring/generate-your-test-case',
+                        'sauce-ai/test-authoring/data-variables',
                         'sauce-ai/test-authoring/generate-the-script-code',
                         'sauce-ai/test-authoring/manage-your-test-cases',
                         'sauce-ai/test-authoring/run-your-test-cases',
