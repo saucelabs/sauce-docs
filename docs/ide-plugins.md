@@ -85,7 +85,7 @@ Working with Sauce Labs traditionally means leaving the IDE: testing on a real d
 | Live step-by-step execution | Watch each step run on a live session, with a screenshot, the action taken, its locator, and the assertions verified |
 | Code generation | Export the test as runnable code in your framework and language, and insert it into your editor, save it to your workspace, or copy it |
 | Test case management | Saved tests sync with your Sauce Labs account; open, re-run, rename, edit, or delete them from the IDE |
-| Session pairing | An active Real Device Cloud session is detected automatically and pre-fills the mobile target |
+| Session pairing | An active Real Device Cloud session is detected automatically and pre-fills the mobile target for test authoring. Note: This creates a separate device session. |
 
 ## Requirements and entitlements
 
