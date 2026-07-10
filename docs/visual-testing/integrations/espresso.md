@@ -270,9 +270,9 @@ visualClient.sauceVisualCheck("Long content page",
 
 ### Resolving `kotlin-stdlib` security scan findings
 
-The plugin pulls `org.jetbrains.kotlin:kotlin-stdlib` transitively. Security scanners (e.g. Snyk) flag versions below `2.1.0`. Because of how Android AAR dependency resolution works, the plugin cannot force this version on your build - your project resolves whatever its own dependency graph selects.
+The Sauce Visual Espresso SDK includes `org.jetbrains.kotlin:kotlin-stdlib` as a transitive dependency. Some security scanners may report findings when an older version is selected by your application's dependency graph.
 
-If a scan flags `kotlin-stdlib`, add a constraint to your module's `build.gradle` so it resolves to a safe version:
+The published SDK does not currently enforce a Kotlin standard library version in consuming projects. If your scan reports an affected version, add dependency constraints to the module-level build.gradle file where the SDK is declared:
 
 ```groovy
 dependencies {
@@ -284,11 +284,14 @@ dependencies {
 }
 ```
 
-You can verify the result with:
+To verify the resolved version, run:
 
 ```
-./gradlew :<your-module>:dependencies --configuration debugAndroidTestRuntimeClasspath | grep kotlin-stdlib
+./gradlew :<your-module>:dependencyInsight \
+    --dependency kotlin-stdlib \
+    --configuration debugAndroidTestRuntimeClasspath
 ```
+Confirm that kotlin-stdlib, kotlin-stdlib-jdk7, and kotlin-stdlib-jdk8 resolve to 2.1.0 or later.
 
 ## Examples
 
