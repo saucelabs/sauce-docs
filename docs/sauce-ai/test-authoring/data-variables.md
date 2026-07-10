@@ -1,7 +1,7 @@
 ---
 id: data-variables
-title: Data Management
-sidebar_label: Data Management
+title: Data Variables
+sidebar_label: Data Variables
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -83,7 +83,7 @@ Complete your test prompt, then click **Start Session** to begin test generation
 
 You can edit an existing variable to update its value, scope, visibility, or description. Changes are automatically applied wherever the variable is referenced in future test runs.
 
-**Step 1:** On the **Test Variables** page, locate the variable you want to update and select **Edit**.
+**Step 1:** On the **Data Management** page, locate the variable you want to update and select **Edit**.
 
 <img src={useBaseUrl('/img/ai-authoring/data-management/data-variables-5.png')} alt=" Data Management" width="100%"/>
 
@@ -95,7 +95,7 @@ You can edit an existing variable to update its value, scope, visibility, or des
 
 Delete a variable when it is no longer needed or has been replaced by another variable. Once deleted, the variable is no longer available for use in test prompts.
 
-**Step 1:** On the **Test Variables** page, locate the variable you want to remove.
+**Step 1:** On the **Data Management** page, locate the variable you want to remove.
 
 <img src={useBaseUrl('/img/ai-authoring/data-management/data-variables-5.png')} alt=" Data Management" width="100%"/>
 
