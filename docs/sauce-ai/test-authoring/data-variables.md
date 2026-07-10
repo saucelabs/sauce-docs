@@ -1,7 +1,7 @@
 ---
 id: data-variables
-title: Data Variables
-sidebar_label: Data Variables
+title: Data Management
+sidebar_label: Data Management
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
