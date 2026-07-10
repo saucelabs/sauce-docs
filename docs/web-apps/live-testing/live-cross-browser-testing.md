@@ -8,175 +8,284 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can run live tests of your websites on a wide variety of operating system, browser, version, and screen resolution configurations.
 
-## What You'll Need
+With Sauce Labs, you can perform live cross-browser testing of your web applications across a wide range of desktop browsers, operating systems, browser versions, and mobile browsers. Live testing allows you to interact with your website in real time, validate user workflows, identify browser-specific issues, and verify responsive behavior without writing automation scripts.
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+You can launch live testing sessions on desktop browsers, Android devices, and iOS devices using either physical devices or virtual devices, depending on your testing requirements.
 
-## Testing on a Desktop Browser
+## Prerequisites
 
-1. On Sauce Labs, in the left navigation panel, click **LIVE**, and then click **Cross Browser**.
-2. Click the **Desktop** tab.
-   <img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="650"/>
+Before starting a live cross-browser testing session, ensure the following requirements are met:
 
-3. In the **URL** field, enter the URL of the website you want to test.
-4. If you use Sauce Connect Proxy to test apps on a local host or behind a firewall, select the tunnel from the **SAUCE CONNECT PROXY** dropdown list.
-5. Under **BROWSER SELECTION**, select the browser version and screen resolution you want to use in your test.
-6. In the **OS VERSION** dropdown list, select the OS version you want to use.
-   <img src={useBaseUrl('img/live-testing/desktop-test-setup.png')} alt="Desktop test setup" width="650"/>
+* You must have a valid Sauce Labs account. (**[Log in](https://accounts.saucelabs.com/am/XUI/#login/)** or sign up for a **[free trial license](https://saucelabs.com/sign-up)**)
 
-7. To view your recent configurations, click **Recents**.
-   <img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="650"/>
+* You have the URL of the website you want to test.
 
-8. Click **Start Test**.
-   A loading screen appears, and then the app launces in a live test window using the configuration you selected.
+* If your website is hosted on a private or internal network, configure **[Sauce Connect Proxy](/docs/secure-connections/sauce-connect-4/proxy-tunnels.md)**.
 
-   :::caution
+## Select a Testing Platform
 
-   If you have issues starting live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
+| Platform | Description |
+| ----- | ----- |
+| **Desktop Browser** | Test your website across different desktop browsers, browser versions, operating systems, and screen resolutions. |
+| **Mobile Browser** | Test your website using native browsers running on Android and iOS on real devices or virtual devices. |
 
-   :::
+## Test on a Desktop Browser
 
-   <img src={useBaseUrl('img/live-web-apps/new-toolbar/desktop-test-running.png')} alt="Desktop test running" width="650"/>
+Desktop Browser Testing allows you to verify how your website behaves across different browser and operating system combinations. Before launching a session, configure the browser, operating system, screen resolution, and optional network settings.
 
-9. Once your session launches, you can use your mouse cursor and keyboard to interact with the website under test.
+**Step 1:** From the left navigation menu, click **Live**, then select **Cross Browser**.
 
-10. Click **End Session** when you are done testing.
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-1.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-11. Optionally, [you can select an outcome and enter name for your test](#adding-a-test-name-and-outcome-to-your-test).
-    <img src={useBaseUrl('img/live-testing/live-testing-end-session-page.png')} alt="Recent tests" width="550"/>
+**Step 2:** By default, the **Mobile Browser** tab is displayed. Click the **Desktop** tab to switch to desktop browser testing.
 
-### Live Desktop Test Interface
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-2.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-| Icon                                                                                                               | Name              | Description                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/info.png')} alt="Session Info icon" width="35"/>               | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                        |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/share-session.png')} alt="Share session icon" width="35"/>     | Share Session     | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/take-screenshot.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot   | Takes a screenshot of the current device screen. The image downloads automatically as a .png                                                        |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/copy-clipboard.png')} alt="Copy clipboard icon" width="35"/>   | Copy to Clipboard | Opens the Paste Content Into Device window.                                                                                                         |
+**Step 3:** Configure the desktop browser testing environment using the available options.
 
-## Testing on a Mobile Browser
+| Ref. | Setting | Description |
+| ----- | ----- | ----- |
+| **1** | **Website URL** | Enter the complete URL of the website or web application you want to test. |
+| **2** | **Sauce Connect Proxy** *(Optional)* | Select a Sauce **[Sauce Connect Proxy](/docs/secure-connections/sauce-connect-4/proxy-tunnels.md)** if your website is hosted on a private network, localhost, or behind a firewall. |
+| **3** | **Browser** | Select the browser you want to use during the live testing session. |
+| **4** | **Browser Version** | Select the browser version to validate compatibility with different browser releases.  |
+| **5** | **Operating System** | Select the operating system on which the browser will run.  |
+| **6** | **Screen Resolution** | Select the screen resolution to verify how your website renders on different desktop display sizes.  |
 
-With Sauce Labs you can run live tests of your web apps using native browsers for Android and iOS on both virtual and real mobile devices.
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-3.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-### What You'll Need
+**Step 4:** After configuring the required settings, click **Start Test**.
 
-Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Overview](/secure-connections/sauce-connect-5/) and [Sauce Connect Localhost](/secure-connections/sauce-connect-5/guides/localhost-proxying/#configuring-mobile-devices-for-testing-localhost).
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-4.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-### Real Device
+A loading screen is displayed while Sauce Labs provisions the selected browser environment. Once initialization is complete, the website automatically opens in a live browser testing session.
 
-1. On Sauce Labs, in the left panel, click **Live**, and then click **Cross Browser**.
-2. Click the **Mobile Real** tab.
-   <img src={useBaseUrl('img/live-testing/live-mobile-real-nav.png')} alt="Live mobile real device test navigation" width="650"/>
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-5.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-3. Use the filter options or **Search** field to find the type of real device you want to use in your test.
-4. To mark a device as a favorite so you can find it in the future, click the pin icon next to the device name.
-   <img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
+## Test on a Mobile Browser
 
-   The default sorting for the device list is **Pinned First**.
+Mobile Browser Testing allows you to validate websites using the native browsers available on Android and iOS devices. Depending on your testing requirements, you can run tests on either physical devices or virtual devices.
 
-5. In the **URL** field, enter the URL of the website you want to test.
-6. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown list.
-7. Hover over the device card and click **Start Test** .
-   A loading screen appears, and then the app launces in a live test window using the configuration you selected.
-   <img src={useBaseUrl('img/live-web-apps/new-toolbar/mobile-real-test-ui.png')} alt="Mobile real device test interface" width="650"/>
+If your website is hosted on a private or internal network, configure **[Sauce Connect Proxy](/docs/secure-connections/sauce-connect-4/proxy-tunnels.md)** before launching the testing session.
 
-When you are done testing, [you can opt to select an outcome and enter a name for your test](#adding-a-test-name-and-outcome-to-your-test).
+Before launching a mobile browser session, choose the type of device you want to use.
 
-#### Live Mobile Real Device Test Interface
+| Device Type | Description |
+| ----- | ----- |
+| **Real Device** | Launches the website on a physical Android or iOS device hosted by Sauce Labs. This option is recommended when validating real-world browser behavior and hardware interactions. |
+| **Virtual Device** | Launches the website on an Android Emulator or iOS Simulator. Virtual devices support functional testing and quick browser validation without requiring physical hardware. |
 
-| Icon                                                                                                               | Name              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/info.png')} alt="Session Info icon" width="35"/>               | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                                                                                                                                                                                                                                                                                                                      |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/share-session.png')} alt="Share session icon" width="35"/>     | Share Session     | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test.                                                                                                                                                                                                                                                                                               |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/home.png')} alt="Home icon" width="35"/>                       | Home              | Opens the device home screen.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/dev-options.png')} alt="Developer Options icon" width="35"/>   | Developer Options | Opens the **Developer Options** panel, which includes the **Device Log** and **[Dev Tools](/web-apps/live-testing/dev-tools/)** tabs.                                                                                                                                                                                                                                                                                                             |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/take-screenshot.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot   | Takes a screenshot of the current device screen. The image downloads automatically as a .png file.                                                                                                                                                                                                                                                                                                                                                |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/rotate-device.png')} alt="Rotate Device icon" width="35"/>     | Rotate Device     | Rotates the device between portrait and landscape.                                                                                                                                                                                                                                                                                                                                                                                                |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/restart-app.png')} alt="Restart App icon" width="35"/>         | Restart App       | Restarts the app.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/device-settings.png')} alt="Device Settings icon" width="35"/> | Device Settings   | **Language** - Enables you to choose a different language from the default one. <br/> **WiFi** - Turns On/Off the Wifi. <br/> **Animations** - Turns On/Off the animations. <br/> **Audio** - Turns On/Off the audio. <br/>**Performance mode On/Off** - Enables you to increase frame rate per second, or switch back to lower frame rate video streaming, when your network connection or VPN is restrictive and you experience blurred screen. <br/> **Passcode - Android Only** -  If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device. On Android we are setting 000000. |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/tools.png')} alt="Tools icon" width="35"/>                     | Tools             | **ADB Shell** - Opens a window to execute an ADB Command. <br/> **Set GPS Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Upload file to SD Card** - Uploads a file to SD Card. <br/> **Copy to clipboard** - Opens the Paste Content Into Device window.                                                                                                                                            |
+### Real Devices
 
-#### Device Log
+Use this method to launch a live browser testing session on a physical Android or iOS device.
 
-<img src={useBaseUrl('img/live-testing/device-log.png')} alt="Device Log" width="450"/>
+**Step 1:** From the **Cross Browser** page, click the **Mobile Real** tab to display the list of available physical devices.
 
-| Icon                                                                                                 | Name         | Description                                                                                                                                                                                             |
-| :--------------------------------------------------------------------------------------------------- | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <img src={useBaseUrl('img/live-testing/log-level.png')} alt="Log Level" width="85"/>                 | Log Level    | <ul><li>VERBOSE </li><li>DEBUG </li><li>INFO </li><li>WARN </li><li>ERROR </li><li>ASSERT </li></ul>                                                                                                    |
-| <img src={useBaseUrl('img/live-testing/search-log-icon.png')} alt="Search Log icon" width="40"/>     | Search Log   | Opens the **Search log** interface. Enter a term or terms in the search box and select or deselect the following checkboxes as necessary: <ul><li>REGEX </li><li>IGNORE CASE </li><li>INVERT </li></ul> |
-| <img src={useBaseUrl('img/live-testing/pause-log-icon.png')} alt="Pause Log icon" width="40"/>       | Pause Log    | Pauses the log feed.                                                                                                                                                                                    |
-| <img src={useBaseUrl('img/live-testing/wrap-text-icon.png')} alt="Wrap Text icon" width="40"/>       | Wrap Text    | Wraps text in the log for easier reading.                                                                                                                                                               |
-| <img src={useBaseUrl('img/live-testing/clear-log-icon.png')} alt="Clear Log icon" width="40"/>       | Clear Log    | Clears the log feed.                                                                                                                                                                                    |
-| <img src={useBaseUrl('img/live-testing/download-log-icon.png')} alt="Download Log icon" width="40"/> | Download Log | Downloads the log as a .txt file.                                                                                                                                                                       |
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-6.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 2:** Browse the available devices using the device grid, or use the **Search** box and available filters to locate a specific device.
+
+Review the device information, including:
+
+* Device model
+* Operating system version
+* Availability
+
+After you find the required device, select it from the device grid.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-7.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 3:** Configure the testing session.
+
+| Ref. | Setting | Description |
+| ----- | ----- | ----- |
+| **1** | **Website URL** | Enter the URL of the website you want to test. |
+| **2** | **Sauce Connect Proxy** *(Optional)* | Select the Sauce Connect Proxy tunnel if the website is hosted on a private network. |
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-8.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 4:** After you have selected a device and verified its details, start the live testing session using one of the following methods:
+
+* Hover over the device in the grid and then click **Start Test**.
+
+* Click the device card to open the **Device Details** page. On the **Details** screen, click **Start Test**.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-9.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 5:** After the device is ready, the website automatically launches in the device's native browser, allowing you to begin testing immediately.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-10.png')} alt="Live Cross Browser Testing" width="300"/>
 
 ### Virtual Device
 
-1. On Sauce Labs, in the left panel, click **Live**, and then click **Cross Browser**.
-2. Click the **Mobile Virtual** tab.
-   <img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>
+Use this method to launch a live browser testing session using an Android Emulator or an iOS Simulator.
 
-3. In the **URL** field, enter the URL of the website you want to test.
-4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown list. For more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect-5/).
-5. In the **Manufacturer**, **Device**, and **OS Version** dropdowns, select the specifications for the virtual device you want to use.
-6. Click **Start Test**.
-   The loading screen appears, and then the URL you entered launches in a live test window using the virtual device you selected.
-   <img src={useBaseUrl('img/live-web-apps/new-toolbar/mobile-virtual-test-ui.png')} alt="Mobile virtual device test interface" width="650"/>
+**Step 1:** From the **Cross Browser** page, click the **Mobile Virtual** tab to display the available Android Emulators and iOS Simulators.
 
-When you are done testing, [you can opt to select an outcome and enter a name for your test](#adding-a-test-name-and-outcome-to-your-test).
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-11.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-#### Live Mobile Virtual Device Test Interface
+**Step 2:** Configure your testing environment by selecting the required platform, operating system version, and virtual device model from the available dropdown lists.
 
-| Icon                                                                                                               | Name              | Description                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/info.png')} alt="Session Info icon" width="35"/>               | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                        |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/share-session.png')} alt="Share session icon" width="35"/>     | Share Session     | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/take-screenshot.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot   | Takes a screenshot of the current device screen. The image downloads automatically as a .png                                                        |
-| <img src={useBaseUrl('img/live-web-apps/new-toolbar/copy-clipboard.png')} alt="Copy clipboard icon" width="35"/>   | Copy to Clipboard | Opens the Paste Content Into Device window.                                                                                                         |
+| Ref. | Field | Description |
+| ----- | ----- | ----- |
+| **1** | **Manufacturer** | Select the device manufacturer for the virtual device (for example, Google or Samsung). |
+| **2** | **Device** | Select the virtual device model you want to use for testing. |
+| **3** | **OS Version** | Select the operating system version for the virtual device. |
 
-## Adding a Test Name and Outcome to Your Test
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-12.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-You can enter a test name and select an outcome for your Live Tests after cross-browser and mobile app testing. Adding a name and outcome to your test allows you to add more context to test descriptions and add more clarity to your test repository.
+**Step 3:** Click **Start Test**. Sauce Labs provisions the selected virtual device and launches the website automatically once initialization is complete.
 
-You can use test names to customize your testing experience. For example you can:
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-13.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-- Add descriptive names to your tests to quickly identify your findings.
-- Keep track of tested steps by adding details to test names.
-- Rename your tests to reflect Jira tickets or other related tasks.
+**Step 2:** After the device is ready, the website automatically launches in the device's native browser, allowing you to begin testing immediately.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-14.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+## Live Testing Interface
+
+Sauce Labs provides different testing interfaces depending on the platform and device type you are using. Each interface includes controls that help you interact with the browser or device during a live testing session.
+
+### Desktop Browser Interface
+
+The **Desktop Browser Interface** provides quick access to the essential controls required during a live desktop browser testing session.
+
+| Ref. | Control | Description |
+| ----- | ----- | ----- |
+| **1** | **Take Screenshot** | Captures the current browser window and automatically downloads it as a PNG image. |
+| **2** | **Copy to Clipboard** | Opens the clipboard window, allowing you to copy text to the remote browser during the testing session. |
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-15.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+### Mobile Real Device Interface
+
+The **Mobile Real Device Interface** provides controls for interacting with physical Android and iOS devices during a live browser testing session.
+
+| Ref. | Control | Description | Learn More |
+| ----- | ----- | ----- | ----- |
+| **1** | **Home** | Returns the device to the home screen without ending the current testing session. | — |
+| **2** | **App Switcher** *(iOS Only)* | Opens the recent apps view, allowing you to switch between applications running on the device. | — |
+| **3** | **Developer Options** | Open developer tools such as Device Log, DevTools, ADB Shell, and Network logs for debugging. | Developer Options |
+| **4** | **Take Screenshot** | Captures the current device screen and downloads it as a PNG image. | — |
+| **5** | **Rotate Device** | Switches the device orientation between portrait and landscape. | — |
+| **6** | **Restart App** | Restarts the current browser or application without ending the testing session. | — |
+| **7** | **Device Settings** | Opens the Device Settings menu to configure language, Wi-Fi, audio, animations, performance mode, and passcode settings. | Device Settings |
+| **8** | **Tools** | Opens additional testing utilities such as GPS simulation, ADB Shell, clipboard access, file upload, and biometric authentication. | Tools |
+| **9** | **Throttle Network** | Simulates different network conditions to test website performance under varying connection speeds. | Throttle Network |
+| **10** | **Accessibility** | Enables accessibility testing tools to help evaluate the website's accessibility during the testing session. | Accessibility |
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-16.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+### Mobile Virtual Device Interface
+
+The **Mobile Virtual Device Interface** provides the controls required to interact with Android Emulators and iOS Simulators during a live browser testing session.
+
+| Ref. | Control | Description |
+| ----- | ----- | ----- |
+| **1** | **Take Screenshot** | Captures the current Simulator or Emulator screen and downloads it as a PNG image. |
+| **2** | **Copy to Clipboard** | Opens the clipboard window, allowing you to copy text into the virtual device during testing. |
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-17.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+## Public vs. Private Devices
+
+Sauce Labs provides two types of real devices for mobile browser testing.
+
+| Device Type | Description |
+| ----- | ----- |
+| **Public Devices** | Public devices are shared across Sauce Labs users and are available based on current device availability. If a device is already in use, it is marked as **UNAVAILABLE** in the device grid. |
+| **Private Devices** | Private devices are dedicated to your organization and are available only with Enterprise plans. They are identified by the **PRIVATE** label in the device grid and are accessible only to authorized users in your organization. |
 
 :::note
-Test names are limited to 255 characters. The use of emojis is not supported in the test name.
+To learn more about Enterprise plans or private device access, contact your Sauce Labs Sales Engineer or Customer Success Manager.
 :::
 
-- From the end session screen, you can select an outcome and enter a test name:
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-18.png')} alt="Live Cross Browser Testing" width="auto"/>
 
-  - Start a Live Test session.
-  - End the Live Test Session by clicking **End** on the toolbar.
-  - On the test session end screen, select the test outcome and edit the test name.
-    <img src={useBaseUrl('img/live-testing/live-testing-end-session-page.png')} alt="Test Name" width="550"/>
+## Pin a Device
 
-- From the test details page, you can add or edit a test name:
+To quickly access frequently used devices, click the **Pin (📌)** icon displayed on the device card.
 
-  - Go to **Live** -> **Test results**
-  - Click a test.
-  - On the test details page, click the pencil next to the test name to edit it. <img src={useBaseUrl('img/live-testing/edit-test-name-icon.png')} alt="Test Name" width="550"/>
-  - Enter a descriptive name for the test, for example:
-    <img src={useBaseUrl('img/live-testing/change-name-test-edit.png')} alt="Test Name" width="550"/>
+Pinned devices automatically appear at the top of the device list, making them easier to locate in future testing sessions.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-19.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+## View Recent Configurations
+
+Click **Recents** to display your recently used testing configurations. The **Recents** section includes previously used combinations of devices and browser configurations, allowing you to quickly restart testing sessions without selecting the same options again.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-20.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+## Add a Test Name and Outcome
+
+After completing a live testing session, you can assign a descriptive name and record the test outcome (**Passed** or **Failed**). Adding meaningful names makes it easier to locate tests, organize results, and identify testing activities later.
+
+You can use test names to:
+
+* Quickly identify completed tests.
+* Record the purpose or scenario of each test.
+* Reference Jira issues, user stories, or release versions.
+
+:::caution LIMITATION
+Test names can contain a maximum of **255** characters. Emojis are not supported.
+:::
+
+You can update the test name using either of the following methods.
+
+### Method I: From the End Session Dialog
+
+Use this method to add the test name immediately after completing a live testing session.
+
+**Step 1:** Complete the live testing session, then click **End** on the testing toolbar.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-21.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 2:** When the **End Session** dialog appears, enter a descriptive name in the **Test Name** field, select the appropriate **Test Outcome (Passed or Failed)**, and save the changes.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-22.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+The updated test information is stored in **Test Results** for future reference.
+
+### Method II: From Test Results
+
+Use this method to add a test name and outcome immediately after ending a live testing session.
+
+**Step 1:** From the left navigation menu, click **Live**, then select **Test Results**.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-23.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 2:** Locate and open the testing session you want to update.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-24.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 3:** On the **Test Details** page, click the **Edit (✏️)** icon next to the test name.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-25.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+**Step 4:** Enter the new test name, then save your changes.
+
+<img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-26.png')} alt="Live Cross Browser Testing" width="auto"/>
+
+:::note
+The process for updating the test name is the same for both Cross Browser Testing and Mobile App Testing.
+:::
 
 ## Running Tests in Parallel
 
 You can run multiple live test sessions at the same time, with the number of tests limited by the concurrency allowance associated with your account. To run tests in parallel, open a new browser tab and follow the steps to set up the new session. You can switch back and forth between the sessions by clicking on the browser tabs.
 
-### Time Limits and Timeouts for Cross Browser Testing
+### Time Limits and Timeouts for Cross-Browser Testing
 
 For VDC and EmuSIM, the global limitations for the live session duration are:
 
-- Cross Browser tests for free users have an 11-minute limit from the session start.
-- Cross Browser tests for paid users are limited to three hours.
-- Cross Browser tests for all accounts will timeout after 90 seconds if the session is not active (that is, it has no active channels).
+* Cross-browser tests for free users have an 11-minute limit from the session start.
 
-If there is no activity a user is automatically logged out after 30 min.
+* Cross-browser tests for paid users are limited to three hours.
+
+* Cross-browser tests for all accounts will timeout after 90 seconds if the session is not active (that is, it has no active channels).
+
+If there is no activity, a user is automatically logged out after 30 min.
 
 ## Troubleshooting Live Cross Browser Tests
 
@@ -184,7 +293,7 @@ Below are resolutions to common errors that you may experience in live cross bro
 
 ### Seeing a Security Error Message (Error #2048)
 
-This error is displayed when the ports used by manual testing relies are being blocked by a firewall on your end. This may also be caused by running apps such as Avast! antivirus software.
+This error is displayed when the ports used by manual testing relies are being blocked by a firewall on your end. This may also be caused by running apps such as Avast antivirus software.
 
 Below are the servers and ports used by manual testing. If you plan to launch manual tests on locally installed browsers, we recommend checking with your network administrator to confirm that you can make secure websocket connections to: `api.us-west-1.saucelabs.com:443` (for US-West-1 DC) or `api.eu-central-1.saucelabs.com:443` (for EU-Central-1 DC).
 
