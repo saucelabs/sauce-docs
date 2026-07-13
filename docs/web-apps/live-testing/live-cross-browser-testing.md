@@ -48,7 +48,7 @@ Desktop Browser Testing allows you to verify how your website behaves across dif
 | ----- | ----- | ----- |
 | **1** | **Website URL** | Enter the complete URL of the website or web application you want to test. |
 | **2** | **Sauce Connect Proxy** *(Optional)* | Select a Sauce **[Sauce Connect Proxy](/docs/secure-connections/sauce-connect-4/proxy-tunnels.md)** if your website is hosted on a private network, localhost, or behind a firewall. |
-| **3** | **Browser** | Select the browser you want to use during the live testing session. |
+| **3** | **Browser Selection** | Select the browser you want to use during the live testing session. |
 | **4** | **Browser Version** | Select the browser version to validate compatibility with different browser releases.  |
 | **5** | **Operating System** | Select the operating system on which the browser will run.  |
 | **6** | **Screen Resolution** | Select the screen resolution to verify how your website renders on different desktop display sizes.  |
@@ -73,8 +73,8 @@ Before launching a mobile browser session, choose the type of device you want to
 
 | Device Type | Description |
 | ----- | ----- |
-| **Real Device** | Launches the website on a physical Android or iOS device hosted by Sauce Labs. This option is recommended when validating real-world browser behavior and hardware interactions. |
-| **Virtual Device** | Launches the website on an Android Emulator or iOS Simulator. Virtual devices support functional testing and quick browser validation without requiring physical hardware. |
+| **Real Devices** | Launches the website on a physical Android or iOS device hosted by Sauce Labs. This option is recommended when validating real-world browser behavior and hardware interactions. |
+| **Virtual Devices** | Launches the website on an Android Emulator or iOS Simulator. Virtual devices support functional testing and quick browser validation without requiring physical hardware. |
 
 ### Real Devices
 
@@ -117,7 +117,7 @@ After you find the required device, select it from the device grid.
 
 <img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-10.png')} alt="Live Cross Browser Testing" width="300"/>
 
-### Virtual Device
+### Virtual Devices
 
 Use this method to launch a live browser testing session using an Android Emulator or an iOS Simulator.
 
@@ -162,18 +162,18 @@ The **Desktop Browser Interface** provides quick access to the essential control
 
 The **Mobile Real Device Interface** provides controls for interacting with physical Android and iOS devices during a live browser testing session.
 
-| Ref. | Control | Description | Learn More |
-| ----- | ----- | ----- | ----- |
-| **1** | **Home** | Returns the device to the home screen without ending the current testing session. | — |
-| **2** | **App Switcher** *(iOS Only)* | Opens the recent apps view, allowing you to switch between applications running on the device. | — |
-| **3** | **Developer Options** | Open developer tools such as Device Log, DevTools, ADB Shell, and Network logs for debugging. | Developer Options |
-| **4** | **Take Screenshot** | Captures the current device screen and downloads it as a PNG image. | — |
-| **5** | **Rotate Device** | Switches the device orientation between portrait and landscape. | — |
-| **6** | **Restart App** | Restarts the current browser or application without ending the testing session. | — |
-| **7** | **Device Settings** | Opens the Device Settings menu to configure language, Wi-Fi, audio, animations, performance mode, and passcode settings. | Device Settings |
-| **8** | **Tools** | Opens additional testing utilities such as GPS simulation, ADB Shell, clipboard access, file upload, and biometric authentication. | Tools |
-| **9** | **Throttle Network** | Simulates different network conditions to test website performance under varying connection speeds. | Throttle Network |
-| **10** | **Accessibility** | Enables accessibility testing tools to help evaluate the website's accessibility during the testing session. | Accessibility |
+| Ref. | Control | Description |
+| ----- | ----- | ----- |
+| **1** | **Home** | Returns the device to the home screen without ending the current testing session. |
+| **2** | **App Switcher** *(iOS Only)* | Opens the recent apps view, allowing you to switch between applications running on the device. |
+| **3** | **Developer Options** | Open developer tools such as Device Log, DevTools, ADB Shell, and Network logs for debugging. |
+| **4** | **Take Screenshot** | Captures the current device screen and downloads it as a PNG image. |
+| **5** | **Rotate Device** | Switches the device orientation between portrait and landscape. |
+| **6** | **Restart App** | Restarts the current browser or application without ending the testing session. |
+| **7** | **Device Settings** | Opens the Device Settings menu to configure language, Wi-Fi, audio, animations, performance mode, and passcode settings. |
+| **8** | **Tools** | Opens additional testing utilities such as GPS simulation, ADB Shell, clipboard access, file upload, and biometric authentication. |
+| **9** | **Throttle Network** | Simulates different network conditions to test website performance under varying connection speeds. |
+| **10** | **Accessibility** | Enables accessibility testing tools to help evaluate the website's accessibility during the testing session. |
 
 <img src={useBaseUrl('img/live-web-apps/live-web-testing/cross-browser-testing-16.png')} alt="Live Cross Browser Testing" width="auto"/>
 
