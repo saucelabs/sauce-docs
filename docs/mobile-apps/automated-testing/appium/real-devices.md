@@ -167,7 +167,7 @@ driver.installApp(
 
 :::
 
-For more information about this command, see the [Appium documentation](https://appium.io/docs/en/latest/).
+For more information about this command, see the [Appium documentation](https://appium.io/docs/en/latest/reference/api/appium/#installapp).
 
 ### Excluding the `browserName`
 
