@@ -456,7 +456,7 @@ The JS console collects security errors, warnings, and messages that are explici
 
 ```
 {
-   "http://webdriver.io/api/action/click.html":[
+   "https://webdriver.io/docs/api/element/click":[
       {
          "level":"error",
          "column":0,

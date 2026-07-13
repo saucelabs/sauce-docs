@@ -89,4 +89,4 @@ $ yum install backtrace-hydra
 $ apt-get install backtrace-hydra
 ```
 
-Once installed, you may want to [configure Hydra](https://help.backtrace.io/advanced/component-hydra/hydra-setup).
+Once installed, you may want to [configure Hydra](https://docs.saucelabs.com/error-reporting/advanced/hydra/usage/).
