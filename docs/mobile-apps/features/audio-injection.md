@@ -11,18 +11,22 @@ import TabItem from '@theme/TabItem';
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
-Does your mobile app use speech-to-text (STT), such as voice search, voice commands, or dictation, that you want to test without speaking into a microphone every time?
+Does your mobile app use speech-to-text, such as voice search, voice commands, or dictation, that you want to test without speaking into a microphone every time?
 
-Audio Injection is a Sauce Labs Real Device Cloud (RDC) feature that simulates speaking into your app. Instead of using the device microphone, your app receives a pre-recorded audio file that you upload. When the app starts listening for speech, it gets your audio as if someone had spoken it into the device, so you can run the same voice input on every test, in both live and automated sessions.
+Audio Injection is a Sauce Labs Real Device Cloud feature that simulates speaking into your app. Instead of using the device microphone, your app receives a pre-recorded audio file that you upload. When the app starts listening for speech, it gets your audio as if someone had spoken it into the device, so you can run the same voice input on every test, in both live and automated sessions.
 
-Sauce Labs plays the audio you upload. The transcription itself comes from the device's own speech service, so the recognized text is whatever that audio would normally produce.
+:::note Limitation
+Audio Injection does not tap into or monitor the device microphone continuously. It only replaces microphone input at the exact moment your app actively requests speech recognition — the device microphone is otherwise unaffected.
+:::
+
+Sauce Labs feeds the audio you upload directly to the device's speech recognition service. The transcription itself comes from the device's own speech service, so the recognized text is whatever that audio would normally produce.
 
 :::caution Beta
 Audio Injection (Speech-to-Text) is currently in **beta** and may have limited availability. Reach out to your Sauce Labs representative or [Support](https://support.saucelabs.com/) to have it enabled for your account.
 :::
 
 :::caution
-Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage.
+Make sure you have a debuggable **and** non-obfuscated version of your application uploaded to Mobile App Storage.
 :::
 
 ## What You'll Need
@@ -59,13 +63,13 @@ Audio file requirements:
 | :------------ | :--------------------- | :----------------------------- |
 | Audio format  | MP3, WAV, M4A, or AAC  | MP3 only                       |
 | Maximum size  | 15 MB                  | 15 MB                          |
-| OS version    | iOS 13 and above       | Android 13 (API 33) and above  |
+| Minimum version | iOS 13 and above     | Android 13 and above           |
 
 :::note Not Supported
 
 - Mobile browsers and pre-installed system apps.
 - Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported).
-- Android versions below 13 (API 33).
+- Android versions below 13.
 - Device voice assistants such as Google Assistant or Siri. Audio Injection works with your app's own speech-to-text, not the device assistant.
 
 :::
@@ -124,7 +128,7 @@ During an automated test, you'll enable Audio Injection for your app and then pa
    platformName: 'Android',
    platformVersion: '14',
    automationName: 'UiAutomator2',
-   // Enable audio injection on RDC
+   // Enable audio injection on real devices
    audioInjection: true
    }
    ]
@@ -216,6 +220,8 @@ No app is installed on the device, or the app has not fully loaded. Wait until y
 Injecting audio and using it are two separate steps. The errors above happen at injection time, when you send a file that Sauce Labs rejects. Using the audio happens later, when your app starts listening for speech.
 
 On Android, if Audio Injection is enabled but no valid audio file is available when your app starts listening (for example, you never injected one), speech recognition uses the device microphone instead of returning an error. A missing file on Android shows up as normal microphone recognition, not as a failed command.
+
+On iOS, the behavior is the same: if no valid audio file has been provided, the device falls back to its default speech recognition framework and uses the device microphone.
 
 ## Additional Resources
 
