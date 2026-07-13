@@ -63,6 +63,10 @@ If you do not modify these settings, Sauce Labs automatically applies the defaul
 
 After selecting your application type and configuring the test generation settings, describe the test scenario you want Sauce AI to automate using a [**natural-language prompt**](/docs/sauce-ai/ai-authoring-prompting-guide.md).
 
+:::tip
+Instead of entering sensitive or reusable values directly in your prompt, you can reference Data Variables using the `{{variable_name}}` syntax or insert them from the `{x}` button. For more information, see **[Data Variables](/docs/sauce-ai/test-authoring/data-variables.md)**.
+:::
+
 You can write prompts in everyday language. For example:
 
 > ***Log in to the application using valid credentials and verify that the dashboard page is displayed successfully.***
@@ -174,9 +178,10 @@ After reviewing and confirming the generated test flow, you can save the test ca
 **Step 2:** In the **Save Test Case** dialog, provide the following details before saving your test case:
 
 | Ref. | Field | Description |
-| :---: | ----- | ----- |
-| **1** | **Test Case Name** | Enter a meaningful and descriptive name for your test case so that you can identify, search, and reuse it later. |
-| **2** | **Add to Test Suite (Optional)** | Select an existing test suite to organize the test case as part of a parent testing workflow. You can leave this field empty if you do not want to associate the test case with a test suite. |
+| ----- | ----- | ----- |
+| **1** | **Test Case Name** | Enter a meaningful and descriptive name for the test case. A clear name makes it easier to identify, search, and reuse the test case later. |
+| **2** | **Add to Test Suite** *(Optional)* | Select an existing test suite to organize the test case within a related testing workflow. Leave this field blank if you do not want to associate the test case with a test suite. |
+| **3** | **Tags** *(Optional)* | Add one or more tags to categorize the test case. Tags help organize, search, and filter test cases based on features, modules, priorities, releases, or other criteria. A test case can have multiple tags. The maximum allowed number of tags per test case is **20**. |
 
 After providing the required details, click **Save** to store your test case.
 
