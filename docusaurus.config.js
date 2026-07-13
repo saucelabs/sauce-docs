@@ -207,6 +207,10 @@ const docusaurusConfig = {
                             title: 'Real Device Access API',
                             url: `${siteBaseUrl}oas/real-device-access-api-spec.yaml`,
                         },
+                        {
+                            title: 'Second Real Device Access API',
+                            url: `${siteBaseUrl}oas/real-device-access-api-spec.yaml`,
+                        },
                     ],
                 },
             },
