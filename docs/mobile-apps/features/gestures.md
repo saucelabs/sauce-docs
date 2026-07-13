@@ -37,3 +37,6 @@ Building a great user experience is more than just design. Equally important is 
 - **Taps and Clicks:** Basic input gestures are supported.
 - **Zoom in Google Maps or Maps SDK:** For apps with Maps SDK integrated or tests involving Google Maps, zooming is possible through specific gestures:
   - Double-tap and hold, then drag to zoom in or out. [More here.](https://support.google.com/maps/answer/6396990?hl=en&co=GENIE.Platform%3DAndroid#:~:text=preferred%20icon%20size.-,Zoom%20in%20the%20map,-You%20can%20zoom)
+
+  ### Limitations on Android and IOS:
+  1. Slow scrolling of the element can cause unintentional clicks if you use the Sauce interface with a mouse with a mouse that has a scrolling wheel.
