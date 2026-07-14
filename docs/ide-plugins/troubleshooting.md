@@ -59,7 +59,7 @@ PNG screenshots work without FFmpeg.
 - **No multi-touch or pinch gestures** in the live session. Single-touch tap, swipe, and drag work.
 - **No hardware keyboard input** into the device panel. Use the device's on-screen keyboard for text entry.
 - **Large recordings can consume significant disk space.** There is no built-in size cap yet.
-- **New test suites cannot be created in the IDE.** You can save a test case into an existing suite; creating suites happens in the Sauce Labs web app.
+- **New test suites and schedules cannot be created in the IDE.** You can save a test case into an existing suite; creating suites and schedules happens in the Sauce Labs Test Authoring UI or through the API.
 - **Private mobile devices are not yet available in the authoring device picker.** Mobile Real and Mobile Virtual devices are available.
 
 ## Getting help
