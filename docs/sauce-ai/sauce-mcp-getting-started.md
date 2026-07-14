@@ -8,10 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Beta
-Sauce MCP is currently in beta. Configuration details may change.
-:::
-
 This guide shows how to connect a supported AI client to the hosted Sauce MCP server.
 
 ## Prerequisites
