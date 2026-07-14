@@ -306,6 +306,8 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `autoGrantPermissions`
 - `appiumVersion`
 
+If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session.
+
 ### WebDriverAgent for iOS Real Devices
 
 Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real Devices use the **official Appium [WebDriverAgent](https://github.com/appium/WebDriverAgent)** (WDA) by default. Earlier Appium versions (all Appium 2 versions, `appium3-2025-10`, `latest`, `stable`) continue to use the Sauce Labs custom WebDriverAgent (SauceWebDriverAgent).
