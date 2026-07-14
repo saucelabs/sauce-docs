@@ -4,10 +4,6 @@ title: Real Device Cloud Prompting Guide
 sidebar_label: Real Device Cloud Prompting Guide
 ---
 
-:::info Beta
-Sauce MCP is currently in beta.
-:::
-
 You drive Sauce MCP by describing a goal in plain language. Your AI client chooses the tools, calls them in order, and reports back. Clear prompts produce better results. Connect your AI client first, see [Connect your AI client](/sauce-ai/sauce-mcp-getting-started), and review the available [MCP Tools](/sauce-ai/sauce-mcp-tools).
 
 This guide covers Real Device Cloud workflows: provisioning devices, installing apps, interacting with the device, and capturing evidence. The prompts below assume your account can use the Real Device Access API tools (private devices and Real Device Access API concurrency). See [Requirements](/sauce-ai/sauce-mcp-tools#requirements).
