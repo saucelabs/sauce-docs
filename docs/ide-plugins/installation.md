@@ -16,10 +16,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Beta
-The Sauce Labs IDE plugin is currently in beta. Features and configuration may change.
-:::
-
 This page walks you through installing the Sauce Labs plugin in your IDE, signing in, and starting your first live device session.
 
 ## Prerequisites

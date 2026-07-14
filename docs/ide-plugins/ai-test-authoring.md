@@ -13,10 +13,6 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Beta
-The Sauce Labs IDE plugin is currently in beta. Features and configuration may change.
-:::
-
 Write a test by describing it in plain English. You type what you want to test, the AI runs it on a live Sauce Labs session, shows you each step as it happens, and gives you back test code you can put straight into your project.
 
 The IDE panel is a second client of the same [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) platform that powers the web UI at `app.saucelabs.com`. The web UI is the live-authoring surface; the IDE panel is the code-in-repo surface for engineers who want generated tests in their own repository and pipeline.
@@ -44,7 +40,7 @@ A test run usually takes about 30 to 90 seconds.
 
 <a href={useBaseUrl('img/ide-plugins/authoring-target-web.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/authoring-target-web.png')} alt="The web target options in the authoring panel: URL field, tunnel dropdown, and platform, browser, version, and resolution pickers" /></a>
 
-**Mobile App** targets run your app on a Sauce Labs device. Pick an app build you have uploaded to Sauce Labs app storage, then pick the device. You can filter devices by platform, form factor, manufacturer, and OS version, and pick from **Mobile Real** and **Mobile Virtual** devices. Private mobile devices are not available in the picker yet during the beta.
+**Mobile App** targets run your app on a Sauce Labs device. Pick an app build you have uploaded to Sauce Labs app storage, then pick the device. You can filter devices by platform, form factor, manufacturer, and OS version, and pick from **Mobile Real** and **Mobile Virtual** devices. Private mobile devices are not available in the picker yet.
 
 <a href={useBaseUrl('img/ide-plugins/authoring-target-mobile.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/authoring-target-mobile.png')} alt="The mobile app target options in the authoring panel: app build dropdown and a real device picker with platform, form factor, manufacturer, and OS version filters" /></a>
 
@@ -80,7 +76,7 @@ Generated tests are saved to your Sauce Labs account and listed in the **Test Ca
 
 You can save a test case into an existing test suite, but creating a new test suite is currently only possible in the Sauce Labs web app.
 
-## Beta notes
+## Known limitations
 
 - Device lists in the mobile picker sort A to Z or Z to A only. Sorting by Preferred or Pinned devices is not available in the IDE yet.
 - Opening several test case tabs at once can make each tab slower to load its device and platform list, because every tab fetches the list independently. The tabs remain fully independent and work normally.

@@ -17,10 +17,6 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Beta
-The Sauce Labs IDE plugin is currently in beta. Features and configuration may change.
-:::
-
 The Sauce Labs IDE plugin brings Real Device Cloud and AI Test Authoring directly into your editor. Browse and control real devices, install apps, stream logs, run Appium tests, and generate test code from natural language, all without switching to a browser.
 
 <div className="screenshot-grid">

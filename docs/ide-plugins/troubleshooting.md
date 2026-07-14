@@ -2,7 +2,7 @@
 id: troubleshooting
 title: IDE Plugin Troubleshooting
 sidebar_label: Troubleshooting
-description: Solutions for common Sauce Labs IDE plugin issues and the current beta limitations.
+description: Solutions for common Sauce Labs IDE plugin issues and the current known limitations.
 keywords:
   - troubleshooting
   - known limitations
@@ -11,11 +11,7 @@ keywords:
   - ide plugin
 ---
 
-:::info Beta
-The Sauce Labs IDE plugin is currently in beta. Features and configuration may change.
-:::
-
-Solutions for common issues, plus the current beta limitations.
+Solutions for common issues, plus the current known limitations.
 
 ## Common issues
 
@@ -54,7 +50,7 @@ PNG screenshots work without FFmpeg.
 - The list shows your organization's private devices. If no private devices are assigned to your account or team, the list is empty; ask your organization administrator about private device access.
 - Run **Sauce RDC: Refresh Devices**.
 
-## Known beta limitations
+## Known limitations
 
 - **No multi-touch or pinch gestures** in the live session. Single-touch tap, swipe, and drag work.
 - **No hardware keyboard input** into the device panel. Use the device's on-screen keyboard for text entry.

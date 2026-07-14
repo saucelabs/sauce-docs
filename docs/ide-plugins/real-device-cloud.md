@@ -15,10 +15,6 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Beta
-The Sauce Labs IDE plugin is currently in beta. Features and configuration may change.
-:::
-
 The Real Device Cloud view lets you browse Sauce Labs real devices, start live sessions, interact with a device, stream its logs, and run Appium tests against it, all without leaving your IDE.
 
 <a href={useBaseUrl('img/ide-plugins/live-session.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/live-session.png')} alt="A live real device session inside the IDE: the device list on the left, the live device screen in the center with a device action toolbar, and real-time logs on the right" /></a>
@@ -51,7 +47,7 @@ The device screen streams into the panel in real time, and your input is sent ba
 - **Swipe and drag:** click and drag.
 - **Hardware buttons:** the panel toolbar provides **Home**, **Back** (Android), **App Switch** (Android), and **Rotate**.
 
-Multi-touch gestures such as pinch-to-zoom and hardware keyboard input are not supported yet during the beta. Use the device's on-screen keyboard for text entry.
+Multi-touch gestures such as pinch-to-zoom and hardware keyboard input are not supported yet. Use the device's on-screen keyboard for text entry.
 
 ## Install your app
 
