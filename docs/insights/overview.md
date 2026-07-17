@@ -76,7 +76,7 @@ The section includes the following metrics:
 The pie chart displays the distribution of job execution results for the selected reporting period.
 
 :::note
-Completed tests are sometimes aggregated due to not receiving a pass or failure declaration or intent. Be sure to **[send all your pass/fail results](/docs/basics/test-config-annotation/test-annotation.md/#setting-passfail)** to Sauce Labs to take advantage of Insights.
+Completed tests are sometimes aggregated due to not receiving a pass or failure declaration or intent. Be sure to **[send all your pass/fail results](/docs/basics/test-config-annotation/test-annotation#setting-passfail)** to Sauce Labs to take advantage of Insights.
 :::
 
 <img src={useBaseUrl('img/insights/job-overview/job-overview-5.png')} alt="job breakdown data visualization"/>
