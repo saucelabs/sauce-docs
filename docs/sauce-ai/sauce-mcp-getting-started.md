@@ -8,10 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Beta
-Sauce MCP is currently in beta. Configuration details may change.
-:::
-
 This guide shows how to connect a supported AI client to the hosted Sauce MCP server.
 
 ## Prerequisites
@@ -41,6 +37,15 @@ Authentication uses HTTP Basic Auth. The credential is your `username:access_key
 
 `export SAUCE_AUTH_TOKEN=$(echo -n "your_username:your_access_key" | base64)`
 
+## Select your data center
+
+Sauce MCP uses a single endpoint (`https://mcp.saucelabs.com`) for all data centers. The data center your requests are routed to is selected per connection through the optional `X-Sauce-Region` request header.
+
+Accepted values are the canonical region keys `US_WEST`, `US_EAST`, and `EU_CENTRAL` (case-insensitive). If the header is missing or unrecognized, the server falls back to its default region (`US_WEST`) and logs a warning.
+
+To switch regions, update the `X-Sauce-Region` header in your client config and reconnect. Switching mid-session is not supported. If a listing tool returns empty results unexpectedly, ask the agent to call `get_active_region` to confirm which data center it is connected to.
+
+The configuration examples below include the `X-Sauce-Region` header. Replace `<REGION>` with `US_WEST`, `US_EAST`, or `EU_CENTRAL`. You can omit the header entirely to use the default (`US_WEST`).
 
 ## Configure your client
 
@@ -66,7 +71,8 @@ You can connect Claude Code in either of two ways.
 
 ```bash
 claude mcp add --transport http sauce-labs https://mcp.saucelabs.com \
-  --header "Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+  --header "Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>" \
+  --header "X-Sauce-Region: <REGION>"
 ```
 
 **Option 2: Add it with a config file**
@@ -80,7 +86,8 @@ Add the server to a `.mcp.json` file in your project root (or to your user-level
       "type": "http",
       "url": "https://mcp.saucelabs.com",
       "headers": {
-        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "X-Sauce-Region": "<REGION>"
       }
     }
   }
@@ -105,7 +112,9 @@ Edit `claude_desktop_config.json` (Settings → Developer → Edit Config). Clau
         "mcp-remote",
         "https://mcp.saucelabs.com",
         "--header",
-        "Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "--header",
+        "X-Sauce-Region: <REGION>"
       ]
     }
   }
@@ -125,7 +134,8 @@ Edit `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (per project):
     "sauce-labs": {
       "url": "https://mcp.saucelabs.com",
       "headers": {
-        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "X-Sauce-Region": "<REGION>"
       }
     }
   }
@@ -144,7 +154,8 @@ Edit your Windsurf MCP config (`~/.codeium/windsurf/mcp_config.json`):
     "sauce-labs": {
       "serverUrl": "https://mcp.saucelabs.com",
       "headers": {
-        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "X-Sauce-Region": "<REGION>"
       }
     }
   }
@@ -164,7 +175,8 @@ Create `.vscode/mcp.json` in your workspace:
       "type": "http",
       "url": "https://mcp.saucelabs.com",
       "headers": {
-        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "X-Sauce-Region": "<REGION>"
       }
     }
   }
@@ -185,7 +197,8 @@ In your JetBrains IDE (IntelliJ IDEA and others), open **Settings | Tools | AI A
     "sauce-labs": {
       "url": "https://mcp.saucelabs.com",
       "headers": {
-        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "X-Sauce-Region": "<REGION>"
       }
     }
   }
@@ -203,7 +216,8 @@ In Antigravity, open the MCP settings and add a server, or edit its MCP configur
     "sauce-labs": {
       "serverUrl": "https://mcp.saucelabs.com",
       "headers": {
-        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "X-Sauce-Region": "<REGION>"
       }
     }
   }
@@ -221,7 +235,8 @@ Edit `~/.gemini/settings.json`:
     "sauce-labs": {
       "httpUrl": "https://mcp.saucelabs.com",
       "headers": {
-        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>"
+        "Authorization": "Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>",
+        "X-Sauce-Region": "<REGION>"
       }
     }
   }
@@ -237,6 +252,7 @@ Add an extension in Goose with these settings:
 - **Type:** Remote (Streamable HTTP)
 - **Endpoint:** `https://mcp.saucelabs.com`
 - **Header:** `Authorization: Basic <BASE64_OF_USERNAME_COLON_ACCESSKEY>`
+- **Header:** `X-Sauce-Region: <REGION>`
 
 </TabItem>
 
@@ -253,5 +269,5 @@ If the connection works, the agent calls Sauce MCP and returns your account deta
 ## Troubleshooting
 
 - **Authentication failed / 401:** Recheck your username and access key and confirm the `Authorization` header is correctly Base64-encoded.
-- **Empty or unexpected results:** Confirm you are connecting to the endpoint for the data center where your account and devices live.
+- **Empty or unexpected results:** Confirm your `X-Sauce-Region` header points to the data center where your account and devices live. Ask the agent to call `get_active_region` to check which data center it is connected to. Remember that region changes require reconnecting; mid-session switching is not supported.
 - **Client can't reach the server:** Confirm the endpoint URL is correct and that your client supports remote Streamable HTTP servers (Claude Desktop uses the `mcp-remote` bridge above).

@@ -918,6 +918,7 @@ module.exports = {
                         },
                         'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/audio-injection',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/bypass-screenshot',
                         'mobile-apps/features/camera-image-injection',
@@ -1208,7 +1209,6 @@ module.exports = {
             items: [
                 'sauce-ai',
                 'sauce-ai/ai-insights-prompting-guide',
-                'sauce-ai/ai-authoring',
                 'sauce-ai/ai-authoring-prompting-guide',
                 {
                     type: 'category',
@@ -1219,6 +1219,19 @@ module.exports = {
                         'sauce-ai/ai-insights/use-sause-ai-assistants',
                         'sauce-ai/ai-insights/automated-bug-troubleshooting',
                         'sauce-ai/ai-insights/privacy-safety-and-trust',
+                    label: 'Test Authoring',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-authoring',
+                        'sauce-ai/test-authoring/generate-your-test-case',
+                        'sauce-ai/test-authoring/data-variables',
+                        'sauce-ai/test-authoring/generate-the-script-code',
+                        'sauce-ai/test-authoring/manage-your-test-cases',
+                        'sauce-ai/test-authoring/run-your-test-cases',
+                        'sauce-ai/test-authoring/create-and-manage-test-suites',
+                        'sauce-ai/test-authoring/run-your-test-suite',
+                        'sauce-ai/test-authoring/schedule-your-test-runs',
+                        'sauce-ai/test-authoring/view-your-test-results',
                     ],
                 },
                 {
@@ -1232,6 +1245,27 @@ module.exports = {
                         'sauce-ai/real-device-cloud-mcp-prompting-guide',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Error Reporting',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/error-reporting/overview',
+                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
+                    ],
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'IDE Plugins',
+            collapsed: true,
+            items: [
+                'ide-plugins',
+                'ide-plugins/installation',
+                'ide-plugins/real-device-cloud',
+                'ide-plugins/ai-test-authoring',
+                'ide-plugins/troubleshooting',
             ],
         },
         {

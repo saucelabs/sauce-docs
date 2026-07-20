@@ -4,10 +4,6 @@ title: Sauce MCP Tools
 sidebar_label: MCP Tools
 ---
 
-:::info Beta
-Sauce MCP is currently in beta. The available tools may change.
-:::
-
 Sauce MCP exposes Sauce Labs capabilities as MCP tools, grouped by capability area below. Each group lists its tools, what they do, an example prompt, and availability. You rarely name a tool yourself: you describe a goal in plain language, and your AI client decides which tools to call. For more prompts, see the [Prompting Guide](/sauce-ai/real-device-cloud-mcp-prompting-guide).
 
 ## Requirements
