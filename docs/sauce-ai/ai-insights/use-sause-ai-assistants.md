@@ -16,11 +16,11 @@ The assistant automatically uses the data available in the **[Sauce Home widgets
 
 <img src={useBaseUrl('/img/ai-insights/use-ai-assistant/ai-assistant-1.png')} alt="Use Sauce AI Assistants" width="100%"/>
 
-**Step 2:** Click on the **Sauce AI** icon located on the top right corner of any Insights widget.
+**Step 2:** Click on the **Sauce AI** icon located on the top right corner of **Home** page.
 
 <img src={useBaseUrl('/img/ai-insights/use-ai-assistant/ai-assistant-2.png')} alt="Use Sauce AI Assistants" width="100%"/>
 
-**Step 3:** When the AI Assistant chat panel opens, you can review the example prompts related to the selected widget. Click on any suggested prompt or write your own query in plain English.
+**Step 3:** When the AI Assistant chat panel opens, review the available example prompts. Click on any suggested prompt or write your own query in plain English.
 
 <img src={useBaseUrl('/img/ai-insights/use-ai-assistant/ai-assistant-3.png')} alt="Use Sauce AI Assistants" width="100%"/>
 
