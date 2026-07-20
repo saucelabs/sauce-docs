@@ -1219,6 +1219,10 @@ module.exports = {
                         'sauce-ai/ai-insights/use-sause-ai-assistants',
                         'sauce-ai/ai-insights/automated-bug-troubleshooting',
                         'sauce-ai/ai-insights/privacy-safety-and-trust',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Test Authoring',
                     collapsed: true,
                     items: [
