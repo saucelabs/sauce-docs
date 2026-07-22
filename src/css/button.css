@@ -11,10 +11,9 @@
     transition: ease background-color 250ms;
     font-family: var(--font-family-sans-serif);
 }
-
 .button-dark {
-    background: var(--primary-button);
-    color: var(--dark-500);
+    background: var(--dark-600);
+    color: var(--neutral-50);
 }
 .button-dark:hover {
     background: var(--yellow-500);
@@ -24,13 +23,14 @@
 
 .button-light {
     background: transparent;
-    border-color: var(--inline-link);
+    border-color: var(--dark-600);
     border-style: solid;
 }
 .button-light:hover {
     color: var(--dark-500);
     background-color: var(--yellow-500);
 }
+
 html[data-theme="dark"] .button-light {
     border-color: var(--neutral-100);
 }
