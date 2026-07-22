@@ -1263,6 +1263,18 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'IDE Plugins',
+            collapsed: true,
+            items: [
+                'ide-plugins',
+                'ide-plugins/installation',
+                'ide-plugins/real-device-cloud',
+                'ide-plugins/ai-test-authoring',
+                'ide-plugins/troubleshooting',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Performance',
             collapsed: true,
             items: [
