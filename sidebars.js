@@ -1201,7 +1201,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/home',
                 'insights/scope',
                 'insights/overview',
                 'insights/errors',
@@ -1211,6 +1210,16 @@ module.exports = {
                 'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
+                {
+                    type: 'category',
+                    label: 'Sauce Home',
+                    collapsed: true,
+                    items: [
+                        'insights/home',
+                        'insights/sauce-home/export-widget-report',
+                        'insights/sauce-home/sauce-home-filters',
+                    ],
+                },
             ],
         },
         {
