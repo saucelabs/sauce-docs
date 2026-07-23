@@ -23,6 +23,113 @@ All browser versions listed here are available in the [Sauce Labs Platform Confi
 
 ---
 
+## Q2 2026 (April – June 2026)
+
+### Browser Versions Released
+
+#### Chrome
+
+| Version | Release Date | Release Notes | ChromeDriver |
+|---------|-------------|---------------|--------------|
+| Chrome 148 | May 6, 2026 | [Release Notes](https://developer.chrome.com/release-notes/148) | — |
+| Chrome 149 | June 3, 2026 | [Release Notes](https://developer.chrome.com/release-notes/149) | chromedriver 149.0.7827.54 |
+
+#### Microsoft Edge
+
+| Version | Release Date | Release Notes | EdgeDriver |
+|---------|-------------|---------------|------------|
+| Edge 147 | April 13, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/147) | edgedriver 147.0.3912.60 |
+| Edge 148 | May 11, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/148) | edgedriver 148.0.3964.0 |
+| Edge 149 | June 24, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/149) | edgedriver 149.0.4022.80 |
+
+#### Firefox
+
+| Version | Release Date | Release Notes |
+|---------|-------------|---------------|
+| Firefox 150 | April 22, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/150.0/releasenotes/) |
+| Firefox 151 | May 20, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/151.0/releasenotes/) |
+| Firefox 152 | June 24, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/152.0/releasenotes/) |
+
+:::note
+No new Safari versions shipped this quarter. Safari 26 on macOS 26 Tahoe, released in Q1, remains the latest version available on Sauce Labs.
+:::
+
+---
+
+### Notable Changes for Testing
+
+Here's what stood out in Q2 2026 from a test automation and quality engineering perspective.
+
+#### Local Network Access Restrictions Reach All Firefox Users (Firefox 150)
+
+Firefox 150 extends **local network access restrictions to all users** — websites must now request permission before connecting to devices on the local network or to apps and services on the machine. This was previously limited to users with Enhanced Tracking Protection set to Strict and is rolling out gradually. If your browser sessions reach localhost or internal network resources, watch for new permission prompts or blocked requests. This continues the tightening trend we flagged in Q1 for both Chrome and Firefox.
+
+#### XSLT Deprecation Is Coming — Start Testing Now (Edge 147)
+
+Edge 147 introduces the `XSLTEnabled` enterprise policy ahead of Chromium's planned **deprecation and removal of XSLT support**. If your application relies on XSLT transformations, test with `XSLTEnabled = Disabled` now to get ahead of the removal. Edge 147 also switched to a **Rust-based XML parser** for non-XSLT scenarios (`DOMParser`, `responseXML` of `XMLHttpRequest`, SVG documents), which improves security but is worth a regression pass if you do heavy XML processing.
+
+#### WebSockets No Longer Block the Back/Forward Cache (Chrome 149)
+
+Active WebSocket connections no longer prevent a page from entering Chrome's **Back/Forward Cache (bfcache)**. Connections are now closed on bfcache entry and the page can be stored and restored. Tests that rely on WebSocket state surviving back/forward navigation may see different behavior.
+
+#### New `autofill` Event for Form Testing (Edge 147)
+
+Edge 147 adds the **`autofill` event**, which fires when browser autofill updates form controls. This is useful for test scenarios that need to detect autofill and validate dependent form logic, custom UI updates, or validation triggered by autofilled values.
+
+#### WebDriver BiDi Improvements (Firefox 150 and 152)
+
+Firefox shipped several BiDi and Marionette improvements this quarter that matter for automation:
+
+- **Offline network emulation** (Firefox 150): The new `emulation.setNetworkConditions` command supports `type: offline` to emulate offline mode on specific browsing contexts, user contexts, or globally.
+- **Navigation errors are now reported** (Firefox 152): `WebDriver:Navigate` and `WebDriver:Refresh` properly report errors when navigation fails instead of silently ignoring them — failing tests may now surface errors that were previously hidden.
+- **Extension install in Private Browsing** (Firefox 152): `webExtension.install` now supports installing web extensions when Private Browsing mode is enabled.
+- **Download folder override** (Firefox 152): `browser.setDownloadBehavior` can override the download target folder before the temporary file is created.
+- **Screenshot dimension limits** (Firefox 152): Marionette and BiDi screenshot commands now enforce maximum allowed dimensions — very large full-page screenshots may be affected.
+
+#### CSS Changes That May Affect Visual Regression Tests
+
+Several rendering changes landed this quarter that could cause pixel-matching failures:
+
+- **Table borders default to `currentColor`** (Chrome 149): The explicit `border-color: gray` rule was removed from the User Agent stylesheet for `<table>` elements. Tables that relied on the default gray border may render differently.
+- **`accent-color: auto` behavior change** (Edge 149): The operating system accent color is now applied to form controls only within installed web app contexts. On regular web pages, form controls use a browser-default accent color instead.
+- **`image-rendering: crisp-edges` support** (Edge 149): Scaled images can now preserve contrast and edges without smoothing or blur, which may change how scaled images render in screenshots.
+- **Media element pseudo-classes** (Firefox 150): New support for `:playing`, `:paused`, and related pseudo-classes enables styling based on media playback state.
+- **`light-dark()` accepts image values** (Firefox 150): Dark mode can now switch images and gradients via CSS, which may produce different screenshots per color scheme.
+
+#### Custom Primary Password Deprecation (Edge 147)
+
+Support for custom primary passwords is being deprecated in Edge. Users can no longer create new custom primary passwords, and existing users are being migrated to device authentication starting June 4, 2026. Tests that rely on custom primary password prompts or settings need updating.
+
+#### JavaScript Compilation Cache (Firefox 152)
+
+Firefox 152 adds an **in-memory cache for JavaScript compilation results**, shared across navigations within the same domain, to improve page load performance. This can affect how cached requests and responses appear in DevTools, WebDriver, and WebExtensions APIs such as `webRequest` and `declarativeNetRequest`.
+
+#### DevTools for Agents Now Stable (Chrome 149)
+
+The MCP server and CLI of **Chrome DevTools for agents** are now stable, including experimental features such as custom page-exposed tools, WebMCP debugging, and custom HTTP header emulation. Relevant if you're building AI-assisted automation or advanced debugging workflows on top of Chrome.
+
+:::note Coming in Q3: Manifest V2 Extensions Fully Deprecated (Chrome 150)
+Chrome 150, released July 2, 2026, fully deprecates Manifest V2 extensions — test automation relying on MV2 extensions such as content blockers or custom testing tools will no longer function. Also on the horizon: Chrome's "Always use secure connections" setting becomes the default for all public sites in Chrome 154, and the move to a 2-week release cycle begins with Chrome 153 in September. We'll cover these in detail in the Q3 update.
+:::
+
+---
+
+### Framework and Integration Updates
+
+#### Cypress 15.14.2 — Now on macOS 14, 15, and 26
+
+[Cypress 15.14.2](/web-apps/automated-testing/cypress/) support has expanded to **macOS 14 (Sonoma), macOS 15 (Sequoia), and macOS 26 (Tahoe)**, bringing Cypress testing to the latest macOS release on Sauce Labs.
+
+#### Playwright 1.60.0 — macOS 26 Support and Node.js 24
+
+[Playwright 1.60.0](/web-apps/automated-testing/playwright/) is now available on Sauce Labs, adding support for **macOS 26 (Tahoe)** and upgrading the runtime to **Node.js 24**. If your Playwright project pins Node-version-specific dependencies, verify compatibility with Node.js 24 before upgrading.
+
+#### TestCafe — macOS 26 Support
+
+[TestCafe 3.7.4](/web-apps/automated-testing/testcafe/) now runs on **macOS 26 (Tahoe)**, joining Cypress and Playwright in supporting the latest macOS release on Sauce Labs.
+
+---
+
 ## Q1 2026 (January – March 2026)
 
 ### Browser Versions Released
