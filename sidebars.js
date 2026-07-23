@@ -42,7 +42,7 @@ module.exports = {
                 'error-reporting/whats-new',
                 {
                     type: 'category',
-                    label: 'Platform Integrations',
+                    label: 'Integrations',
                     collapsed: true,
                     items: [
                         'error-reporting/platform-integrations/overview',
@@ -70,21 +70,11 @@ module.exports = {
                                         'error-reporting/platform-integrations/ios/configuration',
                                     ],
                                 },
-                                {
-                                    type: 'category',
-                                    label: 'macOS',
-                                    collapsed: true,
-                                    items: [
-                                        'error-reporting/platform-integrations/macos/setup',
-                                        'error-reporting/platform-integrations/macos/configuration',
-                                    ],
-                                },
-                                'error-reporting/platform-integrations/plcrash-reporter',
                             ],
                         },
                         {
                             type: 'category',
-                            label: 'Video Game Consoles',
+                            label: 'Gaming Consoles & Engines',
                             collapsed: true,
                             items: [
                                 {
@@ -136,7 +126,7 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Compiled Languages and Applications',
+                            label: 'Compiled Languages',
                             collapsed: true,
                             items: [
                                 {
@@ -161,11 +151,28 @@ module.exports = {
                                 'error-reporting/platform-integrations/http-submission',
                             ],
                         },
-                        'error-reporting/platform-integrations/source-map',
-                        'error-reporting/platform-integrations/session-replay',
-                        'error-reporting/platform-integrations/apache',
-                        'error-reporting/platform-integrations/minidump',
-                        'error-reporting/platform-integrations/file-attachments',
+                        {
+                            type: 'category',
+                            label: 'Other Integrations',
+                            collapsed: true,
+                            items: [
+                                {
+                                    type: 'category',
+                                    label: 'macOS',
+                                    collapsed: true,
+                                    items: [
+                                        'error-reporting/platform-integrations/macos/setup',
+                                        'error-reporting/platform-integrations/macos/configuration',
+                                    ],
+                                },
+                                'error-reporting/platform-integrations/plcrash-reporter',
+                                'error-reporting/platform-integrations/source-map',
+                                'error-reporting/platform-integrations/session-replay',
+                                'error-reporting/platform-integrations/apache',
+                                'error-reporting/platform-integrations/minidump',
+                                'error-reporting/platform-integrations/file-attachments',
+                            ],
+                        },
                     ],
                 },
                 {
@@ -180,6 +187,58 @@ module.exports = {
                         'error-reporting/web-console/explore',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Workflow Integrations',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/workflow-integrations/overview',
+                        {
+                            type: 'category',
+                            label: 'Issue Tracking',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/issue-tracking/asana',
+                                'error-reporting/workflow-integrations/issue-tracking/github',
+                                'error-reporting/workflow-integrations/issue-tracking/jira',
+                                'error-reporting/workflow-integrations/issue-tracking/mantis',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Monitoring',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/monitoring/datadog',
+                                'error-reporting/workflow-integrations/alerting-ops/pagerduty',
+                                'error-reporting/workflow-integrations/alerting-ops/victorops',
+                                'error-reporting/workflow-integrations/alerting-ops/opsgenie',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Messaging Platforms',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/messaging/slack',
+                                'error-reporting/workflow-integrations/messaging/amazon-sns',
+                                'error-reporting/workflow-integrations/messaging/stride',
+                                'error-reporting/workflow-integrations/messaging/discord',
+                                'error-reporting/workflow-integrations/messaging/ms-teams',
+                                'error-reporting/workflow-integrations/messaging/webex-teams',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Other',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/messaging/email',
+                                'error-reporting/workflow-integrations/webhook',
+                            ],
+                        },
                     ],
                 },
                 {
@@ -212,57 +271,6 @@ module.exports = {
                             label: 'Workflow',
                             collapsed: true,
                             items: [
-                                {
-                                    type: 'category',
-                                    label: 'Integrations',
-                                    collapsed: true,
-                                    items: [
-                                        'error-reporting/workflow-integrations/overview',
-                                        {
-                                            type: 'category',
-                                            label: 'Messaging',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/messaging/slack',
-                                                'error-reporting/workflow-integrations/messaging/email',
-                                                'error-reporting/workflow-integrations/messaging/amazon-sns',
-                                                'error-reporting/workflow-integrations/messaging/stride',
-                                                'error-reporting/workflow-integrations/messaging/discord',
-                                                'error-reporting/workflow-integrations/messaging/ms-teams',
-                                                'error-reporting/workflow-integrations/messaging/webex-teams',
-                                            ],
-                                        },
-                                        {
-                                            type: 'category',
-                                            label: 'Issue Tracking',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/issue-tracking/jira',
-                                                'error-reporting/workflow-integrations/issue-tracking/github',
-                                                'error-reporting/workflow-integrations/issue-tracking/asana',
-                                                'error-reporting/workflow-integrations/issue-tracking/mantis',
-                                            ],
-                                        },
-                                        {
-                                            type: 'category',
-                                            label: 'Alerting and Operations',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/alerting-ops/pagerduty',
-                                                'error-reporting/workflow-integrations/alerting-ops/victorops',
-                                            ],
-                                        },
-                                        {
-                                            type: 'category',
-                                            label: 'Monitoring',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/monitoring/datadog',
-                                            ],
-                                        },
-                                        'error-reporting/workflow-integrations/webhook',
-                                    ],
-                                },
                                 'error-reporting/project-setup/alerts',
                                 'error-reporting/project-setup/connections',
                                 'error-reporting/project-setup/scheduled-reports',
