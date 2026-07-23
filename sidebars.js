@@ -918,6 +918,7 @@ module.exports = {
                         },
                         'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/audio-injection',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/bypass-screenshot',
                         'mobile-apps/features/camera-image-injection',
@@ -985,6 +986,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
                                 'mobile-apps/automated-testing/appium/appium-deque-accessibility-testing',
                                 'mobile-apps/automated-testing/appium/appium-images-plugin',
+                                'mobile-apps/automated-testing/appium/appium-for-games',
                             ],
                         },
                         {
@@ -1017,6 +1019,16 @@ module.exports = {
                                 'mobile-apps/automated-testing/flutter',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-ios',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'AltTester®',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/automated-testing/alttester',
+                                'mobile-apps/automated-testing/alttester/unity',
+                                'mobile-apps/automated-testing/alttester/unreal',
                             ],
                         },
                         'mobile-apps/automated-testing/ipa-files',
@@ -1217,6 +1229,7 @@ module.exports = {
                     items: [
                         'sauce-ai/ai-authoring',
                         'sauce-ai/test-authoring/generate-your-test-case',
+                        'sauce-ai/test-authoring/data-variables',
                         'sauce-ai/test-authoring/generate-the-script-code',
                         'sauce-ai/test-authoring/manage-your-test-cases',
                         'sauce-ai/test-authoring/run-your-test-cases',
@@ -1246,6 +1259,18 @@ module.exports = {
                         'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'IDE Plugins',
+            collapsed: true,
+            items: [
+                'ide-plugins',
+                'ide-plugins/installation',
+                'ide-plugins/real-device-cloud',
+                'ide-plugins/ai-test-authoring',
+                'ide-plugins/troubleshooting',
             ],
         },
         {

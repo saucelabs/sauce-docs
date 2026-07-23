@@ -125,6 +125,25 @@ When the screen changes (e.g., after tapping into a new page), the inspector:
 2. Repositions the cursor to the first element on the new screen.
 3. Announces the spoken description of the first element.
 
+## Sharing Your Accessibility Session
+
+You can share a live accessibility session so someone else can follow your test in real time. This is useful for collaborative accessibility reviews. An accessibility specialist can drive the session while developers or stakeholders watch along, seeing the focus rectangle move between elements and hearing the same audio feedback as it is announced.
+
+To share your session:
+
+1. Start a Live Testing session on an iOS real device and enable the Accessibility Inspector.
+2. In the live testing toolbar, click the <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="25"/> **Share Session** icon to open the **Share Device** window.
+3. Click **Get Link** to generate a shareable link.
+4. Send the link to the person you want to share the session with.
+
+The viewer follows your session live, including the focus rectangle and the streamed audio feedback, as you navigate element by element.
+
+:::note
+Viewers must be logged in to a Sauce Labs account to view the shared session.
+:::
+
+For more details on sharing sessions, see [Live Mobile App Testing](/mobile-apps/live-testing/live-mobile-app-testing).
+
 ## Limitations and Known Issues
 
 ### Screen Change and Focus Sync

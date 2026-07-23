@@ -6,10 +6,6 @@ sidebar_label: Overview
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::info Beta
-Sauce MCP is currently in beta. Capabilities and configuration may change.
-:::
-
 Sauce MCP lets your AI assistant or agent talk to Sauce Labs directly. It is a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that exposes Sauce Labs capabilities as tools any MCP-compatible AI client can call using natural language.
 
 ## What is Sauce MCP?
