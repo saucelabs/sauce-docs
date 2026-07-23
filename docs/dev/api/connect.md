@@ -360,7 +360,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.9.2-osx.zip",
+         "download_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect-5/installation/",
          "sha1" : "<hash>"
       },
       "win32" : {

@@ -183,7 +183,7 @@ Describes the current session’s user prompt handler. The default value is `"di
 
 <p><small>| BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
 
-Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). It also enables BiDi for other test frameworks, like [WebDriverIO](https://webdriver.io/docs/api/webdriverBidi/). In particular, this capability exposes the WebSocket endpoint which is available under `webSocketUrl` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
+Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidi/). It also enables BiDi for other test frameworks, like [WebDriverIO](https://webdriver.io/docs/api/webdriverBidi/). In particular, this capability exposes the WebSocket endpoint which is available under `webSocketUrl` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
 
 The `webSocketUrl` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
 
@@ -370,7 +370,7 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> | </small></p>
 
-Enables [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) support, which is disabled by default on Sauce Labs platform. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). In particular, this capability exposes the WebSocket endpoint which is available under `se:cdp` field in session startup response body. This endpoint can be used to issue Chrome DevTools Protocol commands as described by the [specification](https://chromedevtools.github.io/devtools-protocol/). The default value is `false`.
+Enables [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) support, which is disabled by default on Sauce Labs platform. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidi/). In particular, this capability exposes the WebSocket endpoint which is available under `se:cdp` field in session startup response body. This endpoint can be used to issue Chrome DevTools Protocol commands as described by the [specification](https://chromedevtools.github.io/devtools-protocol/). The default value is `false`.
 
 The `devTools` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
 
@@ -650,7 +650,7 @@ If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appiu
 :::
 
 :::tip
-You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/commands/device/activity/current-activity/) command. This is the Appium 1 command, but will also work with Appium 2.
+You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/latest/) command. This is the Appium 1 command, but will also work with Appium 2.
 :::
 
 ```java
@@ -894,8 +894,8 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 As with Selenium Tests, Appium also supports different types of timeouts like:
 
-- [Implicit Wait Timeout](https://appium.io/docs/en/commands/session/timeouts/implicit-wait/#set-implicit-wait-timeout): Set the amount of time the driver should wait when searching for elements
-- [Script Timeouts](https://appium.io/docs/en/commands/session/timeouts/async-script/index.html): Sets the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](https://appium.io/docs/en/commands/web/execute-async/index.html) are permitted to run before they are cancelled (Web context only)
+- [Implicit Wait Timeout](https://appium.io/docs/en/latest/): Set the amount of time the driver should wait when searching for elements
+- [Script Timeouts](https://appium.io/docs/en/latest/): Sets the amount of time, in milliseconds, that asynchronous scripts executed by **[execute async](https://appium.io/docs/en/latest/)** are permitted to run before they are cancelled (Web context only)
 
 These timeouts can be controlled by the driver during the test session. There are timeouts that can be set as a capability for when you start the driver and can be driver specific.
 
