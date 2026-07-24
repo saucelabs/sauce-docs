@@ -66,10 +66,7 @@ const Carousel = () => {
                 href={useBaseUrl('/mobile-apps/automated-testing/alttester')}
                 target='_self'
             >
-                <img
-                    src='img/quickstart/alttester.png'
-                    alt='AltTester® Logo'
-                />
+                <img src='img/quickstart/alttester.png' alt='AltTester® Logo' />
                 <h3>AltTester®</h3>
             </a>
         </div>,

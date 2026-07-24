@@ -170,6 +170,19 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Symbols',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/symbolication',
+                        'error-reporting/symbols/symbol-formats',
+                        'error-reporting/symbols/symbol-access-token',
+                        'error-reporting/symbols/upload-symbols-to-project',
+                        'error-reporting/symbols/add-custom-symbol-server',
+                        'error-reporting/symbols/fix-missing-symbols',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
@@ -197,14 +210,6 @@ module.exports = {
                                 'error-reporting/project-setup/deduplication-rules',
                                 'error-reporting/project-setup/submission-actions',
                                 'error-reporting/project-setup/object-reprocessing',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Symbols',
-                            collapsed: true,
-                            items: [
-                                'error-reporting/project-setup/symbolication',
                             ],
                         },
                         {
