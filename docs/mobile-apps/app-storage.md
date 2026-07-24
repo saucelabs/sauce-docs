@@ -8,27 +8,37 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When testing mobile apps, you have the option to upload your app to our app storage. The benefits of app storage include:
+Sauce Labs Mobile App Storage serves as a centralized repository for your mobile applications, allowing you to easily manage files for both automated and live testing across real and virtual devices. The benefits of app storage include:
 
-- Uploading all of your mobile apps to the same location for cross-device automated and live testing with virtual devices and real devices.
-- Sharing your uploaded apps with your team members.
-- Sharing your uploaded apps with other teams within your organization.
-- Storing apps for up to 60 days.
-- App Storage supports app files in _.apk, _.aab, _.ipa, or _.zip format, up to 4GB.
+- **Centralized Testing:** Store all your mobile apps in one secure location for automated and live testing on real and virtual devices.
+
+- **Team Collaboration:** Easily share uploaded apps with your immediate team members and other departments across your organization.
+
+- **60-Day Retention:** Uploaded applications are safely stored and available for up to 60 days.
+
+- App Storage supports application files up to 4GB in the following formats:
+
+   - **Android:** `.apk`, `.aab`
+
+   - **iOS:** `.ipa`, `.zip`
 
 :::note Limitation
-Executable files (.exe) are not supported.
+Executable files (**.exe**) are not supported.
 :::
 
 :::caution
-Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage to leverage all of our capabilities like Biometrics, Image injection, or Mobile App Diagnostics.
+To use advanced features like **Biometrics**, **Image Injection**, or **Mobile App Diagnostics**, ensure you upload a **debuggable** and **non-obfuscated** version of your application.
 :::
 
-## What You'll Need
+## Prerequisites
+Before you begin, make sure you have the following:
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
+- **A Sauce Labs Account:** ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- **Credentials:** Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+- **An App File:** Your mobile application file ready for upload. 
+
+**💡 Don't have an app ready?**
+You can practice by downloading one of our sample Demo Apps:
   - [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
   - [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
   - [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
@@ -57,10 +67,15 @@ Sauce Labs only supports valid .zip files that can be extracted by standard unzi
 
 ### Upload Apps via UI
 
-To upload an app via the Sauce Labs UI:
+Follow these quick steps to upload your mobile application directly through the Sauce Labs dashboard:
 
-1. On Sauce Labs, in the left panel, click **App Management**.
-2. To upload an app you can either drag and drop an app or browse for and select the file.
+1. Log in to Sauce Labs and click **App Management** in the left-hand side panel.
+
+2. **Upload Your File:**
+
+- Drag and drop your app file directly into the designated area, OR
+
+- Click to browse your computer and select the file.
 
 If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
