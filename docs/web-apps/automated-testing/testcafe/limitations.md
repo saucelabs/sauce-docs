@@ -16,9 +16,9 @@ Test names may only contain the following characters:
 - Letters: `a-z`, `A-Z`
 - Digits: `0-9`
 - Space
-- Basic punctuation: `- _ . , ( ) : @ + / ' % \`
+- Basic punctuation: `- _ . , ( ) : @ + / ' % \ = ? < > \``
 
-Test names containing characters outside this set (for example, `* ? " < > | & ; # ! ~` or symbols like `®`) will be rejected with a validation error. Rename your tests to use only the allowed characters listed above.
+Test names containing characters outside this set (for example, `* " | & ; # ! ~` or symbols like `®`) will be rejected with a validation error. Rename your tests to use only the allowed characters listed above.
 
 ### Chrome 130+
 
