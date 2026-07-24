@@ -51,7 +51,7 @@ The following example focuses on an unsymbolicated Electron crash:
 
 1. To upload the symbol, it is best practice to add it to an active zip or tar archive. You can then use curl or the webUI to upload the archive containing the symbol(s). The following support documents provide guidance for both processes:
 
-   - [HTTP API](/error-reporting/project-setup/symbolication/#api)
+   - [HTTP API](/docs/error-reporting/symbols/upload-symbols-to-project.md#upload-symbols-using-the-api)
    - [Missing Symbols](#missing-symbols)
 
 1. All crash data present in a project before uploading the symbols must be reprocessed to account for the newly added symbols. Subsequent reports are processed with the newly added symbols. For more information, see [Object Reprocessing](/error-reporting/project-setup/object-reprocessing/).
@@ -104,7 +104,7 @@ If you are uploading symbols manually, your next steps will be to retrieve and u
 
 #### Custom Symbol Server Integration
 
-If you are using a [custom symbol server](/error-reporting/project-setup/symbolication/#integrate-custom-symbol-server-with-backtrace), then your next step will be to verify that the symbol exists on the symbol server in the proper directory structure (that is, `<url>/<object_name>/<debug_id>/<file>`). If it does not, then you know why it did not apply.
+If you are using a [custom symbol server](/docs//error-reporting/symbols/add-custom-symbol-server.md), then your next step will be to verify that the symbol exists on the symbol server in the proper directory structure (that is, `<url>/<object_name>/<debug_id>/<file>`). If it does not, then you know why it did not apply.
 
 If it does exist and reprocessing does not correct it, then there are a few additional things to check. These items to check live in the symbol server section of your project settings (navigate from the **Main Menu** > **Project Settings** > **Symbols** > **Symbol Servers**), unless otherwise noted.
 
