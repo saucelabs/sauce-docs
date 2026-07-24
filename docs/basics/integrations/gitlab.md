@@ -119,7 +119,7 @@ for your account.
 
 ```yaml title="gitlab-sc.yml"
 script:
-  - curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.2.2/sauce-connect-5.2.2_linux.x86_64.tar.gz
+  - curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.5.2/sauce-connect-5.5.2_linux.x86_64.tar.gz
   - mkdir -p ./sauce-connect && tar -xzf sauce-connect.tar.gz -C ./sauce-connect
   - export PATH="./sauce-connect:$PATH"
   # The --api-address flag starts a local API server to enable readiness checks
@@ -149,7 +149,7 @@ build_test_windows:
   before_script:
     # Getting Sauce Connect ready
     - echo "Sauce Connect on Windows"
-    - Invoke-WebRequest -Uri "https://saucelabs.com/downloads/sauce-connect/5.5.0/sauce-connect-5.5.0_windows.x86_64.zip" -OutFile "sauce-connect.zip"
+    - Invoke-WebRequest -Uri "https://saucelabs.com/downloads/sauce-connect/5.5.2/sauce-connect-5.5.2_windows.x86_64.zip" -OutFile "sauce-connect.zip"
     - Expand-Archive -Path "sauce-connect.zip" -DestinationPath ".\sauce-connect"
     - $env:PATH = ".\sauce-connect;$env:PATH"
     # The --api-address flag starts a local API server to enable readiness checks
