@@ -32,7 +32,7 @@ Sauce Labs currently supports the following test configurations for Electron.
 - Electron versions
   - versions 5 - 42 inclusive
 
-*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
+*macOS 14+ requires an appropriate subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 ## How to Get Started
 
