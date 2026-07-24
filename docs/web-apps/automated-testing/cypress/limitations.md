@@ -10,7 +10,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### Special Characters in Test Names
 
-We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+Test names may only contain the following characters:
+
+- Letters: `a-z`, `A-Z`
+- Digits: `0-9`
+- Space
+- Basic punctuation: `- _ . , ( ) : @ + / ' % \ = ? < > \``
+
+Test names containing characters outside this set (for example, `* " | & ; # ! ~` or symbols like `®`) will be rejected with a validation error. Rename your tests to use only the allowed characters listed above.
 
 ### Cypress 11+
 
