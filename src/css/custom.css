@@ -30,7 +30,7 @@ html[data-theme="dark"] a code {
 }
 
 .breadcrumbs__item--active .breadcrumbs__link {
-    color: var(--inline-link);
+    color: var(--olive-100);
 }
 
 html[data-theme="dark"] .breadcrumbs__item--active .breadcrumbs__link {
@@ -137,13 +137,13 @@ html[data-theme="dark"] .navbar-sidebar {
 }
 
 .navbar__link:hover {
-    color: var(--ifm-menu-color-active);
+    color: var(--olive-100);
     text-decoration: underline;
     font-weight: 600;
 }
 
 .navbar__link--active {
-    color: var(--ifm-menu-color-active);
+    color: var(--olive-100);
     font-weight: 600;
 }
 
@@ -174,7 +174,7 @@ html[data-theme="dark"] .navbar__link--active {
     background-size: 1.5em 1.5em !important;
 }
 .menu__link--active:not(.menu__link--sublist) {
-    background: var(--green-500);
+    background: var(--neutral-200);
 }
 .menu__link--active {
     color: var(--neutral-500);
@@ -412,13 +412,13 @@ p a {
 .card {
     transition: 0.3s;
     border-radius: 20px;
-    background-color: var(--neutral-100);
+    background-color: var(--neutral-50);
     margin-bottom: 1.5rem;
 }
 
 .card:hover {
     /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); */
-    background-color: var(--green-500);
+    background-color: var(--neutral-200);
 }
 
 html[data-theme="dark"] .card {
@@ -674,12 +674,12 @@ html[data-theme="dark"] div.new-search button.DocSearch.DocSearch-Button:hover {
 .navbar__items .DocSearch-Button {
     border-radius: 32px;
     color: var(--dark-300);
-    border: 1px solid var(--green-500);
+    border: 1px solid var(--dark-600);
     /* padding: 8px 32px 8px 32px; */
 }
 
 .navbar__items .DocSearch-Button .DocSearch-Search-Icon {
-    color: var(--green-500);
+    color: var(--dark-600);
 }
 
 .DocSearch-Button-Key {
@@ -742,7 +742,7 @@ html[data-theme="dark"] .hero__subtitle {
 }
 
 a.hero__popular-searches {
-    color: var(--inline-link);
+    color: var(--olive-100);
 }
 html[data-theme="dark"]a.hero__popular-searches {
     color: var(--green-200);
@@ -767,9 +767,17 @@ a.hero__button {
 .main__container-quickstart {
     margin: 0 auto;
     padding: 15px 0 0 0;
-    background: var(--neutral-300);
+    background: var(--olive-200);
 }
 html[data-theme="dark"] .main__container-quickstart {
+    background: var(--dark-500);
+}
+
+.main__container-resources {
+    padding: 15px 0;
+    background: var(--neutral-50);
+}
+html[data-theme="dark"] .main__container-resources {
     background: var(--dark-500);
 }
 
@@ -1318,4 +1326,17 @@ html[data-theme="dark"] .screenshot-grid figcaption {
 
 html[data-theme="dark"] .tab-client-logo {
     border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-edit-this-page svg {
+    color: #0a140a;
+    fill: #0a140a;
+}
+
+.theme-edit-this-page svg path {
+    fill: #0a140a;
+}
+
+.navbar button.clean-btn {
+    color: var(--olive-100);
 }
