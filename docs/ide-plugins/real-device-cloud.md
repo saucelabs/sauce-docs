@@ -15,7 +15,7 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Real Device Cloud view lets you browse Sauce Labs real devices, start live sessions, interact with a device, stream its logs, and run Appium tests against it, all without leaving your IDE.
+The **Real Device Cloud** view lets you access your organization's private Android and iOS devices directly from your IDE. You can browse available devices, start live testing sessions, install applications, capture screenshots, monitor device logs, and interact with physical devices without leaving your development environment.
 
 <a href={useBaseUrl('img/ide-plugins/live-session.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/live-session.png')} alt="A live real device session inside the IDE: the device list on the left, the live device screen in the center with a device action toolbar, and real-time logs on the right" /></a>
 
@@ -23,31 +23,66 @@ The Real Device Cloud view lets you browse Sauce Labs real devices, start live s
 
 Open the **Real Device Cloud** view from the Activity Bar. The **Real Devices** section lists your organization's private devices available in your current region. Each row shows the device name, OS version, screen size and resolution, and availability status.
 
-<a href={useBaseUrl('img/ide-plugins/device-list.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/device-list.png')} alt="The Real Device Cloud sidebar showing the Account, Region, Real Devices, and Sessions sections, with device availability indicators and running sessions with expiry countdowns" width="480" /></a>
+<a href={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-1.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-1.png')} alt="The Real Device Cloud sidebar showing the Account, Region, Real Devices, and Sessions sections, with device availability indicators and running sessions with expiry countdowns" /></a>
 
-- **Filter** by platform or private-device access with **Sauce RDC: Filter Devices** (`all`, `apple`, `android`, `private`), or use the filter button in the view header.
-- **Search** by model name with **Sauce RDC: Search Devices**.
-- **Refresh** the list at any time with **Sauce RDC: Refresh Devices**. Availability updates automatically on a short polling interval.
+Use the available search and filtering options to quickly locate the device that matches your testing requirements.
+
+| Ref. | Feature | Description |
+| ----- | ----- | ----- |
+| **1** | **Filter Devices** | Filter the device list to display only the devices you want to use. You can filter devices by `All`, `Apple`, `Android`, or `Private` devices. |
+| **2** | **Refresh Devices** | Click **Refresh Devices** to retrieve the latest device availability. The device list also refreshes automatically at regular intervals to reflect changes in device status. |
+| **3** | **Search Devices** | Use the **Search Devices** field to search for a specific device by its model name. The device list updates automatically as you type to display matching results. |
+
+<a href={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-2.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-2.png')} alt="The Real Device Cloud sidebar showing the Account, Region, Real Devices, and Sessions sections, with device availability indicators and running sessions with expiry countdowns" /></a>
 
 ## Start a live session
 
-1. Click the play icon next to an available device (green dot), or right-click the device and choose **Start Session**.
-2. A new **Sauce RDC** tab opens showing the live device screen. The first frame arrives 15 to 30 seconds after the device is allocated.
-3. The session also appears in the **Sessions** sidebar section, where you can reopen the device view or close the session.
+After selecting a device, you can start a live testing session directly from the **Real Device Cloud** view. Once the session starts, the selected device is allocated to you and opens in a new editor tab, allowing you to interact with it in real time.
 
-The session view puts the live device screen, the device action toolbar, and the log streams side by side:
+**Step 1:** In the **Real Devices** section, locate an available device. Devices with a **green status indicator** are available for new sessions.
 
-<a href={useBaseUrl('img/ide-plugins/session-toolbar.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/session-toolbar.png')} alt="A live device session: the device screen on the left, the device action toolbar in the middle, and the Logs panel with Device, Session, Appium, and Network tabs on the right" /></a>
+<a href={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-3.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-3.png')} alt="A live device session: the device screen on the left, the device action toolbar in the middle, and the Logs panel with Device, Session, Appium, and Network tabs on the right" /></a>
+
+**Step 2:** Click the **Play** icon next to the device. Alternatively, right-click the device and select **Start Session**.
+
+<a href={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-4.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-4.png')} alt="A live device session: the device screen on the left, the device action toolbar in the middle, and the Logs panel with Device, Session, Appium, and Network tabs on the right" /></a>
+
+**Step 3:** Wait while Sauce Labs allocates the device. The live device screen typically loads within **15–30 seconds**, depending on device availability.
+
+**Step 4:** After the session starts, a new **Sauce RDC** tab opens displaying the live device screen. The active session is also listed in the **Sessions** section, where you can reopen or close it at any time.
+
+<a href={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-5.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin-5.png')} alt="A live device session: the device screen on the left, the device action toolbar in the middle, and the Logs panel with Device, Session, Appium, and Network tabs on the right" /></a>
+
+:::tip
+If a device is unavailable, choose another available device or refresh the device list to check for newly available devices.
+:::
 
 ## Interact with the device
 
-The device screen streams into the panel in real time, and your input is sent back to the physical device:
+After starting a live session, the selected device opens in the **Sauce RDC** tab. The device screen is streamed in real time, allowing you to interact with the physical device directly from your IDE.
 
-- **Tap:** click anywhere on the screen.
-- **Swipe and drag:** click and drag.
-- **Hardware buttons:** the panel toolbar provides **Home**, **Back** (Android), **App Switch** (Android), and **Rotate**.
+### Perform Touch Gestures
 
-Multi-touch gestures such as pinch-to-zoom and hardware keyboard input are not supported yet. Use the device's on-screen keyboard for text entry.
+Use your mouse to interact with the device just as you would with a physical touchscreen.
+
+* **Tap:** Click anywhere on the device screen to simulate a tap.
+
+* **Swipe or Drag:** Click and drag across the screen to perform swipe and drag gestures.
+
+### Use Device Controls
+
+The device toolbar provides quick access to common hardware controls, allowing you to perform actions without interacting directly with the device screen.
+
+| Ref. | Hardware Button | Description |
+| :---- | :---- | :---- |
+| 1 | Home | Return the device to the home screen. |
+| 2 | Back (Android only) | Navigates to the previous screen or action. |
+| 3 | App Switch (Android only) | Opens the recent apps screen, allowing you to switch between running applications. |
+| 4 | Rotate | Changes the device orientation between portrait and landscape. |
+
+:::note
+Multi-touch gestures, such as pinch-to-zoom, and hardware keyboard input are not supported. Use the device's on-screen keyboard to enter text.
+:::
 
 ## Install your app
 
@@ -123,10 +158,11 @@ With this pattern, your tests run against the live Sauce Labs session when the t
 
 The plugin also injects `SAUCE_APPIUM_URL` into launch configurations for ten supported debug adapter types (including Node.js/TypeScript, Python, Java, Kotlin, .NET, Go, Dart, and Ruby), so **Run and Debug** picks up the variable the same way your terminal does.
 
-### Tips
+:::tip
 
 - The Appium server is co-located with your device session and its lifecycle is managed by the plugin. You do not need to start or stop anything on Sauce Labs yourself.
 - If a test cannot connect, confirm the status bar shows **`Appium: <device name>`**, that the session is still running, and that the terminal you are using was opened after you enabled injection.
+:::
 
 ## Session lifetime
 

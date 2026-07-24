@@ -17,22 +17,68 @@ Write a test by describing it in plain English. You type what you want to test, 
 
 The IDE panel is a second client of the same [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) platform that powers the web UI at `app.saucelabs.com`. The web UI is the live-authoring surface; the IDE panel is the code-in-repo surface for engineers who want generated tests in their own repository and pipeline.
 
-## Requirements
+## Prerequisites
 
-- You are signed in to the plugin. See [Installation and Sign In](/ide-plugins/installation).
-- Your account has the [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) entitlement, a paid add-on for Enterprise accounts. Without it, the panel shows a message explaining that the feature is not available on your account.
+Before using AI Test Authoring, ensure that:
 
-## Quick start
+- You are signed in to the Sauce Labs IDE Plugin. See [Installation and Sign In](/ide-plugins/installation).
+- Your account has the [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) entitlement.
 
-1. Open the **Sauce Labs Test Authoring** view from the Activity Bar. It shows your saved test cases and a **Create Test Script** button.
-2. Click **Create Test Script**. The authoring editor opens in a new tab.
-3. Choose where the test should run: a **Web** target (website address plus platform and browser) or a **Mobile App** target (an app build plus a device). See [Choose a target](#choose-a-target).
-4. Type what you want to test in plain English in the **What is your test goal?** box. For example: "Open the demo site, log in, add the first item to the cart, and check out."
-5. Submit the prompt. The AI executes your intent on a live session, and the steps appear in the **Test Steps** tab one at a time as they run.
-6. When it finishes, open the **Code** tab, choose a framework and language, and get the test code.
-7. Insert the code into the open file, save it to a file in your workspace, or copy it to the clipboard.
+:::note
+AI Test Authoring is available as a paid add-on for Enterprise accounts. If your account does not have access, the plugin displays a message indicating that the feature is unavailable.
+:::
 
-A test run usually takes about 30 to 90 seconds.
+## Create Your First Test
+
+Follow these steps to generate your first AI-powered test.
+
+**Step 1:** In the **Activity Bar**, click the **Sauce Labs Test Authoring** icon. The **Test Authoring** view opens and displays your saved test cases, along with the **Create Test Script** action.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-1.png')} alt="IDE Authoring" width="100%"/>
+
+**Step 2:** Click **Create Test Script**. A new authoring editor opens in a separate tab where you can configure and generate your test.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-2.png')} alt="IDE Authoring" width="100%"/>
+
+**Step 3:** Select the environment where you want to run the test.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-3.png')} alt="IDE Authoring" width="100%"/>
+
+**Step 4:** Choose one of the following options:
+
+* **Web** – Generate a test for a website by specifying the website URL, platform, and browser.
+
+* **Mobile App** – Generate a test for a mobile application by selecting an uploaded app and a target device. For more information, see [**Choose a Test Target**](#choose-a-target).
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-4.png')} alt="IDE Authoring" width="100%"/>
+
+**Step 5:** In the “**What is your test goal?”** field, describe the workflow you want to automate using plain English. Write your prompt as clearly and specifically as possible to help the AI generate accurate test steps.
+
+> *Open the demo website, sign in using valid credentials, add the first product to the cart, and verify that the shopping cart contains one item.*
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-5.png')} alt="IDE Authoring" width="100%"/>
+
+**Step 6:** Click **Generate** to submit your prompt. Sauce AI starts a live test session and performs the actions described in your prompt. As the test runs, each action is displayed in the **Test Steps** tab, allowing you to monitor the execution in real time.
+
+:::tip
+Test generation typically takes 30–90 seconds, depending on the complexity of the workflow.
+:::
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-6.png')} alt="IDE Authoring" width="100%"/>
+
+**Step 7:** After the test completes, open the **Code** tab. Select your preferred automation framework and programming language to view the generated test code.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-7.png')} alt="IDE Authoring" width="100%"/>
+
+**Step 8:** Save or reuse the generated code. You can:
+
+* **Insert** the generated code into the currently open file.
+
+* **Save** it as a new file in your workspace.
+
+* **Copy** it to the clipboard for use in another project.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-8.png')} alt="IDE Authoring" width="100%"/>
 
 ## Choose a target
 
