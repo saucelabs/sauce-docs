@@ -190,11 +190,7 @@ If you are blocked on uploading symbols from the command line, try checking verb
 
 ### Invalid token
 
-If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating Symbol Access Tokens](#generate-symbol-access-tokens).
-
-### Missing symbols
-
-See [Missing Symbols](https://docs.saucelabs.com/error-reporting/troubleshooting/#missing-symbols)
+If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating Symbol Access Tokens](/docs/error-reporting/symbols/symbol-access-token.md).
 
 ### Reading custom symbol server logs
-It’s important to note that some failures are expected, due to the wide net Backtrace casts (as explained in [Symbol server | Feature details](#feature-details)). To troubleshoot, search for the known good path on the symbol server (ie foo.pdb/123/foo.pdb). Successful symbol server requests log lines will include “Downloaded path”, and failed requests log lines will include “Download failed” with additional information about the error encountered.
+It’s important to note that some failures are expected, due to the wide net Backtrace casts (as explained in [Symbol server | Feature details](/docs/error-reporting/symbols/add-custom-symbol-server.md#feature-details)). To troubleshoot, search for the known good path on the symbol server (ie foo.pdb/123/foo.pdb). Successful symbol server requests log lines will include “Downloaded path”, and failed requests log lines will include “Download failed” with additional information about the error encountered.
