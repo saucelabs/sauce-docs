@@ -41,8 +41,8 @@ Sauce Labs supports the following test configurations for Playwright:
         <td rowspan='2'>1.61.1</td>
         <td rowspan='2'>24</td>
         <td rowspan='2'>✅</td>
-        <td><b>macOS:</b> 14*, 15*</td>
-        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+        <td><b>macOS:</b> 14*, 15*, 26*</td>
+        <td rowspan='2'>Chromium 149.0.7827.55, Chrome, Firefox 151.0, Webkit 26.5</td>
         <td rowspan='2'>July 9th, 2027</td>
       </tr>
       <tr>
@@ -181,7 +181,7 @@ Sauce Labs supports the following test configurations for Playwright:
   </tbody>
 </table>
 
-*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
+*macOS 14+ requires an appropriate subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 The version numbers in the **Supported Browsers** column are the Chromium, Firefox, and WebKit builds bundled with each Playwright release, as published in the [Playwright release notes](https://playwright.dev/docs/release-notes). "Chrome" refers to the stable Google Chrome channel and is not version-pinned to the Playwright release.
 
