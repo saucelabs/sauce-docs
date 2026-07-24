@@ -17,7 +17,7 @@ Test names may only contain the following characters:
 - Space
 - Basic punctuation: `- _ . , ( ) :`
 
-Test names containing characters outside this set (e.g. `/ \ * ? " < > | & ; # @ ! ~` or symbols like `®`) will be rejected with a validation error. Rename your tests to use only the allowed characters listed above.
+Test names containing characters outside this set (for example, `/ \ * ? " < > | & ; # @ ! ~` or symbols like `®`) will be rejected with a validation error. Rename your tests to use only the allowed characters listed above.
 
 ### Cypress 11+
 
