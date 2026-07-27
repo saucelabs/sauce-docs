@@ -128,7 +128,7 @@ Sauce Labs supports the following test configurations for TestCafe:
   </tbody>
 </table>
 
-*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
+*macOS 14+ requires an appropriate subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 ## How to Get Started
 
