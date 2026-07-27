@@ -59,7 +59,7 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td rowspan='3'>3.7.4</td>
       <td rowspan='3'>22</td>
       <td rowspan='3'>✅</td>
-      <td><b>macOS:</b> 11.00, 12, 13, 14*, 15*</td>
+      <td><b>macOS:</b> 11.00, 12, 13, 14*, 15*, 26*</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>February 25th, 2027</td>
     </tr>
@@ -128,7 +128,7 @@ Sauce Labs supports the following test configurations for TestCafe:
   </tbody>
 </table>
 
-*macOS 14+ requires a Premium subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
+*macOS 14+ requires an appropriate subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
 ## How to Get Started
 
