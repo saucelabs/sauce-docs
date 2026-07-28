@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 When an automated test fails, finding the cause can take time. Instead of manually reviewing different test artifacts, Sauce AI helps you debug failed test executions by analyzing the available test data and explaining what went wrong.
 
-Simply provide the failed **Job ID**, and Sauce AI examines the test execution to identify possible causes of the failure. This helps you understand failures more quickly, reduce debugging time, and focus on resolving issues instead of manually investigating them.
+Provide the failed **Job ID**, and Sauce AI examines the test execution to identify possible causes of the failure. This helps you understand failures more quickly, reduce debugging time, and focus on resolving issues instead of manually investigating them.
 
 ## Prerequisite
 
@@ -26,7 +26,7 @@ Before troubleshooting a failed test with Sauce AI, ensure that:
 
 To investigate a failed test execution using Sauce AI:
 
-**Step 1:** Open the Sauce AI Assistant from any Insights widget. In the chat panel, enter a question that includes the failed Job ID. For example:
+**Step 1:** Open the Sauce AI agent from top right corner. In the chat panel, enter a question that includes the failed Job ID. For example:
 
 > *Why did job `dade3074f5da4fc2b2e7c6d4ae7eb0f5` fail?*
 
@@ -37,7 +37,7 @@ To investigate a failed test execution using Sauce AI:
 <img src={useBaseUrl('/img/ai-insights/bug-troubleshooting/automated-bug-troubleshooting-2.png')} alt="Automated Bug Troubleshooting" width="100%"/>
 
 :::note
-AI-generated failure analysis should be reviewed carefully, as responses may occasionally contain incomplete or inaccurate interpretations of test data. 
+AI-generated failure analysis should be reviewed carefully, as responses may occasionally contain incomplete or inaccurate interpretations of test data.
 :::
 
 ## Review AI Troubleshooting Results
