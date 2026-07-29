@@ -699,7 +699,11 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 Specifies the orientation of the screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
 :::important
-This capability is an Appium capability that needs to be pre-fixed with `appium:` so it becomes `appium:orientation`. It can be used for virtual device mobile tests and real device tests. The`appium:orientation` capability will only flip the screen while the capability `deviceOrientation` will flip the skin and the screen. See [`deviceOrientation`](#deviceorientation) for more information.
+This capability is an Appium capability and must be prefixed with `appium:` (for example, `appium:orientation`). It can be used for both virtual device and real device tests.
+
+The `appium:orientation` capability changes the orientation of the application in the device. The `deviceOrientation` capability rotates the virtual device itself (including the simulator window) and is supported only for virtual devices.
+
+Setting `deviceOrientation` does not automatically set `appium:orientation`. If your test requires both the virtual device and the application to start in a specific orientation, specify both capabilities explicitly. For landscape testing on virtual devices, Sauce Labs recommends using both capabilities. See [`deviceOrientation`](#deviceorientation) for more information.
 :::
 
 ```java
@@ -1138,6 +1142,17 @@ capabilities.setCapability("sauce:options", sauceOptions);
 <p><small>| OPTIONAL | STRING| <span className="sauceGreen">Virtual Devices Only</span> |</small></p>
 
 Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
+
+:::important
+
+The `deviceOrientation` capability rotates the virtual device (including the simulator window) and is supported only for virtual devices.
+
+This capability is independent of `appium:orientation`. Setting `deviceOrientation` does **not** automatically set `appium:orientation`.
+
+If your test requires both the virtual device and the application to start in a specific orientation, specify both capabilities explicitly. For landscape testing on virtual devices, Sauce Labs recommends specifying both capabilities.
+
+:::
+
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
