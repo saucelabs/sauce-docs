@@ -19,11 +19,11 @@ The Extended Debugging feature offers access to HAR files and JavaScript console
 
 **Step 1:** After signing in to your Sauce Labs account, click **Insights** in the left navigation menu to expand the Insights menu.
 
-<img src={useBaseUrl('img/insights/job-overview/job-overview-2.png')} alt="job breakdown data visualization"/>
+<img src={useBaseUrl('img/insights/job-overview/job-overview-1.png')} alt="job breakdown data visualization"/>
 
 **Step 2:** From the expanded **Insights,** select **Job Overview** from the dropdown list.
 
-<img src={useBaseUrl('img/insights/job-overview/job-overview-1.png')} alt="job breakdown data visualization"/>
+<img src={useBaseUrl('img/insights/job-overview/job-overview-2.png')} alt="job breakdown data visualization"/>
 
 The **Job Overview** page displays visualizations that summarize the health, execution outcomes, and coverage of your automated test jobs. You can **[apply filters](/docs/insights/filter-scope-of-data.md)** to narrow the displayed job execution data, and the visualizations automatically update to reflect your selection.
 
