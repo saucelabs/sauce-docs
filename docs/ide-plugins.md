@@ -2,7 +2,7 @@
 id: ide-plugins
 title: Sauce Labs IDE Plugins
 sidebar_label: Overview
-description: Test on Sauce Labs real devices and author tests with AI without leaving your IDE. Available for VS Code, Cursor, and Antigravity, with IntelliJ IDEA and Android Studio coming soon.
+description: Test on Sauce Labs real devices and author tests with AI without leaving your IDE. Available for VS Code, with Cursor, Antigravity, IntelliJ IDEA, and Android Studio coming soon.
 keywords:
   - ide plugin
   - vs code extension
@@ -32,17 +32,17 @@ The Sauce Labs IDE plugin brings Real Device Cloud and AI Test Authoring directl
 
 ## Supported IDEs
 
-The plugin is available today for **VS Code** and VS Code-based editors, including **Cursor** and **Antigravity**:
+The plugin is available today for **VS Code**:
 
 <div className="client-grid">
   <div className="client-tile"><img src={useBaseUrl('img/ide-plugins/vscode.png')} alt="Visual Studio Code logo" /><span>VS Code</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/ide-plugins/cursor.svg')} alt="Cursor logo" /><span>Cursor</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/ide-plugins/antigravity.png')} alt="Antigravity logo" /><span>Antigravity</span></div>
 </div>
 
-Support for **IntelliJ IDEA** and **Android Studio** (and other JetBrains-based IDEs) is coming soon:
+Support for **Cursor**, **Antigravity**, **IntelliJ IDEA**, and **Android Studio** (and other VS Code- and JetBrains-based IDEs) is coming soon:
 
 <div className="client-grid">
+  <div className="client-tile"><img src={useBaseUrl('img/ide-plugins/cursor.svg')} alt="Cursor logo" /><span>Cursor (coming soon)</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/ide-plugins/antigravity.png')} alt="Antigravity logo" /><span>Antigravity (coming soon)</span></div>
   <div className="client-tile"><img src={useBaseUrl('img/ide-plugins/intellij.svg')} alt="IntelliJ IDEA logo" /><span>IntelliJ IDEA (coming soon)</span></div>
   <div className="client-tile"><img src={useBaseUrl('img/ide-plugins/android-studio.svg')} alt="Android Studio logo" /><span>Android Studio (coming soon)</span></div>
 </div>
