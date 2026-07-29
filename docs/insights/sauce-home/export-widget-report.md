@@ -10,7 +10,7 @@ You can export the current Sauce Home dashboard as a PDF to share testing insigh
 
 Export the dashboard to share testing results, review release quality, track testing progress, and maintain records outside of Sauce Labs.
 
-## Before You Begin
+## Prerequisites
 
 Before exporting the dashboard, **[configure the filters](/docs/insights/sauce-home/sauce-home-filters.md)** to display the data you want to include in the report. The exported PDF reflects the current dashboard view, including the selected organization, team, user, and date range.
 

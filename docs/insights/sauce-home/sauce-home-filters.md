@@ -1,7 +1,7 @@
 ---
 id: sauce-home-filters
-title: Confiure Dashboard Filters
-sidebar_label: Confiure Dashboard Filters
+title: Configure Sauce Home Filters
+sidebar_label: Configure Sauce Home Filters
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
