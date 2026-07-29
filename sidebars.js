@@ -1202,7 +1202,6 @@ module.exports = {
             items: [
                 'insights',
                 'insights/scope',
-                'insights/overview',
                 'insights/errors',
                 'insights/history',
                 'insights/trends',
@@ -1218,6 +1217,15 @@ module.exports = {
                         'insights/home',
                         'insights/sauce-home/export-widget-report',
                         'insights/sauce-home/sauce-home-filters',
+                      ],
+                  },
+                  {
+                    type: 'category',
+                    label: 'Job Overview',
+                    collapsed: true,
+                    items: [
+                        'insights/overview',
+                        'insights/filter-scope-of-data',
                     ],
                 },
             ],
