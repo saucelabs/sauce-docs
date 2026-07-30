@@ -17,7 +17,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The **Real Device Cloud** view lets you access your organization's private Android and iOS devices directly from your IDE. You can browse available devices, start live testing sessions, install applications, capture screenshots, monitor device logs, and interact with physical devices without leaving your development environment.
 
-<a href={useBaseUrl('img/ide-plugins/live-session.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/live-session.png')} alt="A live real device session inside the IDE: the device list on the left, the live device screen in the center with a device action toolbar, and real-time logs on the right" /></a>
+<a href={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/real-device-plugin/real-device-plugin.png')} alt="A live real device session inside the IDE: the device list on the left, the live device screen in the center with a device action toolbar, and real-time logs on the right" /></a>
 
 ## Browse and filter devices
 
