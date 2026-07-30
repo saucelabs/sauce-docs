@@ -167,7 +167,7 @@ Launch a live testing session on a physical Android or iOS device hosted by Sauc
 
 <img src={useBaseUrl('img/live-testing/mobile-app/mobile-app-live-testing-15.png')} alt="Mobile App Live Testing" width="auto"/>
 
-**Step 3:** Browse the list of available devices and review the device details, such as the device model, operating system version, screen resolution, and availability. 
+**Step 3:** Browse the list of available devices and review the device details, such as the device model, operating system version, screen resolution, and availability.
 
 After you find the device you want to use, click on the device card to select it.
 
