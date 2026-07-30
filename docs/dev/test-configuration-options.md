@@ -706,6 +706,21 @@ The `appium:orientation` capability changes the orientation of the application i
 Setting `deviceOrientation` does not automatically set `appium:orientation`. If your test requires both the virtual device and the application to start in a specific orientation, specify both capabilities explicitly. For landscape testing on virtual devices, Sauce Labs recommends using both capabilities. See [`deviceOrientation`](#deviceorientation) for more information.
 :::
 
+:::note
+Some Android tablet Emulators, such as **Pixel Tablet** and **Medium Tablet**, use **landscape** as their default orientation, whereas phone Emulators use **portrait** as the default orientation.
+
+Because `appium:orientation` is interpreted relative to the Emulator's default orientation, the specified value may appear reversed on these tablet Emulators. For example, setting `appium:orientation` to `LANDSCAPE` may result in a visually portrait Emulator, while setting it to `PORTRAIT` may result in a visually landscape Emulator.
+
+The following table illustrates this behavior:
+
+| Emulator Type | Default Orientation (0°) | `appium:orientation=PORTRAIT` | `appium:orientation=LANDSCAPE` |
+| --- | --- | --- | --- |
+| Phone Emulator | Portrait | Portrait | Landscape |
+| Tablet Emulator (Pixel Tablet, Medium Tablet) | Landscape | Landscape | Portrait |
+
+This behavior is expected for Emulator images that default to landscape orientation and is determined by the Android Emulator rather than Sauce Labs.
+:::
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:orientation", "LANDSCAPE");
