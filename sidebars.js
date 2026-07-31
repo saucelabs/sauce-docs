@@ -1208,7 +1208,6 @@ module.exports = {
                 'insights',
                 'insights/home',
                 'insights/scope',
-                'insights/overview',
                 'insights/errors',
                 'insights/history',
                 'insights/trends',
@@ -1216,6 +1215,15 @@ module.exports = {
                 'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
+                {
+                    type: 'category',
+                    label: 'Job Overview',
+                    collapsed: true,
+                    items: [
+                        'insights/overview',
+                        'insights/filter-scope-of-data',
+                    ],
+                },
             ],
         },
         {
