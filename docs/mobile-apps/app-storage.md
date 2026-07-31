@@ -58,11 +58,11 @@ Supported file types include:
 Only valid `.zip` archives that can be extracted using standard unzip tools are supported. Executable (`.exe`) files are not supported.
 :::
 
-## Upload an Application
+## Uploading Apps
 
 You can upload your mobile application to Mobile App Storage using either the Sauce Labs UI or the File Storage API. Once uploaded, the application becomes available for live testing and automated testing.
 
-### Upload an Application Using the Sauce Labs UI
+### Upload Apps via UI
 
 Use the Sauce Labs UI to manually upload an application to Mobile App Storage.
 
@@ -88,7 +88,7 @@ Verify that the application is listed in **App Management**. You can now use the
 If you do not have an application available for testing, upload one of the [Sauce Labs Demo Apps](/docs/mobile-apps/app-storage.md#deprecated-sauce-storage) to explore the testing workflow and familiarize yourself with Mobile App Storage.
 :::
 
-### Upload an Application Using the File Storage API
+### Upload Apps via REST API
 
 You can upload applications programmatically using the File Storage API. This method supports CI/CD pipelines and automated workflows.
 
