@@ -195,7 +195,7 @@ If you do not replace the encryption certificate in your IdP on time, once the c
 
 1. On Sauce Labs, click **Account**, and then click **Organization Management**.
 
-<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Organization Management Menu" width="300" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="auto"/>
 
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **View Settings**.
 
