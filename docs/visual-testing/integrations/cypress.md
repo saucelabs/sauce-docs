@@ -4,10 +4,11 @@ sidebar_label: Cypress
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
-import SelectiveDiffing from '../_partials/_selective-diffing.md';
-import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
-import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
+import BaselineOverridesCypress from '../\_partials/\_baseline-overrides-cypress.md';
+import SelectiveDiffing from '../\_partials/\_selective-diffing.md';
+import SelectiveDiffingGlobal from '../\_partials/\_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../\_partials/\_selective-diffing-region.md';
 
 # Cypress Integration
 
@@ -138,7 +139,7 @@ Options:
 - `buildName`: Name of the build (default: `Cypress Visual Testing`)
 - `project`: Name of the project (default: `None`)
 - `branch`: Name of branch (default: `None`)
-- `defaultBranch`: Name of the main or default branch (default: `None`)  
+- `defaultBranch`: Name of the main or default branch (default: `None`)
 
 They need to be set through the `saucelabs` attribute of `e2e` configuration.
 
@@ -225,6 +226,7 @@ cy.sauceVisualCheck('login-page', {
 <SelectiveDiffingGlobal />
 
 Example:
+
 ```javascript
     cy.sauceVisualCheck('login-page', {
       diffingMethod: DiffingMethod.Balanced,
@@ -246,6 +248,7 @@ Example:
 <SelectiveDiffingRegion />
 
 Example:
+
 ```javascript
     cy.sauceVisualCheck('login-page', {
       diffingMethod: DiffingMethod.Balanced,
@@ -280,6 +283,7 @@ cy.sauceVisualCheck('login-page', {
 Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
 
 Example:
+
 ```javascript
 cy.sauceVisualCheck('login-page', {
     captureDom: true
@@ -312,6 +316,12 @@ cy.sauceVisualCheck('Inventory Page', {
     clipSelector: '.your-css-selector',
 });
 ```
+
+### Using Baseline Overrides
+
+Baseline overrides let you control which baseline a new snapshot is compared against, which is useful for workflows such as [cross browser / OS testing](/visual-testing/workflows/cross-browser-os/). ([More info on baseline matching](/visual-testing/#baseline-matching))
+
+<BaselineOverridesCypress />
 
 ## Limitations
 
