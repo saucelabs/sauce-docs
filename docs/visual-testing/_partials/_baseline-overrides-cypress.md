@@ -1,16 +1,14 @@
 At the global / plugin level, through the `saucelabs` attribute of the `e2e` configuration
 
 ```js
-import { Browser, OperatingSystem } from '@saucelabs/visual';
-
 export default defineConfig({
   e2e: {
     [...]
     saucelabs: {
       baselineOverride: {
-        browser: Browser.Chrome,
+        browser: 'CHROME',
         device: "Desktop (1024x627)",
-        operatingSystem: OperatingSystem.Windows,
+        operatingSystem: 'WINDOWS',
         operatingSystemVersion: '10',
       },
     },
@@ -22,15 +20,15 @@ export default defineConfig({
 Or at the snapshot level
 
 ```js
-import { Browser, OperatingSystem } from '@saucelabs/visual';
-// ...
 // Passing on a per-snapshot level
 cy.sauceVisualCheck('Inventory Page', {
     baselineOverride: {
-        browser: Browser.Chrome,
+        browser: 'CHROME',
         device: "Desktop (1024x627)",
-        operatingSystem: OperatingSystem.Windows,
+        operatingSystem: 'WINDOWS',
         operatingSystemVersion: '10',
     }
 });
 ```
+
+Cypress specs run in the browser and cannot import runtime values such as the `Browser` and `OperatingSystem` enums, so `browser` and `operatingSystem` accept their string values instead.
