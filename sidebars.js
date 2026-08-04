@@ -1203,7 +1203,6 @@ module.exports = {
                 'insights',
                 'insights/home',
                 'insights/scope',
-                'insights/overview',
                 'insights/errors',
                 'insights/history',
                 'insights/trends',
@@ -1211,6 +1210,15 @@ module.exports = {
                 'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
+                {
+                    type: 'category',
+                    label: 'Job Overview',
+                    collapsed: true,
+                    items: [
+                        'insights/overview',
+                        'insights/filter-scope-of-data',
+                    ],
+                },
             ],
         },
         {
@@ -1220,6 +1228,7 @@ module.exports = {
             items: [
                 'sauce-ai',
                 'sauce-ai/ai-insights',
+                'sauce-ai/ai-authoring',
                 'sauce-ai/ai-insights-prompting-guide',
                 'sauce-ai/ai-authoring-prompting-guide',
                 {
@@ -1247,6 +1256,16 @@ module.exports = {
                         'sauce-ai/sauce-mcp',
                         'sauce-ai/sauce-mcp-getting-started',
                         'sauce-ai/sauce-mcp-tools',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Prompting Guides',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-authoring-prompting-guide',
+                        'sauce-ai/ai-insights-prompting-guide',
+                        'sauce-ai/prompting-guides/error-reporting',
                         'sauce-ai/real-device-cloud-mcp-prompting-guide',
                     ],
                 },

@@ -30,9 +30,9 @@ For more details, please see [Managing Concurrency](/basics/acct-team-mgmt/concu
 ## Viewing an Organization’s Private Devices
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="450"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="auto"/>
 2. Click the **DEVICES** tab. The devices assigned to your organization will be listed.
-   <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="700"/>
+   <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="auto"/>
 
 ## Assigning a Private Device to Teams
 Select multiple devices from the table to assign them to one or more teams. By assigning a private device to teams, you restrict access only to the teams it is assigned to. However, this restriction does not apply to organization admins, who continue to have access to all devices within their organization. To grant access to the device for all teams, remove any current team assignments.

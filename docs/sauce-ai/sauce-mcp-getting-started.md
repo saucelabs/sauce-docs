@@ -21,7 +21,7 @@ This guide shows how to connect a supported AI client to the hosted Sauce MCP se
 
 Your username and access key are available from the top navigation bar in the Sauce Labs dashboard. Click the key icon to reveal them, then copy your **Username** and **Access Key**.
 
-<img src={useBaseUrl('img/sauce-mcp/access-key.png')} alt="Sauce Labs top navigation key icon showing username and access key" width="480"/>
+<img src={useBaseUrl('img/sauce-mcp/access-key.png')} alt="Sauce Labs top navigation key icon showing username and access key" width="auto"/>
 
 For full details, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
 
