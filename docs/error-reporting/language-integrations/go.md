@@ -168,7 +168,7 @@ All fields of `bt.Config` (zero values fall back to the documented defaults):
 | `QueueSize` | Defaults to `128`. Capacity of the in-memory report queue. |
 | `Timeout` | Defaults to `30s`. Per-request HTTP timeout. |
 | `HTTPClient` | Custom `*http.Client` for submission (proxies, TLS configuration). |
-| `DisableMachineAttributes` | Defaults to `false`. Set to `true` to skip shelling out for machine metadata (CPU model, OS version, machine GUID) — useful in minimal containers without a shell. |
+| `DisableMachineAttributes` | Defaults to `false`. Set to `true` to skip shelling out for machine metadata (CPU model, OS version, machine GUID). Can be used in minimal containers without a shell. |
 | `Debug` | Defaults to `false`. Enables SDK diagnostic logging. The SDK never panics regardless of this setting; submission tokens are redacted in all diagnostics. |
 | `Logger` | Destination for diagnostics when `Debug` is on. Defaults to stderr. |
 
