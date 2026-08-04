@@ -1631,6 +1631,31 @@ suites:
     timeout: 15m
 ```
 
+Separately from the suite timeout, the TestCafe runner terminates the test
+process if TestCafe produces no console output for 180 seconds. You can change
+this limit with the `SAUCE_TESTCAFE_NO_PROGRESS_TIMEOUT_SECS` environment
+variable, specified in seconds.
+
+TestCafe reporters only print when a test finishes, so a single test that runs
+longer than this limit without logging anything is treated as stalled and is
+terminated. When that happens, no test report is generated and the job shows
+"We found no test cases" even though the tests were running. Raise this limit if
+you have long-running tests that produce no console output, such as long
+`t.wait()` calls, media capture, or waits on external state.
+
+```yaml
+suites:
+  - name: Example Suite
+    env:
+      SAUCE_TESTCAFE_NO_PROGRESS_TIMEOUT_SECS: "900"
+```
+
+:::note
+This variable can be set globally or per suite. Prefer setting it only on the
+suites that need it, so that your remaining suites keep the shorter limit for
+detecting genuinely stalled runs.
+:::
+
 ---
 
 ### `preExec`

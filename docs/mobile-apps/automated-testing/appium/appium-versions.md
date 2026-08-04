@@ -1900,6 +1900,28 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
   </thead>
   <tbody>
      <tr>
+      <td>iOS 26.5</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-3-versions">
+              <code>3.3.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.3.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.3.0</code>
+        </a>
+      </td>
+    </tr>
+     <tr>
       <td>iOS 26.1</td>
       <td>
         <ul>
@@ -2576,6 +2598,48 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <a href="#appium-2-versions">
           <code>2.0.0</code>
         </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Appium 3 Versions
+
+The Appium 3 versions for Virtual Devices are also collections of drivers that are installed in our cloud. The below table shows the Appium 3 versions with their drivers that are available for Virtual Devices.
+
+<table>
+  <thead>
+    <tr>
+      <th>Appium Version</th>
+      <th>EOL Date</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>3.3.0</code>
+      </td>
+      <td>-</td>
+      <td>
+        This is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.3.0" target="_blank">
+              <code>appium</code>: 3.3.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.43.0" target="_blank">
+              <code>appium-xcuitest-driver</code>: 10.43.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.9.0" target="_blank">
+              <code>appium-flutter-driver</code>: 3.9.0
+            </a>
+          </li>
+        </ul>
       </td>
     </tr>
   </tbody>

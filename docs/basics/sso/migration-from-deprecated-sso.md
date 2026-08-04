@@ -39,11 +39,11 @@ You will have access to the configuration panels of both integrations in the Org
 
 2. Next, on Sauce Labs click **Account**, and then click **Organization Management**.
 
-<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Organization Management Menu" width="300" />
+<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Organization Management Menu" width="auto" />
 
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **View Settings**.
 
-<img src={useBaseUrl('img/basics/sso/setup-sso-sp-org-settings-btn.png')} alt="Organization Setting Button" width="800" />
+<img src={useBaseUrl('img/basics/sso/setup-sso-sp-org-settings-btn.png')} alt="Organization Setting Button" width="auto" />
 
 3. On the **Organization Settings** page, click the **SINGLE SIGN-ON** tab.
 
