@@ -319,7 +319,7 @@ cy.sauceVisualCheck('Inventory Page', {
 
 ### Using Baseline Overrides
 
-Baseline overrides let you control which baseline a new snapshot is compared against, which is useful for workflows such as [cross browser / OS testing](/visual-testing/workflows/cross-browser-os/). ([More info on baseline matching](/visual-testing/#baseline-matching))
+Baseline overrides let you control which baseline a new snapshot is compared against, which enables workflows such as [cross browser / OS testing](/visual-testing/workflows/cross-browser-os/). ([More info on baseline matching](/visual-testing/#baseline-matching))
 
 <BaselineOverridesCypress />
 
