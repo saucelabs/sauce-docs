@@ -89,27 +89,27 @@ During a live test, you'll enable Audio Injection for your app and then upload t
 
 1. In Sauce Labs, click **App Management**, hover over the test, and then click **Settings**.
 
-<img src={useBaseUrl('img/mobile-apps/audio-injection-1.png')} alt="App Management settings navigation" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/audio-injection-1.png')} alt="App Management settings navigation" width="auto"/>
 
 2. On the **Settings** page, ensure that **Instrumentation** and **Audio Injection** are enabled, and then return to the **App Management** page.
 
-<img src={useBaseUrl('img/mobile-apps/audio-injection-2.png')} alt="Instrumentation and Audio Injection enabled in app settings" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/audio-injection-2.png')} alt="Instrumentation and Audio Injection enabled in app settings" width="auto"/>
 
 3. On the **App Management** test page, hover over the test and then click **Start Test**.
 
-<img src={useBaseUrl('img/mobile-apps/audio-injection-3.png')} alt="Start Test on the App Management page" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/audio-injection-3.png')} alt="Start Test on the App Management page" width="auto"/>
 
 4. On the device selection page, hover over a device and then click **Start Test**.
 
-<img src={useBaseUrl('img/mobile-apps/audio-injection-4.png')} alt="Select a device and start the test" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/audio-injection-4.png')} alt="Select a device and start the test" width="auto"/>
 
 5. In the live test window, in the right toolbar, click **Tools** and then click **Audio Upload**.
 
-<img src={useBaseUrl('img/mobile-apps/audio-injection-5.png')} alt="Audio Upload in the Tools menu" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/audio-injection-5.png')} alt="Audio Upload in the Tools menu" width="auto"/>
 
 6. Click **Choose Audio** and select your audio file (up to 15 MB; MP3 on Android, or MP3, WAV, M4A, or AAC on iOS).
 
-<img src={useBaseUrl('img/mobile-apps/audio-injection-6.png')} alt="Choose Audio to upload the file" width="450"/>
+<img src={useBaseUrl('img/mobile-apps/audio-injection-6.png')} alt="Choose Audio to upload the file" width="350"/>
 
 Once the upload succeeds, trigger speech recognition inside your app. The app receives your uploaded audio as if it had been spoken into the device microphone. You can upload another file to inject different audio later in the same session.
 
