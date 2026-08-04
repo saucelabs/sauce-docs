@@ -2073,7 +2073,7 @@
 
 /* footer specific styles */
 .footer {
-    background: var(--dark-500);
+    background: var(--dark-600);
     font-size: 0.75rem;
     line-height: 1.25rem;
 }

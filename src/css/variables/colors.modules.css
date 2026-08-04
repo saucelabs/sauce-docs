@@ -1,4 +1,5 @@
 :root {
+    --dark-600: #0a140a;
     --dark-500: #132322;
     --dark-400: #434e4e;
     --dark-300: #727a7a;
@@ -24,8 +25,12 @@
     --green-100: #d8f8e9;
 
     --neutral-300: #deeeea;
-    --neutral-200: #edf7f5;
+    --neutral-200: #f0f0ec;
     --neutral-100: #f9f9f7;
+    --neutral-50: #f8f8f8;
+
+    --olive-200: #e4e6cd;
+    --olive-100: #6d7344;
 
     --inline-link: #18583a;
     --primary-button: #66de91;
@@ -44,8 +49,8 @@
     --ifm-code-font-size: 85%;
     --ifm-code-background: var(--dark-100);
     --ifm-font-color-base: var(--dark-500);
-    --ifm-link-color: var(--inline-link);
-    --ifm-navbar-background-color: var(--neutral-100);
+    --ifm-link-color: var(--olive-100);
+    --ifm-navbar-background-color: var(--neutral-50);
     --ifm-menu-color-active: var(--inline-link);
     --ifm-tabs-color-active: var(--dark-500);
 }

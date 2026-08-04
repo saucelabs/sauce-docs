@@ -188,7 +188,7 @@ export default meta;
 
 ## Different Browsers and Devices
 
-By default, the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
+By default, the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/isomorphic/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
 
 ```js
 import { getJestConfig } from '@storybook/test-runner';
@@ -225,11 +225,11 @@ If you'd like to configure your own devices, please follow the configuration ste
 
 ## Testing Interactions
 
-Utilizing the Test Runner, Interactions Addon, and our Storybook integration you can interact with stories and take snapshots along the way. This exposes the ability to both do component testing and visual testing in a single location. Follow the steps on the [Storybook Component Testing](https://storybook.js.org/docs/writing-tests/component-testing#set-up-the-interactions-addon) for installing and writing component tests in storybook.
+Utilizing the Test Runner, Interactions Addon, and our Storybook integration you can interact with stories and take snapshots along the way. This exposes the ability to both do component testing and visual testing in a single location. Follow the steps on the [Storybook Component Testing](https://storybook.js.org/docs/8/writing-tests/component-testing#set-up-the-interactions-addon) for installing and writing component tests in storybook.
 
 You'll need the following:
 
-- The [Interactions Addon](https://storybook.js.org/docs/writing-tests/component-testing#set-up-the-interactions-addon) installed and setup
+- The [Interactions Addon](https://storybook.js.org/docs/8/writing-tests/component-testing#set-up-the-interactions-addon) installed and setup
 - Version 0.9.0+ of our Storybook integration
 - The `preVisit` hook added in your `.storybook/test-runner.(js|ts)` setup. See [Step 4](#step-4---configure-the-storybook-test-runner) in our guide if you're updating to use this feature or are missing the hook
 - (optional) You'll also likely need to increase your test `testTimeout` in your `test-runner-jest.config.js` to account for the additional time it will take to both complete the interaction tests and take snapshots. Configure / tweak this as necessary.

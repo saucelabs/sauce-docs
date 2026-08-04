@@ -21,6 +21,10 @@ Sauce Labs now supports ADB commands for Appium. To use ADB and mobile:shell com
 ADB can already be used during live testing.
 :::
 
+:::info Automating a Unity or Unreal Engine game?
+See [AltTester®](/mobile-apps/automated-testing/alttester) for the C#-based path that sees inside Unity and Unreal Engine scene graphs.
+:::
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
@@ -305,6 +309,8 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `automationName`
 - `autoGrantPermissions`
 - `appiumVersion`
+
+If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session.
 
 ### WebDriverAgent for iOS Real Devices
 
