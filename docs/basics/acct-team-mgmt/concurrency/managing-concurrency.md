@@ -35,7 +35,7 @@ If you are an org admin, you can view and control your organization's concurrenc
 
 3. To view the limits for another data center, in the upper-right corner of the window, click the **DATA CENTER** dropdown and select the relevant data center.
 
-<img src={useBaseUrl('img/team-mgmt/ccy-data-center-dropdown.png')} alt="Data Center dropdown" width="250"/>
+<img src={useBaseUrl('img/team-mgmt/ccy-data-center-dropdown.png')} alt="Data Center dropdown" width="auto"/>
 
 4. On the **Organization Management** page, click the **TEAMS** tab. **Team VM Concurrency**, **Team Real Device Concurrency** and **Peak VM Concurrency** will be displayed for each team in the organization.
 
