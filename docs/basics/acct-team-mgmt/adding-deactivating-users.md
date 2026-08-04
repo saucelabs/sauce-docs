@@ -18,11 +18,11 @@ When you add a user manually, you assign the user a user name and password. To a
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="auto"/>
 
 2. On the **USERS** tab, click the blue plus sign.
 
-   <img src={useBaseUrl('img/team-mgmt/add-new-user-nav.jpg')} alt="Add new user - Blue plus sign" width="700"/>
+   <img src={useBaseUrl('img/team-mgmt/add-new-user-nav.jpg')} alt="Add new user - Blue plus sign" width="auto"/>
 
 3. On the **MANUAL ENTRY** tab, enter an email address, user name, password, and optional first and last name for the new user.
 
@@ -87,6 +87,6 @@ You can deactivate users in your account on the **Organization Management** page
 
 3. On the **User Details** page, in the **USER NAME** box, click **DEACTIVATE USER**.
 
-   <img src={useBaseUrl('img/team-mgmt/deactivate-user-user-details.jpg')} alt="Deactivate a user in User Details"/>
+   <img src={useBaseUrl('img/team-mgmt/deactivate-user-user-details.png')} alt="Deactivate a user in User Details"/>
 
 4. In the **Confirm deactivate** box, click **Yes, Deactivate**.

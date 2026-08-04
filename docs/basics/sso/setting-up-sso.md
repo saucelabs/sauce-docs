@@ -195,7 +195,7 @@ If you do not replace the encryption certificate in your IdP on time, once the c
 
 1. On Sauce Labs, click **Account**, and then click **Organization Management**.
 
-<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Organization Management Menu" width="300" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="auto"/>
 
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **View Settings**.
 
@@ -220,7 +220,7 @@ If you do not replace the encryption certificate in your IdP on time, once the c
 
 We strongly recommend that you assign your company email domains to your Sauce Labs organization. This allows users who do not have an account at Sauce Labs to initiate SSO at [the Sauce Labs login page](https://accounts.saucelabs.com).
 
-<img src={useBaseUrl('img/basics/sso/login-sso-btn.png')} alt="SSO Login Button" width="400" />
+<img src={useBaseUrl('img/basics/sso/login-sso-btn.png')} alt="SSO Login Button" width="auto" />
 
 :::note
 <a href="mailto:help@saucelabs.com">Contact support</a> to assign email domains to your organization.
