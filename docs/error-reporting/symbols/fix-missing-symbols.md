@@ -69,7 +69,7 @@ If you are still unable to identify the required symbols or need additional assi
 
 ## Supply Missing Symbols
 
-After you have identified the missing symbols for a crash report, the next step is to provide the required symbol files so Error Reporting can fully symbolicate the callstack. After the missing files are available, the affected crash reports must be [**reprocessed**](/docs/error-reporting/project-setup/object-reprocessing/) to apply the newly uploaded symbols.
+After you have identified the missing symbols for a crash report, the next step is to provide the required symbol files so Error Reporting can fully symbolicate the callstack. After the missing files are available, the affected crash reports must be [**reprocessed**](/docs/error-reporting/project-setup/object-reprocessing.md) to apply the newly uploaded symbols.
 
 The exact workflow depends on how your organization manages symbol files.
 
