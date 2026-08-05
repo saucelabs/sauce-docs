@@ -14,44 +14,83 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page walks you through installing the Sauce Labs plugin in your IDE, signing in, and starting your first live device session.
+The Sauce Labs IDE Plugin lets you access Sauce Labs directly from your IDE. After installing the plugin, you can sign in to your Sauce Labs account, start live testing sessions on real devices, and use AI-powered test authoring without leaving your development environment.
 
 ## Prerequisites
 
 - **A supported IDE**: VS Code 1.85 or newer. Support for Cursor, Antigravity, IntelliJ IDEA, and Android Studio is coming soon.
 - **A Sauce Labs account** in one of the supported data centers (US West, US East, or EU Central).
-- **Your Sauce Labs username and access key.** Both are available from [Sauce Labs user settings](https://app.saucelabs.com/user-settings). See [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
+- **Your Sauce Labs username and access key.** Both are available from **[Sauce Labs user settings](https://app.saucelabs.com/user-settings)**. See **[Managing User Information](/basics/acct-team-mgmt/managing-user-info)**.
 - **FFmpeg on your `PATH`** (optional). Only required for MP4 session recording. Screenshots, log streaming, and everything else work without it.
   - macOS: `brew install ffmpeg`
   - Linux: `sudo apt install ffmpeg` (or the equivalent for your distribution)
-  - Windows: download from [ffmpeg.org](https://ffmpeg.org/download.html) and add `bin/` to your `PATH`
+  - Windows: download from **[ffmpeg.org](https://ffmpeg.org/download.html)** and add `bin/` to your `PATH`
 
-To start live device sessions you also need **private (dedicated) devices** and **Real Device Access API concurrency** on your account. See [Requirements and entitlements](/ide-plugins#requirements-and-entitlements).
+To start live device sessions you also need **private (dedicated) devices** and **Real Device Access API concurrency** on your account. See **[Requirements and entitlements](/ide-plugins#requirements-and-entitlements)**.
 
 ## Install the plugin
 
-1. Open VS Code and go to the **Extensions** view (`Cmd/Ctrl + Shift + X`).
-2. Search for **Sauce Labs** and open the listing from the verified publisher **Sauce Labs**.
-3. Click **Install**.
-4. After installation, the **Sauce Labs** icon appears in the Activity Bar. Reload VS Code if prompted.
+**Step 1:** Open **Visual Studio Code** and navigate to the **Extensions** view by clicking the **Extensions** icon in the Activity Bar or pressing `Cmd+Shift+X` (macOS) or `Ctrl+Shift+X` (Windows/Linux).
 
-<a href={useBaseUrl('img/ide-plugins/install-marketplace.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/install-marketplace.png')} alt="The Sauce Labs extension listing in the VS Code Extensions view, showing the Real Device Cloud and AI Test Authoring feature descriptions" /></a>
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-1.png')} alt="The Sauce Labs extension listing in the VS Code Extensions view, showing the Real Device Cloud and AI Test Authoring feature descriptions" width="100%"/>
+
+**Step 2:** Search for **Sauce Labs**, then select the **Sauce Labs** extension published by the verified **Sauce Labs** publisher.
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-2.png')} alt="The Sauce Labs extension listing in the VS Code Extensions view, showing the Real Device Cloud and AI Test Authoring feature descriptions" width="100%"/>
+
+
+**Step 3:** Click **Install** to begin installing the extension. If prompted, review the publisher information in the **Do you trust the publisher?** dialog, then click **Trust Publisher & Install** to continue. 
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-3.png')} alt="The Sauce Labs extension listing in the VS Code Extensions view, showing the Real Device Cloud and AI Test Authoring feature descriptions" width="100%"/>
+
+
+**Step 4:** After the installation is complete, the **Sauce Labs** icon appears in the Activity Bar. If prompted, reload Visual Studio Code to finish the installation.
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-4.png')} alt="The Sauce Labs extension listing in the VS Code Extensions view, showing the Real Device Cloud and AI Test Authoring feature descriptions" width="100%"/>
 
 ## Sign in
 
-Before you sign in, the Activity Bar shows a single **Sauce Labs** icon. That is where you log in.
+After installing the Sauce Labs IDE Plugin, sign in with your Sauce Labs account to access the plugin features. Signing in connects the plugin to your account, allowing you to start live testing sessions on real devices and use AI Test Authoring directly from your IDE.
 
-1. Click the **Sauce Labs** icon in the Activity Bar to open the login view.
-2. Pick the **data center region** that matches your account from the dropdown.
-3. Enter your **User Name** and **Access Key**, then click **Log in**.
+**Step 1:** Click the **Sauce Labs** icon in the **Activity Bar** to open the **Sign In** page.
 
-<a href={useBaseUrl('img/ide-plugins/sign-in-form.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/sign-in-form.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="480" /></a>
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-4.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
 
-Once you sign in, the single Sauce Labs icon is replaced by two product icons in the Activity Bar: **Real Device Cloud** and **Sauce Labs Test Authoring**.
+**Step 2:** From the **Region** dropdown list, select the data center where your Sauce Labs account is hosted (for example, **US West**, **US East**, or **EU Central**).
 
-Your credentials are stored in the editor's secret store, backed by the operating system keychain (macOS Keychain, Windows Credential Manager, or `libsecret` on Linux). They are never written to your workspace or settings files.
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-5.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
 
-To sign out, open the **Real Device Cloud** view and click **Sign Out** in the **Account** section, or run **Sauce: Sign Out** from the Command Palette.
+**Step 3:** Enter your **Username** and **Access Key** in the corresponding fields, then click **Log In** to authenticate your account.
+
+:::tip
+If you don't know your **Username** or **Access Key**, refer to the **[Find your access Key](/docs/sauce-ai/sauce-mcp-getting-started.md#find-your-access-key)** documentation to locate your credentials.
+:::
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-6.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
+
+**Step 4:** After you successfully sign in, the **Sauce Labs** icon is replaced by two product icons in the **Activity Bar**:
+
+* **Real Device Cloud**, which lets you start and manage live device sessions.
+
+* **Sauce Labs Test Authoring**, which provides AI-powered test generation.
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-7.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
+
+:::note
+Your credentials are securely stored using your operating system's credential manager (such as macOS Keychain, Windows Credential Manager, or `libsecret` on Linux). They are never saved in your workspace or project settings.
+:::
+
+## Sign Out
+
+If you no longer want to use the Sauce Labs IDE Plugin with your current account, you can sign out at any time.
+
+**Step 1:** Open the **Real Device Cloud** view from the **Activity Bar**.
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-8.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
+
+**Step 2:** In the **Account** section, click **Sign Out** to sign out of your Sauce Labs account. Alternatively, open the **Command Palette** and run the **Sauce: Sign Out** command.
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-9.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
 
 :::tip
 If you switch from an account without an entitlement to one that has it, reload the editor window so entitled views (such as the test case list) populate correctly.
@@ -70,26 +109,38 @@ All three Sauce Labs data centers are supported:
 You can switch regions two ways, whichever is more convenient:
 
 - Click a region row in the sidebar's **Region** section.
-- Pick one in the region dropdown on the sign-in form.
+- Pick one in the region dropdown list on the sign-in form.
 
 Switching re-validates your credentials against the new region and refreshes the device and session lists automatically.
 
-## Take your first step
+## Get Started with the Plugin
 
-After signing in, both products are one click away in the Activity Bar.
+After you've signed in, you can start exploring the key features of the Sauce Labs IDE Plugin. Use the Activity Bar to access Real Device Cloud for live device testing or Sauce Labs Test Authoring to create automated tests with AI.
 
-### Start a real device session
+### Start Your First Real Device Session
 
-1. Open the **Real Device Cloud** view and wait for the **Real Devices** list to populate.
-2. Click the play icon next to an available device (green dot).
-3. A new tab opens showing the live device screen. The first frame arrives 15 to 30 seconds after allocation.
+**Step 1:** Open the **Real Device Cloud** view from the **Activity Bar**. Wait for the list of available devices to load, then click the **Play** icon next to the device you want to use.
 
-See [Real Device Cloud in Your IDE](/ide-plugins/real-device-cloud) for everything you can do in a live session.
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-10.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
 
-### Generate your first test with AI
+**Step 2:** A new editor tab opens and connects to the selected device. After the session is ready, you can begin interacting with the live device directly from your IDE.
 
-1. Open the **Sauce Labs Test Authoring** view and click **Create Test Script**.
-2. Choose a target: a website and browser, or an app build and a device.
-3. Describe what you want to test in plain English and submit. The AI runs it on a live session and gives you back runnable test code.
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-11.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
 
-See [AI Test Authoring in Your IDE](/ide-plugins/ai-test-authoring) for the full authoring workflow. This feature requires the [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) entitlement.
+:::note
+**Next step:** To learn how to upload apps, interact with the device, capture screenshots, and manage live sessions, see **[Real Device Cloud in Your IDE](/ide-plugins/real-device-cloud)**.
+:::
+
+### Generate Your First AI Test
+
+**Step 1:** Open the **Sauce Labs Test Authoring** view from the **Activity Bar**, then click **Create Test Script** to start a new AI-generated test.
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-12.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
+
+**Step 2:** Select a website or app as the test target, describe the test scenario in plain English, and submit your request. Sauce AI runs the test and generates a runnable automation script.
+
+<img src={useBaseUrl('/img/ide-plugins/installation/ide-installation-13.png')} alt="The Sauce Labs sign-in form in the sidebar with a region dropdown, user name and access key fields, and a log in button" width="100%"/>
+
+:::note
+AI Test Authoring requires the **[Sauce AI for Test Authoring](/sauce-ai/ai-authoring)** entitlement. For complete instructions, see **[AI Test Authoring in Your IDE](/ide-plugins/ai-test-authoring)**.
+:::
