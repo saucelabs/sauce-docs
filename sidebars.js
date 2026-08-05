@@ -42,7 +42,7 @@ module.exports = {
                 'error-reporting/whats-new',
                 {
                     type: 'category',
-                    label: 'Integrations',
+                    label: 'Platform Integrations',
                     collapsed: true,
                     items: [
                         'error-reporting/platform-integrations/overview',
