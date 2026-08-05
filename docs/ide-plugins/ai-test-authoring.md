@@ -17,64 +17,141 @@ Write a test by describing it in plain English. You type what you want to test, 
 
 The IDE panel is a second client of the same [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) platform that powers the web UI at `app.saucelabs.com`. The web UI is the live-authoring surface; the IDE panel is the code-in-repo surface for engineers who want generated tests in their own repository and pipeline.
 
-## Requirements
+## Prerequisites
 
-- You are signed in to the plugin. See [Installation and Sign In](/ide-plugins/installation).
-- Your account has the [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) entitlement, a paid add-on for Enterprise accounts. Without it, the panel shows a message explaining that the feature is not available on your account.
+Before using AI Test Authoring, ensure that:
 
-## Quick start
+- You are signed in to the Sauce Labs IDE Plugin. See [Installation and Sign In](/ide-plugins/installation).
+- Your account has the [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) entitlement.
 
-1. Open the **Sauce Labs Test Authoring** view from the Activity Bar. It shows your saved test cases and a **Create Test Script** button.
-2. Click **Create Test Script**. The authoring editor opens in a new tab.
-3. Choose where the test should run: a **Web** target (website address plus platform and browser) or a **Mobile App** target (an app build plus a device). See [Choose a target](#choose-a-target).
-4. Type what you want to test in plain English in the **What is your test goal?** box. For example: "Open the demo site, log in, add the first item to the cart, and check out."
-5. Submit the prompt. The AI executes your intent on a live session, and the steps appear in the **Test Steps** tab one at a time as they run.
-6. When it finishes, open the **Code** tab, choose a framework and language, and get the test code.
-7. Insert the code into the open file, save it to a file in your workspace, or copy it to the clipboard.
-
-A test run usually takes about 30 to 90 seconds.
-
-## Choose a target
-
-**Web** targets run against a browser session. Provide the URL, then pick the platform (Windows, macOS, Linux), the browser and version, and optionally a screen resolution. If the site is behind your firewall, select a Sauce Connect tunnel from the tunnel dropdown.
-
-<a href={useBaseUrl('img/ide-plugins/authoring-target-web.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/authoring-target-web.png')} alt="The web target options in the authoring panel: URL field, tunnel dropdown, and platform, browser, version, and resolution pickers" /></a>
-
-**Mobile App** targets run your app on a Sauce Labs device. Pick an app build you have uploaded to Sauce Labs app storage, then pick the device. You can filter devices by platform, form factor, manufacturer, and OS version, and pick from **Mobile Real** and **Mobile Virtual** devices. Private mobile devices are not available in the picker yet.
-
-<a href={useBaseUrl('img/ide-plugins/authoring-target-mobile.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/authoring-target-mobile.png')} alt="The mobile app target options in the authoring panel: app build dropdown and a real device picker with platform, form factor, manufacturer, and OS version filters" /></a>
-
-:::tip
-If you already have an active Real Device Cloud session open in the plugin, the authoring panel detects it and pre-fills the mobile form with that device and platform version. You can still override the pre-filled values.
+:::note
+AI Test Authoring is available as a paid add-on for Enterprise accounts. If your account does not have access, the plugin displays a message indicating that the feature is unavailable.
 :::
 
-## Review the generated steps
+## Create Your First Test
 
-While the test runs, the **Reasoning** panel narrates what the AI is doing, and each step lands in the **Test Steps** tab with:
+Follow these steps to generate your first AI-powered test.
 
-- A **screenshot** of the app or page at that moment.
-- The **action** performed, described in plain language, with the locator used to find the element.
-- **Assertions:** the expected outcomes it verified.
+**Step 1:** In the **Activity Bar**, click the **Sauce Labs Test Authoring** icon. The **Test Authoring** view opens and displays your saved test cases, along with the **Create Test Script** action.
 
-<a href={useBaseUrl('img/ide-plugins/authoring-test-steps.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/authoring-test-steps.png')} alt="The authoring editor with the AI's reasoning on the left and the generated test steps on the right, each step showing a screenshot, a plain-language action, and the locator used" /></a>
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-1.png')} alt="IDE Authoring" width="100%"/>
 
-You can iterate on your prompt and regenerate until the test does what you want.
+**Step 2:** Click **Create Test Script**. A new authoring editor opens in a separate tab where you can configure and generate your test.
 
-## Generate and keep the code
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-2.png')} alt="IDE Authoring" width="100%"/>
 
-In the **Code** tab, choose the framework for the generated code from the **Choose language** dropdown. The available frameworks come from your Sauce Labs account, and some may be marked preview. Then:
+**Step 3:** Select the environment where you want to run the test.
 
-- **Insert** the code into the file you have open,
-- **Save** it to a file in your workspace, so it goes into your repository and CI/CD pipeline, or
-- **Copy** it to the clipboard.
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-3.png')} alt="IDE Authoring" width="100%"/>
 
-<a href={useBaseUrl('img/ide-plugins/authoring-code.png')} target="_blank" rel="noopener noreferrer"><img src={useBaseUrl('img/ide-plugins/authoring-code.png')} alt="The Code tab in the authoring editor showing a generated Playwright test with Sauce Labs capabilities, with the Choose language dropdown set to Playwright" /></a>
+## Choose a Test Target
 
-## Saved test cases
+Before generating a test, select the target you want Sauce AI to interact with. The available options depend on whether you are testing a **Web** application or a **Mobile** application.
 
-Generated tests are saved to your Sauce Labs account and listed in the **Test Cases** panel. From there you can open, re-run, rename, edit, or delete them without leaving the IDE. Test cases stay in sync with the Test Authoring web UI, so work started in one surface can continue in the other.
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-4.png')} alt="IDE Authoring" width="100%"/>
 
-You can save a test case into an existing test suite, but creating a new test suite is currently only possible in the Sauce Labs web app.
+### Configure a Web Test Target
+
+To generate a test for a web application, select the **Web** tab and provide the application URL. Then configure the environment where the test will run.
+
+The following table describes each available configuration option.
+
+| Ref. | Configuration | Description |
+| ----- | ----- | ----- |
+| **1** | **URL** | Enter the URL of the website or web application you want Sauce AI to test. Sauce AI opens this URL when the test session starts and performs the actions described in your prompt. |
+| **2** | **Tunnel** | If your application is hosted behind a firewall or is not publicly accessible, select a **Sauce Connect** tunnel from the dropdown. Sauce Connect creates a secure connection between Sauce Labs and your private network, allowing the AI to access internal applications. If your application is publicly accessible, leave **No tunnel** selected. |
+| **3** | **Platform** | Select the operating system where the browser session will run. Available platforms include Windows, macOS, Linux, and ChromiumOS. The selected platform determines the operating system used during test generation and execution. |
+| **4** | **Browser** | Select the browser in which the test will run. Supported browsers include Chrome, Firefox, and Microsoft Edge. Choose the browser that matches your application's testing requirements. |
+| **5** | **Browser Version** | Select the browser version for the test session. You can choose **latest** to always use the most recent supported version or select a specific browser version to validate compatibility with a particular release. |
+| **6** | **Resolution** | (Optional) Select the browser window resolution for the test session. Screen resolution can affect responsive layouts and element positioning. If no resolution is selected, Sauce Labs uses the default resolution. |
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-5.png')} alt="IDE Authoring" width="100%"/>
+
+After selecting these options, the **Generate on** section displays the current execution environment. To modify any of the selected options before generating the test, click **Change**.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-6.png')} alt="IDE Authoring" width="100%"/>
+
+### Configure a Mobile App Test Target
+
+To generate a test for a mobile application, select the **Mobile App** tab. Choose an app build that has already been uploaded to **Sauce Labs App Storage**, then configure the target device.
+
+The following table describes the available configuration options.
+
+| Ref. | Configuration | Description |
+| ----- | ----- | ----- |
+| **1** | **App Build** | Select the application build that you want Sauce AI to test. Only app builds that have been uploaded to Sauce Labs App Storage are available for selection. |
+| **2** | **Tunnel** | Select a **Sauce Connect** tunnel if the app requires access to resources behind your firewall. Otherwise, leave **No tunnel** selected. |
+| **3** | **Platform** | Select the mobile platform (Android or iOS). The available devices and operating system versions are filtered based on the selected platform. |
+| **4** | **Form Factor** | Filter devices by form factor, such as **Phone** or **Tablet**, to quickly locate the type of device you want to test. |
+| **5** | **Manufacturer** | Filter the available devices by manufacturer, such as Samsung, Google, Apple, or other supported vendors. |
+| **6** | **OS Version** | Filter devices by operating system version to validate your application against specific Android or iOS releases. |
+| **7** | **Device** | Select the real or virtual device on which Sauce AI will generate and execute the test. The selected device determines the hardware and operating system used during test execution. |
+
+The device picker supports both **Mobile Real Devices** and **Mobile Virtual Devices**. Private mobile devices are not currently available in the device picker.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-7.png')} alt="IDE Authoring" width="100%"/>
+
+:::tip
+If you already have an active **Real Device Cloud** session open in the IDE extension, the authoring panel automatically detects the connected device and pre-populates the device and platform version fields. You can accept the detected values or select a different device before generating the test.
+:::
+
+## Review the Generated Test
+
+After you click **Generate**, Sauce AI starts a live test session and executes the actions described in your prompt.
+
+During test generation, the **Reasoning** panel displays the actions performed by the AI and explains how it interprets your prompt. At the same time, each completed action is added to the **Test Steps** tab.
+
+Each generated test step includes:
+
+* **Screenshot** – A screenshot captured when the step was executed.
+
+* **Action** – A plain-language description of the action performed.
+
+* **Locator** – The locator used to identify the UI element.
+
+* **Assertions** – The validations performed to verify the expected behavior or application state.
+
+Review the generated test steps to ensure they match the workflow you intended to automate. If the generated test does not meet your requirements, update your prompt and click **Generate** again to create a new version of the test.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-8.png')} alt="IDE Authoring" width="100%"/>
+
+## Generate and Save the Test Code
+
+After you have reviewed the generated test steps and confirmed that the workflow meets your requirements, open the **Code** tab to view the generated automation code.
+
+### Select a Testing Framework
+
+Use the **Choose language** dropdown to select the testing framework and programming language for the generated test.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-9.png')} alt="IDE Authoring" width="100%"/>
+
+The available frameworks are based on your Sauce Labs account configuration. Some frameworks may be marked as **Preview**, indicating that they are still under active development.
+
+When you select a framework, Sauce AI automatically generates the corresponding test code.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-10.png')} alt="IDE Authoring" width="100%"/>
+
+### Save or Reuse the Generated Code
+
+After the code is generated, choose one of the following options:
+
+| Option | Description |
+| ----- | ----- |
+| **Insert** | Inserts the generated code into the file currently open in your editor. |
+| **Save** | Saves the generated code as a new file in your workspace, allowing you to add it to your repository and include it in your CI/CD pipeline. |
+| **Copy** | Copies the generated code to the clipboard so you can paste it into another file or project. |
+
+Before saving or using the generated code, review it to ensure it matches your application's workflow and testing requirements. If necessary, update your prompt, regenerate the test, and review the code again until it meets your expectations.
+
+<img src={useBaseUrl('/img/ide-plugins/ide-authoring/ide-authoring-11.png')} alt="IDE Authoring" width="100%"/>
+
+## Manage Saved Test Cases
+
+Every generated test is automatically saved to your Sauce Labs account and appears in the **Test Cases** panel in the IDE. From this panel, you can open, run, rename, edit, and delete your saved test cases without leaving your development environment.
+
+Test cases remain synchronized with the **Sauce Labs Test Authoring** web application, allowing you to move seamlessly between the IDE and the web interface. You can start creating or editing a test in one interface and continue working with the same test in the other without losing your progress.
+
+You can also save a generated test to an existing test suite directly from the IDE. Creating new test suites is currently supported only in the Sauce Labs Test Authoring web application.
 
 ## Known limitations
 
