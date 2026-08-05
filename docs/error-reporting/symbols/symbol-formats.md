@@ -58,8 +58,6 @@ To generate dSYM files:
 4. Build or archive your application.
 5. After the build completes, Xcode automatically generates a matching `.dSYM` bundle, which can be uploaded to Error Reporting.
 
-This keeps the instructions concise while still covering everything the user needs to do.
-
 :::note
 The dSYM file must correspond to the exact version of the application that generated the crash report. Uploading a dSYM from a different build version may prevent Error Reporting from symbolizing crash reports correctly.
 :::

@@ -69,7 +69,7 @@ If you are still unable to identify the required symbols or need additional assi
 
 ## Supply Missing Symbols
 
-After you have identified the missing symbols for a crash report, the next step is to provide the required symbol files so Error Reporting can fully symbolicate the callstack. After the missing files are available, the affected crash reports must be [**reprocessed**](https://docs.dev.saucelabs.net/error-reporting/project-setup/object-reprocessing/) to apply the newly uploaded symbols.
+After you have identified the missing symbols for a crash report, the next step is to provide the required symbol files so Error Reporting can fully symbolicate the callstack. After the missing files are available, the affected crash reports must be [**reprocessed**](/docs/error-reporting/project-setup/object-reprocessing/) to apply the newly uploaded symbols.
 
 The exact workflow depends on how your organization manages symbol files.
 
@@ -77,7 +77,7 @@ The exact workflow depends on how your organization manages symbol files.
 
 If your organization uploads symbols manually, you must first retrieve the missing symbol files identified in the **Debug View**. These files can typically be obtained from your build artifacts, symbol storage, or build pipeline.
 
-After locating the required symbol files, upload them to Error Reporting using your standard symbol upload process. After the upload is complete, [reprocess](https://docs.dev.saucelabs.net/error-reporting/project-setup/object-reprocessing/) the affected crash reports so Error Reporting can apply the newly uploaded symbols and fully resolve the call stacks.
+After locating the required symbol files, upload them to Error Reporting using your standard symbol upload process. After the upload is complete, [reprocess](/docs/error-reporting/project-setup/object-reprocessing.md) the affected crash reports so Error Reporting can apply the newly uploaded symbols and fully resolve the call stacks.
 
 :::note
 Uploading symbol files does not automatically update existing crash reports. Previously processed crash reports must be reprocessed before the new symbols are applied.
@@ -85,7 +85,7 @@ Uploading symbol files does not automatically update existing crash reports. Pre
 
 ### Custom Symbol Server Integration
 
-If your project uses a [**custom symbol server**](https://docs.dev.saucelabs.net/error-reporting/project-setup/symbolication/#integrate-custom-symbol-server-with-backtrace), Error Reporting automatically downloads missing symbols when processing crash reports. If symbols are not being applied, verify that the symbol server is correctly configured.
+If your project uses a [**custom symbol server**](/docs/error-reporting/symbols/add-custom-symbol-server.md), Error Reporting automatically downloads missing symbols when processing crash reports. If symbols are not being applied, verify that the symbol server is correctly configured.
 
 First, confirm that the required symbol file exists on the symbol server using the expected directory structure:
 
@@ -186,7 +186,7 @@ If you continue to experience issues or need additional assistance, contact the 
 ## Troubleshooting
 
 ### Command line debugging
-If you are blocked on uploading symbols from the command line, try checking verbose output from a tool like curl or similar. Uploading an arhcive in the web browser may also expose additional information or errors.
+If you are blocked on uploading symbols from the command line, try checking verbose output from a tool like curl or similar. Uploading an archive in the web browser may also expose additional information or errors.
 
 ### Invalid token
 

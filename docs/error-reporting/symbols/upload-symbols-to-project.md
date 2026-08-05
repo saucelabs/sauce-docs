@@ -69,12 +69,8 @@ Use the Error Reporting HTTP API to automate symbol uploads as part of your buil
 Send an HTTP POST request to the Error Reporting symbol upload endpoint.
 
 ```text
-curl --data-binary @symbols.tar
-    -X POST
-    -H "Expect: gzip"
-"https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols"
+curl --data-binary @symbols.tar \ -X POST \ -H "Expect: gzip" \ "https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols"
 ```
-
 
 Replace the placeholders with the following values:
 
