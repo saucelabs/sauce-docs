@@ -87,23 +87,23 @@ During a live test, you'll be prompted in Sauce Labs to upload a photo that will
 
 1. In Sauce Labs, click **App Management**, hover over the test and then click **Settings**.
 
-<img src={useBaseUrl('img/mobile-apps/camera-injection-1.png')} alt="Mobile app settings navigation" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-1.png')} alt="Mobile app settings navigation" width="auto"/>
 
 1. On the **Settings** page, ensure that **Instrumentation** and **Image Injection** is enabled and then return to the **App Management** page.
 
-<img src={useBaseUrl('img/mobile-apps/camera-injection-2.png')} alt="Mobile app settings navigation" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-2.png')} alt="Mobile app settings navigation" width="auto"/>
 
 4. On the **App Management** test page, hover over the test and then click **Start Test**.
 
-<img src={useBaseUrl('img/mobile-apps/camera-injection-3.png')} alt="Mobile app settings navigation" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-3.png')} alt="Mobile app settings navigation" width="auto"/>
 
 5. On the device selection page, hover over a device and then click **Start Test**.
 
-<img src={useBaseUrl('img/mobile-apps/camera-injection-4.png')} alt="Mobile app settings navigation" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-4.png')} alt="Mobile app settings navigation" width="auto"/>
 
 6. When you want to capture an image of the test, in the right toolbar, click **Tools** and then click **Camera Upload**.
 
-<img src={useBaseUrl('img/mobile-apps/camera-injection-5.png')} alt="Camera Injection navigation" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-5.png')} alt="Camera Injection navigation" width="auto"/>
 
 7. Click **Choose Image** and navigate to the image you want to use.
 
