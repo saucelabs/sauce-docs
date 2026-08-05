@@ -29,19 +29,19 @@ To enable instrumentation:
 
 1. In Sauce Labs, from the left navigation, click **App Management**.
 
-<img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
+<img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="auto"/>
 
 2. Upload your mobile app.
 
-<img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
+<img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="auto"/>
 
 3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
 
-<img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
+<img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="auto"/>
 
 4. Under **Real Device Settings**, toggle **Instrumentation** to **Enabled**.
 
-<img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/>
+<img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="auto"/>
 
 Now you can start your live or automated testing session. View Tree will be captured and be part of your test results.
 
@@ -54,8 +54,7 @@ The Explore View Tree feature works for all the automated test framework types.
 You can access the Explore View Tree from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page.
 
 1. In Sauce Labs, click **LIVE** or **AUTOMATED** and then click **Test Results**.  
-   <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
-   <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
+   <br/><img src={useBaseUrl('img/mobile-apps/app-logs-1.png')} alt="App Logs" width="auto"/>
 
 2. Select a test result from the list.
    <br/><img src={useBaseUrl('img/mobile-apps/view-tree-screenshot-1.png')} alt="Mobile app settings navigation" width="800"/>
