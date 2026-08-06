@@ -163,7 +163,7 @@ If all of these requirements are met, a **Download Missing Symbols** button appe
 
 <img src={useBaseUrl('img/error-reporting/symbols/missing-symbols/missing-symbol-5.png')} alt="" />
 
-Click the **Download Missing Symbols** button to open a confirmation dialog. Confirm the action to allow Error Reporting to download and process the missing symbols. The process may take a few seconds to complete, depending on the number of symbols being processed.
+Click **Download Missing Symbols** to open a confirmation dialog. Confirm the action to allow Error Reporting to download and process the missing symbols. The process may take a few seconds to complete, depending on the number of symbols being processed.
 
 <img src={useBaseUrl('img/error-reporting/symbols/missing-symbols/missing-symbol-6.png')} alt="" />
 
@@ -185,12 +185,12 @@ If you continue to experience issues or need additional assistance, contact the 
 
 ## Troubleshooting
 
-### Command line debugging
+### Command Line Debugging
 If you are blocked on uploading symbols from the command line, try checking verbose output from a tool like curl or similar. Uploading an archive in the web browser may also expose additional information or errors.
 
-### Invalid token
+### Invalid Token
 
 If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating Symbol Access Tokens](/docs/error-reporting/symbols/symbol-access-token.md).
 
-### Reading custom symbol server logs
+### Reading Custom Symbol Server Logs
 It’s important to note that some failures are expected, due to the wide net Backtrace casts (as explained in [Symbol server | Feature details](/docs/error-reporting/symbols/add-custom-symbol-server.md#feature-details)). To troubleshoot, search for the known good path on the symbol server (ie foo.pdb/123/foo.pdb). Successful symbol server requests log lines will include “Downloaded path”, and failed requests log lines will include “Download failed” with additional information about the error encountered.

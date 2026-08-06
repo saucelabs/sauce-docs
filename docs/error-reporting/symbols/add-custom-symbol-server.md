@@ -36,7 +36,7 @@ Before connecting a custom symbol server, ensure that it meets the following req
 The required options for generating Breakpad symbols may vary depending on your build environment.
 :::
 
-## Feature details
+## Feature Details
 
 Every time Backtrace receives a report, it is scanned for symbols that do not yet exist in that Backtrace project. A missing symbol event is generated for each of these symbols, and Backtrace then requests symbols from symbol servers accordingly.
 
@@ -100,7 +100,7 @@ After your symbol server is configured and accessible, connect it to your Error 
 
 ## Manage Symbol Servers
 
-After adding a custom symbol server, you can monitor its activity and manage symbol downloads from **Project Settings & Docs** \> **Symbols** \> **Symbol Servers**.
+After adding a custom symbol server, you can monitor its activity and manage symbol downloads from **Project Settings & Docs** > **Symbols** > **Symbol Servers**.
 
 ### Statistics and Usage
 

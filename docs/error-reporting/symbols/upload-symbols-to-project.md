@@ -50,7 +50,7 @@ If no tag is selected, the uploaded symbols are assigned to the **anon** tag.
 
 <img src={useBaseUrl('img/error-reporting/symbols/upload-symbol/upload-symbol-5.png')} alt="" />
 
-**Step 6:** On the **Upload summary** page, review the upload results to verify that the symbol files were uploaded successfully. 
+**Step 6:** On the **Upload summary** page, review the upload results to verify that the symbol files were uploaded successfully.
 
 You can upload additional symbol files by clicking **Upload more symbols**, review unresolved symbols by clicking **View missing symbols**, or return to your project by clicking **Go to project triage**.
 
@@ -69,16 +69,19 @@ Use the Error Reporting HTTP API to automate symbol uploads as part of your buil
 Send an HTTP POST request to the Error Reporting symbol upload endpoint.
 
 ```text
-curl --data-binary @symbols.tar \ -X POST \ -H "Expect: gzip" \ "https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols"
+curl --data-binary @symbols.tar \
+  -X POST \
+  -H "Expect: gzip" \
+  "https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols"
 ```
 
 Replace the placeholders with the following values:
 
 |Sr.No|Placeholder|Description|
 |-----|-----------|-----------|
-| 1 | `{your-subdomain}` | Your Error Reporting project subdomain. |
-| 2 | `{symbol-access-token}` | A valid Symbol Access Token used to authenticate the upload. |
-| 3 | `symbols.tar` | The archive containing the symbol files to upload. |
+|1|`{your-subdomain}`|Your Error Reporting project subdomain.|
+|2|`{symbol-access-token}`|A valid Symbol Access Token used to authenticate the upload.|
+|3|`symbols.tar`|The archive containing the symbol files to upload.|
 
 ### Upload Symbols with a Tag
 
