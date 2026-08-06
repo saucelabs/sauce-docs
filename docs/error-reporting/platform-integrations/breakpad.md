@@ -177,4 +177,4 @@ dumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
 
 You must upload symbols to have Backtrace determine the source-code mapping of incoming crashes, including source file and line number. For Backtrace to effectively group and analyze your incoming crashes, you must provide application debug symbols.
 
-To learn more about how to upload and manage symbols with Backtrace, see [Symbolication](/error-reporting/project-setup/symbolication/).
+To learn more about how to upload and manage symbols with Backtrace, see [Upload Symbols to Your Project](/docs/error-reporting/symbols/upload-symbols-to-project.md).
