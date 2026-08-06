@@ -173,12 +173,14 @@ The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
 
 * Environment variable: `SAUCE_TUNNEL_CONNECTIONS`
 * Value Format: `<count>`
-* Default value: `16`
+* Default value: `4 × number of CPU cores`, with a minimum of `4` and a maximum of `16`
+* Maximum allowed value: `16`
 
 Number of connections to the Sauce Connect server.
-By default it is set to the number of CPUs on the machine.
+By default it is set to 4 times the number of CPU cores on the machine, clamped to a minimum of 4 and a maximum of 16.
+On any machine with 4 or more CPU cores the default is 16.
 Total number of concurrent requests that can be handled is limited by the number of connections multiplied by the number of streams, see --tunnel-max-concurrent-streams flag.
-For example with 4 connections and 256 streams, the total number of concurrent requests is 1024.
+For example with 16 connections and 256 streams, the total number of concurrent requests is 4096.
 
 ### `--tunnel-max-concurrent-streams` {#tunnel-max-concurrent-streams}
 
