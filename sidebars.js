@@ -1209,7 +1209,6 @@ module.exports = {
                 'insights/home',
                 'insights/scope',
                 'insights/errors',
-                'insights/history',
                 'insights/trends',
                 'insights/usage-report',
                 'insights/coverage',
@@ -1222,6 +1221,16 @@ module.exports = {
                     items: [
                         'insights/overview',
                         'insights/filter-scope-of-data',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Job History',
+                    collapsed: true,
+                    items: [
+                        'insights/history',
+                        'insights/job-history/job-performance-analysis',
+                        'insights/job-history/filter-controls-for-job-history',
                     ],
                 },
             ],
