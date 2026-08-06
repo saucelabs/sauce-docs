@@ -1210,7 +1210,6 @@ module.exports = {
                 'insights/scope',
                 'insights/errors',
                 'insights/history',
-                'insights/trends',
                 'insights/usage-report',
                 'insights/coverage',
                 'insights/failure-analysis',
@@ -1222,6 +1221,19 @@ module.exports = {
                     items: [
                         'insights/overview',
                         'insights/filter-scope-of-data',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Trends',
+                    collapsed: true,
+                    items: [
+                        'insights/trends',
+                        'insights/trends/job-volume-trends',
+                        'insights/trends/pass-fail-rate',
+                        'insights/trends/error-volume-trends',
+                        'insights/trends/build-job-statistics',
+                        'insights/trends/filter-controls',
                     ],
                 },
             ],
