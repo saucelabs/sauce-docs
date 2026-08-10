@@ -598,7 +598,7 @@ Breakpad does not currently support `disableNativeIntegration`.
 
 For an NDK application, debugging symbols are not available to Backtrace by default. You will need to upload the app symbols for your native code to Backtrace.
 
-You can do this by uploading the native libraries themselves, which are usually found in the APK bundle. For more information on how to upload symbols for an NDK app, see [Symbolication](/error-reporting/project-setup/symbolication/).
+You can do this by uploading the native libraries themselves, which are usually found in the APK bundle. For more information on how to upload symbols for an NDK app, see [Upload Symbols to Your Project](/docs/error-reporting/symbols/upload-symbols-to-project.md).
 
 ### Client-Side Unwinding
 

@@ -14,11 +14,11 @@ To access General settings:
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="auto"/>
 
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **VIEW SETTINGS**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="auto" />
 
 3. On the **General** tab, you have the following option:
 
@@ -36,7 +36,7 @@ To access Security settings:
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **VIEW SETTINGS**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="auto" />
 
 3. On the **Security** tab, you have the following options:
 
@@ -57,7 +57,7 @@ Customers on legacy plans or those that requested specific terms may not have ac
 Organization Admins can now manage how their Sauce Labs Virtual Device Cloud (VDC) concurrency behaves under peak load.
 The **Concurrency** tab (available only to Orgs on **Fixed** or **On-Demand** plans) provides a toggle between strict concurrency limits and temporary burst capacity.
 
-<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency1.png')} alt="AI Insights View" width="700"/>
+<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency1.png')} alt="AI Insights View" width="auto"/>
 
 **Fixed Concurrency** enforces your organization’s contractual concurrency limits without allowing any burst capacity. When this mode is active, your tests cannot exceed the number of concurrent sessions included in your contract. Any additional jobs that attempt to run are placed into the throttling queue, which is available to Enterprise customers. Fixed Concurrency is generally recommended for organizations that need strict control over usage and predictable testing costs.
 
@@ -94,11 +94,11 @@ For more detailed information about setting up SSO, see [Setting Up Single Sign-
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **VIEW SETTINGS**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="600" />
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-view-settings-nav.jpg')} alt="View settings" width="auto" />
 
 3. On the **Organization Settings** page, click the **SINGLE SIGN-ON** tab.
 
-<img src={useBaseUrl('img/team-mgmt/sso-settings-tab.png')} alt="SSO Settings tab" width="600" />
+<img src={useBaseUrl('img/team-mgmt/sso-settings-tab.png')} alt="SSO Settings tab" width="auto" />
 
 4. Enter a **unique identifier string**. The string will be applied to user names to make sure that your users will have unique names associated with your account.
 5. Upload the SAML metadata file provided by your IdP that contains the list of your SSO users. Sauce Labs SSO supports most SAML 2.0 metadata files. For more information about specific IdPs, see [Configuring Active Directory Federation Services (AD FS)](/basics/sso-deprecated/config-adfs) and [Configuring Okta](/basics/sso-deprecated/config-okta).
