@@ -15,6 +15,8 @@ Our selection of Android Emulators corresponds to the most popular AVDs publishe
 
 Android 12 virtual devices on Sauce Labs are built with API level 32 (also known as Android 12L)
 
+Sauce Labs also offers ARM-native Android emulators for Enterprise customers with the required subscription. See [ARM-Based Android Emulators](#arm-based-android-emulators).
+
 ### Android 15, 16, and 17 with 16KB Page Size Support
 
 We offer emulators for Android 15, 16, and 17 which include critical support for the 16KB page size memory architecture. The Google Play Store requires that all new apps and app [updates submitted after November 1, 2025](https://developer.android.com/guide/practices/page-sizes), are compatible with 16KB pages. Testing on these emulator configurations is essential to ensure your application meets this requirement and functions correctly for all users. Look for Pixel devices with the `ps16k` label in their name to get started with these new emulators.
@@ -50,3 +52,62 @@ Below is the current mapping of the default Chrome browser version installed on 
 | Android 6          | 106                   |
 | Android 5.1        | 95                    |
 | Android 5          | 95                    |
+
+## ARM-Based Android Emulators
+
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
+
+Sauce Labs offers **ARM-based Android emulators** in the Virtual Device Cloud. These emulators run on native ARM hardware — no instruction translation and no x86-bridge ABI overhead — producing an Android environment that is architecturally closer to the ARM devices your end users run.
+
+:::note Availability
+ARM-based Android emulators are available to Enterprise customers with the required subscription and Android ARM concurrency allocated to their account. If you don't have access, contact your account manager to discuss upgrading.
+:::
+
+Live Testing and automated Appium and Espresso testing are available against Android 14, 15, 16, and 17.
+
+:::note ABI coverage
+App and Android test APKs must include the `arm64-v8a` ABI to run on ARM emulators. Rebuild or download a universal APK, or ensure your Gradle splits include `arm64-v8a`.
+:::
+
+### Live Testing
+
+If your account has access to Android ARM, the **Google ARM Emulator** appears in the Mobile Virtual section of **Live > Mobile App** and **Live > Cross Browser**.
+
+Within a live test you can interact with the app and device using click, scroll, and text input. Use the shortcut actions sidebar for additional controls, including **Rotation** and **Device Location** (with coordinates).
+
+#### Troubleshooting Live Testing Connections
+
+Live Testing streams the device over WebRTC using Cloudflare's network. Corporate firewalls, VPNs, and proxies can block this connection. If a session won't load or freezes, work through the following steps.
+
+**1. Refresh the session.** Intermittent streaming delays often resolve on reconnect.
+
+**2. Check the connection.** Open `chrome://webrtc-internals` in a second tab **before** starting your live session — the page only records connections created after it is open. Start the session in Sauce Labs, then find the section for the Sauce Labs connection:
+
+- **Working:** the ICE connection state reaches `connected` and an `ICE Candidate pair:` line is shown.
+- **Blocked:** the state goes `checking` → `failed` with no candidate pair. Your network is blocking the stream. Go to step 3.
+- **Blocked (strict networks):** ICE candidate gathering completes with no candidates listed and the connection state never changes — no `checking`, no `failed`. Your network is blocking all paths to the stream. Go to step 3.
+- **Drops mid-session:** the state reaches `connected` but later shows `disconnected` or `failed`. This is usually a VPN or proxy timeout — share this detail with your IT team.
+
+**3. Try one session off VPN.** If you can, run a session with the VPN disconnected or on a mobile hotspot. If the session works there, the issue is your corporate network path, and steps 4 and 5 will tell your IT team what to change.
+
+**4. Ask your IT team to allow Cloudflare TURN.**
+
+:::caution Most common cause: TLS inspection
+If your organization uses a TLS-inspecting proxy or secure web gateway (for example, Zscaler or Netskope), a bypass for `turn.cloudflare.com` is required. TLS inspection breaks the connection even on port 443, so the TLS 443 fallback that customers and IT teams expect to work will still fail.
+:::
+
+Most remaining issues are resolved by allowlisting:
+
+- **Hosts:** `turn.cloudflare.com`, `stun.cloudflare.com`
+- **Ports:** UDP 3478 (preferred), TCP 3478/80, TLS 5349/443
+- **IP addresses, if IP allowlisting is required:** `141.101.90.1/32`, `162.159.207.1/32`, `2a06:98c1:3200::1/128`, `2606:4700:48::1/128`
+
+:::note For IT teams: IP allowlists need revalidation
+Cloudflare states that it cannot guarantee the IP addresses used for its TURN service will stay the same. Allowlist by hostname where your policy allows it. If you must use IP-based rules, monitor DNS for `turn.cloudflare.com` and revalidate the list whenever it changes. See Cloudflare's [TURN FAQ](https://developers.cloudflare.com/calls/turn/faq/) for details.
+:::
+
+**5. Still stuck?** In `chrome://webrtc-internals`, expand **Create a WebRTC-Internals dump** and click **Download**. Send the file to your account team, along with whether you were on a VPN or proxy.
+
+---
+
+Have questions? Visit the [Sauce Labs Community](https://support.saucelabs.com/hc/en-us/community/topics) or contact your account team.
