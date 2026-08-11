@@ -16,7 +16,7 @@ IntelliJ can help you edit the `saucectl` configuration files by providing helpf
 
 ## JSON Schema Validation
 
-Our JSON schema is published to the [JSON Schema Store](https://www.schemastore.org/json/), which is made available to IntelliJ. To proceed, open your `saucectl` config yaml in IntelliJ and select the `SauceCTL Configuration` schema [per the IDEA instructions](https://www.jetbrains.com/help/idea/json.html#ws_json_using_schemas).
+Our JSON schema is published to the [JSON Schema Store](https://raw.githubusercontent.com/saucelabs/saucectl/main/api/saucectl.schema.json), which is made available to IntelliJ. To proceed, open your `saucectl` config yaml in IntelliJ and select the `SauceCTL Configuration` schema [per the IDEA instructions](https://www.jetbrains.com/help/idea/json.html#ws_json_using_schemas).
 
 <img src={useBaseUrl('img/stt/intellij-saucectl-schema-dropdown.png')} alt="IntelliJ Schema Dropdown" />
 
