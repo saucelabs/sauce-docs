@@ -26,6 +26,14 @@ Local websites can still be loaded.
 
 Webkit is not working on macOS 12 since Playwright 1.44.0.
 
+### macOS 14 + Playwright 1.62+ + Webkit
+
+Webkit is not working on macOS 14 since Playwright 1.62.0. Playwright [removed macOS 14 WebKit support in v1.59](https://playwright.dev/docs/release-notes); the pinned build no longer works with the 1.62 library. Use macOS 15 for Webkit testing on Apple Silicon.
+
+### macOS 12 + Playwright 1.62+ + Chromium
+
+Chromium is not working on macOS 12 since Playwright 1.62.0. Chrome for Testing 151 (bundled with Playwright 1.62) requires macOS 13 or later. Firefox on macOS 12 is unaffected.
+
 ### macOS 11 + Playwright 1.29+ + Webkit
 
 Webkit is not working on macOS 11 since Playwright 1.29.0.
@@ -46,7 +54,7 @@ This is because playwright's project specific settings override the global confi
 
 ### Webkit + Windows
 
-There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs by setting the [platformName](https://docs.saucelabs.com/web-apps/automated-testing/playwright/yaml/#platformname) to either `macOS 13` or `macOS 12`.
+There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs by setting the [platformName](https://docs.saucelabs.com/web-apps/automated-testing/playwright/yaml/#platformname) to `macOS 15`.
 
 :::note
 Tests running through Sauce Tunnels are unaffected.
