@@ -56,18 +56,24 @@ In addition to manual updates, Error Reporting automatically updates fingerprint
 
 These automatic transitions help ensure that the fingerprint status accurately reflects its current investigation state.
 
-## Reopen Behavior
+## Reopen Criteria - Mute or Resolve Until
 
-Fingerprints marked as **Resolved** or **Muted** remain in their assigned state until they are manually updated or automatically reopened based on the configured reopen criteria. This behavior helps teams maintain an organized view of application stability while ensuring that previously addressed issues can be identified if they occur again.
+Use **Mute Until** or **Resolve Until** to define when a fingerprint should be reopened. This allows you to keep a fingerprint muted or resolved until a specific condition is met. If the fingerprint is linked to an issue, such as a Jira issue, the linked issue can also be reopened when the condition is met.
 
-A fingerprint can be reopened in the following situations:
+You can set the reopen criteria based on conditions such as:
 
-* **Manual status update:** An authorized user changes the fingerprint status from **Resolved** or **Muted** back to **Open** or another applicable status.
+- The fingerprint is seen in a future version that is greater than a specified value.
 
-* **Configured reopen criteria are met:** If reopen criteria have been configured for the fingerprint, Error Reporting automatically reopens it when the specified conditions are satisfied. For example, a fingerprint can be reopened if it is detected in a newer application version or reoccurs after a defined period of time.
+- The fingerprint is seen again after a specified period, such as **30 minutes**, **2 hours**, **1 day**, **1 week**, or **1 month**.
 
-When a fingerprint is automatically reopened, its status changes to **Open**, allowing your team to resume investigation and address the issue as part of the active workflow.
+When the configured condition is met, the system:
 
-:::important
-Changing a fingerprint to **Resolved** or **Muted** does not remove it from the system. The fingerprint remains available for future analysis and can be reopened manually or automatically if the configured reopen criteria are met.
-:::
+- Changes the fingerprint status to **Open**.
+
+- Reopens any linked issues.
+
+- Increments `invariant_reopen_count` by 1.
+
+- Updates `invariant_reopen_last_time` with the date and time when the fingerprint was reopened.
+
+You can use these attributes in **Triage** and **Explore** to identify and track regressions that cause a previously resolved or muted fingerprint to reopen.
