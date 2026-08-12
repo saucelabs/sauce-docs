@@ -127,7 +127,7 @@ values={[
 </Tabs>
 
 :::note
-You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix.
+You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your **[Appium client library](https://appium.io/docs/en/latest/ecosystem/clients/)** to a version that automatically applies the prefix.
 :::
 
 ## Configuring Appium Tests for Real Devices
@@ -158,7 +158,7 @@ You can also install a dependent app or an app upgrade during a test by using th
 
 ```js title=Driver App Example
 driver.installApp(
-'https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk'
+'https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.1.3.0.build-244.apk'
 )
 ```
 
@@ -171,7 +171,7 @@ driver.installApp(
 
 :::
 
-For more information about this command, see the [Appium documentation](http://appium.io/docs/en/commands/device/app/install-app/).
+For more information about this command, see the [Appium documentation](https://appium.io/docs/en/latest/reference/api/appium/#installapp).
 
 ### Excluding the `browserName`
 

@@ -16,18 +16,17 @@ Integrate Backtrace in your games and apps across languages and platforms with o
   <ul>
     <li><a href="/error-reporting/platform-integrations/android/setup/">Android</a></li>
     <li><a href="/error-reporting/platform-integrations/ios/setup/">iOS</a></li>
-    <li><a href="/error-reporting/platform-integrations/plcrash-reporter/">PLCrashReporter</a></li>
   </ul>
     </div>
   </div>
 <div className="container">
   <div className="box box2 card">
-  <h2>Video Game Consoles</h2>
+  <h2>Gaming Consoles & Engines</h2>
   <ul>
     <li><a href="/error-reporting/platform-integrations/unity/setup/">Unity</a></li>
     <li><a href="/error-reporting/platform-integrations/unreal/setup/">Unreal Engine</a></li>
     <li><a href="/error-reporting/platform-integrations/cryengine/">CryEngine</a></li>
-    <li><a href="/error-reporting/platform-integrations/nintendo/">Switch</a></li>
+    <li><a href="/error-reporting/platform-integrations/nintendo/">Nintendo Switch</a></li>
     <li><a href="/error-reporting/platform-integrations/ps4/">PlayStation 4</a></li>
     <li><a href="/error-reporting/platform-integrations/ps5/">PlayStation 5</a></li>
     <li><a href="/error-reporting/platform-integrations/xbox/">Xbox</a></li>
@@ -68,6 +67,8 @@ Integrate Backtrace in your games and apps across languages and platforms with o
   <div className="container">
   <h2>Other Integrations</h2>
   <ul>
+    <li><a href="/error-reporting/platform-integrations/macos/setup/">macOS</a></li>
+    <li><a href="/error-reporting/platform-integrations/plcrash-reporter/">PLCrashReporter</a></li>
     <li><a href="/error-reporting/platform-integrations/source-map/">Source Maps</a></li>
     <li><a href="/error-reporting/platform-integrations/session-replay/">Session Replay</a></li>
     <li><a href="/error-reporting/platform-integrations/apache/">Apache Traffic Server</a></li>

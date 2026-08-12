@@ -202,5 +202,5 @@ See [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-5/g
 
 - [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-5/guides/readiness-checks)
 - [Use host networking in Docker](https://docs.docker.com/network/host/)
-- [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/mac/networking/#use-cases-and-workarounds)
+- [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/features/networking/)
 - [Docker Compose File](https://docs.docker.com/compose/compose-file/compose-file-v3/)
