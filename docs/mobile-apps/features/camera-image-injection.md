@@ -31,7 +31,7 @@ Camera Image Injection is available for testing on all Sauce Labs Android and iO
 
 |                           |  Supported  | Not Supported |
 | :------------------------ | :---------: | :-----------: |
-| **Device Type **          |             |               |
+| **Device Type**          |             |               |
 | Android real devices      | &checkmark; |               |
 | iOS real devices          | &checkmark; |               |
 | Android Emulators         |             |   &#x2715;    |
@@ -250,5 +250,5 @@ This error is displayed due to one or more of these reasons:
 
 ## Additional Resources
 
-- [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app/examples/image-injection).
+- [Sauce Labs Image Injection code examples (GitHub)](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/mobile-app).
 - [Android Camera API | Google Developer Documentation](https://developer.android.com/guide/topics/media/camera).
