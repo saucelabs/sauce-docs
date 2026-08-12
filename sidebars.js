@@ -1220,7 +1220,6 @@ module.exports = {
                 'insights/history',
                 'insights/trends',
                 'insights/usage-report',
-                'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
                 {
@@ -1230,6 +1229,16 @@ module.exports = {
                     items: [
                         'insights/overview',
                         'insights/filter-scope-of-data',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Coverage',
+                    collapsed: true,
+                    items: [
+                        'insights/coverage',
+                        'insights/coverage/export-coverage-report',
+                        'insights/coverage/filter-for-coverage',
                     ],
                 },
             ],
