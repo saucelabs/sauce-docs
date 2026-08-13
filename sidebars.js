@@ -1214,9 +1214,7 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/scope',
                 'insights/errors',
-                'insights/history',
                 'insights/usage-report',
                 'insights/coverage',
                 'insights/failure-analysis',
@@ -1242,6 +1240,16 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Job History',
+                    collapsed: true,
+                    items: [
+                        'insights/history',
+                        'insights/job-history/job-performance-analysis',
+                        'insights/job-history/filter-controls-for-job-history',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Trends',
                     collapsed: true,
                     items: [
@@ -1251,8 +1259,6 @@ module.exports = {
                         'insights/trends/error-volume-trends',
                         'insights/trends/build-job-statistics',
                         'insights/trends/filter-controls',
-                    ],
-                },
             ],
         },
         {
