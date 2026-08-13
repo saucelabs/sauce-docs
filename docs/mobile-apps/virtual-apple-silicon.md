@@ -78,6 +78,7 @@ For full sample configurations and lists of available devices per version, use t
 | iOS 17.0*<br/>iOS 17.5 | 2.1.3 | iPhone 15 Simulator | true |
 | iOS 16.4<br/>iOS 18.0<br/>iOS 18.6 | 2.11.3 | iPhone 16 Simulator | true |
 | iOS 26.1 | 2.19.0 | iPhone 17 Simulator | true |
+| iOS 26.5 | 3.3.0 | iPhone 17 Simulator | true |
 
 *iOS 17.0 with ARM is only available for automated tests.
 
