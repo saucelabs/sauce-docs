@@ -297,7 +297,7 @@ To skip the uninstallation and reinstallation of your app from the device, you c
 }
 ```
 
-If you use `cacheId` purely to avoid the cleaning wait and don't need the app's state kept, set `allowCacheFallback` to `true`. A cached device that can't be reused then falls back to another available device instead of failing the session, at the cost of running on a freshly cleaned device.
+If losing the app's state does not break your tests, set `allowCacheFallback` to `true`. A cached device that can't be reused then falls back to another available device instead of failing the session, at the cost of running on a freshly cleaned device.
 
 ```js
 "sauce:options" : {
