@@ -1634,7 +1634,7 @@ components:
                 type: integer
                 example: 500
     MaxSessionLimitReached:
-      description: We will emit this message when you tried to start an Access API session, but you already have reached your max concurrency for Access API sessions. You must either close existing sessions, or get in contract with your Sauce Labs representative for more concurrency.
+      description: We will emit this message when you tried to start an Access API session, but you already have reached your max concurrency for Access API sessions. You must either close existing sessions, or get in contact with your Sauce Labs representative for more concurrency.
       content:
         application/problem+json:
           schema:
