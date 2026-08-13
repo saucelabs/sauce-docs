@@ -319,7 +319,7 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `autoGrantPermissions`
 - `appiumVersion`
 
-If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session. This is the default; set [`allowCacheFallback`](/dev/test-configuration-options/#allowcachefallback) to `true` to fall back to another device instead of failing.
+If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session. The default behavior is to fail the session and end the cached session; set [`allowCacheFallback`](/dev/test-configuration-options/#allowcachefallback) to `true` to fall back to another device instead of failing.
 
 ### WebDriverAgent for iOS Real Devices
 
