@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Sauce AI Agent helps you explore and understand your testing data using natural language. Instead of manually reviewing dashboards and reports, you can ask questions about your test results and receive clear, AI-generated answers.
 
-The agent automatically uses the data available in the **[Sauce Home widgets](/docs/insights/home.md#digging-into-the-data-with-widgets)** to provide relevant insights, summaries, charts, and recommendations, helping you investigate issues and understand your testing results more efficiently.
+The agent automatically uses the data available in the **[Sauce Home widgets](/docs/insights/home.md#dashboard-layout)** to provide relevant insights, summaries, charts, and recommendations, helping you investigate issues and understand your testing results more efficiently.
 
 **Step 1:** Inside your Sauce Labs account, by default, you are directed to the **Home** page.
 
