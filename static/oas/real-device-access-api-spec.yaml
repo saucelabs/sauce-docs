@@ -1646,9 +1646,8 @@ components:
         detail:
           type: string
           example: 'The deviceId "Samsung XR" does not exist. Please ensure you provide an existing device Id.'
-
     MaxSessionLimitReached:
-    type: object
+      type: object
       description: We will emit this message when you tried to start an Access API session, but you already have reached your max concurrency for Access API sessions. You must either close existing sessions, or get in contract with your Sauce Labs representative for more concurrency.
       properties:
         type:
