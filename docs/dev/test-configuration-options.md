@@ -1410,6 +1410,8 @@ and specific `sauce:options` like:
 
 Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
+If the cached device cannot be reused, the session fails instead of falling back to another device. See [`allowCacheFallback`](#allowcachefallback) to change that behavior.
+
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 ```java
@@ -1417,6 +1419,27 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("cacheId", "Wou0L9usPI9v");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `allowCacheFallback`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Controls what happens when a test that asks for a cached device cannot reuse it. Default value is `false`. Only has an effect when paired with [`cacheId`](#cacheid).
+
+By default, if an error occurs while starting the Appium session on the cached device, the session fails immediately with an error describing the issue and the device is deallocated. Sauce Labs does not retry, because a retry resets the device and would silently break the app state that `cacheId` and [`noReset`](#appiumnoreset) preserve.
+
+Set `allowCacheFallback` to `true` if you use `cacheId` only to save device cleaning time and do not depend on your app's state being preserved. Sauce Labs then releases the cached device and retries on another available device matching your device query — which may be the same device after cleaning. The session can still start, but on a freshly cleaned device: your app is reinstalled, its data is gone, and the cached session ends.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("cacheId", "Wou0L9usPI9v");
+sauceOptions.setCapability("allowCacheFallback", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 

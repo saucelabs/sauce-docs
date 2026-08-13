@@ -297,6 +297,15 @@ To skip the uninstallation and reinstallation of your app from the device, you c
 }
 ```
 
+If you use `cacheId` purely to avoid the cleaning wait and don't need the app's state kept, set `allowCacheFallback` to `true`. A cached device that can't be reused then falls back to another available device instead of failing the session, at the cost of running on a freshly cleaned device.
+
+```js
+"sauce:options" : {
+  "cacheId" : "jnc0x1256",
+  "allowCacheFallback" : true,
+}
+```
+
 When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the app must be the same for all tests, as must the values for the following capabilities:
 
 - `deviceName`
@@ -310,7 +319,7 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `autoGrantPermissions`
 - `appiumVersion`
 
-If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session.
+If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session. This is the default; set [`allowCacheFallback`](/dev/test-configuration-options/#allowcachefallback) to `true` to fall back to another device instead of failing.
 
 ### WebDriverAgent for iOS Real Devices
 
