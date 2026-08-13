@@ -1214,7 +1214,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/home',
                 'insights/scope',
                 'insights/errors',
                 'insights/history',
@@ -1224,6 +1223,16 @@ module.exports = {
                 'insights/failure-analysis',
                 'insights/debug',
                 {
+                    type: 'category',
+                    label: 'Sauce Home',
+                    collapsed: true,
+                    items: [
+                        'insights/home',
+                        'insights/sauce-home/export-widget-report',
+                        'insights/sauce-home/sauce-home-filters',
+                      ],
+                  },
+                  {
                     type: 'category',
                     label: 'Job Overview',
                     collapsed: true,
