@@ -1430,7 +1430,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Controls what happens when a test that asks for a cached device cannot reuse it. Default value is `false`. Only has an effect when paired with [`cacheId`](#cacheid).
 
-By default, if an error occurs while starting the Appium session on the cached device, the session fails immediately with an error describing the issue and the device is deallocated. Sauce Labs does not retry, because a retry resets the device and would silently break the app state that `cacheId` and [`noReset`](#appiumnoreset) preserve.
+A session start that fails on a cached device because of a transient server-side error is always retried on the same device, so the cached session survives. By default, if it still cannot be started, the session fails with an error describing the issue and the device is deallocated. Sauce Labs does not fall back to a different device, because that resets it and would silently break the app state that `cacheId` and [`noReset`](#appiumnoreset) preserve.
 
 Set `allowCacheFallback` to `true` if you use `cacheId` only to save device cleaning time and do not depend on your app's state being preserved. Sauce Labs then releases the cached device and retries on another available device matching your device query — which may be the same device after cleaning. The session can still start, but on a freshly cleaned device: your app is reinstalled, its data is gone, and the cached session ends.
 
