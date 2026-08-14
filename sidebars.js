@@ -58,6 +58,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/android/setup',
                                         'error-reporting/platform-integrations/android/configuration',
+                                        'error-reporting/platform-integrations/android/native-crash-integration',
                                         'error-reporting/platform-integrations/android/proguard-deobfuscation',
                                     ],
                                 },
@@ -1229,9 +1230,9 @@ module.exports = {
                         'insights/home',
                         'insights/sauce-home/export-widget-report',
                         'insights/sauce-home/sauce-home-filters',
-                      ],
-                  },
-                  {
+                    ],
+                },
+                {
                     type: 'category',
                     label: 'Job Overview',
                     collapsed: true,
