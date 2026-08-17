@@ -1238,6 +1238,7 @@ module.exports = {
                     ],
                 },
                 {
+                    type: 'category',
                     label: 'Job History',
                     collapsed: true,
                     items: [
