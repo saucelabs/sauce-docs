@@ -1214,7 +1214,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/usage-report',
                 'insights/failure-analysis',
                 'insights/debug',
                 {
@@ -1269,6 +1268,15 @@ module.exports = {
                         'insights/coverage/filter-for-coverage',
                     ],
                 },
+                {     
+                    type: 'category',  
+                    label: 'Usage',
+                    collapsed: true,
+                    items: [
+                        'insights/usage-report',
+                        'insights/usage/filter-control-for-concurrency-usage',
+                    ],
+                },
                 {
                     type: 'category',
                     label: 'Errors',
@@ -1276,7 +1284,6 @@ module.exports = {
                     items: [
                         'insights/errors',
                         'insights/errors/filter-control-for-error-tracking',
-                    ],
                 },
             ],
         },
