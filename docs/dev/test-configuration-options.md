@@ -1410,6 +1410,8 @@ and specific `sauce:options` like:
 
 Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
+If the cached device cannot be reused because of an unrecoverable error, the session fails immediatly. If needed, this behaviour can be changed. See [`allowCacheFallback`](#allowcachefallback) for details.
+
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 ```java
@@ -1417,6 +1419,27 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("cacheId", "Wou0L9usPI9v");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `allowCacheFallback`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Controls the behaviour of a test in a cached device session in case of an unrecoverable error. Default value is `false`. Only has an effect when paired with [`cacheId`](#cacheid).
+
+When a test that is part of a cached device session fails to start due of a transient server-side error it is retried on the same device, so the cached session survives. By default, if the retry mechanism can not recover the error, the test fails with an message describing the issue and the device is deallocated. Sauce Labs does not fall back to a different device, to avoid silently breaking the app state that `cacheId` and [`noReset`](#appiumnoreset) preserve.
+
+Set `allowCacheFallback` to `true` if you would rather try a new device allocation instead of failing the test in this situation. Sauce Labs then releases the cached device and retries on another available device matching your device query — which may be the same device after cleaning. The session can still start, but on a freshly cleaned device: your app is reinstalled, its data is gone, and the cached session ends.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("cacheId", "Wou0L9usPI9v");
+sauceOptions.setCapability("allowCacheFallback", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
