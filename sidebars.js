@@ -1216,7 +1216,6 @@ module.exports = {
                 'insights',
                 'insights/errors',
                 'insights/usage-report',
-                'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
                 {
@@ -1259,6 +1258,16 @@ module.exports = {
                         'insights/trends/error-volume-trends',
                         'insights/trends/build-job-statistics',
                         'insights/trends/filter-controls',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Coverage',
+                    collapsed: true,
+                    items: [
+                        'insights/coverage',
+                        'insights/coverage/export-coverage-report',
+                        'insights/coverage/filter-for-coverage',
                     ],
                 },
             ],
