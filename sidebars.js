@@ -1014,7 +1014,6 @@ module.exports = {
                                 'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
-
                                 {
                                     type: 'category',
                                     label: 'Espresso Features',
@@ -1215,9 +1214,7 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/scope',
                 'insights/errors',
-                'insights/trends',
                 'insights/usage-report',
                 'insights/coverage',
                 'insights/failure-analysis',
@@ -1249,6 +1246,19 @@ module.exports = {
                         'insights/history',
                         'insights/job-history/job-performance-analysis',
                         'insights/job-history/filter-controls-for-job-history',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Trends',
+                    collapsed: true,
+                    items: [
+                        'insights/trends',
+                        'insights/trends/job-volume-trends',
+                        'insights/trends/pass-fail-rate',
+                        'insights/trends/error-volume-trends',
+                        'insights/trends/build-job-statistics',
+                        'insights/trends/filter-controls',
                     ],
                 },
             ],
