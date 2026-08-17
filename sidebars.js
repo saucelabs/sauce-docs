@@ -1013,7 +1013,6 @@ module.exports = {
                                 'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
-
                                 {
                                     type: 'category',
                                     label: 'Espresso Features',
@@ -1227,9 +1226,9 @@ module.exports = {
                         'insights/home',
                         'insights/sauce-home/export-widget-report',
                         'insights/sauce-home/sauce-home-filters',
-                      ],
-                  },
-                  {
+                    ],
+                },
+                {
                     type: 'category',
                     label: 'Job Overview',
                     collapsed: true,
@@ -1259,6 +1258,8 @@ module.exports = {
                         'insights/trends/error-volume-trends',
                         'insights/trends/build-job-statistics',
                         'insights/trends/filter-controls',
+                    ],
+                },
             ],
         },
         {
