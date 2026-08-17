@@ -1215,7 +1215,6 @@ module.exports = {
             items: [
                 'insights',
                 'insights/errors',
-                'insights/usage-report',
                 'insights/failure-analysis',
                 'insights/debug',
                 {
@@ -1268,6 +1267,15 @@ module.exports = {
                         'insights/coverage',
                         'insights/coverage/export-coverage-report',
                         'insights/coverage/filter-for-coverage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Usage',
+                    collapsed: true,
+                    items: [
+                        'insights/usage-report',
+                        'insights/usage/filter-control-for-concurrency-usage',
                     ],
                 },
             ],
