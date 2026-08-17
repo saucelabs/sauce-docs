@@ -7,8 +7,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce AI for Insights brings generative AI directly into the **[Sauce Home widgets](/docs/insights/home.md#digging-into-the-data-with-widgets)** you already use. Each widget comes equipped with a conversational interface to which you can ask complex queries such as:\
-
 Sauce AI for Insights brings generative AI directly into the **Sauce Home** experience, allowing you to use AI to analyze the data presented in your Insights widgets. Select **[Sauce AI](/docs/sauce-ai/ai-insights/use-sause-ai-assistants.md)** to ask questions about your testing data and get insights based on the available metrics.
 
 > “What’s the most recurring error in our regression tests?”
