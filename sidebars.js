@@ -58,6 +58,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/android/setup',
                                         'error-reporting/platform-integrations/android/configuration',
+                                        'error-reporting/platform-integrations/android/native-crash-integration',
                                         'error-reporting/platform-integrations/android/proguard-deobfuscation',
                                     ],
                                 },
@@ -1013,7 +1014,6 @@ module.exports = {
                                 'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
-
                                 {
                                     type: 'category',
                                     label: 'Espresso Features',
@@ -1214,15 +1214,20 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/home',
-                'insights/scope',
                 'insights/errors',
-                'insights/history',
-                'insights/trends',
                 'insights/usage-report',
-                'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
+                {
+                    type: 'category',
+                    label: 'Sauce Home',
+                    collapsed: true,
+                    items: [
+                        'insights/home',
+                        'insights/sauce-home/export-widget-report',
+                        'insights/sauce-home/sauce-home-filters',
+                    ],
+                },
                 {
                     type: 'category',
                     label: 'Job Overview',
@@ -1230,6 +1235,39 @@ module.exports = {
                     items: [
                         'insights/overview',
                         'insights/filter-scope-of-data',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Job History',
+                    collapsed: true,
+                    items: [
+                        'insights/history',
+                        'insights/job-history/job-performance-analysis',
+                        'insights/job-history/filter-controls-for-job-history',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Trends',
+                    collapsed: true,
+                    items: [
+                        'insights/trends',
+                        'insights/trends/job-volume-trends',
+                        'insights/trends/pass-fail-rate',
+                        'insights/trends/error-volume-trends',
+                        'insights/trends/build-job-statistics',
+                        'insights/trends/filter-controls',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Coverage',
+                    collapsed: true,
+                    items: [
+                        'insights/coverage',
+                        'insights/coverage/export-coverage-report',
+                        'insights/coverage/filter-for-coverage',
                     ],
                 },
             ],
