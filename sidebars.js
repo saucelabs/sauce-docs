@@ -1214,7 +1214,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/errors',
                 'insights/failure-analysis',
                 'insights/debug',
                 {
@@ -1276,6 +1275,15 @@ module.exports = {
                     items: [
                         'insights/usage-report',
                         'insights/usage/filter-control-for-concurrency-usage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Errors',
+                    collapsed: true,
+                    items: [
+                        'insights/errors',
+                        'insights/errors/filter-control-for-error-tracking',
                     ],
                 },
             ],
