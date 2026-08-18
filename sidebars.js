@@ -1214,9 +1214,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/errors',
-                'insights/usage-report',
-                'insights/debug',
                 {
                     type: 'category',
                     label: 'Sauce Home',
@@ -1271,13 +1268,32 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Usage',
+                    collapsed: true,
+                    items: [
+                        'insights/usage-report',
+                        'insights/usage/filter-control-for-concurrency-usage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Errors',
+                    collapsed: true,
+                    items: [
+                        'insights/errors',
+                        'insights/errors/filter-control-for-error-tracking',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Failure Analysis',
                     collapsed: true,
                     items: [
                         'insights/failure-analysis',
                         'insights/failure-analysis/filter-failure-analysis',
-                    ],
+                     ],
                 },
+                'insights/debug',
             ],
         },
         {
