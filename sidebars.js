@@ -1268,8 +1268,8 @@ module.exports = {
                         'insights/coverage/filter-for-coverage',
                     ],
                 },
-                {     
-                    type: 'category',  
+                {
+                    type: 'category',
                     label: 'Usage',
                     collapsed: true,
                     items: [
@@ -1284,6 +1284,7 @@ module.exports = {
                     items: [
                         'insights/errors',
                         'insights/errors/filter-control-for-error-tracking',
+                    ],
                 },
             ],
         },
