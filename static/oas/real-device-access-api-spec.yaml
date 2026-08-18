@@ -1900,6 +1900,19 @@ components:
             osVersion:
               type: string
               example: "15.0"
+            resolutionWidth:
+              type: integer
+              description: "Screen width in pixels."
+              example: 1179
+            resolutionHeight:
+              type: integer
+              description: "Screen height in pixels."
+              example: 2556
+            screenSize:
+              type: number
+              format: double
+              description: "Screen diagonal size in inches."
+              example: 6.1
         appium:
           type: object
           properties:
