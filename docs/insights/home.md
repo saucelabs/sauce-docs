@@ -1,78 +1,112 @@
 ---
 id: home
 title: Getting to know Sauce Home
-sidebar_label: Home
+sidebar_label: Insights Widgets
 description: Get real-time, AI-powered clarity from your test data with data, analytics, and insights to drive your next action in one holistic view.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Home is your AI-powered hub. It provides real-time analytics and actionable insights from test data, helping Engineering and Quality teams swiftly address issues, accelerate delivery, and boost product quality and customer satisfaction.
+**Sauce Home** is the main dashboard for viewing testing data across your Sauce Labs organization. It provides a consolidated view of test execution metrics, build information, device coverage, visual testing results, failure analysis, and production error reporting.
 
-<img src={useBaseUrl('img/insights/home_overview.png')} alt="Home Overview"/>
+The dashboard organizes this information into widgets, with each widget displaying metrics for a specific area of your testing environment. Most widgets provide links to dedicated pages where you can view additional details and investigate the underlying data.
 
-## Accessing Sauce Home
+Use Sauce Home to monitor testing activity, review quality metrics, identify failures, and access detailed reports from a single location.
 
-Not only is Sauce home now your landing page when logging into Sauce Labs, but it's the place you'll return to frequently check on your testing strategy and preformance regularly. You can access Sauce Home a few different ways.
+## Access Sauce Home
 
-1. Click the **Home** tab in the left-hand navigation pane to return to Sauce Home.
-2. Click the Sauce Labs logo in the top left corner of your screen.
+Sauce Home is the default landing page after signing in to your Sauce Labs account. You can return to the dashboard at any time while working in Sauce Labs.
 
-## Setting the Scope of the Sauce Home page
+**Step 1:** From the left navigation menu, click **Home**. This opens the Sauce Home dashboard and displays the latest testing insights for your selected organization, team, or user.
 
-Sauce Home allows you to filter your test data to surface what's most important to you. You can view data by organization, team, or individual in addition to customizing the date range for which the scope will apply. Use the filters at the top left of the homepage to set your frame of reference.
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-1.png')} alt="Insights Widgets"/>
 
-<img src={useBaseUrl('img/insights/home_filter_bar.png')} alt="Home Filter Bar"/>
+**Step 2:** Click the **Sauce Labs** logo in the upper-left corner of the page to return to the Sauce Home dashboard from anywhere with in the Sauce Labs platform.
 
-## Exporting the Sauce Home page for sharing
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-2.png')} alt="Insights Widgets"/>
 
-Sauce Home is a great tool to share with your teammates. You can export the full page by clicking the small download arrow in the top right of the page to export to PDF. 
+The Sauce Home dashboard opens and displays testing metrics based on your current organization and filter selections.
 
-<img src={useBaseUrl('img/insights/home_export_to_pdf.png')} alt="Home Summary Widget"/>
+## Dashboard Layout
 
-## Digging Into the Data With Widgets
+The Sauce Home dashboard is organized into several sections that provide insights into different aspects of your testing environment. Each section is displayed as an individual widget that summarizes key metrics and provides quick access to detailed reports.
 
-The Sauce Home page has numerous widgets to highlight the results and changes in your testing data that matter most to you. 
+Depending on the Sauce Labs products enabled for your organization, the dashboard may include widgets for:
 
-### The Summary Widget
+* **[Summary](#summary)**
+* **[Automated builds](#automated-builds)**
+* **[Device coverage](#device-coverage)**
+* **[Most failing devices](#most-failing-devices)**
+* **[Visual builds](#visual-builds)**
+* **[Failure analysis](#failure-analysis)**
+* **[Production Error Reporting](#production-error-reporting)**
 
-Summarizes key metrics in one place to streamline decision-making with metrics like pass and error rates that highlight when something needs your attention.
+Each widget displays real-time information based on the filters applied to the dashboard.
 
-<img src={useBaseUrl('img/insights/home_summary_widget.png')} alt="Home Summary Widget"/>
+### Summary
 
-### The Device Coverage Widget
+The **Summary** widget provides a high-level overview of your testing activity for the selected organization, team, user, and date range. It displays key performance indicators that help you quickly evaluate the overall health of your testing environment.
 
-Shows which devices you're testing against so you can align your testing practices with your user-base. Clicking **view more** at the bottom of the widget will take you to the expanded [Device Coverage](/insights/coverage) page. 
+The widget includes metrics such as the total number of tests executed, job pass rate, job error rate, job failure rate, automated build pass rate, average test execution time, and median test execution time. These metrics provide an at-a-glance summary of your testing performance and help identify changes or issues that may require further investigation.
 
-<img src={useBaseUrl('img/insights/home_device_coverage.png')} alt="Home Device Coverage Widget"/>
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-3.png')} alt="Insights Widgets"/>
 
-### The Automated Builds Widget
+### Automated Builds
 
-Connects test results to builds to spot and understand performance and quality issues early in the testing process. Bulid details include pass rate and number of total jobs in each build. The automated Builds widget links out to the [Builds](/test-results/viewing-test-results/#automated-builds-results) page when clicking **view more** at the bottom of the widget.
+The **Automated Builds** widget displays recently executed automated test builds and their execution status. Each entry includes information such as the build name, execution time, overall pass rate, and the number of tests executed with in the build.
 
-<img src={useBaseUrl('img/insights/home_automated_builds-widget.png')} alt="Home Automated Builds Widget"/>
+This widget allows you to monitor build quality, identify failed or unstable builds, and quickly determine which builds require further investigation. Selecting **View More** opens the complete [Builds](/docs/test-results/viewing-test-results.md#automated-builds-results) page, where you can access additional build details and test results.
 
-### The Visual Builds Widget
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-4.png')} alt="Insights Widgets"/>
 
-Highlights your UI testing in a holistic picture to help you understand each build by surfacing total snapshots, diffs for review, and kick-off time. As above, clicking **view more** will take you to the expanded Visual Testing Builds page. 
+### Device Coverage
 
-<img src={useBaseUrl('img/insights/home_visual_builds-widget.png')} alt="Home Visual Builds Widget"/>
+The **Device Coverage** widget provides an overview of the devices used during automated and live testing. It displays the total number of unique devices used with in the selected time period and highlights the devices that generated the highest number of test sessions.
 
-### The Failure Analysis Widget
+This information helps you evaluate your device testing strategy, understand which devices are being tested most frequently, and identify opportunities to expand testing coverage across additional devices or operating system versions.
 
-Surfaces the most pervasive failure patterns identified by custom pattern recognition to speed root cause investigations. Failure Analysis looks across all your tests, finds common failure patterns, and aggregates those patterns and jobs for your attention. **View more** will take you to the expanded [Failure Analysis](/insights/failure-analysis/) page where you can view the failure patterns and associated jobs that are affected by each pattern. 
+Selecting **View More** opens the [Device Coverage](/docs/insights/coverage.md) page, where you can explore detailed device usage metrics and session information.
 
-<img src={useBaseUrl('img/insights/home_failure_analysis_widget.png')} alt="Home Failure Analysis Widget"/>
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-5.png')} alt="Insights Widgets"/>
 
-### The Most Failing Devices Widget
+### Most Failing Devices
 
-Spots which devices are failing the most often and surfaces those devices with most failures to you. Clicking **view more** will take you to the [Job History](/insights/history/) page with selected filters applied. 
+The **Most Failing Devices** widget highlights the devices with the highest number of failed test executions. Each device entry includes the number of executed tests, failed tests, and the corresponding failure rate.
 
-<img src={useBaseUrl('img/insights/home_most_failing_devices_widget.png')} alt="Home Most Failing Devices Widget"/>
+By identifying devices that consistently experience test failures, this widget helps you detect device-specific issues, prioritize debugging efforts, and determine whether failures are isolated to particular hardware models or operating system versions.
 
-### The Production Errors Widget
+Selecting **View More** opens the [Job History](/docs/insights/history.md) page with filters applied for the selected device, allowing you to investigate the associated test executions.
 
-Bridges pre-production testing with production stability by surfacing data from Error Reporting directly in Sauce Home. Each project in your connected Error Reporting universe is listed alongside its current Error-Free Rate — the percentage of unique users experiencing your application without errors — giving you a real-time read on application health. To populate the widget, log into Error Reporting from the Sauce sidebar and confirm stability metrics are enabled for your projects via the SDK. [(Setup Guide)](/error-reporting/project-setup/stability-metrics)
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-6.png')} alt="Insights Widgets"/>
 
-<img src={useBaseUrl('img/insights/home_error_reporting.png')} alt="Production Errors Widget"/>
+### Visual Builds
+
+The **Visual Builds** widget provides an overview of recent visual testing builds. Each build displays information such as the build name, execution time, total snapshots captured, and the number of visual differences detected.
+
+This widget allows you to monitor visual testing activity, identify builds that require review, and quickly determine whether user interface changes have introduced unexpected visual regressions.
+
+Selecting **View More** opens the Visual Testing Builds page, where you can review snapshots, compare visual differences, and manage visual test results.
+
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-7.png')} alt="Insights Widgets"/>
+
+### Failure Analysis
+
+The **Failure Analysis** widget identifies recurring failure patterns detected across automated test executions. Similar failures are grouped together into patterns and displayed with the number of affected jobs and the percentage of failures associated with each pattern.
+
+This helps teams quickly identify common causes of test failures, prioritize investigation based on impact, and focus debugging efforts on issues affecting the largest number of test executions.
+
+Selecting **View More** opens the Failure [Analysis page](/docs/insights/failure-analysis.md), where you can explore each failure pattern, review associated jobs, and investigate additional diagnostic information.
+
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-8.png')} alt="Insights Widgets"/>
+
+### Production Error Reporting
+
+The **Production Error Reporting** widget displays application stability metrics collected from connected Sauce Labs Error Reporting projects. Each connected project displays its current **Error-Free Rate**, representing the percentage of unique users who used the application without encountering an error during the selected reporting period.
+
+This widget helps bridge pre-production testing with production monitoring by allowing teams to compare testing results with real-world application stability. It also helps identify applications that require attention after deployment.
+
+To populate this widget, Error Reporting must be configured for the project and stability metrics must be enabled through the Error Reporting SDK. Selecting **View More** opens the Error Reporting project for additional investigation.([Setup Guide](/docs/error-reporting/project-setup/stability-metrics.md))
+
+<img src={useBaseUrl('img/insights/insights-widgets/insights-widgets-9.png')} alt="Insights Widgets"/>
+
 
