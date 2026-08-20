@@ -58,6 +58,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/android/setup',
                                         'error-reporting/platform-integrations/android/configuration',
+                                        'error-reporting/platform-integrations/android/native-crash-integration',
                                         'error-reporting/platform-integrations/android/proguard-deobfuscation',
                                     ],
                                 },
@@ -1013,7 +1014,6 @@ module.exports = {
                                 'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
-
                                 {
                                     type: 'category',
                                     label: 'Espresso Features',
@@ -1214,15 +1214,18 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/home',
-                'insights/scope',
-                'insights/errors',
-                'insights/history',
-                'insights/trends',
-                'insights/usage-report',
-                'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
+                {
+                    type: 'category',
+                    label: 'Sauce Home',
+                    collapsed: true,
+                    items: [
+                        'insights/home',
+                        'insights/sauce-home/export-widget-report',
+                        'insights/sauce-home/sauce-home-filters',
+                    ],
+                },
                 {
                     type: 'category',
                     label: 'Job Overview',
@@ -1230,6 +1233,57 @@ module.exports = {
                     items: [
                         'insights/overview',
                         'insights/filter-scope-of-data',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Job History',
+                    collapsed: true,
+                    items: [
+                        'insights/history',
+                        'insights/job-history/job-performance-analysis',
+                        'insights/job-history/filter-controls-for-job-history',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Trends',
+                    collapsed: true,
+                    items: [
+                        'insights/trends',
+                        'insights/trends/job-volume-trends',
+                        'insights/trends/pass-fail-rate',
+                        'insights/trends/error-volume-trends',
+                        'insights/trends/build-job-statistics',
+                        'insights/trends/filter-controls',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Coverage',
+                    collapsed: true,
+                    items: [
+                        'insights/coverage',
+                        'insights/coverage/export-coverage-report',
+                        'insights/coverage/filter-for-coverage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Usage',
+                    collapsed: true,
+                    items: [
+                        'insights/usage-report',
+                        'insights/usage/filter-control-for-concurrency-usage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Errors',
+                    collapsed: true,
+                    items: [
+                        'insights/errors',
+                        'insights/errors/filter-control-for-error-tracking',
                     ],
                 },
             ],
@@ -1240,10 +1294,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'sauce-ai',
-                'sauce-ai/ai-insights',
-                'sauce-ai/ai-authoring',
-                'sauce-ai/ai-insights-prompting-guide',
-                'sauce-ai/ai-authoring-prompting-guide',
                 {
                     type: 'category',
                     label: 'Test Authoring',
@@ -1263,12 +1313,32 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'AI Insights',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-insights',
+                        'sauce-ai/ai-insights/use-sause-ai-assistants',
+                        'sauce-ai/ai-insights/automated-bug-troubleshooting',
+                        'sauce-ai/ai-insights/privacy-safety-and-trust',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Sauce MCP',
                     collapsed: true,
                     items: [
                         'sauce-ai/sauce-mcp',
                         'sauce-ai/sauce-mcp-getting-started',
                         'sauce-ai/sauce-mcp-tools',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Error Reporting',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/error-reporting/overview',
+                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
                 {
@@ -1280,15 +1350,6 @@ module.exports = {
                         'sauce-ai/ai-insights-prompting-guide',
                         'sauce-ai/prompting-guides/error-reporting',
                         'sauce-ai/real-device-cloud-mcp-prompting-guide',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Error Reporting',
-                    collapsed: true,
-                    items: [
-                        'sauce-ai/error-reporting/overview',
-                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
             ],

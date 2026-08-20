@@ -82,4 +82,4 @@ Select the Sauce Labs device, enter your Apple Developer Team ID, and click **Co
 
 Check out the [Evinced](https://www.evinced.com/) and [Sauce Labs](https://saucelabs.com/sign-up) pages for more information on getting started!
 
-This page was developed with the generous help of the Evinced team, from [their own documentation](https://get-evinced.com/blog/evinced-flow-analyzer-for-mobile-sauce-labs/).
+This page was developed with the generous help of the Evinced team, from [their own documentation](https://www.evinced.com/blog/evinced-flow-analyzer-for-mobile-sauce-labs).
