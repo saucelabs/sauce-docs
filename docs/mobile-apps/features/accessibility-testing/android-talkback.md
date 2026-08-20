@@ -11,12 +11,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 TalkBack is Android's built-in screen reader. Sauce Labs allows you to enable TalkBack on real devices with a single click during live testing sessions, without going to the OS settings. You can navigate through elements using the keyboard and hear audio feedback for each focused element.
 
+TalkBack is supported on all public and private Android real devices running Android 12 or above.
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An Android real device session (Live Testing).
 - Android 12 or above.
-- **Private devices only.** Reach out to our Support Team or your Sauce Labs representative to get this configured.
 
 ## Enabling TalkBack
 
@@ -65,7 +66,6 @@ For more details on sharing sessions, see [Live Mobile App Testing](/mobile-apps
 
 ## Limitations
 
-- TalkBack is only supported on **private devices**. Contact our Support Team to get this configured.
 - Android 12 or above is required.
 - Website testing is not yet available on Android.
 

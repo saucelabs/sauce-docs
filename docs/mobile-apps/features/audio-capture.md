@@ -57,14 +57,13 @@ We are using Twilio's webrtc service in order to stream audio from a Real Device
 
 :::note Limitations
 
-- Android TalkBack is ONLY supported on Private devices, reach out to our Support Team or your Sauce Labs representative to get this configured.
 - Website testing is not yet available on Android.
 
 :::
 
 ## Using Audio Capture and Streaming on your Android Device
 
-You will have the capability to capture audio on Android 10 and later versions. On private devices, you can test TalkBack on Android 12 and later versions.
+You will have the capability to capture audio on Android 10 and later versions. You can test TalkBack on Android 12 and later versions.
 
 :::note
 Once `audioCapture` is enabled, the status bar will display the recording icon.
