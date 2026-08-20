@@ -27,6 +27,7 @@ Supported OS:
 
 Sauce Labs supports the following test configurations for Playwright:
 
+<!-- vale sauce.DateFormat = NO -->
 <table id="table-fw">
   <tr>
     <th>Playwright Version</th>
@@ -193,6 +194,7 @@ Sauce Labs supports the following test configurations for Playwright:
     </tr>
   </tbody>
 </table>
+<!-- vale sauce.DateFormat = YES -->
 
 *macOS 14+ requires an appropriate subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
