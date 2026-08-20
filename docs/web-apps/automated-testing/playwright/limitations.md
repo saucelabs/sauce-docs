@@ -28,7 +28,7 @@ Webkit is not working on macOS 12 since Playwright 1.44.0.
 
 ### macOS 14 + Playwright 1.62+ + Webkit
 
-Webkit is not working on macOS 14 since Playwright 1.62.0. Playwright [removed macOS 14 WebKit support in v1.59](https://playwright.dev/docs/release-notes); the pinned build no longer works with the 1.62 library. Use macOS 15 for Webkit testing on Apple Silicon.
+Webkit is not working on macOS 14 since Playwright 1.62.0. Playwright pins macOS 14 to a frozen WebKit build that the 1.62 library is no longer protocol compatible with. Use macOS 15 for Webkit testing on Apple Silicon.
 
 ### macOS 12 + Playwright 1.62+ + Chromium
 
