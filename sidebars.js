@@ -1215,8 +1215,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/failure-analysis',
-                'insights/debug',
                 {
                     type: 'category',
                     label: 'Sauce Home',
@@ -1287,6 +1285,16 @@ module.exports = {
                         'insights/errors/filter-control-for-error-tracking',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Failure Analysis',
+                    collapsed: true,
+                    items: [
+                        'insights/failure-analysis',
+                        'insights/failure-analysis/filter-failure-analysis',
+                     ],
+                },
+                'insights/debug',
             ],
         },
         {
