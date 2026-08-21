@@ -47,7 +47,7 @@ paths:
       parameters:
         - name: deviceName
           in: query
-          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
+          description: "Filter by device identifier (supports regex). Matches the descriptor ID or device name."
           required: false
           schema:
             type: string
@@ -108,7 +108,7 @@ paths:
             type: boolean
         - name: deviceName
           in: query
-          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
+          description: "Filter by device identifier (supports regex). Matches both descriptor and deviceName fields."
           schema:
             type: string
             example: "iPhone.*"
@@ -145,7 +145,7 @@ paths:
                   properties:
                     deviceName:
                       type: string
-                      description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches. If omitted, any device will be selected."
+                      description: "Device identifier (supports regex). If omitted, any device will be selected. Matches both descriptor and deviceName fields."
                       example: "iPhone_16_real"
                     os:
                       description: Filter by operating system (Android or iOS). The enum is case insensitive.
@@ -171,6 +171,8 @@ paths:
                 $ref: "#/components/schemas/SessionCreation"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "409":
+          $ref: "#/components/responses/MaxSessionLimitReached"
     get:
       operationId: listSessions
       summary: List device sessions
@@ -187,7 +189,7 @@ paths:
         - name: deviceName
           in: query
           required: false
-          description: "Provide a descriptor (Device ID) to target a specific device, or use a regular expression matched against the deviceName (Display Name) to broaden the pool of matches."
+          description: "Filter by device identifier (supports regex). Matches both descriptor and deviceName fields."
           schema:
             type: string
       responses:
@@ -585,8 +587,9 @@ paths:
       summary: Launch WDA installed on the device
       description: |
         Launches WebDriverAgent (WDA) on an iOS device. WDA enables Appium-based automation by providing
-        a WebDriver-compatible interface to the device. Optionally provide a custom bundleId if you've deployed
-        your own WDA fork. Use getWebDriverAgentStatus to check if WDA is already running before launching.
+        a WebDriver-compatible interface to the device. Please use the installApp endpoint to provide your own
+        WDA binary and use getWebDriverAgentStatus to check if WDA is running. After launching, you can interact with 
+        the newly installed WDA using the the HTTP Proxy​ endpoinds provided by this API.
       tags:
         - "Device Interactions"
       parameters:
@@ -1630,6 +1633,22 @@ components:
               status:
                 type: integer
                 example: 500
+    MaxSessionLimitReached:
+      description: We will emit this message when you try to start an Access API session, but you have already reached your max concurrency for Access API sessions. You must either close existing sessions or contact your Sauce Labs representative for more concurrency.
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Access API Concurrency Limit Reached
+              detail:
+                type: string
+                example: 'Your organization has reached its maximum allowed concurrent Access API sessions 5 based on your current plan. Please wait for an existing session to complete or contact your Customer Success Manager or the Sauce Labs Support Team if you need to increase your concurrent sessions.'
   schemas:
     BadRequestBody:
       type: object

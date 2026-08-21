@@ -113,6 +113,14 @@ val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{su
 </TabItem>
 </Tabs>
 
+## Enable Native Crash Integration (Optional)
+
+To capture crashes in NDK or JNI code, construct `BacktraceClient` with a writable `BacktraceDatabase` and complete the initial client configuration. For new integrations, call `tryEnableNativeIntegration()` so the application can observe whether native crash-handler registration succeeded. The existing `enableNativeIntegration()` method remains supported for applications that do not need the result. Call one of these methods, not both.
+
+A contained native setup failure does not disable managed Java exception reporting or ANR monitoring.
+
+Native initialization is synchronous and process-scoped. For complete setup examples, threading requirements, Android App Bundle behavior, supported ABIs, lifecycle behavior, and diagnostic codes, see [Native Crash Integration](./native-crash-integration.md).
+
 ## Verify the Setup
 
 At this point, you've installed and setup the Backtrace client to automatically capture exceptions and crashes in your Android app.

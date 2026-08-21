@@ -331,7 +331,7 @@ Follow the instructions for setting up crash reporting in Windows. The Steam Dec
 
 You must now ensure your build environment has been configured to generate debug symbols, which can then be uploaded to your Backtrace instance, a connected Symbol Server, an Amazon S3 bucket, or a Google Cloud storage bucket.
 
-For information on how to generate symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
+For information on how to generate symbols, see [Upload Symbols to Your Project](/docs/error-reporting/symbols/upload-symbols-to-project.md).
 
 ## Verify the Setup
 

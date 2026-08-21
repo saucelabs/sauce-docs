@@ -93,6 +93,7 @@ We use a proprietary process that wipes every real device clean at the end of th
 - EU devices: Lat 52.500, Lon 13.447, Alt 40m (Berlin, DE)
 - Media files (Photos, Videos, Files) on the device are removed.
 - PIN code/Password is removed.
+- On Android, Battery Saver (Low Power Mode) is disabled.
 
 ## Private Devices
 

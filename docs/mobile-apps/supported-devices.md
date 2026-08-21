@@ -202,6 +202,17 @@ You can find the Display Name or OS Version under **Live** > **Mobile-App** > **
 The more strict you set the capabilities, the smaller the pool of available devices will be and the longer you might need to wait for an available device.
 :::
 
+{/* KEEP IN SYNC with the matching caution block in docs/mobile-apps/automated-testing/appium/real-devices.md */}
+:::caution Real Device Cloud only: patterns are evaluated against both the Display Name and the Device ID
+This behavior applies to real devices in the Sauce Labs Real Device Cloud. It does **not** apply to Emulators or Simulators.
+
+When you provide a regular expression to `deviceName` for real-device dynamic allocation, it is matched against **both** the device's Display Name (such as `iPhone SE 2022` or `Google Pixel 10`) **and** its Device ID (such as `iPhone_SE_2020_18_real_sjc1` or `Google_Pixel_10_real_us`). A device is allocated if the pattern matches either value.
+
+This matters most for **exclusion** patterns: a pattern that excludes a model based on its Display Name may still match the underscore-separated Device ID. For example, `^iPhone(?! SE).*` matches the ID `iPhone_SE_2020_18_real_sjc1` because the lookahead checks for a literal space followed by `SE`, not an underscore.
+
+When excluding a device, account for both forms — match the space-separated display name **and** the underscore-separated ID. For example, to exclude all iPhone SE devices, use `^iPhone(?!_SE)(?! SE).*` instead of `^iPhone(?! SE).*`. Similarly, to exclude Google Pixel 10 devices use `^(Google)(?!.*(Pixel 10$|Pixel_10)).*`.
+:::
+
 ##### Based on Display Name
 
 | Regex Input                                                                | Dynamic Allocation Action                                                                                                                                      |

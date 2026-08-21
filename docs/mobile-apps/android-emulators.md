@@ -15,9 +15,11 @@ Our selection of Android Emulators corresponds to the most popular AVDs publishe
 
 Android 12 virtual devices on Sauce Labs are built with API level 32 (also known as Android 12L)
 
-### Android 15/16 with 16KB Page Size Support
+### Android 15, 16, and 17 with 16KB Page Size Support
 
-We offer emulators for Android 15 and 16 which include critical support for the 16KB page size memory architecture. The Google Play Store requires that all new apps and app [updates submitted after November 1, 2025](https://developer.android.com/guide/practices/page-sizes), are compatible with 16KB pages. Testing on these emulator configurations is essential to ensure your application meets this requirement and functions correctly for all users. Look for Pixel devices with the `ps16k` label in their name to get started with these new emulators.
+We offer emulators for Android 15, 16, and 17 which include critical support for the 16KB page size memory architecture. The Google Play Store requires that all new apps and app [updates submitted after November 1, 2025](https://developer.android.com/guide/practices/page-sizes), are compatible with 16KB pages. Testing on these emulator configurations is essential to ensure your application meets this requirement and functions correctly for all users. Look for Pixel devices with the `ps16k` label in their name to get started with these new emulators.
+
+Android 17 is available on the **Pixel 9a ps16k Emulator** and **Medium Phone ps16k Emulator** devices, which require [Appium 2.11.0](./automated-testing/appium/appium-versions.md#android-emulators).
 
 ### Legacy Device Mapping for Automated Testing
 
@@ -32,8 +34,9 @@ Below is the current mapping of the default Chrome browser version installed on 
 
 | Android OS Version | Google Chrome Version |
 | :----------------- | :-------------------- |
-| Android 16         | 140                   |
-| Android 15         | 140                   |
+| Android 17         | 145                   |
+| Android 16         | 145                   |
+| Android 15         | 141                   |
 | Android 14         | 140                   |
 | Android 13         | 140                   |
 | Android 12         | 140                   |
