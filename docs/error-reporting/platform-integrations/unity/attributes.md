@@ -103,9 +103,11 @@ You can also define custom attributes. For more information, see [Configuration]
 | `battery.level`                     | The current battery level.                                                                                    | User Defined | User Defined |
 | `battery.status`                    | The current status of the device's battery.                                                                   | User Defined | User Defined |
 | `cpu.frequency`                     | The frequency of the device's central processing unit (CPU) in megahertz (MHz).                               | User Defined | User Defined |
+| `device.abi`                        | The ABI of the running Android application process, when available.                                           | User Defined | User Defined |
 | `device.manufacturer`               | The manufacturer of the device running the app.                                                               | User Defined | User Defined |
 | `device.model`                      | The model of the device running the app.                                                                      | User Defined | User Defined |
 | `device.name`                       | The name of the device running the app. Defined by the end user.                                              | User Defined | User Defined |
+| `device.sdk`                        | The Android API level of the device running the app.                                                          | User Defined | User Defined |
 | `device.type`                       | The broad type of device.                                                                                     | User Defined | User Defined |
 | `error.type`                        | A categorization of the error that generated a report.                                                        | User Defined | User Defined |
 | `graphic.driver.version`            | The graphics API type and driver version used by the graphics device.                                         | User Defined | User Defined |
@@ -118,6 +120,8 @@ You can also define custom attributes. For more information, see [Configuration]
 | `graphic.type`                      | The graphics API type used by the graphics device.                                                            | User Defined | User Defined |
 | `graphic.vendor`                    | The vendor of the graphics device.                                                                            | User Defined | User Defined |
 | `graphic.vendor.id`                 | The identifier code for the vendor of the graphics device.                                                    | User Defined | User Defined |
+| `memory.warning`                    | Indicates whether Unity reported a low-memory condition before a native crash.                                | User Defined | User Defined |
+| `memory.warning.date`               | The Unix timestamp when Unity reported the most recent low-memory condition.                                  | User Defined | User Defined |
 | `mono.heap`                         | The amount of memory allocated to the managed heap.                                                           | User Defined | User Defined |
 | `mono.used`                         | The amount of memory used by the managed heap.                                                                | User Defined | User Defined |
 | `scene.active`                      | The name of the active scene.                                                                                 | User Defined | User Defined |

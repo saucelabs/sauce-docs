@@ -85,6 +85,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/unity/setup',
                                         'error-reporting/platform-integrations/unity/configuration',
+                                        'error-reporting/platform-integrations/unity/native-crash-integration',
                                         'error-reporting/platform-integrations/unity/attributes',
                                         'error-reporting/platform-integrations/unity/metrics',
                                         'error-reporting/platform-integrations/unity/helpshift',
@@ -1292,7 +1293,7 @@ module.exports = {
                     items: [
                         'insights/failure-analysis',
                         'insights/failure-analysis/filter-failure-analysis',
-                     ],
+                    ],
                 },
                 'insights/debug',
             ],
