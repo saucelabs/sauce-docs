@@ -23,19 +23,19 @@ Testing push notifications is essential to deliver a satisfactory mobile experie
 
 1. On Sauce Labs, in the left navigation, click **App Management**.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="auto"/>
 
 2. Upload your mobile app to Sauce Labs.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="auto"/>
 
 3. Hover over the app, then select **Settings**.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="auto"/>
 
 4. Under **Real Device Settings**, toggle **Instrumentation** to **Disabled**.
 
-<br/><img src={useBaseUrl('img/mobile-apps/push-notifications-scrn1.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/push-notifications-scrn1.png')} alt="App Logs" width="auto"/>
 
 ## iOS and Android Differences
 
@@ -55,4 +55,4 @@ Push notifications function differently on iOS and Android. Understanding these 
 
 We understand that visual demonstrations can help with understanding and implementing push notifications for Android and iOS apps effectively. Watch the video to learn the capabilities used by Apple to enable push notifications and explore proven methods to overcome any challenges that may arise during the process.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RIseDgjB4ZQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/RIseDgjB4ZQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

@@ -180,7 +180,7 @@ name:'S5 real device google.com'
 
 ### Examples for Mobile Native Application Tests
 
-This following includes tips and examples of how to configure your mobile native app tests with Appium. For more detailed descriptions about the capabilities of Appium tests, check out the [Server Capabilities](http://appium.io/slate/en/master/?python#appium-server-capabilities) section of the official Appium website. All examples are for Java, but you can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities in the language of your choice.
+This following includes tips and examples of how to configure your mobile native app tests with Appium. For more detailed descriptions about the capabilities of Appium tests, check out the [Server Capabilities](https://appium.io/docs/en/latest/guides/caps/) section of the official Appium website. All examples are for Java, but you can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator/) to set the capabilities in the language of your choice.
 
 ### Mobile Native Application Test Configuration Tips
 

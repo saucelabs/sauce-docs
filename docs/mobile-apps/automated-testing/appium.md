@@ -40,7 +40,7 @@ npm install -g appium
 
 ### Installing a Client
 
-The Appium client is the app in which you write your test scripts and instruct Appium how and where to run them. Appium provides [client libraries](http://appium.io/downloads) for a variety of programming languages, so choose your favorite and download it to start creating tests for your mobile app or mobile browser app. Many of the examples throughout this documentation use the [JavaScript WebDriverIO client](https://webdriver.io/).
+The Appium client is the app in which you write your test scripts and instruct Appium how and where to run them. Appium provides [client libraries](https://appium.io/docs/en/latest/quickstart/install/) for a variety of programming languages, so choose your favorite and download it to start creating tests for your mobile app or mobile browser app. Many of the examples throughout this documentation use the [JavaScript WebDriverIO client](https://webdriver.io/).
 
 :::tip Appium Doctor
 Use Appium's dependency validator CLI `appium-doctor` to ensure your installation is ready to go for your Android or iOS tests.
