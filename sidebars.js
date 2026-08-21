@@ -58,6 +58,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/android/setup',
                                         'error-reporting/platform-integrations/android/configuration',
+                                        'error-reporting/platform-integrations/android/native-crash-integration',
                                         'error-reporting/platform-integrations/android/proguard-deobfuscation',
                                     ],
                                 },
@@ -70,21 +71,11 @@ module.exports = {
                                         'error-reporting/platform-integrations/ios/configuration',
                                     ],
                                 },
-                                {
-                                    type: 'category',
-                                    label: 'macOS',
-                                    collapsed: true,
-                                    items: [
-                                        'error-reporting/platform-integrations/macos/setup',
-                                        'error-reporting/platform-integrations/macos/configuration',
-                                    ],
-                                },
-                                'error-reporting/platform-integrations/plcrash-reporter',
                             ],
                         },
                         {
                             type: 'category',
-                            label: 'Video Game Consoles',
+                            label: 'Gaming Consoles & Engines',
                             collapsed: true,
                             items: [
                                 {
@@ -136,7 +127,7 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Compiled Languages and Applications',
+                            label: 'Compiled Languages',
                             collapsed: true,
                             items: [
                                 {
@@ -161,11 +152,41 @@ module.exports = {
                                 'error-reporting/platform-integrations/http-submission',
                             ],
                         },
-                        'error-reporting/platform-integrations/source-map',
-                        'error-reporting/platform-integrations/session-replay',
-                        'error-reporting/platform-integrations/apache',
-                        'error-reporting/platform-integrations/minidump',
-                        'error-reporting/platform-integrations/file-attachments',
+                        {
+                            type: 'category',
+                            label: 'Other Integrations',
+                            collapsed: true,
+                            items: [
+                                {
+                                    type: 'category',
+                                    label: 'macOS',
+                                    collapsed: true,
+                                    items: [
+                                        'error-reporting/platform-integrations/macos/setup',
+                                        'error-reporting/platform-integrations/macos/configuration',
+                                    ],
+                                },
+                                'error-reporting/platform-integrations/plcrash-reporter',
+                                'error-reporting/platform-integrations/source-map',
+                                'error-reporting/platform-integrations/session-replay',
+                                'error-reporting/platform-integrations/apache',
+                                'error-reporting/platform-integrations/minidump',
+                                'error-reporting/platform-integrations/file-attachments',
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Symbols',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/symbolication',
+                        'error-reporting/symbols/symbol-formats',
+                        'error-reporting/symbols/symbol-access-token',
+                        'error-reporting/symbols/upload-symbols-to-project',
+                        'error-reporting/symbols/add-custom-symbol-server',
+                        'error-reporting/symbols/fix-missing-symbols',
                     ],
                 },
                 {
@@ -180,6 +201,58 @@ module.exports = {
                         'error-reporting/web-console/explore',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Workflow Integrations',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/workflow-integrations/overview',
+                        {
+                            type: 'category',
+                            label: 'Issue Tracking',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/issue-tracking/asana',
+                                'error-reporting/workflow-integrations/issue-tracking/github',
+                                'error-reporting/workflow-integrations/issue-tracking/jira',
+                                'error-reporting/workflow-integrations/issue-tracking/mantis',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Monitoring',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/monitoring/datadog',
+                                'error-reporting/workflow-integrations/alerting-ops/pagerduty',
+                                'error-reporting/workflow-integrations/alerting-ops/victorops',
+                                'error-reporting/workflow-integrations/alerting-ops/opsgenie',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Messaging Platforms',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/messaging/slack',
+                                'error-reporting/workflow-integrations/messaging/amazon-sns',
+                                'error-reporting/workflow-integrations/messaging/stride',
+                                'error-reporting/workflow-integrations/messaging/discord',
+                                'error-reporting/workflow-integrations/messaging/ms-teams',
+                                'error-reporting/workflow-integrations/messaging/webex-teams',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Other',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/workflow-integrations/messaging/email',
+                                'error-reporting/workflow-integrations/webhook',
+                            ],
+                        },
                     ],
                 },
                 {
@@ -201,68 +274,9 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Symbols',
-                            collapsed: true,
-                            items: [
-                                'error-reporting/project-setup/symbolication',
-                            ],
-                        },
-                        {
-                            type: 'category',
                             label: 'Workflow',
                             collapsed: true,
                             items: [
-                                {
-                                    type: 'category',
-                                    label: 'Integrations',
-                                    collapsed: true,
-                                    items: [
-                                        'error-reporting/workflow-integrations/overview',
-                                        {
-                                            type: 'category',
-                                            label: 'Messaging',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/messaging/slack',
-                                                'error-reporting/workflow-integrations/messaging/email',
-                                                'error-reporting/workflow-integrations/messaging/amazon-sns',
-                                                'error-reporting/workflow-integrations/messaging/stride',
-                                                'error-reporting/workflow-integrations/messaging/discord',
-                                                'error-reporting/workflow-integrations/messaging/ms-teams',
-                                                'error-reporting/workflow-integrations/messaging/webex-teams',
-                                            ],
-                                        },
-                                        {
-                                            type: 'category',
-                                            label: 'Issue Tracking',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/issue-tracking/jira',
-                                                'error-reporting/workflow-integrations/issue-tracking/github',
-                                                'error-reporting/workflow-integrations/issue-tracking/asana',
-                                                'error-reporting/workflow-integrations/issue-tracking/mantis',
-                                            ],
-                                        },
-                                        {
-                                            type: 'category',
-                                            label: 'Alerting and Operations',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/alerting-ops/pagerduty',
-                                                'error-reporting/workflow-integrations/alerting-ops/victorops',
-                                            ],
-                                        },
-                                        {
-                                            type: 'category',
-                                            label: 'Monitoring',
-                                            collapsed: true,
-                                            items: [
-                                                'error-reporting/workflow-integrations/monitoring/datadog',
-                                            ],
-                                        },
-                                        'error-reporting/workflow-integrations/webhook',
-                                    ],
-                                },
                                 'error-reporting/project-setup/alerts',
                                 'error-reporting/project-setup/connections',
                                 'error-reporting/project-setup/scheduled-reports',
@@ -918,6 +932,7 @@ module.exports = {
                         },
                         'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/audio-injection',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/bypass-screenshot',
                         'mobile-apps/features/camera-image-injection',
@@ -985,6 +1000,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
                                 'mobile-apps/automated-testing/appium/appium-deque-accessibility-testing',
                                 'mobile-apps/automated-testing/appium/appium-images-plugin',
+                                'mobile-apps/automated-testing/appium/appium-for-games',
                             ],
                         },
                         {
@@ -998,7 +1014,6 @@ module.exports = {
                                 'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
-
                                 {
                                     type: 'category',
                                     label: 'Espresso Features',
@@ -1017,6 +1032,16 @@ module.exports = {
                                 'mobile-apps/automated-testing/flutter',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-ios',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'AltTester®',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/automated-testing/alttester',
+                                'mobile-apps/automated-testing/alttester/unity',
+                                'mobile-apps/automated-testing/alttester/unreal',
                             ],
                         },
                         'mobile-apps/automated-testing/ipa-files',
@@ -1189,16 +1214,78 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/home',
-                'insights/scope',
-                'insights/overview',
-                'insights/errors',
-                'insights/history',
-                'insights/trends',
-                'insights/usage-report',
-                'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
+                {
+                    type: 'category',
+                    label: 'Sauce Home',
+                    collapsed: true,
+                    items: [
+                        'insights/home',
+                        'insights/sauce-home/export-widget-report',
+                        'insights/sauce-home/sauce-home-filters',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Job Overview',
+                    collapsed: true,
+                    items: [
+                        'insights/overview',
+                        'insights/filter-scope-of-data',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Job History',
+                    collapsed: true,
+                    items: [
+                        'insights/history',
+                        'insights/job-history/job-performance-analysis',
+                        'insights/job-history/filter-controls-for-job-history',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Trends',
+                    collapsed: true,
+                    items: [
+                        'insights/trends',
+                        'insights/trends/job-volume-trends',
+                        'insights/trends/pass-fail-rate',
+                        'insights/trends/error-volume-trends',
+                        'insights/trends/build-job-statistics',
+                        'insights/trends/filter-controls',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Coverage',
+                    collapsed: true,
+                    items: [
+                        'insights/coverage',
+                        'insights/coverage/export-coverage-report',
+                        'insights/coverage/filter-for-coverage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Usage',
+                    collapsed: true,
+                    items: [
+                        'insights/usage-report',
+                        'insights/usage/filter-control-for-concurrency-usage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Errors',
+                    collapsed: true,
+                    items: [
+                        'insights/errors',
+                        'insights/errors/filter-control-for-error-tracking',
+                    ],
+                },
             ],
         },
         {
@@ -1207,9 +1294,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'sauce-ai',
-                'sauce-ai/ai-insights',
-                'sauce-ai/ai-insights-prompting-guide',
-                'sauce-ai/ai-authoring-prompting-guide',
                 {
                     type: 'category',
                     label: 'Test Authoring',
@@ -1217,6 +1301,7 @@ module.exports = {
                     items: [
                         'sauce-ai/ai-authoring',
                         'sauce-ai/test-authoring/generate-your-test-case',
+                        'sauce-ai/test-authoring/data-variables',
                         'sauce-ai/test-authoring/generate-the-script-code',
                         'sauce-ai/test-authoring/manage-your-test-cases',
                         'sauce-ai/test-authoring/run-your-test-cases',
@@ -1228,13 +1313,23 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'AI Insights',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-insights',
+                        'sauce-ai/ai-insights/use-sause-ai-assistants',
+                        'sauce-ai/ai-insights/automated-bug-troubleshooting',
+                        'sauce-ai/ai-insights/privacy-safety-and-trust',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Sauce MCP',
                     collapsed: true,
                     items: [
                         'sauce-ai/sauce-mcp',
                         'sauce-ai/sauce-mcp-getting-started',
                         'sauce-ai/sauce-mcp-tools',
-                        'sauce-ai/real-device-cloud-mcp-prompting-guide',
                     ],
                 },
                 {
@@ -1246,6 +1341,29 @@ module.exports = {
                         'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Prompting Guides',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-authoring-prompting-guide',
+                        'sauce-ai/ai-insights-prompting-guide',
+                        'sauce-ai/prompting-guides/error-reporting',
+                        'sauce-ai/real-device-cloud-mcp-prompting-guide',
+                    ],
+                },
+            ],
+        },
+        {
+            type: 'category',
+            label: 'IDE Plugins',
+            collapsed: true,
+            items: [
+                'ide-plugins',
+                'ide-plugins/installation',
+                'ide-plugins/real-device-cloud',
+                'ide-plugins/ai-test-authoring',
+                'ide-plugins/troubleshooting',
             ],
         },
         {

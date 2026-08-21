@@ -77,7 +77,7 @@ See [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples
 
 Symbols are required to determine the source-code mapping of incoming crashes, including function name, source file, and line number. For Backtrace to effectively group and analyze your incoming crashes, you must upload application debug symbols.
 
-To learn more about uploading and managing symbols with Backtrace, see [Symbolication](/error-reporting/project-setup/symbolication/).
+To learn more about uploading and managing symbols with Backtrace, see [Upload Symbols to Your Project](/docs/error-reporting/symbols/upload-symbols-to-project.md).
 
 For Visual Studio specific settings for symbols, see [Crashpad Integration Guide for Visual
 Studio](/error-reporting/platform-integrations/visual-studio/#ensure-symbol-generation).

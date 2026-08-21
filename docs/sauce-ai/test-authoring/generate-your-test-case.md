@@ -63,6 +63,10 @@ If you do not modify these settings, Sauce Labs automatically applies the defaul
 
 After selecting your application type and configuring the test generation settings, describe the test scenario you want Sauce AI to automate using a [**natural-language prompt**](/docs/sauce-ai/ai-authoring-prompting-guide.md).
 
+:::tip
+Instead of entering sensitive or reusable values directly in your prompt, you can reference Data Variables using the `{{variable_name}}` syntax or insert them from the `{x}` button. For more information, see **[Data Variables](/docs/sauce-ai/test-authoring/data-variables.md)**.
+:::
+
 You can write prompts in everyday language. For example:
 
 > ***Log in to the application using valid credentials and verify that the dashboard page is displayed successfully.***

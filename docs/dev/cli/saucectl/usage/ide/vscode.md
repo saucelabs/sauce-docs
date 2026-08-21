@@ -17,7 +17,7 @@ Visual Studio Code can help you edit the `saucectl` configuration files by provi
 
 ## JSON Schema Validation
 
-Our JSON schema is published to the [JSON Schema Store](https://www.schemastore.org/json/), which is made available to Visual Studio Code.
+Our JSON schema is published to the [JSON Schema Store](https://www.schemastore.org/), which is made available to Visual Studio Code.
 
 :::caution Default Limitations
 By default, JSON Schema validation _only_ works with JSON files, not YAML. So make sure to have the YAML extension installed or this will not work.

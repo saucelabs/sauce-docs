@@ -16,7 +16,7 @@ Organization admins can update the name, email address, user name, role, and tea
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="auto"/>
 
 2. On the **USERS** tab, click the user name of the user whose information you want to edit.
 
@@ -116,7 +116,8 @@ If you are an admin and want to change the settings for users in your org, see
 [Updating User Information](/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
 
 To access the User Settings screen, on Sauce Labs, click **ACCOUNT** and then click **User settings**.
-<img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="350"/>
+
+<img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="auto"/>
 
 ## Password Policy
 

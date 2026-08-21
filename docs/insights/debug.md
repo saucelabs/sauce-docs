@@ -11,8 +11,8 @@ import TabItem from '@theme/TabItem';
 
 Enable Extended Debugging in your Selenium test script to collect console logs and HTTP Archive (HAR) files generated during testing for use in diagnosing flaky tests or performance degradation.
 
-:::note
-Extended Debugging generates additional assets that impact test performance and is not intended for everyday testing.
+:::caution
+Extended Debugging is intended only for active troubleshooting. Enabling it generates extra diagnostic assets, delaying session start time by up to 30 seconds and impacting overall test performance. 
 :::
 
 ## What You'll Need
@@ -456,7 +456,7 @@ The JS console collects security errors, warnings, and messages that are explici
 
 ```
 {
-   "http://webdriver.io/api/action/click.html":[
+   "https://webdriver.io/docs/api/element/click":[
       {
          "level":"error",
          "column":0,

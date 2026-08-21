@@ -11,12 +11,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 TalkBack is Android's built-in screen reader. Sauce Labs allows you to enable TalkBack on real devices with a single click during live testing sessions, without going to the OS settings. You can navigate through elements using the keyboard and hear audio feedback for each focused element.
 
+TalkBack is supported on all public and private Android real devices running Android 12 or above.
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An Android real device session (Live Testing).
 - Android 12 or above.
-- **Private devices only.** Reach out to our Support Team or your Sauce Labs representative to get this configured.
 
 ## Enabling TalkBack
 
@@ -44,9 +45,27 @@ Text-to-speech audio of the focused element is streamed to your browser as you i
 Text-to-speech audio is not available for download once the session is over.
 :::
 
+## Sharing Your Accessibility Session
+
+You can share a live accessibility session so someone else can follow your test in real time. This is useful for collaborative accessibility reviews. An accessibility specialist can drive the session while developers or stakeholders watch along, seeing the focus rectangle move between elements and hearing the same audio feedback as it is announced.
+
+To share your session:
+
+1. Start a Live Testing session on an Android real device and enable TalkBack.
+2. In the live testing toolbar, click the <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="25"/> **Share Session** icon to open the **Share Device** window.
+3. Click **Get Link** to generate a shareable link.
+4. Send the link to the person you want to share the session with.
+
+The viewer follows your session live, including the focus rectangle and the streamed TalkBack audio feedback, as you navigate element by element.
+
+:::note
+Viewers must be logged in to a Sauce Labs account to view the shared session.
+:::
+
+For more details on sharing sessions, see [Live Mobile App Testing](/mobile-apps/live-testing/live-mobile-app-testing).
+
 ## Limitations
 
-- TalkBack is only supported on **private devices**. Contact our Support Team to get this configured.
 - Android 12 or above is required.
 - Website testing is not yet available on Android.
 

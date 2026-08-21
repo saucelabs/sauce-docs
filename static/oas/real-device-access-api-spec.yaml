@@ -171,6 +171,8 @@ paths:
                 $ref: "#/components/schemas/SessionCreation"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "409":
+          $ref: "#/components/responses/MaxSessionLimitReached"
     get:
       operationId: listSessions
       summary: List device sessions
@@ -1631,6 +1633,22 @@ components:
               status:
                 type: integer
                 example: 500
+    MaxSessionLimitReached:
+      description: We will emit this message when you try to start an Access API session, but you have already reached your max concurrency for Access API sessions. You must either close existing sessions or contact your Sauce Labs representative for more concurrency.
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Access API Concurrency Limit Reached
+              detail:
+                type: string
+                example: 'Your organization has reached its maximum allowed concurrent Access API sessions 5 based on your current plan. Please wait for an existing session to complete or contact your Customer Success Manager or the Sauce Labs Support Team if you need to increase your concurrent sessions.'
   schemas:
     BadRequestBody:
       type: object
