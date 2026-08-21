@@ -309,6 +309,7 @@ module.exports = {
                         'error-reporting/org-settings/team-mgmnt',
                         'error-reporting/org-settings/project-management',
                         'error-reporting/org-settings/saml-sso',
+                        'error-reporting/org-settings/manage-universe-access',
                     ],
                 },
                 {
