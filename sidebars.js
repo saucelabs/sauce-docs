@@ -1214,8 +1214,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/errors',
-                'insights/usage-report',
                 'insights/failure-analysis',
                 'insights/debug',
                 {
@@ -1270,6 +1268,24 @@ module.exports = {
                         'insights/coverage/filter-for-coverage',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Usage',
+                    collapsed: true,
+                    items: [
+                        'insights/usage-report',
+                        'insights/usage/filter-control-for-concurrency-usage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Errors',
+                    collapsed: true,
+                    items: [
+                        'insights/errors',
+                        'insights/errors/filter-control-for-error-tracking',
+                    ],
+                },
             ],
         },
         {
@@ -1278,10 +1294,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'sauce-ai',
-                'sauce-ai/ai-insights',
-                'sauce-ai/ai-authoring',
-                'sauce-ai/ai-insights-prompting-guide',
-                'sauce-ai/ai-authoring-prompting-guide',
                 {
                     type: 'category',
                     label: 'Test Authoring',
@@ -1301,12 +1313,32 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'AI Insights',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-insights',
+                        'sauce-ai/ai-insights/use-sause-ai-assistants',
+                        'sauce-ai/ai-insights/automated-bug-troubleshooting',
+                        'sauce-ai/ai-insights/privacy-safety-and-trust',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Sauce MCP',
                     collapsed: true,
                     items: [
                         'sauce-ai/sauce-mcp',
                         'sauce-ai/sauce-mcp-getting-started',
                         'sauce-ai/sauce-mcp-tools',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Error Reporting',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/error-reporting/overview',
+                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
                 {
@@ -1318,15 +1350,6 @@ module.exports = {
                         'sauce-ai/ai-insights-prompting-guide',
                         'sauce-ai/prompting-guides/error-reporting',
                         'sauce-ai/real-device-cloud-mcp-prompting-guide',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Error Reporting',
-                    collapsed: true,
-                    items: [
-                        'sauce-ai/error-reporting/overview',
-                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
             ],
