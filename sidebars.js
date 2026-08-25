@@ -191,6 +191,17 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Explore',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/web-console/explore',
+                        'error-reporting/explore/add-custom-aggregations',
+                        'error-reporting/explore/normalize-errors-by-metric-groups',
+                        'error-reporting/explore/customize-error-views',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
@@ -1292,7 +1303,7 @@ module.exports = {
                     items: [
                         'insights/failure-analysis',
                         'insights/failure-analysis/filter-failure-analysis',
-                     ],
+                    ],
                 },
                 'insights/debug',
             ],
