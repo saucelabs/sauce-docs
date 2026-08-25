@@ -61,6 +61,8 @@ Sauce Labs offers **ARM-based Android emulators** in the Virtual Device Cloud. T
 
 :::note Availability
 ARM-based Android emulators are available to Enterprise customers with the required subscription and Android ARM concurrency allocated to their account. If you don't have access, contact your account manager to discuss upgrading.
+
+Capacity above a certain threshold and scale will require advance reservation and purchase commitment. If you have questions about access or concurrency for your account, contact your account manager or Sauce Labs support.
 :::
 
 Live Testing and automated Appium and Espresso testing are available against Android 14, 15, 16, and 17.
