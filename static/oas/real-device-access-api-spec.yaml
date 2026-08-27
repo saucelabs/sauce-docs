@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: "2.0.0"
   title: "Real Device Access API Reference"
-  x-last-modified: "2025-11-19"
+  x-last-modified: "2026-08-27"
   x-beta: false
   description: |
     Access Sauce Labs' specialized real device farm to automate, test, and develop on real iOS and Android devices in the cloud. This API opens up our device infrastructure, enabling you to go beyond traditional testing workflows. Reserve a device once, then run multiple operations back-to-back on the same session—whether you're running automated tests, developing new features, or building custom automation workflows.
@@ -26,6 +26,8 @@ tags:
     description: View the catalog of devices available to you and the current state of the devices.
   - name: Session Lifecycle
     description: Create, Inspect and Close your Sauce Labs Real Device session.
+  - name: Test Reports
+    description: Group the device interactions of a session into test reports, so each batch of work shows up as its own test in the Sauce Labs UI.
   - name: Device Interactions
     description: Interact with your Device.
   - name: Device File Management
@@ -262,6 +264,140 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
+  /sessions/{sessionId}/startTest:
+    post:
+      operationId: startTest
+      summary: Start a test report on a device session
+      description: |
+        Starts a new test report on the session. Everything you do on the device from this point on is attributed to
+        the test report, so you can group a batch of device interactions into a single, reviewable test in the Sauce Labs UI.
+
+        The response contains the `testReportId`. Use the links returned by [`getTests`](#operation/getTests) to fetch the
+        report through the jobs API or open it in the Sauce Labs UI.
+
+        Only one test report can be active on a session at a time — call [`endTest`](#operation/endTest) to finish the
+        current report before starting the next one. A session can hold at most 500 test reports.
+
+        Artifact capture (video, device logs, network capture, and so on) is opt-in: every toggle defaults to `false`.
+        Request the artifacts you need in the `artifacts` object and they are recorded for the duration of the test report.
+
+        The request body is optional. If you omit it, the test report is created with a generated name, no build,
+        no tags, and no artifacts.
+      tags:
+        - "Test Reports"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartTestRequest"
+      responses:
+        "200":
+          description: Test report started
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StartTestResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/TestReportsDisabled"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+        "409":
+          $ref: "#/components/responses/TestReportConflict"
+        "500":
+          $ref: "#/components/responses/TestReportCreationFailed"
+
+  /sessions/{sessionId}/tests:
+    get:
+      operationId: getTests
+      summary: List the test reports of a device session
+      description: |
+        Returns every test report created on the session, oldest first. Each entry carries the report id, its
+        `startTime`, and — once the report has been ended — its `endTime`. A report that is still running has no
+        `endTime`.
+
+        Every entry also carries two links: `self` points at the report on the jobs API (where the pass/fail result
+        lives), and `uiViewUrl` opens the test details page in the Sauce Labs UI.
+      tags:
+        - "Test Reports"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestReports"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/TestReportsDisabled"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /sessions/{sessionId}/endTest:
+    post:
+      operationId: endTest
+      summary: End the active test report on a device session
+      description: |
+        Ends the test report that is currently active on the session and reports its result. Any artifact recordings
+        started by [`startTest`](#operation/startTest) are stopped and collected. Collection happens asynchronously, so
+        the artifacts appear on the test report shortly after the call returns.
+
+        Once the report is ended, the session is free to start the next one. The session itself stays active; closing
+        the session while a test report is running ends that report automatically.
+
+        The request body is optional. Omit it, or omit `status`, and the test report is stored without a pass/fail
+        result.
+      tags:
+        - "Test Reports"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EndTestRequest"
+      responses:
+        "200":
+          description: Test report ended
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EndTestResponse"
+        "400":
+          $ref: "#/components/responses/InvalidTestStatus"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/TestReportsDisabled"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+        "409":
+          $ref: "#/components/responses/TestReportConflict"
   /sessions/{sessionId}/device/executeShellCommand:
     post:
       operationId: executeShellCommand
@@ -1633,6 +1769,79 @@ components:
               status:
                 type: integer
                 example: 500
+    TestReportsDisabled:
+      description: Test reports are not enabled for your organization.
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Access API test reports disabled.
+              detail:
+                type: string
+                example: 'Access API test reports are not enabled for your organization. Please contact your Sauce Labs representative if you would like access.'
+    TestReportConflict:
+      description: |
+        The test report could not be started or ended in the session's current state. This covers:
+        - `Test report already active.` — a test report is still running on the session; call `endTest` before starting another. The response carries the offending id in `activeTestReportId`.
+        - `Test report limit reached.` — the session already holds the maximum of 500 test reports; start a new session to record more.
+        - `No active test report.` — `endTest` was called on a session that has no running test report.
+        - `Test report is not ready.` — the test report is still being created; retry shortly.
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Test report already active.
+              detail:
+                type: string
+                example: "Cannot start a new test report because test report 123e4567-e89b-12d3-a456-426614174000 is still active on session 4a1b2c3d-5e6f-7890-abcd-ef1234567890. Call endTest to finish it before starting another."
+              activeTestReportId:
+                type: string
+                description: Only present for `Test report already active.`
+                example: 123e4567-e89b-12d3-a456-426614174000
+    InvalidTestStatus:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Invalid request body.
+              detail:
+                type: string
+                example: "You provided an invalid request body to the /rdc/v2/sessions/<id>/endTest endpoint. The 'status' field must be one of: passed, failed. You provided 'skipped'."
+    TestReportCreationFailed:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Could not start test report.
+              detail:
+                type: string
+                example: "Could not create the test report on session 4a1b2c3d-5e6f-7890-abcd-ef1234567890. Please retry startTest. If it keeps happening, contact your Sauce Labs representative."
     MaxSessionLimitReached:
       description: We will emit this message when you try to start an Access API session, but you have already reached your max concurrency for Access API sessions. You must either close existing sessions or contact your Sauce Labs representative for more concurrency.
       content:
@@ -2252,3 +2461,120 @@ components:
       properties:
         networkConditions:
           $ref: "#/components/schemas/NetworkConditions"
+    StartTestRequest:
+      type: object
+      description: Optional metadata and artifact toggles for the test report. Every field is optional.
+      properties:
+        testName:
+          type: string
+          description: The name the test report is shown under in the Sauce Labs UI. Defaults to a generated name.
+          example: "Checkout flow — guest user"
+        build:
+          type: string
+          description: Build identifier used to group this test report with other tests of the same build.
+          example: "build-1042"
+        tags:
+          type: array
+          description: Tags to attach to the test report, for filtering in the Sauce Labs UI.
+          uniqueItems: true
+          items:
+            type: string
+          example: ["smoke", "checkout"]
+        artifacts:
+          $ref: "#/components/schemas/ArtifactToggles"
+    ArtifactToggles:
+      type: object
+      description: The artifacts to capture for the duration of the test report. All toggles are opt-in and default to `false`.
+      properties:
+        video:
+          type: boolean
+          default: false
+          description: Record a video of the device screen.
+        deviceLogs:
+          type: boolean
+          default: false
+          description: Capture the device log (logcat on Android, syslog on iOS).
+        networkCapture:
+          type: boolean
+          default: false
+          description: Capture network traffic as a HAR file.
+        screenshots:
+          type: boolean
+          default: false
+          description: Collect the screenshots taken during the test report.
+        crashReports:
+          type: boolean
+          default: false
+          description: Collect crash reports produced on the device.
+        testFairyLogs:
+          type: boolean
+          default: false
+          description: Collect instrumentation logs from the resigned app.
+        appiumLogs:
+          type: boolean
+          default: false
+          description: Collect the log of the hosted Appium server, if one is running.
+    StartTestResponse:
+      type: object
+      properties:
+        testReportId:
+          type: string
+          description: The id of the test report that was started.
+          example: 123e4567-e89b-12d3-a456-426614174000
+    EndTestRequest:
+      type: object
+      description: The result to store on the test report. Optional — omit it to leave the result undefined.
+      properties:
+        status:
+          type: string
+          description: The test result. Case insensitive. Omit to leave the result undefined.
+          enum: [passed, failed]
+          example: passed
+    EndTestResponse:
+      type: object
+      properties:
+        testReportId:
+          type: string
+          description: The id of the test report that was ended.
+          example: 123e4567-e89b-12d3-a456-426614174000
+        status:
+          type: string
+          description: The status stored on the test report.
+          example: passed
+    TestReports:
+      type: object
+      properties:
+        tests:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestReport"
+    TestReport:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The id of the test report.
+          example: 123e4567-e89b-12d3-a456-426614174000
+        startTime:
+          type: string
+          format: date-time
+          description: When the test report was started.
+          example: "2025-11-19T10:15:30Z"
+        endTime:
+          type: string
+          format: date-time
+          description: When the test report was ended. Absent while the test report is still running.
+          example: "2025-11-19T10:18:02Z"
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+              description: The test report on the jobs API, where the pass/fail result lives.
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/123e4567-e89b-12d3-a456-426614174000"
+            uiViewUrl:
+              type: string
+              format: uri
+              description: The test details page in the Sauce Labs UI.
+              example: "https://app.saucelabs.com/tests/123e4567-e89b-12d3-a456-426614174000"
