@@ -309,8 +309,6 @@ paths:
           $ref: "#/components/responses/BadRequest"
         "401":
           $ref: "#/components/responses/NotAuthorized"
-        "403":
-          $ref: "#/components/responses/TestReportsDisabled"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "409":
@@ -347,8 +345,6 @@ paths:
                 $ref: "#/components/schemas/TestReports"
         "401":
           $ref: "#/components/responses/NotAuthorized"
-        "403":
-          $ref: "#/components/responses/TestReportsDisabled"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
@@ -392,8 +388,6 @@ paths:
           $ref: "#/components/responses/InvalidTestStatus"
         "401":
           $ref: "#/components/responses/NotAuthorized"
-        "403":
-          $ref: "#/components/responses/TestReportsDisabled"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "409":
@@ -1769,22 +1763,6 @@ components:
               status:
                 type: integer
                 example: 500
-    TestReportsDisabled:
-      description: Test reports are not enabled for your organization.
-      content:
-        application/problem+json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-                example: about:blank
-              title:
-                type: string
-                example: Access API test reports disabled.
-              detail:
-                type: string
-                example: 'Access API test reports are not enabled for your organization. Please contact your Sauce Labs representative if you would like access.'
     TestReportConflict:
       description: |
         The test report could not be started or ended in the session's current state. This covers:
