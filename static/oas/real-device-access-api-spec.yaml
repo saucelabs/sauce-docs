@@ -27,8 +27,8 @@ tags:
   - name: Session Lifecycle
     description: Create, Inspect and Close your Sauce Labs Real Device session.
   - name: Test Reports
-    description: Group the device interactions of a session into test reports, so each batch of work shows up as its own test in the Sauce Labs UI.
-  - name: Device Interactions
+    description: Record what happens on your device (screen-recording, sys-logs, etc) and create 'Test Reports' from it. These will show up in the Sauce-UI in the 'Test Results' page. The recordings can be downloaded via our ['Jobs' API](https://docs.saucelabs.com/dev/api/rdc/#jobs).
+  - name: Device Interactionsc
     description: Interact with your Device.
   - name: Device File Management
     description: Manage files on the device storage.
@@ -269,11 +269,13 @@ paths:
       operationId: startTest
       summary: Start a test report on a device session
       description: |
-        Starts a new test report on the session. Everything you do on the device from this point on is attributed to
-        the test report, so you can group a batch of device interactions into a single, reviewable test in the Sauce Labs UI.
+        Starts a new test report on the session. From this point on we will start recording what happens on the device. 
+        This allows you to mark the start of a 'test', that you are executing on the device. Afterwards you can define 
+        whether the test was successful or failed and you can review the test results in Sauce Labs UI, like you did 
+        with any other Job you ran on Sauce Labs.
 
         The response contains the `testReportId`. Use the links returned by [`getTests`](#operation/getTests) to fetch the
-        report through the jobs API or open it in the Sauce Labs UI.
+        report through the ['jobs' API](https://docs.dev.saucelabs.net/pr-preview/pr-3647/dev/api/rdc/#jobs).
 
         Only one test report can be active on a session at a time — call [`endTest`](#operation/endTest) to finish the
         current report before starting the next one. A session can hold at most 500 test reports.
@@ -321,9 +323,7 @@ paths:
       operationId: getTests
       summary: List the test reports of a device session
       description: |
-        Returns every test report created on the session, oldest first. Each entry carries the report id, its
-        `startTime`, and — once the report has been ended — its `endTime`. A report that is still running has no
-        `endTime`.
+        Returns every test report created on the session, oldest first.
 
         Every entry also carries two links: `self` points at the report on the jobs API (where the pass/fail result
         lives), and `uiViewUrl` opens the test details page in the Sauce Labs UI.
