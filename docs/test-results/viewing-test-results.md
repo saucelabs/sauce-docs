@@ -6,7 +6,7 @@ sidebar_label: Viewing Test Results
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-After you run a test, you can view the results on the Test Results page. From there, you can:
+After you run a test, you can view the results on the Test Results page. This applies to tests run through a framework such as Selenium, Appium, Espresso, or XCUITest, and to test reports created through the [Real Device Access API](#access-api-test-results). From there, you can:
 
 - Watch a video recording of the test.
 - View screenshots of the test.
@@ -81,6 +81,17 @@ You can use the following filters to narrow down the build results:
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Owner  | Filter builds by: <ul><li>Builds that you have run</li><li>All the builds for your organization</li><li>Tests run by another user</li><li>Tests run by a service account</li></ul> |
 | Status | Filter builds by: <ul><li>Success</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>Running</li><li>Error</li></ul>             |
+
+## Access API Test Results
+
+Sessions on the [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) can also report results here. Instead of a test framework opening and closing the job, you mark the start and end of each test yourself, and Sauce Labs captures the artifacts you asked for.
+
+These **test reports** behave like any other real device test result: they carry a name, build, tags, and a pass/fail status, they are filterable on this page, and they open the same **Test Details** page. Two differences are worth knowing:
+
+- Artifact capture is **opt-in**. Video, logs, and network traffic are only recorded if you request them when starting the test report, whereas framework-based jobs capture them by default.
+- A single device session can produce many test reports, so several results may share one device reservation.
+
+For the artifact list, the API calls, and a full walkthrough, see [Test Results and Artifacts for the Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-test-results).
 
 ## Screenshots, Commands, Logs, and Metadata
 
