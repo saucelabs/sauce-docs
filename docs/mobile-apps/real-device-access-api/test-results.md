@@ -87,10 +87,10 @@ curl -u $AUTH -X POST "$BASE_URL/sessions/$SESSION_ID/startTest" \
       }'
 ```
 
-The response returns the id of the report you just opened:
+The response returns the `jobId` of the report you just opened. This is the job id you use everywhere else — to download artifacts and to look the report up on the Jobs API:
 
 ```json
-{ "testReportId": "123e4567-e89b-12d3-a456-426614174000" }
+{ "jobId": "123e4567-e89b-12d3-a456-426614174000" }
 ```
 
 The request body is optional. `POST` with no body at all gives you a report with a generated name, no build, no tags, and no artifacts.
@@ -123,7 +123,7 @@ curl -u $AUTH "$BASE_URL/sessions/$SESSION_ID/tests"
 {
   "tests": [
     {
-      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "jobId": "123e4567-e89b-12d3-a456-426614174000",
       "startTime": "2025-11-19T10:15:30Z",
       "endTime": "2025-11-19T10:18:02Z",
       "links": {
@@ -154,11 +154,11 @@ You can also find your reports on the **Test Results** page in the Sauce Labs UI
 
 ### 5. Download Artifacts Programmatically
 
-Artifacts are downloaded through the real device Jobs API using the `testReportId` as the job id. See [Real Device API Endpoints](/dev/api/rdc/) for the full asset reference.
+Artifacts are downloaded through the real device Jobs API using the `jobId` returned by `startTest`. See [Real Device API Endpoints](/dev/api/rdc/) for the full asset reference.
 
 ```shell
 curl -u $AUTH -O \
-  "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/$TEST_REPORT_ID/video.mp4"
+  "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/$JOB_ID/video.mp4"
 ```
 
 | Artifact | Asset path |
