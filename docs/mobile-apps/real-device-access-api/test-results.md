@@ -35,7 +35,7 @@ The device session outlives the test. Open and close as many tests as your test 
 
 ## What You Can Capture
 
-Artifact capture is **opt-in**. Every toggle defaults to `false`, so a test with no `artifacts` object records metadata only. This is deliberate — you only pay the collection and storage cost for the evidence you actually want.
+Artifact capture is **opt-in**. Every toggle defaults to `false`, so a test with no `artifacts` object records metadata only. The opt-in is deliberate — you only pay the collection and storage cost for the evidence you actually want.
 
 | Artifact | Toggle | What you get |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Artifact capture is **opt-in**. Every toggle defaults to `false`, so a test with
 | **Screenshots** | `screenshots` | The screenshots taken during the test, collected into the **Screenshots** tab. |
 | **Appium Logs** | `appiumLogs` | The log of the [Sauce Labs hosted Appium server](sauce-labs-hosted-appium.md), if one is running on the session. See [Appium Logs](/test-results/viewing-test-results/#appium-logs). |
 
-Once the test is finished, these artifacts are available in the UI and downloadable through the Jobs API — see [Downloading Artifacts](#5-download-artifacts-programmatically).
+After the test is finished, these artifacts are available in the UI and downloadable through the Jobs API — see [Downloading Artifacts](#5-download-artifacts-programmatically).
 
 ## Metadata and Limits
 
