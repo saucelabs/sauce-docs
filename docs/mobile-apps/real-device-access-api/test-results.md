@@ -6,7 +6,7 @@ sidebar_label: Test Results & Artifacts
 
 Sessions on the [Real Device Access API](introduction.md) can report **tests**: real Sauce Labs test results, with video, logs, and network traffic attached, that show up on the **Test Results** page under **Access API** in the Sauce Labs menu.
 
-This page explains how that works and why it matters, then walks through how to record one.
+This guide explains how that works and why it matters, then walks through how to record one.
 
 ## Why This Matters
 
@@ -88,7 +88,7 @@ curl -u $AUTH -X POST "$BASE_URL/sessions/$SESSION_ID/startTest" \
       }'
 ```
 
-The response returns the `jobId` of the test you just opened. This is the job id you use everywhere else — to download artifacts and to look the test up on the Jobs API:
+The response returns the `jobId` of the test you just opened. The `jobId` is the id you use everywhere else — to download artifacts and to look the test up on the Jobs API:
 
 ```json
 { "jobId": "123e4567-e89b-12d3-a456-426614174000" }
