@@ -98,7 +98,7 @@ Alternatively, define it in your **saucectl** configuration the following way:
 
 ### Access API
 
-[Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) sessions have their own endpoints for this, and capture is off by default. There are two ways to get the traffic, depending on whether you want it live or stored:
+[Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) sessions have their own endpoints for this, and capture is off by default. To capture traffic you can either inspect live traffic or have it recorded:
 
 - **Stream it live.** Turn capture on for the session with `POST /sessions/{sessionId}/device/enableNetworkCapture`, then read `device.har.entry` events from the Companion socket. Turn it off again with `POST /sessions/{sessionId}/device/disableNetworkCapture`. See [Mastering the Companion Socket](/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket).
 - **Store it on a test result.** Set `artifacts.networkCapture` to `true` when you start a test, and the HAR is attached to the test result and downloadable like any other job asset. See [Test Results and Artifacts for the Access API](/mobile-apps/real-device-access-api/real-device-access-api-test-results).

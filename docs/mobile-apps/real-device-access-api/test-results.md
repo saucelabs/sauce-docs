@@ -1,7 +1,7 @@
 ---
 id: real-device-access-api-test-results
 title: Test Results and Artifacts for the Real Device Access API
-sidebar_label: Test Results & Artifacts
+sidebar_label: Test Results and Artifacts
 ---
 
 Sessions on the [Real Device Access API](introduction.md) can report **tests**: real Sauce Labs test results, with video, logs, and network traffic attached, that show up on the **Test Results** page under **Access API** in the Sauce Labs menu.
