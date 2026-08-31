@@ -866,7 +866,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 Download a specific asset for a job after it has completed running on a real device at the data center. The available assets for a specific job depend on the test framework and whether the corresponding feature was enabled during the test.
 
-For jobs created from a [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) session, the available assets depend on the artifact toggles you set when you start the test report. See [Test Results for the Access API](/mobile-apps/real-device-access-api/real-device-access-api-test-results).
+For jobs created from a [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) session, the available assets depend on the artifact toggles you set when you start the test. See [Test Results for the Access API](/mobile-apps/real-device-access-api/real-device-access-api-test-results).
 
 #### Assets
 

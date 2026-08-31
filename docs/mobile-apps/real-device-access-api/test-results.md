@@ -4,7 +4,7 @@ title: Test Results and Artifacts for the Real Device Access API
 sidebar_label: Test Results & Artifacts
 ---
 
-Sessions on the [Real Device Access API](introduction.md) can report **tests**: real Sauce Labs test results, with video, logs, and network traffic attached, that show up on the **Test Results** page next to every other job you run on Sauce Labs.
+Sessions on the [Real Device Access API](introduction.md) can report **tests**: real Sauce Labs test results, with video, logs, and network traffic attached, that show up on the **Test Results** page under **Access API** in the Sauce Labs menu.
 
 This page explains how that works and why it matters, then walks through how to record one.
 
@@ -19,7 +19,7 @@ For teams, that means:
 - **No new tooling.** Access API results land in the dashboards, filters, and reports your team already uses. Nothing new to learn, nothing new to host.
 - **Custom automation becomes reportable.** Framework-free workflows — AI agents, bespoke device automation, monitoring probes — finally produce evidence a QA lead can review and a developer can act on.
 - **Failures come with proof.** A failed test carries the video, the device log, and the HAR file, so a bug report is a link instead of a description.
-- **Your existing grouping still works.** Tests accept a `build` and `tags`, so CI grouping, filtering, and trend reporting behave exactly as they do for framework-based jobs.
+- **Your existing grouping still works.** Tests accept a `build` and `tags`, so CI grouping, filtering, and trend reporting behave exactly as they do for framework-based jobs. They roll up into the **Builds** page and into [Insights](/insights) alongside the rest of your suite.
 - **One reservation, many results.** A single device session can hold many tests, so the [suite-per-session model](sauce-labs-hosted-appium.md) gives you per-test evidence without paying the per-test device reservation cost.
 
 ## How It Works
@@ -29,7 +29,7 @@ A test is a window you open and close inside a device session:
 1. **Start the test.** Call `startTest` and name the artifacts you want captured. Recording begins immediately.
 2. **Do the work.** Drive the device however you like — the hosted Appium server, ADB, the device control socket, your own code.
 3. **End the test.** Call `endTest` with `passed` or `failed`. Recording stops and the artifacts are collected.
-4. **Review it.** The test appears on the **Test Results** page in the Sauce Labs UI, with a direct link returned by the API.
+4. **Review it.** The test appears on the **Test Results** page under **Access API** in the Sauce Labs menu, with a direct link returned by the API.
 
 The device session outlives the test. Open and close as many tests as your test plan needs on the same reserved device, then close the session when you are done.
 
@@ -41,7 +41,6 @@ Artifact capture is **opt-in**. Every toggle defaults to `false`, so a test with
 | --- | --- | --- |
 | **Video** | `video` | A recording of the device screen for the duration of the test. See [Video Recording](/mobile-apps/features/video-recording/). |
 | **Device Logs** | `deviceLogs` | The system log — Logcat on Android, Syslog on iOS. |
-| **App Logs** | `testFairyLogs` | Instrumentation-level logs from your app. Requires a resigned app with instrumentation enabled. See [App Logs](/mobile-apps/features/mobile-app-diagnostics/app-logs/). |
 | **Network Logs** | `networkCapture` | HTTP/HTTPS traffic as a HAR file, viewable in the Sauce Labs Network Viewer. See [Network Capture](/mobile-apps/features/network-capture/). |
 | **Screenshots** | `screenshots` | The screenshots taken during the test, collected into the **Screenshots** tab. |
 | **Appium Logs** | `appiumLogs` | The log of the [Sauce Labs hosted Appium server](sauce-labs-hosted-appium.md), if one is running on the session. See [Appium Logs](/test-results/viewing-test-results/#appium-logs). |
@@ -82,7 +81,9 @@ curl -u $AUTH -X POST "$BASE_URL/sessions/$SESSION_ID/startTest" \
         "artifacts": {
           "video": true,
           "deviceLogs": true,
-          "networkCapture": true
+          "networkCapture": true,
+          "screenshots": true,
+          "appiumLogs": true
         }
       }'
 ```
@@ -140,17 +141,8 @@ Tests are returned oldest first. A test that is still running has no `endTime`.
 - **`uiViewUrl`** opens the **Test Details** page — video, logs, network traffic, and metadata. This is the link to paste into a bug report.
 - **`self`** is the test on the Jobs API, where the pass/fail result lives and where you download artifacts.
 
-You can also find your tests on the **Test Results** page in the Sauce Labs UI, filtered to **Real Devices**, and group them by build on the **Builds** page. See [Viewing Test Results](/test-results/viewing-test-results/).
+You can also find your tests on the **Test Results** page listed under **Access API** in the Sauce Labs menu. See [Access API Test Results](/test-results/viewing-test-results/#access-api-test-results).
 
-{/* SCREENSHOTS TO ADD — capture on a real account, save to static/img/real-device-access-api/,
-    then add `import useBaseUrl from '@docusaurus/useBaseUrl';` at the top of this file:
-      1. test-results-list.png  — Test Results page with an Access API test in the list
-      2. test-details-video.png — Test Details page, Video tab
-      3. test-details-logs.png  — Test Details page, Logs tab showing device + Appium logs
-      4. test-details-network.png — Network Viewer showing the captured HAR
-    Render each as:
-      <img src={useBaseUrl('img/real-device-access-api/test-results-list.png')} alt="..." width="800" />
-*/}
 
 ### 5. Download Artifacts Programmatically
 
@@ -199,6 +191,6 @@ See [Appium Over Real Device Access API](sauce-labs-hosted-appium.md) for the fu
 ## More Information
 
 - [Real Device Access API Reference](/real-device-access-api) — the `Test Results` tag has the full contract.
-- [Viewing Test Results](/test-results/viewing-test-results/) — the Test Results and Builds pages.
+- [Viewing Test Results](/test-results/viewing-test-results/) — how test results, test details, and builds work across Sauce Labs.
 - [Mastering the Companion Socket](mastering-companion-socket.md) — live log and HAR streaming, for when you want the data in real time rather than stored on a test.
 - [Real Device API Endpoints](/dev/api/rdc/) — downloading and managing real device job assets.
