@@ -138,7 +138,7 @@ curl -u $AUTH "$BASE_URL/sessions/$SESSION_ID/tests"
 
 Tests are returned oldest first. A test that is still running has no `endTime`.
 
-- **`uiViewUrl`** opens the **Test Details** page — video, logs, network traffic, and metadata. This is the link to paste into a bug report.
+- **`uiViewUrl`** opens the **Test Details** page — video, logs, network traffic, and metadata.
 - **`self`** is the test on the Jobs API, where the pass/fail result lives and where you download artifacts.
 
 You can also find your tests on the **Test Results** page listed under **Access API** in the Sauce Labs menu. See [Access API Test Results](/test-results/viewing-test-results/#access-api-test-results).
