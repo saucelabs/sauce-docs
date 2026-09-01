@@ -10,7 +10,7 @@ This guide explains how that works and why it matters, then walks through how to
 
 ## Why This Matters
 
-The Access API gives you a device and full control over it, but for a long time the *evidence* of what happened on that device was ephemeral. You could stream the screen and the logs over WebSockets, but if you wanted to keep any of it you had to capture the sockets yourself, store the files somewhere, and build your own way to look at them.
+The Access API gives full control over a device. Through Access API you can also stream the screen and the logs over WebSockets in real time. Which requires you to write some consumer that stores this data, if you want to review it later.
 
 Reporting tests from the Access API removes that work. You tell us when a test starts and when it ends, and Sauce Labs records the artifacts you asked for, stores them, and renders them on the same **Test Details** page your Appium, Espresso, and XCUITest jobs already use.
 
