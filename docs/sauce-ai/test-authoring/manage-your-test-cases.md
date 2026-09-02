@@ -112,6 +112,42 @@ If you are happy with the result, you can **Save Test Case** at the bottom of th
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-7.png')} alt="Manage Your Test Cases" width="100%"/>
 
+## Edit, Rename, or Delete a Test Case
+
+Once your test cases are created and saved, you may need to make changes to them as your testing requirements change. For this purpose, you can edit an existing test case, update its name that aligns with the new goal, update the tags used to organize it, or permanently remove it if it is no longer needed.
+
+**Step 1:** To access these options, navigate to **Test Authoring**, select **Test Cases and Suites** from the available options.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-8.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 2:** Locate the test case that you want to manage, and then click the **More Options (⋯)** menu next to the test case.
+
+The following management actions are available:
+
+| Actions | Description |
+| ----- | ----- |
+| **Edit** | Opens the selected test case in the test case workspace, allowing you to:<ul><li>Review the test flow</li><li>Modify existing test steps</li><li>Refine the test using natural-language prompts</li><li>Add or remove the tags assigned to the test case</li><li>Save the updated test case</li></ul>  |
+| **Rename** | Allows you to change the name of the test case without modifying the test steps or execution flow. Using clear and descriptive names helps you identify and organize test cases in your test library. |
+| **Delete** | Permanently removes the selected test case from the Test Cases and Suites library. Once deleted, the test case and its associated details can no longer be accessed. Confirm the deletion only when the test case is no longer required. |
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-9.png')} alt="Manage Your Test Cases" width="100%"/>
+
+### Manage Tags
+
+You can update the tags assigned to a test case at any time to keep your test cases organized and searchable.
+
+:::note
+If you remove a tag from all test cases, it gets removed entirely from your organization.
+:::
+
+**Step 1:** Open the test case you want to update, then click **Edit** to modify its details.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-10.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 2:** In the **Edit Test Case** dialog, add, remove, or update the tags as needed, then click **Save** to apply your changes.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-11.png')} alt="Manage Your Test Cases" width="100%"/>
+
 ## Manually Edit Individual Test Steps
 
 After generating a test case, you can manually edit individual test steps directly in the test case editor. Manual editing allows you to modify a specific step without using a prompt to update the entire test case.
@@ -125,7 +161,7 @@ You can:
 
 ### Edit a Test Step
 
-You can modify a value captured in an individual test step or replace a hard-coded value with a data variable.
+You can modify a value captured in an individual test step or [replace a hard-coded value with a data variable](#replace-a-hard-coded-value-with-a-data-variable).
 
 **Step 1:** In the generated test case, locate the step you want to modify and click the **Edit** icon.
 
@@ -184,7 +220,9 @@ If a test step is no longer needed, you can remove it directly from the test cas
 
 ## Validate Manual Changes
 
-After manually editing one or more steps, the test case indicates that there are unsaved changes.
+After manually editing one or more test steps, the test case indicates that there are unsaved changes. To ensure that the end-to-end test flow remains correct after these changes, it is recommended to validate the test steps.
+
+Validation replays the test flow to verify that the steps are reachable and that your edits are valid. Any manual changes are retained and respected by the authoring agent as you continue to build or maintain the [test case through prompts](#refine-test-cases-using-prompt-based-editing).
 
 **Step 1:** After completing your edits, locate the unsaved changes message and click **Validate** to verify that the updated test steps can be executed correctly.
 
@@ -197,40 +235,3 @@ After manually editing one or more steps, the test case indicates that there are
 **Step 3:** After the steps have been successfully validated, click **Save Test Case** to save your changes.
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-25.png')} alt="Manage Your Test Cases" width="100%"/>
-
-
-## Edit, Rename, or Delete a Test Case
-
-Once your test cases are created and saved, you may need to make changes to them as your testing requirements change. For this purpose, you can edit an existing test case, update its name that aligns with the new goal, update the tags used to organize it, or permanently remove it if it is no longer needed.
-
-**Step 1:** To access these options, navigate to **Test Authoring**, select **Test Cases and Suites** from the available options.
-
-<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-8.png')} alt="Manage Your Test Cases" width="100%"/>
-
-**Step 2:** Locate the test case that you want to manage, and then click the **More Options (⋯)** menu next to the test case.
-
-The following management actions are available:
-
-| Actions | Description |
-| ----- | ----- |
-| **Edit** | Opens the selected test case in the test case workspace, allowing you to:<ul><li>Review the test flow</li><li>Modify existing test steps</li><li>Refine the test using natural-language prompts</li><li>Add or remove the tags assigned to the test case</li><li>Save the updated test case</li></ul>  |
-| **Rename** | Allows you to change the name of the test case without modifying the test steps or execution flow. Using clear and descriptive names helps you identify and organize test cases in your test library. |
-| **Delete** | Permanently removes the selected test case from the Test Cases and Suites library. Once deleted, the test case and its associated details can no longer be accessed. Confirm the deletion only when the test case is no longer required. |
-
-<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-9.png')} alt="Manage Your Test Cases" width="100%"/>
-
-### Manage Tags
-
-You can update the tags assigned to a test case at any time to keep your test cases organized and searchable.
-
-:::note
-If you remove a tag from all test cases, it gets removed entirely from your organization.
-:::
-
-**Step 1:** Open the test case you want to update, then click **Edit** to modify its details.
-
-<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-10.png')} alt="Manage Your Test Cases" width="100%"/>
-
-**Step 2:** In the **Edit Test Case** dialog, add, remove, or update the tags as needed, then click **Save** to apply your changes.
-
-<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-11.png')} alt="Manage Your Test Cases" width="100%"/>
