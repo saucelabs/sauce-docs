@@ -21,6 +21,7 @@ export const ApiReference = () => {
   // useBaseUrl prefixes the site baseUrl so the spec resolves correctly under
   // PR-preview deploys (where BASE_URL is set) as well as locally/production.
   const specUrl = useBaseUrl('/oas/real-device-access-api-spec.yaml');
+  const websocketsSpecUrl = useBaseUrl('/oas/real-device-access-api-websockets.yaml');
   return (
     <BrowserOnly fallback={<div>Loading API reference…</div>}>
       {() => {
@@ -32,6 +33,14 @@ export const ApiReference = () => {
                 {
                   title: 'Real Device Access API',
                   url: specUrl,
+                },
+                {
+                  // SKELETON: AsyncAPI description of the two WebSocket channels.
+                  // Two or more sources make Scalar render a document selector in
+                  // the header. Keep this list in sync with the `@scalar/docusaurus`
+                  // plugin config in docusaurus.config.js.
+                  title: 'Real Device Access API — WebSockets',
+                  url: websocketsSpecUrl,
                 },
               ],
               layout: 'classic',
