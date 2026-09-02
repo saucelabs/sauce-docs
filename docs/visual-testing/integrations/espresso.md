@@ -24,7 +24,7 @@ Sauce Visual Espresso plugin provides a library exposing a `VisualClient` object
 Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/visual-espresso) dependency to your build.gradle
 
 ```groovy
-androidTestImplementation 'com.saucelabs.visual:visual-espresso:0.0.1'
+androidTestImplementation 'com.saucelabs.visual:visual-espresso:0.1.0'
 ```
 
 _Note: You can find the latest versions available [here](https://central.sonatype.com/artifact/com.saucelabs.visual/visual-espresso)._
@@ -265,33 +265,6 @@ visualClient.sauceVisualCheck("Long content page",
                 .fullPageScreenshot(withId(R.id.scrollView))
                 .build());
 ```
-
-## Troubleshooting
-
-### Resolving `kotlin-stdlib` security scan findings
-
-The Sauce Visual Espresso SDK includes `org.jetbrains.kotlin:kotlin-stdlib` as a transitive dependency. Some security scanners may report findings when an older version is selected by your application's dependency graph.
-
-The published SDK does not currently enforce a Kotlin standard library version in consuming projects. If your scan reports an affected version, add dependency constraints to the module-level build.gradle file where the SDK is declared:
-
-```groovy
-dependencies {
-    constraints {
-        androidTestImplementation 'org.jetbrains.kotlin:kotlin-stdlib:2.4.0'
-        androidTestImplementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.4.0'
-        androidTestImplementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.0'
-    }
-}
-```
-
-To verify the resolved version, run:
-
-```
-./gradlew :<your-module>:dependencyInsight \
-    --dependency kotlin-stdlib \
-    --configuration debugAndroidTestRuntimeClasspath
-```
-Confirm that kotlin-stdlib, kotlin-stdlib-jdk7, and kotlin-stdlib-jdk8 resolve to 2.1.0 or later.
 
 ## Examples
 
