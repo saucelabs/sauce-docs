@@ -863,8 +863,26 @@ module.exports = {
                     label: 'General',
                     collapsed: true,
                     items: [
-                        'app-distribution/general/getting-started',
-                        'app-distribution/general/installing-apps',
+                        'testfairy/using-testfairy/uploading-an-app',
+                        'testfairy/using-testfairy/builds',
+                        'testfairy/using-testfairy/dashboard',
+                        'testfairy/using-testfairy/insights',
+                        'testfairy/using-testfairy/multi-site',
+                    ],
+                },
+                'testfairy/app-center-alternative',
+                {
+                    type: 'category',
+                    label: 'App Distribution',
+                    collapsed: true,
+                    items: [
+                        'testfairy/app-distribution/managing-dist',
+                        'testfairy/app-distribution/app-versioning',
+                        'testfairy/app-distribution/landing-pages',
+                        'testfairy/app-distribution/app-expiration',
+                        'testfairy/app-distribution/release-notes',
+                        'testfairy/app-distribution/tags',
+                        'testfairy/app-distribution/symbols-file',
                     ],
                 },
                 {
