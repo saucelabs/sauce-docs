@@ -14,9 +14,21 @@ Sauce Labs Mobile App Distribution offers enterprise-grade app distribution capa
 
 For more information, see [Managing Testers](/testfairy/testers/managing-testers/).
 
+## Analyze User Behavior
+
+Sauce Labs Mobile App Distribution provides mobile teams with videos showing exactly what happened during a mobile device test, before a crash, or before something went wrong, which ensures that bugs are fixed quickly.
+
+For more information, see [Adding the Sauce Labs Mobile App Distribution SDK](/testfairy/sdk/adding-tf-sdk/).
+
+## Collect Feedback
+
+Sauce Labs Mobile App Distribution's feedback features help users provide feedback by shaking their device or taking a screenshot. A report can automatically be posted to Jira along with the session video recording, logs, metrics, and crash reports.
+
+For more information, see [Getting Feedback](/testfairy/sdk/user-feedback/).
+
 ## Security
 
-Sauce Labs Mobile App Distribution is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service.
-Sauce Labs Mobile App Distribution Public Cloud is available in the EU-Central-1 and US-East-1 data centers. The Private Cloud is available in various regions, customizable based on specific preferences.
+Sauce Labs Mobile App Distribution is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service. Sauce Labs Mobile App Distribution is the only platform that provides end-to-end data encryption using your private/public keys, so your data remains private.
+Sauce Labs Mobile App Distribution Public Cloud is available in the EU-Central-1 and US-East-1 data centers. The Private Cloud is available in various regions, customizable based on specific preferences. 
 
-For more information, see [Private Cloud](/testfairy/security/private-cloud/).
+For more information, see [Private Cloud](/testfairy/security/private-cloud/) and [End to End Data Encryption](/testfairy/sdk/security/data-encryption/).
