@@ -209,7 +209,6 @@ module.exports = {
                         'error-reporting/web-console/overview',
                         'error-reporting/web-console/releases',
                         'error-reporting/web-console/triage',
-                        'error-reporting/web-console/explore',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
                     ],
