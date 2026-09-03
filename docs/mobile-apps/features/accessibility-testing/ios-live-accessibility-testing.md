@@ -78,16 +78,16 @@ Navigate between accessible elements using keyboard shortcuts:
 
 #### On-Screen Keyboard Cursor Navigation
 
-While the Accessibility Inspector is enabled, you can still move the on-screen keyboard cursor in text inputs using a modifier key:
+While the Accessibility Inspector is enabled, you can still move the on-screen keyboard cursor in text inputs using a modifier combination:
 
 | Mac | Windows | Action |
 |-----|---------|--------|
-| **Option + Right Arrow** | **Alt + Right Arrow** | Move keyboard cursor right |
-| **Option + Left Arrow** | **Alt + Left Arrow** | Move keyboard cursor left |
-| **Option + Up Arrow** | **Alt + Up Arrow** | Move keyboard cursor up |
-| **Option + Down Arrow** | **Alt + Down Arrow** | Move keyboard cursor down |
+| **Ctrl + Shift + Right Arrow** | **Ctrl + Shift + Right Arrow** | Move keyboard cursor right |
+| **Ctrl + Shift + Left Arrow** | **Ctrl + Shift + Left Arrow** | Move keyboard cursor left |
+| **Ctrl + Shift + Up Arrow** | **Ctrl + Shift + Up Arrow** | Move keyboard cursor up |
+| **Ctrl + Shift + Down Arrow** | **Ctrl + Shift + Down Arrow** | Move keyboard cursor down |
 
-Without the modifier, arrow keys navigate the Accessibility Inspector. With **Option** (Mac) or **Alt** (Windows), arrow keys move the on-screen keyboard cursor within text inputs on the device instead.
+Without the modifiers, arrow keys navigate the Accessibility Inspector. Hold **Ctrl + Shift** while pressing an arrow key to move the on-screen keyboard cursor within text inputs on the device instead.
 
 Each time the inspector cursor moves, the spoken description of the newly focused element is announced via audio and displayed in the toolbar. This description includes the element's label, its type (button, text field, image, etc.), and its position in the list (e.g., "Settings, Icon, 3 of 24").
 
