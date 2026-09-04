@@ -1,0 +1,42 @@
+name: update-runner-versions
+
+# Opens a PR that adds the latest Cypress / Playwright / TestCafe versions
+# (read live from the public runner repos) to the supported-versions docs.
+
+on:
+  workflow_dispatch: {} # run manually from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' # needs Node 18+ for global fetch
+
+      - name: Apply version updates
+        id: update
+        run: node scripts/update-supported-versions.mjs
+
+      - name: Create Pull Request
+        if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          # Use a PAT (secrets.GH_PAT) if you want the PR to trigger other
+          # workflows (CI/preview). With the default GITHUB_TOKEN, opened PRs
+          # do NOT trigger further workflow runs.
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          base: main
+          branch: ${{ steps.update.outputs.branch }}
+          delete-branch: true
+          commit-message: ${{ steps.update.outputs.title }}
+          title: ${{ steps.update.outputs.title }}
+          body: ${{ steps.update.outputs.body }}
