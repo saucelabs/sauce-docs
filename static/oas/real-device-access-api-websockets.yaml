@@ -1,0 +1,162 @@
+### SKELETON — rough outline only, to see how Scalar renders AsyncAPI. Not complete or reviewed.
+### TODOs are marked inline. Message payloads below are placeholders, not the real contract.
+asyncapi: 3.0.0
+
+info:
+  version: "2.0.0"
+  title: "Real Device Access API — WebSockets"
+  description: |
+    The two real-time channels of an active Real Device Access API session, described from the **client's** point of view:
+    `receive` means your client receives the message, `send` means your client sends it.
+
+    The HTTP `Upgrade` handshake that opens these channels is described in the
+    [Real Device Access API Reference](/real-device-access-api) under **WebSocket Streams**. Get the ready-made URLs from
+    `links.ioWebsocketUrl` and `links.eventsWebsocketUrl` in the Session Details response rather than building them by hand.
+
+    Guides: [Device Control Socket](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-device-control-socket/) ·
+    [Companion Socket](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket/)
+
+servers:
+  usWest1:
+    host: api.us-west-1.saucelabs.com
+    pathname: /rdc/v2
+    protocol: wss
+    description: US West
+    security:
+      - $ref: "#/components/securitySchemes/basicAuth"
+  # TODO: add euCentral1 and usEast4 once the skeleton looks right.
+
+channels:
+  deviceControl:
+    address: /socket/alternativeIo/{sessionId}
+    title: Device Control Socket
+    summary: Live device screen out, device input in.
+    servers:
+      - $ref: "#/servers/usWest1"
+    parameters:
+      sessionId:
+        description: The id of the device session.
+    messages:
+      videoFrame:
+        $ref: "#/components/messages/VideoFrame"
+      inputCommand:
+        $ref: "#/components/messages/InputCommand"
+
+  companion:
+    address: /socket/companion/{sessionId}
+    title: Companion Socket
+    summary: Server-push stream of device logs, Appium logs, and network traffic.
+    servers:
+      - $ref: "#/servers/usWest1"
+    parameters:
+      sessionId:
+        description: The id of the device session.
+    messages:
+      deviceLogMessage:
+        $ref: "#/components/messages/DeviceLogMessage"
+      deviceAppiumMessage:
+        $ref: "#/components/messages/DeviceAppiumMessage"
+      deviceHarEntry:
+        $ref: "#/components/messages/DeviceHarEntry"
+
+operations:
+  streamDeviceScreen:
+    action: receive
+    channel:
+      $ref: "#/channels/deviceControl"
+    title: Receive screen frames
+    summary: Binary video frames of the live device screen.
+    messages:
+      - $ref: "#/channels/deviceControl/messages/videoFrame"
+
+  sendDeviceInput:
+    action: send
+    channel:
+      $ref: "#/channels/deviceControl"
+    title: Send device input
+    summary: Taps, swipes, and text entry.
+    messages:
+      - $ref: "#/channels/deviceControl/messages/inputCommand"
+
+  streamSessionEvents:
+    action: receive
+    channel:
+      $ref: "#/channels/companion"
+    title: Receive session events
+    summary: |
+      JSON events, discriminated by `type`. Network capture is off by default — enable it with
+      `POST /sessions/{sessionId}/device/enableNetworkCapture` before expecting `device.har.entry`.
+    messages:
+      - $ref: "#/channels/companion/messages/deviceLogMessage"
+      - $ref: "#/channels/companion/messages/deviceAppiumMessage"
+      - $ref: "#/channels/companion/messages/deviceHarEntry"
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: "`Authorization: Basic <base64(username:accessKey)>` on the upgrade request."
+
+  messages:
+    # TODO: replace every payload below with the real schema.
+    VideoFrame:
+      name: videoFrame
+      title: Video frame
+      summary: A single encoded frame of the device screen.
+      contentType: application/octet-stream
+      payload:
+        type: string
+        format: binary
+
+    InputCommand:
+      name: inputCommand
+      title: Input command
+      summary: An interaction to perform on the device.
+      contentType: application/json
+      payload:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "tap"
+          # TODO: real command set + per-command fields.
+
+    DeviceLogMessage:
+      name: deviceLogMessage
+      title: Device log message
+      summary: One line of Android Logcat or iOS Syslog.
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/CompanionEventEnvelope"
+
+    DeviceAppiumMessage:
+      name: deviceAppiumMessage
+      title: Appium log message
+      summary: One line from the hosted Appium server.
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/CompanionEventEnvelope"
+
+    DeviceHarEntry:
+      name: deviceHarEntry
+      title: HAR entry
+      summary: One captured HTTP/S request/response pair.
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/CompanionEventEnvelope"
+
+  schemas:
+    # TODO: split into one real schema per event type instead of this shared placeholder.
+    CompanionEventEnvelope:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - device.log.message
+            - device.appium.message
+            - device.har.entry
+        payload:
+          type: object
+          description: "Shape depends on `type`. TODO: document per type."

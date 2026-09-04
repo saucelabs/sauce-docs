@@ -38,6 +38,9 @@ tags:
     description: Simulate different network conditions on the device to test your app under various connectivity scenarios.
   - name: HTTP Proxy
     description: Allows you to proxy HTTP/S to your device. Can be used as a port-forward to your device.
+  - name: WebSocket Streams
+    description: |
+      Real-time, bidirectional channels for an active session. These endpoints describe the HTTP `Upgrade` handshake only — once the server answers `101 Switching Protocols`, all further traffic is WebSocket frames and is no longer described by this OpenAPI document. See the [Device Control Socket](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-device-control-socket/) and [Companion Socket](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket/) guides for the frame and message formats.
 paths:
   /devices:
     get:
@@ -1583,6 +1586,62 @@ paths:
           $ref: "#/components/responses/DeviceSessionNotFound"
         "429":
           $ref: "#/components/responses/TooManyRequests"
+  /socket/alternativeIo/{sessionId}:
+    get:
+      operationId: connectDeviceControlSocket
+      summary: "Open the Device Control Socket (WebSocket upgrade)"
+      description: |
+        Upgrades the connection to the Device Control Socket, a bidirectional WebSocket that streams the live device screen as binary
+        video frames and accepts input commands such as taps, swipes, and text entry. Use it to build your own live view, drive a device
+        without Appium, or mirror the screen into your own tooling. See the
+        [Device Control Socket guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-device-control-socket/)
+        for the frame formats and client examples — this endpoint documents the handshake only.
+      tags:
+        - "WebSocket Streams"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session. Prefer the ready-made `links.ioWebsocketUrl` from the Session Details response over building this URL yourself.
+          schema:
+            type: string
+        - $ref: "#/components/parameters/UpgradeHeader"
+        - $ref: "#/components/parameters/ConnectionHeader"
+      responses:
+        "101":
+          $ref: "#/components/responses/SwitchingProtocols"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+  /socket/companion/{sessionId}:
+    get:
+      operationId: connectCompanionSocket
+      summary: "Open the Companion Socket (WebSocket upgrade)"
+      description: |
+        Upgrades the connection to the Companion Socket, a server-push WebSocket that emits newline-free JSON events for device logs
+        (`device.log.message`), Appium logs (`device.appium.message`), and captured network traffic (`device.har.entry`). Use it to watch
+        crashes, stack traces, and HTTP calls live, or to trigger your own automation from device events. See the
+        [Companion Socket guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket/)
+        for event payloads and filtering recipes — this endpoint documents the handshake only.
+      tags:
+        - "WebSocket Streams"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session. Prefer the ready-made `links.eventsWebsocketUrl` from the Session Details response over building this URL yourself.
+          schema:
+            type: string
+        - $ref: "#/components/parameters/UpgradeHeader"
+        - $ref: "#/components/parameters/ConnectionHeader"
+      responses:
+        "101":
+          $ref: "#/components/responses/SwitchingProtocols"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
 components:
   securitySchemes:
     basicAuth:
@@ -1594,7 +1653,44 @@ components:
         - **Password**: Your Sauce Labs access key.
 
         You can find both your username and access key on the **Account > User Settings** page in the Sauce Labs UI.
+  parameters:
+    UpgradeHeader:
+      name: Upgrade
+      in: header
+      required: true
+      description: "Standard WebSocket handshake header. Most WebSocket clients set this for you."
+      schema:
+        type: string
+        enum: ["websocket"]
+        example: "websocket"
+    ConnectionHeader:
+      name: Connection
+      in: header
+      required: true
+      description: "Standard WebSocket handshake header. Most WebSocket clients set this for you."
+      schema:
+        type: string
+        enum: ["Upgrade"]
+        example: "Upgrade"
   responses:
+    SwitchingProtocols:
+      description: |
+        The connection was upgraded and is now a WebSocket. Everything after this response is exchanged as WebSocket frames and is
+        described in the WebSocket guides, not here.
+      headers:
+        Upgrade:
+          schema:
+            type: string
+            example: "websocket"
+        Connection:
+          schema:
+            type: string
+            example: "Upgrade"
+        Sec-WebSocket-Accept:
+          description: "Derived from the client's `Sec-WebSocket-Key`, per RFC 6455."
+          schema:
+            type: string
+            example: "s3pPLMBiTxaQ9kYGzzhZRbK+xOo="
     BadRequest:
       description: Bad Request
       content:
@@ -2121,11 +2217,12 @@ components:
           properties:
             ioWebsocketUrl:
               type: string
-              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000/wss/io"
+              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/socket/alternativeIo/123e4567-e89b-12d3-a456-426614174000"
+              description: "Websocket for the live device screen and device input. See [Open the Device Control Socket](#tag/websocket-streams/operation/connectDeviceControlSocket)."
             eventsWebsocketUrl:
               type: string
-              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000/wss/events"
-              description: Websocket for retrieving realtime logs, device events, and some statistics
+              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/socket/companion/123e4567-e89b-12d3-a456-426614174000"
+              description: "Websocket for retrieving realtime logs, device events, and some statistics. See [Open the Companion Socket](#tag/websocket-streams/operation/connectCompanionSocket)."
             liveViewUrl:
               type: string
               example: "https://app.saucelabs.com/live/mobile/dataCenters/US/devices/Samsung_Galaxy_S8_real2/shared/123e4567-e89b-12d3-a456-426614174000"

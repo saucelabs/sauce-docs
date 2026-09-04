@@ -207,6 +207,13 @@ const docusaurusConfig = {
                             title: 'Real Device Access API',
                             url: `${siteBaseUrl}oas/real-device-access-api-spec.yaml`,
                         },
+                        {
+                            // SKELETON: AsyncAPI description of the two WebSocket
+                            // channels. Rendered by Scalar's (work-in-progress)
+                            // AsyncAPI support.
+                            title: 'Real Device Access API — WebSockets',
+                            url: `${siteBaseUrl}oas/real-device-access-api-websockets.yaml`,
+                        },
                     ],
                 },
             },
