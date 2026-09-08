@@ -17,7 +17,7 @@ Some tools need entitlements beyond a standard Sauce Labs account:
 Beyond these entitlements, access to specific tools and capabilities can also depend on your role and permissions within your Sauce Labs organization. If a tool is missing or returns a permissions error, ask your organization administrator to review your team membership and access settings.
 :::
 
-## Account &amp; team
+## Account &amp; Team
 
 Look up account, user, team, and region information. Useful for confirming which environment your agent is working in.
 
@@ -36,7 +36,7 @@ Look up account, user, team, and region information. Useful for confirming which
 
 
 ## Real Device Access API
-### Device discovery
+### Device Discovery
 
 List devices in the Sauce Labs catalog and check their live availability before provisioning a session.
 
@@ -46,7 +46,7 @@ List devices in the Sauce Labs catalog and check their live availability before 
 | `listDeviceStatus` | Show the live status (available, in use, cleaning, offline) of devices. | "Is a Galaxy S24 free right now?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `get_specific_device` | Retrieve the full descriptor for a single device. | "Show details for the iPhone 15 Pro." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-### Real device sessions
+### Real Device Sessions
 
 Start, inspect, and end real-device sessions, and interact with the device directly.
 
@@ -60,7 +60,7 @@ Start, inspect, and end real-device sessions, and interact with the device direc
 | `applyDeviceSettings` | Change device settings such as orientation, locale, or animations. | "Switch the device to dark mode." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `executeShellCommand` | Run an ADB shell command on an Android device. | "Run `pm list packages` on the device." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-### UI interaction
+### UI Interaction
 
 Read the on-screen UI and drive the device by tapping, swiping, and typing. These tools are platform-specific.
 
@@ -74,7 +74,7 @@ Read the on-screen UI and drive the device by tapping, swiping, and typing. Thes
 | `type_text_ios` | Type text into the focused iOS field. iOS only. | "Type my email address into the field." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `swipe_ios` | Swipe or scroll between two screen coordinates. iOS only. | "Scroll down to the bottom of the page." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-### App management
+### App Management
 
 Install, launch, and uninstall apps from Sauce Storage on a device, and check installation status.
 
@@ -86,7 +86,7 @@ Install, launch, and uninstall apps from Sauce Storage on a device, and check in
 | `listAppInstallations` | List apps currently installed in the session. | "What apps are installed in this session?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `waitForAppInstallation` | Wait until an app finishes installing. | "Wait until the app finishes installing." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-### Device files
+### Device Files
 
 Browse and manage files on the device filesystem during a session.
 
@@ -121,7 +121,7 @@ Start and inspect a hosted Appium server or iOS WebDriverAgent for a session, so
 | `launchWebDriverAgent` | Launch WebDriverAgent (WDA) on an iOS device for Appium-based automation. iOS only. | "Launch WebDriverAgent on this iPhone." | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 | `getWebDriverAgentStatus` | Report WebDriverAgent's state, and its ports once it is running. iOS only. | "Is WebDriverAgent ready yet?" | <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> |
 
-## Jobs, builds &amp; assets
+## Jobs, Builds &amp; Assets
 
 Inspect jobs and builds, and retrieve the assets they produce, such as logs, screenshots, video, and network captures.
 
@@ -168,7 +168,7 @@ Inspect Sauce Connect tunnels and the jobs running through them.
 
 The following tools are powered by [Sauce AI for Test Authoring](/sauce-ai/ai-authoring), a paid add-on for Enterprise accounts. They let your agent generate test cases from natural-language intent, manage and run them, organize them into suites, and schedule recurring runs, all without writing code. All tools in this section require the Test Authoring add-on.
 
-### Test cases
+### Test Cases
 
 Generate test cases from natural-language intent and manage your saved test cases. You describe what to test, and a test case is generated, saved, and made runnable.
 
@@ -181,7 +181,7 @@ Generate test cases from natural-language intent and manage your saved test case
 | `Rename_a_test_case` | Rename an existing test case. | "Rename that test case to 'Checkout - happy path'." | <span className="mcp-tag">Test Authoring</span> |
 | `Delete_a_test_case` | Delete a test case. | "Delete the old smoke-test test case." | <span className="mcp-tag">Test Authoring</span> |
 
-### Code generation
+### Code Generation
 
 Export an authored test case as runnable source code in the language and framework of your choice.
 
@@ -190,7 +190,7 @@ Export an authored test case as runnable source code in the language and framewo
 | `List_valid_code_generation_targets_for_a_test_case` | List the language/framework targets available for a given test case (depends on its platform). | "What languages can I export this test case to?" | <span className="mcp-tag">Test Authoring</span> |
 | `Generate_source_code_for_a_test_case` | Generate source code for the latest revision of a test case in a chosen target (e.g. `javascript_webdriverio`). | "Give me this test case as Python Selenium code." | <span className="mcp-tag">Test Authoring</span> |
 
-### Running test cases
+### Running Test Cases
 
 Run authored test cases on Sauce Labs and inspect the results.
 
@@ -201,7 +201,7 @@ Run authored test cases on Sauce Labs and inspect the results.
 | `List_test_case_runs` | List the runs for a test case. | "Show the run history for this test case." | <span className="mcp-tag">Test Authoring</span> |
 | `Get_artifact_file` | Retrieve an artifact file (such as a screenshot or log) produced by a test case run. | "Download the screenshot from that run." | <span className="mcp-tag">Test Authoring</span> |
 
-### Test suites
+### Test Suites
 
 Group test cases into suites and run them together for broader regression coverage.
 
@@ -214,7 +214,7 @@ Group test cases into suites and run them together for broader regression covera
 | `Delete_a_test_suite` | Delete a test suite. | "Delete the old regression suite." | <span className="mcp-tag">Test Authoring</span> |
 | `Run_all_test_cases_in_a_suite` | Queue runs for every test case in a suite, optionally under a shared build name. | "Run all tests in the checkout regression suite." | <span className="mcp-tag">Test Authoring</span> |
 
-### Test schedules
+### Test Schedules
 
 Schedule test suites to run automatically on a recurring cadence.
 
@@ -225,3 +225,16 @@ Schedule test suites to run automatically on a recurring cadence.
 | `Get_a_test_schedule` | Retrieve the details of a single schedule. | "Show the settings for my nightly schedule." | <span className="mcp-tag">Test Authoring</span> |
 | `Update_a_test_schedule` | Update a schedule: change its cadence, suites, run owner, or enable or pause it. | "Pause the nightly schedule." | <span className="mcp-tag">Test Authoring</span> |
 | `Delete_a_test_schedule` | Delete a schedule. | "Delete the nightly schedule." | <span className="mcp-tag">Test Authoring</span> |
+
+## Error Reporting
+
+| Tool name | Description | Example prompt |
+|---|---|---|
+| `error_reporting_get_context` | Returns the caller's environment: universe and the projects the authenticated account can see. Call first in a session to resolve which project subsequent queries target. | "What Error Reporting projects do I have access to?" |
+| `error_reporting_list_attributes` | Lists the attributes available on a project—the fields a query can filter, group, or fold on. Call before constructing any filtered or grouped query so filters use real attribute names. | "What attributes can I filter on in the `<project>` project?" |
+| `error_reporting_list_groups` | Returns crash groups for a project over a time window, ranked with error counts, first/last seen, and affected users. The entry point for "what's broken right now." | "Show me the top 10 crash groups in `<project>` over the last 7 days, ranked by affected users." |
+| `error_reporting_list_instances` | Returns individual error objects, one row each, with selected attribute columns. Use when raw events matter rather than the aggregate—for example, slicing by version, device, or user. | "List every error in `<project>` from the last 24 hours on app version 5.2.1." |
+| `error_reporting_get_group` | Returns a single crash group in depth, beyond what the ranked list carries. Use after `list_groups` to investigate one group. | "Give me the full detail on crash group `<group id>` in `<project>`." |
+| `error_reporting_get_instance` | Returns one error object in full: the crashing thread's callstack, its attributes, and the attachments available on it. The main triage tool. | "Show me the callstack and attributes for error `<object id>` in `<project>`." |
+| `error_reporting_get_attachment` | Fetches one file attached to an error object—most usefully the SDK breadcrumbs. Call after `get_instance` surfaces the attachment list. | "Pull the breadcrumbs attachment for error `<object id>` and tell me what the user did in the seconds before the crash." |
+
