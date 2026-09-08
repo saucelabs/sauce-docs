@@ -71,6 +71,10 @@ Live Testing and automated Appium and Espresso testing are available against And
 App and Android test APKs must include the `arm64-v8a` ABI to run on ARM emulators. Rebuild or download a universal APK, or ensure your Gradle splits include `arm64-v8a`.
 :::
 
+:::caution Long-running tests
+We don't recommend tests that run longer than 60 minutes on ARM emulators. The ARM Cloud is maintained on a regular cadence, and a session still running when maintenance begins can be interrupted before your test finishes. For the session length limits that apply to all virtual devices, see [`maxDuration`](/dev/test-configuration-options/#maxduration).
+:::
+
 ### Live Testing
 
 If your account has access to Android ARM, the **Google ARM Emulator** appears in the Mobile Virtual section of **Live > Mobile App** and **Live > Cross Browser**.
