@@ -18,7 +18,7 @@ For more information, see [Data Center Endpoints](/basics/data-center-endpoints)
 
 ## Can Sauce Connect be managed by a service account?
 
-No, [service accounts](/basics/acct-team-mgmt/managing-service-accounts) cannot start or manage Sauce Connect instances. Only user accounts have the permissions required to create and manage tunnels.
+Yes, [service accounts](/basics/acct-team-mgmt/managing-service-accounts) can start or manage Sauce Connect instances.
 
 ## Can I access apps on localhost?
 

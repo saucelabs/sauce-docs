@@ -21,7 +21,7 @@ The ability to use a Sauce Connect Proxy tunnel depends on the role of the user 
 | Organization Admin | Any user                         | Any user                                      | Any user                          |
 | Team Admin         | All members of their team        | Organization admins, team members, themselves | Themselves and other team members |
 | Team Member        | All members of their team        | Organization admins, team members, themselves | Only themselves                   |
-| Service Account    | ❌ Cannot create or share tunnels | Organization admins, team members             | ❌ Cannot stop any tunnels         |
+| Service Account    | All members of their team        | Organization admins, team members, themselves | Only themselves                   |
 
 For details about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info/#user-roles).
 
