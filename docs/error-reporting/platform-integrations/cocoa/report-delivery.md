@@ -62,7 +62,7 @@ Live reports and OOM reports also use this submission policy. Retention does not
 
 - Native reports whose original crash files have not yet been safely removed.
 - Native reports awaiting their first admitted submission attempt.
-- Reports currently being submitted.
+- Reports being submitted.
 
 Terminal records and then ordinary retry records are eligible for eviction. Protected records can temporarily keep the repository above either target.
 
@@ -70,7 +70,7 @@ Terminal records and then ordinary retry records are eligible for eviction. Prot
 
 Do not delete the database or its companion files as an upgrade or troubleshooting step. Preserve diagnostic files when investigating storage failures.
 
-## Configure Startup Diagnostics {#startup-diagnostics}
+## Startup Diagnostics
 
 Install logging destinations before constructing the client to capture repository initialization, model lookup, and pending-report processing. Setting them only after initialization misses failures that occur during construction.
 
@@ -86,7 +86,8 @@ func initializeBacktrace(submissionURL: URL) throws {
 }
 ```
 
-Alternatively, call `BacktraceLogger.setDestinations(_:)` before initialization. A `nil` `configuration.loggingDestinations` preserves existing logger destinations; an empty collection explicitly disables them. Reduce diagnostic logging after troubleshooting, and sanitize logs before sharing them. Do not include submission tokens, private attachment contents, or unredacted URLs.
+Alternatively, call `BacktraceLogger.setDestinations(_:)` before initialization. 
+A `nil` `configuration.loggingDestinations` preserves existing logger destinations; an empty collection explicitly disables them. Reduce diagnostic logging after troubleshooting, and sanitize logs before sharing them. Do not include submission tokens, private attachment contents, or unredacted URLs.
 
 If you need delegate callbacks for the initial pending report or startup replay, assign your delegate to `configuration.delegate` **before** creating the client. This property is weak: retain the delegate in your application. Assigning `BacktraceClient.shared?.delegate` after initialization can miss startup events.
 
