@@ -568,6 +568,16 @@ module.exports = {
                     items: [
                         'sauce-basics',
                         'basics/quickstarts',
+                        {
+                            type: 'category',
+                            label: 'Community Frameworks',
+                            collapsed: true,
+                            items: [
+                                'basics/community-frameworks',
+                                'basics/community-frameworks/maestro',
+                                'basics/community-frameworks/vibium',
+                            ],
+                        },
                         'basics/platform-configurator',
                         'basics/data-center-endpoints',
                         'basics/environment-variables',
@@ -1055,6 +1065,11 @@ module.exports = {
                                 'mobile-apps/automated-testing/alttester/unreal',
                             ],
                         },
+                        {
+                            type: 'link',
+                            label: 'Maestro (Community)',
+                            href: '/basics/community-frameworks/maestro',
+                        },
                         'mobile-apps/automated-testing/ipa-files',
                         'mobile-apps/automated-testing/app-files',
                     ],
@@ -1187,6 +1202,11 @@ module.exports = {
                                 'web-apps/automated-testing/cdp-bidi',
                                 'web-apps/automated-testing/cdp-bidi/examples',
                             ],
+                        },
+                        {
+                            type: 'link',
+                            label: 'Vibium (Community)',
+                            href: '/basics/community-frameworks/vibium',
                         },
                     ],
                 },

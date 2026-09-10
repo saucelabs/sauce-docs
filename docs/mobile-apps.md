@@ -40,7 +40,7 @@ Debug faster, facilitate collaboration, increase mobile device coverage, and com
 
 ## Automated Testing
 
-Accelerate and scale your testing and broaden coverage by running automated tests on Sauce Labs mobile devices (real and virtual) through your preferred test UI framework (Appium, Espresso, or XCUITest).
+Accelerate and scale your testing and broaden coverage by running automated tests on Sauce Labs mobile devices (real and virtual) through your preferred test UI framework (Appium, Espresso, or XCUITest), or through a [community framework](/basics/community-frameworks) such as [Maestro](/basics/community-frameworks/maestro).
 
 <div>
   <div className="box boxwidetop card">
