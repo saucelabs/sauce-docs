@@ -11,6 +11,8 @@ Sauce Labs integrates with the most important tools for your SDLC. Whether you n
 
 We partner with the top companies in the industry to bring you a complete solution for your testing needs. We also integrate seamlessly with the best open source tools in the ecosystem.
 
+Looking for community-built test frameworks such as Maestro or Vibium? See [Community Frameworks](/basics/community-frameworks).
+
 ## CI/CD Tools
 
 Your CI/CD process needs automated testing in order to be successful. Sauce Labs integrates with every tool in the ecosystem.
