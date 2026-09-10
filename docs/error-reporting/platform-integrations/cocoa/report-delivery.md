@@ -86,7 +86,7 @@ func initializeBacktrace(submissionURL: URL) throws {
 }
 ```
 
-Alternatively, call `BacktraceLogger.setDestinations(_:)` before initialization. 
+Alternatively, call `BacktraceLogger.setDestinations(_:)` before initialization.
 A `nil` `configuration.loggingDestinations` preserves existing logger destinations; an empty collection explicitly disables them. Reduce diagnostic logging after troubleshooting, and sanitize logs before sharing them. Do not include submission tokens, private attachment contents, or unredacted URLs.
 
 If you need delegate callbacks for the initial pending report or startup replay, assign your delegate to `configuration.delegate` **before** creating the client. This property is weak: retain the delegate in your application. Assigning `BacktraceClient.shared?.delegate` after initialization can miss startup events.
