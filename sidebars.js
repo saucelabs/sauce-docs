@@ -202,6 +202,16 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'MCP',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/mcp/error-reporting-mcp',
+                        'error-reporting/mcp/set-up-error-reporting-mcp',
+                        'error-reporting/mcp/error-reporting-mcp-tools',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
