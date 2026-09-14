@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: "2.0.0"
   title: "Real Device Access API Reference"
-  x-last-modified: "2025-11-19"
+  x-last-modified: "2026-08-27"
   x-beta: false
   description: |
     Access Sauce Labs' specialized real device farm to automate, test, and develop on real iOS and Android devices in the cloud. This API opens up our device infrastructure, enabling you to go beyond traditional testing workflows. Reserve a device once, then run multiple operations back-to-back on the same session—whether you're running automated tests, developing new features, or building custom automation workflows.
@@ -26,6 +26,8 @@ tags:
     description: View the catalog of devices available to you and the current state of the devices.
   - name: Session Lifecycle
     description: Create, Inspect and Close your Sauce Labs Real Device session.
+  - name: Test Results
+    description: Record what happens on your device (screen recording, sys-logs, and so on) and turn it into a test. Your tests show up on the 'Test Results' page in the Sauce Labs UI, and the recordings can be downloaded via our ['Jobs' API](https://docs.saucelabs.com/dev/api/rdc/#jobs).
   - name: Device Interactions
     description: Interact with your Device.
   - name: Device File Management
@@ -262,6 +264,134 @@ paths:
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
+  /sessions/{sessionId}/startTest:
+    post:
+      operationId: startTest
+      summary: Start a test on a device session
+      description: |
+        Starts a new test on the session. From this point on we start recording what happens on the device.
+        This lets you mark the start of a test that you are executing on the device. Afterwards you define
+        whether the test passed or failed, and you review it on the Test Results page in the Sauce Labs UI,
+        just like any other job you ran on Sauce Labs.
+
+        The response contains the `jobId`. Use the links returned by [`getTests`](#operation/getTests) to fetch the
+        report through the ['jobs' API](https://docs.saucelabs.com/dev/api/rdc/#jobs).
+
+        Only one test can be active on a session at a time — call [`endTest`](#operation/endTest) to finish the
+        current test before starting the next one. A session can hold at most 500 tests.
+
+        Artifact capture (video, device logs, network capture, and so on) is opt-in: every toggle defaults to `false`.
+        Request the artifacts you need in the `artifacts` object and they are recorded for the duration of the test.
+
+        The request body is optional. If you omit it, the test is created with a generated name, no build,
+        no tags, and no artifacts.
+      tags:
+        - "Test Results"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartTestRequest"
+      responses:
+        "200":
+          description: Test started
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StartTestResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+        "409":
+          $ref: "#/components/responses/TestConflict"
+        "500":
+          $ref: "#/components/responses/TestCreationFailed"
+
+  /sessions/{sessionId}/tests:
+    get:
+      operationId: getTests
+      summary: List the tests of a device session
+      description: |
+        Returns every test created on the session, oldest first.
+
+        Every entry also carries two links: `self` points at the test on the jobs API (where the pass/fail result
+        lives), and `uiViewUrl` opens the test details page in the Sauce Labs UI.
+      tags:
+        - "Test Results"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tests"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /sessions/{sessionId}/endTest:
+    post:
+      operationId: endTest
+      summary: End the active test on a device session
+      description: |
+        Ends the test that is currently active on the session and reports its result. Any artifact recordings
+        started by [`startTest`](#operation/startTest) are stopped and collected. Collection happens asynchronously, so
+        the artifacts appear on the test shortly after the call returns.
+
+        Once the test is ended, the session is free to start the next one. The session itself stays active; closing
+        the session while a test is running ends that test automatically.
+
+        The request body is optional. Omit it, or omit `status`, and the test is stored without a pass/fail
+        result.
+      tags:
+        - "Test Results"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EndTestRequest"
+      responses:
+        "200":
+          description: Test ended
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EndTestResponse"
+        "400":
+          $ref: "#/components/responses/InvalidTestStatus"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+        "409":
+          $ref: "#/components/responses/TestConflict"
   /sessions/{sessionId}/device/executeShellCommand:
     post:
       operationId: executeShellCommand
@@ -589,7 +719,7 @@ paths:
         Launches WebDriverAgent (WDA) on an iOS device. WDA enables Appium-based automation by providing
         a WebDriver-compatible interface to the device. Please use the installApp endpoint to provide your own
         WDA binary and use getWebDriverAgentStatus to check if WDA is running. After launching, you can interact with 
-        the newly installed WDA using the the HTTP Proxy​ endpoinds provided by this API.
+        the newly installed WDA using the HTTP Proxy endpoints provided by this API.
       tags:
         - "Device Interactions"
       parameters:
@@ -1633,6 +1763,63 @@ components:
               status:
                 type: integer
                 example: 500
+    TestConflict:
+      description: |
+        The test could not be started or ended in the session's current state. This covers:
+        - `Test already active.` — a test is still running on the session; call `endTest` before starting another. The response carries the offending id in `activeTestId`.
+        - `Test limit reached.` — the session already holds the maximum of 500 tests; start a new session to record more.
+        - `No active test.` — `endTest` was called on a session that has no running test.
+        - `Test is not ready.` — the test is still being created; retry shortly.
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Test already active.
+              detail:
+                type: string
+                example: "Cannot start a new test because test 123e4567-e89b-12d3-a456-426614174000 is still active on session 4a1b2c3d-5e6f-7890-abcd-ef1234567890. Call endTest to finish it before starting another."
+              activeTestId:
+                type: string
+                description: Only present for `Test already active.`
+                example: 123e4567-e89b-12d3-a456-426614174000
+    InvalidTestStatus:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Invalid request body.
+              detail:
+                type: string
+                example: "You provided an invalid request body to the /rdc/v2/sessions/<id>/endTest endpoint. The 'status' field must be one of: passed, failed. You provided 'skipped'."
+    TestCreationFailed:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: about:blank
+              title:
+                type: string
+                example: Could not start test.
+              detail:
+                type: string
+                example: "Could not create the test on session 4a1b2c3d-5e6f-7890-abcd-ef1234567890. Please retry startTest. If it keeps happening, contact your Sauce Labs representative."
     MaxSessionLimitReached:
       description: We will emit this message when you try to start an Access API session, but you have already reached your max concurrency for Access API sessions. You must either close existing sessions or contact your Sauce Labs representative for more concurrency.
       content:
@@ -2252,3 +2439,112 @@ components:
       properties:
         networkConditions:
           $ref: "#/components/schemas/NetworkConditions"
+    StartTestRequest:
+      type: object
+      description: Optional metadata and artifact toggles for the test. Every field is optional.
+      properties:
+        testName:
+          type: string
+          description: The name the test is shown under in the Sauce Labs UI. Defaults to a generated name.
+          example: "Checkout flow — guest user"
+        build:
+          type: string
+          description: Build identifier used to group this test with other tests of the same build.
+          example: "build-1042"
+        tags:
+          type: array
+          description: Tags to attach to the test, for filtering in the Sauce Labs UI.
+          uniqueItems: true
+          items:
+            type: string
+          example: ["smoke", "checkout"]
+        artifacts:
+          $ref: "#/components/schemas/ArtifactToggles"
+    ArtifactToggles:
+      type: object
+      description: The artifacts to capture for the duration of the test. All toggles are opt-in and default to `false`.
+      properties:
+        video:
+          type: boolean
+          default: false
+          description: Record a video of the device screen.
+        deviceLogs:
+          type: boolean
+          default: false
+          description: Capture the device log (logcat on Android, syslog on iOS).
+        networkCapture:
+          type: boolean
+          default: false
+          description: Capture network traffic as a HAR file.
+        screenshots:
+          type: boolean
+          default: false
+          description: Collect the screenshots taken during the test.
+        appiumLogs:
+          type: boolean
+          default: false
+          description: Collect the log of the hosted Appium server, if one is running.
+    StartTestResponse:
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The Sauce Labs job id of the test that was started. Use it to fetch the test and its artifacts from the jobs API.
+          example: 123e4567-e89b-12d3-a456-426614174000
+    EndTestRequest:
+      type: object
+      description: The result to store on the test. Optional — omit it to leave the result undefined.
+      properties:
+        status:
+          type: string
+          description: The test result. Case insensitive. Omit to leave the result undefined.
+          enum: [passed, failed]
+          example: passed
+    EndTestResponse:
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The Sauce Labs job id of the test that was ended.
+          example: 123e4567-e89b-12d3-a456-426614174000
+        status:
+          type: string
+          description: The status stored on the test.
+          example: passed
+    Tests:
+      type: object
+      properties:
+        tests:
+          type: array
+          items:
+            $ref: "#/components/schemas/Test"
+    Test:
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The Sauce Labs job id of the test.
+          example: 123e4567-e89b-12d3-a456-426614174000
+        startTime:
+          type: string
+          format: date-time
+          description: When the test was started.
+          example: "2025-11-19T10:15:30Z"
+        endTime:
+          type: string
+          format: date-time
+          description: When the test was ended. Absent while the test is still running.
+          example: "2025-11-19T10:18:02Z"
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+              description: The test on the jobs API, where the pass/fail result lives.
+              example: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/123e4567-e89b-12d3-a456-426614174000"
+            uiViewUrl:
+              type: string
+              format: uri
+              description: The test details page in the Sauce Labs UI.
+              example: "https://app.saucelabs.com/tests/123e4567-e89b-12d3-a456-426614174000"

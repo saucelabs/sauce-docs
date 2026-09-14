@@ -405,6 +405,29 @@ We do not allow more than ten concurrent Appium commands per Appium session. Thi
   4. **Async/Await Mismanagement in Loops:** Using loops like `forEach` or `map` with async functions without proper await can cause all iterations to start simultaneously, leading to concurrent commands.
 - Ideally, your test scripts should implement a retry strategy with exponential backoff to prevent overloading the Appium server.
 
+### Appium Session Creation Failed: You Have Too Many Concurrent Appium Session Creation Requests Queued
+
+**Description**
+
+You'll see this error when too many of your Appium sessions are starting at the same time. Sauce Labs allows up to 50 of your session starts to be in flight at once, and rejects the excess with HTTP `429`.
+
+This limits how many of your starts overlap, not how many requests you send per second. Nothing resets after a waiting period: a slot frees up as soon as one of your starting sessions finishes starting. It is also not your [concurrency limit](#youve-exceeded-your-sauce-labs-concurrency-limit), which counts sessions that are already running.
+
+**Cause(s)**
+
+How many starts overlap is roughly *how many sessions you launch at once* multiplied by *how long each one takes to start*. Either factor can push you over:
+
+- A whole suite was launched at once, so more than 50 sessions tried to start together.
+- Each session is slow to start, so starts stack up — a large app to install, or a device query narrow enough to wait for one specific device.
+- A retry loop retries failed starts immediately, on top of the starts still in flight.
+
+**How to Resolve**
+
+- Limit how many sessions you have *starting* at the same time, wherever you launch your tests from. This addresses the limit directly, and the number can be lower than your overall concurrency.
+- Retry the rejected request with backoff and jitter, so the retry lands after one of your other sessions has finished starting.
+- Make each session start faster: keep your app small, broaden your device query (for example, an [`appium:platformVersion`](/dev/test-configuration-options#appiumplatformversion) range rather than one specific device), and use [`cacheId`](/mobile-apps/automated-testing/appium/real-devices/#using-cacheid-and-noreset) to reuse an already-prepared device between tests.
+- If you consistently need to start this many sessions in parallel, reach out to your Sauce Labs representative.
+
 
 ### Your Test Timed Out. The Appium Session Was Ended After X Seconds Of Inactivity
 

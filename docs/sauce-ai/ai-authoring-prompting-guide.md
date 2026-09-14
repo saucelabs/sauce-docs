@@ -99,3 +99,15 @@ Sauce AI interacts only with your application's rendered user interface. It cann
 **✅ Use**
 
 > "Verify that the user is redirected to the **Dashboard** after signing in."
+
+### **8. Use Variables for Credentials and Reusable Data**
+
+Instead of typing usernames, passwords, or URLs directly into your prompt, reference them as **[Data Variables](/docs/sauce-ai/test-authoring/data-variables.md)**. The prompt sent to the AI contains only the variable reference, not the value; the value is substituted when the step runs. You can reference the most specific matching variable with `{{variable_name}}`, or target a scope explicitly with `{{org:variable_name}}` or `{{team:variable_name}}`.
+
+**❌ Avoid**
+
+> "Log in with **standard_user** and **secret_sauce**."
+
+**✅ Use**
+
+> "Log in with `{{username}}` and `{{team:password}}`."

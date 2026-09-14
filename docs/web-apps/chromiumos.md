@@ -17,8 +17,6 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><span className="sauceGreen">Beta</span></p>
-
 Sauce Labs supports automated web testing on ChromiumOS virtual machines. ChromiumOS is the
 open-source platform behind Google's ChromeOS — it shares the same Chromium browser engine,
 rendering pipeline, and web platform APIs. You can validate your web applications against
@@ -64,7 +62,7 @@ supported.
 ### Automated Tests
 
 Set the following capabilities in your test configuration to target a ChromiumOS virtual
-machine on Sauce Labs. It's recommend to use `latest` or `latest-1` for `browserVersion` in order to stay current with each monthly release.
+machine on Sauce Labs. ChromiumOS supports the current and previous Chromium releases, which are kept up to date as part of our regular browser updates. We recommend using `latest` or `latest-1` for `browserVersion` to stay on those versions automatically.
 
 | Capability | Value |
 |---|---|

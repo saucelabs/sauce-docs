@@ -209,7 +209,6 @@ module.exports = {
                         'error-reporting/web-console/overview',
                         'error-reporting/web-console/releases',
                         'error-reporting/web-console/triage',
-                        'error-reporting/web-console/explore',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
                     ],
@@ -1067,6 +1066,7 @@ module.exports = {
                     items: [
                         'mobile-apps/real-device-access-api/real-device-access-api-introduction',
                         'mobile-apps/real-device-access-api/real-device-access-api-integration-guide',
+                        'mobile-apps/real-device-access-api/real-device-access-api-test-results',
                         'mobile-apps/real-device-access-api/real-device-access-api-local-appium',
                         'mobile-apps/real-device-access-api/real-device-access-api-sauce-hosted-appium',
                         'mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket',
@@ -1215,6 +1215,11 @@ module.exports = {
             items: [
                 'test-results',
                 'test-results/viewing-test-results',
+                {
+                    type: 'link',
+                    label: 'Access API Test Results',
+                    href: '/mobile-apps/real-device-access-api/real-device-access-api-test-results',
+                },
                 'test-results/sharing-test-results',
                 'test-results/test-status',
                 'test-results/badges-browser-matrix',
