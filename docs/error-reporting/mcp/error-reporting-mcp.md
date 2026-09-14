@@ -29,11 +29,11 @@ The following examples show some of the ways you can interact with Error Reporti
 | Use case | Example prompt |
 | ----- | ----- |
 | **Discover projects** | `What Error Reporting projects do I have access to?` |
-| **Explore project data** | `What attributes can I filter on in the Blackhole project?` |
-| **Find crash groups** | `Show me the top 10 crash groups in Blackhole over the last 7 days, ranked by affected users.` |
-| **List individual errors** | `List every error in Blackhole from the last 24 hours on app version 5.2.1.` |
-| **Investigate a crash group** | `Give me the full detail on crash group <group ID> in Blackhole.` |
-| **Inspect an error** | `Show me the callstack and attributes for error <object ID> in Blackhole.` |
+| **Explore project data** | `What attributes can I filter on in the project?` |
+| **Find crash groups** | `Show me the top 10 crash groups in project <project_name> over the last 7 days.` |
+| **List individual errors** | `List every error in project from the last 24 hours on app version 5.2.1.` |
+| **Investigate a crash group** | `Give me the full detail on crash group <group ID> in project.` |
+| **Inspect an error** | `Show me the callstack and attributes for error <object ID> in project.` |
 | **Retrieve attachments** | `Pull the breadcrumbs attachment for error <object ID> and tell me what the user did in the seconds before the crash.` |
 
 You can combine these prompts to progressively investigate an issue, starting with project discovery and narrowing down to a specific error and its available debugging information.
