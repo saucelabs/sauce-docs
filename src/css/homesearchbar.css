@@ -2,7 +2,7 @@
 .DocSearch-Container .DocSearch-Form,
 .DocSearch-Container .DocSearch-Hit-source,
 .DocSearch-Container .DocSearch-Footer {
-    background: var(--dark-500);
+    background: var(--neutral-100);
 }
 
 .DocSearch-Container .DocSearch-Form {
@@ -14,11 +14,11 @@
 }
 
 .DocSearch-Container .DocSearch-Input {
-    color: var(--neutral-100);
+    color: var(--dark-500);
 }
 
 .DocSearch-Container .DocSearch-Hit-source {
-    color: var(--green-200);
+    color: var(--green-500);
 }
 
 .DocSearch-Container .DocSearch-Hits mark {
@@ -31,7 +31,7 @@
     background: none;
     border-bottom: 1px solid var(--dark-300);
     box-shadow: none;
-    color: var(--neutral-100);
+    color: var(--neutral-500);
     margin-bottom: 0.5rem;
 }
 
@@ -43,7 +43,7 @@
 .DocSearch-Container .DocSearch-Hits a:hover,
 .DocSearch-Container .DocSearch-Hit[aria-selected="true"] a {
     border-bottom: 2px solid var(--yellow-500);
-    background: var(--dark-500);
+    background: var(--dark-100);
     box-shadow: none;
 }
 
@@ -53,10 +53,12 @@
 }
 
 .DocSearch-Container .DocSearch-Hit-title {
-    color: var(--neutral-100);
+    color: var(--dark-500);
 }
 
-.DocSearch-Container .DocSearch-Hit-title:hover {
+.DocSearch-Container .DocSearch-Hit-title:hover,
+.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title,
+.DocSearch-Container .DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-title {
     color: var(--dark-500);
 }
 
@@ -65,6 +67,15 @@
 }
 
 .DocSearch-Container .DocSearch-Container .DocSearch-Hit-path:hover {
+    color: var(--dark-500);
+}
+
+html[data-theme="dark"] .DocSearch-Container .DocSearch-Hit-path,
+html[data-theme="dark"] .DocSearch-Label {
+    color: var(--dark-300);
+}
+
+html[data-theme="dark"] .DocSearch-Hit[aria-selected="true"] .DocSearch-Label {
     color: var(--dark-500);
 }
 

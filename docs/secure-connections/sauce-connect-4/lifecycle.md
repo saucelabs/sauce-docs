@@ -6,8 +6,11 @@ sidebar_label: Lifecycle
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::caution Important Notice: Sauce Connect 4 is reaching End of Support
-Sauce Connect 4 will reach **End of Support** on **January 31, 2026**. Sauce Labs will continue to accept traffic from Sauce Connect v4, but customers must upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) to stay supported and receive fixes and improvements. We strongly recommend upgrading as soon as possible.
+:::caution Important Notice: Sauce Connect 4 End of Support and End of Life
+- **End of Support:** January 31, 2026
+- **End of Life:** July 31, 2026
+
+After July 31, 2026, Sauce Labs will no longer accept traffic from Sauce Connect 4. Customers must upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) to continue using Sauce Connect Proxy. Migrate to Sauce Connect 5 now.
 :::
 
 <table>

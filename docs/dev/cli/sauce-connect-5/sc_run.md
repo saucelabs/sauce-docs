@@ -634,11 +634,11 @@ Here are some guidelines to follow when formatting domain regular expressions:
 - Use only the domain name. Do not precede it with `http:` or `https:`.
 	- Example: `mydomain\.com`
 - Make sure your comma-separated list of domains doesn't include any spaces.
-	- Example, `mydomain\.com,saucelabs.com,mysite\.com`
+	- Example, `mydomain\.com,saucelabs\.com,mysite\.com`
 - Domains flags can be repeated multiple times
 	- Example, `--direct-domains mydomain\.com,saucelabs\.com --direct-domains mysite\.com`
 - Prefix domain names with `.*` to match all its subdomains.
-	- Example: You could refer to `docs\.saucelabs\.com` and `my\.saucelabs\.com` as `.*saucelabs\.com`.
+	- Example: You could refer to `docs\.saucelabs\.com` and `my\.saucelabs\.com` as `.*\.saucelabs\.com`.
 - Escape special characters, such as `.` to ensure they are not parsed
 	- Not escaping dot character doesn't result in error, dot matches every single character except a newline. For example, `example.com` will match `example.com` and also `examplescom`, while `example\.com` will match `example.com` only.
 

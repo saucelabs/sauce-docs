@@ -20,14 +20,14 @@ To access the App Logs, follow these steps:
 
 1. On Sauce Labs, click **Live** > **Test Results**.
 
-   <br/><img src={useBaseUrl('img/mobile-apps/app-logs-1.png')} alt="App Logs" width="300"/>
+   <br/><img src={useBaseUrl('img/mobile-apps/app-logs-1.png')} alt="App Logs" width="auto"/>
 
 2. Click on the device name for the test session that needs debugging.
-   <br/><img src={useBaseUrl('img/mobile-apps/app-logs-2.png')} alt="App Logs" width="800"/>
+   <br/><img src={useBaseUrl('img/mobile-apps/app-logs-2.png')} alt="App Logs" width="auto"/>
 
 3. Click the **Logs** tab and select **device.log** from the drop down menu.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-9.png')} alt="App Logs" width="800"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-9.png')} alt="App Logs" width="auto"/>
 
 The App Logs feature includes different log types, such as errors, warnings, infos, and verbose Logs. Each log type provides a different view of the application logs, allowing you to filter and focus on specific types of information.
 
@@ -37,7 +37,7 @@ You can use the [regrex](https://regex101.com/) functionality to analyze your lo
 
 You can download the App Logs as a text file to save and share with Sauce Labs support for further analysis. This feature allows you to keep a record of the App Logs and use them for future reference or troubleshooting:
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-10.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-10.png')} alt="App Logs" width="auto"/>
 
 You can also download the results using the API call below and send it to your development team:
 
@@ -59,16 +59,16 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 1. On Sauce Labs, in the left navigation, click **App Mangement**.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="auto"/>
 
 2. Upload your mobile app to Sauce Labs.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="auto"/>
 
 3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="auto"/>
 
 4.  Under **Real Device Settings** toggle **Instrumentation** to **Enabled**.
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="auto"/>

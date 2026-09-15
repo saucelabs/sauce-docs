@@ -24,13 +24,13 @@ Our tool has the capability to detect and record fatal errors (crashes) that occ
 To use the Crash/Error Reporting feature, you must ensure that the functionality is enabled for your app.
 
 1. In Sauce Labs, from the left navigation, click **App Management**.
-   <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="auto"/>
 2. Upload your mobile app.
-   <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="auto"/>
 3. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
-   <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="auto"/>
 4. Under **Real Device Settings** first enable **Instrumentation** and then toggle **Crash/Error Reporting** on.
-   <img src={useBaseUrl('img/mobile-apps/crash-error-reporting-app-setting.png')} alt="Crash/Error Reporting App Setting" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/crash-error-reporting-app-setting.png')} alt="Crash/Error Reporting App Setting" width="auto"/>
 
 ## Viewing the App Crash Logs for Real Devices
 

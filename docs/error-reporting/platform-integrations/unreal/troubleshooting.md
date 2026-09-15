@@ -13,7 +13,7 @@ Make sure the `DefaultEngine.ini` (for crashes in packaged builds) and `UserEngi
 
 ### Cooked Builds
 
-When [creating cooked](https://docs.unrealengine.com/4.27/en-US/SharingAndReleasing/Deployment/Cooking/) builds, the contents of `[ENGINE_DIR]\Engine\Programs\CrashReportClient\Config\DefaultEngine.ini` gets included as `Engine\Programs\CrashReportClient\Config\DefaultEngine.ini` in the cooked build's path.
+When [creating cooked](https://dev.epicgames.com/documentation/unreal-engine/cooking-content-in-unreal-engine) builds, the contents of `[ENGINE_DIR]\Engine\Programs\CrashReportClient\Config\DefaultEngine.ini` gets included as `Engine\Programs\CrashReportClient\Config\DefaultEngine.ini` in the cooked build's path.
 
 Even though the `CrashReportClient.ini` files generated in the Saved directory have the Backtrace URL, they appear to be using the file from the Unreal Base directory instead.
 

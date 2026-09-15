@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-To manage user accounts, go to the **Organization settings** menu and select **Users**.
+To manage user accounts, go to the **Universe settings** menu and select **Users**.
 
 On the Users page, the following sections are available:
 
@@ -17,7 +17,7 @@ On the Users page, the following sections are available:
 - **Manage invitations**: Allows you to send invitations to users and see pending invitations.
 - **Users**: Shows the list of users accounts in the system and their roles.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/user-mgmt.webp')} alt="Shows the Users page in Organization settings." />
+<img src={useBaseUrl('img/error-reporting/project-settings/user-mgmt.webp')} alt="Shows the Users page in Universe settings." />
 
 ## Configure Self Sign Up
 

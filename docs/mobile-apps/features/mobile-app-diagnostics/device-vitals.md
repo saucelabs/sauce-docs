@@ -23,15 +23,15 @@ To use Device Vitals, you must ensure that the functionality is enabled for your
 
 ### Upload Your App
 1. In Sauce Labs, from the left navigation, click **App Management**.
-   <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="auto"/>
 2. Upload your mobile app.
-   <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="auto"/>
 
 ### Enabling Device Vitals for a Live Test
 1. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
-   <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="auto"/>
 2. Under **Real Device Settings** first enable **Instrumentation** and then toggle **Device Vitals** on.
-   <img src={useBaseUrl('img/mobile-apps/device-vitals-app-setting.png')} alt="Device Vitals App Setting" width="700"/>
+   <img src={useBaseUrl('img/mobile-apps/device-vitals-app-setting.png')} alt="Device Vitals App Setting" width="auto"/>
 
 Now you can start your live testing session. Your Device Vitals will be captured and be part of your test results.
 
@@ -68,9 +68,7 @@ The Responsiveness metric allows you to quickly assess the app’s health by tra
 
 ## Accessing Device Vitals Metrics
 
-You can access Device Vitals metrics from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page:
-<br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
-<br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
+You can access Device Vitals metrics from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page.
 
 You will be able to compare your results and analyze the app performance:
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-Screenshot-3.png')} alt="Mobile app settings navigation" width="800"/>

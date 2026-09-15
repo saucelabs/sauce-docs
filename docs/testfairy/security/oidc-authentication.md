@@ -28,6 +28,7 @@ Any OIDC-compliant identity provider that supports the Client Credentials flow:
 - Auth0
 - Okta
 - Azure AD (Microsoft Entra ID)
+- Active Directory Federation Services (AD FS)
 - Google Cloud Identity
 - Keycloak
 - PingIdentity
@@ -48,6 +49,7 @@ values={[
 {label: 'Auth0', value: 'auth0'},
 {label: 'Okta', value: 'okta'},
 {label: 'Azure AD', value: 'azure'},
+{label: 'AD FS', value: 'adfs'},
 ]}>
 
 <TabItem value="auth0">
@@ -91,6 +93,20 @@ values={[
    - **Audience**: The Application ID URI
 
 </TabItem>
+
+<TabItem value="adfs">
+
+AD FS publishes its discovery document and signing keys under the AD FS service URL, while its access tokens carry a different value in the `iss` claim. Both are required.
+
+1. Go to **AD FS Management > Application Groups > Add Application Group**
+2. Add a **Server application** for machine-to-machine access, then note the **Client ID** and generate a **Client Secret**
+3. Add a **Web API** application and set its identifier (this is your audience)
+4. Note down:
+   - **Issuer URL**: the `issuer` value from `https://<adfs-host>/adfs/.well-known/openid-configuration`
+   - **Expected Issuer**: the `iss` claim from a decoded access token, typically `http://<adfs-host>/adfs/services/trust`
+   - **Audience**: the Web API identifier
+
+</TabItem>
 </Tabs>
 
 ---
@@ -106,6 +122,7 @@ values={[
 | **Enable OIDC** | Toggle to enable OIDC authentication |
 | **Authentication Mode** | How to handle API key vs OIDC auth (see below) |
 | **Issuer URL** | Your identity provider's issuer URL (e.g., `https://your-tenant.auth0.com/`) |
+| **Expected Issuer** | *(Optional)* The token's `iss` claim value when it differs from the Issuer URL (for example, AD FS). Leave empty to validate against the Issuer URL. |
 | **Audience** | The expected audience claim in tokens (e.g., `https://api.testfairy.com`) |
 | **Signing Algorithms** | Allowed JWT signing algorithms (default: `RS256`) |
 | **Required Scopes** | *(Optional)* Comma-separated list of scopes to validate |
@@ -378,7 +395,7 @@ When a token is validated, the following checks are performed:
 3. Token signature is valid (verified using JWKS public keys)
 4. Token is not expired (`exp` claim)
 5. Token is not used before valid time (`nbf` claim, if present)
-6. Issuer (`iss` claim) matches configured issuer URL
+6. Issuer (`iss` claim) matches the Expected Issuer, or the issuer URL if none is configured
 7. Audience (`aud` claim) matches configured audience
 8. Required scopes are present (only if scope validation is configured)
 
@@ -389,7 +406,7 @@ When a token is validated, the following checks are performed:
 | `X-OIDC-Config-Key header required` | Add the `X-OIDC-Config-Key` header to your request. |
 | `Invalid config key` | The config key is incorrect. Verify it from your OIDC settings page. |
 | `OIDC not enabled for this organization` | Enable OIDC in Settings > OIDC Authentication. |
-| `Invalid issuer` | Token's `iss` claim doesn't match. Verify the issuer URL matches exactly (including trailing slash). |
+| `Invalid issuer` | Token's `iss` claim doesn't match. Verify the issuer URL matches exactly (including trailing slash). If your provider's tokens use a different `iss` value (for example, AD FS), set it in **Expected Issuer**. |
 | `Invalid audience` | Token's `aud` claim doesn't match. Verify the audience matches exactly (case-sensitive). |
 | `Token has expired` | Request a new token from your identity provider. |
 | `Invalid token signature` | Ensure the token is from the correct provider and hasn't been tampered with. |

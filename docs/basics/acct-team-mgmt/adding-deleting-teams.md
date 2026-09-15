@@ -13,7 +13,7 @@ If you are an organization admin, you can create and delete teams and assign con
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="auto"/>
 
 2. On the **TEAMS** tab, click the blue plus sign.
 

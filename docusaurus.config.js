@@ -104,7 +104,7 @@ const docusaurusConfig = {
                 {
                     label: 'Sauce AI',
                     position: 'left',
-                    to: '/sauce-ai/ai-insights',
+                    to: '/sauce-ai',
                 },
                 {
                     label: 'API',
@@ -130,6 +130,11 @@ const docusaurusConfig = {
                     label: 'Error Reporting',
                     position: 'left',
                     to: '/error-reporting/getting-started',
+                },
+                {
+                    label: 'Real Device Access API',
+                    position: 'left',
+                    to: '/dev/api/real-device-access',
                 },
             ],
         },
@@ -187,7 +192,9 @@ const docusaurusConfig = {
                 id: 'real-device-access-api',
                 label: 'Real Device Access API',
                 route: '/real-device-access-api',
-                showNavLink: true,
+                // Nav link is provided manually in `navbar.items` above so it
+                // points at the embedded Scalar page (/dev/api/real-device-access).
+                showNavLink: false,
                 configuration: {
                     hideClientButton: true,
                     hideTestRequestButton: true,

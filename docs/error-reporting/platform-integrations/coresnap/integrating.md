@@ -364,7 +364,7 @@ hostname: jdoepc
 jdoe: yourcompany/blackhole as of 1M ago [529 us]
 ```
 
-For more information, refer to the [Morgue README](https://github.com/backtrace-labs/backtrace-morgue).
+For more information, refer to the [Morgue README](https://github.com/backtrace-labs/backtrace-morgue/blob/master/README.md).
 
 ### Go Application Integration
 

@@ -20,7 +20,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 `backtrace-go` is the easiest integration mechanism into Go, but it is the least advanced and feature-rich. The package consists of a Go-only library that allows for fast and efficient capture of fatal and non-fatal errors in Go applications.
 
-Learn more at [https://github.com/backtrace-labs/backtrace-go](https://github.com/backtrace-labs/backtrace-go).
+Learn more at the [backtrace-go](https://github.com/backtrace-labs/backtrace-go) GitHub repository.
 
 ## Installation
 

@@ -55,7 +55,7 @@ Before introducing Sauce Labs devices, it might be helpful to show an example of
    - **Platform** - Select **Android** or **iOS** from the dropdown.
    - **Device Name** - Enter the device name.
    - **Platform Version** - Add the version number of your Android OS.
-   - **Additional Desired Capabilities** (_Optional_) - Add specific capabilities to customize your automation session. For more information, see [Appium Desired Capabilities](http://appium.io/docs/en/writing-running-appium/caps/#appium-desired-capabilities).
+   - **Additional Desired Capabilities** (_Optional_) - Add specific capabilities to customize your automation session. For more information, see [Appium Desired Capabilities](https://appium.io/docs/en/latest/guides/caps/).
    - **Set Geo Location** (_Optional_) - Set your device location to test applications that use Location Services to generate location data. <br/>
      <img src={useBaseUrl('img/integrations/uipath 2.png')} alt="UiPath Mobile Device Manager configuration form" width="700" />
 1. _Optional_ - From the **Logging** tab, configure logging and video recording settings.

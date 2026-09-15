@@ -21,6 +21,10 @@ Sauce Labs now supports ADB commands for Appium. To use ADB and mobile:shell com
 ADB can already be used during live testing.
 :::
 
+:::info Automating a Unity or Unreal Engine game?
+See [AltTester®](/mobile-apps/automated-testing/alttester) for the C#-based path that sees inside Unity and Unreal Engine scene graphs.
+:::
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
@@ -123,7 +127,7 @@ values={[
 </Tabs>
 
 :::note
-You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix.
+You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your **[Appium client library](https://appium.io/docs/en/latest/ecosystem/clients/)** to a version that automatically applies the prefix.
 :::
 
 ## Configuring Appium Tests for Real Devices
@@ -154,7 +158,7 @@ You can also install a dependent app or an app upgrade during a test by using th
 
 ```js title=Driver App Example
 driver.installApp(
-'https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk'
+'https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.1.3.0.build-244.apk'
 )
 ```
 
@@ -167,7 +171,7 @@ driver.installApp(
 
 :::
 
-For more information about this command, see the [Appium documentation](http://appium.io/docs/en/commands/device/app/install-app/).
+For more information about this command, see the [Appium documentation](https://appium.io/docs/en/latest/reference/api/appium/#installapp).
 
 ### Excluding the `browserName`
 
@@ -231,7 +235,7 @@ The following sample values are presented using case for readability, but capabi
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
     <td>No</td>
-    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
+    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. The pattern is matched against both the device's Display Name and Device ID. See the caution below before writing <strong>exclusion</strong> patterns. Some examples include:</p>
     <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
     <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
     <p>Either <i>iPhone 7</i> or <i>iPhone 6</i>: <code>"appium:deviceName", "iPhone [67]"</code> or <code>"iPhone [6-7]"</code></p>
@@ -250,6 +254,15 @@ The following sample values are presented using case for readability, but capabi
   </tr>
   </tbody>
 </table>
+
+{/* KEEP IN SYNC with the matching caution block in docs/mobile-apps/supported-devices.md */}
+:::caution Patterns are evaluated against both the Display Name and the Device ID
+When you provide a regular expression to `deviceName`, it is matched against **both** the device's Display Name (such as `iPhone SE 2022` or `Google Pixel 10`) **and** its Device ID (such as `iPhone_SE_2020_18_real_sjc1` or `Google_Pixel_10_real_us`). A device is allocated if the pattern matches either value.
+
+This matters most for **exclusion** patterns: a pattern that excludes a model based on its Display Name may still match the underscore-separated Device ID. For example, `^iPhone(?! SE).*` matches the ID `iPhone_SE_2020_18_real_sjc1` because the lookahead checks for a literal space followed by `SE`, not an underscore.
+
+When excluding a device, account for both forms — match the space-separated display name **and** the underscore-separated ID. For example, to exclude all iPhone SE devices, use `^iPhone(?!_SE)(?! SE).*` instead of `^iPhone(?! SE).*`. Similarly, to exclude Google Pixel 10 devices use `^(Google)(?!.*(Pixel 10$|Pixel_10)).*`.
+:::
 
 In addition to the required capabilities for device matching, you can also specify any of the following optional Sauce custom capabilities to ensure your tests run on a device that matches your ideal environment. These capabilities need to be put in the `"sauce:options": {}`.
 
@@ -284,6 +297,15 @@ To skip the uninstallation and reinstallation of your app from the device, you c
 }
 ```
 
+If losing the app's state does not break your tests, set `allowCacheFallback` to `true`. A cached device that can't be reused then falls back to another available device instead of failing the session, at the cost of running on a freshly cleaned device.
+
+```js
+"sauce:options" : {
+  "cacheId" : "jnc0x1256",
+  "allowCacheFallback" : true,
+}
+```
+
 When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the app must be the same for all tests, as must the values for the following capabilities:
 
 - `deviceName`
@@ -296,6 +318,8 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `automationName`
 - `autoGrantPermissions`
 - `appiumVersion`
+
+If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session. The default behavior is to fail the session and end the cached session; set [`allowCacheFallback`](/dev/test-configuration-options/#allowcachefallback) to `true` to fall back to another device instead of failing.
 
 ### WebDriverAgent for iOS Real Devices
 

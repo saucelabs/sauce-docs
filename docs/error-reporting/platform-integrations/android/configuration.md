@@ -193,10 +193,9 @@ settings.setRetryOrder(RetryOrder.Queue);
 
 BacktraceDatabase database = new BacktraceDatabase(context, settings);
 BacktraceClient backtraceClient = new BacktraceClient(context, credentials, database);
-
-// Required to capture native crashes
-database.setupNativeIntegration(backtraceClient, credentials);
 ```
+
+Complete the client configuration before starting native crash capture. See [Native Crash Integration](./native-crash-integration.md) for the recommended initialization order and the result-returning API.
 
 ## Sending Reports
 
@@ -543,7 +542,7 @@ You can track those metrics at-a-glance, as well as in detail to find out what k
 
 You can enable error-free metrics as follows:
 :::note Important
-Make sure to enable error-free metrics before you [enable the native integration](#enabling-native-integration).
+Make sure to enable error-free metrics before you [enable native integration](./native-crash-integration.md#configure-and-enable-native-crash-capture).
 :::
 
 ```java
@@ -554,33 +553,31 @@ backtraceClient.metrics.enable(metricsSettings);
 
 ## NDK Applications
 
-:::note
-If your native app is built with NDK 16b, the Breakpad native crash client will be used instead of our recommended Crashpad crash client. To avoid this, use NDK 17c+ to build your native app.
-:::
-:::note
-Breakpad crash reports are submitted on the next app startup, instead of at crash time like Crashpad crash reports.
+:::note Legacy Breakpad builds
+The native backend is selected when the Backtrace SDK artifact is built; the application's NDK version does not switch the backend in a prebuilt artifact. Legacy SDK artifacts built with Breakpad submit native reports on the next application startup and do not support `disableNativeIntegration()`.
 :::
 
 ### Enabling Native Integration
 
-In general, this should be the final step in setting up your Backtrace client to ensure all attributes and file attachment paths are captured properly by the native crash handler.
+In general, this should be the final step in setting up your Backtrace client to ensure all attributes, breadcrumbs, and file attachment paths are captured properly by the native crash handler.
 
-To capture native crashes, set up an offline database as noted in [Offline Database Settings](#offline-database-settings) and use the `enableNativeIntegration` method as follows:
+To capture native crashes, set up an offline database as noted in [Offline Database Settings](#offline-database-settings). For new integrations, use the result-returning API:
+
+```java
+boolean nativeEnabled = backtraceClient.tryEnableNativeIntegration();
+```
+
+Existing integrations can continue to use the supported `void` API when they do not need the registration result:
 
 ```java
 backtraceClient.enableNativeIntegration();
 ```
 
-In addition, you may also need to add the `extractNativeLibs` option to your `AndroidManifest.xml` file:
+Both methods perform the same synchronous native registration. Call one method, not both.
 
-```xml
-<application
-        android:extractNativeLibs="true">
-        ...
-</application>
-```
+The SDK supports monolithic APKs, split APKs, and libraries loaded directly from an installed APK. You do not need to set `android:extractNativeLibs="true"` solely for Backtrace native-library path resolution.
 
-For more information about `extractNativeLibs`, see [Android's developer documentation](https://developer.android.com/guide/topics/manifest/application-element#extractNativeLibs).
+For startup behavior, threading requirements, failure handling, lifecycle behavior, compatibility, and diagnostic codes, see [Native Crash Integration](./native-crash-integration.md).
 
 #### Disabling Native Integration
 
@@ -590,15 +587,11 @@ You can also disable the native integration as follows:
 backtraceClient.disableNativeIntegration();
 ```
 
-:::note
-Breakpad does not currently support `disableNativeIntegration`.
-:::
-
 ### Uploading Symbols
 
 For an NDK application, debugging symbols are not available to Backtrace by default. You will need to upload the app symbols for your native code to Backtrace.
 
-You can do this by uploading the native libraries themselves, which are usually found in the APK bundle. For more information on how to upload symbols for an NDK app, see [Symbolication](/error-reporting/project-setup/symbolication/).
+You can do this by uploading the native libraries themselves, which are usually found in the APK bundle. For more information on how to upload symbols for an NDK app, see [Upload Symbols to Your Project](/error-reporting/symbols/upload-symbols-to-project/).
 
 ### Client-Side Unwinding
 
@@ -610,10 +603,10 @@ This may not provide the same callstack quality as with debugging symbols, but w
 When viewing a crash in the Backtrace console, it may still show warning messages that symbols are missing from certain frames after client-side unwinding is performed. This warning is expected if these symbols are not available on the Backtrace server, and should not impact your ability to read the callstack.
 :::
 
-To enable client side unwinding, you can call the `setupNativeIntegration` method with an additional boolean value.
+To enable client-side unwinding and observe the registration result, call `tryEnableNativeIntegration` with an additional boolean value. The corresponding `enableNativeIntegration` overloads remain supported for existing integrations that do not need the result.
 
 ```java
-database.setupNativeIntegration(backtraceClient, credentials, true);
+boolean nativeEnabled = backtraceClient.tryEnableNativeIntegration(true);
 ```
 
 <!-- prettier-ignore-start -->
@@ -634,7 +627,9 @@ Client-side unwinding is only available for the following platforms:
 You can optionally specify the unwinding mode as follows:
 
 ```java
-database.setupNativeIntegration(backtraceClient, credentials, true, UnwindingMode.REMOTE_DUMPWITHOUTCRASH);
+boolean nativeEnabled = backtraceClient.tryEnableNativeIntegration(
+        true,
+        UnwindingMode.REMOTE_DUMPWITHOUTCRASH);
 ```
 
 The following unwinding modes are available:

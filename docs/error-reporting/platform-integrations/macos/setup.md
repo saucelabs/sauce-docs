@@ -175,7 +175,7 @@ When using `NSApplicationCrashOnExceptions`, your app will terminate on uncaught
 
 After compiling your application with the backtrace-cocoa library, make sure symbol files are generated in dSYM format and are uploaded to Backtrace to symbolicate incoming crashes.
 
-For information on how to upload debug symbols, see [Symbol Formats and Upload Methods](/error-reporting/project-setup/symbolication).
+For information on how to upload debug symbols, see [Upload Symbols to Your Project](/docs/error-reporting/symbols/upload-symbols-to-project.md).
 
 ### Set Debug Symbol Format
 

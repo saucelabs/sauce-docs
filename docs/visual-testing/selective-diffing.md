@@ -40,9 +40,9 @@ Visual Testing provides flexibility in how screenshots are compared, so that tea
 ### Configurable Options 
 When using the **Balanced method**, you can fine-tune comparisons with the following options:
 
-* [**Sensitivity**](https://github.com/saucelabs/visual-sdks/blob/main/visual-js/visual/src/graphql/__generated__/graphql.ts#L930): Predefined tolerance levels that adjust how strict the comparison is. Higher sensitivity will detect even minor pixel changes, while lower sensitivity ignores small rendering differences.
-* [**Tolerance**](https://github.com/saucelabs/visual-sdks/blob/main/visual-js/visual/src/graphql/__generated__/graphql.ts#L953):  A manual numeric threshold that controls how much pixel variation is acceptable before a difference is reported. This is useful for fine-grained adjustments beyond the preset sensitivity options.
-* [**Diffing Options**](https://github.com/saucelabs/visual-sdks/blob/main/visual-js/visual/src/graphql/__generated__/graphql.ts#L976):  Rules that determine what kinds of changes should be detected or ignored. For example, you can configure whether to ignore text anti-aliasing, color shifts, or background rendering variations.
+* [**Sensitivity**](https://github.com/saucelabs/visual-sdks/blob/main/visual-js/visual/src/graphql/__generated__/graphql.ts#L936): Predefined tolerance levels that adjust how strict the comparison is. Higher sensitivity will detect even minor pixel changes, while lower sensitivity ignores small rendering differences.
+* [**Tolerance**](https://github.com/saucelabs/visual-sdks/blob/main/visual-js/visual/src/graphql/__generated__/graphql.ts#L959):  A manual numeric threshold that controls how much pixel variation is acceptable before a difference is reported. This is useful for fine-grained adjustments beyond the preset sensitivity options.
+* [**Diffing Options**](https://github.com/saucelabs/visual-sdks/blob/main/visual-js/visual/src/graphql/__generated__/graphql.ts#L926):  Rules that determine what kinds of changes should be detected or ignored. For example, you can configure whether to ignore text anti-aliasing, color shifts, or background rendering variations.
 
 ## Regions
 In addition to global comparison settings, you can specify regions within the screenshot:

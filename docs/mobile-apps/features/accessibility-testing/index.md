@@ -34,6 +34,6 @@ Key highlights:
 - Arrow keys to navigate, Enter to activate
 - Audio feedback streamed to your browser
 - Requires Android 12 or above
-- Private devices only
+- Works on all public and private Android real devices
 
 [Learn more about Android Live Accessibility Testing](/mobile-apps/features/accessibility-testing/android-talkback)

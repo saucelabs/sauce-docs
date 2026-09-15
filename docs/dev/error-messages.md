@@ -387,6 +387,8 @@ If you're already using storage, check to make sure that:
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 - Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
 
+## RDC Testing Only
+
 ### Rate limit exceeded
 
 **Description**
@@ -402,6 +404,120 @@ We do not allow more than ten concurrent Appium commands per Appium session. Thi
   3. **Chainable Commands Without Proper Await:** Webdriver-IO allows chaining commands, and if developers forget to use `await` properly, it can lead to multiple commands being executed at once.
   4. **Async/Await Mismanagement in Loops:** Using loops like `forEach` or `map` with async functions without proper await can cause all iterations to start simultaneously, leading to concurrent commands.
 - Ideally, your test scripts should implement a retry strategy with exponential backoff to prevent overloading the Appium server.
+
+### Appium Session Creation Failed: You Have Too Many Concurrent Appium Session Creation Requests Queued
+
+**Description**
+
+You'll see this error when too many of your Appium sessions are starting at the same time. Sauce Labs allows up to 50 of your session starts to be in flight at once, and rejects the excess with HTTP `429`.
+
+This limits how many of your starts overlap, not how many requests you send per second. Nothing resets after a waiting period: a slot frees up as soon as one of your starting sessions finishes starting. It is also not your [concurrency limit](#youve-exceeded-your-sauce-labs-concurrency-limit), which counts sessions that are already running.
+
+**Cause(s)**
+
+How many starts overlap is roughly *how many sessions you launch at once* multiplied by *how long each one takes to start*. Either factor can push you over:
+
+- A whole suite was launched at once, so more than 50 sessions tried to start together.
+- Each session is slow to start, so starts stack up — a large app to install, or a device query narrow enough to wait for one specific device.
+- A retry loop retries failed starts immediately, on top of the starts still in flight.
+
+**How to Resolve**
+
+- Limit how many sessions you have *starting* at the same time, wherever you launch your tests from. This addresses the limit directly, and the number can be lower than your overall concurrency.
+- Retry the rejected request with backoff and jitter, so the retry lands after one of your other sessions has finished starting.
+- Make each session start faster: keep your app small, broaden your device query (for example, an [`appium:platformVersion`](/dev/test-configuration-options#appiumplatformversion) range rather than one specific device), and use [`cacheId`](/mobile-apps/automated-testing/appium/real-devices/#using-cacheid-and-noreset) to reuse an already-prepared device between tests.
+- If you consistently need to start this many sessions in parallel, reach out to your Sauce Labs representative.
+
+
+### Your Test Timed Out. The Appium Session Was Ended After X Seconds Of Inactivity
+
+**Description**
+
+You'll see this error when Sauce Labs does not receive a new command from your Appium script in more then 90 seconds (or the `newCommandTimeout` capability). In this case we terminate your Appium session, to avoid sessions running for too long.
+
+**Cause(s)**
+
+- You forgot to send the `DELETE /session/<id>` command (as in: `driver.quit()`). Appium scripts often handle exceptions incorrectly, by not including some sort of `finally` or `deferred` block that quits the driver.
+- The most common cause is that an Appium command you sent, did not return a response in 90s.
+  - This could be because your app crashed or some network issue between you and the device. If the server does not respond, your Appium-client will not send the next command, so we terminated your session after 90s.
+  - Another cause is that you set an incorrect timeout for your Appium command. By default the Appium-server is very lax when it comes to timing out requests, if you set a 30 minute `implicitWait` the Appium-server will try for 30 minutes whatever you request it to do. We want to protect your concurrency, so if an Appium-server did not respond in 90s, we assume that it never will.
+  - Thirtly it is possible that the driver that is executing your command crashed. If WebDriverAgent, Chromedriver or UIAutomator2 crashed while excecuting your command, it can happen that the Appium-server does not respond in 90s.
+
+
+**How to Resolve**
+
+- Avoid long Appium timeouts: verify that the `implicitWait` (and other timeouts) you are setting in your client are not larger than 90s or your `newCommandTimeout` capability.
+- Always use `driver.quit`: ensure that your test scripts have some `finally` `deferred` blocks that close the Appium session. Alternatively you can use a concepts suchas [junits TestWatcher](https://www.baeldung.com/junit-testwatcher), to always call `driver.quit` once your test is finished.
+- Figure out what Appium-server was doing: Inspect the Appium logs around the time of your failed command (usually the last thing in the log), to look for inconsistencies.
+- Figure out if something crashed: Go to the test video and see if your app crashed. Inspect the device logs and search for your application name, to see if it crashed. Inspect the device logs to see if the WebDriver agent or UIAutomator2 crashed (search for `uiautomator2` or `WebDriverAgent`). Make sure to also search for 'Verbose' logs.
+- Consider cancelling requests on the client side, so that your Appium script does not wait for too long until sending the next command.
+
+
+### Device Connection Lost
+
+**Description**
+
+You'll see this error when an Appium command receives a `socket hang up` or `ECONNRESET` response from the Appium server. The session is unrecoverable — every subsequent command would fail the same way — so Sauce Labs ends it with an explicit error, allowing you to retry your test run.
+
+**Cause(s)**
+
+A `socket hang up` or `ECONNRESET` response means one of the following happened:
+
+- The Appium server lost its USB connection to the device. This is rare (under 1% of jobs).
+- Most common cause: The on-device agent died — UiAutomator2 (Android) or WebDriverAgent (iOS). This can be a bug in the agent, or the OS killing it for exceeding its memory or CPU limits (often triggered by an operation your test performed). For instance we are aware of Oppo agressively killing UIAutomator2.
+- Your app crashed.
+
+**How to Resolve**
+
+- Retry the job. In most cases this error does not mean your test actually failed — it's usually a transient, hardware-related hiccup that a retry recovers from.
+- If you see this error consistently or can reproduce it, investigate further:
+  - Search the device logs about UiAutomator2 (search for 'uiautomator2') or WebDriverAgent (search for 'WebDriverAgent') being killed by the OS. If this is the case, make sure you are not overloading your agent app with too many requests at a time.
+  - Check the test result page to see if the app crashed. If resigning is enabled, Sauce Labs detects crashes for you automatically.
+  - Check the verbose device logs around the time of the first command that received the `socket hang up` or `ECONNRESET` error.
+- If this yields no conclusive results and the error keeps reappearing, reach out to your Sauce Labs representative with the affected job IDs so we can take a closer look.
+
+
+### Your Test Was Ended Because the Device Battery Reached a Critically Low Level
+
+**Description**
+
+You'll see this error when Sauce Labs ends your real device session because the device's battery dropped to a critically low level during the test. We end the session proactively so the device can be put back on charge, rather than letting it power off mid-test and produce unreliable results. The message shown is: `Your test was ended because the device battery reached a critically low level.` Live sessions also display it on screen when the session ends.
+
+**Cause(s)**
+
+- The real device running your test reached the battery level at which Sauce Labs terminates active sessions.
+- Low battery session termination is more likely to happen on long-running sessions with resource intensive applications.
+
+**How to Resolve**
+
+- Retry the job. The device is returned to the pool to recharge, and a subsequent run will typically be allocated a device with sufficient battery.
+- For long-running tests, break your suite into shorter, more atomic tests so a single session is less likely to drain the device.
+- If you see this error repeatedly on a specific private device, reach out to your Sauce Labs representative so we can check that device's battery health.
+
+
+### Audio Injection Failed
+
+**Description**
+
+You'll see this error when Sauce Labs could not inject an audio file into your app during a real device [Audio Injection](/mobile-apps/features/audio-injection) session. When you inject audio from an automated test with the `sauce:inject-audio=<base64>` command, the failure is returned as a WebDriver error. Device-side rejections are surfaced as `Cannot inject audio: <reason>`.
+
+Injecting audio and using it are two separate steps. The causes below happen at injection time. On Android, if Audio Injection is enabled but no valid audio file is available when your app starts listening, speech recognition uses the device microphone instead of returning an error.
+
+**Cause(s)**
+
+- The app was not instrumented with Audio Injection enabled, or the setting is turned off for the session. On iOS the device returns HTTP 403 with `Audio injection is not enabled.`
+- The audio is not in a format the device can decode. On iOS the device returns HTTP 415 with `Unsupported audio format.` Supported formats are MP3, WAV, M4A, and AAC on iOS, and MP3 on Android.
+- The `sauce:inject-audio` payload was empty, which fails with `Audio data cannot be parsed because it is empty.`
+- The `sauce:inject-audio` payload is not a base64 string ([RFC 4648](https://www.rfc-editor.org/rfc/rfc4648)), which fails with `The audio cannot be injected because it is not base64 encoded according to chapter 4 of RFC 4648.`
+- The audio is larger than 15 MB, which fails with `The audio cannot be injected because it is too large.`
+- Audio injection was requested before an app was installed on the device, which fails with `Audio was not injected because no app is installed.`
+
+**How to Resolve**
+
+- Enable **Audio Injection** for your app in **App Management** > **Settings** (see [Audio Injection](/mobile-apps/features/audio-injection)), and make sure the app is instrumented/resigned.
+- Send the audio as a Base64-encoded string in a supported format (MP3, WAV, M4A, or AAC on iOS; MP3 on Android) and keep the file at or below 15 MB.
+- Make sure your app is installed and fully loaded before issuing the `sauce:inject-audio=` command.
+- If the failure persists with a server error, retry the job; if it continues, reach out to [Sauce Labs Support](https://support.saucelabs.com/) with the affected job ID.
 
 
 ## Web App Testing Only

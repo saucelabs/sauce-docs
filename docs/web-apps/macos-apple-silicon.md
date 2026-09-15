@@ -11,8 +11,8 @@ import TabItem from '@theme/TabItem';
 
 Sauce Labs now supports **macOS 26 Tahoe** on Apple Silicon-powered Macs. These environments offer improved performance, modern architecture alignment, and compatibility with ARM versions of the major browsers. This enables you to test web apps on Safari 26 as well as Chrome, Firefox, and Edge.
 
-:::caution Enterprise Only
-macOS 14, 15, and 26 are only available to Enterprise customers with the appropriate Premium plan. Contact your account manager to discuss upgrading.
+:::note Availability
+macOS 14, 15, and 26 are available to customers with the required subscription. If you don't have access, contact your account manager to discuss upgrading.
 :::
 
 ## Browsers available on macOS

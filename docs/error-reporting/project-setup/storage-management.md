@@ -11,7 +11,7 @@ Backtrace instances have limits on how many monthly error submissions they can a
 
 Admin users can control retention, compression, storage sampling, and submission rules. In addition, the delete-by-query capability allows users to take a manual action to remove objects from the system and free space.
 
-- To see how much storage was purchased and what percentage is consumed, admin users can go to the **Organization Settings** > **Subscriptions** page.
+- To see how much storage was purchased and what percentage is consumed, admin users can go to the **Universe Settings** > **Subscriptions** page.
 - To see how much storage is being consumed by project, go to the **Project settings** > **Overview** page > under **Storage usage** > see **attachments**.
 
 Our sales team can assist in the purchase of additional storage as needed, and our support team can disable storage enforcement in critical cases.

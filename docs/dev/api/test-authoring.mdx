@@ -1,0 +1,52 @@
+---
+title: Test Authoring
+sidebar_label: Test Authoring
+description: AI Test Authoring API reference.
+hide_table_of_contents: true
+---
+
+import Head from '@docusaurus/Head';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import '@scalar/api-reference-react/style.css';
+
+{/* Tags <body> with a class so the full-width API-reference styling in
+    custom.css applies only to these embedded Scalar pages. */}
+
+<Head>
+  <body className="api-reference-page" />
+</Head>
+
+export const ApiReference = () => {
+  // useBaseUrl prefixes the site baseUrl so the spec resolves correctly under
+  // PR-preview deploys (where BASE_URL is set) as well as locally/production.
+  const specUrl = useBaseUrl('/oas/test-authoring-api.json');
+  return (
+    <BrowserOnly fallback={<div>Loading API reference…</div>}>
+      {() => {
+        const { ApiReferenceReact } = require('@scalar/api-reference-react');
+        return (
+          <ApiReferenceReact
+            configuration={{
+              sources: [
+                {
+                  title: 'Test Authoring',
+                  url: specUrl,
+                },
+              ],
+              layout: 'classic',
+              showSidebar: true,
+              defaultOpenAllTags: true,
+              hideClientButton: true,
+              hideTestRequestButton: true,
+              hideSearch: true,
+              hideDarkModeToggle: true,
+            }}
+          />
+        );
+      }}
+    </BrowserOnly>
+  );
+};
+
+<ApiReference />

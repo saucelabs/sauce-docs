@@ -45,6 +45,10 @@ A web or mobile app in the test phase of the software development cycle.
 
 See also: _[software development lifecycle](#software-development-lifecycle-sdlc)_.
 
+### AURA
+
+The **AI-Unified Release Assurance** platform from Sauce Labs. AURA is an agentic AI platform that closes the loop from business intent to production confidence. Authoring, running, and analyzing tests at AI speed, with human oversight.
+
 ### Automated Testing
 
 A testing method where you use separate software to control the execution of tests on your own software and compare your actual test results to your expected results. You can use frameworks like Appium and Selenium to control the execution of automated tests on your web and mobile apps.

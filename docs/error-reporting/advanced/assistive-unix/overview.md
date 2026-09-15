@@ -97,8 +97,6 @@ It can effectively detect multiple forms of heap corruption, including but not l
 
 Additionally, Backtrace is capable of detecting latent bugs in your software and can be applied to live processes. This capability not only aids in root cause investigation for faults but also helps uncover hidden bugs that could potentially lead to instability.
 
-[For more examples and detailed information, refer to this link](https://backtrace.io/blog/backtrace/debugging-memory-allocation/).
-
 ### Environment and Architectural Constraints
 
 Backtrace automatically highlights faults caused by environmental or architectural conditions, saving potentially hours of research on false leads. It allows for quick identification of cases where an assertion related to failed resource acquisition or memory lock is a result of exceeding environmental or architectural limits.
@@ -114,8 +112,6 @@ When the `--stale-pointer` option is passed to the Backtrace debugger, it perfor
 The screenshot below illustrates an example where a stale pointer is narrowed down to seven potential types:
 
 <img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bfbae347.png')} alt="Example"/>
-
-[For more examples and in-depth information, visit this link](http://69.164.212.57/blog/blog/2016/09/27/memory-error-stale-pointer/index.html).
 
 ### Security and Malware Analysis
 

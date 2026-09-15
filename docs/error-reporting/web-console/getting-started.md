@@ -20,12 +20,14 @@ The Backtrace web console includes 4 key navigational components to help you ana
 
 ### Natural Language Query
 
-:::info Preview Beta
-Natural Language Query is available in a closed beta. Contact Sauce Labs Support for more information.
+:::info Public Beta
+Natural language query is available in a public beta for cloud customers. Admins can enable the feature from the Universe Settings, AI Features, and use the toggle to enable the new capability for the organization. This centralized location will serve as the control point for all future admin-managed AI capabilities.
 :::
 
 :::tip AI Feature
-<img src={useBaseUrl('img/error-reporting/console-views/ai-spark.png')} alt="AI spark" width="20" height="20" /> Natural Language Query is an AI feature. Only attribute names and attribute descriptions are used. No application or user data is used.
+Natural Language Query is an AI feature. Data protection, security, and privacy are central to this product and to Sauce Labs as a whole. Our AI capability is designed to minimize queries on your data, and does not use application and user data. Only attribute names and attribute descriptions are used. User authentication remains consistent with Backtrace’ existing security model; each query respects user credentials and permission boundaries. Data processing of attribute names and descriptions is performed within secure and controlled cloud environments utilizing a compliant large language model.
+
+Please see our [Responsible use of AI guidelines](https://trust.saucelabs.com/resources?s=tcd1vcgj9ya80ahtrhj65&name=responsible-usage-of-ai-at-sauce-labs) in our [Trust Center](https://trust.saucelabs.com/) for more information.
 :::
 
 The fastest way to get to the right data is to click the Ask button in the filter bar and type in a Natural Language Query - no special syntax, just describe what you want to see. The timeline and filter will be set, and your data will be intelligently grouped on the Explore page which is the best way to slice into your error reports.

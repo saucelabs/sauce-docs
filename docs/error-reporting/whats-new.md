@@ -13,7 +13,7 @@ This page is now deprecated and will be removed. To see what's new for Error Rep
 
 As an admin, you can now check when a user last logged in to their account.
 
-From the **Organization Settings**, click **Users**. In the list of users, under **Last login**, you'll see the date and time of the user's last login.
+From the **Universe Settings**, click **Users**. In the list of users, under **Last login**, you'll see the date and time of the user's last login.
 
 If a new user hasn't logged in to their account for the first time or hasn't logged in since August 1st 2022, the column will not be populated.
 
@@ -34,9 +34,9 @@ You can now generate a sample project to see errors and crashes for a Unity appl
 To generate a sample project, go to **Project settings > Integration guides (under Error Submission) > Unity**, then click **Generate sample project**.
 <img src="/img/error-reporting/whats-new/unity-sample-project.png" width="500"/>
 
-## Improved Navigation in Organization Settings (2022-11-01)
+## Improved Navigation in Universe Settings (2022-11-01)
 
-We've made it easier for you to navigate in the Organization settings menu. The improvements include a breadcrumb trail at the top of the screen, and a new side navigation menu.
+We've made it easier for you to navigate in the Universe settings menu. The improvements include a breadcrumb trail at the top of the screen, and a new side navigation menu.
 
 ## Improved Navigation in Project Settings (2022-10-17)
 
@@ -53,7 +53,7 @@ In addition to filtering attributes by name, you can now use the global filter b
 
 ## Sorting Users (2022-07-29)
 
-In the Organization settings, you can now sort the Users page by username, email, and role.
+In the Universe settings, you can now sort the Users page by username, email, and role.
 
 ## Releases Comparison View (2021-10-05)
 
@@ -114,7 +114,7 @@ The Debugger "Download" action now offers the ability to download a core file re
 
 ## Teams and Project Permissions (2020-06-10)
 
-A new Organization Setting object called Teams is available for Administrators to Manage. Teams consist of other Teams or users of the system. Teams be used as Project Members with defined Roles so that access can be restricted to both individual users or groups of users.
+A new Universe Setting object called Teams is available for Administrators to Manage. Teams consist of other Teams or users of the system. Teams be used as Project Members with defined Roles so that access can be restricted to both individual users or groups of users.
 
 ## Reopen Criteria (2020-04-28)
 
@@ -181,7 +181,7 @@ The new Web Console is now the default for all users. For more information, see 
 
 ## SAML Configuration (2019-03-15)
 
-Customers on the Enterprise plan can now configure their SAML configuration under Organization Settings.
+Customers on the Enterprise plan can now configure their SAML configuration under Universe Settings.
 
 ## Comments (2019-03-07)
 
@@ -189,7 +189,7 @@ When viewing the Details of a Fingerprint in the Triage view, a user can view li
 
 ## Per User Default Setting for New Web Console (2019-03-01)
 
-Users can choose to have the new Web Console be their default using the Set As Default button after they login. This setting is also available under Organization Settings > My Account > Early Access toggles.
+Users can choose to have the new Web Console be their default using the Set As Default button after they login. This setting is also available under Universe Settings > My Account > Early Access toggles.
 
 ## Manual Issue (Jira) Creation (2019-01)
 

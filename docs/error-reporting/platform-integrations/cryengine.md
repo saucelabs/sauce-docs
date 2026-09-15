@@ -23,11 +23,11 @@ For On-Premise (self-hosted) users: CryEngine crash ingestion requires specific 
 
 ### Register for a Backtrace Instance
 
-If you don't have one, register for a [Backtrace instance](https://www.backtrace.io/). You can create projects and tokens to manage your incoming crashes.
+If you don't have one, register for a [Backtrace account](https://backtrace.io/sign-up). You can create projects and tokens to manage your incoming crashes.
 
 Your server instance has a domain in the following form: `https://<AAAA>.sp.backtrace.io`
 
-Your submission token is accessible under your [project configuration menu](https://backtrace.io/docs/token-configurations/) and looks like this: `45e44f361045ae4343e4113e77e0ea3eee1043367342c3f03c3a273cb3e433ae`
+Your submission token is accessible under your [project configuration menu](/error-reporting/project-setup/submission-url) and looks like this: `45e44f361045ae4343e4113e77e0ea3eee1043367342c3f03c3a273cb3e433ae`
 
 Integrating your game with Backtrace only takes a few minutes.
 

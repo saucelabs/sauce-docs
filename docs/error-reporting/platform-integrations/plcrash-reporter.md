@@ -104,4 +104,4 @@ While compiling a macOS application, the compiler generates a directory with dSY
 
 It is possible to generate the necessary sym files by using breakpad's `dump_syms(_mac)` tools. They can be uploaded by the usual means as well.
 
-For more information on how to do this, refer to the [symbolication guide](/error-reporting/project-setup/symbolication/).
+For more information on how to do this, refer to the [Upload Symbols to Your Project](/docs/error-reporting/symbols/upload-symbols-to-project.md).

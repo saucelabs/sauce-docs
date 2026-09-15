@@ -183,7 +183,7 @@ Describes the current session’s user prompt handler. The default value is `"di
 
 <p><small>| BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
 
-Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). It also enables BiDi for other test frameworks, like [WebDriverIO](https://webdriver.io/docs/api/webdriverBidi/). In particular, this capability exposes the WebSocket endpoint which is available under `webSocketUrl` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
+Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidi/). It also enables BiDi for other test frameworks, like [WebDriverIO](https://webdriver.io/docs/api/webdriverBidi/). In particular, this capability exposes the WebSocket endpoint which is available under `webSocketUrl` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
 
 The `webSocketUrl` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
 
@@ -370,7 +370,7 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> | </small></p>
 
-Enables [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) support, which is disabled by default on Sauce Labs platform. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). In particular, this capability exposes the WebSocket endpoint which is available under `se:cdp` field in session startup response body. This endpoint can be used to issue Chrome DevTools Protocol commands as described by the [specification](https://chromedevtools.github.io/devtools-protocol/). The default value is `false`.
+Enables [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) support, which is disabled by default on Sauce Labs platform. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidi/). In particular, this capability exposes the WebSocket endpoint which is available under `se:cdp` field in session startup response body. This endpoint can be used to issue Chrome DevTools Protocol commands as described by the [specification](https://chromedevtools.github.io/devtools-protocol/). The default value is `false`.
 
 The `devTools` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
 
@@ -650,7 +650,7 @@ If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appiu
 :::
 
 :::tip
-You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/commands/device/activity/current-activity/) command. This is the Appium 1 command, but will also work with Appium 2.
+You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/latest/) command. This is the Appium 1 command, but will also work with Appium 2.
 :::
 
 ```java
@@ -699,7 +699,26 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 Specifies the orientation of the screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
 :::important
-This capability is an Appium capability that needs to be pre-fixed with `appium:` so it becomes `appium:orientation`. It can be used for virtual device mobile tests and real device tests. The`appium:orientation` capability will only flip the screen while the capability `deviceOrientation` will flip the skin and the screen. See [`deviceOrientation`](#deviceorientation) for more information.
+This capability is an Appium capability and must be prefixed with `appium:` (for example, `appium:orientation`). It can be used for both virtual device and real device tests.
+
+The `appium:orientation` capability changes the orientation of the application in the device. The `deviceOrientation` capability rotates the virtual device itself (including the simulator window) and is supported only for virtual devices.
+
+Setting `deviceOrientation` does not automatically set `appium:orientation`. If your test requires both the virtual device and the application to start in a specific orientation, specify both capabilities explicitly. For landscape testing on virtual devices, Sauce Labs recommends using both capabilities. See [`deviceOrientation`](#deviceorientation) for more information.
+:::
+
+:::note
+Some Android tablet Emulators, such as **Pixel Tablet** and **Medium Tablet**, use **landscape** as their default orientation, whereas phone Emulators use **portrait** as the default orientation.
+
+Because `appium:orientation` is interpreted relative to the Emulator's default orientation, the specified value may appear reversed on these tablet Emulators. For example, setting `appium:orientation` to `LANDSCAPE` may result in a visually portrait Emulator, while setting it to `PORTRAIT` may result in a visually landscape Emulator.
+
+The following table illustrates this behavior:
+
+| Emulator Type | Default Orientation (0°) | `appium:orientation=PORTRAIT` | `appium:orientation=LANDSCAPE` |
+| --- | --- | --- | --- |
+| Phone Emulator | Portrait | Portrait | Landscape |
+| Tablet Emulator (Pixel Tablet, Medium Tablet) | Landscape | Landscape | Portrait |
+
+This behavior is expected for Emulator images that default to landscape orientation and is determined by the Android Emulator rather than Sauce Labs.
 :::
 
 ```java
@@ -894,8 +913,8 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 As with Selenium Tests, Appium also supports different types of timeouts like:
 
-- [Implicit Wait Timeout](https://appium.io/docs/en/commands/session/timeouts/implicit-wait/#set-implicit-wait-timeout): Set the amount of time the driver should wait when searching for elements
-- [Script Timeouts](https://appium.io/docs/en/commands/session/timeouts/async-script/index.html): Sets the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](https://appium.io/docs/en/commands/web/execute-async/index.html) are permitted to run before they are cancelled (Web context only)
+- [Implicit Wait Timeout](https://appium.io/docs/en/latest/): Set the amount of time the driver should wait when searching for elements
+- [Script Timeouts](https://appium.io/docs/en/latest/): Sets the amount of time, in milliseconds, that asynchronous scripts executed by **[execute async](https://appium.io/docs/en/latest/)** are permitted to run before they are cancelled (Web context only)
 
 These timeouts can be controlled by the driver during the test session. There are timeouts that can be set as a capability for when you start the driver and can be driver specific.
 
@@ -1139,6 +1158,17 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
+:::important
+
+The `deviceOrientation` capability rotates the virtual device (including the simulator window) and is supported only for virtual devices.
+
+This capability is independent of `appium:orientation`. Setting `deviceOrientation` does **not** automatically set `appium:orientation`.
+
+If your test requires both the virtual device and the application to start in a specific orientation, specify both capabilities explicitly. For landscape testing on virtual devices, Sauce Labs recommends specifying both capabilities.
+
+:::
+
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
@@ -1380,6 +1410,8 @@ and specific `sauce:options` like:
 
 Suitable for test setups that require the app's state to be reset between tests. Can be used for both [**static allocation and dynamic allocation**](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
+If the cached device cannot be reused because of an unrecoverable error, the session fails immediatly. If needed, this behaviour can be changed. See [`allowCacheFallback`](#allowcachefallback) for details.
+
 We recommend reviewing [Device Management for Real Devices](/mobile-apps/supported-devices) to learn more about how Sauce Labs manages device allocation, device caching, and device cleanup.
 
 ```java
@@ -1387,6 +1419,27 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("cacheId", "Wou0L9usPI9v");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `allowCacheFallback`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Controls the behaviour of a test in a cached device session in case of an unrecoverable error. Default value is `false`. Only has an effect when paired with [`cacheId`](#cacheid).
+
+When a test that is part of a cached device session fails to start due of a transient server-side error it is retried on the same device, so the cached session survives. By default, if the retry mechanism can not recover the error, the test fails with an message describing the issue and the device is deallocated. Sauce Labs does not fall back to a different device, to avoid silently breaking the app state that `cacheId` and [`noReset`](#appiumnoreset) preserve.
+
+Set `allowCacheFallback` to `true` if you would rather try a new device allocation instead of failing the test in this situation. Sauce Labs then releases the cached device and retries on another available device matching your device query — which may be the same device after cleaning. The session can still start, but on a freshly cleaned device: your app is reinstalled, its data is gone, and the cached session ends.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("cacheId", "Wou0L9usPI9v");
+sauceOptions.setCapability("allowCacheFallback", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
