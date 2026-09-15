@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: "2.0.0"
   title: "Real Device Access API Reference"
-  x-last-modified: "2026-08-27"
+  x-last-modified: "2026-09-15"
   x-beta: false
   description: |
     Access Sauce Labs' specialized real device farm to automate, test, and develop on real iOS and Android devices in the cloud. This API opens up our device infrastructure, enabling you to go beyond traditional testing workflows. Reserve a device once, then run multiple operations back-to-back on the same session—whether you're running automated tests, developing new features, or building custom automation workflows.
@@ -134,6 +134,18 @@ paths:
       summary: "Allocate a device and create a new session"
       description: |
         Creates a new device session.
+
+        A session records nothing until you call [`startTest`](#operation/startTest). Add `autoStartTest` and Sauce
+        Labs opens the test for you the moment the device is ready, so the session is captured from your first
+        interaction and shows up on the **Test Results** page in the Sauce Labs UI.
+
+        It takes the same fields as [`startTest`](#operation/startTest) — test name, build, tags, and the artifacts to
+        capture — and needs `configuration.sessionDuration` set to 30 minutes (`PT30M`) or shorter, which keeps the
+        recordings a reasonable size. For longer sessions, leave it out and run [`startTest`](#operation/startTest) and
+        [`endTest`](#operation/endTest) yourself.
+
+        The test opens after the device is allocated, so its `jobId` is not in this response — read it from
+        [`getTests`](#operation/getTests). It runs until you call [`endTest`](#operation/endTest) or the session closes.
       tags:
         - "Session Lifecycle"
       requestBody:
@@ -162,8 +174,16 @@ paths:
                     sessionDuration:
                       type: string
                       format: ISO-8601
-                      description: 'Session duration in ISO-8601 format. Sets the expiresAt timestamp; sessions will be forcefully closed after that time. Default: 6 hours. Max: 24 hours. Sessions longer than 6 hours may be forcefully closed before expiresAt.'
+                      description: 'Session duration in ISO-8601 format. Sets the expiresAt timestamp; sessions will be forcefully closed after that time. Default: 6 hours. Max: 24 hours. Sessions longer than 6 hours may be forcefully closed before expiresAt. Required when `autoStartTest` is set, where the maximum is 30 minutes (`PT30M`).'
                       example: "PT1H"
+                autoStartTest:
+                  allOf:
+                    - $ref: "#/components/schemas/StartTestRequest"
+                  description: |
+                    Opens a test as soon as the device is ready, so you don't have to call
+                    [`startTest`](#operation/startTest) yourself. Takes the same fields as that endpoint; send `{}` for
+                    a test with a generated name, no build, no tags, and no artifacts. Needs
+                    `configuration.sessionDuration` set to 30 minutes (`PT30M`) or shorter, otherwise you get a `400`.
       responses:
         "200":
           description: Ok
@@ -172,7 +192,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/SessionCreation"
         "400":
-          $ref: "#/components/responses/BadRequest"
+          $ref: "#/components/responses/CreateSessionBadRequest"
         "409":
           $ref: "#/components/responses/MaxSessionLimitReached"
     get:
@@ -278,7 +298,8 @@ paths:
         report through the ['jobs' API](https://docs.saucelabs.com/dev/api/rdc/#jobs).
 
         Only one test can be active on a session at a time — call [`endTest`](#operation/endTest) to finish the
-        current test before starting the next one. A session can hold at most 500 tests.
+        current test before starting the next one. If you created the session with `autoStartTest`, a test is already
+        running on it, so end that one first or this call comes back as a `409`. A session can hold at most 500 tests.
 
         Artifact capture (video, device logs, network capture, and so on) is opt-in: every toggle defaults to `false`.
         Request the artifacts you need in the `artifacts` object and they are recorded for the duration of the test.
@@ -1595,6 +1616,31 @@ components:
 
         You can find both your username and access key on the **Account > User Settings** page in the Sauce Labs UI.
   responses:
+    CreateSessionBadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/BadRequestBody"
+          examples:
+            deviceDoesNotExist:
+              summary: The requested device does not exist
+              value:
+                type: about:blank
+                title: Device does not exist.
+                detail: 'The deviceId "Samsung XR" does not exist. Please ensure you provide an existing device Id.'
+            sessionDurationRequired:
+              summary: autoStartTest without a session duration
+              value:
+                type: about:blank
+                title: Session duration required for auto-start test
+                detail: "A session duration is required when 'autoStartTest' is set. Example: 15 minutes would be represented as 'PT15M'."
+            sessionDurationTooLong:
+              summary: autoStartTest with a session duration above 30 minutes
+              value:
+                type: about:blank
+                title: Session duration too long for auto-start test
+                detail: "'autoStartTest' sessions are limited to PT30M to keep test artifacts from getting too large. You requested 'PT2H'. Either shorten the session duration to PT30M or less, or omit 'autoStartTest' and manage the report yourself with the 'startTest' and 'endTest' endpoints."
     BadRequest:
       description: Bad Request
       content:
