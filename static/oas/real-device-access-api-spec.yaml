@@ -134,18 +134,6 @@ paths:
       summary: "Allocate a device and create a new session"
       description: |
         Creates a new device session.
-
-        A session records nothing until you call [`startTest`](#operation/startTest). Add `autoStartTest` and Sauce
-        Labs opens the test for you the moment the device is ready, so the session is captured from your first
-        interaction and shows up on the **Test Results** page in the Sauce Labs UI.
-
-        It takes the same fields as [`startTest`](#operation/startTest) — test name, build, tags, and the artifacts to
-        capture — and needs `configuration.sessionDuration` set to 30 minutes (`PT30M`) or shorter, which keeps the
-        recordings a reasonable size. For longer sessions, leave it out and run [`startTest`](#operation/startTest) and
-        [`endTest`](#operation/endTest) yourself.
-
-        The test opens after the device is allocated, so its `jobId` is not in this response — read it from
-        [`getTests`](#operation/getTests). It runs until you call [`endTest`](#operation/endTest) or the session closes.
       tags:
         - "Session Lifecycle"
       requestBody:
