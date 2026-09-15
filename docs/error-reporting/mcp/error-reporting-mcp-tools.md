@@ -5,8 +5,58 @@ sidebar_label: Error Reporting MCP Tools
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
+After connecting Error Reporting MCP to Claude Code, you can use natural-language prompts to explore your Error Reporting data and investigate errors.
+
+You can start with a broad request and progressively drill down into a specific error.
+
+:::note
+Before you begin, make sure Error Reporting MCP is connected. See [Set Up Error Reporting MCP with Claude Code](/error-reporting/mcp/set-up-error-reporting-mcp/).
+:::
+
+## List your Error Reporting Projects
+
+Start by viewing the projects available in your Error Reporting universe. Enter the following prompt in Claude Code:
+
+```
+List all the projects in my universe.
+```
+
+Claude Code uses Error Reporting MCP to retrieve the projects available in your universe.
+
+<img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-setup-8.png')} alt="MCP Setup" />
+
+## Find the Top Errors in a Project
+
+After identifying a project, ask Claude Code to find the most frequent errors for a specific time period.
+
+For example:
+
+```
+What are the top errors in <project>?
+```
+
+Claude Code returns the top errors for the project, including information such as the number of errors, error message, type, and when the error was last seen.
+
+You can use this information to identify the errors that may require further investigation.
+
+<img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-setup-7.png')} alt="MCP Setup" />
+
+## Investigate an Error in Detail
+
+After identifying an error, ask Claude Code to investigate the error and provide its stack trace.
+
+For example:
+
+```
+Explain the most recent error in detail along with stacktrace.
+```
+
+Claude Code retrieves the most recent error and provides details such as the error message, stack trace, associated error group, and information about the environment in which the error occurred.
+
+<img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-setup-9.png')} alt="MCP Setup" />
+
+## MCP Tools
 
 Error Reporting MCP provides tools for exploring Error Reporting projects, finding errors, and investigating crash details. The tools can be used together to progressively investigate an issue, starting with your available projects and narrowing down to an individual error and its supporting data.
 

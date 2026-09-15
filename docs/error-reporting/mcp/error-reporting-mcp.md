@@ -29,14 +29,14 @@ The following examples show some of the ways you can interact with Error Reporti
 | Use case | Example prompt |
 | ----- | ----- |
 | **Discover projects** | `What Error Reporting projects do I have access to?` |
-| **Explore project data** | `What attributes can I filter on in the project?` |
-| **Find crash groups** | `Show me the top 10 crash groups in project <project_name> over the last 7 days.` |
-| **List individual errors** | `List every error in project from the last 24 hours on app version 5.2.1.` |
-| **Investigate a crash group** | `Give me the full detail on crash group <group ID> in project.` |
-| **Inspect an error** | `Show me the callstack and attributes for error <object ID> in project.` |
-| **Retrieve attachments** | `Pull the breadcrumbs attachment for error <object ID> and tell me what the user did in the seconds before the crash.` |
+| **Explore project data** | `What attributes can I filter on in the <project>?` |
+| **Find crash groups** | `Show me the top 10 crash groups in <project> over the last 7 days.` |
+| **List individual errors** | `List every error in <project> from the last 24 hours on app version 5.2.1.` |
+| **Investigate a crash group** | `Give me the full detail on crash group <group id> in <project>.` |
+| **Inspect an error** | `Show me the callstack and attributes for error <object id> in <project>.` |
+| **Retrieve attachments** | `Pull the breadcrumbs attachment for error <object id> in <project> and tell me what the user did in the seconds before the crash.` |
 
 You can combine these prompts to progressively investigate an issue, starting with project discovery and narrowing down to a specific error and its available debugging information.
 
-To start using Error Reporting MCP, see **[Set Up Error Reporting MCP with Claude Code](/docs/error-reporting/mcp/set-up-error-reporting-mcp.md)**
+To start using Error Reporting MCP, see **[Set Up Error Reporting MCP with Claude Code](/error-reporting/mcp/set-up-error-reporting-mcp/)**.
 
