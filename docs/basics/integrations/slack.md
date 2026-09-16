@@ -1,7 +1,7 @@
 ---
 id: slack
-title: Slack
-sidebar_label: Slack
+title: Slack (Beta)
+sidebar_label: Slack (Beta)
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -73,7 +73,7 @@ If you authorize a workspace that is already connected, Sauce Labs does not crea
 After connecting a Slack workspace, you can add Slack channels where Sauce Labs will send test result notifications. You can add multiple channels to the same workspace and use them as destinations when configuring alert rules.
 
 :::note
-Only channels available to the Sauce Labs Slack integration appear in the channel list.
+Only public channels available to the Sauce Labs Slack integration appear in the channel list.
 :::
 
 **Step 1:** In the connected workspace, select **Add Channel**.
@@ -92,12 +92,6 @@ Only channels available to the Sauce Labs Slack integration appear in the channe
 
 You can add multiple channels to the same connected Slack workspace. Repeat the channel setup to add additional channels to the same Slack workspace. Each channel is added separately and can be used as a destination for alert rules.
 
-```
-#web-testing
-#mobile-testing
-#visual-testing
-```
-
 <img src={useBaseUrl('/img/integrations/slack/slack-10.png')} alt="Slack Integration"/>
 
 ## Remove a Slack Channel
@@ -108,7 +102,7 @@ If you no longer want a channel to receive Sauce Labs notifications, you can rem
 
 <img src={useBaseUrl('/img/integrations/slack/slack-10.png')} alt="Slack Integration"/>
 
-**Step 2:** Select **Remove Channel** next to the channel. The channel is removed from the list of connected channels and is no longer available as a destination for Slack alerts.
+**Step 2:** Select **Remove Channel** next to the channel. The channel is removed from the list of connected channels and is no longer available as a destination for Slack alerts. Alternatively, you can remove the saucebot from the channel to stop receiving alerts for it.
 
 <img src={useBaseUrl('/img/integrations/slack/slack-11.png')} alt="Slack Integration"/>
 
@@ -230,7 +224,7 @@ Manually sending a test result does not require an alert rule and does not chang
 <img src={useBaseUrl('/img/integrations/slack/slack-27.png')} alt="Slack Integration"/>
 
 :::note
-Tags are optional. If you do not select any tags, the alert applies to all results that match the configured event types.
+Select one or more tags to filter test results. The alert is triggered for results that contain the selected tags.
 :::
 
 **Step 4:** Review the alert name, event types, destinations, and tags to make sure the configuration is correct. Select **Create Rule**.
@@ -247,4 +241,4 @@ On the Slack configuration page, locate the workspace you want to disconnect and
 
 <img src={useBaseUrl('/img/integrations/slack/slack-29.png')} alt="Slack Integration"/>
 
-The workspace is disconnected from Sauce Labs. After disconnecting the workspace, Sauce Labs can no longer send test result notifications or alerts to the Slack channels associated with that workspace. Other Slack workspaces connected to your Sauce Labs organization remain connected.
+The workspace is disconnected from Sauce Labs, and the Slackbot integration is also disconnected from your Slack workspace. Other Slack workspaces connected to your Sauce Labs organization remain unaffected.
