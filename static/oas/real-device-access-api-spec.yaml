@@ -133,7 +133,8 @@ paths:
       operationId: createSession
       summary: "Allocate a device and create a new session"
       description: |
-        Creates a new device session.
+        Creates a new device session. The session runs on a private device or on a public device from the shared Sauce Labs cloud, depending on which
+        devices match your query.
       tags:
         - "Session Lifecycle"
       requestBody:
@@ -162,7 +163,7 @@ paths:
                     sessionDuration:
                       type: string
                       format: ISO-8601
-                      description: 'Session duration in ISO-8601 format. Sets the expiresAt timestamp; sessions will be forcefully closed after that time. Default: 6 hours. Max: 24 hours. Sessions longer than 6 hours may be forcefully closed before expiresAt. Required when `autoStartTest` is set, where the maximum is 30 minutes (`PT30M`).'
+                      description: 'Session duration in ISO-8601 format. Sets the expiresAt timestamp; sessions will be forcefully closed after that time. Default: 6 hours. Max: 24 hours on private devices, 1 hour on public devices. A duration above the maximum your session qualifies for is capped rather than rejected, so read `expiresAt` from the response to see when the session actually ends. Sessions longer than 6 hours may be forcefully closed before expiresAt. Required when `autoStartTest` is set, where the maximum is 30 minutes (`PT30M`).'
                       example: "PT1H"
                 autoStartTest:
                   allOf:
@@ -269,6 +270,8 @@ paths:
           $ref: "#/components/responses/CloseDeviceSession"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "403":
+          $ref: "#/components/responses/RebootNotAllowedOnPublicDevice"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
@@ -409,6 +412,10 @@ paths:
         Runs an adb shell command on the device and returns stdout. This command is not available for iOS devices.
         The adbShellCommand should be the shell command without the 'adb shell' prefix (e.g., 'ls /' not 'adb shell ls /').
         Use for checking device properties, listing packages, granting permissions, or any operation available through adb.
+
+        On a private device any adb shell command runs. On a public device, which is shared infrastructure, commands are
+        restricted to an allowlist and anything outside it comes back as a `400`. The allowlist is published in the
+        [mobile FAQ](https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue).
       tags:
         - "Device Interactions"
       parameters:
@@ -444,7 +451,26 @@ paths:
                     description: The stdout of your shell command.
                     example: "acct                debug_ramdisk      keyrefuge       sdcard\napex                default.prop       linkerconfig    sepolicy_version\naudit_filter_table  dev                lost+found      spu\nbin                 dpolicy            mnt             storage\n"
         "400":
-          $ref: "#/components/responses/BadRequest"
+          description: The request was rejected, or the command is not on the allowlist that applies to public devices.
+          content:
+            application/problem+json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BadRequestBody"
+                  - $ref: "#/components/schemas/AdbCommandNotAllowedBody"
+              examples:
+                commandNotAllowed:
+                  summary: The command is not on the public device allowlist
+                  value:
+                    type: about:blank
+                    title: Adb Command Not Allowed
+                    detail: "Failed to execute. The following adb command 'pm uninstall com.example.app' is not allowed. Please refer to the list of allowed commands https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue or contact the Sauce Labs Support Team for assistance."
+                notAnAndroidDevice:
+                  summary: The session is running on an iOS device
+                  value:
+                    type: about:blank
+                    title: ADB command error
+                    detail: "Currently we only support shell commands on Android devices. The current device is a IOS device"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "502":
@@ -753,6 +779,8 @@ paths:
                 $ref: "#/components/schemas/RunningWDA"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "403":
+          $ref: "#/components/responses/PrivateDeviceFeature"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
         "409":
@@ -790,6 +818,8 @@ paths:
                 $ref: "#/components/schemas/RunningWDA"
         "400":
           $ref: "#/components/responses/BadRequest"
+        "403":
+          $ref: "#/components/responses/PrivateDeviceFeature"
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
@@ -1609,7 +1639,10 @@ components:
       content:
         application/problem+json:
           schema:
-            $ref: "#/components/schemas/BadRequestBody"
+            oneOf:
+              - $ref: "#/components/schemas/BadRequestBody"
+              - $ref: "#/components/schemas/NoDeviceMatchesQueryBody"
+              - $ref: "#/components/schemas/AllDevicesUnavailableBody"
           examples:
             deviceDoesNotExist:
               summary: The requested device does not exist
@@ -1629,6 +1662,24 @@ components:
                 type: about:blank
                 title: Session duration too long for auto-start test
                 detail: "'autoStartTest' sessions are limited to PT30M to keep test artifacts from getting too large. You requested 'PT2H'. Either shorten the session duration to PT30M or less, or omit 'autoStartTest' and manage the report yourself with the 'startTest' and 'endTest' endpoints."
+            noDeviceMatchesQuery:
+              summary: The device query matched no device you can reach
+              value:
+                type: about:blank
+                title: No device matches your device query
+                detail: "The device query did not match any devices. Please ensure your query is correct."
+                deviceQuery:
+                  os: "ios"
+                  deviceName: "iPhone_16_real"
+            allDevicesUnavailable:
+              summary: Every matching device is currently busy
+              value:
+                type: about:blank
+                title: All devices un-available
+                detail: "All of the devices matching your query are currently unavailable. Please make sure you target devices which are in ready-state."
+                unavailableDevices:
+                  - "iPhone_16_real"
+                  - "iPhone_16_Pro_real"
     BadRequest:
       description: Bad Request
       content:
@@ -1688,6 +1739,52 @@ components:
               detail:
                 type: string
                 example: "Current WDA state: RUNNING."
+    RebootNotAllowedOnPublicDevice:
+      description: Device reboot not available on public devices
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: "about:blank"
+              title:
+                type: string
+                example: "Device reboot not available on public devices"
+              detail:
+                type: string
+                example: "Device reboot is only available on private devices, this session was not closed. Send the request again without 'rebootDevice=true' to close it."
+    PrivateDeviceFeature:
+      description: Feature not available on public devices
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            description: "Error detailing that the requested feature is restricted to private devices."
+            properties:
+              type:
+                type: string
+                example: "about:blank"
+              title:
+                type: string
+                example: "Feature not available on public devices"
+              detail:
+                type: string
+                example: "'launchWebDriverAgent' is only available on private devices. This session is running on a public device, which is shared infrastructure. Start a session on a private device to use this feature."
+          examples:
+            launchWebDriverAgent:
+              summary: Launching a custom WebDriverAgent on a public device
+              value:
+                type: about:blank
+                title: Feature not available on public devices
+                detail: "'launchWebDriverAgent' is only available on private devices. This session is running on a public device, which is shared infrastructure. Start a session on a private device to use this feature."
+            checkWebDriverAgentStatus:
+              summary: Reading WebDriverAgent status on a public device
+              value:
+                type: about:blank
+                title: Feature not available on public devices
+                detail: "'checkWebDriverAgentStatus' is only available on private devices. This session is running on a public device, which is shared infrastructure. Start a session on a private device to use this feature."
     DeviceSessionNotFound:
       description: Not Found
       content:
@@ -1855,7 +1952,14 @@ components:
                 type: string
                 example: "Could not create the test on session 4a1b2c3d-5e6f-7890-abcd-ef1234567890. Please retry startTest. If it keeps happening, contact your Sauce Labs representative."
     MaxSessionLimitReached:
-      description: We will emit this message when you try to start an Access API session, but you have already reached your max concurrency for Access API sessions. You must either close existing sessions or contact your Sauce Labs representative for more concurrency.
+      description: |
+        Returned when your organization has no Access API concurrency left for the device class the session would run on.
+        Public and private devices are entitled separately and counted separately, so running out on one class does not
+        affect the other. A device is released when the session holding it is closed or expires.
+
+        Which of the two bodies you get depends on your plan: organizations with a paid Access API entitlement on the
+        device class get `Access API Concurrency Limit Reached`, and organizations without one fall back to the free
+        tier and get `Free Tier Concurrency Limit Reached`.
       content:
         application/problem+json:
           schema:
@@ -1869,7 +1973,20 @@ components:
                 example: Access API Concurrency Limit Reached
               detail:
                 type: string
-                example: 'Your organization has reached its maximum allowed concurrent Access API sessions 5 based on your current plan. Please wait for an existing session to complete or contact your Customer Success Manager or the Sauce Labs Support Team if you need to increase your concurrent sessions.'
+                example: 'Your organization already has 5 public devices allocated to Access API sessions, which is the maximum your plan allows. A device is released when the session holding it is closed or expires. Contact your Customer Success Manager or the Sauce Labs Support Team if you need a higher limit.'
+          examples:
+            concurrencyLimitReached:
+              summary: Paid tier — the entitlement for this device class is fully in use
+              value:
+                type: about:blank
+                title: Access API Concurrency Limit Reached
+                detail: "Your organization already has 5 public devices allocated to Access API sessions, which is the maximum your plan allows. A device is released when the session holding it is closed or expires. Contact your Customer Success Manager or the Sauce Labs Support Team if you need a higher limit."
+            freeTierLimitReached:
+              summary: Free tier — one device of this class is already in use
+              value:
+                type: about:blank
+                title: Free Tier Concurrency Limit Reached
+                detail: "Your organization already has one public device allocated to an Access API session, which is all the free tier allows. The device is released when the session holding it is closed or expires. Contact your Customer Success Manager or the Sauce Labs Support Team to upgrade your plan."
   schemas:
     BadRequestBody:
       type: object
@@ -1883,6 +2000,72 @@ components:
         detail:
           type: string
           example: 'The deviceId "Samsung XR" does not exist. Please ensure you provide an existing device Id.'
+    AdbCommandNotAllowedBody:
+      type: object
+      description: |
+        Returned by [`executeShellCommand`](#operation/executeShellCommand) when the session runs on a public device and
+        the command is not on the allowlist. Public devices are shared infrastructure, so only the commands in the
+        [mobile FAQ](https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue)
+        are accepted. Private devices are not restricted. Chained commands are checked one by one, and every rejected
+        part is named in `detail`.
+      properties:
+        type:
+          type: string
+          example: about:blank
+        title:
+          type: string
+          example: Adb Command Not Allowed
+        detail:
+          type: string
+          example: "Failed to execute. The following adb command 'pm uninstall com.example.app' is not allowed. Please refer to the list of allowed commands https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue or contact the Sauce Labs Support Team for assistance."
+    NoDeviceMatchesQueryBody:
+      type: object
+      description: |
+        Returned by [`createSession`](#operation/createSession) when no device you are entitled to use matches the
+        `device` query. The query is echoed back in `deviceQuery` so you can see what was evaluated.
+      properties:
+        type:
+          type: string
+          example: about:blank
+        title:
+          type: string
+          example: No device matches your device query
+        detail:
+          type: string
+          example: "The device query did not match any devices. Please ensure your query is correct."
+        deviceQuery:
+          type: object
+          description: The device query from your request, as it was evaluated.
+          properties:
+            os:
+              type: string
+              nullable: true
+              example: "ios"
+            deviceName:
+              type: string
+              nullable: true
+              example: "iPhone_16_real"
+    AllDevicesUnavailableBody:
+      type: object
+      description: |
+        Returned by [`createSession`](#operation/createSession) when the `device` query matches devices, but every one of
+        them is busy. Retry when one frees up, or widen the query.
+      properties:
+        type:
+          type: string
+          example: about:blank
+        title:
+          type: string
+          example: All devices un-available
+        detail:
+          type: string
+          example: "All of the devices matching your query are currently unavailable. Please make sure you target devices which are in ready-state."
+        unavailableDevices:
+          type: array
+          description: Descriptor IDs of the matching devices that were busy.
+          items:
+            type: string
+          example: ["iPhone_16_real", "iPhone_16_Pro_real"]
     BundleIdMissingBody:
       type: object
       description: |
@@ -2152,6 +2335,10 @@ components:
               description: The hosted appium server version
         links:
           type: object
+          description: |
+            Links to the resources of this session. The low-level device access links — `adbUrl`, `usbmuxdUrl` and
+            `vusbUrl` — are only present on sessions running on a private device. Low-level device access is not
+            supported on public devices, so on a public session the three fields are absent.
           properties:
             ioWebsocketUrl:
               type: string
@@ -2168,17 +2355,18 @@ components:
               type: string
               nullable: true
               example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/forward"
-              description: ADB forwarding URL for Android devices. Only set when the device OS is Android, null otherwise.
+              description: ADB forwarding URL for Android devices. Only set on a private device when the device OS is Android; absent otherwise.
             usbmuxdUrl:
               type: string
               nullable: true
               example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/usbmuxd"
-              description: usbmuxd URL for iOS devices. Only set when the device OS is iOS, null otherwise.
+              description: usbmuxd URL for iOS devices. Only set on a private device when the device OS is iOS; absent otherwise.
             vusbUrl:
               type: string
+              nullable: true
               deprecated: true
               example: "https://api.us-west-1.saucelabs.com/v1/rdc/vusb/forward"
-              description: "Deprecated: Use adbUrl for Android or usbmuxdUrl for iOS instead."
+              description: "Deprecated: Use adbUrl for Android or usbmuxdUrl for iOS instead. Only set on a private device; absent on a public device."
             deviceDescriptorUrl:
               type: string
               example: "https://api.us-west-1.saucelabs.com/rdc/v2/devices/iPhone_13_real"
