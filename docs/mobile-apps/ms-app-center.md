@@ -25,7 +25,9 @@ For more information, see [Managing Testers](/testfairy/testers/managing-testers
 
 ## Security
 
-Sauce Labs Mobile App Distribution is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service.
+Sauce Labs Mobile App Distribution is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service. Sauce Labs Mobile App Distribution is the only platform that provides end-to-end data encryption using your private/public keys, so your data remains private.
+
+For more information, see [End to End Data Encryption](/testfairy/sdk/security/data-encryption/).
 
 :::tip
 Use the [Sauce Labs Mobile App Distribution API](/testfairy/api-reference/upload-api/) to upload or retrieve your mobile applications.
