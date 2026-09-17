@@ -151,9 +151,9 @@ iOS 27.0 adds the iPhone 18 Pro and iPhone 18 Pro Max Simulators. For the full l
 Appium 3 supports only the W3C WebDriver protocol. Before you move tests from iOS 26.1 (Appium 2.19.0) to iOS 26.5 or iOS 27.0, check the following:
 
 * **Use a current Appium client and vendor-prefixed capabilities.** The legacy `desiredCapabilities` request format and the JSON Wire Protocol (JSONWP/MJSONWP) endpoints have been removed. Upgrade your Appium client library to a version that speaks W3C, and prefix driver capabilities with `appium:` (for example, `appium:deviceName`).
-* **Replace removed legacy commands.** Touch and gesture commands such as `TouchAction` and `MultiAction` must be replaced by W3C Actions. App lifecycle and device commands such as launch, close, reset, lock, unlock, and shake must be replaced by the `mobile:` execute methods provided by the XCUITest driver.
+* **Replace removed legacy commands.** Touch and gesture commands such as `TouchAction` and `MultiAction` must be replaced by W3C Actions. App lifecycle and device commands such as launch, close, reset, lock, unlock, and shake must be replaced by the XCUITest driver's [`mobile:` commands](https://appium.github.io/appium-xcuitest-driver/latest/reference/execute-methods/), for example `mobile: launchApp`, `mobile: lock`, and `mobile: shake`.
 
-See the official [Appium 2 to Appium 3 migration guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/) for the complete list of changes, and the [XCUITest driver release notes](https://github.com/appium/appium-xcuitest-driver/releases) for driver-level changes between the 9.x driver used with iOS 26.1 and the 10.x driver used here.
+See the official [Appium 2 to Appium 3 migration guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/) for the complete list of changes, and the [XCUITest driver release notes](https://github.com/appium/appium-xcuitest-driver/releases) for driver-level changes between the 9.x driver used with iOS 26.1 and the 10.x driver used with iOS 26.5 and iOS 27.0.
 
 #### Session Start Time
 
