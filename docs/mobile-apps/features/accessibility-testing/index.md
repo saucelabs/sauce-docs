@@ -27,11 +27,12 @@ Key highlights:
 
 ## [Android: Live Accessibility Testing](/mobile-apps/features/accessibility-testing/android-talkback)
 
-Enables the built-in Android screen reader (TalkBack) on real devices with a single click. You can navigate through elements using the keyboard and hear audio feedback for each focused element.
+Enables the built-in Android screen reader (TalkBack) on real devices with a single click. You can navigate through elements using the keyboard or the Action Toolbar, and hear the TalkBack audio for each focused element streamed from the device.
 
 Key highlights:
 
 - Arrow keys to navigate, Enter to activate
+- Action Toolbar with Home, App Switcher, Tap, Up, Down, Next, Previous, and Mute buttons
 - Audio feedback streamed to your browser
 - Requires Android 12 or above
 - Works on all public and private Android real devices
