@@ -221,7 +221,6 @@ Terminate a device session and release the device. When you close a session, its
 - **Basic closure** (default): terminate the session, [clean the device](/mobile-apps/real-device-cleaning/), return it to the device pool marked as AVAILABLE.
 - **Reboot option** (private devices only): perform the standard cleanup and then reboot the device. After rebooting the device it will not be rebooted for another 10 sessions
 
-On a session running on a public device, `rebootDevice=true` comes back as a `403` and the session stays open. Send the request again without the flag to close it.
 
 ##### Examples
 ```shell
