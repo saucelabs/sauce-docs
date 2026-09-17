@@ -17,7 +17,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <TabItem value="swift" label="Swift">
 
 ```swift reference title="Usage Example"
-https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS/AppDelegate.swift#L18-L77
+https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS/AppDelegate.swift#L16-L76
 ```
 
 </TabItem>

@@ -80,6 +80,8 @@ pod 'Backtrace'
 
 To initialize `BacktraceClient`, create a `BacktraceCredentials` object with the name of your subdomain and submission token, and supply it to the `BacktraceClient` constructor:
 
+Run this initialization once per app process in `AppDelegate.application(_:didFinishLaunchingWithOptions:)`, or `application:didFinishLaunchingWithOptions:` in Objective-C, before scene connection.
+
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
@@ -101,6 +103,16 @@ BacktraceClient.shared = [[BacktraceClient alloc] initWithCredentials:backtraceC
 
 </TabItem>
 </Tabs>
+
+### OS 27 Scene Lifecycle
+
+UIKit applications built with the OS 27 SDK must adopt the scene-based lifecycle to launch on iOS 27, iPadOS 27, Mac Catalyst 27, and tvOS 27. Follow [Apple's scene-lifecycle migration guide](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) to configure your host application. Installing or updating Backtrace does not add scene support to your app.
+
+The [Swift iOS](https://github.com/backtrace-labs/backtrace-cocoa/tree/master/Examples/Example-iOS), [Objective-C iOS](https://github.com/backtrace-labs/backtrace-cocoa/tree/master/Examples/Example-iOS-ObjC), and [tvOS](https://github.com/backtrace-labs/backtrace-cocoa/tree/master/Examples/Example-tvOS) examples declare scenes in `UIApplicationSceneManifest`, give each scene delegate ownership of its window, and load the `Main` storyboard through `UISceneStoryboardFile`. The examples use a single scene; scene adoption does not require multi-window support.
+
+Keep Backtrace initialization in the app delegate's launch callback. Do not create a client in `scene(_:willConnectTo:options:)` or each time a scene becomes active. Scene creation, reconnection, and foreground transitions must reuse the process's existing client.
+
+After migration, verify application launch, background and foreground transitions, and scene reconnection. Use the [setup checks](#verify-the-setup) to test crash capture and delivery after relaunch separately from scene setup.
 
 ## Upload Debug Symbols
 
