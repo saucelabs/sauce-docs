@@ -19,7 +19,7 @@ Audio Capture is a functionality that gives you the ability to record the audio 
 |                                                                                          | Android 9 and below |   Android 10   |   Android 11   | Android  12 and above | iOS (all versions) |
 |------------------------------------------------------------------------------------------|:-------------------:|:--------------:|:--------------:|:---------------------:|:----------------:|
 | Audio streaming during Live Testing                                                      |          ❌          |        ❌       |        ❌       |           ✅           |         ✅        |
-| Audio recording in Live and Automated Test Reports                                       |          ❌          | Automated only | Automated only |           ✅           |         ❌        |
+| Audio recording in Live and Automated Test Reports                                       |          ❌          | Automated only | Automated only |           ✅           |         ✅        |
 | Text to speech audio streaming during Live Testing via Talkback/VoiceOver                |          ❌          |        ✅       |        ✅       |           ✅           |         ✅        |
 | Text to speech audio recording in Live and Automated Test Reports via Talkback/VoiceOver |          ❌          |        ❌       |        ❌       |           ❌           |         ❌        |
 
