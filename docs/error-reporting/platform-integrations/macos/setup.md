@@ -34,7 +34,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### System Requirements
 
-- Xcode 10 or above
+- An Xcode version that supports your target SDK. The Swift package declares Swift tools version 5.5.
 
 ## Install the SDK
 
@@ -51,8 +51,8 @@ You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SDK i
   <TabItem value="SPM" label="Swift Package Manager">
    Add the following dependency to your <code>Package.swift</code> file:
 
-```
-.package(url: "https://github.com/backtrace-labs/backtrace-cocoa.git, branch: "feature/SwiftPM")
+```swift
+.package(url: "https://github.com/backtrace-labs/backtrace-cocoa.git", from: "2.1.0")
 ```
 
   </TabItem>
@@ -80,7 +80,7 @@ When using CocoaPods for macOS, specify `platform :osx` (not `platform :ios`).
 
 ## Initialize the Backtrace Client
 
-To initialize `BacktraceClient`, create a `BacktraceCredentials` object with the name of your subdomain and submission token, and supply it as a parameter in the `BacktraceCredentials` constructor.
+To initialize `BacktraceClient`, create `BacktraceCredentials` with your submission URL, then pass the credentials to `BacktraceClientConfiguration` and construct the client.
 
 On macOS, you initialize the Backtrace client in `applicationDidFinishLaunching(_:)` (an `NSApplicationDelegate` method) instead of the iOS `application(_:didFinishLaunchingWithOptions:)`:
 
@@ -175,7 +175,7 @@ When using `NSApplicationCrashOnExceptions`, your app will terminate on uncaught
 
 After compiling your application with the backtrace-cocoa library, make sure symbol files are generated in dSYM format and are uploaded to Backtrace to symbolicate incoming crashes.
 
-For information on how to upload debug symbols, see [Upload Symbols to Your Project](/docs/error-reporting/symbols/upload-symbols-to-project.md).
+For information on how to upload debug symbols, see [Upload Symbols to Your Project](/error-reporting/symbols/upload-symbols-to-project/).
 
 ### Set Debug Symbol Format
 
@@ -216,14 +216,18 @@ To test the integration, throw an error or exception to send a report to your Ba
 <TabItem value="swift" label="Swift">
 
 ```swift
-@objc func send(completion: ((BacktraceResult) -> Void))
+@objc func send(error: Error,
+                attachmentPaths: [String] = [],
+                completion: @escaping ((BacktraceResult) -> Void))
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
 ```objc
- - (void) sendWithCompletion: (void (^)(BacktraceResult * _Nonnull)) completion;
+- (void)sendWithError:(NSError * _Nonnull)error
+     attachmentPaths:(NSArray<NSString *> * _Nonnull)attachmentPaths
+          completion:(void (^ _Nonnull)(BacktraceResult * _Nonnull))completion;
 ```
 
 </TabItem>
@@ -235,18 +239,26 @@ To test the integration, throw an error or exception to send a report to your Ba
 <TabItem value="swift" label="Swift">
 
 ```swift
-@objc func send(exception: NSException, completion: ((BacktraceResult) -> Void))
+@objc func send(exception: NSException?,
+                attachmentPaths: [String] = [],
+                completion: @escaping ((BacktraceResult) -> Void))
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
 ```objc
- - (void) sendWithException: NSException completion: (void (^)(BacktraceResult * _Nonnull)) completion;
+- (void)sendWithException:(NSException * _Nullable)exception
+         attachmentPaths:(NSArray<NSString *> * _Nonnull)attachmentPaths
+              completion:(void (^ _Nonnull)(BacktraceResult * _Nonnull))completion;
 ```
 
 </TabItem>
 </Tabs>
+
+### Verify Native Crash Delivery
+
+For native-crash validation, test a dedicated build outside the debugger and relaunch it with Backtrace initialized. Allow time for asynchronous submission, then verify receipt and symbolication in your Backtrace project. A handled-error test alone does not exercise capture and delivery after a fatal crash. See [Cocoa Report Delivery](/error-reporting/platform-integrations/cocoa/report-delivery/) and [macOS Troubleshooting](/error-reporting/platform-integrations/macos/troubleshooting/) for startup logging, retry behavior, and packaging checks.
 
 ## Differences from iOS
 

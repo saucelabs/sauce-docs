@@ -69,6 +69,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/ios/setup',
                                         'error-reporting/platform-integrations/ios/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
                                     ],
                                 },
                             ],
@@ -165,6 +166,8 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/macos/setup',
                                         'error-reporting/platform-integrations/macos/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
+                                        'error-reporting/platform-integrations/macos/troubleshooting',
                                     ],
                                 },
                                 'error-reporting/platform-integrations/plcrash-reporter',
@@ -192,6 +195,27 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Explore',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/web-console/explore',
+                        'error-reporting/explore/add-custom-aggregations',
+                        'error-reporting/explore/normalize-errors-by-metric-groups',
+                        'error-reporting/explore/customize-error-views',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'MCP',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/mcp/error-reporting-mcp',
+                        'error-reporting/mcp/set-up-error-reporting-mcp',
+                        'error-reporting/mcp/error-reporting-mcp-tools',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
@@ -199,7 +223,6 @@ module.exports = {
                         'error-reporting/web-console/overview',
                         'error-reporting/web-console/releases',
                         'error-reporting/web-console/triage',
-                        'error-reporting/web-console/explore',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
                     ],
@@ -1057,6 +1080,7 @@ module.exports = {
                     items: [
                         'mobile-apps/real-device-access-api/real-device-access-api-introduction',
                         'mobile-apps/real-device-access-api/real-device-access-api-integration-guide',
+                        'mobile-apps/real-device-access-api/real-device-access-api-test-results',
                         'mobile-apps/real-device-access-api/real-device-access-api-local-appium',
                         'mobile-apps/real-device-access-api/real-device-access-api-sauce-hosted-appium',
                         'mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket',
@@ -1205,6 +1229,11 @@ module.exports = {
             items: [
                 'test-results',
                 'test-results/viewing-test-results',
+                {
+                    type: 'link',
+                    label: 'Access API Test Results',
+                    href: '/mobile-apps/real-device-access-api/real-device-access-api-test-results',
+                },
                 'test-results/sharing-test-results',
                 'test-results/test-status',
                 'test-results/badges-browser-matrix',

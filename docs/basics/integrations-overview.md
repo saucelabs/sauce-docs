@@ -7,9 +7,26 @@ hide_table_of_contents: true
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs integrates with the most important tools for your SDLC. Whether you need to hook up your CI/CD system, or you need enhanced functionality like email testing, test results management, or accessibility testing, Sauce Labs has you covered.
+Sauce Labs integrates with the most important tools for your SDLC. Whether you need to connect an AI agent, hook up your CI/CD system, or add enhanced functionality like email testing, test results management, or accessibility testing, Sauce Labs has you covered.
 
 We partner with the top companies in the industry to bring you a complete solution for your testing needs. We also integrate seamlessly with the best open source tools in the ecosystem.
+
+## AI Agents and Assistants
+
+[Sauce MCP](/sauce-ai/sauce-mcp) is a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that lets your AI assistant or agent talk to Sauce Labs directly. Your agent can discover and drive real devices, author and run test cases, and inspect jobs, builds, and test artifacts using natural language. Sauce MCP works with any MCP-compatible client, including:
+
+<div className="client-grid">
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/claude.svg')} alt="Claude logo" /><span>Claude</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/cursor.svg')} alt="Cursor logo" /><span>Cursor</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/windsurf.svg')} alt="Windsurf logo" /><span>Windsurf</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/vscode.png')} alt="Visual Studio Code logo" /><span>VS Code (Copilot)</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/intellij.svg')} alt="IntelliJ IDEA logo" /><span>IntelliJ</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/antigravity.png')} alt="Antigravity logo" /><span>Antigravity</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/gemini.svg')} alt="Google Gemini logo" /><span>Gemini CLI</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/goose.png')} alt="Goose logo" /><span>Goose</span></a>
+</div>
+
+See [Connect your AI client](/sauce-ai/sauce-mcp-getting-started) for setup instructions.
 
 ## CI/CD Tools
 
@@ -64,6 +81,13 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
     <div className="container">
         <a href="https://docs.travis-ci.com/user/sauce-connect/"><img src={useBaseUrl('img/integrations/travis-ci.png')} alt="Travis CI logo" width="50" />
         <h3>Travis CI</h3>
+        </a>
+    </div>
+  </div>
+  <div className="box box8 card">
+    <div className="container">
+        <a href="/basics/integrations/bitbucket/"><img src={useBaseUrl('img/integrations/bitbucket.svg')} alt="Bitbucket logo" width="50" />
+        <h3>Bitbucket</h3>
         </a>
     </div>
   </div>
@@ -184,6 +208,20 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
     <div className="container">
         <a href="https://zebrunner.com/documentation/integrations/saucelabs/"> <img src={useBaseUrl('img/integrations/zebrunner.png')} alt="Zebrunner logo" width="50" />
         <h3>Zebrunner</h3>
+        </a>
+    </div>
+  </div>
+</div>
+
+## Webhooks
+
+Push test result events from Sauce Labs to any endpoint as they become available, instead of polling for updates.
+
+<div className="box-wrapper" markdown="1">
+  <div className="box box1 card">
+    <div className="container">
+        <a href="/basics/integrations/webhooks/"> <img src={useBaseUrl('img/android-chrome-192x192.png')} alt="Sauce Labs logo" width="50" />
+        <h3>Sauce Labs Webhooks</h3>
         </a>
     </div>
   </div>
