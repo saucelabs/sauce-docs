@@ -190,7 +190,7 @@ While a session is starting, Sauce Labs answers your new-session request with an
 
 - Client-side request throttling or errors. Make sure to check the logs from your test runner for any errors.
   See the related [New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found](#the-new-session-request-was-cancelled-before-a-sauce-labs-virtual-machine-was-found) error message for more information.
-- Your WebDriver client has a redirect limit. The Selenium and Appium **Python** clients use the `urllib3` default retry policy, which follows at most three redirects. A session that is still starting after the third redirect fails on the client with `MaxRetryError: ... too many redirects`, and Sauce Labs reports this error. iOS Simulator sessions, which take longer to start than desktop browser sessions, are the most likely to hit this limit.
+- Your WebDriver client has a redirect limit. The Selenium and Appium **Python** clients use the `urllib3` default retry policy, which follows at most three redirects. A session that is still starting after the third redirect fails on the client with `MaxRetryError: ... too many redirects`, and Sauce Labs reports this error.
 
 **How to Resolve**
 

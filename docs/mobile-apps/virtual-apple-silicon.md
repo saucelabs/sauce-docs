@@ -155,14 +155,6 @@ Appium 3 supports only the W3C WebDriver protocol. Before you move tests from iO
 
 See the official [Appium 2 to Appium 3 migration guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/) for the complete list of changes, and the [XCUITest driver release notes](https://github.com/appium/appium-xcuitest-driver/releases) for driver-level changes between the 9.x driver used with iOS 26.1 and the 10.x driver used with iOS 26.5 and iOS 27.0.
 
-#### Session Start Time
-
-A cold iOS Simulator session can take several minutes to start, and longer if Sauce Labs has to re-provision the virtual machine. To avoid client-side failures during session creation:
-
-* Allow at least 5 minutes for new-session requests in your test runner and HTTP client timeouts.
-* If you use the Selenium or Appium Python client, raise its redirect limit. See [The New Session Request Redirect Was Not Followed Before Timeout](/dev/error-messages/#the-new-session-request-redirect-was-not-followed-before-timeout).
-* Reuse a warm virtual machine across tests with the [`cacheId`](/dev/test-configuration-options/#cacheid) capability. Sessions that land on a warm virtual machine skip the VM and Simulator boot and start in a fraction of the cold-start time.
-
 ---
 
 ## Learn More
