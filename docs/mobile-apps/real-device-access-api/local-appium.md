@@ -7,6 +7,14 @@ sidebar_label: Local Appium
 # Introduction
 Although we encourage using [our hosted Appium solution](/mobile-apps/automated-testing/appium/), certain scenarios benefit from running Appium locally—for example, custom plugins, in-depth debugging, or networking requirements. This guide shows how to connect a local Appium server to Sauce Labs Android and iOS devices through the Real Device Access API.
 
+:::caution Private devices only
+The workflows on this page are built on low-level device access, which is available on private devices
+only. A session running on a public device returns no `adbUrl`, `usbmuxdUrl`, or `vusbUrl`, so there is
+nothing to bridge a local connection to. See
+[Public and Private Devices](introduction.md#public-and-private-devices) for what each device class
+supports.
+:::
+
 ## Prerequisites
 - Real Device Access API enabled for your account (see the [Integration Guide](integration-guide.md)).
 - `curl` and `jq` installed locally.

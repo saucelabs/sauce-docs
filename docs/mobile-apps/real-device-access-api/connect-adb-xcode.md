@@ -10,6 +10,14 @@ The Real Device Access API changes that. Reserve a device with a single API call
 
 Your existing scripts, profilers, and workflows carry over unchanged. See [How It Works](#how-it-works) for the technical details.
 
+:::caution Private devices only
+Connecting your own tools to a device relies on low-level device access, which is available on private
+devices only. A session running on a public device returns no `adbUrl`, `usbmuxdUrl`, or `vusbUrl`, so
+the tunnel described below cannot be established. See
+[Public and Private Devices](introduction.md#public-and-private-devices) for what each device class
+supports.
+:::
+
 :::caution Xcode and iOS 17+
 Xcode integration is only supported on iOS 16 and earlier. On iOS 17+, libimobiledevice tools work but Xcode does not. We are working on support for iOS 17+. See [Limitations](#limitations) for details.
 :::
@@ -182,6 +190,7 @@ The tunnel adds latency compared to a local USB connection — every byte travel
 
 ## Limitations
 
+- Private devices only — low-level device access is not available on public devices.
 - `adb reverse` is not supported — use `adb forward` instead.
 - iOS access requires root to replace the `/var/run/usbmuxd` socket.
 - **iOS 17+:** Xcode integration does not work. iOS 17 introduced a new RemoteXPC protocol that Xcode uses for pairing, debugging, and device management — this protocol is not carried over the usbmuxd tunnel. libimobiledevice tools (`idevice_id`, `idevicesyslog`, etc.) still work on iOS 17+ since they use the older lockdownd protocol over usbmuxd. We are working on support for iOS 17+.
