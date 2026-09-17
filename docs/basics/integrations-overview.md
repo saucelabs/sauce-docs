@@ -7,9 +7,26 @@ hide_table_of_contents: true
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs integrates with the most important tools for your SDLC. Whether you need to hook up your CI/CD system, or you need enhanced functionality like email testing, test results management, or accessibility testing, Sauce Labs has you covered.
+Sauce Labs integrates with the most important tools for your SDLC. Whether you need to connect an AI agent, hook up your CI/CD system, or add enhanced functionality like email testing, test results management, or accessibility testing, Sauce Labs has you covered.
 
 We partner with the top companies in the industry to bring you a complete solution for your testing needs. We also integrate seamlessly with the best open source tools in the ecosystem.
+
+## AI Agents and Assistants
+
+[Sauce MCP](/sauce-ai/sauce-mcp) is a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that lets your AI assistant or agent talk to Sauce Labs directly. Your agent can discover and drive real devices, author and run test cases, and inspect jobs, builds, and test artifacts using natural language. Sauce MCP works with any MCP-compatible client, including:
+
+<div className="client-grid">
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/claude.svg')} alt="Claude logo" /><span>Claude</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/cursor.svg')} alt="Cursor logo" /><span>Cursor</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/windsurf.svg')} alt="Windsurf logo" /><span>Windsurf</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/vscode.png')} alt="Visual Studio Code logo" /><span>VS Code (Copilot)</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/intellij.svg')} alt="IntelliJ IDEA logo" /><span>IntelliJ</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/antigravity.png')} alt="Antigravity logo" /><span>Antigravity</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/gemini.svg')} alt="Google Gemini logo" /><span>Gemini CLI</span></div>
+  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/goose.png')} alt="Goose logo" /><span>Goose</span></div>
+</div>
+
+See [Connect your AI client](/sauce-ai/sauce-mcp-getting-started) for setup instructions.
 
 ## CI/CD Tools
 
