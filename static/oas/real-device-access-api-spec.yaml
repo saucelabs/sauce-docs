@@ -455,7 +455,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                oneOf:
+                anyOf:
                   - $ref: "#/components/schemas/BadRequestBody"
                   - $ref: "#/components/schemas/AdbCommandNotAllowedBody"
               examples:
@@ -1639,7 +1639,7 @@ components:
       content:
         application/problem+json:
           schema:
-            oneOf:
+            anyOf:
               - $ref: "#/components/schemas/BadRequestBody"
               - $ref: "#/components/schemas/NoDeviceMatchesQueryBody"
               - $ref: "#/components/schemas/AllDevicesUnavailableBody"
