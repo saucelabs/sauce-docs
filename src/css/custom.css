@@ -1269,7 +1269,11 @@ a.client-tile:hover {
 }
 
 a.client-tile:hover {
-    border-color: var(--ifm-color-primary);
+    border-color: var(--dark-200);
+}
+
+html[data-theme="dark"] a.client-tile:hover {
+    border-color: rgba(255, 255, 255, 0.45);
 }
 
 /* Side-by-side captioned screenshots (IDE Plugins overview) */
