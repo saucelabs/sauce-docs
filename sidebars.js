@@ -704,6 +704,7 @@ module.exports = {
                                 'basics/integrations/appdome',
                                 'basics/integrations/testrail',
                                 'basics/integrations/webhooks',
+                                'basics/integrations/slack',
                             ],
                         },
                     ],
