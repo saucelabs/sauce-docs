@@ -69,6 +69,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/ios/setup',
                                         'error-reporting/platform-integrations/ios/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
                                     ],
                                 },
                             ],
@@ -164,6 +165,8 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/macos/setup',
                                         'error-reporting/platform-integrations/macos/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
+                                        'error-reporting/platform-integrations/macos/troubleshooting',
                                     ],
                                 },
                                 'error-reporting/platform-integrations/plcrash-reporter',
@@ -198,6 +201,16 @@ module.exports = {
                         'error-reporting/explore/add-custom-aggregations',
                         'error-reporting/explore/normalize-errors-by-metric-groups',
                         'error-reporting/explore/customize-error-views',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'MCP',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/mcp/error-reporting-mcp',
+                        'error-reporting/mcp/set-up-error-reporting-mcp',
+                        'error-reporting/mcp/error-reporting-mcp-tools',
                     ],
                 },
                 {

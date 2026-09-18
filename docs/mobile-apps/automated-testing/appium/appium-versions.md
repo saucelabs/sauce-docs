@@ -1900,6 +1900,28 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
   </thead>
   <tbody>
      <tr>
+      <td>iOS 27.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-3-versions">
+              <code>3.3.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.3.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.3.0</code>
+        </a>
+      </td>
+    </tr>
+     <tr>
       <td>iOS 26.5</td>
       <td>
         <ul>

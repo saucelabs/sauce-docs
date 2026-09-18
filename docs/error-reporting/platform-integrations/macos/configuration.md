@@ -50,9 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Set custom attributes
         BacktraceClient.shared?.attributes = ["foo": "bar", "testing": true]
 
-        // Set delegate for event handling
-        BacktraceClient.shared?.delegate = self
-
         // Enable breadcrumbs
         BacktraceClient.shared?.enableBreadcrumbs()
 
@@ -150,8 +147,10 @@ BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configu
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ------------- |
 | `credentials` (Swift) or <br/>`initWithCredentials` (Objective-C) | The [`BacktraceCredentials`](/error-reporting/platform-integrations/macos/setup/#initialize-the-backtrace-client) (endpoint URL and submission token) used to initialize the `BacktraceClient`.                                                                                                                                                                                                          | Parameter |
 | `dbSettings`                                                      | The [`BacktraceDatabaseSettings`](#database-settings) used to initialize the `BacktraceDatabase`.                                                                                                                                                                                                                                                                                                      | Parameter |
-| `reportsPerMin`                                                   | The maximum number of reports per minute that `BacktraceClient` will send.                                                                                                                                                                                                                                                                                                                             | Integer   | 30            |
-| `allowsAttachingDebugger`                                         | Specifies whether to send reports when the debugger is connected. <br /><br /> The options are: <br /><ul><li>**false** (Swift) / **NO** (Objective-C): `BacktraceClient` will send reports when the debugger is connected.</li><li> **true** (Swift) / **YES** (Objective-C): `BacktraceClient` won't send reports when the debugger is connected.</li></ul>                                          | Boolean   | false / NO    |
+| `reportsPerMin` | The shared client-side report limit for live, pending-native, and retried reports. Set to `0` for unlimited submissions. | Integer | 30 |
+| `loggingDestinations` | Optional logging destinations installed before repository and crash reporter startup. See [startup diagnostics](/error-reporting/platform-integrations/cocoa/report-delivery/#startup-diagnostics). | `Set<BacktraceBaseDestination>?` | `nil` |
+| `delegate` | Weak reference to the delegate installed before startup report processing. Retain the delegate in your application. | `BacktraceClientDelegate?` | `nil` |
+| `allowsAttachingDebugger`                                         | Whether to allow reporting when a debugger is attached. `false` / `NO` disables reporting under the debugger; `true` / `YES` allows it. Validate fatal-crash capture outside the debugger. | Boolean   | false / NO    |
 | `oomMode`                                                         | Specifies how the SDK should handle OOM (Out-Of-Memory) detection. See [OOM Detection Modes](#oom-detection-modes) for details. <br /><br /> The options are: <br /><ul><li>**`.none`** (Swift) / **`BacktraceOomModeNone`** (Objective-C): Disables OOM detection.</li><li>**`.light`** (Swift) / **`BacktraceOomModeLight`** (Objective-C): Lightweight OOM report — current thread only, no symbolication.</li><li>**`.full`** (Swift) / **`BacktraceOomModeFull`** (Objective-C): Full OOM report — all threads, symbolicated.</li></ul> | `BacktraceOomMode` | `.none` / `BacktraceOomModeNone` |
 
 ## Database Settings
@@ -169,7 +168,7 @@ backtraceDatabaseSettings.maxDatabaseSize = 10
 backtraceDatabaseSettings.retryInterval = 5
 backtraceDatabaseSettings.retryLimit = 3
 backtraceDatabaseSettings.retryBehaviour = RetryBehaviour.interval
-backtraceDatabaseSettings.retryOrder = RetryOder.queue
+backtraceDatabaseSettings.retryOrder = RetryOrder.queue
 let backtraceConfiguration = BacktraceClientConfiguration(credentials: backtraceCredentials,
                                                           dbSettings: backtraceDatabaseSettings,
                                                           reportsPerMin: 10)
@@ -190,13 +189,14 @@ backtraceDatabaseSettings.maxDatabaseSize = 10;
 backtraceDatabaseSettings.retryInterval = 5;
 backtraceDatabaseSettings.retryLimit = 3;
 backtraceDatabaseSettings.retryBehaviour = RetryBehaviourInterval;
-backtraceDatabaseSettings.retryOrder = RetryOderStack;
+backtraceDatabaseSettings.retryOrder = RetryOrderStack;
 
 BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
                                                initWithCredentials: credentials
                                                dbSettings: backtraceDatabaseSettings
                                                reportsPerMin: 3
-                                               allowsAttachingDebugger: NO];
+                                               allowsAttachingDebugger: NO
+                                               oomMode: BacktraceOomModeNone];
 
 BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
 ```
@@ -210,12 +210,14 @@ BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configu
 
 | Setting           | Description                                                                                                                                                                                                                                                                 | Type    | Default  |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- |
-| `maxRecordCount`  | The maximum number of records stored in the database. If set to '0', then there is no record limit.                                                                                                                                                                         | Integer | 0        |
-| `maxDatabaseSize` | The maximum size of the database in MB. If set to '0', then there is no size limit.                                                                                                                                                                                         | Integer | 0        |
+| `maxRecordCount` | The target maximum number of stored records. Set to `0` for no record limit. See [storage limits](/error-reporting/platform-integrations/cocoa/report-delivery/#storage-limits) for temporary exceptions. | Integer | 0 |
+| `maxDatabaseSize` | The physical SQLite file-size target in MB, excluding attachments and other SDK files. Set to `0` for no size limit. See [storage limits](/error-reporting/platform-integrations/cocoa/report-delivery/#storage-limits). | Integer | 0 |
 | `retryInterval`   | The amount of time (in seconds) to wait before the next retry if unable to send a report.                                                                                                                                                                                   | Integer | 5        |
-| `retryLimit`      | The maximum number of retries to attempt if unable to send a report.                                                                                                                                                                                                        | Integer | 3        |
-| `retryBehaviour`  | The retry behaviour if unable to send a report. <br /><br /> The options are: <ul><li>**interval**: If unable to send a report, the database will retry based on the `retryInterval`.</li> <li>**none**: If unable to send a report, the database will not retry.</li></ul> | Enum    | interval |
-| `retryOrder`      | The retry order if unable to send a report. <br /><br /> The options are: <ul><li>**queue**: The oldest reports are sent first (FIFO).</li> <li>**stack**: The newest reports are sent first (LIFO).</li></ul>                                                              | Enum    | queue    |
+| `retryLimit`      | Controls exhaustion of stored retry failures. Use `retryBehaviour = .none` to disable retries. | Integer | 3        |
+| `retryBehaviour` | `.interval` enables ordinary retries. `.none` disables them but still permits a pending native report's first submission attempt, subject to `reportsPerMin`. | Enum | interval |
+| `retryOrder` | Order for ordinary retries: `.queue` sends oldest first (FIFO); `.stack` sends newest first (LIFO). | Enum | queue |
+
+See [Cocoa Report Delivery](/error-reporting/platform-integrations/cocoa/report-delivery/) for initial submission, retry classification, storage limits, and startup diagnostics.
 
 ## PLCrashReporter
 
@@ -265,6 +267,8 @@ BacktraceClient.shared = [[BacktraceClient alloc]
 ### Custom Crash Directory
 
 By default, PLCrashReporter stores `.plcrash` files in the app's standard cache directory. You can specify a custom directory to control where crash reports are written.
+
+The `basePath` controls only PLCrashReporter payloads; it does not relocate the Backtrace database or metadata, or migrate existing reports.
 
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
@@ -336,6 +340,8 @@ On iOS, you can also set a `FileProtectionType` on the custom crash directory to
 
 `BacktraceClient` allows you to subscribe to events produced before and after sending each report by attaching an object that follows the `BacktraceClientDelegate` protocol.
 
+To observe pending-report delivery during startup, assign a retained delegate instance to `configuration.delegate` before creating the client. Assigning the client delegate only after initialization can miss those events. See [Configure Startup Diagnostics](/error-reporting/platform-integrations/cocoa/report-delivery/#startup-diagnostics).
+
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
@@ -344,9 +350,9 @@ On iOS, you can also set a `FileProtectionType` on the custom crash directory to
 BacktraceClient.shared?.delegate = self
 
 // handle events
-func willSend(_ report: BacktraceCrashReport) -> (BacktraceCrashReport)
+func willSend(_ report: BacktraceReport) -> BacktraceReport
 func willSendRequest(_ request: URLRequest) -> URLRequest
-func serverDidFail(_ error: Error)
+func connectionDidFail(_ error: Error)
 func serverDidRespond(_ result: BacktraceResult)
 func didReachLimit(_ result: BacktraceResult)
 ```
@@ -360,7 +366,7 @@ BacktraceClient.shared.delegate = self;
 
 //handle events
 - (BacktraceReport *) willSend: (BacktraceReport *)report;
-- (void) serverDidFail: (NSError *)error;
+- (void) connectionDidFail: (NSError *)error;
 - (void) serverDidRespond: (BacktraceResult *)result;
 - (NSURLRequest *) willSendRequest: (NSURLRequest *)request;
 - (void) didReachLimit: (BacktraceResult *)result;
