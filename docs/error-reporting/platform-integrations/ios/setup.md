@@ -38,7 +38,7 @@ The iOS SDK contains a privacy manifest to declare the types of data accessed on
 
 ### System Requirements
 
-- Xcode 10 or above
+- An Xcode version that supports your target SDK. The Swift package declares Swift tools version 5.5.
 
 ## Install the SDK
 
@@ -55,8 +55,8 @@ You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM p
   <TabItem value="SPM" label="Swift Package Manager">
    Add the following dependency to your <code>Package.swift</code> file:
 
-```
-.package(url: "https://github.com/backtrace-labs/backtrace-cocoa.git, branch: "feature/SwiftPM")
+```swift
+.package(url: "https://github.com/backtrace-labs/backtrace-cocoa.git", from: "2.1.0")
 ```
 
   </TabItem>
@@ -78,7 +78,9 @@ pod 'Backtrace'
 
 ## Initialize the Backtrace Client
 
-To initialize `BacktraceClient`, create a `BacktraceCredentials` object with the name of your subdomain and submission token, and supply it as a parameter in the `BacktraceCredentials` constructor:
+To initialize `BacktraceClient`, create a `BacktraceCredentials` object with the name of your subdomain and submission token, and supply it to the `BacktraceClient` constructor:
+
+Run this initialization once per app process in `AppDelegate.application(_:didFinishLaunchingWithOptions:)`, or `application:didFinishLaunchingWithOptions:` in Objective-C, before scene connection.
 
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
@@ -86,6 +88,7 @@ To initialize `BacktraceClient`, create a `BacktraceCredentials` object with the
 ```swift
 // provide the name of the subdomain for your Backtrace instance and a submission token
 let backtraceCredentials = BacktraceCredentials(submissionUrl: URL(string: "https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash")!)
+BacktraceClient.shared = try BacktraceClient(credentials: backtraceCredentials)
 ```
 
 </TabItem>
@@ -94,10 +97,22 @@ let backtraceCredentials = BacktraceCredentials(submissionUrl: URL(string: "http
 ```objc
 // provide the name of the subdomain for your Backtrace instance and a submission token
 BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc] initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain-name}/{submission-token}/plcrash"]];
+NSError *initializationError = nil;
+BacktraceClient.shared = [[BacktraceClient alloc] initWithCredentials:backtraceCredentials error:&initializationError];
 ```
 
 </TabItem>
 </Tabs>
+
+### OS 27 Scene Lifecycle
+
+UIKit applications built with the OS 27 SDK must adopt the scene-based lifecycle to launch on iOS 27, iPadOS 27, Mac Catalyst 27, and tvOS 27. Follow [Apple's scene-lifecycle migration guide](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) to configure your host application. Installing or updating Backtrace does not add scene support to your app.
+
+The [Swift iOS](https://github.com/backtrace-labs/backtrace-cocoa/tree/master/Examples/Example-iOS), [Objective-C iOS](https://github.com/backtrace-labs/backtrace-cocoa/tree/master/Examples/Example-iOS-ObjC), and [tvOS](https://github.com/backtrace-labs/backtrace-cocoa/tree/master/Examples/Example-tvOS) examples declare scenes in `UIApplicationSceneManifest`, give each scene delegate ownership of its window, and load the `Main` storyboard through `UISceneStoryboardFile`. The examples use a single scene; scene adoption does not require multi-window support.
+
+Keep Backtrace initialization in the app delegate's launch callback. Do not create a client in `scene(_:willConnectTo:options:)` or each time a scene becomes active. Scene creation, reconnection, and foreground transitions must reuse the process's existing client.
+
+After migration, verify application launch, background and foreground transitions, and scene reconnection. Use the [setup checks](#verify-the-setup) to test crash capture and delivery after relaunch separately from scene setup.
 
 ## Upload Debug Symbols
 
@@ -142,7 +157,7 @@ To find dSYM files while archiving the project:
 
 At this point, you've installed and setup the Backtrace client to automatically capture exceptions, errors, and crashes in your iOS app.
 
-To test the integration, throw an error an exception to send a report to your Backtrace instance.
+To test the integration, send an error or exception to your Backtrace instance. By default, reports are suppressed while a debugger is attached. For a native crash test, run without a debugger, trigger the crash, and relaunch the app to submit the pending report. See [Cocoa Report Delivery](/error-reporting/platform-integrations/cocoa/report-delivery/) for startup diagnostics and retry behavior.
 
 ### Send an Error/NSError
 
@@ -150,14 +165,18 @@ To test the integration, throw an error an exception to send a report to your Ba
 <TabItem value="swift" label="Swift">
 
 ```swift
-@objc func send(completion: ((BacktraceResult) -> Void))
+@objc func send(error: Error,
+                attachmentPaths: [String] = [],
+                completion: @escaping ((BacktraceResult) -> Void))
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
 ```objc
- - (void) sendWithCompletion: (void (^)(BacktraceResult * _Nonnull)) completion;
+- (void)sendWithError:(NSError * _Nonnull)error
+     attachmentPaths:(NSArray<NSString *> * _Nonnull)attachmentPaths
+          completion:(void (^ _Nonnull)(BacktraceResult * _Nonnull))completion;
 ```
 
 </TabItem>
@@ -169,14 +188,18 @@ To test the integration, throw an error an exception to send a report to your Ba
 <TabItem value="swift" label="Swift">
 
 ```swift
-@objc func send(exception: NSException, completion: ((BacktraceResult) -> Void))
+@objc func send(exception: NSException?,
+                attachmentPaths: [String] = [],
+                completion: @escaping ((BacktraceResult) -> Void))
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
 ```objc
- - (void) sendWithException: NSException completion: (void (^)(BacktraceResult * _Nonnull)) completion;
+- (void)sendWithException:(NSException * _Nullable)exception
+         attachmentPaths:(NSArray<NSString *> * _Nonnull)attachmentPaths
+              completion:(void (^ _Nonnull)(BacktraceResult * _Nonnull))completion;
 ```
 
 </TabItem>
