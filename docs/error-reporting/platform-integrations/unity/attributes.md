@@ -132,3 +132,18 @@ You can also define custom attributes. For more information, see [Configuration]
 | `scripting.backend`                 | The scripting backend. Defined in the Player Settings for the Unity project.                                  | User Defined | User Defined |
 | `uname.family`                      | The operating system family running the app.                                                                  | User Defined | User Defined |
 | `uname.fullname`                    | The name and version of the operating system.                                                                 | User Defined | User Defined |
+
+## Android Native Attributes
+
+The Android integration can include the following attributes. Availability depends on the report and whether the SDK can collect or update each value. Indexing depends on your project's [attribute settings](/error-reporting/project-setup/attributes/).
+
+| Name | Description |
+| --- | --- |
+| `device.abi` | The application binary interface (ABI) of the running Unity process, rather than all architectures supported by the device. For example, a 32-bit process on a 64-bit device reports its 32-bit ABI. |
+| `device.sdk` | The Android API level reported by `SDK_INT`. |
+| `memory.warning` | Set to `true` when the SDK records a low-memory warning in native state. |
+| `memory.warning.date` | The time of the low-memory callback, recorded as a Unix timestamp in seconds. |
+
+When **Send Out of Memory exceptions to Backtrace** is enabled and native capture is active, Unity's low-memory callback attempts to set `memory.warning` and `memory.warning.date` for subsequent native reports. The callback does not immediately create or submit a report, and these annotations do not guarantee a report for every out-of-memory termination.
+
+Diagnostic identifiers such as `BT_UNITY_ANDROID_NATIVE_PREPARE_FAILURE` appear in logs; they are not report attributes. See [Unity Troubleshooting](/error-reporting/platform-integrations/unity/troubleshooting/) for native capture checks.
