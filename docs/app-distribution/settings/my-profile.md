@@ -6,39 +6,67 @@ sidebar_label: My Profile
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Manage your personal settings from **user menu → My Profile**.
+Your **My Profile** page contains your personal account information and settings. From this page, you can view your profile details, set your timezone, manage email notifications, change your password, manage your API key, and view registered devices.
 
-## Profile Information
+## Access My Profile
 
-- **First Name / Last Name** — your display name across the platform.
-- **Email** — shown for reference. Email cannot be changed.
-- **Timezone** — used for displaying dates and times. Set to *Auto-detect* to use your browser's timezone, or choose manually from the list.
+**Step 1:** Click the **Profile** icon in the top-right corner and select **My Profile** from the user menu.
 
-## Email Notifications
+<img src={useBaseUrl('/img/app-distribution/my-profile/profile-1.png')} alt="My Profile" width="100%"/>
 
-Toggle **Email notifications** on or off to control whether you receive emails for new builds and app assignments. In-app notifications (bell icon) are not affected by this setting.
+**Step 2:** The **My Profile** page opens and displays your account settings.
 
-You can also opt out by clicking the **Unsubscribe** link at the bottom of any notification email.
+<img src={useBaseUrl('/img/app-distribution/my-profile/profile-2.png')} alt="My Profile" width="100%"/>
 
-## Dashboard Widgets
+### User Information
 
-Choose which sections appear on your home dashboard:
+| Sr. No. | Field | Description |
+|---:|---|---|
+| 1 | **First Name** | Your first name displayed across the platform. |
+| 2 | **Last Name** | Your last name displayed across the platform. |
+| 3 | **Email Address** | Your account email address. This field is for reference and cannot be changed. |
+| 4 | **Timezone** | Controls how dates and times are displayed across the platform. Select **Auto-detect** to use your browser's timezone, or choose a timezone manually. |
 
-- **Downloads & Platform charts** — visual breakdown of downloads and platform distribution.
-- **Recent Apps** — quick access to recently updated apps.
-- **Teams sidebar** — team overview panel.
+Your organization role and membership date are also displayed at the top of the page.
 
-Stat cards (total apps, builds, testers, downloads) are always visible.
+### Email Settings
 
-## Change Password
+The **Email Settings** section lets you control email notifications for new builds and app assignments.
 
-Scroll down on the profile page to the **Change Password** section. Enter your current password and a new password (minimum 8 characters). The change takes effect immediately.
+Turn the **Email notifications** toggle on or off, and then click **Update** to save your preference.
+
+<img src={useBaseUrl('/img/app-distribution/my-profile/profile-3.png')} alt="My Profile" width="100%"/>
+
+:::info
+Changing this setting does not affect in-app notifications.
+:::
+
+### Change Password
+
+You can change your account password from the **Change Password** section.
+
+| Sr. No. | Field | Description |
+|---:|---|---|
+| 1 | **Current Password** | Enter your current account password. |
+| 2 | **New Password** | Enter the new password you want to use. |
+| 3 | **Re-Enter New Password** | Enter the new password again to confirm it. |
+| 4 | **Update** | Saves the new password. |
+
+<img src={useBaseUrl('/img/app-distribution/my-profile/profile-4.png')} alt="My Profile" width="100%"/>
 
 ## API Key
 
-Your API key is shown in the **API Credentials** dropdown in the top navigation bar. Use it to authenticate API requests (see [API Reference](/app-distribution/developer/api-reference)).
+Your API key is available from the **API Credentials** dropdown in the top navigation bar and the **API Key** section on the **My Profile** page.
 
-Click **Regenerate** to create a new key. The old key stops working immediately.
+<img src={useBaseUrl('/img/app-distribution/my-profile/profile-5.png')} alt="My Profile" width="100%"/>
+
+**Step 1:** Click the **eye icon** to view or the **copy icon** to copy your API key.
+
+**Step 2:** Use the API key as the `X-API-Key` header for API requests.
+
+For more information, see the [API Reference](/app-distribution/developer/api-reference).
+
+Click **Regenerate API Key** to create a new key. The old key stops working immediately.
 
 :::caution
 Regenerating your API key will invalidate the previous key. Update any scripts or integrations that use it.

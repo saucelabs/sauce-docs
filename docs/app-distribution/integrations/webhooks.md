@@ -6,7 +6,7 @@ sidebar_label: Webhooks
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Webhooks let you receive real-time HTTP notifications when events happen in your organization — like a new build being uploaded, a build being downloaded, or a new iOS device being registered.
+Webhooks let you receive real-time HTTP notifications when events happen in your organization - like a new build being uploaded, a build being downloaded, or a new iOS device being registered.
 
 :::info
 Only Account Owners and Org Admins can manage webhooks. Find them under **Webhooks** in the sidebar's Developer section.
@@ -22,16 +22,34 @@ Only Account Owners and Org Admins can manage webhooks. Find them under **Webhoo
 
 ## Creating a Webhook
 
-1. Go to **Webhooks** in the sidebar.
-2. Click **New Webhook**.
-3. Enter a name and the destination URL.
-4. Select which events should trigger this webhook.
-5. Optionally select specific apps — leave unchecked to trigger for all apps.
-6. Click **Create Webhook**.
+**Step 1:** Click the **Profile** icon in the top-right corner and select **Integrations** from the user menu.
+
+<img src={useBaseUrl('/img/app-distribution/webhooks/webhook-1.png')} alt="Webhooks" width="100%"/>
+
+**Step 2:** On the **Integrations** page, find **Webhooks** under **Notifications** and click the **connected status/check mark** to open the Webhooks page.
+
+<img src={useBaseUrl('/img/app-distribution/webhooks/webhook-2.png')} alt="Webhooks" width="100%"/>
+
+**Step 3:** On the **Webhooks** page, click **New Webhook**. Configure the webhook using the fields below.
+
+| Sr. No. | Field | Description |
+|---:|---|---|
+| 1 | **Name** | Enter a name to identify the webhook. |
+| 2 | **URL** | Enter the destination URL where webhook notifications should be sent. Click **Test** to verify the URL. |
+| 3 | **Events** | Select the events that should trigger the webhook: **New build uploaded**, **Build downloaded**, or **New iOS device registered**. |
+| 4 | **Apps** | Select the apps for which the webhook should send notifications. Leave empty to trigger the webhook for all apps. |
+
+<img src={useBaseUrl('/img/app-distribution/webhooks/webhook-3.png')} alt="Webhooks" width="100%"/>
+
+**Step 4:** Click **Create Webhook** to save the webhook.
+
+<img src={useBaseUrl('/img/app-distribution/webhooks/webhook-4.png')} alt="Webhooks" width="100%"/>
 
 ## Testing
 
 Use the **Test** button next to the URL field to send a sample payload to your endpoint. This lets you verify connectivity before saving.
+
+<img src={useBaseUrl('/img/app-distribution/webhooks/webhook-5.png')} alt="Webhooks" width="100%"/>
 
 ## Payload Format
 
@@ -90,9 +108,9 @@ Webhooks are sent as `POST` requests with a JSON body. The payload includes even
 
 Webhook URLs are automatically detected and formatted for:
 
-- **Slack** — URLs containing `hooks.slack.com` receive a Slack-formatted message with a `text` field.
-- **Microsoft Teams** — URLs containing `outlook.office.com` or `webhook.office.com` receive a MessageCard-formatted payload.
-- **Other URLs** — Receive the raw JSON payload with `Content-Type: application/json`.
+- **Slack** - URLs containing `hooks.slack.com` receive a Slack-formatted message with a `text` field.
+- **Microsoft Teams** - URLs containing `outlook.office.com` or `webhook.office.com` receive a MessageCard-formatted payload.
+- **Other URLs** - Receive the raw JSON payload with `Content-Type: application/json`.
 
 ## Setting Up Slack Notifications
 
@@ -104,7 +122,7 @@ To receive Mobile App Distribution notifications in a Slack channel:
 4. Click **Add New Webhook to Workspace**, pick the channel you want notifications in, and click **Allow**.
 5. Copy the **Webhook URL** (starts with `https://hooks.slack.com/services/...`).
 6. In Mobile App Distribution, go to **Webhooks** → **New Webhook**, paste the URL, select your events, and save.
-7. Click **Test** to verify — you should see a test message in your Slack channel.
+7. Click **Test** to verify - you should see a test message in your Slack channel.
 
 ## App Filtering
 
@@ -113,3 +131,5 @@ By default, a webhook fires for events across all apps in your organization. You
 ## Enabling / Disabling
 
 Use the toggle switch on the webhooks list to temporarily suspend a webhook without deleting it. Suspended webhooks will not fire for any events.
+
+<img src={useBaseUrl('/img/app-distribution/webhooks/webhook-6.png')} alt="Webhooks" width="100%"/>

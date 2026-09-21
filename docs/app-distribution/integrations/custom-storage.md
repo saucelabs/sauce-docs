@@ -6,7 +6,7 @@ sidebar_label: Custom Storage
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Store your organization's build files and app icons in your own cloud storage bucket instead of the platform default. This gives you full control over where your data lives — for compliance, data sovereignty, or integration with your existing infrastructure.
+Store your organization's build files and app icons in your own cloud storage bucket instead of the platform default. This gives you full control over where your data lives, for compliance, data sovereignty, or integration with your existing infrastructure.
 
 :::info
 Only Account Owners and Org Admins can configure storage settings. Find them under **Settings → Integrations → Storage** in the top bar.
@@ -69,30 +69,44 @@ Only including `arn:aws:s3:::bucket-name/*` (objects) without `arn:aws:s3:::buck
 
 ## Setting Up
 
-1. Go to **Settings → Integrations → Storage** in the top bar.
-2. Fill in the connection details:
+**Step 1:** Click the **Profile** icon in the top-right corner and select **Integrations** from the user menu.
 
-   | Field | Description | Example |
-   | --- | --- | --- |
-   | **Provider** | Cloud storage provider | `Amazon S3` |
-   | **Bucket Name** | Your storage bucket name | `my-company-builds` |
-   | **Region** | Bucket region | `us-east-1`, `eu-central-1` |
-   | **Custom Endpoint** | Only for S3-compatible services. Leave blank for AWS S3. | `https://s3.wasabisys.com` |
-   | **Access Key** | IAM access key ID | `AKIAIOSFODNN7EXAMPLE` |
-   | **Secret Key** | IAM secret access key — encrypted at rest, never displayed after saving | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
+<img src={useBaseUrl('/img/app-distribution/custom-storage/custom-storage-1.png')} alt="Custom Storage" width="100%"/>
 
-3. Click **Save Configuration**.
-4. Click **Test Connection** to verify Mobile App Distribution can access your bucket.
+**Step 2:** On the **Integrations** page, find **Custom Storage (BYOB)** under **Storage** and select **Connect**.
+
+<img src={useBaseUrl('/img/app-distribution/custom-storage/custom-storage-2.png')} alt="Custom Storage" width="100%"/>
+
+**Step 3:** On the **Storage Configuration** page fill in the connection details:
+
+| **Ref.** | **Field** | **Description** | **Example** |
+|---|---|---|---|
+| **1** | **Provider** | Cloud storage provider | `Amazon S3` |
+| **2** | **Bucket Name** | Your storage bucket name | `my-company-builds` |
+| **3** | **Region** | Bucket region | `us-east-1`, `eu-central-1` |
+| **4** | **Custom Endpoint** | Only for S3-compatible services. Leave blank for AWS S3. | `https://s3.wasabisys.com` |
+| **5** | **Access Key** | IAM access key ID | `AKIAIOSFODNN7EXAMPLE` |
+| **6** | **Secret Key** | IAM secret access key - encrypted at rest, never displayed after saving | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
+
+<img src={useBaseUrl('/img/app-distribution/custom-storage/custom-storage-3.png')} alt="Custom Storage" width="100%"/>
+
+**Step 4:** Select **Save Configuration** to save your custom storage settings.
+
+<img src={useBaseUrl('/img/app-distribution/custom-storage/custom-storage-4.png')} alt="Custom Storage" width="100%"/>
+
+**Step 5:** Click **Test Connection** to verify Mobile App Distribution can access your bucket.
+
+<img src={useBaseUrl('/img/app-distribution/custom-storage/custom-storage-5.png')} alt="Custom Storage" width="100%"/>
 
 ## Connection Status
 
-| Status | Meaning |
-| --- | --- |
-| **Not Configured** | No custom storage — using platform default |
-| **Untested** | Configuration saved but not yet verified |
-| **Connected** | Connection verified — bucket is accessible |
-| **Failed** | Connection test failed — check credentials and bucket permissions |
-| **Disabled** | Custom storage is paused — new uploads go to platform default, existing files on your bucket remain accessible |
+| **Status** | **Meaning** |
+|---|---|
+| **Not Configured** | Custom storage has not been configured. Files are stored using the platform's default storage. |
+| **Untested** | The custom storage configuration has been saved but has not yet been verified. |
+| **Connected** | The custom storage configuration has been verified and the bucket is accessible. |
+| **Failed** | The custom storage connection could not be verified. Check the storage credentials, bucket name, region, and required permissions. |
+| **Disabled** | Custom storage is disabled. New uploads use the platform's default storage, while existing files stored in your custom bucket remain accessible. |
 
 ## Storage Resolution
 
@@ -131,14 +145,14 @@ releases/{orgId}/{projectId}/{filename}-{uniqueId}.{ext}
 icons/{orgId}/{projectId}/{randomHex}.png
 ```
 
-Only relative paths are stored in the database — never full URLs. This means you can switch buckets or providers without modifying any existing data.
+Only relative paths are stored in the database - never full URLs. This means you can switch buckets or providers without modifying any existing data.
 
 ## Security
 
 - Secret keys are **encrypted at rest** using libsodium (XSalsa20-Poly1305).
 - Credentials are never stored in plain text, never logged, and never displayed in the UI after saving.
-- Download URLs are **time-limited presigned URLs** (default: 60 minutes) — they expire and cannot be shared permanently.
-- All storage operations are **audited** — configuration changes appear in the organization audit log.
+- Download URLs are **time-limited presigned URLs** (default: 60 minutes) - they expire and cannot be shared permanently.
+- All storage operations are **audited** - configuration changes appear in the organization audit log.
 
 ## Troubleshooting
 

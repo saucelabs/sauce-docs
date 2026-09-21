@@ -6,20 +6,28 @@ sidebar_label: Build Lifecycle
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Understand how builds move through their lifecycle - from upload to deletion.
+A build moves through different states from the time it is uploaded until it is deleted. Understanding these states helps you know whether a build is available for testers and what action is required when it is no longer installable.
 
 ## Build States
 
+The following states describe the availability of a build:
+
 | State | Visible to Testers | Description |
 | --- | --- | --- |
-| **Enabled** | Yes | Default state after upload. Available for installation. |
+| **Enabled** | Yes | The default state after a successful upload. Testers can view and install the build.|
 | **Disabled** | No | Distribution is paused by an admin. The build is hidden from testers and cannot be installed until it is enabled again. |
 | **Certificate expired** | No | The build's iOS provisioning profile has expired, so testers can no longer install it. Re-sign with a current profile and re-upload. Read from the profile at upload — not a manual toggle. |
-| **Deleted** | No | The build and its file are permanently removed as soon as an admin deletes it. This is immediate and cannot be undone. |
+| **Deleted** | No | The build and its file are permanently removed as soon as an admin deletes it, and the removal is immediate and cannot be undone. |
 
 ## State Diagram
 
-How a single build moves between states over its lifetime:
+A build can move between states depending on its configuration and expiration:
+
+- A newly uploaded build starts in **Enabled** if it has a valid configuration.
+- An admin can change an **Enabled** build to **Disabled** to pause distribution.
+- A disabled build can be changed back to **Enabled** when distribution should resume.
+- An iOS build can automatically move to **Certificate expired** when its provisioning profile expires.
+- An **Enabled**, **Disabled**, or **Certificate expired** build can be moved to **Deleted** when an admin deletes it.
 
 <div style={{overflowX: 'auto'}}>
 <svg viewBox="0 0 880 520" width="100%" style={{maxWidth: '880px', height: 'auto'}} role="img" aria-label="Build state diagram: upload leads to Enabled; Enabled and Disabled toggle via disable and enable and together form the live stage; Enabled and Disabled move to Certificate expired when the profile date passes; Enabled, Disabled and Certificate expired all move to Deleted via delete.">
@@ -83,14 +91,24 @@ How a single build moves between states over its lifetime:
 An iOS build uploaded with an *already-expired* profile starts in **Certificate expired**. That state clears only by re-signing and uploading a *new* build. An app-level **Disable distribution** toggle overrides everything above - while it is on, no build in the app is installable regardless of its state.
 :::
 
-## Deleting & Disabling Builds
+## Deleting and Disabling Builds
 
-Account Owners and Org Admins can delete or disable builds from the project detail page using the action menu on each build row:
+Account Owners and Organization Admins can manage individual builds from the project's build list.
 
-- **Delete** - permanently removes the build. Its file and database record are deleted immediately; the build disappears from all views and this cannot be undone.
-- **Disable** - pauses distribution for a single build. Testers can no longer install it until it is enabled again. Toggle **Enable** to resume distribution.
+**Step 1:** Open the project, locate the build you want to manage, and open its **Actions** menu.
 
-To pause distribution for *all* builds of an app at once, use the **Disable distribution** toggle on the app's Settings page.
+<img src={useBaseUrl('/img/app-distribution/build-lifecycle/build-lifecycle-1.png')} alt="Build Lifecycle" width="100%"/>
+
+**Step 2:** Select one of the following options:
+
+- **Delete:** permanently removes the build. Its file and database record are deleted immediately; the build disappears from all views and this cannot be undone.
+- **Disable:**  pauses distribution for a single build. Testers can no longer install it until it is enabled again. Toggle **Enable** to resume distribution.
+
+<img src={useBaseUrl('/img/app-distribution/build-lifecycle/build-lifecycle-2.png')} alt="Build Lifecycle" width="100%"/>
+
+To pause distribution for **all** builds of an app at once, use the **Disable distribution** toggle on the app's Settings page.
+
+<img src={useBaseUrl('/img/app-distribution/build-lifecycle/build-lifecycle-3.png')} alt="Build Lifecycle" width="100%"/>
 
 :::caution
 Deleting a build is **immediate and permanent** - the file and its record are removed right away and **cannot be recovered**. To pause distribution temporarily instead, use **Disable**.
@@ -100,6 +118,6 @@ Deleting a build is **immediate and permanent** - the file and its record are re
 
 iOS ad-hoc and enterprise builds embed a provisioning profile with a fixed expiration date. MAD reads that date when the build is uploaded:
 
-- Once the profile's date passes, the build is automatically blocked from installation — no admin action is needed.
+- After the profile's date passes, the build is automatically blocked from installation - no admin action is needed.
 - A warning is shown on the build for the 14 days leading up to expiration.
 - To restore distribution, re-sign the app with a current profile and upload it as a new build.

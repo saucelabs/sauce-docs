@@ -6,10 +6,10 @@ sidebar_label: Google Play
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Publish APK and AAB builds directly from Mobile App Distribution to your Google Play Console — no need to upload them manually through the web console. Configure once at the organization level and use the **Publish to Google Play** action on any Android build.
+Publish APK and AAB builds directly from Mobile App Distribution to your Google Play Console, no need to upload them manually through the web console. Configure once at the organization level and use the **Publish to Google Play** action on any Android build.
 
 :::info
-Only Account Owners and Org Admins can configure Google Play. Find it under **Settings → Integrations → Google Play**.
+Only **Account Owners** and **Org Admins** can configure the Google Play integration.
 :::
 
 ## Prerequisites
@@ -30,35 +30,60 @@ Only Account Owners and Org Admins can configure Google Play. Find it under **Se
 
 ## Connecting Mobile App Distribution
 
-1. Navigate to **Settings → Integrations → Google Play**.
-2. Upload the JSON key file you downloaded.
-3. Mobile App Distribution validates the credentials immediately. On success, you'll see the service account email and GCP project ID.
+**Step 1:** Click the **Profile** icon in the top-right corner and select **Integrations** from the user menu.
+
+<img src={useBaseUrl('/img/app-distribution/google-play/google-play-1.png')} alt="Google Play Integration" width="100%"/>
+
+**Step 2:** On the **Integrations** page, find **Google Play** under **Distribution** and click **Connect**.
+
+<img src={useBaseUrl('/img/app-distribution/google-play/google-play-2.png')} alt="Google Play Integration" width="100%"/>
+
+**Step 3:** Under **Credentials**, upload your Google Play service account JSON file using **Choose file**.
+
+<img src={useBaseUrl('/img/app-distribution/google-play/google-play-3.png')} alt="Google Play Integration" width="100%"/>
+
+The service account must have the **Admin** or **Release Manager** role in Google Play Console with permission to upload APKs/AABs and manage releases.
+
+:::note
+
+You can download the service account JSON key from **Google Cloud Console → IAM & Admin → Service Accounts → Keys**.
+
+:::
+
+**Step 4:** Click **Save Credentials**. After the credentials are saved, the integration can be used to publish Android builds to Google Play.
+
+<img src={useBaseUrl('/img/app-distribution/google-play/google-play-4.png')} alt="Google Play Integration" width="100%"/>
 
 ## Publishing a Build
+
+After configuring the integration, you can publish an Android build directly from Mobile App Distribution.
 
 1. Open an Android app and find the build you want to publish (must be APK or AAB).
 2. Click the **...** menu on the build row and choose **Publish to Google Play**.
 3. Pick a track and a status, then click **Publish**.
-4. The publish runs in the background — Mobile App Distribution downloads the file from storage, uploads it to Google Play, and assigns it to the chosen track.
+4. The publish runs in the background, Mobile App Distribution downloads the file from storage, uploads it to Google Play, and assigns it to the chosen track.
 5. Check your **Google Play Console** for the result.
 
 ## Tracks
 
-| Track | Audience |
-| --- | --- |
-| **Internal** | Up to 100 internal testers — fastest review, recommended for first push |
-| **Alpha** | Closed testing — invite specific groups |
-| **Beta** | Open or closed beta — broader audience |
-| **Production** | Live to all Play Store users |
+The publishing flow allows you to select a Google Play track for the build.
+
+| **Sr. No.** | **Track** | **Audience** |
+|---:|---|---|
+| **1** | **Internal** | Up to 100 internal testers. |
+| **2** | **Alpha** | Closed testing for invited groups. |
+| **3** | **Beta** | Open or closed beta testing for a broader audience. |
+| **4** | **Production** | Makes the app available to Google Play users. |
 
 ## Statuses
+You can also select a release status when publishing the build.
 
-| Status | Meaning |
-| --- | --- |
-| **Draft** | Created but not published — visible in Play Console for review |
-| **In Progress** | Staged rollout (production track only) |
-| **Halted** | Rollout paused |
-| **Completed** | Release fully rolled out |
+| **Sr. No.** | **Status** | **Meaning** |
+|---:|---|---|
+| **1** | **Draft** | The release has been created but not published. It remains available in Google Play Console for review. |
+| **2** | **In Progress** | The release is currently being rolled out. |
+| **3** | **Halted** | The rollout has been paused. |
+| **4** | **Completed** | The release has been fully rolled out. |
 
 ## Security
 
@@ -70,7 +95,7 @@ Only Account Owners and Org Admins can configure Google Play. Find it under **Se
 
 | Error | Fix |
 | --- | --- |
-| `Package not found` | The app must already exist in your Google Play Console. Service accounts cannot create new apps — only manage existing ones. |
+| `Package not found` | The app must already exist in your Google Play Console. Service accounts cannot create new apps - only manage existing ones. |
 | `The caller does not have permission` | Re-check that the service account is invited in **Play Console → Users and permissions** with sufficient role. |
 | `Version code already exists` | Increment your build's `versionCode` in `build.gradle` before uploading. |
 | `Invalid credentials` | The JSON key may be expired or revoked. Generate a fresh key in Google Cloud Console. |

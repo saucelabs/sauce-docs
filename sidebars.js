@@ -871,7 +871,8 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'App Distribution (Legacy)',
+                    label: 'App Distribution',
+                    className: 'sidebar-classic',
                     collapsed: true,
                     items: [
                         'testfairy/testfairy',
@@ -979,7 +980,7 @@ module.exports = {
                     ],
                 },
             ],
-        },    
+        },
         {
             type: 'category',
             label: 'Mobile Apps',

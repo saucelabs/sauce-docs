@@ -1,25 +1,40 @@
 ---
 id: saucelabs-connection
-title: SauceLabs Connection
-sidebar_label: SauceLabs Connection
+title: Sauce Labs Connection
+sidebar_label: Sauce Labs Connection
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Connect your Mobile App Distribution organization to your SauceLabs account to enable automatic team sync, role mapping, user provisioning, and App Storage integration.
+Connect your Mobile App Distribution organization to your Sauce Labs account to enable automatic team sync, role mapping, user provisioning, and App Storage integration.
 
 :::info
-Only **Account Owners** and **Org Admins** can manage the SauceLabs connection. Find it under **gear icon → SauceLabs**.
+Only **Account Owners** and **Org Admins** can manage the Sauce Labs connection. Find it under **gear icon → Sauce Labs**.
 :::
 
 ## Setting Up the Connection
 
-1. Go to **gear icon → SauceLabs** in the top navigation bar.
-2. Click **Connect with SauceLabs**.
-3. You'll be redirected to SauceLabs to authenticate.
-4. After signing in, the connection is established automatically using your SauceLabs organization.
+**Step 1:** Click the **Profile** icon in the top-right corner and select **Integrations** from the user menu.
+
+<img src={useBaseUrl('/img/app-distribution/saucelabs-connection/saucelabs-1.png')} alt="Sauce Labs Connection" width="100%"/>
+
+**Step 2:** On the **Integrations** page, find **SauceLabs** and click **Connect**.
+
+<img src={useBaseUrl('/img/app-distribution/saucelabs-connection/saucelabs-2.png')} alt="Sauce Labs Connection" width="100%"/>
+
+**Step 3:** On the **SauceLabs Connection** page, click **Connect with SauceLabs**.
+
+<img src={useBaseUrl('/img/app-distribution/saucelabs-connection/saucelabs-3.png')} alt="Sauce Labs Connection" width="100%"/>
+
+**Step 4:** Sign in to your **Sauce Labs** account when prompted.
+
+<img src={useBaseUrl('/img/app-distribution/saucelabs-connection/saucelabs-4.png')} alt="Sauce Labs Connection" width="100%"/>
+
+After authentication, your Mobile App Distribution organization is connected to your Sauce Labs organization.
 
 ## What Happens When Connected
+
+Once the connection is established, the following features are enabled:
 
 | Feature | Description |
 | --- | --- |
@@ -30,15 +45,21 @@ Only **Account Owners** and **Org Admins** can manage the SauceLabs connection. 
 
 ## Role Mapping
 
+Sauce Labs roles are mapped to Mobile App Distribution roles as follows:
+
 | SauceLabs Role | Mobile App Distribution Role |
 | --- | --- |
-| Organization Admin | Org Admin |
-| Team Admin | Member (Team Admin) |
-| Member | Member |
+| Organization Admin | <span className="role-badge role-badge--org-admin">Org Admin</span> |
+| Team Admin | <span className="role-badge role-badge--member">Member</span> (with <span className="role-badge role-badge--team-admin">Team Admin</span>) |
+| Member | <span className="role-badge role-badge--member">Member</span> |
 
-**Note:** Account Owner role in Mobile App Distribution is never changed by role sync.
+:::note
+The **Account Owner** role in Mobile App Distribution is not changed by role synchronization.
+:::
 
 ## Team Sync Behavior
+
+When team synchronization is active:
 
 - On every SauceLabs login, the user's team memberships are synced.
 - New SauceLabs teams are automatically created in Mobile App Distribution.
@@ -50,9 +71,9 @@ Only **Account Owners** and **Org Admins** can manage the SauceLabs connection. 
 
 After connecting, you can toggle these options on the SauceLabs settings page:
 
-- **Sync teams** — Enable/disable automatic team creation and membership sync.
-- **Sync roles** — Enable/disable role mapping on login.
-- **Auto-provision** — Enable/disable automatic account creation for new SauceLabs users.
+- **Sync teams** - Enable/disable automatic team creation and membership sync.
+- **Sync roles** - Enable/disable role mapping on login.
+- **Auto-provision** - Enable/disable automatic account creation for new SauceLabs users.
 
 ## Sidebar Behavior
 

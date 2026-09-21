@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Configure your own SMTP server to send all outgoing emails (build notifications, invitations, app assignments) through your mail provider. Each organization can have its own SMTP configuration, with a global fallback for organizations that don't.
 
 :::info
-Only Account Owners and Org Admins can configure SMTP settings. Find them under **Integrations → SMTP** in the sidebar.
+Only **Account Owners** and **Org Admins** can configure SMTP settings. Find them under **Integrations → SMTP** in the sidebar.
 :::
 
 ## Prerequisites
@@ -18,23 +18,37 @@ Only Account Owners and Org Admins can configure SMTP settings. Find them under 
 - SMTP credentials: host, port, username, and password
 - A verified sender email address (required by most providers to avoid spam filtering)
 
-## Setting Up
+## Setting Up SMTP
 
-1. Go to **Integrations → SMTP** in the sidebar.
-2. Fill in the connection details:
+**Step 1:** Click the **Profile** icon in the top-right corner and select **Integrations** from the user menu.
 
-   | Field | Description | Example |
-   | --- | --- | --- |
-   | **SMTP Host** | Your mail server hostname | `email-smtp.us-east-1.amazonaws.com` |
-   | **SMTP Port** | Server port (default: 587) | `587` |
-   | **Username** | SMTP authentication username | `your-smtp-username` |
-   | **Password** | SMTP authentication password | Stored encrypted — never shown after saving |
-   | **Encryption** | Connection security: TLS, SSL, or None | `TLS` (recommended) |
-   | **From Address** | Sender email on outgoing messages | `noreply@yourcompany.com` |
-   | **From Name** | Sender display name (optional) | `Your Company` |
+<img src={useBaseUrl('/img/app-distribution/smtp-email/smtp-1.png')} alt="SMTP / Email" width="100%"/>
 
-3. Click **Save Configuration**.
-4. Click **Test Connection** to send a test email to your own address and verify the setup.
+**Step 2:** On the **Integrations** page, find **SMTP / Email** under **Communication** and click **Connect**.
+
+<img src={useBaseUrl('/img/app-distribution/smtp-email/smtp-2.png')} alt="SMTP / Email" width="100%"/>
+
+**Step 3:** In the **SMTP Configuration** page, enter your SMTP server details.
+
+|Ref.| Field | Description | Example |
+|---| --- | --- | --- |
+|1.  | **SMTP Host** | Your mail server hostname | `email-smtp.us-east-1.amazonaws.com` |
+| 2. | **SMTP Port** | Server port (default: 587) | `587` |
+| 3. | **Username** | SMTP authentication username | `your-smtp-username` |
+| 4. | **Password** | SMTP authentication password | Stored encrypted — never shown after saving |
+| 5. | **Encryption** | Connection security: TLS, SSL, or None | `TLS` (recommended) |
+| 6. | **From Address** | Sender email on outgoing messages | `noreply@yourcompany.com` |
+| 7. | **From Name** | Sender display name (optional) | `Your Company` |
+
+<img src={useBaseUrl('/img/app-distribution/smtp-email/smtp-3.png')} alt="SMTP / Email" width="100%"/>
+
+**Step 4:** Click **Save Configuration** to save your SMTP settings.
+
+<img src={useBaseUrl('/img/app-distribution/smtp-email/smtp-4.png')} alt="SMTP / Email" width="100%"/>
+
+**Step 5:** Click **Test Connection** to send a test email to your own address and verify the setup.
+
+<img src={useBaseUrl('/img/app-distribution/smtp-email/smtp-5.png')} alt="SMTP / Email" width="100%"/>
 
 ## Connection Status
 
@@ -43,8 +57,8 @@ After saving, the SMTP settings page shows one of three statuses:
 | Status | Meaning |
 | --- | --- |
 | **Untested** | Configuration saved but not yet verified |
-| **Connected** | Test email sent successfully — SMTP is working |
-| **Failed** | Test failed — check credentials and server settings. The error message is shown below the status. |
+| **Connected** | Test email sent successfully - SMTP is working |
+| **Failed** | Test failed - check credentials and server settings. The error message is shown below the status. |
 
 ## How Emails Are Sent
 
@@ -56,9 +70,9 @@ This means email sending never blocks the UI or API — uploads and other action
 
 Each organization can configure its own SMTP server. When sending an email, the system follows this resolution order:
 
-1. **Organization SMTP** — if the organization has a configured and verified SMTP, use it.
-2. **Global SMTP** — fall back to the platform-wide SMTP configuration.
-3. **Default mailer** — if no SMTP is configured at any level, use the platform default.
+1. **Organization SMTP** - if the organization has a configured and verified SMTP, use it.
+2. **Global SMTP** - fall back to the platform-wide SMTP configuration.
+3. **Default mailer** - if no SMTP is configured at any level, use the platform default.
 
 This allows different organizations to send emails from their own domains (e.g., `noreply@company-a.com` vs `noreply@company-b.com`) while sharing the same platform.
 
@@ -80,8 +94,6 @@ SMTP passwords are **encrypted at rest** using libsodium (XSalsa20-Poly1305). Th
 
 Click **Disconnect** on the SMTP settings page to remove the configuration. Emails will fall back to the global SMTP or the platform default.
 
----
-
 ## Custom Email Templates
 
 Create fully custom HTML email templates for every type of email your organization sends. Replace the default system templates with your own branded, custom-designed emails using simple `{variable}` placeholders.
@@ -94,7 +106,7 @@ This feature must be enabled by a platform admin. Once enabled, Account Owners a
 
 When custom email templates are enabled for your organization, you can override the default system emails with your own complete HTML body. Each template type has its own set of **variables** that get replaced with real values when the email is sent.
 
-Variables use the `{variable_name}` syntax — just place them anywhere in your HTML subject line or body and they'll be substituted automatically.
+Variables use the `{variable_name}` syntax - just place them anywhere in your HTML subject line or body and they'll be substituted automatically.
 
 ### Template Types
 
@@ -104,6 +116,8 @@ Variables use the `{variable_name}` syntax — just place them anywhere in your 
 | **Member Invitation** | When a new member (non-tester) is invited to the organization |
 | **Tester Invitation** | When a new tester is invited to the organization or added to a group |
 | **App Assignment** | When testers in a group are notified about a newly assigned app |
+
+<img src={useBaseUrl('/img/app-distribution/smtp-email/smtp-6.png')} alt="SMTP / Email" width="100%"/>
 
 ### Available Variables
 

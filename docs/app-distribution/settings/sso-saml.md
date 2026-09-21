@@ -6,7 +6,7 @@ sidebar_label: SSO / SAML
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Configure SAML-based Single Sign-On so users can log in with your identity provider (Okta, Azure AD, OneLogin, Google Workspace, PingIdentity, etc.).
+SAML-based Single Sign-On (SSO) allows users to sign in to your organization using an identity provider (IdP), such as Okta, Azure AD, OneLogin, Google Workspace, or PingIdentity.
 
 :::info
 Only **Account Owners** and **Org Admins** can configure SSO.
@@ -14,23 +14,40 @@ Only **Account Owners** and **Org Admins** can configure SSO.
 
 ## Setting Up SSO
 
-1. Create a SAML application in your identity provider using the values from the [Service Provider Details](#service-provider-details) table below. Your IdP needs these (in particular the ACS / redirect URL) before it can issue the metadata and signing certificate.
-2. Go to **gear icon → SSO Settings**.
-3. Paste your **Identity Provider's SAML metadata XML** into the text area. This is usually available at a URL like `https://your-idp/.well-known/saml-metadata`.
-4. Click **Save Metadata**.
+Before configuring SSO, create a SAML application in your identity provider using the **[Service Provider Details](#service-provider-details)** provided in the **SSO Settings** page.
 
-The system automatically extracts the Entity ID, SSO URL, and certificate from the metadata.
+Your identity provider needs these details, particularly the **ACS/redirect URL**, to generate the SAML metadata and signing certificate.
 
-## SSO Options
+**Step 1:** Click the **Profile** icon in the top-right corner and select **Integrations** from the user menu.
 
-Once metadata is saved, the following options become available:
+<img src={useBaseUrl('/img/app-distribution/sso-saml/sso-1.png')} alt="SSO / SAML" width="100%"/>
 
-| Option | Description |
-| --- | --- |
-| **Enable SSO** | Show the SSO login button on your subdomain's login page. |
-| **SSO Only Mode** | Block password login entirely. Users must authenticate via SSO. |
-| **Allow Password Login Override** | Show a fallback "Login with email and password" link on the SSO login page. Useful for admin recovery. |
-| **Auto-create Users on SSO Login** | Automatically create new user accounts when someone logs in via SSO for the first time. If disabled, only existing users can log in. |
+**Step 2:** On the **Integrations** page, find **SSO / SAML** and click **Connect**.
+
+<img src={useBaseUrl('/img/app-distribution/sso-saml/sso-2.png')} alt="SSO / SAML" width="100%"/>
+
+**Step 3:** Copy your **SAML metadata XML** provided by your identity provider and paste it into the metadata field. This is usually available at a URL like `https://your-idp/.well-known/saml-metadata`.
+
+<img src={useBaseUrl('/img/app-distribution/sso-saml/sso-3.png')} alt="SSO / SAML" width="100%"/>
+
+**Step 4:** Click **Save Metadata** to save the identity provider metadata..
+
+<img src={useBaseUrl('/img/app-distribution/sso-saml/sso-4.png')} alt="SSO / SAML" width="100%"/>
+
+After the metadata is saved, the system automatically extracts the **Entity ID**, **SSO URL**, and **certificate** from the metadata.
+
+## Configure SSO Options
+
+After saving the SAML metadata, you can configure the following options:
+
+| Sr. No. | Option | Description |
+|---:|---|---|
+| 1 | **Enable SSO** | Displays the SSO login option on your organization's login page. |
+| 2 | **SSO Only Mode** | Disables password login. Users must sign in through SSO. |
+| 3 | **Allow Password Login Override** | Provides a **Login with email and password** option as a fallback. |
+| 4 | **Auto-create Users on SSO Login** | Automatically creates a user account when a new user signs in through SSO for the first time. |
+
+<img src={useBaseUrl('/img/app-distribution/sso-saml/sso-5.png')} alt="SSO / SAML" width="100%"/>
 
 :::caution Important
 SSO login is only available when users access the login page via your organization's subdomain (e.g. `https://your-org.testfairy.net/login`). The SSO button will not appear on the main application login page.
@@ -46,6 +63,8 @@ These are the values to enter when creating the SAML application in your identit
 | **ACS URL** | `https://your-org.testfairy.net/login/sso` | Redirect URL, Reply URL (Azure AD), Single sign-on URL (Okta) |
 | **NameID Format** | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` | Name ID format — `emailAddress` is required |
 | **SSO Login URL** | `https://your-org.testfairy.net/login` | Login/start URL — where users begin an SSO login |
+
+<img src={useBaseUrl('/img/app-distribution/sso-saml/sso-6.png')} alt="SSO / SAML" width="100%"/>
 
 Replace `your-org` with your organization's subdomain. The SAML response must be delivered to the ACS URL via HTTP `POST`.
 

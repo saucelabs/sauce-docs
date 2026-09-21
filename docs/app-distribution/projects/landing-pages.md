@@ -6,21 +6,38 @@ sidebar_label: Landing Pages
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Each project has a customizable landing page where testers can install your app.
+A landing page provides a single page where testers can view your app information and install a specific build. You can customize the landing page settings, control who can access it, and choose which build is available for installation.
 
-## Configuration
+**Step 1:** Open the project for which you want to configure the landing page.
 
-Go to your project's **Edit** page and scroll to the **Landing Page Settings** section. You can configure:
+<img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-1.png')} alt="Landing Pages" width="100%"/>
 
-| Setting | Description |
-| --- | --- |
-| **URL Alias** | Custom slug for the install URL (e.g., `/install/my-app` instead of a random token). |
-| **Build Version** | Pin the landing page to a specific build, or leave as "Latest" to always show the newest. |
-| **Visibility** | Open (anyone with the link) or Closed (requires login). iOS apps are always closed. |
-| **Description** | Displayed on the right side of the landing page alongside release notes. |
-| **Include Release Notes** | Toggle whether the build's release notes appear on the landing page. |
-| **Background Color** | Pick from presets or set a custom color for the landing page gradient. |
-| **Custom CSS** | Advanced: inject custom CSS for full visual control. |
+**Step 2:** Select the **Landing Page** dropdown in the top-right corner and select **Edit**. The **Landing Page Settings** page opens.
+
+<img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-2.png')} alt="Landing Pages" width="100%"/>
+
+**Step 3:** Make sure **Enable Landing Page** is turned on. –When enabled, the landing page is available through its install link. If you disable it, the install link displays a page-not-available message.
+
+<img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-3.png')} alt="Landing Pages" width="100%"/>
+
+**Step 4:** Configure the landing page settings:
+
+| **Ref.** | **Setting** | **Description** |
+|---:|---|---|
+| **1** | **URL Alias** | Enter a custom alias for the landing page URL (e.g., `/install/my-app` instead of a random token). Leave it empty to use the default install token. |
+| **2** | **App Version** | Select the app version that you want to display on the landing page. The default option is **Latest version**. |
+| **3** | **Visibility** | Select **Open Beta** to allow anyone with the install link to access the page, or **Closed Beta** to require authentication. |
+| **4** | **App Description** | Enter a description of your app. The description is displayed on the landing page. |
+| **5** | **Include Release Notes on Landing Page** | Select this option to display the release notes for the selected build on the landing page. |
+| **6** | **Show iOS Direct Download (.ipa) Link** | Select this option to display a direct download link for the iOS `.ipa` file on the landing page. |
+| **7** | **Background Color** | Select a preset background color for the landing page. |
+| **8** | **Custom CSS** | Enter custom CSS to customize the appearance of the landing page. |
+
+<img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-4.png')} alt="Landing Pages" width="100%"/>
+
+**Step 5:** Select the **Save** to apply your settings.
+
+<img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-5.png')} alt="Landing Pages" width="100%"/>
 
 ## Custom CSS Examples
 
@@ -47,3 +64,5 @@ Use the **Custom CSS** field to style the landing page. The CSS is injected into
 ## Preview
 
 Use the **Preview** button on the edit page to see how your landing page looks before sharing it with testers.
+
+<img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-6.png')} alt="Landing Pages" width="100%"/>

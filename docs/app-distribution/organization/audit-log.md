@@ -6,23 +6,35 @@ sidebar_label: Audit Log
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The audit log tracks all significant actions performed within your organization. Only Account Owners and Org Admins can access the audit log.
+The **Audit Log** records significant actions performed within your organization. It helps **Account Owners** and **Org Admins** review organization activity and track actions performed by users. Only Account Owners and Org Admins can access the audit log.
 
-## Accessing the Audit Log
+## Access the Audit Log
 
-Click your **profile icon** in the top navigation bar and select **Audit Log** from the dropdown menu.
+**Step 1:** Click the **Profile** icon in the top navigation bar.
 
-## Filtering Entries
+<img src={useBaseUrl('/img/app-distribution/audit-log/audit-1.png')} alt="Audit Log" width="100%"/>
 
-Use the filter bar to narrow down audit log entries:
+**Step 2:** Select **Audit Log** from the dropdown menu. The **Audit Log** page opens and displays the recorded organization activities.
 
-- **Search** — filter by user email or action details.
-- **Action type** — select a specific action type from the dropdown (e.g., member_invited, build_uploaded).
-- **Time range presets** — click **7d**, **30d**, **60d**, or **90d** to show entries from the last N days. Click **All** to show all entries.
-- **Custom date range** — use the **From** and **To** date pickers for a specific date range.
+<img src={useBaseUrl('/img/app-distribution/audit-log/audit-2.png')} alt="Audit Log" width="100%"/>
+
+## Filter Audit Log Entries
+
+Use the filters on the **Audit Log** page to find specific entries.
+
+| **Sr. No.** | **Filter** | **Description** |
+|---:|---|---|
+| **1** | **Search** | Enter a user's email address or action details in the **Search** field to find matching entries. |
+| **2** | **Action type** | Select an action from the **Action type** dropdown to display entries for a specific action, such as `member_invited` or `build_uploaded`. |
+| **3** | **Time range presets** | Select a preset to filter entries from the last **7d**, **30d**, **60d**, **90d**, or **All** available entries. |
+| **4** | **Custom date range** | Specify a custom date range to filter audit log entries for a specific period. |
+
+<img src={useBaseUrl('/img/app-distribution/audit-log/audit-3.png')} alt="Audit Log" width="100%"/>
 
 All filters can be combined. The entry count updates to reflect the active filters.
 
 ## Exporting to CSV
 
 Click **Export CSV** to download the currently filtered entries as a CSV file. The export respects all active filters (search, action type, and date range). The CSV includes columns for Time, User, Action, Details, and IP address.
+
+<img src={useBaseUrl('/img/app-distribution/audit-log/audit-4.png')} alt="Audit Log" width="100%"/>
