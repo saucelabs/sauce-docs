@@ -220,7 +220,7 @@ Push test result events from Sauce Labs to any endpoint as they become available
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-        <a href="/basics/integrations/webhooks/"> <img src={useBaseUrl('img/android-chrome-192x192.png')} alt="Sauce Labs logo" width="50" />
+        <a href="/basics/integrations/webhooks/"> <img src={useBaseUrl('img/integrations/saucelabs-mark.svg')} alt="Sauce Labs logo" width="50" />
         <h3>Sauce Labs Webhooks</h3>
         </a>
     </div>
