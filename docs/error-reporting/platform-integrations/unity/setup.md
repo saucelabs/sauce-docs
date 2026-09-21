@@ -144,6 +144,8 @@ To change Backtrace client and database options, we recommend to change these va
 
 For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
 
+For Android native crash capture requirements, supported APK and Android App Bundle layouts, supported ABIs, and failure behavior, see [Android Native Crash Integration for Unity](/error-reporting/platform-integrations/unity/native-crash-integration/).
+
 ## Configure the Server Address
 
 The server address is required to submit exceptions from your Unity project to your Backtrace instance.

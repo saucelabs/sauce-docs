@@ -137,46 +137,23 @@ The Backtrace Unity SDK includes support for capturing native crashes, as well a
 
 For more information about other data that is captured, see [Attributes](/error-reporting/platform-integrations/unity/attributes).
 
-| Setting                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                            | Type    | Default |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| Capture native crashes                     | Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start. This requires "Enable Database" to also be true.                                                                                                                                                                                                                                                                                             | Boolean | True    |
-| Capture ANR (Application not responding)   | Generates an error report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.                                                                                                                                                                                                                                                                                                            | Boolean | True    |
-| Send Out of Memory exceptions to Backtrace | Detects low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.                                                                                                                                                                                                                                             | Boolean | False   |
-| Enable client-side unwinding               | Enables callstack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option. | Boolean | False   |
-| Symbols upload token                       | Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.                                                                                                                                                                                                                    | String  |
+| Setting                                    | Description                                                                                                                                                                                                      | Type    | Default |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| Capture native crashes                     | Captures native crash data. A fatal report is stored locally and uploaded after the next application start. **Enable Database** must also be enabled. Upload matching debug symbols to resolve native addresses. | Boolean | True    |
+| Capture ANR (Application not responding)   | Generates a hang report when the application remains unresponsive beyond the configured watchdog timeout. The default timeout is five seconds, and the report's `error.type` is `Hang`.                          | Boolean | True    |
+| Send Out of Memory exceptions to Backtrace | Adds `memory.warning` and `memory.warning.date` context after Unity reports a low-memory condition. The callback doesn't submit a report immediately; a later native crash can include these attributes.         | Boolean | False   |
+| Enable client-side unwinding               | This setting doesn't change Android native crash-capture behavior.                                                                                                                                               | Boolean | False   |
+| Symbols upload token                       | Enables automatic upload of matching Android IL2CPP symbols. To generate a token, in Backtrace go to **Project Settings > Symbols > Access tokens**, then select **+**.                                          | String  |
+
+For Android native crash startup behavior, APK and Android App Bundle support, supported ABIs, failure containment, and diagnostic codes, see [Android Native Crash Integration for Unity](/error-reporting/platform-integrations/unity/native-crash-integration/).
 
 #### ProGuard Rules
-ProGuard obfuscation prevents the reflection used to invoke Java code from the Unity bridge. The ProGuard symbolication id must be passed to BacktraceClient, and additional ProGuard rules must be added to allow Backtrace to identify Java classes. 
-<br /> 
-Symbolication id is a UUID identifier created by the user. The same identifier value must be sent when uploading the source map and must be accessible in the game's runtime environment.
 
-<br/>
-Please follow [this guide](/error-reporting/platform-integrations/android/proguard-deobfuscation/) to enable ProGuard, and add the following:
-
-- Pass your ProGuard symbolication id to BacktraceClient:
-   ```java
-   var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
-   var symbolicationId = "f6c3e8d4-8626-4051-94ec-53e6daccce25";
-   backtraceClient.UseProguard(symbolicationId);
-   ```
-- Use these rules in proguard_rules.pro:
-    ```
-    -keep class backtraceio.unity.* { *; }
-    -keep class backtraceio.library.**.* { *; }
-    ```
+See [Configure ProGuard](/error-reporting/platform-integrations/unity/native-crash-integration/#configure-proguard) for the required keep rules and symbolication ID configuration.
 
 #### Uploading Debug Symbols
 
-You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
-
-To enable automatic upload of debug symbols, in your Unity project's Android settings:
-
-1. In the **Build Settings**, set **Create symbols.zip** to 'Debugging'.
-   <img src={useBaseUrl('img/error-reporting/unity/unity-android-build-settings-debug-symbols.png')} alt="Build setting required to upload debug symbols to Backtrace for Android builds." />
-1. In the **Player Settings**, under **Configuration (Other Settings)**, set **Scripting Backend** to 'IL2CPP'.
-   <img src={useBaseUrl('img/error-reporting/unity/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
-
-For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
+See [Upload Debug Symbols](/error-reporting/platform-integrations/unity/native-crash-integration/#upload-debug-symbols) for Android IL2CPP build and symbol-upload configuration.
 
 </TabItem>
 <TabItem value="ios" label="iOS">

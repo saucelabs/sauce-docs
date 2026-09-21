@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 This page outlines known platform-specific limitations of the Backtrace Unity SDK. These constraints are inherent to Unity, IL2CPP, and (for WebGL) the browser sandbox.
 
+## Android
+
+For Android native crash capture requirements, APK and Android App Bundle support, failure behavior, and diagnostic codes, see [Android Native Crash Integration for Unity](/error-reporting/platform-integrations/unity/native-crash-integration/).
+
 ## WebGL
 
 ### Stack Traces
