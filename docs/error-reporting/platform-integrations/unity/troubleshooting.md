@@ -14,7 +14,7 @@ Use this guide to troubleshoot native crash capture on Apple and Android platfor
 
 ### Native Initialization Fails
 
-Check the [Apple platform requirements](/error-reporting/platform-integrations/unity/setup/#system-requirements) and enable **Capture Native Crashes**. Install the complete SDK package so the managed code and native plugins match. Copying new managed files over an older macOS bundle or iOS bridge can prevent native initialization even when managed reports still arrive.
+Check the [Apple platform requirements](/error-reporting/platform-integrations/unity/setup/#native-platform-requirements) and enable **Capture Native Crashes**. Install the complete SDK package so the managed code and native plugins match. Copying new managed files over an older macOS bundle or iOS bridge can prevent native initialization even when managed reports still arrive.
 
 Inspect the player logs for the failed stage. For example, `BT_MAC_ABI_MISMATCH` or `BT_IOS_ABI_MISMATCH` indicates an incompatible bridge, while `BT_MAC_LIBRARY_MISSING` indicates a missing native library. Preserve the diagnostic code when contacting support; avoid sharing submission tokens or credential-bearing URLs.
 
@@ -40,7 +40,11 @@ iOS retains its existing pending-report location. Test upgrades without clearing
 
 For both Apple platforms, follow [Verify Native Crash Reporting](/error-reporting/platform-integrations/unity/setup/#verify-native-crash-reporting) with the final signed player. A successful managed exception test or Xcode build does not establish native crash delivery. Relaunch after the crash, confirm receipt in Backtrace, and retain the matching application and native dSYMs for symbolication.
 
+<a id="android"></a>
+
 ## Android Native Crash Reporting
+
+For Android native crash capture requirements, APK and Android App Bundle support, failure behavior, and diagnostic codes, see [Android Native Crash Integration for Unity](/error-reporting/platform-integrations/unity/native-crash-integration/).
 
 ### Native Capture Does Not Initialize
 
@@ -50,7 +54,7 @@ Enable both **Capture Native Crashes** and **Enable Database**. Inspect the inst
 
 Android can load native libraries directly from an APK or an installed ABI split. The absence of an extracted library file does not prove that packaging failed, and forced native-library extraction is not required.
 
-If release minification removes or renames the Java classes used by the bridge, apply the [ProGuard Rules](/error-reporting/platform-integrations/unity/configuration/#proguard-rules). Restart the application process after correcting native configuration or packaging before testing again.
+If release minification removes or renames the Java classes used by the bridge, apply the [ProGuard Rules](/error-reporting/platform-integrations/unity/native-crash-integration/#configure-proguard). Restart the application process after correcting native configuration or packaging before testing again.
 
 ### Identify the Failed Stage
 
