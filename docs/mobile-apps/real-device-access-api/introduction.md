@@ -33,7 +33,7 @@ A session runs on a public device from the shared Sauce Labs cloud or on one of 
 private devices. The API surface is the same for both: the same endpoints, the same session lifecycle,
 the same test results.
 
-Please refer to the following table to learn about the differences between the Access API on the Private
+Refer to the following table to learn about the differences between the Access API on the Private
 and Public Device Clouds.
 
 | Capability | Public Devices | Private Devices |
