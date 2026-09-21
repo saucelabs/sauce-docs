@@ -47,7 +47,7 @@ Offline database capabilities are currently not supported for Nintendo Switch.
 :::
 
 :::note
-The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Please refer to this [source document](https://github.com/backtrace-labs/backtrace-unity/blob/master/iOS/CrashReporter.xcframework/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
+The Apple native integrations include privacy manifests and third-party notices. On iOS, the SDK adds the PLCrashReporter privacy declarations and notices to a separate resource bundle during Xcode export without replacing your application's privacy manifest. Review the SDK's bundled declarations alongside your application's privacy requirements.
 :::
 
 ## What You'll Need
@@ -66,6 +66,26 @@ The iOS SDK contains a privacy manifest to declare the types of data accessed on
 ### System Requirements
 
 - Unity Editor version 2021.3 or higher
+
+#### Native Platform Requirements
+
+For SDK 3.17.0 and later, the bundled native integrations have these requirements:
+
+| Platform | Minimum OS Version | Supported Native Architectures |
+| --- | --- | --- |
+| macOS | macOS 12.0 | Apple silicon (`arm64`) and Intel (`x86_64`) |
+| iOS | iOS 15.0 | ARM64 devices; ARM64 and x86_64 Simulators |
+| Android | Android API level 21 | `arm64-v8a`, `armeabi-v7a`, and `x86_64` |
+
+Android 32-bit `x86` can use managed reporting but not native capture. Android library selection follows the architecture of the running application process, not every architecture supported by the device.
+
+For iOS, set **Player Settings > iOS > Target minimum iOS Version** to **15.0 or newer** before exporting. The SDK's postprocessor enforces this minimum even when native capture is disabled, rather than changing the application's deployment target. The requirements apply to the frameworks bundled with the Unity SDK, not the separate Cocoa source package.
+
+:::caution Upgrading macOS Native Reporting
+
+Reports left in the legacy shared crash cache are not migrated automatically. If you need to recover those reports, preserve their payloads and metadata and contact support before launching the upgraded player. See [Legacy Mac Reports](/error-reporting/platform-integrations/unity/troubleshooting/#legacy-mac-reports).
+
+:::
 
 ### Player Configuration Settings
 
@@ -158,9 +178,7 @@ The server address is required to submit exceptions from your Unity project to y
 
 ## Verify the Setup
 
-At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
-
-To test the integration, use a try/catch block to throw an exception and start sending reports.
+First, verify managed reporting with a handled exception. This check does not exercise native crash capture or delivery after a restart.
 
 ```csharp
  //Read from manager BacktraceClient instance
@@ -174,13 +192,25 @@ var database = GameObject.Find("manager name").GetComponent<BacktraceDatabase>()
 
 
 try{
-    //throw exception here
+    throw new System.InvalidOperationException("Backtrace managed reporting test");
 }
 catch(Exception exception){
     var report = new BacktraceReport(exception);
     backtraceClient.Send(report);
 }
 ```
+
+### Verify Native Crash Reporting
+
+Use a dedicated test build, not a production session. Native crash capture runs in the built player, not in the Unity Editor.
+
+1. Enable **Capture native crashes** and check the [native platform requirements](#native-platform-requirements). On Android, also enable the Backtrace database and configure a writable database path.
+1. Build and install the application with the native SDK files included. For Apple distribution testing, use the final signed application. Test iOS on a physical device as well as any Simulator checks.
+1. Launch without an attached debugger, allow Backtrace to initialize, and trigger a deliberate native crash.
+1. Relaunch the same application with Backtrace enabled and network access available. Allow time for asynchronous delivery.
+1. Confirm the native report arrives in your Backtrace project. Check symbolication separately using symbols that match the exact build: application and native dSYMs on Apple platforms, or native debug symbols on Android.
+
+A missing local crash file does not prove that the server received the report. Verify receipt in Backtrace. For an iOS upgrade test, preserve application data so you can also check delivery of a report captured before the upgrade. See [Troubleshooting](/error-reporting/platform-integrations/unity/troubleshooting/) if capture, delivery, or symbolication fails.
 
 :::note
 Unity WebGL has a specific set of platform limitations.
