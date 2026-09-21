@@ -51,7 +51,7 @@ Alternatively, you can also specify the configuration settings in your C# projec
 
 | Setting                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                             | Type    | Default |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| Enable Database            | Enables an offline database to store reports locally. This is a requirement for native crash reports to be sent.                                                                                                                                                                                                                                                                                                                                                                                                   | Boolean | False   |
+| Enable Database            | Enables an offline database for managed reports. Android native reporting also requires this database. On macOS and iOS, native capture uses separate storage and does not require this setting.                                                                                                                                                                                                                                                                                                                                                                                                   | Boolean | False   |
 | Backtrace database path    | Specifies the absolute path that the local database will use to store reports for your game or app. Note that the Backtrace database will remove all existing files in the database directory when the client is first initialized. <br /><br />You can use interpolated strings such as `${Application.persistentDataPath}/backtrace/database`.                                                                                                        | String  |
 | Client-Side deduplication  | Aggregates duplicated reports. The available options are: <ul><li>Disable: Duplicated reports are not aggregated.</li> <li>Everything: Aggregates by faulting callstack, exception type, and exception message.</li> <li>Faulting callstack: Aggregates based on the current stack trace.</li> <li>Exception type: Aggregates by stack trace and exception type.</li> <li>Exception message: Aggregates by stack trace and exception message.</li></ul> | Enum    | Disable |
 | Attach Unity Player.log    | Attaches the Unity player log file to the Backtrace report. Available only for Windows and MacOS.                                                                                                                                                                                                                                                                                                                                                       | Boolean | False   |
@@ -124,10 +124,16 @@ You can also add custom metrics groups and attributes with [`backtraceClient.Ins
 
 ### Capturing Native Crashes
 
+The following native reporting guidance applies to SDK 3.17.0 and later. Check the [platform requirements](/error-reporting/platform-integrations/unity/setup/#native-platform-requirements) before building. Native reports are captured in the player, not in the Unity Editor.
+
 <Tabs>
 <TabItem value="android" label="Android" default>
 
-The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying Android OS, JNI, and NDK layers, including:
+Android native capture requires API level 21 or newer and a supported process architecture: `arm64-v8a`, `armeabi-v7a`, or `x86_64`. Managed reporting remains available on 32-bit `x86`, but native capture does not.
+
+The SDK supports APK, Android App Bundle, and split-APK installations, including native libraries loaded directly from an APK. It selects libraries for the running process architecture. You do not need to force native-library extraction.
+
+The Backtrace Unity SDK also captures memory and process information from the underlying Android OS, JNI, and NDK layers, including:
 
 - `system.memory.free`
 - `system.memory.swap.free`
@@ -137,51 +143,47 @@ The Backtrace Unity SDK includes support for capturing native crashes, as well a
 
 For more information about other data that is captured, see [Attributes](/error-reporting/platform-integrations/unity/attributes).
 
-| Setting                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                            | Type    | Default |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| Capture native crashes                     | Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start. This requires "Enable Database" to also be true.                                                                                                                                                                                                                                                                                             | Boolean | True    |
-| Capture ANR (Application not responding)   | Generates an error report whenever an app hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.                                                                                                                                                                                                                                                                                                            | Boolean | True    |
-| Send Out of Memory exceptions to Backtrace | Detects low memory conditions. If the app crashes due to a memory condition, a crash report will be submitted to Backtrace with the `memory.warning` and `memory.warning.date` attributes.                                                                                                                                                                                                                                             | Boolean | False   |
-| Enable client-side unwinding               | Enables callstack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option. | Boolean | False   |
-| Symbols upload token                       | Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.                                                                                                                                                                                                                    | String  |
+| Setting | Description | Type | Default |
+| --- | --- | --- | --- |
+| Capture native crashes | Captures native crashes, stores reports locally, and submits them after the application restarts. Requires **Enable Database** and a writable database path. Matching debug symbols are required for symbolication, not capture. | Boolean | True |
+| Capture ANR (Application not responding) | Generates a hang report when the application remains unresponsive beyond the configured watchdog timeout. The default timeout is five seconds, and the report's `error.type` is `Hang`. | Boolean | True |
+| Send Out of Memory exceptions to Backtrace | Annotates native state with `memory.warning` and `memory.warning.date` when Unity notifies the SDK of low memory. The callback does not create or send a report, and reporting is not guaranteed for every memory-related termination. | Boolean | False |
+| Enable client-side unwinding | Does not change Android native crash capture. Upload matching native debug symbols for symbolication; this setting is not a substitute for symbols. | Boolean | False |
+| Symbols upload token | Required for automatic upload of matching Android IL2CPP symbols. To generate a token, in Backtrace go to **Project Settings > Symbols > Access tokens**, then select **+**. | String | |
+
+For Android native crash startup behavior, APK and Android App Bundle support, supported ABIs, failure containment, and diagnostic codes, see [Android Native Crash Integration for Unity](/error-reporting/platform-integrations/unity/native-crash-integration/).
 
 #### ProGuard Rules
-ProGuard obfuscation prevents the reflection used to invoke Java code from the Unity bridge. The ProGuard symbolication id must be passed to BacktraceClient, and additional ProGuard rules must be added to allow Backtrace to identify Java classes. 
-<br /> 
-Symbolication id is a UUID identifier created by the user. The same identifier value must be sent when uploading the source map and must be accessible in the game's runtime environment.
 
-<br/>
-Please follow [this guide](/error-reporting/platform-integrations/android/proguard-deobfuscation/) to enable ProGuard, and add the following:
-
-- Pass your ProGuard symbolication id to BacktraceClient:
-   ```java
-   var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
-   var symbolicationId = "f6c3e8d4-8626-4051-94ec-53e6daccce25";
-   backtraceClient.UseProguard(symbolicationId);
-   ```
-- Use these rules in proguard_rules.pro:
-    ```
-    -keep class backtraceio.unity.* { *; }
-    -keep class backtraceio.library.**.* { *; }
-    ```
+See [Configure ProGuard](/error-reporting/platform-integrations/unity/native-crash-integration/#configure-proguard) for the required keep rules and symbolication ID configuration.
 
 #### Uploading Debug Symbols
 
-You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
+Native capture does not depend on symbol upload. To resolve function names and source locations, upload debug symbols that match the exact application and native library builds.
 
-To enable automatic upload of debug symbols, in your Unity project's Android settings:
+See [Upload Debug Symbols](/error-reporting/platform-integrations/unity/native-crash-integration/#upload-debug-symbols) for Android IL2CPP build and symbol-upload configuration.
 
-1. In the **Build Settings**, set **Create symbols.zip** to 'Debugging'.
-   <img src={useBaseUrl('img/error-reporting/unity/unity-android-build-settings-debug-symbols.png')} alt="Build setting required to upload debug symbols to Backtrace for Android builds." />
-1. In the **Player Settings**, under **Configuration (Other Settings)**, set **Scripting Backend** to 'IL2CPP'.
-   <img src={useBaseUrl('img/error-reporting/unity/unity-android-player-settings-debug-symbols.png')} alt="Player setting required to upload debug symbols to Backtrace for Android builds." />
+</TabItem>
+<TabItem value="macos" label="macOS">
 
-For more information about debug symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
+#### Mac Native Reporting
+
+Enable **Capture native crashes** to collect native reports from macOS players. The integration requires macOS 12.0 or newer and includes a universal plugin for Apple silicon and Intel. The managed offline database does not need to be enabled.
+
+Backtrace stores new pending native crashes and metadata in application-specific storage, separate from Unity's default PLCrashReporter cache. Reports are processed after the application restarts. The plugin includes its database models, privacy manifest, and notices without relying on nested framework symlinks.
+
+Keep the plugin intact when importing or building your project. Upload matching application and native dSYMs for symbolication, and validate the final signed player with a [crash and relaunch test](/error-reporting/platform-integrations/unity/setup/#verify-native-crash-reporting).
+
+Reports captured by an older integration in the shared cache are not migrated automatically. Follow the [legacy report recovery guidance](/error-reporting/platform-integrations/unity/troubleshooting/#legacy-mac-reports) before launching an upgraded player with reports to recover.
 
 </TabItem>
 <TabItem value="ios" label="iOS">
 
-The Backtrace Unity SDK includes support for capturing native crashes, as well as memory and process information from the underlying iOS layer, including:
+The bundled native frameworks require iOS 15.0 or newer. Set **Player Settings > iOS > Target minimum iOS Version** before exporting; the Backtrace postprocessor rejects an unsupported minimum rather than raising it. The package includes ARM64 device and ARM64/x86_64 Simulator frameworks.
+
+The postprocessor links and embeds the required Backtrace framework and adds privacy resources. Do not manually link or embed another static CrashReporter runtime. The integration preserves the existing iOS pending-report location; validate an upgrade without clearing application data.
+
+The Backtrace Unity SDK also captures memory and process information from the underlying iOS layer, including:
 
 - `system.memory.free`
 - `system.memory.swap.used`
@@ -193,10 +195,10 @@ For more information about other data that is captured, see [Attributes](/error-
 
 | Setting                                    | Description                                                                                                                                                                                                                                                                                                                                                    | Type    | Default |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| Capture native crashes                     | Captures and symbolicates stack traces for native crashes. A crash report is generated, stored locally, and uploaded upon next game start.                                                                                                                                                                                                                     | Boolean | True    |
+| Capture native crashes                     | Captures native crashes, stores reports locally, and submits them after the application restarts. The managed offline database is not required. Upload matching dSYMs for symbolication.                                                                                                                                                                                                                     | Boolean | True    |
 | Capture ANR (Application not responding)   | Generates an error report whenever an app does not respond or hangs for more than 5 seconds. The `error.type` for these reports will be `Hang`.                                                                                                                                                                                                                | Boolean | True    |
-| Send Out of Memory exceptions to Backtrace | Captures snapshots of the app's state when there is a low memory condition. If the app crashes due to a low memory condition, the information is sent to Backtrace. Snapshots are captured every 2 minutes as long as the low memory condition persists.                                                                                                       | Boolean | False   |
-| Enable client-side unwinding               | Enables callstack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option. | Boolean | False   |
+| Send Out of Memory exceptions to Backtrace | Enables Backtrace Cocoa's Light mode for out-of-memory detection. This mode does not capture periodic application snapshots. It does not guarantee detection of every memory-related termination.                                                                                                       | Boolean | False   |
+| Enable client-side unwinding               | Enables local symbolication through the native crash reporter. Matching dSYMs are still required for complete symbolication; this setting does not replace them. | Boolean | False   |
 
 :::caution
 Unity's CrashReport API might prevent the Backtrace client from sending crashes. To allow Backtrace to capture native crashes, in your Unity project's Player Settings for iOS, under Debugging and crash reporting, make sure that Enable CrashReport API is set to 'False'.
@@ -231,6 +233,16 @@ The Backtrace Unity SDK includes support for capturing native Windows crashes.
 
 </TabItem>
 </Tabs>
+
+#### Apple Native Lifecycle and Delivery
+
+On macOS and iOS, native capture owns its storage independently of the managed Backtrace database. Managed retry, capacity, and **Auto send mode** settings do not configure the native queue.
+
+The SDK passes **Reports per minute** (`ReportPerMin`) to the native reporter at initialization; `0` means no local rate limit. Managed and native reporting apply the configured limit independently, not as a combined quota. Changing the managed limit at runtime does not reconfigure an active native reporter.
+
+Keep one native client active for the application process and update the managed sources and native artifacts together. Once a native handler has been installed, disabling the client does not uninstall that handler. Restart the application before enabling native capture again, or after an initialization failure that might have partially installed a handler. Repeated `Refresh()` calls are not an initialization retry mechanism.
+
+An existing Apple native client is retained across refreshes; native settings are not reapplied to it. If capture starts disabled, configure it before the first native initialization. Native initialization failures do not prevent managed reporting. For recovery steps, see [Troubleshooting](/error-reporting/platform-integrations/unity/troubleshooting/).
 
 ### Logging Breadcrumbs
 
@@ -380,7 +392,7 @@ Adding multiple events with many linked attributes or sending the metrics events
 
 <p><small>| METHOD | OPTIONAL |</small></p>
 
-Method used to refresh and apply the configuration settings for the Backtrace client when you change the configuration dynamically. For example:
+Use this method to refresh the managed client's configuration when changing settings dynamically. On Apple platforms, an existing native client is retained: `Refresh()` does not reinstall its handler, reapply native settings, or retry a failed native initialization. See [Apple Native Lifecycle and Delivery](#apple-native-lifecycle-and-delivery). For example:
 
 ```csharp
 //Read from manager BacktraceClient instance
@@ -565,7 +577,9 @@ Class that defines a single error report.
 
 #### Attributes and Attachment Paths
 
-You can submit custom attributes using the `attributes` parameter, or attach files by specifying an array of file paths with the `attachmentPaths` parameter. For example:
+For managed reports, submit custom attributes using the `attributes` parameter or attach files using the `attachmentPaths` parameter. For native reports, configure attachment paths before native initialization using `BacktraceConfiguration.AttachmentPaths` or the client's initialization arguments. Calling `AddAttachment(...)` later affects managed reports only.
+
+The following example attaches attributes and files to a managed report:
 
 ```csharp
 try

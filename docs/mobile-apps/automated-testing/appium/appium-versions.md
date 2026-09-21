@@ -313,6 +313,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
               <code>@appium/relaxed-caps-plugin</code>: 2.0.1
             </a>
           </li>
+          <li>
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.1.0" target="_blank">
+              <code>WebDriverAgent</code>: 11.1.0
+            </a>
+          </li>
         </ul>
       </td>
     </tr>
@@ -363,6 +368,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
               <code>@appium/relaxed-caps-plugin</code>: 2.1.0
             </a>
           </li>
+          <li>
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.4.1" target="_blank">
+              <code>WebDriverAgent</code>: 11.4.1
+            </a>
+          </li>
         </ul>
       </td>
     </tr>
@@ -411,6 +421,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
           <li>
             <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.2.4" target="_blank">
               <code>@appium/relaxed-caps-plugin</code>: 2.2.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v15.1.0" target="_blank">
+              <code>WebDriverAgent</code>: 15.1.0
             </a>
           </li>
         </ul>
