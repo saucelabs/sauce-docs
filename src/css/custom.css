@@ -1262,6 +1262,20 @@ html[data-theme="dark"] .client-tile {
     border-color: rgba(255, 255, 255, 0.18);
 }
 
+/* Tiles rendered as links: no underline, hint with the border on hover */
+a.client-tile,
+a.client-tile:hover {
+    text-decoration: none;
+}
+
+a.client-tile:hover {
+    border-color: var(--dark-200);
+}
+
+html[data-theme="dark"] a.client-tile:hover {
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
 /* Side-by-side captioned screenshots (IDE Plugins overview) */
 .screenshot-grid {
     display: grid;
