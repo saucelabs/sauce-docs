@@ -49,7 +49,7 @@ private devices.
 | `adb shell` commands (Android) | Allowlisted commands only | Unrestricted |
 | Device reboot | ❌ | ✅ |
 | Custom WebDriverAgent (iOS) | ❌ | ✅ |
-| Low-Level Device Access (`adbUrl`, `usbmuxdUrl`, `vusbUrl`) | ❌ | ✅ |
+| Low-Level Device Access | ❌ | ✅ |
 | Custom Appium Driver | ❌ | ✅ |
 | **Observability** | | |
 | Live video stream | ✅ | ✅ |
