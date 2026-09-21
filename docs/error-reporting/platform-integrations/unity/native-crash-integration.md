@@ -11,7 +11,7 @@ The Backtrace Unity SDK captures native Android crashes, application not respond
 Native reports include process and system information that can help diagnose failures outside managed C# code.
 
 :::note Version Availability
-Linker-first native-library resolution, process-aware application binary interface (ABI) selection, contained native setup and dynamic-attribute failures, and the diagnostic codes described on this page require Backtrace Unity SDK 3.16.3 or later. Earlier SDK versions support Android native crash capture but don't provide all of these behaviors.
+Linker-first native-library resolution, process-aware application binary interface (ABI) selection, contained native setup and dynamic-attribute failures, and the diagnostic codes described in this guide require Backtrace Unity SDK 3.17.0 or later. Earlier SDK versions support Android native crash capture but don't provide all of these behaviors.
 :::
 
 ## Requirements
@@ -64,7 +64,7 @@ Backtrace Unity supports:
 Applications don't need to calculate or configure the native crash-handler library path.
 You also don't need to force native-library extraction solely for Backtrace Unity.
 
-In version 3.16.3 and later, the SDK resolves the loaded native module and installed package metadata without opening or parsing APK contents.
+In version 3.17.0 and later, the SDK resolves the loaded native module and installed package metadata without opening or parsing APK contents.
 
 ### Native-Library Path Resolution
 
@@ -136,7 +136,7 @@ The callback doesn't immediately create or submit a report. A later native crash
 
 ## Diagnostic Codes
 
-The following codes are log identifiers, not report attributes. They identify the failed stage and, where relevant, include the exception type. 
+The following codes are log identifiers, not report attributes. They identify the failed stage and, where relevant, include the exception type.
 These messages don't include submission URLs, application attributes, attachment paths, handler arguments, or resolved native-library paths.
 
 Not every unavailable native setup path emits a code. Expected preflight conditions, such as a disabled database, an unsupported API level, or an unsupported 32-bit `x86` process, can use a `Backtrace native integration status` message instead.
@@ -207,7 +207,7 @@ For more information, see [Symbolication](/error-reporting/project-setup/symboli
 
 ### Native Reports Aren't Created
 
-1. Confirm that you're using Backtrace Unity SDK 3.16.3 or later for the startup and diagnostic behavior described on this page.
+1. Confirm that you're using Backtrace Unity SDK 3.17.0 or later for the startup and diagnostic behavior described in this guide.
 2. Confirm that the application runs on Android API level 21 or later.
 3. Enable both **Enable Database** and **Capture native crashes**.
 4. Confirm that the server address is valid and the database directory exists or can be created and written.
