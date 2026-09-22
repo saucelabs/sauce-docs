@@ -40,7 +40,7 @@ const docusaurusConfig = {
                 rel: 'icon',
                 type: 'image/png',
                 sizes: '16x16',
-                href: '/img/favicon-16x16.png',
+                href: '/img/favicon-16x16.png?v=2',
             },
         },
         {
@@ -49,7 +49,7 @@ const docusaurusConfig = {
                 rel: 'icon',
                 type: 'image/png',
                 sizes: '32x32',
-                href: '/img/favicon-32x32.png',
+                href: '/img/favicon-32x32.png?v=2',
             },
         },
     ],
