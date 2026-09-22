@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 If your app is obfuscated, you can configure Backtrace to deobfuscate your crashing callstacks.
 
 :::note ProGuard or R8
-Modern Android builds obfuscate with **R8**, not ProGuard — the Android Gradle Plugin removed
+Modern Android builds obfuscate with **R8**, not ProGuard. The Android Gradle Plugin removed
 ProGuard support in AGP 7.0, and `minifyEnabled true` has meant R8 ever since.
 
 This page applies to both. R8 emits a `mapping.txt` in the ProGuard mapping format, and Backtrace's
@@ -74,7 +74,7 @@ shades Gson into `backtraceio.gson`, so a rule naming `com.google.gson` keeps no
 lines if you copied them from an older guide.
 :::
 
-You are still responsible for keep rules covering **your own** code — anything resolved by name at
+You are still responsible for keep rules covering **your own** code. Anything resolved by name at
 runtime rather than by a reference the shrinker can follow:
 
 ```proguard
@@ -98,7 +98,7 @@ backtraceClient.enableProguard();
 ```
 
 :::tip Only enable this for obfuscated builds
-AGP never obfuscates a `debuggable` variant — setting `minifyEnabled true` on `debug` shrinks code
+AGP never obfuscates a `debuggable` variant. Setting `minifyEnabled true` on `debug` shrinks code
 but does not rename it. Enabling ProGuard mode there asks the backend to deobfuscate symbols that
 were never obfuscated. Gate it on the build type:
 
@@ -121,7 +121,7 @@ final Map<String, Object> attributes = new HashMap<String, Object>() {{
 }};
 ```
 
-Hardcoding a literal UUID works, but it is easy to forget to change it — and a stale id silently
+Hardcoding a literal UUID works, but it is easy to forget to change it. A stale id silently
 pairs new crashes with an old mapping file. Deriving the value in your build script keeps the app
 and the upload in agreement automatically.
 
@@ -175,7 +175,7 @@ curl --data-binary @app/build/outputs/mapping/release/mapping.txt \
 
 :::danger Do not omit the `@`
 The `@` tells cURL to send the _contents_ of the file. Without it, cURL sends the file **path** as a
-few dozen bytes of text — and the request still returns success, so the mistake is easy to miss.
+few dozen bytes of text and the request still returns success, so the mistake is easy to miss.
 Verify the upload size matches the file:
 
 ```bash
