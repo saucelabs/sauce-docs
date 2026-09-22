@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The **Slack integration** allows you to send Sauce Labs test results and alerts directly to Slack. You can connect one or more Slack workspaces, choose the channels that should receive notifications, and configure alert rules to control which test results are sent.
+The **Slack integration** allows you to send Sauce Labs test results and alerts directly to Slack. You can connect one or more Slack workspaces, choose the channels that should receive notifications, and configure alerts to control which test results are sent.
 
-Slack notifications help your team see important test results without having to continuously check the [Sauce Labs dashboard](/test-results/viewing-test-results/). You can configure alerts to send only the results that your team needs to act on, such as failed tests or errors.
+Slack notifications help your team see important test results without having to continuously check the [Sauce Labs dashboard](/test-results/viewing-test-results/). You can configure alerts to send only the results that your team needs to act on, such as failed or errored tests.
 
 :::note
 This page covers Slack notifications for Sauce Labs test results. To send Backtrace error reports to Slack, see **[Backtrace Integration for Slack](/error-reporting/workflow-integrations/messaging/slack/)**.
@@ -19,7 +19,7 @@ This page covers Slack notifications for Sauce Labs test results. To send Backtr
 You can use the Slack integration to:
 
 * Send test failures and errors to the appropriate team channels.
-* Route results from different testing types to different channels.
+* Route results from different automation types to different channels.
 * Send aggregated build results instead of individual messages for every test.
 * Filter notifications by **[test status](/test-results/test-status)**, job owner, or **[tags](/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests)**.
 * Send a specific test result to Slack manually when investigating a failure.
@@ -56,21 +56,47 @@ Connect a Slack workspace to Sauce Labs before you can send test result notifica
 
 <img src={useBaseUrl('/img/integrations/slack/slack-5.png')} alt="Slack Integration"/>
 
-**Step 6:** After authorization is complete, you are redirected to Sauce Labs, and the Slack workspace is **Connected**. Once connected, you can add Slack channels and configure alert rules to determine which test results are sent to Slack.
+**Step 6:** After authorization is complete, you are redirected to Sauce Labs, and the Slack workspace is marked as **Connected**. Once connected, you can add Slack channels and create alerts to determine which test results are sent to Slack.
 
 :::note
 You can connect multiple Slack workspaces to the same Sauce Labs organization. Connecting another workspace does not replace an existing workspace connection.
 :::
 
-<img src={useBaseUrl('/img/integrations/slack/slack-6.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-6.png')} alt="Connected Slack workspace on the Slack Configuration page"/>
 
 :::important Reconnect an existing workspace
-If you authorize a workspace that is already connected, Sauce Labs does not create a duplicate workspace connection. Existing channels and alert rules are preserved.
+If you authorize a workspace that is already connected, Sauce Labs does not create a duplicate workspace connection. Existing channels and alerts are preserved.
 :::
+
+## Slack Configuration Page
+
+The **Slack Configuration** page shows every connected workspace and the channels that receive Sauce Labs notifications. Use this page to add channels, create alerts, and manage the workspace connection.
+
+The workspace card displays the workspace name, its **Connected** status, and the connection details, including the date the workspace was connected, the user who connected it, and the **Workspace ID**. The card also provides the following actions:
+
+| Ref. | Action | Description |
+| ----- | ----- | ----- |
+| 1 | **Create Alert** | Opens the **Create Alert** dialog, where you define which test results are sent to which Slack channels. See [Create an Alert](#create-an-alert). |
+| 2 | **Add Channel** | Adds a Slack channel to the connected workspace so that it can receive notifications. See [Add Slack Channels](#add-slack-channels). |
+| 3 | **&#8943;** (More options) | Opens the workspace menu, which contains the **Disconnect** option. See [Disconnect a Slack Workspace](#disconnect-a-slack-workspace). |
+
+<img src={useBaseUrl('/img/integrations/slack/slack-7.png')} alt="Workspace card actions: Create Alert, Add Channel, and More options"/>
+
+The **Channels** section lists the Slack channels that receive alert notifications, along with the total number of connected channels. Each channel entry shows:
+
+* The channel name.
+* The date the channel was added and the user who added it.
+* The number of **Active Alerts** currently configured for the channel. Expand the channel entry to view the alerts associated with it.
+* A **&#8943;** (More options) menu that contains the **Remove channel** option.
+
+Use the **Search channels** field to filter the list when a workspace has many connected channels.
+
+<img src={useBaseUrl('/img/integrations/slack/slack-8.png')} alt="Channels section listing the Slack channels that receive alert notifications"/>
+
 
 ## Add Slack Channels
 
-After connecting a Slack workspace, you can add Slack channels where Sauce Labs will send test result notifications. You can add multiple channels to the same workspace and use them as destinations when configuring alert rules.
+After connecting a Slack workspace, you can add Slack channels where Sauce Labs will send test result notifications. You can add multiple channels to the same workspace and use them as destinations when creating alerts.
 
 :::note
 Only public channels available to the Sauce Labs Slack integration appear in the channel list.
@@ -78,101 +104,101 @@ Only public channels available to the Sauce Labs Slack integration appear in the
 
 **Step 1:** In the connected workspace, select **Add Channel**.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-7.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-9.png')} alt="Add Channel button on the connected workspace card"/>
 
 **Step 2:** The **Add Channel** dialog opens. Select the **Slack Channel** field to view the available channels. Select the Slack channel where you want to receive Sauce Labs notifications.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-8.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-10.png')} alt="Slack Integration"/>
 
-**Step 3:** After selecting the channel, click on **Add Channel**. The selected channel is added to the connected workspace and can be selected as a destination when you configure an alert rule.
+**Step 3:** After selecting the channel, click on **Add Channel**. The selected channel is added to the connected workspace and appears in the **Channels** list, where it can be selected as a destination when you create an alert.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-9.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-11.png')} alt="Slack Integration"/>
 
 ### Add Multiple Channels
 
-You can add multiple channels to the same connected Slack workspace. Repeat the channel setup to add additional channels to the same Slack workspace. Each channel is added separately and can be used as a destination for alert rules.
+You can add multiple channels to the same connected Slack workspace. Repeat the channel setup to add additional channels. Each channel is added separately and can be used as a destination for alerts.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-10.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-12.png')} alt="Multiple Slack channels added to the same connected workspace"/>
 
 ## Remove a Slack Channel
 
 If you no longer want a channel to receive Sauce Labs notifications, you can remove it from the connected workspace.
 
-**Step 1:** On the Slack configuration page, find the channel you want to remove.
+**Step 1:** In the **Channels** list on the Slack configuration page, find the channel you want to remove.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-10.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-13.png')} alt="More options menu available for each channel in the Channels list"/>
 
-**Step 2:** Select **Remove Channel** next to the channel. The channel is removed from the list of connected channels and is no longer available as a destination for Slack alerts. Alternatively, you can remove the saucebot from the channel to stop receiving alerts for it.
+**Step 2:** Select the **&#8943;** (More options) menu next to the channel, and then select **Remove channel**. The channel is removed from the list of connected channels and is no longer available as a destination for Slack alerts. Alternatively, you can remove the saucebot from the channel to stop receiving alerts for it.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-11.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-14.png')} alt="Remove channel option in the channel More options menu"/>
 
 :::note
 Removing a channel does not disconnect the Slack workspace. Other channels connected to the same workspace remain configured.
 :::
 
-## Quick Alert Setup
+## Create an Alert
 
-Use **Quick Alert Setup** to create a Slack alert and define which Sauce Labs test results should be sent to a Slack channel.
+An alert defines which Sauce Labs test results are sent to which Slack channels. Select **Create Alert** on the workspace card to open the **Create Alert** dialog and configure automated notifications for your test runs.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-12.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-15.png')} alt="Create Alert button on the connected workspace card"/>
 
-### Pick a Channel
+**Step 1:** Enter a descriptive name in **Alert Name**, such as `Critical QA failures`. Use a name that makes the alert easy to identify when you manage your alerts later.
 
-Select the Slack channel where you want to receive notifications.
+**Step 2:** In **Channel(s) receiving notification**, select the Slack channels that should receive the notification. Only channels that have already been added to your connected Slack workspace are available.
 
-**Step 1:** Under **Pick Channel**, select the **Slack Channel** field and choose a channel from the list. Only channels that have already been added to your connected Slack workspace are available.
+**Step 3:** Under **Type of Reporting**, select how results are reported:
 
-<img src={useBaseUrl('/img/integrations/slack/slack-13.png')} alt="Slack Integration"/>
+* **Build level**: Sauce Labs sends one aggregated notification for the build instead of a message for each test.
 
-**Step 2:** Select **Next** to continue.
+* **Test level**: Sauce Labs sends a notification for each individual test result.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-14.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-16.png')} alt="Create Alert dialog showing Alert Name, notification channels, and Type of Reporting"/>
 
-### Set Filters
+**Step 4:** Under **Trigger Conditions**, select the results that trigger the alert. Conditions are grouped by automation type, so you can send different results from different automation types to the same channel:
 
-Define which test results should trigger the alert.
+* **Real Device Automation**: Tests that run on real devices.
 
-**Step 1:** Enter a descriptive name in **Alert Name**.
+* **Virtual Device Automation**: Tests that run on emulators and simulators.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-15.png')} alt="Slack Integration"/>
+* **All Automation**: Tests from all automation types.
 
-**Step 2:** Under **Event Types**, select how you want to be notified for each available automation type:
+For each automation type, select one or more of the following conditions:
 
-* **Don't alert**: Sauce Labs does not send notifications for this automation type.
+| Sr. No. | Condition | Description |
+| ----- | ----- | ----- |
+| 1 | **Failed tests only** | Sauce Labs sends a notification only when a test fails. |
+| 2 | **Errored tests only** | Sauce Labs sends a notification only when a test ends in an error. |
+| 3 | **Passed tests only** | Sauce Labs sends a notification only when a test passes. |
+| 4 | **All tests** | Sauce Labs sends a notification for every test result, regardless of status. |
 
-* **Failed tests only**: Sauce Labs sends notifications only when a test fails.
+<img src={useBaseUrl('/img/integrations/slack/slack-17.png')} alt="Trigger Conditions grouped by automation type in the Create Alert dialog"/>
 
-* **All tests**: Sauce Labs sends notifications for all test results.
+**Step 5:** Use **Get Notified About Events From** to choose whose test events trigger the alert. This limits the alert to the test runs that are relevant to your team.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-16.png')} alt="Slack Integration"/>
+**Step 6:** Use **Filter Tests By Tags** to limit the alert to specific test results. Tags are optional. If you select one or more tags, the alert is triggered only for results that match the selected tags.
 
-**Step 3:** Use the **Tags** field to limit the alert to specific test results. Tags are optional. If you select one or more tags, the alert is triggered only for results that match the selected tags.
+When you select more than one tag, use **Match Rule** to define how the tags are combined:
+
+| Sr. No. | Match Rule | Description |
+| ----- | ----- | ----- |
+| 1 | **Match any tag (OR)** | Tests matching at least one of the selected tags send a notification. |
+| 2 | **Match all tags (AND)** | Tests must match every selected tag before a notification is sent. |
 
 :::note
-Only existing tags are available when configuring an alert. You cannot create a new tag from the alert setup page.
+Only existing tags are available when you create an alert. You cannot create a new tag from the **Create Alert** dialog.
 :::
 
-<img src={useBaseUrl('/img/integrations/slack/slack-17.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-18.png')} alt="Get Notified About Events From and Filter Tests By Tags fields with the Match Rule options"/>
 
-**Step 4:** After configuring the filters, select **Next**.
+**Step 7:** Review the alert name, channels, reporting type, trigger conditions, and filters. When everything is correct, select **Create Alert**.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-18.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-19.png')} alt="Create Alert button at the bottom of the Create Alert dialog"/>
 
-### Review and Create the Alert
-
-Review the alert configuration, including the **channel, alert name, event types, and tags**. If you need to make changes, return to the previous step and update the configuration.
-
-When everything is correct, select **Create Alert**.
-
-<img src={useBaseUrl('/img/integrations/slack/slack-19.png')} alt="Slack Integration"/>
-
-The alert becomes active, and Sauce Labs sends notifications to the selected Slack channel when test results match the configured conditions.
-
-<img src={useBaseUrl('/img/integrations/slack/slack-20.png')} alt="Slack Integration"/>
+The alert becomes active, and Sauce Labs sends notifications to the selected Slack channels when test results match the configured conditions. The channel entries in the **Channels** list are updated to reflect the number of **Active Alerts**.
 
 ## Send Test Results to Slack
 
-You can manually send a test result to a Slack channel directly from the **Test Details** page. This allows you to share a specific test result with your team without creating or modifying an alert rule.
+You can manually send a test result to a Slack channel directly from the **Test Details** page. This allows you to share a specific test result with your team without creating or modifying an alert.
 
 The test result is sent to the selected Slack channel along with a link back to the result in Sauce Labs.
 
@@ -182,63 +208,46 @@ You must have a connected Slack workspace with an available channel before you c
 
 **Step 1:** Open the **Test Details** page for the test result you want to share.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-21.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-20.png')} alt="Slack Integration"/>
 
 **Step 2:** Select the **Actions** menu in the upper-right corner of the page, then select **Send to Slack**.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-22.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-21.png')} alt="Slack Integration"/>
 
 **Step 3:** The **Send to Slack** dialog opens and displays the Slack workspace available for sending the test result. Select the **Channel** field and choose the Slack channel where you want to send the test result.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-23.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-22.png')} alt="Slack Integration"/>
 
 The channel list shows the channels available in the connected Slack workspace. Channels where the Sauce Labs bot is not available are shown as unavailable and cannot be selected.
 
 **Step 4:** Select **Send**. Sauce Labs sends the test result to the selected Slack channel. A confirmation message appears on the Test Details page indicating that the result was sent successfully.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-24.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-23.png')} alt="Slack Integration"/>
 
 :::note
-Manually sending a test result does not require an alert rule and does not change any existing alert configuration.
+Manually sending a test result does not require an alert and does not change any existing alert configuration.
 :::
 
-## Create an Alert Rule
+## Manage Alerts
+
+You can also review and create alerts from the **Alerts** page.
 
 **Step 1:** Select your **profile icon** in the top-right corner, then select **Alerts**.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-25.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-24.png')} alt="Slack Integration"/>
 
-**Step 2:** The **Alerts** page displays your existing alert rules and available Slack destinations. Select **Create Alert Rule** in the top-right corner.
+**Step 2:** The **Alerts** page displays your existing alerts and available Slack destinations. To add an alert, select **Create Alert** in the top-right corner and complete the same fields described in [Create an Alert](#create-an-alert).
 
-<img src={useBaseUrl('/img/integrations/slack/slack-26.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-25.png')} alt="Alerts page listing configured alerts with their status, destination, and trigger conditions"/>
 
-**Step 3:** The **Create Alert Rule** dialog opens. Configure the alert by providing the alert name, selecting the event types and Slack destinations, and optionally adding tags.
-
-| Ref. | Field | Description |
-| ----- | ----- | ----- |
-| **1** | **Alert Name** | Enter a descriptive name to identify the alert rule when managing your alerts. |
-| **2** | **Event Types** | Select the test results that should trigger the alert. For each available automation type, choose **Don't alert** to disable notifications, **Failed tests only** to receive notifications for failed tests, or **All tests** to receive notifications for all test results. |
-| **3** | **Destinations** | Select one or more Slack channels where matching notifications should be sent. Only channels already added to your Slack integration are available. |
-| **4** | **Tags** | Optionally select one or more existing tags to limit the alert to test results that match the selected tags. |
-
-<img src={useBaseUrl('/img/integrations/slack/slack-27.png')} alt="Slack Integration"/>
-
-:::note
-Select one or more tags to filter test results. The alert is triggered for results that contain the selected tags.
-:::
-
-**Step 4:** Review the alert name, event types, destinations, and tags to make sure the configuration is correct. Select **Create Rule**.
-
-<img src={useBaseUrl('/img/integrations/slack/slack-28.png')} alt="Slack Integration"/>
-
-The alert rule is added to the **Alerts** page and becomes active. Sauce Labs sends notifications to the selected Slack channels when a test result matches the conditions configured in the rule.
+The alert is added to the **Alerts** page and becomes active. Sauce Labs sends notifications to the selected Slack channels when a test result matches the configured conditions.
 
 ## Disconnect a Slack Workspace
 
 Disconnect a Slack workspace when you no longer want Sauce Labs to send notifications to that workspace. Disconnecting a workspace removes its connection from Sauce Labs and prevents the integration from sending alerts to its Slack channels.
 
-On the Slack configuration page, locate the workspace you want to disconnect and select **Disconnect**.
+On the Slack configuration page, locate the workspace you want to disconnect, select the **&#8943;** (More options) menu on the workspace card, and then select **Disconnect**.
 
-<img src={useBaseUrl('/img/integrations/slack/slack-29.png')} alt="Slack Integration"/>
+<img src={useBaseUrl('/img/integrations/slack/slack-26.png')} alt="Disconnect option in the workspace More options menu"/>
 
 The workspace is disconnected from Sauce Labs, and the Slackbot integration is also disconnected from your Slack workspace. Other Slack workspaces connected to your Sauce Labs organization remain unaffected.
