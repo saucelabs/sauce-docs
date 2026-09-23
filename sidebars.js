@@ -69,6 +69,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/ios/setup',
                                         'error-reporting/platform-integrations/ios/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
                                     ],
                                 },
                             ],
@@ -85,6 +86,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/unity/setup',
                                         'error-reporting/platform-integrations/unity/configuration',
+                                        'error-reporting/platform-integrations/unity/native-crash-integration',
                                         'error-reporting/platform-integrations/unity/attributes',
                                         'error-reporting/platform-integrations/unity/metrics',
                                         'error-reporting/platform-integrations/unity/helpshift',
@@ -164,6 +166,8 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/macos/setup',
                                         'error-reporting/platform-integrations/macos/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
+                                        'error-reporting/platform-integrations/macos/troubleshooting',
                                     ],
                                 },
                                 'error-reporting/platform-integrations/plcrash-reporter',
