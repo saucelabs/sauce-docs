@@ -64,13 +64,13 @@ If your client cannot send the `X-Backtrace-Universe` header, the sign-in flow p
 
 ## Option 2: Connect with an Access Token
 
-Use this method when no browser is available, such as in CI jobs or long-running agents. All three of the following headers are required:
+Use this method to automate engineering workflows such as CI/CD jobs, local development and testing or agent-to-agent automation.
 
-| Header | Description |
-| ----- | ----- |
-| `X-Backtrace-Universe` | Your universe name, for example `saucelabs`. |
-| `X-Backtrace-Token` | The Error Reporting token you create below. |
-| `X-Backtrace-Project` | The project the token is scoped to. |
+| Header | Description | Required |
+| ----- | ----- | ----- |
+| `X-Backtrace-Universe` | Your universe name, for example `saucelabs`. | Yes |
+| `X-Backtrace-Token` | The Error Reporting token you create below. | Yes |
+| `X-Backtrace-Project` | The project the token is scoped to. | Yes |
 
 ### Create a Token
 
