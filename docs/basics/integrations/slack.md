@@ -28,6 +28,8 @@ You can use the Slack integration to:
 
 * Make sure you have access to the Slack workspace that you want to connect to Sauce Labs.
 
+* From the Slack Marketplace, search for the Sauce Labs integration and install it. Add saucebot as a member of the public channel where you want to receive alerts, then continue the setup in Sauce Labs.
+
 * A Sauce Labs account with access to the [Integrations](https://app.saucelabs.com/integrations) page. See [Viewing Test Results](/test-results/viewing-test-results/) for where results appear before you route them to Slack.
 
 * A Slack administrator may be required to authorize the Slack integration for your workspace.
