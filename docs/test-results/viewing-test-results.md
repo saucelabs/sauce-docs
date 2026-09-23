@@ -82,6 +82,17 @@ You can use the following filters to narrow down the build results:
 | Owner  | Filter builds by: <ul><li>Builds that you have run</li><li>All the builds for your organization</li><li>Tests run by another user</li><li>Tests run by a service account</li></ul> |
 | Status | Filter builds by: <ul><li>Success</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>Running</li><li>Error</li></ul>             |
 
+## Access API Test Results
+
+Tests reported through the [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) do not appear on the Live or Automated pages described above. They have their own **Test Results** page, listed under **Access API** in the Sauce Labs menu.
+
+Instead of a test framework opening and closing the job, you mark the start and end of each test yourself, and Sauce Labs captures the artifacts you asked for. Two differences are worth knowing:
+
+- Artifact capture is **opt-in**. Video, logs, and network traffic are recorded only if you request them when starting the test, whereas framework-based jobs capture them by default.
+- A single device session can produce many tests, so several results may share one device reservation.
+
+For the artifact list, the API calls, and a full walkthrough, see [Test Results and Artifacts for the Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-test-results).
+
 ## Screenshots, Commands, Logs, and Metadata
 
 You can review a variety of data about the tests you have run.

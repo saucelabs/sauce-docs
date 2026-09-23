@@ -134,7 +134,7 @@ The following management actions are available:
 
 ### Manage Tags
 
-You can update the tags assigned to a test case at any time to keep your test cases organized and easy to find.
+You can update the tags assigned to a test case at any time to keep your test cases organized and searchable.
 
 :::note
 If you remove a tag from all test cases, it gets removed entirely from your organization.
@@ -147,3 +147,91 @@ If you remove a tag from all test cases, it gets removed entirely from your orga
 **Step 2:** In the **Edit Test Case** dialog, add, remove, or update the tags as needed, then click **Save** to apply your changes.
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-11.png')} alt="Manage Your Test Cases" width="100%"/>
+
+## Manually Edit Individual Test Steps
+
+After generating a test case, you can manually edit individual test steps directly in the test case editor. Manual editing allows you to modify a specific step without using a prompt to update the entire test case.
+
+You can:
+
+* [Edit captured step values](#edit-a-test-step).
+* [Replace hard-coded values with data variables](#replace-a-hard-coded-value-with-a-data-variable).
+* [Add an assertion](#add-an-assertion).
+* [Delete a step](#delete-a-test-step).
+
+### Edit a Test Step
+
+You can modify a value captured in an individual test step or [replace a hard-coded value with a data variable](#replace-a-hard-coded-value-with-a-data-variable).
+
+**Step 1:** In the generated test case, locate the step you want to modify and click the **Edit** icon.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-12.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 2:** Update the captured value as needed. You can enter a new value directly or replace the existing hard-coded value with a data variable.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-13.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 3:** Click **Save** to apply the changes. The updated value is displayed in the test step.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-14.png')} alt="Manage Your Test Cases" width="100%"/>
+
+### Replace a Hard-Coded Value with a Data Variable
+
+You can replace a hard-coded value in a test step with a data variable. This allows the value to be provided dynamically when the test is executed instead of being fixed in the test case.
+
+**Step 1:** Locate the test step containing the hard-coded value and click the **Edit** next to the step.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-15.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 2:** Select the option to replace the captured value with a data variable.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-16.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 3:** Select or enter the variable you want to use. For example, you can replace a hard-coded password with a password data variable.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-17.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 4:** Click **Save** to apply the change. The test step now uses the selected variable when the test is executed.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-18.png')} alt="Manage Your Test Cases" width="100%"/>
+
+### Add an Assertion
+
+You can add an assertion to a test step to verify an expected result during test execution.
+
+**Step 1:** Locate the test step where you want to add an assertion, click the **More options** (**…**) menu, and select **Add Assertion**.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-19.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 2:** Select the appropriate assertion from the available predefined options, then define the expected target value. You can also use a data variable as the target value, where available.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-20.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 3:** Save the assertion to add it to the selected test step.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-21.png')} alt="Manage Your Test Cases" width="100%"/>
+
+
+### Delete a Test Step
+
+If a test step is no longer needed, you can remove it directly from the test case using the **More options** menu. Locate the step you want to remove, click the **More options** (**…**) menu, and select **Delete step**. The selected step is removed from the test case.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-22.png')} alt="Manage Your Test Cases" width="100%"/>
+
+## Validate Manual Changes
+
+After manually editing one or more test steps, the test case indicates that there are unsaved changes. To ensure that the end-to-end test flow remains correct after these changes, it is recommended to validate the test steps.
+
+Validation replays the test flow to verify that the steps are reachable and that your edits are valid. Any manual changes are retained and respected by the authoring agent as you continue to build or maintain the [test case through prompts](#refine-test-cases-using-prompt-based-editing).
+
+**Step 1:** After completing your edits, locate the unsaved changes message and click **Validate** to verify that the updated test steps can be executed correctly.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-23.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 2:** The system validates the generated and manually updated test steps to check whether they are runnable. Review the validation results and make additional changes if needed.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-24.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 3:** After the steps have been successfully validated, click **Save Test Case** to save your changes.
+
+<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-25.png')} alt="Manage Your Test Cases" width="100%"/>

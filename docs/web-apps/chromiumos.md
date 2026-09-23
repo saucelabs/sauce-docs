@@ -2,22 +2,21 @@
 id: chromiumos
 title: ChromiumOS Testing on Sauce Labs
 sidebar_label: ChromiumOS Testing
-description: Run automated Selenium and WebDriver tests on ChromiumOS virtual machines
-  in the Sauce Labs cloud.
+description: Run automated Selenium, WebDriver, and Playwright tests on ChromiumOS virtual
+  machines in the Sauce Labs cloud.
 keywords:
 - chromiumos
 - chromeos
 - chromium
 - virtual-device
 - web-testing
+- playwright
 - sauce-connect
 - screen-resolution
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-<p><span className="sauceGreen">Beta</span></p>
 
 Sauce Labs supports automated web testing on ChromiumOS virtual machines. ChromiumOS is the
 open-source platform behind Google's ChromeOS — it shares the same Chromium browser engine,
@@ -31,7 +30,8 @@ cloud.
   or [sign up for a free trial](https://saucelabs.com/sign-up))
 - Your Sauce Labs `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`
   ([find them in User Settings](https://app.saucelabs.com/user-settings))
-- A Selenium or WebDriver test framework configured to run against a remote endpoint
+- A Selenium or WebDriver test framework configured to run against a remote endpoint, or
+  [Playwright](#playwright-via-selenium-grid) using its Selenium Grid support
 - (Optional) [Sauce Connect 5](/secure-connections/sauce-connect-5/) installed and a
   tunnel started, if you need to test applications behind a firewall or on a staging
   environment
@@ -64,7 +64,7 @@ supported.
 ### Automated Tests
 
 Set the following capabilities in your test configuration to target a ChromiumOS virtual
-machine on Sauce Labs. It's recommend to use `latest` or `latest-1` for `browserVersion` in order to stay current with each monthly release.
+machine on Sauce Labs. ChromiumOS supports the current and previous Chromium releases, which are kept up to date as part of our regular browser updates. We recommend using `latest` or `latest-1` for `browserVersion` to stay on those versions automatically.
 
 | Capability | Value |
 |---|---|
@@ -182,6 +182,39 @@ var driver = new RemoteWebDriver(
 
 No additional flags or special capabilities are required to launch a session — set the
 platform to `ChromiumOS` and use the standard Chrome browser and Sauce options.
+
+### Playwright (via Selenium Grid)
+
+You can also run [Playwright](https://playwright.dev/) tests against ChromiumOS virtual machines using
+Playwright's [Selenium Grid support](https://playwright.dev/docs/selenium-grid). Playwright creates the
+session over WebDriver and then drives the browser over the Chrome DevTools Protocol (CDP), so your test
+code is the same as the code you run locally.
+
+Set the `SELENIUM_REMOTE_URL` and `SELENIUM_REMOTE_CAPABILITIES` environment variables before your test
+command, with `platformName` set to `ChromiumOS`:
+
+```shell title="Running Playwright on ChromiumOS"
+export SELENIUM_REMOTE_URL=https://ondemand.us-west-1.saucelabs.com:443/wd/hub
+export SELENIUM_REMOTE_CAPABILITIES='{"platformName":"ChromiumOS","browserName":"chrome","browserVersion":"latest","sauce:options":{"devTools":true,"username":"'$SAUCE_USERNAME'","accessKey":"'$SAUCE_ACCESS_KEY'","name":"<your test name>"}}'
+npx playwright test --headed
+```
+
+| Capability | Value |
+|---|---|
+| `platformName` | `ChromiumOS` |
+| `browserName` | `chrome` or `googlechrome` |
+| `browserVersion` | `latest` |
+| `sauce:options.devTools` | `true` |
+
+`devTools: true` is what makes Sauce Labs return the CDP endpoint that Playwright connects to. Run your
+tests in headed mode so that Sauce Labs can record video.
+
+:::note Playwright Support
+Playwright's Selenium Grid support is experimental in Playwright itself, and only Chromium-based browsers
+can be driven this way — so Chrome is the only browser available for Playwright on ChromiumOS. For
+JavaScript, Java, Python, and .NET setup examples, recommended fixtures, and known limitations, see
+[Playwright on Selenium Grid](/web-apps/automated-testing/playwright/selenium-grid/).
+:::
 
 ### Configuring Screen Resolution
 
