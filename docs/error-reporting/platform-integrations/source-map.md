@@ -15,7 +15,7 @@ The Backtrace debugger can highlight specific lines in your source code associat
 For React Native, source map generation and upload are integrated with Metro and the native build systems. Follow
 [Upload source maps in the React Native Integration Guide](/error-reporting/language-integrations/react-native/#upload-source-maps)
 instead of the steps below. The [`.backtracejsrc` configuration file](#step-3-create-a-backtracejsrc-configuration-file)
-described on this page applies to React Native as well.
+applies to React Native as well.
 :::
 
 ## What You'll Need
@@ -33,7 +33,7 @@ Source maps are matched 1:1 to each unique build of your app. Follow these steps
 
 ### Step 1: Enable Source Maps for Your Application
 
-Source maps are automatically generated with most JavaScript frameworks. Please follow these instructions if you are using a framework that does not automatically generate source maps.
+Source maps are automatically generated with most JavaScript frameworks. Follow these instructions if you are using a framework that does not automatically generate source maps.
 
 <Tabs
 groupId="applications"
@@ -117,7 +117,7 @@ Create a `.backtracejsrc` configuration file in the root of your project with th
     },
     "upload": {
         // highlight-next-line
-        "url": "<symbol submission url>",
+        "url": "<symbol submission URL>",
         "include-sources": true
     }
 }
@@ -143,7 +143,7 @@ node_modules are not processed by default. You may include specific modules by i
     "./node_modules/bser",
     "./node_modules/chalk"
     ],
-    ...
+    // other settings
 }
 ```
 
@@ -168,7 +168,7 @@ File processing may halt on a specific file for valid reasons. For instance, a s
   ]
   // highlight-end
   "run": {
-  ...
+  // other settings
 }
 ```
 
@@ -181,7 +181,7 @@ Alternatively, all processing errors can be treated as warnings or other errors 
   "asset-error-behavior": "warn",
   // highlight-end
   "run": {
-  ...
+  // other settings
 }
 ```
 

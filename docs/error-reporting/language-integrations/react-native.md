@@ -13,8 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 you can manage application quality through the complete product lifecycle.
 
 The [@backtrace/react-native](https://www.npmjs.com/package/@backtrace/react-native) SDK connects your JavaScript
-application to Backtrace. The basic integration is quick and easy, after which you can explore the rich set of
-Backtrace features.
+application to Backtrace. This guide covers setup, configuration and symbolication.
 
 ## Setup
 
@@ -51,7 +50,7 @@ Backtrace features.
   `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
 
-### Install the package
+### Install the Package
 
 ```
 $ npm install @backtrace/react-native
@@ -117,9 +116,9 @@ sorting and filtering, can provide better contextual data for an error, and much
 Backtrace. By default, attributes such as application name and version are populated automatically. If Backtrace cannot find them, you need to provide them
 manually via the `userAttributes` option.
 
-There are several places where attributes can be added, modified or deleted.
+Attributes can be added, modified or deleted in several places.
 
-#### Attach attributes object to BacktraceClient
+#### Attach an Attributes Object to BacktraceClient
 
 It is possible to include an attributes object during [`BacktraceClient`](#backtraceclient) initialization. This list of
 attributes will be included with every error report, referred to as global attributes.
@@ -161,7 +160,7 @@ const options: BacktraceConfiguration = {
 const client = BacktraceClient.initialize(options);
 ```
 
-#### Add attributes during application runtime
+#### Add Attributes During Application Runtime
 
 Global attributes can also be set at runtime, for example after a user logs in.
 
@@ -185,7 +184,7 @@ client.addAttribute(() => ({
 }));
 ```
 
-#### Add attributes to an error report
+#### Add Attributes to an Error Report
 
 The attributes list of a `BacktraceReport` object can be directly modified.
 
@@ -329,7 +328,7 @@ const options: BacktraceConfiguration = {
 
 Options are listed in [ANR options](#anr-options).
 
-### Offline database support
+### Offline Database Support
 
 The Backtrace react-native SDK can cache generated reports and crashes to local disk before sending them to Backtrace.
 Enabling it is recommended: an application can crash before the SDK finishes sending, and on a slow network a closing
@@ -362,7 +361,7 @@ const client = BacktraceClient.initialize({
 
 All database options are listed in [Database options](#database-options).
 
-#### Native crash support
+#### Native Crash Support
 
 The SDK captures crashes in the native layer, which JavaScript code cannot observe. Native crash reports differ from
 JavaScript reports in a few ways:
@@ -376,10 +375,10 @@ JavaScript reports in a few ways:
 Native crash reports need debug symbols to be readable. See
 [Symbolicate native crashes](#symbolicate-native-crashes).
 
-#### Manual database operations
+#### Manual Database Operations
 
-The `BacktraceDatabase` instance, available as `client.database`, sends or discards the stored reports on demand. This
-is mainly useful with `autoSend` disabled.
+The `BacktraceDatabase` instance, available as `client.database`, sends or discards the stored reports on demand. Use it
+when `autoSend` is disabled.
 
 ```ts
 // send the stored reports, keep the ones that fail
@@ -393,7 +392,7 @@ client.database.flush();
 Readable stack traces from release builds need three kinds of uploads: source maps for JavaScript, the mapping file for
 ProGuard and R8 builds on Android, and debug symbols for native crashes.
 
-### Upload source maps
+### Upload Source Maps
 
 Error reports from a bundled application are based on minified code: stack frames point into the generated bundle
 (`main.jsbundle` on iOS, `index.android.bundle` on Android), not into your source files. Upload source maps to resolve
@@ -442,7 +441,7 @@ source maps to Backtrace, import the gradle task available in the `@backtrace/re
 apply from: "$rootDir/../node_modules/@backtrace/react-native/android/upload-sourcemaps.gradle"
 ```
 
-Once you import the gradle task, add it to your flow for any build/assemble tasks:
+After you import the gradle task, add it to your build and assemble tasks:
 
 ```gradle
 tasks.matching {
@@ -483,7 +482,7 @@ Reports from a build that carries a debug id can be symbolicated after the fact:
 [reprocess the affected errors](/error-reporting/project-setup/object-reprocessing/). Reports from a build made without
 the serializer carry no debug id and cannot be matched to a source map.
 
-#### Advanced use cases
+#### Advanced Use Cases
 
 Backtrace generates `.backtrace-sourcemap-id` in the application build directory. The file contains the debug id
 attached to each source file. The debug id file path can be modified by setting the `DEBUG_ID_PATH` environment
@@ -495,7 +494,7 @@ DEBUG_ID_PATH=/path/to/backtrace/debug/id/backtrace-javascript/.debug_id
 
 The file directory should be created before building the application.
 
-### Deobfuscate ProGuard and R8 builds
+### Deobfuscate ProGuard and R8 Builds
 
 Minified Android release builds obfuscate Java class and method names. Backtrace deobfuscates unhandled Java
 exception and ANR reports with the mapping file uploaded under the report's `symbolication_id`. JavaScript reports
@@ -530,7 +529,7 @@ curl --data-binary @android/app/build/outputs/mapping/release/mapping.txt -X POS
 
 Add the upload to the release automation that already uploads source maps.
 
-### Symbolicate native crashes
+### Symbolicate Native Crashes
 
 With [native crash support](#native-crash-support) enabled, the SDK also reports crashes from the native layer. Native
 reports contain instruction addresses that need matching debug symbols, not source maps, to produce readable call
@@ -551,9 +550,9 @@ reports from exceptions and rejection handlers. Do not create more than one inst
 
 All options are listed in [`BacktraceClient` options](#backtraceclient-options).
 
-### Manually send an error
+### Manually Send an Error
 
-There are several ways to send an error to Backtrace:
+`client.send()` accepts a string, an `Error`, or a `BacktraceReport`:
 
 ```ts
 // send as a string
@@ -569,7 +568,7 @@ await client.send(new BacktraceReport('This is a report with a string!'));
 await client.send(new BacktraceReport(new Error('This is a report with a string!')));
 ```
 
-### Modify/skip error reports
+### Modify/Skip Error Reports
 
 The `beforeSend` callback runs before every report is sent. Use it to scrub PII or to extend attributes with data the
 application has at the time of the exception. Return `undefined` to skip the report.
@@ -589,7 +588,7 @@ const client = BacktraceClient.initialize({
 });
 ```
 
-### Automatically upload source maps
+### Automatically Upload Source Maps
 
 This section moved to [Upload source maps](#upload-source-maps) under Symbolication.
 
@@ -613,12 +612,12 @@ const client = BacktraceClient.builder(options)
 
 Pass these options to `BacktraceClient.initialize`. Only `url` is required.
 
-### BacktraceClient options
+### BacktraceClient Options
 
 | Option Name                         | Type                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                       | Default |
 | ----------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | `url`                               | String                                              | Required. Submission URL to send errors to.                                                                                                                                                                                                                                                                                                                                                                       |         |
-| `token`                             | String                                              | The submission token for error ingestion. This is required only if submitting directly to a Backtrace URL. (uncommon)                                                                                                                                                                                                                                                                                             |         |
+| `token`                             | String                                              | Submission token for error ingestion. Needed only when submitting directly to a Backtrace URL (uncommon).                                                                                                                                                                                                                                                                                                         |         |
 | `userAttributes`                    | Dictionary                                          | Additional attributes that can be filtered and aggregated against in the Backtrace UI.                                                                                                                                                                                                                                                                                                                            |         |
 | `attachments`                       | BacktraceAttachment[]                               | Additional files to be sent with error reports. See [File Attachments](#file-attachments)                                                                                                                                                                                                                                                                                                                         |         |
 | `beforeSend`                        | (data: BacktraceData) => BacktraceData \| undefined | Triggers an event every time an exception in the managed environment occurs, which allows you to skip the report (by returning a null value) or to modify data that library collected before sending the report. You can use the BeforeSend event to extend attributes or JSON object data based on data the application has at the time of exception. See [Modify/skip error reports](#modifyskip-error-reports) |         |
@@ -634,7 +633,7 @@ Pass these options to `BacktraceClient.initialize`. Only `url` is required.
 | `anr`                               | BacktraceAnrConfiguration                           | See [ANR Detection](#anr-detection)                                                                                                                                                                                                                                                                                                                                                                               |         |
 | `proguard`                          | BacktraceProguardConfiguration                      | See [Deobfuscate ProGuard and R8 builds](#deobfuscate-proguard-and-r8-builds)                                                                                                                                                                                                                                                                                                                                     |         |
 
-### Breadcrumbs options
+### Breadcrumbs Options
 
 | Option Name          | Type                                                       | Description                                                                                                                                                   | Default         |
 | -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -644,7 +643,7 @@ Pass these options to `BacktraceClient.initialize`. Only `url` is required.
 | `maximumBreadcrumbs` | Number                                                     | Specifies maximum number of breadcrumbs stored by the library. By default, only 100 breadcrumbs will be stored.                                               | `100`           |
 | `intercept`          | (breadcrumb: RawBreadcrumb) => RawBreadcrumb \| undefined; | Inspects breadcrumb and allows to modify it. If the undefined value is being returned from the method, no breadcrumb will be added to the breadcrumb storage. | All Breadcrumbs |
 
-### Metrics options
+### Metrics Options
 
 | Option Name            | Type    | Description                                                                                                                                                                                                                                                                                                             | Default                       |
 | ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
@@ -653,7 +652,7 @@ Pass these options to `BacktraceClient.initialize`. Only `url` is required.
 | `autoSendInterval`     | Number  | Indicates how often crash free metrics are sent to Backtrace. The interval is a value in ms. By default, session events are sent on application startup/finish, and every 30 minutes while the application is running. If set to 0, auto send is disabled and the application must call `client.metrics.send()` itself. | On application startup/finish |
 | `size`                 | Number  | Indicates how many events the metrics storage can store before auto submission.                                                                                                                                                                                                                                         | `50`                          |
 
-### ANR options
+### ANR Options
 
 | Option Name                   | Type               | Description                                                                                                         | Default     |
 | ----------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -662,7 +661,7 @@ Pass these options to `BacktraceClient.initialize`. Only `url` is required.
 | `timeout`                     | Number             | Time in milliseconds the main thread stays blocked before an ANR is reported. Applies to the `Threshold` type only. | `5000`      |
 | `disableWhenDebuggerAttached` | Boolean            | When true, detection is disabled while a debugger is attached. Applies to the `Threshold` type only.                | `false`     |
 
-### Database options
+### Database Options
 
 | Option Name               | Type    | Description                                                                                                                                                                  | Default |
 | ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
