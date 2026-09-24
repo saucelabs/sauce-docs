@@ -361,7 +361,7 @@ Use **Device Settings** to configure device behavior during the current live tes
 | Ref. | Setting | Description |
 | ----- | ----- | ----- |
 | **1** | **Audio** | Enables or disables device audio during the testing session, allowing you to verify audio playback and sound-related functionality. |
-| **2** | **Performance Mode** | Increases the streaming frame rate for a smoother viewing experience. This setting is recommended when testing over slower or restricted network connections. |
+| **2** | **Performance mode On/Off** | Enables you to increase frame rate per second, or switch back to lower frame rate video streaming, when your network connection or VPN is restrictive and you experience blurred screen. |
 | **3** | **Wi-Fi** | Enables or disables the device's Wi-Fi connection to observe how the application behaves when network connectivity changes. |
 | **4** | **Language** | Change the device language to verify application localization, translations, and region-specific content. |
 | **5** | **Animations** | Enables or disables system animations to evaluate application behavior with reduced or disabled device animations. |
