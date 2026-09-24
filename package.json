@@ -31,7 +31,9 @@
     "docusaurus-theme-github-codeblock": "^2.0.2",
     "react": "^19.2.0",
     "react-alice-carousel": "^2.9.1",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "turndown": "^7.2.4",
+    "turndown-plugin-gfm": "^1.0.2"
   },
   "browserslist": {
     "production": [
@@ -50,6 +52,7 @@
     "@eslint/js": "^9.9.1",
     "axios": "^1.7.5",
     "cross-env": "^10.1.0",
+    "docusaurus-plugin-llms": "^0.6.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
