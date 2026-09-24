@@ -117,7 +117,7 @@ Create a `.backtracejsrc` configuration file in the root of your project with th
     },
     "upload": {
         // highlight-next-line
-        "url": "<symbol submission URL>",
+        "url": "<symbol submission url>",
         "include-sources": true
     }
 }
