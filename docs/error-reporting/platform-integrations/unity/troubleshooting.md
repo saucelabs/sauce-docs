@@ -8,7 +8,63 @@ description: Learn more about known platform-specific limitations, common issues
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page outlines known platform-specific limitations of the Backtrace Unity SDK. These constraints are inherent to Unity, IL2CPP, and (for WebGL) the browser sandbox.
+Use this guide to troubleshoot native crash capture on Apple and Android platforms and reporting limitations in WebGL builds.
+
+## Apple Native Crash Reporting
+
+### Native Initialization Fails
+
+Check the [Apple platform requirements](/error-reporting/platform-integrations/unity/setup/#native-platform-requirements) and enable **Capture Native Crashes**. Install the complete SDK package so the managed code and native plugins match. Copying new managed files over an older macOS bundle or iOS bridge can prevent native initialization even when managed reports still arrive.
+
+Inspect the player logs for the failed stage. For example, `BT_MAC_ABI_MISMATCH` or `BT_IOS_ABI_MISMATCH` indicates an incompatible bridge, while `BT_MAC_LIBRARY_MISSING` indicates a missing native library. Preserve the diagnostic code when contacting support; avoid sharing submission tokens or credential-bearing URLs.
+
+After an installed native handler has been disabled, restart the application before enabling capture again. Also restart after an initialization failure that might have partially installed the handler. Calling `Refresh()` repeatedly does not retry a failed native initialization.
+
+### Legacy Mac Reports
+
+New macOS native reports use application-specific storage isolated from Unity's default PLCrashReporter cache. The flat native bundle removes the nested-framework symlink dependency. Replace the complete plugin when upgrading rather than applying a relinking workaround to an older bundle.
+
+:::warning Recover Legacy Reports Before Launching the Upgraded Player
+
+Reports left in the old shared PLCrashReporter cache are not migrated automatically. Preserve the crash payloads and accompanying metadata, and contact support for controlled recovery before launching the upgraded player. Do not delete unrelated cache data or rename pending reports as a runtime workaround.
+
+:::
+
+If native capture is busy, close other instances of the same application, then restart the player before testing again. An application-specific lock prevents simultaneous instances from writing to the same pending-crash slot.
+
+### iOS Exports or Upgrade Tests Fail
+
+Set **Player Settings > iOS > Target minimum iOS Version** to **15.0** or newer. The postprocessor rejects an unsupported target rather than changing the setting. Keep the SDK's Editor postprocessor and plugin import settings in the project: the generated Xcode export links and embeds Backtrace automatically. Do not manually link or embed a second static CrashReporter runtime.
+
+iOS retains its existing pending-report location. Test upgrades without clearing application data to verify delivery of a previously captured crash and preservation of its attachments.
+
+For both Apple platforms, follow [Verify Native Crash Reporting](/error-reporting/platform-integrations/unity/setup/#verify-native-crash-reporting) with the final signed player. A successful managed exception test or Xcode build does not establish native crash delivery. Relaunch after the crash, confirm receipt in Backtrace, and retain the matching application and native dSYMs for symbolication.
+
+<a id="android"></a>
+
+## Android Native Crash Reporting
+
+For Android native crash capture requirements, APK and Android App Bundle support, failure behavior, and diagnostic codes, see [Android Native Crash Integration for Unity](/error-reporting/platform-integrations/unity/native-crash-integration/).
+
+### Native Capture Does Not Initialize
+
+Native capture requires Android API level 21 or newer and a supported application binary interface (ABI): `arm64-v8a`, `armeabi-v7a`, or `x86_64`. Check the ABI of the running process, not only the device's supported architectures. A 32-bit process on a 64-bit device needs matching 32-bit libraries; 32-bit `x86` does not support native capture.
+
+Enable both **Capture Native Crashes** and **Enable Database**. Inspect the installed release Android application package (APK) or Android App Bundle installation, including its installed splits, for the matching Backtrace native libraries and Java crash-handler classes. An Editor test or a build archive alone does not verify the libraries installed on the device.
+
+Android can load native libraries directly from an APK or an installed ABI split. The absence of an extracted library file does not prove that packaging failed, and forced native-library extraction is not required.
+
+If release minification removes or renames the Java classes used by the bridge, apply the [ProGuard Rules](/error-reporting/platform-integrations/unity/native-crash-integration/#configure-proguard). Restart the application process after correcting native configuration or packaging before testing again.
+
+### Identify the Failed Stage
+
+Check the device logs for identifiers such as `BT_UNITY_ANDROID_NATIVE_PREPARE_FAILURE` for native setup or `BT_HANDLER_LOAD_FAILURE` for crash-handler library loading. These diagnostic codes identify failed stages; they are log identifiers, not report attributes. Managed reports can still arrive when native capture is unavailable.
+
+Follow [Verify Native Crash Reporting](/error-reporting/platform-integrations/unity/setup/#verify-native-crash-reporting) on the installed release build. Fatal native reports are uploaded after the application starts again. If a report arrives but its stack is not symbolicated, investigate matching debug symbols separately from capture and upload.
+
+### Low-Memory Warnings Do Not Produce Reports
+
+The Android low-memory callback annotates native state with `memory.warning` and `memory.warning.date`; it does not immediately create or submit a report. A low-memory warning or operating-system termination does not guarantee an out-of-memory report.
 
 ## WebGL
 

@@ -69,6 +69,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/ios/setup',
                                         'error-reporting/platform-integrations/ios/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
                                     ],
                                 },
                             ],
@@ -85,6 +86,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/unity/setup',
                                         'error-reporting/platform-integrations/unity/configuration',
+                                        'error-reporting/platform-integrations/unity/native-crash-integration',
                                         'error-reporting/platform-integrations/unity/attributes',
                                         'error-reporting/platform-integrations/unity/metrics',
                                         'error-reporting/platform-integrations/unity/helpshift',
@@ -164,6 +166,8 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/macos/setup',
                                         'error-reporting/platform-integrations/macos/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
+                                        'error-reporting/platform-integrations/macos/troubleshooting',
                                     ],
                                 },
                                 'error-reporting/platform-integrations/plcrash-reporter',
@@ -198,6 +202,16 @@ module.exports = {
                         'error-reporting/explore/add-custom-aggregations',
                         'error-reporting/explore/normalize-errors-by-metric-groups',
                         'error-reporting/explore/customize-error-views',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'MCP',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/mcp/error-reporting-mcp',
+                        'error-reporting/mcp/set-up-error-reporting-mcp',
+                        'error-reporting/mcp/error-reporting-mcp-tools',
                     ],
                 },
                 {
