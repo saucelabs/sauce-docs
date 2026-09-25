@@ -826,6 +826,7 @@ module.exports = {
                         'testfairy/using-testfairy/uploading-an-app',
                         'testfairy/using-testfairy/builds',
                         'testfairy/using-testfairy/dashboard',
+                        'testfairy/using-testfairy/insights',
                         'testfairy/using-testfairy/multi-site',
                     ],
                 },
