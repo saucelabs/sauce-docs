@@ -31,10 +31,10 @@ application to Backtrace. This guide covers setup, configuration and symbolicati
 
 ### Supported Versions
 
-- React Native 0.72 to 0.83+
-- React 18 or above
-- Hermes JavaScript engine
-- Legacy Architecture and New Architecture
+- React Native 0.72+, verified up to 0.87
+- React 18+
+- Hermes JavaScript engine (JavaScriptCore is not supported)
+- New Architecture and Legacy Architecture (React Native 0.82 and later are New Architecture only)
 
 ### Supported Platforms
 
@@ -65,16 +65,17 @@ $ pod install
 
 ### Integrate the SDK
 
-Add the following code at the start of your application, before other code runs.
+Add the following code at the top of `index.js`, before `AppRegistry.registerComponent`. The SDK starts before other
+application code runs.
 
-```ts
+```js
 // Import the BacktraceClient from @backtrace/react-native
-import { BacktraceClient, BacktraceConfiguration } from '@backtrace/react-native';
+import { BacktraceClient } from '@backtrace/react-native';
 
 // Configure client options
-const options: BacktraceConfiguration = {
+const options = {
     // Submission url
-    // <universe> is the subdomain of your Backtrace instance (<universe>.backtrace.io)
+    // <universe> is the subdomain of your Backtrace instance (<universe>.sp.backtrace.io)
     // <token> can be found in Project Settings/Submission tokens
     url: 'https://submit.backtrace.io/<universe>/<token>/json',
     database: {
@@ -100,8 +101,8 @@ Send a test report and check that it appears in the Triage view of your project:
 client.send(new Error('Test error from React Native'));
 ```
 
-To check native crash capture, call `client.crash()` in a release build. The report arrives at once on Android
-and after the next launch on iOS.
+To check native crash capture, call `client.crash()` in a release build with no debugger attached. The report arrives
+at once on Android and after the next launch on iOS.
 
 Stack traces from release builds point into the minified bundle until source maps are uploaded. Set up
 [Symbolication](#symbolication) before the first release.
@@ -124,7 +125,7 @@ It is possible to include an attributes object during [`BacktraceClient`](#backt
 attributes will be included with every error report, referred to as global attributes.
 
 ```ts
-// Create an attributes object that can be modified throughout runtime
+// Attributes sent with every report. Change them at runtime with client.addAttribute
 const attributes: Record<string, unknown> = {
     release: 'PROD',
 };
@@ -199,12 +200,10 @@ Files can be attached to every report through the client options or `client.addA
 when it is created. See [File Attachments](/error-reporting/platform-integrations/file-attachments/).
 
 ```ts
-// Import attachment types from @backtrace/react-native
-import { BacktraceStringAttachment, BacktraceUint8ArrayAttachment } from "@backtrace/react-native";
+import { BacktraceClient, BacktraceReport, BacktraceStringAttachment } from "@backtrace/react-native";
 
 // BacktraceStringAttachment is for text content such as a log file
 const stringAttachment = new BacktraceStringAttachment("logfile.txt", "This is the start of my log")
-
 
 // Client options
 const options = {
@@ -216,16 +215,28 @@ const options = {
 
 const client = BacktraceClient.initialize(options);
 
-// Later decide to add an attachment to all reports
-client.addAttachment(stringAttachment)
+// Later decide to add another attachment to all reports
+client.addAttachment(new BacktraceStringAttachment("session.txt", "Added after initialization"))
 
 // After catching an exception and generating a report
 try {
     throw new Error("Caught exception!")
 } catch (error) {
-    const report = new BacktraceReport(error, {}, [stringAttachment]);
+    const report = new BacktraceReport(error as Error, {}, [
+        new BacktraceStringAttachment("error-context.txt", "Only on this report"),
+    ]);
     client.send(report);
 }
+```
+
+JavaScript reports sent in the same session accept every attachment type. Native crash reports and reports sent on a
+later launch include file attachments only. Use `BacktraceFileAttachment` for those:
+
+```ts
+import { BacktraceClient, BacktraceFileAttachment, ReactNativeFileSystem } from '@backtrace/react-native';
+
+const logPath = `${BacktraceClient.applicationDataPath}/app.log`;
+client.addAttachment(new BacktraceFileAttachment(new ReactNativeFileSystem(), logPath, 'app.log'));
 ```
 
 ### Breadcrumbs
@@ -242,7 +253,7 @@ import { BacktraceClient, BacktraceConfiguration } from '@backtrace/react-native
 
 // Client options
 const options: BacktraceConfiguration = {
-    // ignoring all but breadcrumbs config for simplicity
+    url: SUBMISSION_URL,
     breadcrumbs: {
         // breadcrumbs configuration
     },
@@ -258,13 +269,19 @@ Options are listed in [Breadcrumbs options](#breadcrumbs-options).
 
 | Type    | Description                                                              |
 | ------- | ------------------------------------------------------------------------ |
-| Console | Adds a breadcrumb every time console log is being used by the developer. |
+| Console | Adds a breadcrumb for every `console.log`, `console.warn`, `console.error`, `console.debug` and `console.trace` call. `console.info` and other methods are not recorded. |
+| HTTP    | Adds a breadcrumb for every `fetch` and `XMLHttpRequest` request, with the method, the full URL and the status. |
+| Application state | Adds a breadcrumb when the application becomes active or moves to the background, when it becomes inactive on iOS, and on blur and focus on Android. |
+| Memory warning | Adds a warning breadcrumb when iOS reports low memory. Not available on Android. |
+| Dimension change | Adds a breadcrumb when the window or screen size changes.                |
+| Report  | Adds a breadcrumb with the message of each report passed to `send`, including reports that `skipReport` drops. |
 
 #### Intercepting Breadcrumbs
 
 If PII or other information needs to be filtered from a breadcrumb, you can use the intercept function to skip or filter
 out the sensitive information. Any `RawBreadcrumb` returned will be used for the breadcrumb. If undefined is returned, no
-breadcrumb will be added.
+breadcrumb will be added. HTTP breadcrumbs record the full request URL, query string included, and the SDK's own
+submission requests carry the submission token in the URL.
 
 #### Manual Breadcrumbs
 
@@ -309,7 +326,8 @@ The SDK can detect Application Not Responding (ANR) errors on Android, where the
 than a set time (default 5 seconds), and reports them as `Hang` errors. Two detection methods are available:
 
 - `BacktraceAnrType.Threshold` watches the main thread from a background thread and reports while the application is
-  still hung. It works on all supported Android versions.
+  still hung. It works on all supported Android versions. The check runs once per `timeout` period, and a hang
+  shorter than two periods can go unreported.
 - `BacktraceAnrType.ApplicationExit` reads the ANRs Android recorded for earlier runs of the application (Android 11,
   API 30, and above) and reports them on the next start. The thread dump Android captured is attached as
   `anr-stacktrace.txt`. Each ANR is reported once.
@@ -341,14 +359,15 @@ With the offline database enabled, the SDK:
 - Lets you decide whether and when to send reports.
 
 Offline database support is disabled by default. To enable it, set `enable: true` and the path to the directory where
-Backtrace can store crash data.
+Backtrace can store crash data. Set `createDatabaseDirectory: true` to let the SDK create the directory.
 
 ```ts
 const client = BacktraceClient.initialize({
-    // ignoring all but database config for simplicity
+    url: SUBMISSION_URL,
     database: {
         enable: true,
         path: `${BacktraceClient.applicationDataPath}/path/to/dir`,
+        createDatabaseDirectory: true,
         captureNativeCrashes: true,
     },
 });
@@ -371,6 +390,10 @@ JavaScript reports in a few ways:
 - `beforeSend` and `skipReport` apply to JavaScript reports only.
 - Android native crashes are sent at crash time by a separate crash-handler process. Unhandled Java exceptions are
   sent before the process exits or on the next launch. iOS native crashes are sent on the next launch.
+- Only file attachments (`BacktraceFileAttachment`) are included. See [File Attachments](#file-attachments).
+- On iOS, the SDK also sends an `OOMException` report on the next launch when the previous session ended in the
+  foreground without a crash. Debugger sessions and OS or application updates are excluded. A forced kill in the
+  foreground is reported the same way.
 
 Native crash reports need debug symbols to be readable. See
 [Symbolicate native crashes](#symbolicate-native-crashes).
@@ -381,10 +404,11 @@ The `BacktraceDatabase` instance, available as `client.database`, sends or disca
 when `autoSend` is disabled.
 
 ```ts
-// send the stored reports, keep the ones that fail
-client.database.send();
+// database is undefined when the offline database is disabled
+// send the stored reports, stop at the first failure and keep every report not sent
+client.database?.send();
 // send the stored reports, then remove all of them whether or not the send succeeded
-client.database.flush();
+client.database?.flush();
 ```
 
 ## Symbolication
@@ -409,7 +433,7 @@ To set up source map support:
    other Backtrace JavaScript SDKs and is described in the
    [Source Map feature documentation](/error-reporting/platform-integrations/source-map/#step-3-create-a-backtracejsrc-configuration-file).
 
-2. Install the upload tooling:
+2. Install the upload tooling (the Metro serializer in the next step imports `@backtrace/sourcemap-tools`):
 
 ```
 $ npm install --save-dev @backtrace/javascript-cli @backtrace/sourcemap-tools
@@ -434,49 +458,56 @@ module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 
 **On Android:**
 
-Enable source map generation in `app/build.gradle` by uncommenting the hermes source map flags. To upload the generated
-source maps to Backtrace, import the gradle task available in the `@backtrace/react-native` library:
+Hermes writes a source map for every release build unless a `hermesFlags` override drops `-output-source-map`. To
+upload it, add the Backtrace task at the end of `android/app/build.gradle`:
 
 ```gradle
 apply from: "$rootDir/../node_modules/@backtrace/react-native/android/upload-sourcemaps.gradle"
 ```
 
-After you import the gradle task, add it to your build and assemble tasks:
+Then run it after each release build:
 
 ```gradle
 tasks.matching {
-    it.name.startsWith("assemble") || it.name.startsWith("build")
+    it.name == "assembleRelease" || it.name == "bundleRelease"
 }.configureEach { task ->
-     task.finalizedBy("uploadSourceMapsToBacktrace")
+    task.finalizedBy("uploadSourceMapsToBacktrace")
 }
 ```
 
 **On iOS:**
 
-In Xcode, select the app target, open `Build Phases`, expand `Bundle React Native code and images`, and replace the
-script with the version below. The `WITH_ENVIRONMENT`, `REACT_NATIVE_XCODE` and first `/bin/sh` lines are the phase's
-existing content. `SOURCEMAP_FILE` has to be exported before that first `/bin/sh` line, or React Native does not write
-a source map.
+In Xcode, select the app target, open `Build Phases` and expand `Bundle React Native code and images`. Add the lines
+marked below around the phase's existing script. React Native writes a source map only when `SOURCEMAP_FILE` is
+exported before its bundling line. (The existing lines are from the React Native 0.83 template and may differ in
+your project.)
 
 ```bash
 set -e
+# added for Backtrace
 project_directory="$(pwd)/.."
 export SOURCEMAP_FILE="$project_directory/main.jsbundle.map"
 
+# existing lines of the phase, unchanged
 WITH_ENVIRONMENT="$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh"
 REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
 
-/bin/sh -c "$WITH_ENVIRONMENT $REACT_NATIVE_XCODE"
+/bin/sh -c "\"$WITH_ENVIRONMENT\" \"$REACT_NATIVE_XCODE\""
+# end of the existing lines
 
+# added for Backtrace
 source_map_upload="$project_directory/node_modules/@backtrace/react-native/scripts/ios-sourcemap-upload.sh"
 backtrace_js_config="$project_directory/.backtracejsrc"
 
-/bin/sh -c "$source_map_upload $SOURCEMAP_FILE $TARGET_BUILD_DIR/.backtrace-sourcemap-id $backtrace_js_config $project_directory"
+/bin/bash "$source_map_upload" "$SOURCEMAP_FILE" "$CONFIGURATION_BUILD_DIR/.backtrace-sourcemap-id" "$backtrace_js_config" "$project_directory"
 ```
 
-The upload script skips Debug builds, which carry no debug id, so the phase is safe to keep for development builds. On
-a Release build it reports a missing source map, debug id or configuration file as an Xcode warning instead of failing
-the build.
+The Backtrace serializer writes the debug id file to `$CONFIGURATION_BUILD_DIR`. Under Product > Archive that folder
+differs from `$TARGET_BUILD_DIR`, and an archive built with `$TARGET_BUILD_DIR` uploads no source map.
+
+The upload script skips Debug builds, which carry no debug id. On a Release build it reports a missing source map,
+debug id or configuration file as an Xcode warning instead of failing the build. When the upload itself fails (for
+example without network access), the build fails.
 
 Reports from a build that carries a debug id can be symbolicated after the fact: upload that build's source map and
 [reprocess the affected errors](/error-reporting/project-setup/object-reprocessing/). Reports from a build made without
@@ -484,9 +515,10 @@ the serializer carry no debug id and cannot be matched to a source map.
 
 #### Advanced Use Cases
 
-Backtrace generates `.backtrace-sourcemap-id` in the application build directory. The file contains the debug id
-attached to each source file. The debug id file path can be modified by setting the `DEBUG_ID_PATH` environment
-variable to the path to the file. For example:
+The Backtrace serializer writes `.backtrace-sourcemap-id` next to the source map Metro writes during bundling
+(`$CONFIGURATION_BUILD_DIR` on iOS, `android/app/build/intermediates/sourcemaps/react/<variant>` on Android). The
+file contains the debug id written into the bundle and its source map. The debug id file path can be modified by
+setting the `DEBUG_ID_PATH` environment variable to the path to the file. For example:
 
 ```
 DEBUG_ID_PATH=/path/to/backtrace/debug/id/backtrace-javascript/.debug_id
@@ -508,7 +540,7 @@ added to your app.
    dependency, or the shrinker rules produces a different mapping file and needs its own id.
 
 2. Enable ProGuard symbolication and pass the id. The SDK sends it as the `symbolication_id` attribute on every
-   report.
+   Android report.
 
 ```ts
 const options: BacktraceConfiguration = {
@@ -529,6 +561,8 @@ curl --data-binary @android/app/build/outputs/mapping/release/mapping.txt -X POS
 
 Add the upload to the release automation that already uploads source maps.
 
+Options are listed in [ProGuard options](#proguard-options).
+
 ### Symbolicate Native Crashes
 
 With [native crash support](#native-crash-support) enabled, the SDK also reports crashes from the native layer. Native
@@ -536,7 +570,9 @@ reports contain instruction addresses that need matching debug symbols, not sour
 stacks.
 
 - iOS: generate dSYM files for your release builds and upload them to your project. See
-  [Upload Debug Symbols](/error-reporting/platform-integrations/ios/setup/#upload-debug-symbols).
+  [Upload Debug Symbols](/error-reporting/platform-integrations/ios/setup/#upload-debug-symbols). React Native ships
+  Hermes, `React.framework` and `ReactNativeDependencies.framework` as prebuilt binaries without dSYMs. The matching
+  dSYM archives are on Maven Central. Upload them with your app's dSYMs.
 - Android: upload the native symbols for your application's shared libraries. See
   [Upload Symbols to Your Project](/error-reporting/symbols/upload-symbols-to-project/).
 
@@ -577,7 +613,7 @@ application has at the time of the exception. Return `undefined` to skip the rep
 const client = BacktraceClient.initialize({
     url: SUBMISSION_URL,
     beforeSend: (data: BacktraceData) => {
-        // skip the report by returning a null from the callback
+        // skip the report by returning undefined from the callback
         if (!shouldSendReportToBacktrace(data)) {
             return undefined;
         }
@@ -588,9 +624,27 @@ const client = BacktraceClient.initialize({
 });
 ```
 
-### Automatically Upload Source Maps
+### Error Boundary
 
-This section moved to [Upload source maps](#upload-source-maps) under Symbolication.
+`ErrorBoundary` reports errors thrown while React renders components. Initialize `BacktraceClient` before the
+boundary renders, then wrap your component tree:
+
+```tsx
+import { ErrorBoundary } from '@backtrace/react-native';
+import { Text } from 'react-native';
+
+export default function App() {
+    return (
+        <ErrorBoundary name="app" fallback={<Text>Something went wrong.</Text>}>
+            <MainScreen />
+        </ErrorBoundary>
+    );
+}
+```
+
+The report includes the React component stack as a separate `component-stack` thread and sets the
+`errorboundary.name` attribute (default `main`). `fallback` is an element, or a function that takes the error and
+returns an element. Without a valid fallback, the boundary renders nothing after an error.
 
 ### SDK Method Overrides
 
@@ -601,12 +655,17 @@ example, can be used to implement custom encryption for data at rest or in motio
 > the correct method to modify a report before sending it to Backtrace.
 
 ```ts
+import type { BacktraceAttributeProvider, BacktraceRequestHandler } from '@backtrace/sdk-core';
+
 const client = BacktraceClient.builder(options)
     .useRequestHandler(requestHandler)
     .useBreadcrumbSubscriber(breadcrumbSubscriber)
     .addAttributeProvider(attributeProvider)
     .build();
 ```
+
+The types come from `@backtrace/sdk-core`, a dependency of `@backtrace/react-native` (with pnpm, add it to your app's
+dependencies).
 
 ## Configuration Reference
 
@@ -617,19 +676,18 @@ Pass these options to `BacktraceClient.initialize`. Only `url` is required.
 | Option Name                         | Type                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                       | Default |
 | ----------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | `url`                               | String                                              | Required. Submission URL to send errors to.                                                                                                                                                                                                                                                                                                                                                                       |         |
-| `token`                             | String                                              | Submission token for error ingestion. Needed only when submitting directly to a Backtrace URL (uncommon).                                                                                                                                                                                                                                                                                                         |         |
-| `userAttributes`                    | Dictionary                                          | Additional attributes that can be filtered and aggregated against in the Backtrace UI.                                                                                                                                                                                                                                                                                                                            |         |
+| `token`                             | String                                              | Submission token for error ingestion. Needed only when submitting directly to a Backtrace URL (uncommon). Native crash and iOS `OOMException` reports ignore it. For those, include the token in `url`.                                                                                                                                                                                                           |         |
+| `userAttributes`                    | `Record<string, unknown> \| (() => Record<string, unknown>)` | Additional attributes that can be filtered and aggregated against in the Backtrace UI. A function is evaluated for every report.                                                                                                                                                                                                                                                                                  |         |
 | `attachments`                       | BacktraceAttachment[]                               | Additional files to be sent with error reports. See [File Attachments](#file-attachments)                                                                                                                                                                                                                                                                                                                         |         |
-| `beforeSend`                        | (data: BacktraceData) => BacktraceData \| undefined | Triggers an event every time an exception in the managed environment occurs, which allows you to skip the report (by returning a null value) or to modify data that library collected before sending the report. You can use the BeforeSend event to extend attributes or JSON object data based on data the application has at the time of exception. See [Modify/skip error reports](#modifyskip-error-reports) |         |
-| `skipReport`                        | (report: BacktraceReport) => boolean                | If you want to ignore specific types of error reports, we recommend that you use the skipReport callback. By using it, based on the data generated in the report, you can decide to filter the report, or send it to Backtrace.                                                                                                                                                                                   |         |
+| `beforeSend`                        | (data: BacktraceData) => BacktraceData \| undefined | Runs before each JavaScript report is sent. Modify the report data, or return `undefined` to skip it. See [Modify/skip error reports](#modifyskip-error-reports)                                                                                                                                                                                                                                                  |         |
+| `skipReport`                        | (report: BacktraceReport) => boolean                | Runs for each JavaScript report. Return `true` to drop it.                                                                                                                                                                                                                                                                                                                                                        |         |
 | `captureUnhandledErrors`            | Boolean                                             | Capture uncaught errors                                                                                                                                                                                                                                                                                                                                                                                           | `true`  |
 | `captureUnhandledPromiseRejections` | Boolean                                             | Capture unhandled promise rejections                                                                                                                                                                                                                                                                                                                                                                              | `true`  |
-| `timeout`                           | Integer                                             | How long to wait in ms before timing out the connection                                                                                                                                                                                                                                                                                                                                                           | `15000` |
-| `ignoreSslCertificate`              | Boolean                                             | Ignore SSL Certificate errors                                                                                                                                                                                                                                                                                                                                                                                     | `false` |
-| `rateLimit`                         | Integer                                             | Limits the number of reports the client will send per minute. If set to '0', there is no limit. If set to a value greater than '0' and the value is reached, the client will not send any reports until the next minute.                                                                                                                                                                                          | `0`     |
+| `timeout`                           | Integer                                             | Time in ms before a JavaScript report or metrics request times out. Native crash uploads do not use it.                                                                                                                                                                                                                                                                                                           | `15000` |
+| `rateLimit`                         | Integer                                             | Limits the number of reports the client sends in any 60-second window. If set to '0', there is no limit. Reports over the limit are dropped, not queued or stored.                                                                                                                                                                                                                                                | `0`     |
 | `metrics`                           | BacktraceMetricsOptions                             | See [Backtrace Stability Metrics](#application-stability-metrics)                                                                                                                                                                                                                                                                                                                                                 |         |
 | `breadcrumbs`                       | BacktraceBreadcrumbsSettings                        | See [Backtrace Breadcrumbs](#breadcrumbs)                                                                                                                                                                                                                                                                                                                                                                         |         |
-| `database`                          | BacktraceDatabaseSettings                           | See [Backtrace Database](#offline-database-support)                                                                                                                                                                                                                                                                                                                                                               |         |
+| `database`                          | BacktraceDatabaseConfiguration                      | See [Backtrace Database](#offline-database-support)                                                                                                                                                                                                                                                                                                                                                               |         |
 | `anr`                               | BacktraceAnrConfiguration                           | See [ANR Detection](#anr-detection)                                                                                                                                                                                                                                                                                                                                                                               |         |
 | `proguard`                          | BacktraceProguardConfiguration                      | See [Deobfuscate ProGuard and R8 builds](#deobfuscate-proguard-and-r8-builds)                                                                                                                                                                                                                                                                                                                                     |         |
 
@@ -637,39 +695,51 @@ Pass these options to `BacktraceClient.initialize`. Only `url` is required.
 
 | Option Name          | Type                                                       | Description                                                                                                                                                   | Default         |
 | -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `enable`             | Boolean                                                    | Determines if the breadcrumbs support is enabled. By default the value is set to true.                                                                        | `true`          |
-| `logLevel`           | BreadcrumbLogLevel                                         | Specifies which log level severity to include. By default all logs are included.                                                                              | All Logs        |
-| `eventType`          | BreadcrumbType                                             | Specifies which breadcrumb type to include. By default all types are included.                                                                                | All Types       |
-| `maximumBreadcrumbs` | Number                                                     | Specifies maximum number of breadcrumbs stored by the library. By default, only 100 breadcrumbs will be stored.                                               | `100`           |
-| `intercept`          | (breadcrumb: RawBreadcrumb) => RawBreadcrumb \| undefined; | Inspects breadcrumb and allows to modify it. If the undefined value is being returned from the method, no breadcrumb will be added to the breadcrumb storage. | All Breadcrumbs |
+| `enable`             | Boolean                                                    | Enables breadcrumb collection.                                                                                                                                | `true`          |
+| `logLevel`           | BreadcrumbLogLevel                                         | Bitmask of the log levels to include. Combine `BreadcrumbLogLevel` values with `\|`. A single value selects only that level.                                  | All Logs        |
+| `eventType`          | BreadcrumbType                                             | Bitmask of the breadcrumb types to include. Combine `BreadcrumbType` values with `\|`.                                                                        | All Types       |
+| `maximumBreadcrumbs` | Number                                                     | Maximum number of breadcrumbs stored. With the offline database enabled, between half this many and this many are kept.                                       | `100`           |
+| `maximumAttributesDepth` | Number \| false                                            | Maximum depth of nested objects in breadcrumb attributes. `false` removes the limit.                                                                          | `2`             |
+| `maximumBreadcrumbMessageLength` | Number \| false                                            | Maximum length of a breadcrumb message. `false` removes the limit.                                                                                            | `255`           |
+| `maximumBreadcrumbSize` | Number \| false                                            | Maximum size of a single breadcrumb in bytes. Larger breadcrumbs are dropped. `false` removes the limit.                                                      | `65536`         |
+| `maximumTotalBreadcrumbsSize` | Number \| false                                            | Maximum total size of stored breadcrumbs in bytes. With the offline database enabled, between half this size and this size is kept. `false` removes the limit. | `1048576`       |
+| `intercept`          | (breadcrumb: RawBreadcrumb) => RawBreadcrumb \| undefined  | Inspects and can modify each breadcrumb before it is stored. Return `undefined` to drop it.                                                                   |                 |
 
 ### Metrics Options
 
 | Option Name            | Type    | Description                                                                                                                                                                                                                                                                                                             | Default                       |
 | ---------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `metricsSubmissionUrl` | String  | Metrics server hostname. By default the value is set to https://events.backtrace.io.                                                                                                                                                                                                                                    | `https://events.backtrace.io` |
-| `enable`               | Boolean | Determines if the metrics support is enabled. By default the value is set to true.                                                                                                                                                                                                                                      | `true`                        |
-| `autoSendInterval`     | Number  | Indicates how often crash free metrics are sent to Backtrace. The interval is a value in ms. By default, session events are sent on application startup/finish, and every 30 minutes while the application is running. If set to 0, auto send is disabled and the application must call `client.metrics.send()` itself. | On application startup/finish |
-| `size`                 | Number  | Indicates how many events the metrics storage can store before auto submission.                                                                                                                                                                                                                                         | `50`                          |
+| `metricsSubmissionUrl` | String  | Metrics server hostname.                                                                                                                                                                                                                                                                                                | `https://events.backtrace.io` |
+| `enable`               | Boolean | Enables stability metrics.                                                                                                                                                                                                                                                                                              | `true`                        |
+| `autoSendInterval`     | Number  | Interval in ms between metrics submissions. Session events are sent at startup and then on this interval. Nothing is sent at exit. With `0`, events go out only from `client.metrics.send()` or when a queue reaches `size`.                                                                                            | `1800000`                     |
+| `size`                 | Number  | Maximum events stored before automatic submission.                                                                                                                                                                                                                                                                      | `50`                          |
 
 ### ANR Options
 
 | Option Name                   | Type               | Description                                                                                                         | Default     |
 | ----------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `enable`                      | Boolean            | Determines if ANR detection is enabled.                                                                             | `false`     |
+| `enable`                      | Boolean            | Enables ANR detection. Android only.                                                                                | `false`     |
 | `type`                        | `BacktraceAnrType` | Detection mechanism: `Threshold` or `ApplicationExit`.                                                              | `Threshold` |
-| `timeout`                     | Number             | Time in milliseconds the main thread stays blocked before an ANR is reported. Applies to the `Threshold` type only. | `5000`      |
-| `disableWhenDebuggerAttached` | Boolean            | When true, detection is disabled while a debugger is attached. Applies to the `Threshold` type only.                | `false`     |
+| `timeout`                     | Number             | Length in milliseconds of one main-thread check period. Applies to the `Threshold` type only.                       | `5000`      |
+| `disableWhenDebuggerAttached` | Boolean            | When true and a debugger is attached at initialization, detection stays off for that session. Applies to the `Threshold` type only. | `false`     |
+
+### ProGuard Options
+
+| Option Name       | Type    | Description                                                                                                                               | Default |
+| ----------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `enable`          | Boolean | Marks unhandled Java exception and ANR reports for ProGuard and R8 deobfuscation. Android only.                                           | `false` |
+| `symbolicationId` | String  | Id of the mapping file uploaded for this build. Sent as the `symbolication_id` attribute on every Android report when `enable` is `true`. |         |
 
 ### Database Options
 
 | Option Name               | Type    | Description                                                                                                                                                                  | Default |
 | ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `enable`                  | Boolean | Enable/disable offline database support.                                                                                                                                     | false   |
-| `path`                    | String  | Required when the database is enabled. Local storage path for crash data.                                                                                                    | -       |
-| `createDatabaseDirectory` | Boolean | Allow the SDK to create the offline database directory.                                                                                                                      | true    |
-| `autoSend`                | Boolean | Sends reports to the server based on the retry settings. If the value is set to 'false', you can use the Flush or Send methods as an alternative.                            | true    |
-| `maximumNumberOfRecords`  | Number  | The maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set. | 8       |
-| `retryInterval`           | Number  | The amount of time (in ms) to wait between retries if the database is unable to send a report.                                                                               | 60 000  |
-| `maximumRetries`          | Number  | The maximum number of retries to attempt if the database is unable to send a report.                                                                                         | 3       |
-| `captureNativeCrashes`    | Boolean | Capture and symbolicate stack traces for native crashes if the runtime supports this. A crash report is generated, stored locally, and uploaded upon next start.             | false   |
+| `enable`                  | Boolean | Enable/disable offline database support.                                                                                                                                     | `false` |
+| `path`                    | String  | Required when the database is enabled. Local storage path for crash data.                                                                                                    |         |
+| `createDatabaseDirectory` | Boolean | Create the `path` directory when it does not exist. With `false`, the directory has to exist before `BacktraceClient.initialize` is called.                                  | `false` |
+| `autoSend`                | Boolean | Sends stored reports at startup and then every `retryInterval`. With `false`, stored reports wait for `client.database?.send()` or `client.database?.flush()`. New reports are still sent when they are created. | `true`  |
+| `maximumNumberOfRecords`  | Number  | The maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. With `0`, stored reports from earlier sessions are deleted at startup. | `8`     |
+| `retryInterval`           | Number  | Time in ms between retries when sending stored reports fails.                                                                                                                | `60000` |
+| `maximumRetries`          | Number  | Send attempts per session. An attempt stops at the first report that fails. Reports that still fail are retried on the next launch.                                          | `3`     |
+| `maximumOldSessions`      | Number  | The number of previous sessions whose files, such as breadcrumbs, are kept on disk.                                                                                          | `1`     |
+| `captureNativeCrashes`    | Boolean | Capture crashes in the native layer. Requires `enable: true`. Android sends the report at crash time. iOS sends it on the next launch. See [Native Crash Support](#native-crash-support). | `false` |
