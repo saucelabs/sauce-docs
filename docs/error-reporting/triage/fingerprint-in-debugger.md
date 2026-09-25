@@ -2,41 +2,42 @@
 id: fingerprint-in-debugger
 title: View Fingerprint in Debugger
 sidebar_label: View Fingerprint in Debugger
+description: Open a fingerprint's latest trace in the Debugger to review its error message, threads, callstack, and registers.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-When an error requires further investigation, you can open its **fingerprint in the Debugger** to examine the latest trace and callstack. This helps you identify where the error occurred and gather the details needed to troubleshoot its root cause.
+Open a fingerprint in the **Debugger** to examine its latest trace and callstack. The Debugger helps you find where an error occurred and gather the details you need to fix it.
+
+The Triage dashboard tells you which errors occur and how often. The Debugger shows what was happening in the application when an error occurred: the error message, the threads that were running, the sequence of function calls that led to the error, and the register values at that moment. Use it when you're ready to dig into the code-level cause of a fingerprint.
 
 ## Open a Fingerprint in the Debugger
 
-**Step 1:** From the **Triage** view, locate the fingerprint you want to investigate. The fingerprint represents a group of errors with a common root cause.
+**Step 1:** In the **Triage** view, find the fingerprint you want to investigate.
 
-<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-1.png')} alt="View Fingerprint in Debugger" />
+<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-1.png')} alt="Fingerprint in the Triage view" />
 
-**Step 2:** Click the **Debugger** icon to open the fingerprint in the Debugger. When you hover over the icon, the **View in Debugger** tooltip appears.
+**Step 2:** Click the **Debugger** icon for the fingerprint. The **View in Debugger** tooltip appears when you hover over the icon.
 
-<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-2.png')} alt="View Fingerprint in Debugger" />
+<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-2.png')} alt="Debugger icon with the View in Debugger tooltip" />
 
-**Step 3:** The Debugger opens the selected fingerprint. Review the fingerprint details in the Debugger, including the **error message, threads, callstack, and registers**. Use the **callstack** to trace the execution path and identify where the error occurred.
+**Step 3:** The fingerprint's latest trace opens in the Debugger.
 
-<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-3.png')} alt="View Fingerprint in Debugger" />
+<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-3.png')} alt="Fingerprint open in the Debugger" />
 
-### Review the Debugger
+## Review the Debugger
 
-The Debugger provides several views that help you investigate the selected fingerprint. Review the **error message, threads, callstack, and registers** to understand the error and its execution context.
+The Debugger shows the following information about the error:
 
 | Debugger Feature | Description |
 | ----- | ----- |
-| **Error Message** | Displays the error associated with the selected fingerprint. |
-| **Threads** | Shows the threads involved in the error and their execution context. |
-| **Callstack** | Shows the sequence of function calls leading to the error, helping you identify where it occurred. |
-| **Registers** | Displays register values captured when the error occurred for additional debugging context. |
+| **Error Message** | The error associated with the fingerprint. |
+| **Threads** | The threads involved in the error and their execution context. |
+| **Callstack** | The sequence of function calls that led to the error. Use it to trace the execution path and find where the error occurred. |
+| **Registers** | The register values captured when the error occurred. |
 
-### Copy the Callstack
+## Copy the Callstack
 
-If you need to share or further investigate the error, **hover over the Callstack** to display its details in a pop-up, then select **Copy callstack** to copy the callstack details. The copied callstack includes additional information, such as frame and line numbers, that can help with deeper debugging.
+To share the callstack, hover over the **Callstack** and select **Copy callstack** from the pop-up. The copied callstack includes extra details, such as frame and line numbers. For more information, see **[Inspect and Copy the Callstack](/docs/error-reporting/triage/other-action.md#inspect-and-copy-the-callstack)**.
 
-<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-4.png')} alt="View Fingerprint in Debugger" />
+<img src={useBaseUrl('img/error-reporting/triage/fingerprint-debugger/fingerprint-debugger-4.png')} alt="Copy callstack option in the callstack pop-up" />
