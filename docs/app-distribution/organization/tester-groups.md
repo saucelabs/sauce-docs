@@ -14,15 +14,15 @@ All team members, including **Members**, **Team Admins**, **Org Admins**, and **
 
 ## Creating a Group
 
-**Step 1:** Select **Testers** from the sidebar. The **Invite Testers** page opens with the **Testers** and **Groups** tabs.
+**Step 1:** Select **Testers** from the sidebar. The **Testers** page opens, with the **Testers** and **Groups** tabs.
 
 <img src={useBaseUrl('/img/app-distribution/tester-groups/tester-1.png')} alt="Tester Groups" width="100%"/>
 
-**Step 2:** Select the **Groups** tab. The **Groups** page displays the tester groups available in your organization.
+**Step 2:** Select the **Groups** tab. The **Groups** page displays the groups in your teams (admins see all groups).
 
 <img src={useBaseUrl('/img/app-distribution/tester-groups/tester-2.png')} alt="Tester Groups" width="100%"/>
 
-**Step 3:** Select **New Group** in the top-right corner. A list of teams available to you appears.
+**Step 3:** Select **New Group** in the top-right corner. If you belong to more than one team, a list of your teams appears. If you belong to one team, the **New Tester Group** form opens directly.
 
 <img src={useBaseUrl('/img/app-distribution/tester-groups/tester-3.png')} alt="Tester Groups" width="100%"/>
 
@@ -47,9 +47,13 @@ After creating a group, you can add existing testers or invite new testers.
 
 ### Invite a New Tester
 
-If the person is not already an existing tester, you can invite them to your organization by entering their email addresses. You can also add them to tester groups during the invitation process..
+If the person is not already an existing tester, you can invite them to your organization by entering their email addresses. You can also add them to tester groups during the invitation process.
 
-**Step 1:** Select **Invite** in the top-right corner, and then select **Invite Testers**. The **Email Invite** page opens.
+**Step 1:** Select **Invite** in the top-right corner, and then select **Invite Tester**. The **Invite Testers** page opens.
+
+:::note
+Members who don't see the **Invite** menu can use the **Invite Testers** button on the **Testers** page.
+:::
 
 <img src={useBaseUrl('/img/app-distribution/tester-groups/tester-7.png')} alt="Tester Groups" width="100%"/>
 
@@ -70,6 +74,10 @@ You can invite multiple testers at once by entering multiple email addresses sep
 **Step 5:** Select **Send Invitations**. The invitations are sent to the specified email addresses.
 
 <img src={useBaseUrl('/img/app-distribution/tester-groups/tester-11.png')} alt="Tester Groups" width="100%"/>
+
+### Invite Testers from a CSV File
+
+On the **Invite Testers** page, open the **CSV Import** tab, upload a `.csv` file with an `email` column, then click **Import & Invite**.
 
 ## Team Isolation
 
@@ -114,6 +122,8 @@ You can bulk-manage testers using CSV files from the group detail page:
 - Existing users already in the group will be skipped.
 - If a user exists but doesn't have a name set, the name from the CSV will be used.
 
+The file must have a `.csv` extension. Testers added by CSV import don't receive the in-app "added to group" notification.
+
 **Example CSV:**
 
 ```csv
@@ -124,6 +134,6 @@ john@example.com,John,Smith
 
 ## Notifications
 
-Use the **Send Notification** button (envelope icon) on the app page to email all testers in a group with the install link for the app.
+On the app page, open **Testers** ▸ **Groups**, click **⋯** on the group's row, and select **Send Notification** to email all testers in the group with the install link for the app.
 
 Testers who have opted out of email notifications will not receive these emails. Each user can manage their preference from **My Profile** or via the unsubscribe link in notification emails. See [Notifications](/app-distribution/organization/notifications) for details.

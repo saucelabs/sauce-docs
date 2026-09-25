@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Webhooks let you receive real-time HTTP notifications when events happen in your organization - like a new build being uploaded, a build being downloaded, or a new iOS device being registered.
 
 :::info
-Only Account Owners and Org Admins can manage webhooks. Find them under **Webhooks** in the sidebar's Developer section.
+Only Account Owners and Org Admins can manage webhooks. Go to **Profile** menu → **Integrations** → **Webhooks**.
 :::
 
 ## Supported Events
@@ -18,7 +18,7 @@ Only Account Owners and Org Admins can manage webhooks. Find them under **Webhoo
 | --- | --- |
 | `upload` | A new build is uploaded to an app. |
 | `download` | A build is downloaded by a tester or team member. |
-| `new-udid` | A new iOS device is registered via the device enrollment profile. |
+| `new-udid` | A device UDID was registered, either through the enrollment profile or added by an admin. This event ignores the **Apps** filter. |
 
 ## Creating a Webhook
 
@@ -26,7 +26,7 @@ Only Account Owners and Org Admins can manage webhooks. Find them under **Webhoo
 
 <img src={useBaseUrl('/img/app-distribution/webhooks/webhook-1.png')} alt="Webhooks" width="100%"/>
 
-**Step 2:** On the **Integrations** page, find **Webhooks** under **Notifications** and click the **connected status/check mark** to open the Webhooks page.
+**Step 2:** On the **Integrations** page, click **Webhooks** (or **Connect**, if you don't have any webhooks yet).
 
 <img src={useBaseUrl('/img/app-distribution/webhooks/webhook-2.png')} alt="Webhooks" width="100%"/>
 
@@ -49,6 +49,18 @@ Only Account Owners and Org Admins can manage webhooks. Find them under **Webhoo
 
 Use the **Test** button next to the URL field to send a sample payload to your endpoint. This lets you verify connectivity before saving.
 
+The test payload looks like this:
+
+```json
+{
+  "event": "test",
+  "message": "This is a test webhook from Mobile App Distribution",
+  "appName": "My App",
+  "version": "1.2.3",
+  "build": "42"
+}
+```
+
 <img src={useBaseUrl('/img/app-distribution/webhooks/webhook-5.png')} alt="Webhooks" width="100%"/>
 
 ## Payload Format
@@ -67,10 +79,10 @@ Webhooks are sent as `POST` requests with a JSON body. The payload includes even
   "platform": "ios",
   "buildId": 123,
   "filesize": 15728640,
-  "buildUrl": "https://your-instance.testfairy.com/projects/61545",
-  "landingPageUrl": "https://your-instance.testfairy.com/install/8f3c2a1b9d4e3b2c",
-  "landingPageBuildUrl": "https://your-instance.testfairy.com/install/9d4e3b2c8f3c2a1b",
-  "appUrl": "https://your-instance.testfairy.com/install/9d4e3b2c8f3c2a1b/download",
+  "buildUrl": "https://your-org.testfairy.com/projects/61545",
+  "landingPageUrl": "https://your-org.testfairy.com/install/8f3c2a1b9d4e3b2c",
+  "landingPageBuildUrl": "https://your-org.testfairy.com/install/9d4e3b2c8f3c2a1b",
+  "appUrl": "https://your-org.testfairy.com/install/9d4e3b2c8f3c2a1b/download",
   "changeLog": "Fixed login crash on startup."
 }
 ```
@@ -91,6 +103,8 @@ Webhooks are sent as `POST` requests with a JSON body. The payload includes even
 }
 ```
 
+`testerEmail` is `null` for anonymous downloads.
+
 ### `new-udid` event
 
 ```json
@@ -98,11 +112,13 @@ Webhooks are sent as `POST` requests with a JSON body. The payload includes even
   "event": "new-udid",
   "timestamp": "2026-03-26 14:30:00",
   "udid": "00008030-00123456789ABCDE",
-  "device": "iPhone 15 Pro",
+  "device": "iPhone16,1",
   "email": "tester@example.com",
   "platform": "ios"
 }
 ```
+
+`device` is the model identifier, for example `iPhone16,1`.
 
 ## Slack & MS Teams
 
@@ -126,7 +142,13 @@ To receive Mobile App Distribution notifications in a Slack channel:
 
 ## App Filtering
 
-By default, a webhook fires for events across all apps in your organization. You can restrict it to specific apps by selecting them during webhook creation or editing.
+By default, a webhook fires for events across all apps in your organization. You can restrict it to specific apps by selecting them during webhook creation or editing. The `new-udid` event ignores this filter and always fires.
+
+## Delivery
+
+Requests are sent once, with no retries and a 10-second timeout. There is no signature header on the request.
+
+Webhooks can also be managed with the REST API at `/api/v3/webhooks`. See the [API Reference](/app-distribution/developer/api-reference).
 
 ## Enabling / Disabling
 

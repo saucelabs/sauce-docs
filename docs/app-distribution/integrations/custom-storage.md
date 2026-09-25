@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Store your organization's build files and app icons in your own cloud storage bucket instead of the platform default. This gives you full control over where your data lives, for compliance, data sovereignty, or integration with your existing infrastructure.
 
 :::info
-Only Account Owners and Org Admins can configure storage settings. Find them under **Settings → Integrations → Storage** in the top bar.
+Only Account Owners and Org Admins can configure storage settings. Go to **Profile** menu → **Integrations** → **Custom Storage (BYOB)**.
 :::
 
 ## How It Works
@@ -83,7 +83,7 @@ Only including `arn:aws:s3:::bucket-name/*` (objects) without `arn:aws:s3:::buck
 |---|---|---|---|
 | **1** | **Provider** | Cloud storage provider | `Amazon S3` |
 | **2** | **Bucket Name** | Your storage bucket name | `my-company-builds` |
-| **3** | **Region** | Bucket region | `us-east-1`, `eu-central-1` |
+| **3** | **Region** | Bucket region. Optional; defaults to `us-east-1`. | `us-east-1`, `eu-central-1` |
 | **4** | **Custom Endpoint** | Only for S3-compatible services. Leave blank for AWS S3. | `https://s3.wasabisys.com` |
 | **5** | **Access Key** | IAM access key ID | `AKIAIOSFODNN7EXAMPLE` |
 | **6** | **Secret Key** | IAM secret access key - encrypted at rest, never displayed after saving | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
@@ -130,10 +130,10 @@ This means **disabling your custom storage does not break existing downloads**. 
 | --- | --- | --- |
 | **Disable** | Go to platform default | Still accessible from your bucket (credentials preserved) |
 | **Re-enable** | Resume uploading to your bucket | No change |
-| **Remove** | Go to platform default | Files on your bucket may become inaccessible (credentials deleted) |
+| **Remove** | Go to platform default | Only possible when no builds still use the bucket |
 
-:::caution
-**Before removing a storage configuration**, ensure all files have been migrated to the platform default or that you no longer need access to the builds stored in that bucket. Removing the configuration deletes the stored credentials permanently.
+:::note
+You can remove the configuration only when no builds use the bucket. Otherwise disable it instead: existing builds keep downloading from the bucket, and new uploads go to the default storage.
 :::
 
 ## File Path Structure
@@ -151,15 +151,15 @@ Only relative paths are stored in the database - never full URLs. This means you
 
 - Secret keys are **encrypted at rest** using libsodium (XSalsa20-Poly1305).
 - Credentials are never stored in plain text, never logged, and never displayed in the UI after saving.
-- Download URLs are **time-limited presigned URLs** (default: 60 minutes) - they expire and cannot be shared permanently.
-- All storage operations are **audited** - configuration changes appear in the organization audit log.
+- Build download URLs are **time-limited presigned URLs** that expire after 60 minutes - they cannot be shared permanently.
+- Saving, disabling, enabling and removing the storage configuration are recorded in the [Audit Log](/app-distribution/organization/audit-log).
 
 ## Troubleshooting
 
 | Error | Cause | Fix |
 | --- | --- | --- |
-| `403 Forbidden` | IAM user lacks permissions or bucket ARN is missing from policy | Add both `arn:aws:s3:::bucket` and `arn:aws:s3:::bucket/*` to the IAM policy |
-| `NoSuchBucket` | Bucket name is incorrect or bucket doesn't exist | Verify the bucket name and region |
-| `InvalidAccessKeyId` | Access key doesn't exist or was deactivated | Check the access key in the IAM console |
-| `SignatureDoesNotMatch` | Secret key is incorrect | Re-enter the correct secret key and save |
+| `403 Forbidden` | IAM user lacks permissions, or the bucket ARN is missing from the policy | Check the access key, secret and bucket policy. `s3:ListBucket` on the bucket itself is required. Add both `arn:aws:s3:::bucket` and `arn:aws:s3:::bucket/*` to the IAM policy. |
+| `404 Not Found` | Bucket name or region is incorrect, or the bucket doesn't exist | Check the bucket name and region |
 | `Connection timed out` | Wrong region, wrong endpoint, or network restriction | Verify the region matches the bucket's actual region. Check VPC/firewall rules. |
+
+The connection test uses `HeadBucket`, which returns no error body, so failures surface as generic `403` or `404` responses.

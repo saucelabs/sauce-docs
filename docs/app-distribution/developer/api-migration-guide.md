@@ -6,17 +6,12 @@ sidebar_label: API Migration Guide
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::caution
-The legacy `/api/1/*` and `/api/2/*` endpoints are deprecated. Every response from a legacy route now includes `Deprecation: true` and a `Sunset` date header (per RFC 9745 and RFC 8594). Migrate your integrations before that date — see [API v3](/app-distribution/developer/api-reference) for the supported surface.
-:::
-
 ## What changed
 
 - **Single versioned prefix.** Everything now lives under `/api/v3/*`. The split between `/api/1` and `/api/2` is gone.
-- **JSON-everywhere.** All endpoints accept and return JSON. The legacy form-encoded body conventions (with `webhook-name`, `webhook-url` aliases, comma-separated `actions`, etc.) are dropped.
-- **Stricter validation.** Webhook URLs are SSRF-checked. Unknown event types and unknown status values are rejected with `400` instead of being silently coerced.
+- **JSON-everywhere.** All endpoints accept and return JSON, except `POST /api/v3/builds/upload`, which uses `multipart/form-data`. The legacy form-encoded body conventions (with `webhook-name`, `webhook-url` aliases, comma-separated `actions`, etc.) are dropped.
+- **Stricter validation.** Webhook URLs are SSRF-checked.
 - **Sites became Teams.** The Sites collection in v1 is the Teams collection in v3.
-- **SDK endpoints removed.** `/api/1/feedbacks` and `/api/1/cpanel/permissions` are gone — those features never made the cut into Mobile App Distribution.
 
 ## Endpoint map
 
@@ -31,7 +26,10 @@ The legacy `/api/1/*` and `/api/2/*` endpoints are deprecated. Every response fr
 | `POST /api/1/projects/{pid}/builds/{bid}/copy` | `POST /api/v3/builds/{id}/copy` | JSON body, no `folder_name` required |
 | `GET /api/1/projects/{pid}/builds/{bid}/download` | `GET /api/v3/builds/{id}/download` | Returns a JSON `url` instead of a redirect |
 | `POST /api/1/projects/{pid}/builds/{bid}/invites` | `POST /api/v3/builds/{id}/notify-testers` | Renamed to reflect what it actually does |
-| `POST /api/upload` | `POST /api/v3/builds/upload` | — |
+| `POST /api/upload` | `POST /api/v3/builds/upload` | `team_id` required unless `project_id` is given; `folder_name` → `folder`; `app_version` → `version`; `release_notes` only (no `changelog`/`comment` aliases); `groups` only (no `app_permission_groups`); returns `201` with the v3 build object |
+| `GET /api/1/projects/{pid}/builds/{bid}/symbols/download` | `GET /api/v3/builds/{id}/symbols/download` | Path flattened |
+
+Tags change from a comma-separated string (v1) to a JSON array (v3).
 
 ### Projects
 
@@ -54,6 +52,10 @@ The legacy `/api/1/*` and `/api/2/*` endpoints are deprecated. Every response fr
 | `POST /api/1/testers/{id}/block` | `POST /api/v3/testers/{id}/block` | — |
 | `DELETE /api/1/testers/{id}/block` | `DELETE /api/v3/testers/{id}/block` | — |
 
+:::caution
+v3 tester IDs are **membership IDs**, not user IDs. Reusing a v1 tester ID hits the wrong tester or returns `404`. Look testers up with `GET /api/v3/testers?search=<email>` and use the returned `id`; `user_id` is also returned.
+:::
+
 ### Groups
 
 | Legacy | v3 | Notes |
@@ -65,7 +67,7 @@ The legacy `/api/1/*` and `/api/2/*` endpoints are deprecated. Every response fr
 | `GET /api/1/testers/groups` | `GET /api/v3/groups` | Moved out of the testers namespace |
 | `POST /api/1/testers/groups` | `POST /api/v3/groups` | Requires `team_id` |
 | `POST /api/1/testers/groups/{gid}` | `POST /api/v3/groups/{id}/testers` | JSON body with `email` |
-| `DELETE /api/1/testers/groups/{gid}` | `DELETE /api/v3/groups/{id}/testers/{userId}` | Member ID is now in the path |
+| `DELETE /api/1/testers/groups/{gid}` | `DELETE /api/v3/groups/{id}/testers/{userId}` | The user ID (`user_id` from `/api/v3/testers`) is now in the path |
 
 ### Webhooks
 
@@ -81,7 +83,7 @@ The legacy `/api/1/*` and `/api/2/*` endpoints are deprecated. Every response fr
 
 | Legacy | v3 | Notes |
 | --- | --- | --- |
-| `GET /api/1/sites` | `GET /api/v3/teams` | Rename only |
+| `GET /api/1/sites` | `GET /api/v3/teams` | Response shape changes: `{site:{accounts,managers}}` becomes `{teams, pagination}` |
 | `GET /api/1/sites/{id}` | `GET /api/v3/teams/{id}` | — |
 | `POST /api/1/sites` | `POST /api/v3/teams` | — |
 | `DELETE /api/1/sites/{id}` | `DELETE /api/v3/teams/{id}` | — |
@@ -95,10 +97,11 @@ The legacy `/api/1/*` and `/api/2/*` endpoints are deprecated. Every response fr
 | `GET /api/2/audits/admin-trail` | `GET /api/v3/audits?action=<action_type>` | No role-based split — filter by the specific `action_type` string. Use `GET /api/v3/audits/actions` to enumerate valid values. |
 | `GET /api/2/audits/tester-trail` | `GET /api/v3/audits?action=<action_type>` | Same as above — pick an `action_type` from `GET /api/v3/audits/actions`. |
 
+v3 action filters take one value, so make one call per action type to rebuild a trail.
+
 ## Removed without replacement
 
-- `GET /api/1/feedbacks` — TestFairy SDK feedback inbox. The Mobile App Distribution platform doesn't ingest SDK feedback, so this endpoint was a stub returning `{ "feedbacks": [] }`. Removed entirely.
-- `GET /api/1/cpanel/permissions` — listed org admins under a permission shape that v3 doesn't track. Use `GET /api/v3/members` instead.
+- `GET /api/1/cpanel/permissions` — listed org admins under a permission shape that v3 doesn't track. Use `GET /api/v3/testers` instead.
 
 ## Watching usage
 

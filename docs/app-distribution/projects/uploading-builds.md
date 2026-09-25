@@ -15,9 +15,10 @@ App Distribution supports the following application packages:
 | Platform | File format | Description |
 |---|---|---|
 | **iOS** | `.ipa` | iOS application archive |
-| **Android** | `.apk` | Android application package |
+| **Android** | `.apk`, `.aab` | Android application package. `.aab` files are converted to an APK for installation. |
+| **Any** | `.zip` | Generic archive |
 
-Make sure your build is packaged in one of these supported formats before uploading it.
+Make sure your build is packaged in one of these supported formats before uploading it. Files can be up to 4 GB.
 
 ## How to Upload
 
@@ -37,6 +38,7 @@ The **Upload Build** page opens. Enter the build information using the following
 | **2** | **Version** | Enter the app version, or leave the field empty to use the value detected from the build. |
 | **3** | **Version Code / Build Number** | Enter the build number, or leave the field empty to use the value detected from the build. |
 | **4** | **Release Notes** | Describe the changes included in the build. |
+| **5** | **Also upload to SauceLabs App Storage** | When checked, the build is also copied to your Sauce Labs App Storage. Requires the [Sauce Labs connection](/app-distribution/integrations/saucelabs-connection). |
 
 <img src={useBaseUrl('/img/app-distribution/upload-builds/upload-builds-3.png')} alt="Upload Builds" width="100%"/>
 
@@ -54,8 +56,8 @@ App Distribution automatically reads information from the uploaded build and dis
 
 | **Information** | **Description** |
 |---|---|
-| **App Name** | The display name of the application. |
-| **Package Name** | The iOS bundle identifier or Android package name. |
+| **App Name** | The name of the app you upload to. |
+| **Package Name / Bundle ID** | The iOS bundle identifier or Android package name, read from the file on the first upload and stored for the app. |
 | **Version** | The application version, such as `1.2.3`. |
 | **Version Code** | The build number provided by the application package. |
 | **Platform** | The platform detected from the uploaded build. |
@@ -73,6 +75,9 @@ After a build has been uploaded and processed, you can manage it from your proje
 - Distribute the build to testers and team members.
 - Add or update release information.
 - Delete the build.
-- Allow an expired build to be restored during its available recovery period.
 
-Deleted and expired builds are automatically purged after a 7-day grace period. For more information about build states and available actions, see [Build Lifecycle](/app-distribution/projects/build-lifecycle).
+:::caution
+Deleting a build removes it and its file immediately and permanently. It can't be recovered.
+:::
+
+An expired build can't be restored. Re-sign the app with a current provisioning profile and upload it as a new build. For more information about build states and available actions, see [Build Lifecycle](/app-distribution/projects/build-lifecycle).

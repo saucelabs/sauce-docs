@@ -875,6 +875,35 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Security',
+                    collapsed: true,
+                    items: [
+                        'testfairy/security/private-cloud',
+                        'testfairy/security/bring-your-own-storage',
+                        {
+                            type: 'category',
+                            label: 'Single Sign On',
+                            collapsed: true,
+                            items: [
+                                'testfairy/security/sso/sso-intro',
+                                'testfairy/security/sso/azure',
+                                'testfairy/security/sso/google',
+                                'testfairy/security/sso/okta',
+                                'testfairy/security/sso/onelogin',
+                                'testfairy/security/sso/saml',
+                                'testfairy/security/sso/ping-id',
+                                'testfairy/security/sso/single-logout',
+                            ],
+                        },
+                        'testfairy/security/acct-settings',
+                        'testfairy/security/api-keys',
+                        'testfairy/security/service-accounts',
+                        'testfairy/security/oidc-authentication',
+                        'testfairy/security/gdpr',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Developer',
                     collapsed: true,
                     items: [

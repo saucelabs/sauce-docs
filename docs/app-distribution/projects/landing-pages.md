@@ -24,18 +24,18 @@ A landing page provides a single page where testers can view your app informatio
 
 | **Ref.** | **Setting** | **Description** |
 |---:|---|---|
-| **1** | **URL Alias** | Enter a custom alias for the landing page URL (e.g., `/install/my-app` instead of a random token). Leave it empty to use the default install token. |
+| **1** | **URL Alias** | Enter a custom alias for the landing page URL (e.g., `/install/my-app` instead of a random token). Leave it empty to use the default install token. 6–63 characters; letters, numbers, dots, hyphens and underscores only; must be unique across apps. |
 | **2** | **App Version** | Select the app version that you want to display on the landing page. The default option is **Latest version**. |
-| **3** | **Visibility** | Select **Open Beta** to allow anyone with the install link to access the page, or **Closed Beta** to require authentication. |
+| **3** | **Visibility** | Select **Open Beta** to allow anyone with the install link to access the page, or **Closed Beta** to require authentication. iOS ad-hoc and development builds are always closed beta, and the organization's **Require login before download** setting forces closed beta for all apps. |
 | **4** | **App Description** | Enter a description of your app. The description is displayed on the landing page. |
-| **5** | **Include Release Notes on Landing Page** | Select this option to display the release notes for the selected build on the landing page. |
-| **6** | **Show iOS Direct Download (.ipa) Link** | Select this option to display a direct download link for the iOS `.ipa` file on the landing page. |
-| **7** | **Background Color** | Select a preset background color for the landing page. |
+| **5** | **Include release notes on landing page** | Select this option to display the release notes for the selected build on the landing page. On by default. |
+| **6** | **Show iOS direct download (.ipa) link** | Select this option to display a direct download link for the iOS `.ipa` file on the landing page. On by default. |
+| **7** | **Background Color** | Choose one of six presets, or pick a custom color for the landing page. |
 | **8** | **Custom CSS** | Enter custom CSS to customize the appearance of the landing page. |
 
 <img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-4.png')} alt="Landing Pages" width="100%"/>
 
-**Step 5:** Select the **Save** to apply your settings.
+**Step 5:** Click **Save** to apply your settings.
 
 <img src={useBaseUrl('/img/app-distribution/landing-pages/landing-pages-5.png')} alt="Landing Pages" width="100%"/>
 
@@ -58,8 +58,10 @@ Use the **Custom CSS** field to style the landing page. The CSS is injected into
 **Change the button color:**
 
 ```css
-.btn-primary { background-color: #e94560 !important; border-color: #e94560 !important; }
+.btn-primary, .btn-success { background-color: #e94560 !important; border-color: #e94560 !important; }
 ```
+
+The Android install button uses `.btn-success`; iOS and generic buttons use `.btn-primary`.
 
 ## Preview
 

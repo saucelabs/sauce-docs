@@ -6,7 +6,7 @@ sidebar_label: Apple App Store
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Connect Mobile App Distribution to your App Store Connect account using an API key. This first step lets you save and verify the credentials. Publishing iOS builds to App Store Connect from Mobile App Distribution will be enabled in a follow-up release.
+Connect Mobile App Distribution to your App Store Connect account using an API key, then publish iOS builds to App Store Connect directly from Mobile App Distribution.
 
 :::info
 Only **Account Owners** and **Org Admins** can configure the Apple App Store integration.
@@ -54,7 +54,7 @@ After you have the API key details, add them to Mobile App Distribution.
 
 <img src={useBaseUrl('/img/app-distribution/apple-app-store/apple-app-3.png')} alt="Apple App Store Integration" width="100%"/>
 
-**Step 4:** Click **Save Credentials**. Mobile App Distribution generates a JWT and calls App Store Connect to confirm the credentials work. On success, the status shows **Connected**.
+**Step 4:** Click **Save**. Mobile App Distribution generates a JWT and calls App Store Connect to check the credentials before saving them. If the check fails, nothing is saved. On success, the status shows **Connected**.
 
 <img src={useBaseUrl('/img/app-distribution/apple-app-store/apple-app-4.png')} alt="Apple App Store Integration" width="100%"/>
 
@@ -65,9 +65,14 @@ The **Connection Status** section shows the current state of the integration.
 | **Sr. No.** | **Status** | **Meaning** |
 |---:|---|---|
 | **1** | **Not Configured** | App Store Connect credentials have not been configured. |
-| **2** | **Untested** | Credentials have been saved but have not yet been verified. |
-| **3** | **Connected** | The saved credentials have been successfully verified. |
-| **4** | **Failed** | The connection test could not verify the credentials. Check the API key details and try again. |
+| **2** | **Connected** | The saved credentials have been successfully verified. |
+| **3** | **Failed** | The connection test could not verify the credentials. Check the API key details and try again. |
+
+Once credentials are saved, you can:
+
+- **Test Connection** - re-check the saved credentials against App Store Connect.
+- **Update Credentials** - replace the Issuer ID, Key ID or `.p8` file.
+- **Remove Configuration** - delete the stored credentials.
 
 ## Security
 
@@ -85,6 +90,14 @@ The **Connection Status** section shows the current state of the integration.
 | `Authorization failed: this API key does not have permission` | Promote the key's role to **App Manager** or higher in App Store Connect. |
 | `Network error contacting App Store Connect` | Outbound HTTPS to `api.appstoreconnect.apple.com` must be allowed. Check firewall / egress rules. |
 
-## What's Next
+## Publish a Build
 
-Once the App Store Connect credentials are configured and verified, they are ready for use with the iOS publishing workflow. The **Publish to App Store** functionality is tracked separately and will use the credentials configured on this page when it becomes available.
+Once the credentials are saved, Account Owners and Org Admins can publish an iOS build to App Store Connect:
+
+**Step 1:** Open the app and find the `.ipa` build you want to publish.
+
+**Step 2:** Click the **⋯** (more actions) icon on the build's row and select **Publish to App Store**.
+
+**Step 3:** Upload the build's `AppStoreInfo.plist` file and confirm.
+
+Publishing runs in the background. Check the [Audit Log](/app-distribution/organization/audit-log) for the result.

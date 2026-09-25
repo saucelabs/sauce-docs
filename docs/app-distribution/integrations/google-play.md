@@ -50,19 +50,23 @@ You can download the service account JSON key from **Google Cloud Console → IA
 
 :::
 
-**Step 4:** Click **Save Credentials**. After the credentials are saved, the integration can be used to publish Android builds to Google Play.
+**Step 4:** Click **Save**. The JSON key is checked before saving. After the credentials are saved, the integration can be used to publish Android builds to Google Play.
+
+The **Connection Status** shows **Connected** once the key has been verified, or **Failed** if it could not be. You can re-check a saved key with **Test Connection**, or swap it with **Replace Credentials**.
 
 <img src={useBaseUrl('/img/app-distribution/google-play/google-play-4.png')} alt="Google Play Integration" width="100%"/>
 
 ## Publishing a Build
 
-After configuring the integration, you can publish an Android build directly from Mobile App Distribution.
+After configuring the integration, Account Owners and Org Admins can publish an Android build directly from Mobile App Distribution. Only `.apk` and `.aab` builds can be published.
 
 1. Open an Android app and find the build you want to publish (must be APK or AAB).
-2. Click the **...** menu on the build row and choose **Publish to Google Play**.
+2. Click the **⋯** (more actions) icon on the build row and choose **Publish to Google Play**.
 3. Pick a track and a status, then click **Publish**.
 4. The publish runs in the background, Mobile App Distribution downloads the file from storage, uploads it to Google Play, and assigns it to the chosen track.
-5. Check your **Google Play Console** for the result.
+5. Check the [Audit Log](/app-distribution/organization/audit-log) for the result. Failed publishes are retried up to 3 times and logged as `google_play_publish_failed`.
+
+The build's release notes are sent as `en-US` release notes (first 500 characters). If the build was uploaded as an `.aab`, the original bundle is published.
 
 ## Tracks
 
@@ -98,4 +102,5 @@ You can also select a release status when publishing the build.
 | `Package not found` | The app must already exist in your Google Play Console. Service accounts cannot create new apps - only manage existing ones. |
 | `The caller does not have permission` | Re-check that the service account is invited in **Play Console → Users and permissions** with sufficient role. |
 | `Version code already exists` | Increment your build's `versionCode` in `build.gradle` before uploading. |
-| `Invalid credentials` | The JSON key may be expired or revoked. Generate a fresh key in Google Cloud Console. |
+| `Invalid credentials` | The file isn't a valid service-account JSON key. Download a fresh key from Google Cloud Console. |
+| `Authentication failed` | The key was revoked or disabled. Generate a new key in Google Cloud Console. |

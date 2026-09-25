@@ -36,10 +36,6 @@ export const M = ({children}) => {
 
 If you are migrating from TestFairy, your existing CI/CD scripts and plugins will continue to work without changes. The legacy API endpoints are fully supported alongside the new [API v3](/app-distribution/developer/api-reference).
 
-:::caution
-The legacy API is deprecated. Every response now includes `Deprecation: true` and a `Sunset` header. See the [API Migration Guide](/app-distribution/developer/api-migration-guide) for a per-endpoint map to [API v3](/app-distribution/developer/api-reference).
-:::
-
 ## Authentication
 
 All endpoints require authentication. You can authenticate using any of the following methods:
@@ -349,13 +345,4 @@ curl -H "X-API-Key: $API_KEY" https://saucelabs-poc.testfairy.com/api/1/projects
 
 ## Migration to API v3
 
-When you're ready to migrate, the key differences are:
-
-| Feature | Legacy (v1) | API v3 |
-| --- | --- | --- |
-| Authentication | `api_key` POST param | `X-API-Key` header |
-| Upload endpoint | `POST /api/upload` | `POST /api/v3/builds/upload` |
-| App selection | Auto-detected by package name | Explicit `project_id` parameter |
-| Release notes | `changelog`, `comment`, or `release_notes` | `release_notes` |
-| Sites | `/api/1/sites/` | `/api/v3/teams/` |
-| Response | Flat object with `status` field | Nested resource objects |
+To migrate, see the [API Migration Guide](/app-distribution/developer/api-migration-guide).
