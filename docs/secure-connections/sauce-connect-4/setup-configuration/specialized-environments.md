@@ -100,6 +100,7 @@ At present, real device testing is supported in the following data centers:
 
 - US West Data Center (`us-west`)
 - EU Central Data Center (`eu-central`)
+- Asia South Data Center (`asia-south`)
 
 :::note
 Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa).
