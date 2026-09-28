@@ -130,7 +130,8 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 
 | Endpoints                          |
 | ---------------------------------- |
-| TBD                                 |
+| 151.158.35.0/24                    |
+| 34.131.227.16/28                   |
 
 ## Real Devices
 
