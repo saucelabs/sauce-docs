@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-End-to-End Data Encryption in Sauce Labs Mobile App Distribution ensures that the logs and screenshots recorded from a mobile device are securely encrypted before being stored on the cloud. This encryption guarantees that only authorized team members with the private key can access and view the recorded data. To use this capability, you will need to create a public key and a private key. The public key initializes the Sauce Labs Mobile App Distribution SDK in your app and the private key, which should not be shared with anybody, will be used by you when you log in to your Sauce Labs Mobile App Distribution dashboard. 
+End-to-End Data Encryption in Sauce Labs Mobile App Distribution ensures that the logs and screenshots recorded from a mobile device are securely encrypted before being stored on the cloud. This encryption guarantees that only authorized team members with the private key can access and view the recorded data. To use this capability, you will need to create a public key and a private key. The public key initializes the Sauce Mobile Beta SDK in your app and the private key, which should not be shared with anybody, will be used by you when you log in to your Sauce Labs Mobile App Distribution dashboard. 
 
 The encryption process involves using a randomly generated 256-bit AES key (this AES key is only used in a single session recording), which is further protected with an RSA public key.
 
@@ -37,7 +37,7 @@ Enable end-to-end encryption for your Android apps by calling `setPublicKey` bef
 
 ```java
 TestFairy.setPublicKey("<PUBLIC KEY>");
-TestFairy.begin("<APP TOKEN>");
+TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 ```
 
 ## iOS Integration
@@ -46,7 +46,7 @@ Enable end-to-end encryption for your iOS apps by calling `setPublicKey` before 
 
 ```js
 [TestFairy setPublicKey:@"<PUBLIC KEY>"];
-[TestFairy begin:@"<APP TOKEN>"];
+[TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 ```
 
 ## Viewing Encrypted Sessions

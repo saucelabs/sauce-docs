@@ -1,12 +1,17 @@
 ---
 id: dsyms
 title: Uploading dSyms
-sidebar_label: Uploading dSymps
+sidebar_label: Uploading dSYMs
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+
+:::note Apps using the Sauce Mobile Beta SDK with Backtrace
+The Sauce Mobile Beta SDK (formerly the TestFairy SDK) is crashless: crashes are reported by Backtrace (Sauce Labs Error Reporting), and crash symbolication happens in Backtrace. Upload your dSYMs to Backtrace as described in [Setting Up Backtrace for iOS](/error-reporting/platform-integrations/ios/setup/#upload-debug-symbols) and [Symbolication](/error-reporting/project-setup/symbolication/). This page applies only to crashes reported by the legacy, crash-capable TestFairy SDK 1.x.
+:::
 
 Sauce Labs Mobile App Distribution can show you crash reports to help you identify the place in the code that is causing a problem. Sauce Labs Mobile App Distribution crash reports are easier to understand when they show actual debug symbols instead of addresses. 
 

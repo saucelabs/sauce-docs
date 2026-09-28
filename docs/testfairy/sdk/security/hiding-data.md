@@ -101,7 +101,7 @@ Next, in a component callback, such as componentDidMount, pass the reference ID 
 Example
 
 ```js
-const TestFairy = require('react-native-testfairy');
+import TestFairy from '@saucelabs/mobile-beta-react-native';
 var MyComponent = React.createClass({
 
     componentDidMount: function() {

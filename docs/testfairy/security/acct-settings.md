@@ -16,7 +16,7 @@ To access the Settings page, click **Account** and then click **Sauce Labs Mobil
 
 <img src={useBaseUrl('img/testfairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
 
-Your app token initializes the Sauce Labs Mobile App Distribution SDK. See [Adding the Sauce Labs Mobile App Distribution SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
+Your app token initializes the Sauce Mobile Beta SDK. See [Adding the Sauce Mobile Beta SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
 Your access key (API key) authenticates API requests. See [API Keys](/testfairy/security/api-keys) for usage details.
 
 For automated workflows, use dedicated [service accounts](/testfairy/security/service-accounts).
