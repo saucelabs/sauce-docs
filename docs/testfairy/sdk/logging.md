@@ -262,7 +262,7 @@ Example
 
 ```js
 // Be sure to import Sauce Labs Mobile App Distribution
-const TestFairy = require('react-native-testfairy');
+import TestFairy from '@saucelabs/mobile-beta-react-native';
 
 var error = new Error("Some Message");
 TestFairy.logException(error);

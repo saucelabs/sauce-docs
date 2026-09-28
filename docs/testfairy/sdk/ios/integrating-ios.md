@@ -11,105 +11,93 @@ import TabItem from '@theme/TabItem';
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/DhRX5UukvPM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-Integrating the Sauce Labs Mobile App Distribution SDK into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
+The video shows the legacy TestFairy SDK 1.x CocoaPods flow; follow the Swift Package Manager steps below for the Sauce Mobile Beta SDK.
+
+Integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
 You get to:
 
 * Track app use.
-* Handle crashes and report to server.
 * Record screen video and other metrics.
 * Understand user flow, using checkpoints.
 * Grab NSLogs from client and report to server.
-* Automatically update if a new build is available.
+* Collect in-app feedback from your testers.
+* Run beside Backtrace (Sauce Labs Error Reporting), which reports crashes.
+
+:::note
+The Sauce Mobile Beta SDK is crashless: it never installs a crash handler. Crash reporting is provided by Backtrace. Initialize Backtrace first, then start the Sauce Mobile Beta SDK with `beginWithoutCrashHandler`. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+:::
 
 ## Adding the SDK
 
+The Sauce Mobile Beta SDK for iOS is distributed with Swift Package Manager. The current release candidate is `2.2.0-rc` and requires iOS 11 or later.
 
-<Tabs
-defaultValue="Swift Package Manager"
-values={[
-{label: 'Swift Package Manager', value: 'Swift Package Manager'},
-{label: 'Cocoapods', value: 'Cocoapods'},
-{label: 'Carthage', value: 'Carthage'},
-{label: 'Manual', value: 'Manual'},
-]}>
-
-<TabItem value="Swift Package Manager">
+### Swift Package Manager
 
 :::note
-Requires Xcode 12+. Screenshots taken from Xcode 13.1
+Requires Xcode 12+. Screenshots taken from Xcode 13.1.
 :::
 
+| Item | Value |
+| --- | --- |
+| Package URL | `https://github.com/testfairy/testfairy-ios-sdk-swift-package` |
+| Package product | `SauceMobileBeta` |
+| Module to import | `TestFairy` |
+| Dependency Rule | **Exact Version** `2.2.0-rc` |
+
 1. Select your project from the Xcode navigator to open your project's configuration.
-2. Make sure your project is selected from Project and Target list.
-3. Click the **Package Dependencies** Toolbar item.
+2. Make sure your project is selected from the Project and Target list.
+3. Click the **Package Dependencies** toolbar item.
 4. Click the '+' icon to add a package.
 <img src={useBaseUrl('img/mobile-apps/xcframework-1.png')} alt="" width="800"/>
 
-1. In the newly opened dialog search for the Sauce Labs Mobile App Distribution package repository using the URL: https://github.com/testfairy/testfairy-ios-sdk-swift-package in the top right search bar.
-2. Click the **Add Pacakge** button.
+1. In the newly opened dialog, enter the Sauce Mobile Beta package URL `https://github.com/testfairy/testfairy-ios-sdk-swift-package` in the top right search bar.
+2. Set the **Dependency Rule** to **Exact Version** and enter `2.2.0-rc`.
+3. Click the **Add Package** button.
 <img src={useBaseUrl('img/mobile-apps/xcframework-2.png')} alt="" width="800"/>
 
-1. After the package has been downloaded, in the newly opened dialog, make sure the Sauce Labs Mobile App Distribution package is selcted in the "Package Product" column
-2. Make sure the right target is selected in the "Add to target" column
-3. Click the **Add Pacakge** button
+1. After the package has been downloaded, in the newly opened dialog, make sure the `SauceMobileBeta` product is selected in the "Package Product" column.
+2. Make sure the right target is selected in the "Add to target" column.
+3. Click the **Add Package** button.
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
 
-</TabItem>
-<TabItem value="Cocoapods">
+:::note Why Exact Version?
+`2.2.0-rc` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release, which ships with the same package URL and product name.
+:::
 
-1. Add the Sauce Labs Mobile App Distribution pod to your Podfile by inserting the following line where applicable:
-```java
-pod 'TestFairy'
-```           
-2. Run the `$ pod install` command to install the `TestFairy` dependency.
+If you declare dependencies in a `Package.swift` manifest instead:
 
+```swift
+dependencies: [
+    .package(url: "https://github.com/testfairy/testfairy-ios-sdk-swift-package.git", exact: "2.2.0-rc")
+],
+targets: [
+    .target(name: "MyApp", dependencies: [
+        .product(name: "SauceMobileBeta", package: "testfairy-ios-sdk-swift-package")
+    ])
+]
+```
 
+A Sauce-owned repository with the same versions will become the canonical package URL; this page will be updated when it is public. Switching later is a URL change only.
 
-</TabItem>
+### Legacy TestFairy SDK 1.x
 
-<TabItem value="Carthage">
-Once you have Carthage installed, you can begin adding frameworks to your project. Note that Carthage only supports dynamic frameworks, which are **only available on iOS 8 or later** (or any version of OS X).
+:::caution Legacy TestFairy SDK 1.x
+The following channels install the legacy, crash-capable **TestFairy SDK 1.x**, not the Sauce Mobile Beta SDK:
 
-1. Add `binary "https://app.testfairy.com/sdk/ios/carthage.json"` to your Cartfile.
-2. Run `carthage update`.
-3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop the Sauce Labs Mobile App Distribution framework from the [Carthage/Build][] folder on disk.
-<br/><img src={useBaseUrl('/img/mobile-apps/carthage-1.png')} alt="Carthage Integration" width="600"/>
+* CocoaPods: `pod 'TestFairy'`
+* Carthage: `binary "https://app.testfairy.com/sdk/ios/carthage.json"`
+* Manual download of `TestFairySDK.framework` from the [TestFairy download page](https://app.testfairy.com/sdk/ios/)
 
-4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: bin/sh), add the following contents to the script area below the shell:
-```java
-/usr/local/bin/carthage copy-frameworks
-```           
-and add the paths to the TestFairySDK frameworks under “Input Files”, e.g.:
-```java
-${SRCROOT}/Carthage/Build/iOS/TestFairySDK.framework
-``` 
-<br/><img src={useBaseUrl('/img/mobile-apps/carthage-2.png')} alt="Carthage Integration" width="600"/>             
-</TabItem>
+The CocoaPods pod `SauceMobileBeta` is not published yet. Use Swift Package Manager to add the Sauce Mobile Beta SDK.
 
-<TabItem value="Manual">
-
-1. Download the framework from our [Download page](https://app.testfairy.com/sdk/ios/).
-2. Unzip files and drag them into your project tree.
-<br/><img src={useBaseUrl('img/mobile-apps/tutorial-unzip-files.png')} alt="Carthage Integration" width="300"/>  
-
-Make sure Copy items if needed is checked when dragging files to your project.
-<br/><img src={useBaseUrl('img/mobile-apps/copy-items-if-needed.png')} alt="Carthage Integration" width="300"/>
-
-
-3. Add the following framework:
-   * In Xcode, select the project file from the project navigator, on the left side of the project window. 
-   * Show Projects and Target List.
-   * In the project settings editor, select the target to which you would like to add frameworks.
-   * Select the “Build Phases” tab, and click the small triangle next to “Link Binary With Libraries” to view all of the frameworks in your application.
-   * `SystemConfiguration.framework`
-
-  <br/><img src={useBaseUrl('img/mobile-apps/xcode-demo-1.gif')} alt="Carthage Integration" width="800"/>
-
-           
-</TabItem>
-</Tabs>
+Never combine a legacy artifact with the Sauce Mobile Beta package (both provide the `TestFairy` module, which causes duplicate-module and duplicate-symbol errors) or with Backtrace (competing crash handlers). Remove the legacy dependency before you add the Sauce Mobile Beta package.
+:::
 
 ## Initializing the SDK
+
+Start the SDK with `beginWithoutCrashHandler`. It starts a session without installing a crash handler and forces the `TFSDKEnableCrashReporterKey` begin option to `NO`, even if you pass `YES`. When Backtrace is part of the app, initialize Backtrace before this call. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) for the full initialization order and the shared `sauce.correlation_id` attribute.
+
+Replace `<sauce-mobile-beta-token>` with your app token. Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 <Tabs
 defaultValue="Objective C"
@@ -123,60 +111,83 @@ values={[
 1. Open your AppDelegate.m file.
 
 2. Add this code to your app:
-```java
+
+```objectivec
 #import "TestFairy.h"
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-	[TestFairy begin:@"SDK-u6qN9qXN"];
+    // Initialize Backtrace here first when it is part of the app.
 
-	// below of the rest of the didFinishLaunchingWithOptions method
-	// ...
+    [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
+
+    // the rest of the didFinishLaunchingWithOptions method
+    // ...
+    return YES;
 }
 ```
+
 </TabItem>
 <TabItem value="Swift">
 
-1. Create an Objective-C bridging header
-   Since this process only needs to be done once per project, if you have already done so, just update your bridging header file.
+1. Import the SDK
+
+   With Swift Package Manager, import the module directly in every Swift file that uses the SDK. The package product is `SauceMobileBeta`, but the module keeps its `TestFairy` name:
+
+```swift
+import TestFairy
+```
+
+   An Objective-C bridging header also works, for example in a project that already has one. Since this process only needs to be done once per project, if you have already done so, just update your bridging header file.
    * Right-click on your project, select New File...
    * Select Header File.h
    * Save as Bridging.h in your project
    * Click on Bridging.h to open it in editor
    * Add the following line to the code:
 
-```java
+```objectivec
 #import "TestFairy.h"
 ```
+
 :::note
-If framework wasn't uploaded manually please try:
-```java
+If the header is not found, try the framework-style import:
+```objectivec
 #import "TestFairy/TestFairy.h"
 ```
 :::
 
-Update Build Settings with the new bridging header:
-* Click on your project
-* Select Build Settings tab
-* Select the "All" filter, in order to find Swift Compiler - General: Objective-C Bridging Header
-* Edit Swift Compiler - Code Generation: Objective-C Bridging Header (double-click to edit).
-* Drag "Bridging.h" from the source tree onto the edit box opened
+   Update Build Settings with the new bridging header:
+   * Click on your project
+   * Select Build Settings tab
+   * Select the "All" filter, in order to find Swift Compiler - General: Objective-C Bridging Header
+   * Edit Swift Compiler - General: Objective-C Bridging Header (double-click to edit).
+   * Drag "Bridging.h" from the source tree onto the edit box opened
 
 2. Open your AppDelegate.swift file.
 
 3. Add this code to your app:
 
-```java
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-	TestFairy.begin("SDK-u6qN9qXN")
-	// below of the rest of the didFinishLaunchingWithOptions method
-	// ...
-	return true
+```swift
+import UIKit
+import TestFairy
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Initialize Backtrace here first when it is part of the app.
+
+    TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
+
+    // the rest of the didFinishLaunchingWithOptions method
+    // ...
+    return true
 }
-```	
+```
 
 </TabItem>
 </Tabs>
+
+:::note
+Plain `begin` is also crashless in the Sauce Mobile Beta SDK, and `installCrashHandler`, `enableCrashHandler`, `disableCrashHandler` and `didLastSessionCrash` are no-ops. Use `beginWithoutCrashHandler` to make the intent explicit. See [Crash Handling (Legacy TestFairy SDK)](/testfairy/sdk/tf-crash-handler/).
+:::
 
 ## Using PencilKit for Better Feedback
 You can give your users a better set of tools to markup any screenshots provided during feedback by adding PencilKit to your project. Simply add the PencilKit.framework to your project.

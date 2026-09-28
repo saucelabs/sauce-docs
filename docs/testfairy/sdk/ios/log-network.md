@@ -22,7 +22,7 @@ See our [Code Examples](https://docs.saucelabs.com/testfairy/sdk/logging/) for m
 
 ## Sending NSLog to Sauce Labs Mobile App Distribution
 
-The Sauce Labs Mobile App Distribution SDK records your app while used so you can watch recorded sessions to solve problems faster. The SDK can record videos, screenshots, custom events, logs, and device metrics.
+The Sauce Mobile Beta SDK records your app while used so you can watch recorded sessions to solve problems faster. The SDK can record videos, screenshots, custom events, logs, and device metrics.
 
 :::note
 The [Remote Logging method](https://docs.saucelabs.com/testfairy/sdk/remote-logging/) explains how to set iOS apps to send NSLogs to Sauce Labs Mobile App Distribution (from iOS 10 and above).

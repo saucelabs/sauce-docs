@@ -1,6 +1,6 @@
 ---
 id: integrating-android
-title: Integrating Android SDK
+title: Integrating the Android SDK
 sidebar_label: Integrating Android SDK
 ---
 
@@ -8,70 +8,195 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Integrating the Sauce Labs Mobile App Distribution SDK into your app can help you better understand how your app performs on real devices. It tells you when and how people use your app and provides any metrics you may need to optimize your user experience and code.
+Integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app can help you better understand how your app performs on real devices. It tells you when and how people use your app and provides any metrics you may need to optimize your user experience and code.
 
-Both Java and Kotlin apps are supported.
+Both Java and Kotlin apps are supported. The Android artifact is `com.saucelabs.mobilebeta:sauce-mobile-beta-android`. The Java package is still `com.testfairy`, so existing `TestFairy.*` calls keep compiling.
+
+:::note Crash reporting
+The Sauce Mobile Beta SDK is crashless: it never installs a crash handler, and the legacy crash APIs (`installCrashHandler`, `enableCrashHandler`, `disableCrashHandler`, `didLastSessionCrash`) are no-ops. Crash reporting is provided by [Backtrace (Sauce Labs Error Reporting)](/error-reporting/platform-integrations/android/setup/). If you run both SDKs, initialize Backtrace first and follow [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+:::
+
+## Requirements
+
+- Android API level 16 or later. When you also ship Backtrace, use Backtrace's minimum (`minSdk 21`).
+- Gradle with access to `https://maven.testfairy.com`. The SDK is not served from Maven Central or jcenter.
 
 ## Installation
 
-1. Add the SDK to Your App Module's build.gradle (that is, `app/build.gradle`)
+### 1. Add the Maven Repository
 
-```java
-dependencies {
-    implementation 'com.testfairy:testfairy-android-sdk:1.+@aar'
-}
-```
+Add `https://maven.testfairy.com` to `settings.gradle` (projects created with recent versions of Android Studio). The `content` filter is optional; it tells Gradle to look up only the `com.saucelabs.mobilebeta` group in this repository.
 
-2. Add the Sauce Labs Mobile App Distribution Maven Repository to Your Project
+<Tabs
+groupId="gradle"
+defaultValue="groovy"
+values={[
+{label: 'Groovy DSL', value: 'groovy'},
+{label: 'Kotlin DSL', value: 'kotlin'},
+]}>
 
-Depending on how you build your project, there are multiple options to add the Sauce Labs Mobile App Distribution Maven.
+<TabItem value="groovy">
 
-The most popular option is to add to build.gradle (eg. `PROJECT_ROOT/build.gradle`)
-
-```java
-buildscript {
-    repositories {
-        maven { url 'https://maven.testfairy.com' }
-    }
-}
-```
-
-**OR**
-
-Add the Sauce Labs Mobile App Distribution maven to `settings.gradle` if you create projects with the newer versions of Android Studio.
-
-```java
+```groovy
+// settings.gradle
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://maven.testfairy.com' }
-
+        maven {
+            url 'https://maven.testfairy.com'
+            content { includeGroup 'com.saucelabs.mobilebeta' }
+        }
     }
 }
 ```
 
-3. Add Sauce Labs Mobile App Distribution to Your Main Activity's `onCreate`:
+</TabItem>
 
-```js
+<TabItem value="kotlin">
+
+```kotlin
+// settings.gradle.kts
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://maven.testfairy.com")
+            content { includeGroup("com.saucelabs.mobilebeta") }
+        }
+    }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+If your project still declares repositories in the root `build.gradle` instead of `settings.gradle`, add the repository there:
+
+```groovy
+// PROJECT_ROOT/build.gradle
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.testfairy.com' }
+    }
+}
+```
+
+### 2. Add the Dependency
+
+Add the SDK to your app module's `build.gradle` (for example `app/build.gradle`). Pin the exact version; see [Upgrading](#upgrading).
+
+<Tabs
+groupId="gradle"
+defaultValue="groovy"
+values={[
+{label: 'Groovy DSL', value: 'groovy'},
+{label: 'Kotlin DSL', value: 'kotlin'},
+]}>
+
+<TabItem value="groovy">
+
+```groovy
+dependencies {
+    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc"
+}
+```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+dependencies {
+    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc")
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+The SDK provides beta-testing capabilities: session recording, tester feedback, remote logs and update prompts. Prefer a beta or debug-only dependency, such as `debugImplementation` or a `betaImplementation` flavor configuration, so that store builds do not ship it. See [Sauce Mobile Beta SDK in Production](/testfairy/sdk/tf-production/).
+
+:::caution Remove the legacy TestFairy SDK 1.x first
+Remove `com.testfairy:testfairy-android-sdk` and `com.testfairy:testfairy-android-ndk` from every module before adding Sauce Mobile Beta, and never mix them. Both families contain the same `com.testfairy` classes, so mixing them fails the build with duplicate classes, and the legacy artifacts install a crash handler that competes with Backtrace. See [Migrating from the Legacy TestFairy SDK 1.x](#migrating-from-the-legacy-testfairy-sdk-1x).
+:::
+
+### 3. Initialize the SDK
+
+Initialize the SDK in the `onCreate` method of an `Application` subclass with `beginWithoutCrashHandler`. Replace `<sauce-mobile-beta-token>` with the app token from your Sauce Labs Mobile App Distribution dashboard.
+
+<Tabs
+groupId="lang"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Kotlin', value: 'kotlin'},
+]}>
+
+<TabItem value="java">
+
+```java
+import android.app.Application;
 import com.testfairy.TestFairy;
 
 public class MyApplication extends Application {
 
-   @Override
-   public void onCreate() {
-       super.onCreate();
-       TestFairy.begin(this, "<YOUR_APP_TOKEN_HERE>");
-   }
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        // If you use Backtrace, initialize it before this line.
+        TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
+    }
 }
 ```
 
-## Proguard (Optional)
+</TabItem>
 
-If you have `Proguard` enabled, add this snippet to your proguard rules file (that is, `proguard-rules.pro`, `proguard.cfg`, or others):
+<TabItem value="kotlin">
 
-```bash
+```kotlin
+import android.app.Application
+import com.testfairy.TestFairy
+
+class MyApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        // If you use Backtrace, initialize it before this line.
+        TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>")
+    }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
+Register the class in `AndroidManifest.xml`:
+
+```xml
+<application
+    android:name=".MyApplication"
+    ...>
+</application>
+```
+
+`beginWithoutCrashHandler` is the recommended entry point: it makes crash ownership explicit and forces the `enableCrashReporter` option to `false`, even if you pass `true` through the options overload `beginWithoutCrashHandler(context, appToken, options)`. The plain `begin(...)` overloads still work and are equally crashless in this artifact.
+
+If you use Backtrace, initialize it first so that it is the only crash owner, then call `beginWithoutCrashHandler`. Both SDKs should carry the same `sauce.correlation_id` session attribute. The order, the shared attributes and a complete `Application` example are in [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+
+## ProGuard and R8 (Optional)
+
+The AAR bundles its consumer ProGuard rules, so Gradle applies them to your app automatically when minification is enabled. You do not need to add rules for the SDK. If your `proguard-rules.pro` still contains the rules from the legacy TestFairy SDK 1.x, keeping them is harmless:
+
+```text
 -keep class com.testfairy.** { *; }
 -dontwarn com.testfairy.**
 -keepattributes Exceptions, Signature, LineNumberTable
@@ -80,25 +205,89 @@ If you have `Proguard` enabled, add this snippet to your proguard rules file (th
 
 ## Upgrading
 
-Sauce Labs Mobile App Distribution is constantly improving and updating the Android SDK. Generally, it's a good idea always to use the latest SDK.
+Always pin an exact version, such as `2.2.0-rc`, and update it deliberately. Do not use version wildcards such as `2.+`: they resolve unpredictably for pre-release versions and can pull in a build you have not tested.
 
-Using version wildcards like `1.+@aar`, automatically upgrade your Sauce Labs Mobile App Distribution to the latest version. To refresh dependency and force Gradle to download the latest version, run the command: `gradlew --refresh-dependencies`
+`2.2.0-rc` is a release candidate. The general availability release uses the same coordinates with a plain version number. To upgrade, change the version string in `build.gradle` and rebuild. `2.2.0-rc` is served from `https://maven.testfairy.com` under the coordinate `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`.
 
-You must manually update the version if you use a fixed version, such as `testfairy:testfairy-android-sdk:1.2.4@aar`.
+## Migrating from the Legacy TestFairy SDK 1.x
+
+The Sauce Mobile Beta artifact is the crashless successor of the TestFairy Android SDK (`com.testfairy:testfairy-android-sdk`). The Maven coordinate changes; the Java package and the `TestFairy` API do not.
+
+### 1. Remove the Legacy Artifacts
+
+Remove every TestFairy dependency, including the NDK artifact and any transitive copy pulled in by another module:
+
+```groovy
+// Remove these lines.
+implementation 'com.testfairy:testfairy-android-sdk:1.+@aar'
+implementation 'com.testfairy:testfairy-android-ndk:1.+@aar'
+```
+
+Do not keep legacy and Sauce Mobile Beta artifacts together: they contain duplicate `com.testfairy` classes.
+
+### 2. Add Sauce Mobile Beta
+
+Make sure `https://maven.testfairy.com` is in your repositories, then add the new coordinate as shown in [Installation](#installation). Your imports stay the same:
+
+```java
+import com.testfairy.TestFairy;
+```
+
+### 3. Move Crash Ownership to Backtrace
+
+Add Backtrace by following the [Backtrace Android setup](/error-reporting/platform-integrations/android/setup/) (and the [native crash integration](/error-reporting/platform-integrations/android/native-crash-integration/) for NDK crashes), and remove the TestFairy crash-handler calls from your code:
+
+```java
+// Remove or stop relying on these legacy calls. They are no-ops in Sauce Mobile Beta.
+TestFairy.enableCrashHandler();
+TestFairy.installCrashHandler(context, appToken);
+TestFairy.didLastSessionCrash(context); // always returns false
+```
+
+Use the Backtrace console for current and previous crashes.
+
+### 4. Update the Initialization
+
+Existing `TestFairy.begin(...)` code remains source compatible and crashless. Prefer the explicit call in new or touched code:
+
+```java
+TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-token>");
+```
+
+### 5. Add the Correlation Attributes
+
+Generate one lowercase UUID v4 per app launch before either SDK starts and give it to both SDKs as the `sauce.correlation_id` attribute, together with the other reserved attributes. Use `TestFairy.addSessionStateListener` to copy the Sauce Mobile Beta session URL into Backtrace on every session start. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) and [Reserved Attributes for Backtrace Coexistence](/testfairy/sdk/session-attributes/#reserved-attributes-for-backtrace-coexistence).
+
+Do not use the deprecated `setCorrelationId` or `identify` methods for the correlation id: they write the user-identity field that `setUserId` writes. See [Identifying Your Users](/testfairy/sdk/identifying-users/).
+
+### 6. Review the Minimum Android Version
+
+Sauce Mobile Beta alone supports API level 16. Backtrace Android requires API level 21, so an app that ships both must set `minSdk 21`.
+
+### 7. Gate Production and Store Variants
+
+Keep Backtrace under `implementation` and Sauce Mobile Beta under `debugImplementation` or a beta flavor configuration, so that Play Store builds never contain tester-facing update, recording or feedback code. See [Sauce Mobile Beta SDK in Production](/testfairy/sdk/tf-production/).
+
+### 8. Validate Before Release
+
+1. Inspect the runtime dependency graph for legacy modules: `./gradlew :app:dependencies --configuration debugRuntimeClasspath | grep testfairy` must list nothing from the `com.testfairy` group.
+2. Build and run a debug build with both SDKs initialized.
+3. Force one crash (and one native crash if you enabled the native integration): both must appear in Backtrace only.
+4. Submit feedback and confirm that the shared `sauce.correlation_id` appears in both consoles.
 
 ## How to Identify Users (Optional)
 
 Here is a quick example of identifying users by email address.
 
-```js
+```java
 TestFairy.setUserId("john@example.com");
 ```
 
-Read Identifying your Users /testfairy/sdk/identifying-users for more identification options.
+Read [Identifying Your Users](/testfairy/sdk/identifying-users/) for more identification options.
 
 ## Additional Permissions (Optional)
 
-Sauce Labs Mobile App Distribution can record additional insights that require specific permissions. Below is a list of permissions required for each metric:
+The SDK can record additional insights that require specific permissions. Below is a list of permissions required for each metric:
 
 ### Logs - `android.permission.READ_LOGS` (Optional)
 
@@ -119,25 +308,8 @@ The phone signal graph shows the GSM Signal Strength, with valid values (0-31, 9
 
 To automatically upload the wifi status to your account, add the `android.permission.ACCESS_WIFI_STATE` permission: it tracks the wifi signal.
 
-## File Size
+## Troubleshooting
 
-The size of the Sauce Labs Mobile App Distribution SDK is 500KB.
+The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports `Could not GET 'https://jcenter.bintray.com/...'` or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
 
-You might also like to read Manual Integration with Eclipse and Ant http://docs.testfairy.com/Android/Manual_integration_with_Eclipse_and_Ant.html.
-
-## Troubleshoot
-
-```bash
-Could not GET 'https://jcenter.bintray.com/testfairy/testfairy-android-sdk/1.11.45/testfairy-android-sdk-1.11.45.pom'. Received status code 400
-```
-
-```bash
-Could not GET 'https://jcenter.bintray.com/testfairy/testfairy-android-sdk/1.11.45/testfairy-android-sdk-1.11.45.pom'. Received status code 403
-```
-
-```bash
-Could not GET 'https://jcenter.bintray.com/testfairy/testfairy-android-sdk/1.11.45/testfairy-android-sdk-1.11.45.pom'. Received status code 407
-```
-
-If you see one of these errors when you include Sauce Labs Mobile App Distribution SDK in your project, follow step 2 in the installation section on this page.
-Sauce Labs Mobile App Distribution is no longer on Jcenter, and you must switch to `maven.testfairy.com`.
+If the build fails with `Duplicate class com.testfairy...`, a legacy TestFairy artifact is still on the classpath, possibly as a transitive dependency of another module. Remove it; see [Migrating from the Legacy TestFairy SDK 1.x](#migrating-from-the-legacy-testfairy-sdk-1x).

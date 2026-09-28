@@ -44,7 +44,7 @@ Example
 import com.testfairy.TestFairy;
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin(context, "<your app token here>");
+TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 ```
 
 </TabItem>
@@ -62,7 +62,7 @@ Example
 #import "TestFairy.h"
 
 [TestFairy setServerEndpoint:@"my-subdomain.testfairy.com"];
-[TestFairy begin:@"<your app token here>"];
+[TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 ```
 
 </TabItem>
@@ -77,7 +77,7 @@ Example
 
 ```js
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin("<your app token here>");
+TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>");
 ```
 
 </TabItem>
@@ -92,10 +92,10 @@ Example
 
 ```js
 // Be sure to import Sauce Labs Mobile App Distribution
-const TestFairy = require('react-native-testfairy');
+import TestFairy from '@saucelabs/mobile-beta-react-native';
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin("<your app token here>");
+TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>");
 ```
 
 </TabItem>
@@ -149,7 +149,7 @@ Example
 using TestFairyUnity;
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin("<your app token here>");
+TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>");
 ```
 
 </TabItem>

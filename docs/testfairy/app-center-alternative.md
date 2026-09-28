@@ -18,7 +18,7 @@ For more information, see [Managing Testers](/testfairy/testers/managing-testers
 
 Sauce Labs Mobile App Distribution provides mobile teams with videos showing exactly what happened during a mobile device test, before a crash, or before something went wrong, which ensures that bugs are fixed quickly.
 
-For more information, see [Adding the Sauce Labs Mobile App Distribution SDK](/testfairy/sdk/adding-tf-sdk/).
+For more information, see [Adding the Sauce Mobile Beta SDK to your App](/testfairy/sdk/adding-tf-sdk/).
 
 ## Collect Feedback
 

@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With Sauce Labs Mobile App Distribution's user identification feature, you can enhance your testing and debugging process by efficiently correlating session recordings with specific users and their traits. This capability empowers you to gain deeper insights into how different users interact with your app and aids in the diagnosis of user-specific issues during testing.
+With the user identification feature of the Sauce Mobile Beta SDK (formerly the TestFairy SDK), you can enhance your testing and debugging process by efficiently correlating session recordings with specific users and their traits. This capability empowers you to gain deeper insights into how different users interact with your app and aids in the diagnosis of user-specific issues during testing.
 
 ## Example Configuration
 
-Below are code examples illustrating how to utilize Sauce Labs Mobile App Distribution's `setUserId` method on various platforms:
+Below are code examples illustrating how to use the SDK's `setUserId` method on various platforms:
 
 <Tabs
 groupId="sdk"
@@ -31,14 +31,14 @@ values={[
 
 <TabItem value="android">
 
-```js
+```java
 TestFairy.setUserId("<userId>");
 ```
 
 Example
 
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
+```java
+// Be sure to import the SDK
 import com.testfairy.TestFairy;
 
 TestFairy.setUserId("john@example.com");
@@ -48,17 +48,25 @@ TestFairy.setUserId("john@example.com");
 
 <TabItem value="ios">
 
-```js
+```objectivec
 [TestFairy setUserId:@"<userId>"];
 ```
 
 Example
 
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
+```objectivec
+// Be sure to import the SDK
 #import "TestFairy.h"
 
 [TestFairy setUserId:@"john@example.com"];
+```
+
+Swift
+
+```swift
+import TestFairy
+
+TestFairy.setUserId("john@example.com")
 ```
 
 </TabItem>
@@ -86,8 +94,8 @@ TestFairy.setUserId("<userId>");
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
-const TestFairy = require('react-native-testfairy');
+// Be sure to import the SDK
+import TestFairy from '@saucelabs/mobile-beta-react-native';
 
 TestFairy.setUserId("john@example.com");
 ```
@@ -103,7 +111,7 @@ TestFairySDK.setUserId("<userId>");
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 import { TestFairySDK } from 'nativescript-testfairy';
 
 TestFairySDK.setUserId("john@example.com");
@@ -113,14 +121,14 @@ TestFairySDK.setUserId("john@example.com");
 
 <TabItem value="xamarin">
 
-```js
+```csharp
 TestFairy.SetUserId ("<userId>");
 ```
 
 Example
 
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
+```csharp
+// Be sure to import the SDK
 using TestFairyLib;
 
 TestFairy.SetUserId ("john@example.com");
@@ -130,14 +138,14 @@ TestFairy.SetUserId ("john@example.com");
 
 <TabItem value="unity">
 
-```js
+```csharp
 TestFairy.setUserId("<userId>");
 ```
 
 Example
 
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
+```csharp
+// Be sure to import the SDK
 using TestFairyUnity;
 
 TestFairy.setUserId("john@example.com");
@@ -147,14 +155,14 @@ TestFairy.setUserId("john@example.com");
 
 <TabItem value="adobe">
 
-```js
+```actionscript
 AirTestFairy.setUserId("<userId>");
 ```
 
 Example
 
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
+```actionscript
+// Be sure to import the SDK
 import com.testfairy.AirTestFairy;
 
 AirTestFairy.setUserId("john@example.com");
@@ -171,7 +179,7 @@ TiTestFairy.setUserId("<userId>");
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 var TiTestFairy = require('com.testfairy.titestfairy');
 
 TiTestFairy.setUserId("john@example.com");
@@ -185,10 +193,10 @@ Where `userId` is a string representing an association to your backend. We recom
 
 ## Important Notes
 
-To make the most effective use of Sauce Labs Mobile App Distribution's user identification feature, it's essential to keep in mind the following important notes:
+To make the most effective use of user identification, keep the following in mind:
 
-- The `setUserId` method can be called multiple times to update the user identifier for different sessions.
-- You can call `setUserId` before or after initializing a session with `begin`.
-- The user identifier you provide must not be null and should be chosen from user attributes like email, phone number, or user ID.
-- The user identifier you set using setUserId() will be searchable through the Sauce Labs Mobile App Distribution API and web search interface.
-
+- `setUserId` is the supported identity API. Call it with a non-null value chosen from user attributes such as email, phone number, or the user ID your app uses.
+- You can call `setUserId` multiple times to update the identifier, before or after starting a session with `beginWithoutCrashHandler` (or `begin`).
+- The user identifier you set with `setUserId` is searchable through the Sauce Labs Mobile App Distribution API and web search interface.
+- `setCorrelationId` and `identify` are deprecated. They write the same user-identity field that `setUserId` writes (on Android, only the first call per process takes effect), so they overwrite, or are overwritten by, your real user ID. Replace `identify(id, traits)` with `setUserId(id)` plus one `setAttribute` call per trait; see [Session Attributes](/testfairy/sdk/session-attributes/). The methods remain only so that legacy TestFairy SDK 1.x code keeps compiling.
+- Do not use `setCorrelationId` or `identify` for the Backtrace correlation id. The value that links a Backtrace crash report to a Sauce Mobile Beta session is the session attribute `sauce.correlation_id`, set with `setAttribute` before the session starts and sent to Backtrace as well. Keep `setUserId` for the real user. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) and [Reserved Attributes for Backtrace Coexistence](/testfairy/sdk/session-attributes/#reserved-attributes-for-backtrace-coexistence).

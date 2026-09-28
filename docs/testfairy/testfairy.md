@@ -22,6 +22,12 @@ Sauce Labs Mobile App Distribution offers enterprise-grade app distribution capa
 
 For more information, see [Managing Testers](/testfairy/testers/managing-testers/).
 
+## Add the SDK to Your App
+
+Add the Sauce Mobile Beta SDK (formerly the TestFairy SDK) to your app to record tester sessions with video, collect in-app feedback, send remote logs, and identify users and sessions. The SDK is crashless: it never installs a crash handler and is designed to run beside Backtrace, Sauce Labs Error Reporting, which owns crash reporting.
+
+For more information, see [Adding the Sauce Mobile Beta SDK](/testfairy/sdk/adding-tf-sdk/) and [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+
 ## Manage everything through API and Integrations
 
 Sauce Labs Mobile App Distribution provides comprehensive API and integration capabilities, allowing companies to automate app management, user management, beta testers and seamlessly integrate with existing workflows. Use our APIs to manage app/user distribution or to enforce security policies programmatically. 
