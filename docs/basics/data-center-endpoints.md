@@ -134,7 +134,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 
 ## Real Devices
 
-For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°). Locale defaults for the Asia South data center are TBD.
+For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°). Devices in the Asia South data center default to EN-IN, and will display information like date, currency, and temperature using India standard terms (i.e., dd/MM/yyyy, ₹, and C°).
 
 :::note
 This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
