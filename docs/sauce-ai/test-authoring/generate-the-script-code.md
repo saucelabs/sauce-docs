@@ -2,6 +2,7 @@
 id: generate-the-script-code
 title: Generate the Script Code
 sidebar_label: Generate the Script Code
+description: "Convert a Sauce AI test case into an automation script in your preferred programming language and framework, then copy or download it for your existing projects."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
