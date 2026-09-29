@@ -2,6 +2,8 @@
 id: slack
 title: Slack (Beta)
 sidebar_label: Slack (Beta)
+description: Connect Sauce Labs to Slack to send test results and alerts to your Slack channels.
+unlisted: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -252,4 +254,4 @@ On the Slack configuration page, locate the workspace you want to disconnect, se
 
 <img src={useBaseUrl('/img/integrations/slack/slack-26.png')} alt="Disconnect option in the workspace More options menu"/>
 
-The workspace is disconnected from Sauce Labs, and the Slackbot integration is also disconnected from your Slack workspace. Other Slack workspaces connected to your Sauce Labs organization remain unaffected.
+The workspace is disconnected from Sauce Labs, and the Saucebot integration is also disconnected from your Slack workspace. Other Slack workspaces connected to your Sauce Labs organization remain unaffected.
