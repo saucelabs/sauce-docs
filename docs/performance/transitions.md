@@ -34,7 +34,7 @@ test is likely to result in compromised results for both objectives and can obsc
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
   - Have your SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment.
-- Google Chrome (no older than 3 versions from latest) as the test browser.
+- Google Chrome (no older than 3 versions from latest) as the test browser. See [Chrome Browser Required](/performance/about/#chrome-browser-required) for supported operating systems.
 - An automation script that performs the interaction with your app during which you want to measure performance.
 
 :::caution WebDriver BiDi Not Supported

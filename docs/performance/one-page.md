@@ -22,7 +22,7 @@ Selenium/WebDriver tests and CI systems, allowing you to capture performance met
 
 ### What You'll Need
 
-- Google Chrome (no older than 3 versions from latest) as the test browser
+- Google Chrome (no older than 3 versions from latest) as the test browser. See [Chrome Browser Required](/performance/about/#chrome-browser-required) for supported operating systems.
 - A Selenium/WebDriver test framework (e.g., WebdriverIO, Selenium)
 - SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment
 - The `extendedDebugging` and `capturePerformance` capabilities enabled in your test configuration
