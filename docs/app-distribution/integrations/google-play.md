@@ -2,6 +2,7 @@
 id: google-play
 title: Google Play Integration
 sidebar_label: Google Play
+description: Publish APK and AAB builds from Mobile App Distribution directly to your Google Play Console.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

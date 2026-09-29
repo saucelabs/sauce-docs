@@ -2,6 +2,7 @@
 id: custom-storage
 title: Custom Storage (Bring Your Own Bucket)
 sidebar_label: Custom Storage
+description: Store your organization's build files and app icons in your own cloud storage bucket.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

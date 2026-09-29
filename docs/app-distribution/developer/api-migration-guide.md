@@ -2,6 +2,7 @@
 id: api-migration-guide
 title: Migrating from the legacy API to v3
 sidebar_label: API Migration Guide
+description: Learn what changed between the legacy Mobile App Distribution API and API v3, and how to migrate your scripts.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

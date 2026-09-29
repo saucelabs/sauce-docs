@@ -2,6 +2,7 @@
 id: managing-teams
 title: Managing Teams
 sidebar_label: Managing Teams
+description: Create teams and manage team membership to control which projects members can access.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

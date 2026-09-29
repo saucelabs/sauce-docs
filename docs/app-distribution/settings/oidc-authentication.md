@@ -2,6 +2,7 @@
 id: oidc-authentication
 title: OIDC Authentication
 sidebar_label: OIDC Authentication
+description: Authenticate Mobile App Distribution API requests with JWT tokens from your identity provider using OIDC.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

@@ -2,6 +2,7 @@
 id: members-roles
 title: Members & Roles
 sidebar_label: Members & Roles
+description: Understand Mobile App Distribution organization and team roles, and invite members to your organization.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

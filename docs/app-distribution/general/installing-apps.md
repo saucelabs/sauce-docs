@@ -2,6 +2,7 @@
 id: installing-apps
 title: Installing Apps on Your Device
 sidebar_label: Installing Apps
+description: Install an app on your iOS or Android device from an install link, landing page or QR code.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

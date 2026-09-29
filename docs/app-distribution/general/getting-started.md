@@ -2,6 +2,7 @@
 id: getting-started
 title: Welcome to Mobile App Distribution
 sidebar_label: Getting Started
+description: Get started with Mobile App Distribution and share iOS and Android builds with your team and testers without the app stores.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

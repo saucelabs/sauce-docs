@@ -2,6 +2,7 @@
 id: legacy-api-v1
 title: Legacy API (v1 Compatibility)
 sidebar_label: Legacy API (v1)
+description: Reference for the legacy v1 API, which keeps existing TestFairy CI/CD scripts and plugins working in Mobile App Distribution.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -126,7 +127,7 @@ Delete a build. Requires admin permissions.
 
 ### <M>GET</M> `/api/1/projects/{projectId}/builds/{buildId}/download/`
 
-Get the download URL for a build. Returns a pre-signed S3 URL or install page link.
+Get the download URL for a build. Returns a pre-signed URL or install page link.
 
 ### <M>POST</M> `/api/1/projects/{projectId}/builds/{buildId}/invites/`
 

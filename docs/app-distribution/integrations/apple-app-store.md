@@ -2,6 +2,7 @@
 id: apple-app-store
 title: Apple App Store Integration
 sidebar_label: Apple App Store
+description: Connect Mobile App Distribution to App Store Connect with an API key and publish iOS builds directly.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

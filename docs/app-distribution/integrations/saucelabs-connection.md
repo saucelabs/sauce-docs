@@ -2,6 +2,7 @@
 id: saucelabs-connection
 title: Sauce Labs Connection
 sidebar_label: Sauce Labs Connection
+description: Connect Mobile App Distribution to your Sauce Labs account for team sync, role mapping, user provisioning and App Storage.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

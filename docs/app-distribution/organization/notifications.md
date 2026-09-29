@@ -2,6 +2,7 @@
 id: notifications
 title: Notifications
 sidebar_label: Notifications
+description: Stay informed about activity in your organization with in-app and email notifications.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

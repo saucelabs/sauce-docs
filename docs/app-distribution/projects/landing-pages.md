@@ -2,6 +2,7 @@
 id: landing-pages
 title: Landing Pages
 sidebar_label: Landing Pages
+description: Configure a landing page where testers can view your app information and install a specific build.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

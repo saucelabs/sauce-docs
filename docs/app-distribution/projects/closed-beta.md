@@ -2,6 +2,7 @@
 id: closed-beta
 title: Closed Beta
 sidebar_label: Closed Beta
+description: Restrict app access to authorized testers and team members with closed beta.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

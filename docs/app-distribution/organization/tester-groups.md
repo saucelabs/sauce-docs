@@ -2,6 +2,7 @@
 id: tester-groups
 title: Tester Groups
 sidebar_label: Tester Groups
+description: Organize testers into groups and control which apps and builds they can access.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

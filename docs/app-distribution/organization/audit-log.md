@@ -2,6 +2,7 @@
 id: audit-log
 title: Audit Log
 sidebar_label: Audit Log
+description: Review and export a record of significant actions performed in your Mobile App Distribution organization.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

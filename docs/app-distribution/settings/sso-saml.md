@@ -2,6 +2,7 @@
 id: sso-saml
 title: SSO / SAML
 sidebar_label: SSO / SAML
+description: Configure SAML-based single sign-on so users sign in to your organization through your identity provider.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

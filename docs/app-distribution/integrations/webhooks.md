@@ -2,6 +2,7 @@
 id: webhooks
 title: Webhooks
 sidebar_label: Webhooks
+description: Receive real-time HTTP notifications when builds are uploaded or downloaded, or iOS devices are registered.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

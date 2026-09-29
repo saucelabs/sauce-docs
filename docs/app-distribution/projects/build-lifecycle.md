@@ -2,6 +2,7 @@
 id: build-lifecycle
 title: Build Lifecycle
 sidebar_label: Build Lifecycle
+description: Learn the states a build moves through from upload to deletion, and what each state means for testers.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

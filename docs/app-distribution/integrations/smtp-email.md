@@ -2,6 +2,7 @@
 id: smtp-email
 title: SMTP Integration
 sidebar_label: SMTP Email
+description: Send build notifications, invitations and other Mobile App Distribution emails through your own SMTP server.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

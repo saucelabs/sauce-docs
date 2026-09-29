@@ -2,6 +2,7 @@
 id: uploading-builds
 title: Uploading Builds
 sidebar_label: Uploading Builds
+description: Upload iOS and Android builds to a project and make them available for testing and distribution.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

@@ -2,6 +2,7 @@
 id: api-reference
 title: API Reference (v3)
 sidebar_label: API Reference
+description: Authenticate, paginate and call the Mobile App Distribution REST API v3 endpoints for apps, builds, teams, testers and more.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -134,7 +135,7 @@ For the full interactive API documentation with request/response examples, visit
 | <M>GET</M> | `/api/v3/builds/{id}` | Get a build |
 | <M>POST</M> | `/api/v3/builds/upload` | Upload a new build (multipart/form-data) |
 | <M>PUT</M> | `/api/v3/builds/{id}` | Update release notes and tags |
-| <M>GET</M> | `/api/v3/builds/{id}/download` | Get pre-signed download URL. If S3 storage isn't configured, returns the install-page URL instead. |
+| <M>GET</M> | `/api/v3/builds/{id}/download` | Get pre-signed download URL. If storage isn't configured, returns the install-page URL instead. |
 | <M>DELETE</M> | `/api/v3/builds/{id}` | Delete a build (admin) |
 | <M>POST</M> | `/api/v3/builds/{id}/copy` | Duplicate a build within the same app (references the same file) |
 | <M>POST</M> | `/api/v3/builds/{id}/notify-testers` | Queue the new-build email to testers. Returns `202 {"status":"queued"}`, or `409` if the build isn't distributable. Requires admin rights on the app. |
@@ -221,7 +222,3 @@ Provide either `project_id` or `team_id`. `PUT /api/v3/builds/{id}` accepts `rel
 | --- | --- | --- |
 | <M>GET</M> | `/api/v3/audits` | List audit logs (paginated, filterable by action/search/date, admin) |
 | <M>GET</M> | `/api/v3/audits/actions` | List distinct audit action types (admin) |
-
-:::info
-Migrating from TestFairy? The legacy API still works but is deprecated, and will be removed after December 31, 2026. See the [Legacy API (v1)](/app-distribution/developer/legacy-api-v1) reference and the [API Migration Guide](/app-distribution/developer/api-migration-guide) to move to v3.
-:::
