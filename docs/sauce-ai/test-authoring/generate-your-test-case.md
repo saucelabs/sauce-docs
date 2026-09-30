@@ -36,15 +36,15 @@ Choose the type of application you want to test based on your testing requiremen
 | Application Type | Description | Supported Formats |
 | :---- | ----- | :---- |
 | **Web** | Paste the complete URL of the web application you want to test in the **Paste initial URL to test** field. Sauce AI launches a desktop browser session and interacts with your application based on the provided test prompt. | URL |
-| **Mobile web** | Paste the complete URL of the website you want to test in the **Paste initial URL to test** field. Sauce AI opens the website in a mobile browser on an emulated device and interacts with it based on the provided test prompt. | URL |
+| **Mobile web** | Paste the complete URL of the website you want to test in the **Paste initial URL to test** field. Sauce AI opens the website in a mobile browser using emulated device dimensions and interacts with it based on the provided test prompt. | URL |
 | **Mobile** | Select your application from the available builds uploaded to [**App Management**](/docs/mobile-apps/app-storage.md#app-management). The list displays the latest uploaded application builds available in your Sauce Labs account. | **Android:** APK **iOS:** IPA, ZIP |
 
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-3.png')} alt=" test case" width="100%"/>
 
 :::note Mobile web
-Generation runs on an **emulated device**: an Android emulator or an iOS simulator. Emulated devices start quickly and are the fastest way to author and iterate on a mobile web flow.
+Generation runs on **emulated device dimensions** based on your preferred mobile device selected.
 
-Once the test case is saved, you can run it against **real mobile devices** as well as emulators and simulators. Authoring happens on an emulated device; execution is not limited to one. See [**Run Test Cases**](/docs/sauce-ai/test-authoring/run-your-test-cases.md#run-a-mobile-web-test-case).
+Once the test case is saved, you can run it against **real mobile devices** as well as **emulators and simulators**. Authoring uses emulated device dimensions; execution is not limited to them. See [**Run Test Cases**](/docs/sauce-ai/test-authoring/run-your-test-cases.md#run-a-mobile-web-test-case).
 :::
 
 ## Additional Test Generation Options (Optional)

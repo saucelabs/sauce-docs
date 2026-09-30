@@ -49,12 +49,12 @@ During execution, Test Authoring performs each generated test step in the select
 
 ## Run a Mobile Web Test Case
 
-A test case authored as **Mobile web** is generated on an emulated device, but it is not bound to it. At run time you can execute the saved test case against:
+A test case authored as **Mobile web** is generated on emulated device dimensions based on your preferred mobile device, but it is not bound to them. At run time you can execute the saved test case against:
 
 * **Real mobile devices** from the Real Device Cloud.
 * **Emulators and simulators** from the Virtual Device Cloud.
 
-This lets you author quickly on an emulated device and then validate against the real hardware and OS versions your users are on.
+This lets you author quickly using emulated device dimensions and then validate against the real hardware and OS versions your users are on.
 
 ## Review Test Results
 
