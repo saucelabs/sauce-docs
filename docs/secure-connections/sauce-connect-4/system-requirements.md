@@ -74,7 +74,6 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
    - [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
    - [https://api.us-east-4.saucelabs.com/rest/v1](https://api.us-east-4.saucelabs.com/rest/v1) for US-EAST region
    - [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
-   - [https://api.asia-south-2.saucelabs.com](https://api.asia-south-2.saucelabs.com/) for Asia-South region
 
    If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
    As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect-4/quickstart/#start-tunnel)
