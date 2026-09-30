@@ -30,6 +30,7 @@ To see your data center, check the upper-right corner of the Sauce Labs user int
 - US West 1
 - US East 4
 - EU Central 1
+- Asia South 2
 
 :::note
 Virtual Device Testing is not available in US East 4.
@@ -76,6 +77,15 @@ Depending on the framework or driver you use, you might need to make additional 
 | Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443                         |
 | Visual Storage Endpoint      | https://storage.googleapis.com/sauce-iris-prod-europe-west3-ybyc/* |
 
+### Asia South Data Center
+
+| Description                  | Endpoint                                            |
+|------------------------------|------------------------------------------------------|
+| Remote WebDriver Endpoint    | https://ondemand.asia-south-2.saucelabs.com/wd/hub  |
+| REST API                     | api.asia-south-2.saucelabs.com                      |
+| Sauce Connect Tunnel Servers | \*.tunnels.asia-south-2.saucelabs.com:443           |
+| Visual Storage Endpoint      | Not available                                       |
+
 ## IP Address Ranges - Outgoing
 
 To set up an IP-address-based allowlist for outgoing connections, rather than using hostnames, see the following table for the relevant IP ranges.
@@ -116,9 +126,16 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | 162.222.79.0/27                    |
 | 185.94.24.0/22                     |
 
+### Asia South Region
+
+| Endpoints                          |
+| ---------------------------------- |
+| 151.158.35.0/24                    |
+| 34.131.227.16/28                   |
+
 ## Real Devices
 
-For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
+For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°). Devices in the Asia South data center default to EN-IN, and will display information like date, currency, and temperature using India standard terms (i.e., dd/MM/yyyy, ₹, and C°).
 
 :::note
 This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
