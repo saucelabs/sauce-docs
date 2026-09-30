@@ -1,122 +1,60 @@
 ---
 id: saml
-title: SAML
-sidebar_label: SAML custom roles
-description: Use SAML authentication with custom group attributes to manage Mobile App Distribution roles from your identity provider.
+title: SAML Roles and Groups
+sidebar_label: SAML roles and groups
+description: Use the groups attribute of the SAML assertion to set Mobile App Distribution organization roles, team roles, and tester groups from your identity provider.
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+On every SSO login, App Distribution reads the `groups` attribute of the SAML assertion. Each value can set the user's organization role, a team role, or a tester group. To connect your identity provider (IdP) first, see [Single Sign-On](/app-distribution/security/sso/sso-intro/).
 
-# SAML Authentication Integration with Custom Group Attributes
+## Two Modes
 
-In modern enterprise environments, Single Sign-On (SSO) using SAML is a crucial component for secure, centralized access control. SAML Authentication with Custom Group Attributes allows granular user role and site-level access management via your identity provider.
+|                       | Default                              | With role sync                        |
+| --------------------- | ------------------------------------ | ------------------------------------- |
+| **Organization role** | Tester, set once when the user joins | From `groups`, on every login         |
+| **Team roles**        | Not changed                          | From `groups`, on every login         |
+| **Tester groups**     | Added only, with an `okta-` prefix   | Replaced to match `groups`, no prefix |
 
-With this feature, authentication is managed through a SAML 2.0 identity provider, and user access is defined using custom group attributes passed in the SAML response. These attributes can be used to:
+Sauce Labs turns on role sync per organization. To turn it on, contact [Sauce Labs Support](https://support.saucelabs.com/). With role sync on, your IdP is the source of truth, and anything the attribute doesn't list is removed at the next login.
 
-* Assign roles (e.g., admin, tester)
-* Define access per site
-* Apply global roles
+## Value Format
 
-This design provides flexibility for organizations managing access across multiple teams or sites, while keeping configuration centralized.
+Each value is `value` or `team:value`. With no prefix, the value applies to the **Default** team. If the value is a role keyword, it sets a role. Anything else is a tester group name.
 
-## Structuring Group Attributes
-Each group value in the SAML response is a string, but the format of that string determines how it's interpreted.
+## Role Keywords
 
-There are two formats:
+Role keywords only work with role sync on, and they aren't case-sensitive.
 
-**Site-Specific Format: site-name:role-or-group**
+| Value                       | Organization role | Team role            |
+| --------------------------- | ----------------- | -------------------- |
+| `account_manager`           | Org Admin         | None needed          |
+| `team:account_manager`      | Member            | Team Admin of `team` |
+| `admin`, `member`           | Member            | Member of Default    |
+| `team:admin`, `team:member` | Member            | Member of `team`     |
+| `tester`, `team:tester`     | Tester            | None                 |
 
-This format assigns roles or groups tied to a particular site. For example:
+:::caution
+`admin` doesn't make someone an admin. It gives the same access as `member`. For admins, use `account_manager`.
+:::
 
-* site-a:admin means the user is an admin for Site A.
-* site-b:marketing assigns the user to the “marketing” group for Site B.
+- If a user has several values, the highest role wins, for the organization role and for each team role.
+- SSO never changes the Account Owner, and no value makes someone Account Owner.
+- Teams must already exist, and names are matched without regard to case. When you rename a team, update the name in your IdP too.
+- Users leave any team the attribute doesn't list, except Default.
+- If there's no role keyword at all, the user's role and teams stay the same.
 
-If the second part of the string matches one of our reserved role keywords, it’s treated as a role. Otherwise, it’s interpreted as a group name.
+## Tester Groups
 
-**Global Format: role-or-group**
+`qa:beta-testers` puts the user in the tester group `beta-testers` in the `qa` team. If the group doesn't exist, it's created, but the team must already exist. Names are lowercased, spaces become hyphens, and other symbols are removed, so `QA Testers (iOS)` becomes `qa-testers-ios`.
 
-This format is used for roles or groups that apply across all sites. For example:
+## Example
 
-* admin means the user is a global admin
-* group-b assigns the user to a global group named “group-b”
-
-It’s worth noting that only one global role can be defined per user, and it must be explicitly stated.
-
-## Reserved Role Keywords
-To avoid ambiguity, we use a set of predefined, case-sensitive keywords to identify roles:
-
-* admin
-* account_manager
-* tester
-
-Any other string will be treated as a group, not a role, so double-check your attribute values to avoid unexpected access behavior.
-
-## Example: What a SAML Attribute Looks Like
-Below you can find a real-world SAML XML snippet to see how these roles and groups are passed:
-
-## Multi-site
-In the following example, the user is an admin on site-a, an account_manager on site-b, and a global admin. They also belong to group1 on site-a. The system links the admin account to the tester group, so if the user views the account in tester mode, they will have the same permissions as a tester in that group.
-Sample SAML XML Example 1:
-
-```
-<saml2:Attribute Name="groups" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
-    <saml2:AttributeValue xsi:type="xs:string">site-a:admin</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">site-a:group1</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">site-b:account_manager</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">admin</saml2:AttributeValue>
-</saml2:Attribute>
-
-```
-
-Sample SAML XML Example 2:
-```
- <saml2:Attribute Name="groups" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
-    <saml2:AttributeValue xsi:type="xs:string">site-a:admin</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">site-a:group-b</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">site-b:tester</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">site-b:group-c</saml2:AttributeValue>
-    </saml2:Attribute>
-
-```
-## Single-site
-Sample SAML XML Example 3:
-
-```
-<saml2:Attribute Name="groups" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
-    <saml2:AttributeValue xsi:type="xs:string">admin</saml2:AttributeValue>
+```xml
+<saml2:Attribute Name="groups">
+    <saml2:AttributeValue>qa:account_manager</saml2:AttributeValue>
+    <saml2:AttributeValue>mobile:member</saml2:AttributeValue>
+    <saml2:AttributeValue>qa:beta-testers</saml2:AttributeValue>
 </saml2:Attribute>
 ```
-Sample SAML XML Example 4:
 
-```
-<saml2:Attribute Name="groups" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
-    <saml2:AttributeValue xsi:type="xs:string">admin</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">group-b</saml2:AttributeValue>
-    <saml2:AttributeValue xsi:type="xs:string">group-c</saml2:AttributeValue>
-</saml2:Attribute>
-
-```
-# How We Apply Roles and Permissions
-
-Once we receive and process these group attributes, they directly affect what the user can do within the system. Here's how roles translate into access:
-
-* A global admin becomes a Site Manager, able to create sites, add admins, and assign account managers.
-* Account Managers can invite site-specific admins.
-* Admins can add testers.
-* Testers have the most limited access, usually read-only or QA-specific functionality.
-
-There’s also an approval system in place:
-
-* If a Site Manager tries to promote someone to global admin, the Account Owner must approve it.
-* Only the Account Owner can remove a Site Manager.
-
-This layered model ensures that powerful roles don’t get assigned lightly.
-
-# Important Rules to Follow
-To ensure your SAML attributes work as expected, keep these rules in mind:
-* Case sensitivity is enforced. `site1` and `Site1` are treated as different entities.
-* Roles must be declared. Don’t assume a user will get default access just by belonging to a group.
-* Testers must be explicitly assigned. If a user should only test, use site:tester.
-* If multiple roles are defined for one site, they will be evaluated in combination, but only one global role will be honored.
+With role sync on, the user is a Member of the organization, a Team Admin of `qa`, a Member of `mobile`, and in the tester group `beta-testers` in `qa`.
