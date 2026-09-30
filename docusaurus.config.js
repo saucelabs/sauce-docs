@@ -9,6 +9,58 @@ if (typeof unwrapJsx !== 'function') {
 // We fall back to '/' for local development.
 let siteBaseUrl = process.env.BASE_URL || '/';
 
+// Product areas that get their own /<dir>/llms.txt and /<dir>/llms-full.txt.
+const llmsSections = [
+    {
+        dir: 'mobile-apps',
+        title: 'Mobile App Testing',
+        patterns: ['docs/mobile-apps.md', 'docs/mobile-apps/**'],
+    },
+    {
+        dir: 'web-apps',
+        title: 'Web App Testing',
+        patterns: ['docs/web-apps.md', 'docs/web-apps/**'],
+    },
+    {
+        dir: 'live-testing',
+        title: 'Live Testing',
+        patterns: [
+            'docs/mobile-apps/live-testing/**',
+            'docs/web-apps/live-testing/**',
+        ],
+    },
+    {
+        dir: 'secure-connections',
+        title: 'Sauce Connect and Secure Connections',
+        patterns: ['docs/secure-connections.md', 'docs/secure-connections/**'],
+    },
+    {
+        dir: 'dev',
+        title: 'APIs, CLI and Developer Reference',
+        patterns: ['docs/dev.md', 'docs/dev/**'],
+    },
+    {
+        dir: 'error-reporting',
+        title: 'Error Reporting',
+        patterns: ['docs/error-reporting/**'],
+    },
+    {
+        dir: 'testfairy',
+        title: 'App Distribution',
+        patterns: ['docs/testfairy/**'],
+    },
+    {
+        dir: 'visual-testing',
+        title: 'Visual Testing',
+        patterns: ['docs/visual-testing.md', 'docs/visual-testing/**'],
+    },
+    {
+        dir: 'sauce-ai',
+        title: 'Sauce AI',
+        patterns: ['docs/sauce-ai.md', 'docs/sauce-ai/**'],
+    },
+];
+
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
     tagline: 'Test all the things.',
@@ -186,6 +238,73 @@ const docusaurusConfig = {
     ],
     themes: ['docusaurus-theme-github-codeblock'],
     plugins: [
+        [
+            // Generates /llms.txt, /llms-full.txt, per-page .md files and
+            // per-product-area files for AI tools at build time.
+            'docusaurus-plugin-llms',
+            {
+                title: 'Sauce Labs Documentation',
+                description:
+                    'Sauce Labs is a cloud-based continuous testing platform for web and mobile apps, offering automated and live testing on real devices, emulators, simulators and desktop browsers, plus visual testing, error reporting and app distribution.',
+                docsDir: [{ path: 'docs', routeBasePath: '/' }],
+                ignoreFiles: [
+                    'docs/contributing.md',
+                    'docs/contributing/**',
+                    'docs/templates/**',
+                    'docs/assets/**',
+                    '**/*.jsx',
+                ],
+                // Mirrors the top-level sidebar order.
+                includeOrder: [
+                    'docs/overview.md',
+                    'docs/sauce-basics.md',
+                    'docs/basics/**',
+                    'docs/secure-connections.md',
+                    'docs/secure-connections/**',
+                    'docs/testfairy/**',
+                    'docs/mobile-apps.md',
+                    'docs/mobile-apps/**',
+                    'docs/web-apps.md',
+                    'docs/web-apps/**',
+                    'docs/ci.md',
+                    'docs/ci/**',
+                    'docs/test-results.md',
+                    'docs/test-results/**',
+                    'docs/insights.md',
+                    'docs/insights/**',
+                    'docs/sauce-ai.md',
+                    'docs/sauce-ai/**',
+                    'docs/ide-plugins.md',
+                    'docs/ide-plugins/**',
+                    'docs/performance.md',
+                    'docs/performance/**',
+                    'docs/visual-testing.md',
+                    'docs/visual-testing/**',
+                    'docs/dev.md',
+                    'docs/dev/**',
+                    'docs/error-reporting/**',
+                ],
+                generateMarkdownFiles: true,
+                excludeImports: true,
+                removeDuplicateHeadings: true,
+                customLLMFiles: llmsSections.flatMap(
+                    ({ dir, title, patterns }) => [
+                        {
+                            filename: `${dir}/llms.txt`,
+                            includePatterns: patterns,
+                            fullContent: false,
+                            title: `Sauce Labs Documentation: ${title}`,
+                        },
+                        {
+                            filename: `${dir}/llms-full.txt`,
+                            includePatterns: patterns,
+                            fullContent: true,
+                            title: `Sauce Labs Documentation: ${title}`,
+                        },
+                    ]
+                ),
+            },
+        ],
         [
             '@scalar/docusaurus',
             {
