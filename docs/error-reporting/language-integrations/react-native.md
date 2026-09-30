@@ -459,21 +459,18 @@ module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 **On Android:**
 
 Hermes writes a source map for every release build unless a `hermesFlags` override drops `-output-source-map`. To
-upload it, add the Backtrace task at the end of `android/app/build.gradle`:
+upload it, add the Backtrace script at the end of `android/app/build.gradle`:
 
 ```gradle
 apply from: "$rootDir/../node_modules/@backtrace/react-native/android/upload-sourcemaps.gradle"
 ```
 
-Then run it after each release build:
-
-```gradle
-tasks.matching {
-    it.name == "assembleRelease" || it.name == "bundleRelease"
-}.configureEach { task ->
-    task.finalizedBy("uploadSourceMapsToBacktrace")
-}
-```
+Each release variant then uploads its own source map after `assemble<Variant>` or `bundle<Variant>` packages the
+app. Debug variants upload nothing. A missing source map, debug id or `.backtracejsrc` logs a warning and skips the
+upload. A failed upload fails the build. Pass `-PbacktraceUploadSourceMaps=false`, or set
+`backtraceUploadSourceMaps=false` in `gradle.properties`, to build without uploading. To upload one variant by hand,
+run `./gradlew uploadSourceMapsToBacktrace -PbuildVariant=<variant>`. A `finalizedBy("uploadSourceMapsToBacktrace")`
+hook from an earlier version of this guide keeps working.
 
 **On iOS:**
 
