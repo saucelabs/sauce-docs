@@ -184,15 +184,33 @@ This error has a few potential causes:
 
 Your test session was abandoned because it took longer than 45 seconds to assign a Sauce Labs Virtual Machine, and your test runner did not follow the new session redirect before timeout.
 
+While a session is starting, Sauce Labs answers your new-session request with an HTTP `303` redirect and expects your client to follow it. This repeats until the session is ready. If your client stops following the redirects, Sauce Labs stops the session and reports this error.
+
 **Cause**
 
-The main cause for this error is client-side request throttling/errors. Make sure to check the logs from your test runner for any errors.
-See the related [New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found](#the-new-session-request-was-cancelled-before-a-sauce-labs-virtual-machine-was-found) error message for more information.
+- Client-side request throttling or errors. Make sure to check the logs from your test runner for any errors.
+  See the related [New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found](#the-new-session-request-was-cancelled-before-a-sauce-labs-virtual-machine-was-found) error message for more information.
+- Your WebDriver client has a redirect limit. The Selenium and Appium **Python** clients use the `urllib3` default retry policy, which follows at most three redirects. A session that is still starting after the third redirect fails on the client with `MaxRetryError: ... too many redirects`, and Sauce Labs reports this error.
 
 **How to Resolve**
 
 - Make sure your test runner is not running out of resources (CPU/Network).
 - Make sure your test runner has enough logging enabled to support troubleshooting.
+- If you use the Python client, raise the redirect limit through the client configuration. The example below allows 20 redirects with the Appium Python client. Selenium's `ClientConfig` accepts the same `init_args_for_pool_manager` argument.
+
+```python
+import urllib3
+from appium import webdriver
+from appium.webdriver.client_config import AppiumClientConfig
+
+sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
+retries = urllib3.Retry(total=None, connect=3, read=0, status=0, other=0, redirect=20)
+client_config = AppiumClientConfig(
+    remote_server_addr=sauce_url,
+    init_args_for_pool_manager={"init_args_for_pool_manager": {"retries": retries}},
+)
+driver = webdriver.Remote(command_executor=sauce_url, options=options, client_config=client_config)
+```
 
 ### Selenium Didn't Complete Your Last Request on Time
 

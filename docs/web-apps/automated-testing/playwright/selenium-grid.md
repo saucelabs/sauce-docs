@@ -10,7 +10,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Playwright can connect to Sauce Labs remotely via its [Selenium Grid
 support](https://playwright.dev/docs/selenium-grid) to launch the Google
-Chrome or Microsoft Edge browser.
+Chrome or Microsoft Edge browser on Windows and macOS virtual machines, or
+Google Chrome on [ChromiumOS](/web-apps/chromiumos/) virtual machines.
 
 Playwright connects to the browser using the Chrome DevTools Protocol (CDP).
 Selenium 4 _currently_ exposes this capability.
@@ -28,6 +29,7 @@ today, follow the guidelines shown below.
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 - Playwright installed in your project
 - Supported browsers: Google Chrome or Microsoft Edge
+- Supported platforms: Windows, macOS, and ChromiumOS
 
 ## Connect Playwright to Sauce Labs
 
@@ -238,6 +240,36 @@ HEADED=1 dotnet test
 
 </Tabs>
 
+### Choosing a Platform
+
+The examples above target `Windows 11`. To run the same tests somewhere else, change `platformName` and
+`browserVersion` in `SELENIUM_REMOTE_CAPABILITIES` — nothing else about your test code changes.
+
+| Platform | `platformName` | Browsers | Notes |
+|---|---|---|---|
+| Windows | `Windows 11`, `Windows 10` | `chrome`, `MicrosoftEdge` | |
+| macOS | `macOS 15`, `macOS 14`, and earlier | `chrome`, `MicrosoftEdge` | macOS 14 and later require `armRequired: true` in `sauce:options`. See [macOS Apple Silicon](/web-apps/macos-apple-silicon/). |
+| ChromiumOS | `ChromiumOS` | `chrome` (or `googlechrome`) | Chrome only — Microsoft Edge is not offered on ChromiumOS. |
+
+Use the [Platform Configurator](/basics/platform-configurator) for the full list of platform and browser
+version combinations.
+
+#### ChromiumOS
+
+[ChromiumOS virtual machines](/web-apps/chromiumos/) run the current and previous Chrome releases, so
+`latest` and `latest-1` keep you on a supported version automatically:
+
+```shell title="Running Playwright on ChromiumOS"
+export SELENIUM_REMOTE_URL=https://ondemand.us-west-1.saucelabs.com:443/wd/hub
+export SELENIUM_REMOTE_CAPABILITIES='{"platformName":"ChromiumOS","browserName":"chrome","browserVersion":"latest","sauce:options":{"devTools":true,"username":"'$SAUCE_USERNAME'","accessKey":"'$SAUCE_ACCESS_KEY'"}}'
+npx playwright test --headed --project "chromium"
+```
+
+Playwright supplies `browserName` and the Chromium launch arguments itself, so you only need to add
+`platformName`, `browserVersion`, and `sauce:options`. Both `chrome` and `googlechrome` are accepted for
+`browserName` on ChromiumOS. The same capabilities work with the
+[fixtures and extensions](#using-fixturesextensions-recommended) above.
+
 ## Best Practices
 
 :::tip
@@ -275,7 +307,7 @@ via Selenium Grid:
   executed properly. We're actively working on improving how Playwright commands are displayed.
 
 - **Browser Support**: Only Google Chrome and Microsoft Edge are supported, as they provide CDP
-  endpoints.
+  endpoints. On ChromiumOS, Google Chrome is the only available browser.
 
 - **Headed Mode Required**: Tests must run in headed mode for video capture to work.
 
@@ -283,4 +315,5 @@ via Selenium Grid:
 
 - [Playwright Official Selenium Grid Documentation](https://playwright.dev/docs/selenium-grid)
 - [Sauce Labs Platform Configurator](/basics/platform-configurator)
+- [ChromiumOS Testing on Sauce Labs](/web-apps/chromiumos/)
 - [Environment Variables](/basics/environment-variables)

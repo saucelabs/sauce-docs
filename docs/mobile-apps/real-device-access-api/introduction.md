@@ -5,18 +5,18 @@ sidebar_label: Introduction
 ---
 
 :::info
-Access is currently limited to customers with **Private Devices**. While we continue to refine the product, 
-we do not plan to introduce breaking changes to the current API specification.
+Access to public devices requires a separate entitlement. Contact your Customer Success Manager or the
+Sauce Labs Support Team to enable it.
 :::
 
-The **Real Device Access API** is your direct doorway to Sauce Labs’ private device fleet. Instead of wiring every workflow through test-frameworks, you reserve a device once, interact with it over HTTP/WebSockets, and decide how to drive automation, debugging, or observability.
+The **Real Device Access API** provides you with direct access to Sauce Labs’ real device cloud, both the public devices shared across all customers and the private devices reserved for your organization. Instead of wiring every workflow through test-frameworks, you reserve a device once, interact with it over HTTP/WebSockets, and decide how to drive automation, debugging, or observability.
 
 Historically, accessing real devices meant depending on a specific framework like Appium, XCTest, XCUITest, or Espresso. The Access API removes that dependency by exposing our infrastructure through standard protocols so you can build your own testing, validation, or monitoring solutions—without running a physical lab.
 
 ## Why Teams Adopt The Access API
 
 - Remove hard dependencies on a single automation framework and mix in your own tooling.
-- Keep private devices busy by running multiple operations back-to-back on one session.
+- Keep a reserved device busy by running multiple operations back-to-back on one session.
 - Build custom services—observability dashboards, AI agents, or workflow orchestrators—that need device-level control.
 
 ## How It Works
@@ -27,9 +27,43 @@ Historically, accessing real devices meant depending on a specific framework lik
 
 For the complete endpoint contract, see the [Real Device Access API Reference](/real-device-access-api).
 
+## Public and Private Devices
+
+A session runs on a public device from the shared Sauce Labs cloud or on one of your organization's
+private devices. The API surface is the same for both: the same endpoints, the same session lifecycle,
+the same test results.
+
+Refer to the following table to learn about the differences between the Access API on the Private
+and Public Device Clouds.
+
+| Capability | Public Devices | Private Devices |
+|---|:---:|:---:|
+| **Session** | | |
+| Maximum session duration | Up to 1 hour | Up to 24 hours |
+| Many tests on one session | ✅ | ✅ |
+| Concurrency | Public device entitlement | Private device entitlement |
+| **Device control** | | |
+| App installation, launch, and uninstall | ✅ | ✅ |
+| File management (list, push, pull) | ✅ | ✅ |
+| `adb shell` commands (Android) | Allowlisted commands only | Unrestricted |
+| Device reboot | ❌ | ✅ |
+| Custom WebDriverAgent (iOS) | ❌ | ✅ |
+| Low-Level Device Access | ❌ | ✅ |
+| **Observability** | | |
+| Live video stream | ✅ | ✅ |
+| Live device logs | ✅ | ✅ |
+| Network capture (HAR) | ✅ | ✅ |
+| Test results and artifacts | ✅ | ✅ |
+| **Appium** | | |
+| Sauce Labs hosted Appium | ✅ | ✅ |
+
+The [Real Device Access API Reference](/real-device-access-api) carries the rest: the fields that
+identify a device's class under the `Device Catalog` tag, and the response each endpoint returns when an
+operation is unavailable on a public device.
+
 ## What You'll Need
 
-- A Sauce Labs account ([log in](https://accounts.saucelabs.com/am/XUI/#login/)) with at least one private device.
+- A Sauce Labs account ([log in](https://accounts.saucelabs.com/am/XUI/#login/)) entitled to the Access API on public devices, private devices, or both.
 - Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings) for Basic Auth.
 - Familiarity with REST/WebSocket clients (`curl`, Postman, Bruno, or an HTTP library).
 

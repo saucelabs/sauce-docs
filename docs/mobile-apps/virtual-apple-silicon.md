@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs now supports **iOS 18 and iOS 26** on Apple Silicon-based Simulators. These environments offer improved performance, alignment with modern architecture, and compatibility with Xcode's latest features. This allows you to test apps in the most current Apple environments across iPhone and iPad Simulators.
+Sauce Labs now supports **iOS 18, iOS 26, and iOS 27** on Apple Silicon-based Simulators. These environments offer improved performance, alignment with modern architecture, and compatibility with Xcode's latest features. This allows you to test apps in the most current Apple environments across iPhone and iPad Simulators.
 
 :::note Availability
 iOS 17.5 and newer Simulators on Apple Silicon are available to customers with the required subscription. If you don't have access, contact your account manager to discuss upgrading.
@@ -79,6 +79,7 @@ For full sample configurations and lists of available devices per version, use t
 | iOS 16.4<br/>iOS 18.0<br/>iOS 18.6 | 2.11.3 | iPhone 16 Simulator | true |
 | iOS 26.1 | 2.19.0 | iPhone 17 Simulator | true |
 | iOS 26.5 | 3.3.0 | iPhone 17 Simulator | true |
+| iOS 27.0 | 3.3.0 | iPhone 18 Pro Simulator | true |
 
 
 :::note †armRequired now optional
@@ -91,7 +92,7 @@ Prior to March 15th, 2026 the `armRequired` parameter was required for tests to 
 
 As you upgrade to newer verisons on Sauce Labs Simulators, Appium and related driver updates may require you to modify existing tests to remove deprecated features no longer supported.
 
-Check [Appium Version Details](./automated-testing/appium/appium-versions.md#appium-2x) for full bundle details on supported versions.
+Check [Appium Version Details](./automated-testing/appium/appium-versions.md#ios-simulators) for full bundle details on supported versions.
 
 ### Changes to Content Scope
 
@@ -135,6 +136,24 @@ You may encounter failures when using the visibility_of_element_located Expected
 ✅ Works: `EC.presence_of_element_located((AppiumBy.NAME, 'Element_Name'))`
 
 **Recommended Solution**: Update your `WebDriverWait` calls to use `presence_of_element_located`. Since the XCUITest driver often handles visibility checks internally during interaction, verifying presence is sufficient for element discovery and significantly more stable in this release.
+
+### Changes in iOS 26.5 and iOS 27
+
+iOS 26.5 and iOS 27.0 Simulators run on **Appium 3**. Appium `3.3.0` is the only Appium version available for these platform versions, so set `appiumVersion` to `3.3.0` in `sauce:options`. The bundle includes:
+
+* Appium Server: 3.3.0.
+* Appium XCUITest Driver: 10.43.0, with WebDriverAgent 11.4.1.
+
+iOS 27.0 adds the iPhone 18 Pro and iPhone 18 Pro Max Simulators. For the full list of iPhone and iPad Simulators available on each version, use the [Platform Configurator](https://saucelabs.com/products/platform-configurator).
+
+#### Moving from Appium 2 to Appium 3
+
+Appium 3 supports only the W3C WebDriver protocol. Before you move tests from iOS 26.1 (Appium 2.19.0) to iOS 26.5 or iOS 27.0, check the following:
+
+* **Use a current Appium client and vendor-prefixed capabilities.** The legacy `desiredCapabilities` request format and the JSON Wire Protocol (JSONWP/MJSONWP) endpoints have been removed. Upgrade your Appium client library to a version that speaks W3C, and prefix driver capabilities with `appium:` (for example, `appium:deviceName`).
+* **Replace removed legacy commands.** Touch and gesture commands such as `TouchAction` and `MultiAction` must be replaced by W3C Actions. App lifecycle and device commands such as launch, close, reset, lock, unlock, and shake must be replaced by the XCUITest driver's [`mobile:` commands](https://appium.github.io/appium-xcuitest-driver/latest/reference/execute-methods/), for example `mobile: launchApp`, `mobile: lock`, and `mobile: shake`.
+
+See the official [Appium 2 to Appium 3 migration guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/) for the complete list of changes, and the [XCUITest driver release notes](https://github.com/appium/appium-xcuitest-driver/releases) for driver-level changes between the 9.x driver used with iOS 26.1 and the 10.x driver used with iOS 26.5 and iOS 27.0.
 
 ---
 
