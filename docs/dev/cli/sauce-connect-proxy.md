@@ -68,7 +68,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 <p><small>| OPTIONAL | STRING |  <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
 
-**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (for example, `us-west`, `eu-central`, or `asia-south`). Default: If you don't specify a data center, the default value is `us-west`.<br/>
+**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (for example, `us-west` or `eu-central`). Default: If you don't specify a data center, the default value is `us-west`.<br/>
 **Environment variable**: `SAUCE_REGION`<br/>
 **Shorthand**: `-r`
 
@@ -88,9 +88,6 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 #EU-Central-1 ("-r eu-central" can be used instead)
 -x https://api.eu-central-1.saucelabs.com/rest/v1
-
-#Asia-South-2 ("-r asia-south" can be used instead)
--x https://api.asia-south-2.saucelabs.com/rest/v1
 
 ```
 
