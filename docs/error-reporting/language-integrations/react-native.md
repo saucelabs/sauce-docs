@@ -465,12 +465,15 @@ upload it, add the Backtrace script at the end of `android/app/build.gradle`:
 apply from: "$rootDir/../node_modules/@backtrace/react-native/android/upload-sourcemaps.gradle"
 ```
 
-Each release variant then uploads its own source map after `assemble<Variant>` or `bundle<Variant>` packages the
-app. Debug variants upload nothing. A missing source map, debug id or `.backtracejsrc` logs a warning and skips the
-upload. A failed upload fails the build. Pass `-PbacktraceUploadSourceMaps=false`, or set
-`backtraceUploadSourceMaps=false` in `gradle.properties`, to build without uploading. To upload one variant by hand,
-run `./gradlew uploadSourceMapsToBacktrace -PbuildVariant=<variant>`. A `finalizedBy("uploadSourceMapsToBacktrace")`
-hook from an earlier version of this guide keeps working.
+Each release variant then uploads its own source map after `assemble` or `bundle` packages it. Debug variants upload
+nothing. A failed upload fails the build. An existing `finalizedBy("uploadSourceMapsToBacktrace")` hook keeps working.
+
+To build a release without uploading, set `backtraceUploadSourceMaps=false` in `gradle.properties` or pass it on the
+command line:
+
+```
+./gradlew assembleRelease -PbacktraceUploadSourceMaps=false
+```
 
 **On iOS:**
 
