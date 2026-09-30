@@ -238,7 +238,7 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup).
 
-You need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), or Asia South data center (Asia South 2). The data center you're connected to is indicated in your navigation.<br/>
+You need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1) or European data center (EU Central 1). The data center you're connected to is indicated in your navigation.<br/>
 
 <img src={useBaseUrl('img/sauce-connect/dc-ui.png')} alt="Sauce Connect data center" width="450"/>
 
@@ -255,7 +255,6 @@ values={[
 {label: 'US-West-1', value: 'US-West-1'},
 {label: 'US-East-4', value: 'US-East-4'},
 {label: 'EU-Central-1', value: 'EU-Central-1'},
-{label: 'Asia-South-2', value: 'Asia-South-2'},
 ]}>
 
 <TabItem value="US-West-1">
@@ -277,13 +276,6 @@ values={[
 | Real Device Cloud + Sauce Connect                      |
 | :----------------------------------------------------- |
 | `https://api.us-east-4.saucelabs.com/rest/v1`          |
-
-</TabItem>
-<TabItem value="Asia-South-2">
-
-| Virtual Device Cloud/Real Device Cloud + Sauce Connect |
-| :----------------------------------------------------- |
-| `https://api.asia-south-2.saucelabs.com/rest/v1`       |
 
 </TabItem>
 </Tabs>
