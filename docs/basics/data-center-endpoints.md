@@ -83,7 +83,7 @@ Depending on the framework or driver you use, you might need to make additional 
 |------------------------------|------------------------------------------------------|
 | Remote WebDriver Endpoint    | https://ondemand.asia-south-2.saucelabs.com/wd/hub  |
 | REST API                     | api.asia-south-2.saucelabs.com                      |
-| Sauce Connect Tunnel Servers | TBD                                                 |
+| Sauce Connect Tunnel Servers | \*.tunnels.asia-south-2.saucelabs.com:443           |
 | Visual Storage Endpoint      | Not available                                       |
 
 ## IP Address Ranges - Outgoing
