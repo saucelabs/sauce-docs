@@ -1,7 +1,8 @@
 ---
 id: ai-authoring-prompting-guide
 title: AI Authoring Prompting Guide
-sidebar_label: AI Authoring Prompting Guide
+sidebar_label: AI Authoring
+description: "Write effective Sauce AI Test Authoring prompts: describe actions clearly, request assertions, choose failure modes, use data variables, and fix unexpected results."
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
@@ -90,7 +91,7 @@ If Sauce AI begins generating a test flow that does not match your expectations,
 
 ### **7. Focus on User Behavior**
 
-Sauce AI interacts only with your application's rendered user interface. It cannot see source code, backend logic, or API requests.
+Sauce AI interacts only with your application's rendered user interface. Right now, it cannot see source code, backend logic, or API requests.
 
 **❌ Avoid**
 
@@ -111,3 +112,68 @@ Instead of typing usernames, passwords, or URLs directly into your prompt, refer
 **✅ Use**
 
 > "Log in with `{{username}}` and `{{team:password}}`."
+
+| Situation | Write |
+| ----- | ----- |
+| A value that is the same across the company, such as a base URL or an API host | `{{org:base_url}}` |
+| A credential or account that belongs to one team | `{{team:username}}` |
+| A value that only makes sense for one test case | `{{testCase:<test_case_id>:coupon_code}}` |
+| A prompt that will be copied between teams | Always prefix. Do not rely on bare resolution. |
+
+**✅ Use**
+
+> "Go to `{{org:base_url}}` and sign in with `{{team:standard_user}}` and `{{team:standard_password}}`. Switch the store region to `{{testSuite:emea-checkout:region}}`. Add the product with SKU `{{team:sample_sku}}` to the cart and go to checkout. Verify that the currency symbol matches `{{testSuite:emea-checkout:currency}}`."
+
+#### Common Variable Mistakes
+
+| Mistake | What happens | Fix |
+| ----- | ----- | ----- |
+| `{{ user name }}` | Names allow only lowercase letters, digits, and underscores, so the reference does not resolve. | `{{team:user_name}}` |
+| Referencing a deleted variable | The unresolved reference is passed to the AI as plain text. No error is raised. | Confirm the variable exists in **Data Management** before running. |
+| A bare name that exists in two scopes | The test silently picks a different value in a different context. | Prefix with `org:` or `team:`. |
+| Expecting to read a hidden value back | Hidden variables cannot be viewed after they are created. | Store the value somewhere you control before saving it. |
+
+### **9. Ask for the Assertions You Want**
+
+Sauce AI adds only the assertions you request. If a value matters, name the element and the expected result. An instruction to "verify it works" gives Sauce AI nothing to compare against.
+
+**❌ Avoid**
+
+> "Verify login works."
+
+> "Make sure the cart is right."
+
+> "Check the page loads."
+
+**✅ Use**
+
+> "Verify that the page heading reads **Dashboard** and that the user menu shows `{{team:standard_user}}`."
+
+> "Verify that the cart badge shows **2** and the order total is **$49.98**."
+
+> "Verify that the **Place order** button is visible and enabled."
+
+### **10. Choose Which Assertions Block the Test**
+
+Every assertion has a failure mode. A soft assertion records the failure as a warning and the test continues; a hard assertion stops the test at that step. For more information, see [**Assertions**](/docs/sauce-ai/test-authoring/generate-your-test-case.md#assertions).
+
+Soft assertions matter most when one screen has several checks. If all four checks on a page were blocking, you would find the failures one at a time: fix, rerun, discover the next. With soft assertions, one run reports all four.
+
+**❌ Avoid**
+
+> "Log in and check the dashboard."
+
+**✅ Use**
+
+> "Log in with `{{team:username}}` and `{{team:password}}`. The dashboard must load before continuing. Stop the test if it does not. On the dashboard, verify that the account name is **Acme Corp**, the plan badge reads **Enterprise**, the notification count is **3**, and the **Upgrade** button is hidden."
+
+### If the Generated Test Is Not What You Expected
+
+| Symptom | Try |
+| ----- | ----- |
+| Sauce AI took a different path through the app | Name the exact entry point and the exact labels at each step. |
+| Steps you did not ask for | Add an explicit boundary: "Stop after the confirmation screen." |
+| A check you wanted is missing | State it as its own sentence with an expected value. |
+| Generation stopped part-way | A hard assertion failed. See [**Assertions**](/docs/sauce-ai/test-authoring/generate-your-test-case.md#assertions). |
+| A value came through as literal `{{...}}` text | The variable does not exist in a scope the test can reach. |
+| The step count was cut off | Raise **Cut Off Test Steps At** in the generation settings, or split the flow into two test cases. |

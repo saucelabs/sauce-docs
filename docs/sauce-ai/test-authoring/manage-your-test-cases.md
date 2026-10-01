@@ -2,6 +2,7 @@
 id: manage-your-test-cases
 title: Manage Test Cases
 sidebar_label: Manage Test Cases
+description: "Update, organize, duplicate, rename, or delete Sauce AI test cases, and edit or remove individual test steps as your testing requirements change."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -197,20 +198,29 @@ You can replace a hard-coded value in a test step with a data variable. This all
 
 ### Add an Assertion
 
-You can add an assertion to a test step to verify an expected result during test execution.
+You can add an assertion to verify an expected result during test execution. Every assertion has a **failure mode** that decides what happens when the check fails: a **soft** assertion marks the step with a warning and lets the test continue, and a **hard** assertion stops the test at that step. For more information, see **[Assertions](/docs/sauce-ai/test-authoring/generate-your-test-case.md#assertions)**.
 
-**Step 1:** Locate the test step where you want to add an assertion, click the **More options** (**…**) menu, and select **Add Assertion**.
+**Step 1:** Locate the test step next to which you want to add an assertion, click the **More options** (**…**) menu, and select **Add assertion above** or **Add assertion below**.
 
 <img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-19.png')} alt="Manage Your Test Cases" width="100%"/>
 
-**Step 2:** Select the appropriate assertion from the available predefined options, then define the expected target value. You can also use a data variable as the target value, where available.
+**Step 2:** In the **Add Test Assertion** dialog, configure the assertion:
 
-<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-20.png')} alt="Manage Your Test Cases" width="100%"/>
+| Ref. | Field | Description |
+| :---: | ----- | ----- |
+| **1** | **Target descriptor (CSS selector)** | Enter the CSS selector of the element you want to check. |
+| **2** | **Assertion type** | Select how the element is compared with the expected value, for example **Equal to**. |
+| **3** | **Expected value** | Enter the value the element is expected to have. To use a stored value, click the `{x}` icon and select a **[Data Variable](/docs/sauce-ai/test-authoring/data-variables.md)**. |
 
-**Step 3:** Save the assertion to add it to the selected test step.
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-16.png')} alt="Manage Your Test Cases" width="100%"/>
 
-<img src={useBaseUrl('/img/ai-authoring/manage-test-cases/manage-test-cases-21.png')} alt="Manage Your Test Cases" width="100%"/>
+**Step 3:** Under **Failure mode**, select **Soft (continue with warning)** or **Hard (fail and stop the test)**. An assertion with no override inherits the [default failure mode](/docs/sauce-ai/test-authoring/generate-your-test-case.md#set-the-default-failure-mode-for-a-test-case) set for the test case.
 
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-17.png')} alt="Manage Your Test Cases" width="100%"/>
+
+**Step 4:** Click **Save** to add the assertion to the test case.
+
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-18.png')} alt="Manage Your Test Cases" width="100%"/>
 
 ### Delete a Test Step
 

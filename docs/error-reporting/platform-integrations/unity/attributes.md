@@ -103,9 +103,11 @@ You can also define custom attributes. For more information, see [Configuration]
 | `battery.level`                     | The current battery level.                                                                                    | User Defined | User Defined |
 | `battery.status`                    | The current status of the device's battery.                                                                   | User Defined | User Defined |
 | `cpu.frequency`                     | The frequency of the device's central processing unit (CPU) in megahertz (MHz).                               | User Defined | User Defined |
+| `device.abi`                        | The application binary interface (ABI) of the running Android process, when available, rather than all architectures supported by the device. | User Defined | User Defined |
 | `device.manufacturer`               | The manufacturer of the device running the app.                                                               | User Defined | User Defined |
 | `device.model`                      | The model of the device running the app.                                                                      | User Defined | User Defined |
 | `device.name`                       | The name of the device running the app. Defined by the end user.                                              | User Defined | User Defined |
+| `device.sdk`                        | The Android API level reported by `SDK_INT`.                                                                  | User Defined | User Defined |
 | `device.type`                       | The broad type of device.                                                                                     | User Defined | User Defined |
 | `error.type`                        | A categorization of the error that generated a report.                                                        | User Defined | User Defined |
 | `graphic.driver.version`            | The graphics API type and driver version used by the graphics device.                                         | User Defined | User Defined |
@@ -118,6 +120,8 @@ You can also define custom attributes. For more information, see [Configuration]
 | `graphic.type`                      | The graphics API type used by the graphics device.                                                            | User Defined | User Defined |
 | `graphic.vendor`                    | The vendor of the graphics device.                                                                            | User Defined | User Defined |
 | `graphic.vendor.id`                 | The identifier code for the vendor of the graphics device.                                                    | User Defined | User Defined |
+| `memory.warning`                    | Set to `true` when the SDK records a Unity low-memory warning in Android native state.                         | User Defined | User Defined |
+| `memory.warning.date`               | The time of the Android low-memory callback, recorded as a Unix timestamp in seconds.                          | User Defined | User Defined |
 | `mono.heap`                         | The amount of memory allocated to the managed heap.                                                           | User Defined | User Defined |
 | `mono.used`                         | The amount of memory used by the managed heap.                                                                | User Defined | User Defined |
 | `scene.active`                      | The name of the active scene.                                                                                 | User Defined | User Defined |
@@ -132,3 +136,13 @@ You can also define custom attributes. For more information, see [Configuration]
 | `scripting.backend`                 | The scripting backend. Defined in the Player Settings for the Unity project.                                  | User Defined | User Defined |
 | `uname.family`                      | The operating system family running the app.                                                                  | User Defined | User Defined |
 | `uname.fullname`                    | The name and version of the operating system.                                                                 | User Defined | User Defined |
+
+## Android Native Attributes
+
+Availability of the Android attributes listed above depends on the report and whether the SDK can collect or update each value. Indexing depends on your project's [attribute settings](/error-reporting/project-setup/attributes/).
+
+The `device.abi` value describes the running process. For example, a 32-bit Unity process on a 64-bit device reports its 32-bit ABI.
+
+When **Send Out of Memory exceptions to Backtrace** is enabled and native capture is active, Unity's low-memory callback attempts to set `memory.warning` and `memory.warning.date` for subsequent native reports. The callback does not immediately create or submit a report, and these annotations do not guarantee a report for every out-of-memory termination.
+
+Diagnostic identifiers such as `BT_UNITY_ANDROID_NATIVE_PREPARE_FAILURE` appear in logs; they are not report attributes. See [Android Diagnostic Codes](/error-reporting/platform-integrations/unity/native-crash-integration/#diagnostic-codes) for the complete reference.

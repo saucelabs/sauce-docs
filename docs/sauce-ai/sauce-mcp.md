@@ -45,14 +45,14 @@ Sauce MCP is built for both **technical and non-technical** users. If you can de
 Sauce MCP works with any MCP-compatible client, including:
 
 <div className="client-grid">
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/claude.svg')} alt="Claude logo" /><span>Claude</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/cursor.svg')} alt="Cursor logo" /><span>Cursor</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/windsurf.svg')} alt="Windsurf logo" /><span>Windsurf</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/vscode.png')} alt="Visual Studio Code logo" /><span>VS Code (Copilot)</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/intellij.svg')} alt="IntelliJ IDEA logo" /><span>IntelliJ</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/antigravity.png')} alt="Antigravity logo" /><span>Antigravity</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/gemini.svg')} alt="Google Gemini logo" /><span>Gemini CLI</span></div>
-  <div className="client-tile"><img src={useBaseUrl('img/sauce-mcp/clients/goose.png')} alt="Goose logo" /><span>Goose</span></div>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/claude.svg')} alt="Claude logo" /><span>Claude</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/cursor.svg')} alt="Cursor logo" /><span>Cursor</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/windsurf.svg')} alt="Windsurf logo" /><span>Windsurf</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/vscode.png')} alt="Visual Studio Code logo" /><span>VS Code (Copilot)</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/intellij.svg')} alt="IntelliJ IDEA logo" /><span>IntelliJ</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/antigravity.png')} alt="Antigravity logo" /><span>Antigravity</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/gemini.svg')} alt="Google Gemini logo" /><span>Gemini CLI</span></a>
+  <a className="client-tile" href="/sauce-ai/sauce-mcp-getting-started"><img src={useBaseUrl('img/sauce-mcp/clients/goose.png')} alt="Goose logo" /><span>Goose</span></a>
 </div>
 
 See [Connect your AI client](/sauce-ai/sauce-mcp-getting-started) for setup instructions.

@@ -25,14 +25,14 @@ Use the **View as** option in Explore to choose how you want to display and anal
 
 **Step 3:** In the Explore view, open the View as dropdown list on the right side of the results. Select the view you want to use:
 
-* **Aggregate**: Groups and summarizes error data.
-* **List**: Displays individual error records.
-* **Flame Graph**: Visualizes callstack activity.
-* **Similarity**: Displays errors based on their similarity.
+* **[Aggregate](#aggregate)**: Groups and summarizes error data.
+* **[List](#list)**: Displays individual error records.
+* **[Flame Graph](#flame-graph)**: Visualizes callstack activity.
+* **[Similarity](#similarity)**: Displays errors based on their similarity.
 
 <img src={useBaseUrl('img/error-reporting/explore/customize-error-view/customize-error-view-3.png')} alt="Customize Error Views" />
 
-**Step 4:** After selecting a view, Explore refreshes the results using the selected display. You can switch between views at any time to examine the same error data from a different perspective.
+After selecting a view, Explore refreshes the results using the selected display. You can switch between views at any time to examine the same error data from a different perspective.
 
 ### Aggregate
 
@@ -72,7 +72,9 @@ For example, you can use the List view when you want to review individual error 
 
 The **Flame Graph** view provides a visual representation of callstack data. Each section of the graph represents part of the callstack, allowing you to see how different frames contribute to the overall error data.
 
-You can select different frames within the graph to focus your investigation. The view also provides options such as **Filter to frame**, **Filter against frame**, **Copy callstack**, and **reset zoom**.
+You can select different frames in the graph to focus your investigation. The view also provides options such as **Filter to frame**, **Filter against frame**, **Copy callstack**, and **reset zoom**.
+
+For more information, see **[Flame Graph](/docs/error-reporting/web-console/flame-graphs.md)**
 
 **Use the Flame Graph view when you want to:**
 

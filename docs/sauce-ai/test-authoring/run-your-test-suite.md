@@ -2,6 +2,7 @@
 id: run-your-test-suite
 title: Run Test Suite
 sidebar_label: Run Test Suite
+description: "Run every test case in a Sauce AI test suite as a single test run, with each test case using its configured browser, platform, and device settings."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

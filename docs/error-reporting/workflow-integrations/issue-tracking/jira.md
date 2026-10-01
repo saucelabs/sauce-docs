@@ -285,7 +285,7 @@ Backtrace populates the default Description field. If you use a customized templ
 
 ### Resolved Until Behavior
 
-The **Resolved until behavior** setting allows you configure the [Resolve Until](/error-reporting/web-console/triage/#reopen-criteria---mute-or-resolve-until) feature for detected regressions with versions applied in Jira issues.
+The **Resolved until behavior** setting allows you configure the [Resolve Until](/docs/error-reporting/triage/view-manage-fingerprint-status.md#reopen-criteria---mute-or-resolve-until) feature for detected regressions with versions applied in Jira issues.
 
 If a linked Jira issue is marked as resolved and the Fix Versions field is applied, Backtrace will reopen the Jira ticket if the errors reoccur in a later version.
 

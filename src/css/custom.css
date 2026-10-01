@@ -439,7 +439,7 @@ html[data-theme="dark"] .card:hover {
 .container-landpage,
 .container-reverse {
     padding: 1rem;
-    margin: 5%;
+    margin: 2rem 5%;
     display: flex;
     align-items: center;
     gap: 5%;
@@ -766,7 +766,7 @@ a.hero__button {
 
 .main__container-quickstart {
     margin: 0 auto;
-    padding: 15px 0 0 0;
+    padding: 15px 0;
     background: var(--olive-200);
 }
 html[data-theme="dark"] .main__container-quickstart {
@@ -1260,6 +1260,20 @@ html[data-theme="dark"] .mcp-conn {
 
 html[data-theme="dark"] .client-tile {
     border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Tiles rendered as links: no underline, hint with the border on hover */
+a.client-tile,
+a.client-tile:hover {
+    text-decoration: none;
+}
+
+a.client-tile:hover {
+    border-color: var(--dark-200);
+}
+
+html[data-theme="dark"] a.client-tile:hover {
+    border-color: rgba(255, 255, 255, 0.45);
 }
 
 /* Side-by-side captioned screenshots (IDE Plugins overview) */

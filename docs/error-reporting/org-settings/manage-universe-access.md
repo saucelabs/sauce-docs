@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+Applicable to Sauce Labs customers and new Error Reporting customers from August 24 2026
+:::
+
 Error Reporting uses the **Sauce Labs** unified identity system to manage access to individual **universes**. Organization Administrators can grant or revoke users' access to specific universes independently of their organization membership.
 
 Once a user is granted access to a universe, they can access it through **Error Reporting** and can be added to teams and projects within that universe.

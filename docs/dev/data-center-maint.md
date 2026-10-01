@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Saucelabs.com and the Sauce Labs testing service in the US and EU will be down for planned maintenance on these days and times:
+Saucelabs.com and the Sauce Labs testing service in the US, EU, and India will be down for planned maintenance on these days and times:
 
 | Region     | Date               | Time                           |
 | ---------- | ------------------ | ------------------------------ |
@@ -39,15 +39,22 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 | US East    | September 5, 2026      | 9 AM - 11 AM EDT (1300-1500 UTC) |
 | EU Central | September 5, 2026      | 5 PM - 7 PM CEST (1500-1700 UTC) |
 | US West    | September 5, 2026      | 10 AM - 12 PM PDT (1700-1900 UTC) |
+| India South | October 10, 2026       | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
 | US East    | October 10, 2026       | 8 AM - 10 AM EDT (1300-1500 UTC) |
 | EU Central | October 10, 2026       | 5 PM - 7 PM CEST (1500-1700 UTC) |
 | US West    | October 10, 2026       | 10 AM - 12 PM PDT (1700-1900 UTC) |
 | US East    | November 7, 2026       | 8 AM - 10 AM EST (1300-1500 UTC) |
 | EU Central | November 7, 2026       | 4 PM - 6 PM CET (1500-1700 UTC) |
 | US West    | November 7, 2026       | 9 AM - 11 AM PST (1700-1900 UTC) |
+| India South | November 21, 2026      | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
+| India South | December 5, 2026       | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
 | US East    | December 5, 2026       | 8 AM - 10 AM EST (1300-1500 UTC) |
 | EU Central | December 5, 2026       | 4 PM - 6 PM CET (1500-1700 UTC) |
 | US West    | December 5, 2026       | 9 AM - 11 AM PST (1700-1900 UTC) |
+
+:::note India South maintenance window is off-cycle in November
+The India South window for November is **November 21**. The schedule predates the India South region, and the previously scheduled date occurs during Diwali.
+:::
 
 
 
