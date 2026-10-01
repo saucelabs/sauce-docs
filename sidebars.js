@@ -195,6 +195,19 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Triage',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/web-console/triage',
+                        'error-reporting/triage/dashboard-walkthrough',
+                        'error-reporting/triage/view-manage-fingerprint-status',
+                        'error-reporting/triage/fingerprint-group-details',
+                        'error-reporting/triage/fingerprint-in-debugger',
+                        'error-reporting/triage/other-action',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Explore',
                     collapsed: true,
                     items: [
@@ -222,7 +235,6 @@ module.exports = {
                         'error-reporting/web-console/getting-started',
                         'error-reporting/web-console/overview',
                         'error-reporting/web-console/releases',
-                        'error-reporting/web-console/triage',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
                     ],
