@@ -23,11 +23,21 @@ Below you will find links to our quickstart guides and demo repos, listed by fra
 | Espresso                     |                                     <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/>                                      | Java                     | [GitHub](https://github.com/saucelabs/saucectl-espresso-example)                                                                             |
 | Nightwatch                   |  <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/><img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/>  | JavaScript               | [GitHub](https://github.com/saucelabs-training/demo-js/tree/master/nightwatch)                                                               |
 | Playwright                   |                                      <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/>                                       | JavaScript               | [Quickstart Guide](/web-apps/automated-testing/playwright/quickstart)<br/>[GitHub](https://github.com/saucelabs/saucectl-playwright-example) |
-| Protractor                   |                                     <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/>                                      | JavaScript               | [GitHub](https://github.com/saucelabs-training/demo-js/tree/master/protractor/)                                                              |
 | Selenium                     |  <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/><img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/>  | Java                     | [Quickstart Guide](/web-apps/automated-testing/selenium/quickstart)<br/>[GitHub](https://github.com/saucelabs-training/demo-java)            |
 | TestCafe                     |                                      <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/>                                       | JavaScript               | [Quickstart Guide](/web-apps/automated-testing/testcafe/quickstart)<br/>[GitHub](https://github.com/saucelabs/saucectl-testcafe-example)     |
-| WebdriverIO                  |                                     <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/>                                      | JavaScript               | [GitHub](https://github.com/saucelabs-training/demo-js/tree/master/webdriverio/appium-app)                                                   |
+| WebdriverIO                  |                                     <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/>                                      | JavaScript               | [GitHub](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/mobile-app)                                                   |
 | XCUITest                     |                                     <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/>                                      | Swift                    | [GitHub](https://github.com/saucelabs-training/demo-xcuitest)                                                                                |
+
+## Community Frameworks
+
+These frameworks and tools are built and supported by their open-source maintainers, not by Sauce Labs. They reach
+the Sauce Labs cloud through our standard Appium and WebDriver BiDi endpoints, and Sauce Labs has validated the
+guides below. See [Community Frameworks](/basics/community-frameworks) for what that means for support.
+
+| Framework                    |                               Platform                                | Language                            | Links                                                                                                                       |
+| ---------------------------- | :-------------------------------------------------------------------: | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Maestro (via maestro-runner) | <img src={useBaseUrl('/img/mobile-icon.png')} alt="Mobile" width="15"/> | YAML                                | [Guide](/basics/community-frameworks/maestro)<br/>[GitHub](https://github.com/devicelab-dev/maestro-runner)                 |
+| Vibium                       | <img src={useBaseUrl('/img/desktop-icon.png')} alt="Desktop" width="20"/> | JavaScript<br/>Python<br/>CLI / MCP | [Guide](/basics/community-frameworks/vibium)<br/>[GitHub](https://github.com/VibiumDev/vibium)                              |
 
 ## Sample Code by Language
 

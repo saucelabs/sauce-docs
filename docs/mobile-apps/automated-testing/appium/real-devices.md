@@ -127,7 +127,7 @@ values={[
 </Tabs>
 
 :::note
-You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your [Appium client library](http://appium.io/docs/en/about-appium/appium-clients/) to a version that automatically applies the prefix.
+You can avoid having to add the `appium:` prefix to Appium specific capabilities by upgrading your **[Appium client library](https://appium.io/docs/en/latest/ecosystem/clients/)** to a version that automatically applies the prefix.
 :::
 
 ## Configuring Appium Tests for Real Devices
@@ -158,7 +158,7 @@ You can also install a dependent app or an app upgrade during a test by using th
 
 ```js title=Driver App Example
 driver.installApp(
-'https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk'
+'https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.1.3.0.build-244.apk'
 )
 ```
 
@@ -171,7 +171,7 @@ driver.installApp(
 
 :::
 
-For more information about this command, see the [Appium documentation](http://appium.io/docs/en/commands/device/app/install-app/).
+For more information about this command, see the [Appium documentation](https://appium.io/docs/en/latest/reference/api/appium/#installapp).
 
 ### Excluding the `browserName`
 
@@ -297,6 +297,15 @@ To skip the uninstallation and reinstallation of your app from the device, you c
 }
 ```
 
+If losing the app's state does not break your tests, set `allowCacheFallback` to `true`. A cached device that can't be reused then falls back to another available device instead of failing the session, at the cost of running on a freshly cleaned device.
+
+```js
+"sauce:options" : {
+  "cacheId" : "jnc0x1256",
+  "allowCacheFallback" : true,
+}
+```
+
 When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the app must be the same for all tests, as must the values for the following capabilities:
 
 - `deviceName`
@@ -310,7 +319,7 @@ When using `cacheId` the value must match for all tests slated to run on the cac
 - `autoGrantPermissions`
 - `appiumVersion`
 
-If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session.
+If an error occurs while starting an Appium session on a cached device, the session fails with an error message describing the issue, and the device is deallocated. The error details are also available in the test report of the failed session, ending the cached session. The default behavior is to fail the session and end the cached session; set [`allowCacheFallback`](/dev/test-configuration-options/#allowcachefallback) to `true` to fall back to another device instead of failing.
 
 ### WebDriverAgent for iOS Real Devices
 

@@ -8,76 +8,105 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When testing mobile apps, you have the option to upload your app to our app storage. The benefits of app storage include:
+Mobile App Storage is a centralized repository for storing and managing mobile application builds used with Sauce Labs. Once uploaded, applications can be reused for both live and automated testing on both real and virtual devices without requiring additional uploads.
 
-- Uploading all of your mobile apps to the same location for cross-device automated and live testing with virtual devices and real devices.
-- Sharing your uploaded apps with your team members.
-- Sharing your uploaded apps with other teams within your organization.
-- Storing apps for up to 60 days.
-- App Storage supports app files in _.apk, _.aab, _.ipa, or _.zip format, up to 4GB.
+Uploaded applications can also be shared with team members and other teams within your organization and are retained for up to **60 days**. Mobile App Storage supports application packages up to **4 GB**.
 
-:::note Limitation
-Executable files (.exe) are not supported.
+:::important
+If you do not have an application available, you can use one of the Sauce Labs demo applications to familiarize yourself with the live testing workflow:
+
+**[React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)**
+
+**[iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)**
+
+**[Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)**
 :::
+
+## Prerequisites
+
+Before starting a live mobile app testing session, ensure the following requirements are met:
+
+* You must have a valid Sauce Labs account. ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+* A valid Sauce Labs [Username and Access key](https://app.saucelabs.com/user-settings) for authentication.
 
 :::caution
-Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage to leverage all of our capabilities like Biometrics, Image injection, or Mobile App Diagnostics.
+Upload a debuggable and non-obfuscated version of your application to use features such as Biometrics, Image Injection, and Mobile App Diagnostics.
 :::
 
-## What You'll Need
+## Supported File Types
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- Your mobile app file. If you don't have one on hand, consider using our Demo Apps:
-  - [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases)
-  - [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
-  - [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
-
-## Uploading Apps
-### Accepted File Types
-
-App storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for Simulator tests only) are parsed to determine whether a valid \*.app bundle exists.
+Mobile App Storage supports Android application packages (`.apk` and `.aab`) and iOS application packages (`.ipa` and `.zip`). For iOS Simulator testing, `.zip` files must contain a valid `.app` bundle.
 
 :::caution AAB App Signing
-To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail. For more information, see [Android App Bundles](https://developer.android.com/guide/app-bundle).
+When you upload an Android App Bundle (`.aab`), Sauce Labs extracts the APK required for installation on the test device. Before the application is installed, the extracted APK is signed using a Sauce Labs signing certificate. If your test includes both the main application and a `testApp`, Sauce Labs signs both applications to ensure they use matching signatures. This signing process is required even when instrumentation is disabled. If the applications are not signed with matching certificates, the installation will fail. For more information about Android App Bundles, see [Android App Bundles](/docs/mobile-apps/app-storage.md#deprecated-sauce-storage).
 :::
 
-You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
+### Additional Supported Files
 
-- \*.js
-- \*.py
-- \*.tar
-- \*.zip
-- \*.sh
-- \*.bat
+In addition to mobile application packages, Mobile App Storage can store other files that are used during automated testing workflows, such as scripts, packages, and supporting binaries.
+
+Supported file types include:
+
+* `.js`
+* `.py`
+* `.tar`
+* `.zip`
+* `.sh`
+* `.bat`
 
 :::note
-Sauce Labs only supports valid .zip files that can be extracted by standard unzip tools.
+Only valid `.zip` archives that can be extracted using standard unzip tools are supported. Executable (`.exe`) files are not supported.
 :::
+
+## Uploading Apps
+
+You can upload your mobile application to Mobile App Storage using either the Sauce Labs UI or the File Storage API. Once uploaded, the application becomes available for live testing and automated testing.
 
 ### Upload Apps via UI
 
-To upload an app via the Sauce Labs UI:
+Use the Sauce Labs UI to manually upload an application to Mobile App Storage.
 
-1. On Sauce Labs, in the left panel, click **App Management**.
-2. To upload an app you can either drag and drop an app or browse for and select the file.
+**Step 1:** In your Sauce Labs account, navigate to **App Management** from the left navigation menu. The Mobile App Storage page opens, where you can upload and manage your application builds.
 
-If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-1.png')} alt="Mobile App Storage" width="auto"/>
 
-<img src={useBaseUrl('img/mobile-apps/app-storage-upload.png')} alt="Upload an app" width="800"/>
+**Step 2:** On the **App Management** page, upload your application using one of the following methods:
+
+* **Drag and drop** your application file into the upload area.
+
+* **Click the upload area**, browse to the application file on your local machine, and then select it.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-2.png')} alt="Mobile App Storage" width="auto"/>
+
+**Step 3:** Wait for the upload to complete. After the upload finishes, the application is added to **Mobile App Storage** and appears on the **App Management** page.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-3.png')} alt="Mobile App Storage" width="auto"/>
+
+Verify that the application is listed in **App Management**. You can now use the uploaded application for live testing and automated testing, configure app settings, or manage additional app builds.
+
+:::tip
+If you do not have an application available for testing, upload one of the [Sauce Labs Demo Apps](/docs/mobile-apps/app-storage.md#deprecated-sauce-storage) to explore the testing workflow and familiarize yourself with Mobile App Storage.
+:::
 
 ### Upload Apps via REST API
 
-You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). The API endpoints are [Data center-specific](/basics/data-center-endpoints), so make sure you are using the endpoint that is applicable for your account data center, as shown in the following example requests.
+You can upload applications programmatically using the File Storage API. This method supports CI/CD pipelines and automated workflows.
 
+Before uploading an application, make sure you are using the File Storage API endpoint for your Sauce Labs data center (US West, US East, or Europe).
 
-#### Considerations
+**Before You Begin**
 
-When using the cURL sample requests below, consider the following:
+When using the sample cURL commands, note the following:
 
-- The `<path/to/your/file>` variable must include the file itself, including the file extension.
-- The `<filename.ext>` variable is the portion of the path that is just the file itself and must also include the file extension. Otherwise, the upload will succeed, but your app will not be accessible to your tests.
-- The `$SAUCE_USERNAME:$SAUCE_ACCESS_KEY` variable assumes you have set your Sauce Labs credentials as [environment variables](/basics/environment-variables).
+* Replace `<path/to/your/file>` with the complete path to your application, including the filename and extension.
+
+* Replace `<filename.ext>` with the application filename, including its extension. If the filename is omitted, the upload succeeds, but the application cannot be referenced during testing.
+
+* Make sure the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables are configured with your Sauce Labs credentials.
+
+:::note
+Replace the endpoint URL with the appropriate File Storage API endpoint if your account is hosted in the US East or Europe data center.
+:::
 
 <Tabs
 groupId="dc-url"
@@ -121,7 +150,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </Tabs>
 
 ### App Build Tags
-You can add up to 10 tags to app builds either during upload or afterward using the [File Storage API](/dev/api/storage), providing an efficient way to organize, identify, and easily locate specific builds. Tags enable teams to label app builds by criteria such as feature, environment, or testing phase, making it faster to search and filter through multiple builds. This enhances efficiency and ensures that users can quickly find the correct build for their testing needs.
+
+App build tags help organize and identify application builds stored in Mobile App Storage. You can assign up to **10 tags** to an app build during upload or after the upload using the **File Storage API**.
+
+Tags can be used to categorize builds by release, environment, feature, testing phase, or any other naming convention used by your team. You can then use these tags to locate and manage specific app builds.
 
 <Tabs
 groupId="dc-url-tags"
@@ -167,78 +199,124 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 </Tabs>
 
-### Rate Limiting
+### Rate Limits
 
-To increase service stability and prevent overload by a high volume of incoming traffic, we have set the following rate limits for uploading your mobile apps (effective from November 14th, 2022):
+To maintain service stability and ensure consistent upload performance, Mobile App Storage enforces rate limits on application uploads. These limits control the number of upload requests that can be processed in a given time period and the maximum number of concurrent uploads allowed for each account type.
 
-|             | Trial Users                                                                      | Non Trial Users                                                                      |
-| :---------- | :------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| **Uploads** | <ul><li>5 Uploads per 15 minute window </li><li>2 uploads in parallel </li></ul> | <ul><li> 100 uploads per 15 minute window</li><li> 15 uploads in parallel </li></ul> |
+The following upload limits apply:
 
+| Account Type | Upload Limit | Parallel Upload Limit |
+| ----- | ----- | ----- |
+| **Trial Users** | 5 uploads per 15-minute window | 2 concurrent uploads |
+| **Non-Trial Users** | 100 uploads per 15-minute window | 15 concurrent uploads |
 
-## Access Restriction
-### Team Restriction
-All uploaded files are shared within the same team, and members can only access files available to the active team they belong to. Organization admins have access to all files across the organization.
+If the upload limit is exceeded, additional upload requests are temporarily rejected until the current rate limit window resets. To avoid upload failures, wait for the time window to expire before submitting additional upload requests.
 
-For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
+## Access Restrictions
 
-### Share Apps with another Team
-App groups can be shared across teams within an organization, but only organization admins have the permission to share an app group with other teams.
+Access to applications stored in Mobile App Storage is managed at the team level. By default, uploaded applications are available only to members of the team that uploaded them.
 
-<img src={useBaseUrl('img/mobile-apps/app-management-org-admin.png')} alt="Upload an app" width="800"/>
+### Team Access
 
-Shared apps will appear under the **Shared With Me** tab on the **App Management** page for non-organization admins, and team members can use these apps just as they would with apps from their own team.
-However, teams with a shared app group cannot delete it, ensuring the app remains accessible to all assigned teams.
+All uploaded applications are shared with members of the active team. Team members can view and use applications uploaded by other members of the same team.
 
-<img src={useBaseUrl('img/mobile-apps/app-management-shared-with-me.png')} alt="Upload an app" width="800"/>
+Organization administrators have access to applications across all teams in the organization and can manage app groups shared between teams.
 
-#### Share an App Group
-1. Navigate to **App Management** and click on **More Actions** on the app group row you want to share.
-2. Select **Share** to open the Share Modal.
+For more information about managing users and team access, see [**Managing User Information**](https://docs.saucelabs.com/basics/acct-team-mgmt/managing-user-info/).
 
-<img src={useBaseUrl('img/mobile-apps/app-management-share-action.png')} alt="Upload an app" width="800"/>
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-3.png')} alt="Mobile App Storage" width="auto"/>
 
-3. From the dropdown list, choose the teams you want to share the app group with.
+### Share an App Group with Another Team
 
-<img src={useBaseUrl('img/mobile-apps/app-management-share-select.png')} alt="Upload an app" width="800"/>
+Organization administrators can share an app group with one or more teams in the same organization. Shared app groups allow team members to use the application for testing without requiring another upload.
 
-4. The new team selection will replace all previously shared teams, so review the table below to ensure the correct teams have access.
+When an app group is shared:
 
-<img src={useBaseUrl('img/mobile-apps/app-management-share-preview.png')} alt="Upload an app" width="800"/>
+* The shared app group appears under the **Shared With Me** tab on the **App Management** page for the receiving team.
 
-5. Click **Confirm** to share the app with the selected teams.
+* Team members can use the shared application for testing just like applications uploaded by their own team.
+
+* Only organization administrators can modify or remove app sharing.
+
+* Teams receiving a shared app group cannot delete it.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-4.png')} alt="Mobile App Storage" width="auto"/>
+
+## Share an App Group
+
+**Step 1: Sign in** to your Sauce Labs account, then click **App Management** from the left navigation menu to open the page that lists all available app groups.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-1.png')} alt="Mobile App Storage" width="auto"/>
+
+**Step 2:** Locate the **app group** that you want to share with another team.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-3.png')} alt="Mobile App Storage" width="auto"/>
+
+**Step 3:** In the app group row, click **More Actions** (**⋮**), and then select **Share**. The **Share** dialog opens.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-5.png')} alt="Mobile App Storage" width="auto"/>
+
+**Step 4:** In the **Share** dialog, open the **Teams** dropdown list and select one or more teams that should have access to the app group.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-6.png')} alt="Mobile App Storage" width="auto"/>
+
+Review the selected teams before continuing. Any new selection replaces the existing list of teams that the app group is shared with.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-7.png')} alt="Mobile App Storage" width="auto"/>
+
+**Step 6:** Click **Confirm** to save your changes. The selected teams can now access the shared app group from the **Shared With Me** tab on the **App Management** page.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-8.png')} alt="Mobile App Storage" width="auto"/>
+
+After the changes are saved, the selected teams can access the shared app group from the **Shared With Me** tab on the **App Management** page.
 
 ## App Management
-To view all app builds under one app group or change the app settings, on the **App Management** page, hover over the app and then click **Settings and App Versions**.
 
-<img src={useBaseUrl('img/mobile-apps/app-management-settings-action.png')} alt="App settings" width="800"/>
+After uploading an application to Mobile App Storage, you can manage its builds, configure default settings, distribute application builds, and access additional management options from the **App Management** page.
+
+Locate the app group that you want to manage, then hover over it and click **Settings & App Versions** to open the application management page.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-9.png')} alt="Mobile App Storage" width="auto"/>
 
 The version number shown is the most recently uploaded file, not necessarily the latest version of the app. Deleting an app in Sauce Labs will delete the whole app group (i.e., the group of builds belonging to the same app package).
 
 ### App Builds
-The App Builds tab displays a table of all app builds within the selected app group. To quickly copy an app's file name or ID, hover over the app and click the clipboard icon. Available actions include starting a test, downloading the app build, and viewing build details. Deleting an app build is restricted to organization and team admins.
 
-<img src={useBaseUrl('img/mobile-apps/app-management-app-builds-tab.png')} alt="Copy a file name or ID" width="800"/>
+The **App Builds** tab displays all builds that belong to the selected app group. From the App Builds tab, you can view uploaded application builds, access build details, start a test, download a build, or copy the application's **File ID** or **filename** for use in automated tests.
+
+To copy a File ID or filename, hover over the value and click the **Copy** icon.
+
+:::note
+Only Organization Admins and Team Admins can delete an app build.
+:::
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-10.png')} alt="Mobile App Storage" width="auto"/>
 
 ### Distribution
-Distribute your app to internal and external beta testers through Sauce Labs Mobile App Distribution to gain early feedback before production.
-Learn more about [app distribution powered by Sauce Labs Mobile App Distribution](/testfairy/app-center-alternative/).
 
-<img src={useBaseUrl('img/mobile-apps/app-management-distribution-tab.png')} alt="Copy a file name or ID" width="800"/>
+The **Distribution** tab allows you to distribute application builds to internal and external beta testers using **Sauce Labs Mobile App Distribution**. This enables testers to install and evaluate application builds before they are released to production, helping teams validate functionality and gather feedback during the testing phase. 
+
+For more information, see **[**Mobile App Distribution**](/docs/testfairy/app-center-alternative.md)**.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-11.png')} alt="Mobile App Storage" width="auto"/>
 
 ### Permissions
-<p><span className="sauceGreen">Coming soon</span></p>
-We're building a new permission system for admins to control who can upload, delete, modify settings, and run tests on apps. It will boost flexibility and security, ensuring that only authorized users can manage key features.
 
-<img src={useBaseUrl('img/mobile-apps/app-management-permissions-tab.png')} alt="Copy a file name or ID" width="800"/>
+<p><span className="sauceGreen">Coming soon</span></p>
+
+Sauce Labs is developing a new permission model for Mobile App Storage that will provide administrators with greater control over application management. The new permission system will allow administrators to define which users can upload application builds, delete applications and app builds, modify application settings, and run tests using uploaded applications.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-12.png')} alt="Mobile App Storage" width="auto"/>
 
 ### Settings
-A range of device and app settings can be configured to serve as the default for both manual and automated test runs on real devices. Only organization and team admins have permission to modify these settings.
 
-For more information about managing your device and app settings, see [Real Device Settings](/mobile-apps/live-testing/live-mobile-app-testing/#real-device-settings).
+The **Settings** tab allows you to configure the default device and application settings for an app group. These settings are automatically applied whenever the application is used for **live testing** or **automated testing** on **real devices**, eliminating the need to configure the same settings for each test session.
 
-<img src={useBaseUrl('img/mobile-apps/app-management-settings-tab.png')} alt="Copy a file name or ID" width="800"/>
+Only **Organization Admins** and **Team Admins** can modify these settings.
 
+For more information about managing your device and app settings, see **[Real Device Settings](/docs/mobile-apps/live-testing/live-mobile-app-testing.md#real-device-settings)**.
+
+<img src={useBaseUrl('img/mobile-apps/app-storage/app-storage-13.png')} alt="Mobile App Storage" width="700"/>
 
 ## Using App Storage with Automated Test Builds
 

@@ -250,17 +250,17 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-xcuitest-driver </code>: 1.3.0
+                    <code>axe-appium3-xcuitest-driver </code>: 1.5.0
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-uiautomator2-driver </code>: 1.3.0
+                    <code>axe-appium3-uiautomator2-driver </code>: 1.5.0
                 </a>
             </li>
             <li>
                 <a href="https://github.com/appium/appium/releases/tag/appium%403.3.1" target="_blank">
-                    <code>appium</code>: 3.3.1
+                    <code>appium</code>: 3.6.0
                 </a>
             </li>
         </ul>
@@ -313,6 +313,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
               <code>@appium/relaxed-caps-plugin</code>: 2.0.1
             </a>
           </li>
+          <li>
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.1.0" target="_blank">
+              <code>WebDriverAgent</code>: 11.1.0
+            </a>
+          </li>
         </ul>
       </td>
     </tr>
@@ -363,6 +368,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
               <code>@appium/relaxed-caps-plugin</code>: 2.1.0
             </a>
           </li>
+          <li>
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.4.1" target="_blank">
+              <code>WebDriverAgent</code>: 11.4.1
+            </a>
+          </li>
         </ul>
       </td>
     </tr>
@@ -411,6 +421,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
           <li>
             <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.2.4" target="_blank">
               <code>@appium/relaxed-caps-plugin</code>: 2.2.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v15.1.0" target="_blank">
+              <code>WebDriverAgent</code>: 15.1.0
             </a>
           </li>
         </ul>
@@ -525,12 +540,12 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <ul>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 2.4.0
+                    <code>axe-appium-xcuitest-driver </code>: 2.6.0
                 </a>
             </li>
             <li>
                 <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/august-2025" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 2.4.0
+                    <code>axe-appium-uiautomator2-driver </code>: 2.6.0
                 </a>
             </li>
             <li>
@@ -1899,6 +1914,28 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
     </tr>
   </thead>
   <tbody>
+     <tr>
+      <td>iOS 27.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-3-versions">
+              <code>3.3.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.3.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.3.0</code>
+        </a>
+      </td>
+    </tr>
      <tr>
       <td>iOS 26.5</td>
       <td>

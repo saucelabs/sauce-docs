@@ -58,6 +58,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/android/setup',
                                         'error-reporting/platform-integrations/android/configuration',
+                                        'error-reporting/platform-integrations/android/native-crash-integration',
                                         'error-reporting/platform-integrations/android/proguard-deobfuscation',
                                     ],
                                 },
@@ -68,6 +69,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/ios/setup',
                                         'error-reporting/platform-integrations/ios/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
                                     ],
                                 },
                             ],
@@ -84,6 +86,7 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/unity/setup',
                                         'error-reporting/platform-integrations/unity/configuration',
+                                        'error-reporting/platform-integrations/unity/native-crash-integration',
                                         'error-reporting/platform-integrations/unity/attributes',
                                         'error-reporting/platform-integrations/unity/metrics',
                                         'error-reporting/platform-integrations/unity/helpshift',
@@ -163,6 +166,8 @@ module.exports = {
                                     items: [
                                         'error-reporting/platform-integrations/macos/setup',
                                         'error-reporting/platform-integrations/macos/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
+                                        'error-reporting/platform-integrations/macos/troubleshooting',
                                     ],
                                 },
                                 'error-reporting/platform-integrations/plcrash-reporter',
@@ -199,6 +204,26 @@ module.exports = {
                         'error-reporting/triage/fingerprint-group-details',
                         'error-reporting/triage/fingerprint-in-debugger',
                         'error-reporting/triage/other-action',
+                      ],
+                },
+                {
+                    label: 'Explore',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/web-console/explore',
+                        'error-reporting/explore/add-custom-aggregations',
+                        'error-reporting/explore/normalize-errors-by-metric-groups',
+                        'error-reporting/explore/customize-error-views',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'MCP',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/mcp/error-reporting-mcp',
+                        'error-reporting/mcp/set-up-error-reporting-mcp',
+                        'error-reporting/mcp/error-reporting-mcp-tools',
                     ],
                 },
                 {
@@ -209,7 +234,6 @@ module.exports = {
                         'error-reporting/web-console/getting-started',
                         'error-reporting/web-console/overview',
                         'error-reporting/web-console/releases',
-                        'error-reporting/web-console/explore',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
                     ],
@@ -320,6 +344,7 @@ module.exports = {
                         'error-reporting/org-settings/team-mgmnt',
                         'error-reporting/org-settings/project-management',
                         'error-reporting/org-settings/saml-sso',
+                        'error-reporting/org-settings/manage-universe-access',
                     ],
                 },
                 {
@@ -568,6 +593,16 @@ module.exports = {
                     items: [
                         'sauce-basics',
                         'basics/quickstarts',
+                        {
+                            type: 'category',
+                            label: 'Community Frameworks',
+                            collapsed: true,
+                            items: [
+                                'basics/community-frameworks',
+                                'basics/community-frameworks/maestro',
+                                'basics/community-frameworks/vibium',
+                            ],
+                        },
                         'basics/platform-configurator',
                         'basics/data-center-endpoints',
                         'basics/environment-variables',
@@ -1025,7 +1060,6 @@ module.exports = {
                                 'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
-
                                 {
                                     type: 'category',
                                     label: 'Espresso Features',
@@ -1056,6 +1090,11 @@ module.exports = {
                                 'mobile-apps/automated-testing/alttester/unreal',
                             ],
                         },
+                        {
+                            type: 'link',
+                            label: 'Maestro (Community)',
+                            href: '/basics/community-frameworks/maestro',
+                        },
                         'mobile-apps/automated-testing/ipa-files',
                         'mobile-apps/automated-testing/app-files',
                     ],
@@ -1067,6 +1106,7 @@ module.exports = {
                     items: [
                         'mobile-apps/real-device-access-api/real-device-access-api-introduction',
                         'mobile-apps/real-device-access-api/real-device-access-api-integration-guide',
+                        'mobile-apps/real-device-access-api/real-device-access-api-test-results',
                         'mobile-apps/real-device-access-api/real-device-access-api-local-appium',
                         'mobile-apps/real-device-access-api/real-device-access-api-sauce-hosted-appium',
                         'mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket',
@@ -1188,6 +1228,11 @@ module.exports = {
                                 'web-apps/automated-testing/cdp-bidi/examples',
                             ],
                         },
+                        {
+                            type: 'link',
+                            label: 'Vibium (Community)',
+                            href: '/basics/community-frameworks/vibium',
+                        },
                     ],
                 },
                 'web-apps/chromiumos',
@@ -1215,6 +1260,11 @@ module.exports = {
             items: [
                 'test-results',
                 'test-results/viewing-test-results',
+                {
+                    type: 'link',
+                    label: 'Access API Test Results',
+                    href: '/mobile-apps/real-device-access-api/real-device-access-api-test-results',
+                },
                 'test-results/sharing-test-results',
                 'test-results/test-status',
                 'test-results/badges-browser-matrix',
@@ -1226,15 +1276,16 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
-                'insights/home',
-                'insights/scope',
-                'insights/errors',
-                'insights/history',
-                'insights/trends',
-                'insights/usage-report',
-                'insights/coverage',
-                'insights/failure-analysis',
-                'insights/debug',
+                {
+                    type: 'category',
+                    label: 'Sauce Home',
+                    collapsed: true,
+                    items: [
+                        'insights/home',
+                        'insights/sauce-home/export-widget-report',
+                        'insights/sauce-home/sauce-home-filters',
+                    ],
+                },
                 {
                     type: 'category',
                     label: 'Job Overview',
@@ -1244,6 +1295,67 @@ module.exports = {
                         'insights/filter-scope-of-data',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Job History',
+                    collapsed: true,
+                    items: [
+                        'insights/history',
+                        'insights/job-history/job-performance-analysis',
+                        'insights/job-history/filter-controls-for-job-history',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Trends',
+                    collapsed: true,
+                    items: [
+                        'insights/trends',
+                        'insights/trends/job-volume-trends',
+                        'insights/trends/pass-fail-rate',
+                        'insights/trends/error-volume-trends',
+                        'insights/trends/build-job-statistics',
+                        'insights/trends/filter-controls',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Coverage',
+                    collapsed: true,
+                    items: [
+                        'insights/coverage',
+                        'insights/coverage/export-coverage-report',
+                        'insights/coverage/filter-for-coverage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Usage',
+                    collapsed: true,
+                    items: [
+                        'insights/usage-report',
+                        'insights/usage/filter-control-for-concurrency-usage',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Errors',
+                    collapsed: true,
+                    items: [
+                        'insights/errors',
+                        'insights/errors/filter-control-for-error-tracking',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Failure Analysis',
+                    collapsed: true,
+                    items: [
+                        'insights/failure-analysis',
+                        'insights/failure-analysis/filter-failure-analysis',
+                    ],
+                },
+                'insights/debug',
             ],
         },
         {
@@ -1252,10 +1364,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'sauce-ai',
-                'sauce-ai/ai-insights',
-                'sauce-ai/ai-authoring',
-                'sauce-ai/ai-insights-prompting-guide',
-                'sauce-ai/ai-authoring-prompting-guide',
                 {
                     type: 'category',
                     label: 'Test Authoring',
@@ -1275,12 +1383,32 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'AI Insights',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/ai-insights',
+                        'sauce-ai/ai-insights/use-sause-ai-assistants',
+                        'sauce-ai/ai-insights/automated-bug-troubleshooting',
+                        'sauce-ai/ai-insights/privacy-safety-and-trust',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Sauce MCP',
                     collapsed: true,
                     items: [
                         'sauce-ai/sauce-mcp',
                         'sauce-ai/sauce-mcp-getting-started',
                         'sauce-ai/sauce-mcp-tools',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Error Reporting',
+                    collapsed: true,
+                    items: [
+                        'sauce-ai/error-reporting/overview',
+                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
                 {
@@ -1292,15 +1420,6 @@ module.exports = {
                         'sauce-ai/ai-insights-prompting-guide',
                         'sauce-ai/prompting-guides/error-reporting',
                         'sauce-ai/real-device-cloud-mcp-prompting-guide',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Error Reporting',
-                    collapsed: true,
-                    items: [
-                        'sauce-ai/error-reporting/overview',
-                        'sauce-ai/error-reporting/error-reporting-using-sauce-ai',
                     ],
                 },
             ],

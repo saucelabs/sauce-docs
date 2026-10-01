@@ -74,7 +74,7 @@ https://app.testfairy.com/api/upload/
 
 [fastlane](https://docs.fastlane.tools/actions/testfairy/)
 
-[CircleCI](https://circleci.com/docs/2.0/deploying-ios/#uploading-to-testfairy)
+[CircleCI](https://circleci.com/docs/guides/deploy/deploy-ios-applications/#upload-to-testfairy)
 
 [Bitrise](https://www.bitrise.io/integrations/steps/testfairy-deploy)
 

@@ -1,55 +1,72 @@
 ---
 id: history
-title: Evaluating a Test Over Time
-sidebar_label: Job History
+title: Track Job Runs Over Tim
+sidebar_label: Track Job Runs Over Time
 description: Gain insights into test success and trends over time. Learn how to analyze a test's historical data across various metrics to identify patterns of failure.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **Job History** page, accessible from the **Insights** submenu, provides a visual overview of test results over time. The bar chart representation of test outcomes reveals anomalies and patterns, aiding in the identification of issues related to test performance and flakiness across different platforms, operating systems, and browsers used for testing.
+
+The **Job History** page provides a visual overview of test executions over time, helping you monitor job activity and identify execution patterns. The bar chart highlights changes in test outcomes, making it easier to detect anomalies, investigate failures, and evaluate test performance across different platforms, operating systems, and browsers.
 
 :::note
 The Extended Debugging feature offers access to HAR files and JavaScript console logs, assisting in the identification of flaky tests. For more details, refer to [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugging)](/insights/debug).
 :::
 
-## Accessing the Job History Page
+## Access the Job History Page
 
-1. Click the **Insights** tab to expand its submenu.
-1. Click **Job History**.
-1. Apply [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to narrow down the list of tests within a specific range.
+**Step 1:** Inside your **Sauce Labs** account, navigate to the left-hand navigation menu and then expand **Insights**.
 
-## Interpreting the Bar Chart Visualization
+<img src={useBaseUrl('/img/insights/job-history/job-details/job-details-1.png')} alt="detailed job runs over time" width="auto"/>
 
-At the top of the page, the bar chart displays the number of jobs executed over time within the specified date filter, considering other filter criteria. You can further analyze trends on an hourly, daily, or weekly basis. Each bar represents the count of tests passed, failed, encountered errors, and completed. Hovering over a bar provides details about these counts.
+**Step 2:** Select **Job History** from the dropdown list.
 
-<img src={useBaseUrl('/img/insights/jobs-details.png')} alt="detailed job runs over time" width="400"/>
+<img src={useBaseUrl('/img/insights/job-history/job-details/job-details-2.png')} alt="detailed job runs over time" width="auto"/>
 
-Below the bar chart, four performance statistics are presented:
+**Step 3:** Apply filters to narrow the displayed job execution data. For more information, see **Filter Controls for Job History**.
 
-- **Total Job Unique Names**: The total count of aggregated groups of job runs sharing the same name.
-- **Total Errors**: The overall count of test runs that did not complete.
-- **Total Failures**: The total count of test runs recorded as "Failed."
-- **Average Run time**: The mean runtime duration of all displayed test results.
+<img src={useBaseUrl('/img/insights/job-history/job-details/job-details-3.png')} alt="detailed job runs over time" width="auto"/>
 
-Towards the bottom of the page, a table lists jobs alongside their corresponding details, including total runs, average duration, total duration, count of successful runs, success rate, count of failed runs, failure rate, count of error exits, error rate, count of completed runs, and completion rate.
+## View Job Runs Over Time
 
-The default view displays **All** jobs, but filters are available for analyzing trends of jobs marked as **Consistently Failing**, **Consistently Passing**, **Consistently Error**, **Missing Status**, or **Inconsistent Result**.
+The bar chart at the top of the **Job History** page displays the number of test executions during the selected reporting period. Depending on the selected date range, the data is grouped into hourly, daily, or weekly intervals.
 
-Additionally, you can adjust the number of items displayed per page and export results as a CSV file.
+<img src={useBaseUrl('/img/insights/job-history/job-details/job-details-4.png')} alt="detailed job runs over time" width="auto"/>
 
-## Example Use Case: Job History Analysis
+Each bar represents the total number of jobs executed during a specific time interval and includes the following execution statuses:
 
-Choosing the **Inconsistent Result** option can help identify flaky test behavior. In the provided example, the test failed in nearly half of its executions.
+* **Passed**
 
-<img src={useBaseUrl('img/insights/test-details-incosistent-results.png')} alt="Inconsistent results" width="550"/>
+* **Failed**
 
-By clicking on the job name, detailed test information becomes accessible. In this case, the test started failing on August 16.
+* **Errored**
 
-<img src={useBaseUrl('/img/insights/test-details-failures.png')} alt="Test details"/>
+* **Completed**
 
-To focus on the day the test started failing, click the August 16 bar in the chart. Scrolling through the list of test results, it becomes evident that the test functioned correctly until 5:22 PM, after which it consistently failed.
+Hover over a bar to view the number of jobs for each execution status during that time interval.
 
-<img src={useBaseUrl('/img/insights/failure-details.png')} alt="Test details showing when the test starts failing" width="300"/>
+<img src={useBaseUrl('/img/insights/job-history/job-details/job-details-5.png')} alt="detailed job runs over time" width="auto"/>
 
-This data allows for an investigation into changes made to the test at that specific time, potentially contributing to these failures.
+## Review Job Execution Statistics
+
+Below the **Job Runs Over Time** chart, the **Job History** page displays summary statistics that provide a high-level overview of the selected job execution data.
+
+These metrics help you quickly evaluate the overall health of your test executions by highlighting the number of unique jobs, execution failures, errors, and the average runtime for the selected reporting period.
+
+| Ref. | Statistic | Description |
+| ----- | ----- | ----- |
+| **1** | **Total Job Unique Names** | Displays the total number of unique job names included in the selected results. Multiple executions of the same job are counted as a single unique job. |
+| **2** | **Total Errors** | Displays the total number of test executions that ended with an Error status, indicating that the tests did not complete successfully due to an execution or infrastructure issue. |
+| **3** | **Total Failures** | Displays the total number of test executions with a Failed status, indicating that the tests completed but one or more assertions failed. |
+| **4** | **Average Runtime** | Displays the average execution time of all jobs included in the selected results, helping you monitor execution performance over time. |
+
+<img src={useBaseUrl('/img/insights/job-history/job-details/job-details-6.png')} alt="detailed job runs over time" width="auto"/>
+
+## Export Job Results
+
+You can export the displayed job history data for offline analysis or reporting.
+
+To export the job results, click the **Download** icon in the upper-right corner of the **Job History** page. Sauce Labs downloads the displayed job results as a **CSV** file based on the applied filters.
+
+<img src={useBaseUrl('/img/insights/job-history/job-details/job-details-7.png')} alt="detailed job runs over time" width="auto"/>

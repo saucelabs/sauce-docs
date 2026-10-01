@@ -33,7 +33,6 @@ Key characteristics:
 - **Team Assignment:** Once created, a service account is tied to a specific team and cannot be reassigned.
 - **Limited Permissions:** Service accounts have limited permissions compared to user accounts, amongst others they **cannot**:
   - manage teams and accounts ([Accounts API](/dev/api/accounts/))
-  - manage tunnels with Sauce Trusted Connection ([Sauce Connect API](/dev/api/connect/), [SC CLI 4](/dev/cli/sauce-connect-proxy), [SC CLI 5](/dev/cli/sauce-connect-5))
   - manage private real devices ([Private Real Device API](/dev/api/rdc/#private-real-device-management))
   - submit a crash in the [Crash/Error Reporting](/dev/api/error-reporting/)
   - use the [Virtual USB CLI](/dev/cli/virtual-usb/)
@@ -140,4 +139,4 @@ Jobs run by service accounts are displayed on the [Automated Test Results page](
 
 ### Using Sauce Connect Proxy with a Service Account
 
-If you plan to run tests through a [Sauce Connect Proxy tunnel](/secure-connections/), be mindful of tunnel sharing options. Service accounts cannot create or manage tunnels, so you must use a tunnel that has been shared with the service account’s assigned team. For detailed configuration instructions, refer to the [sharing tunnel guide](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).
+If you plan to run tests through a [Sauce Connect Proxy tunnel](/secure-connections/), be mindful of tunnel sharing options. For detailed configuration instructions, refer to the [sharing tunnel guide](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).

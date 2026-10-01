@@ -221,6 +221,6 @@ You can change the Nginx container name with [container_name](https://docs.docke
 ## Additional Resources
 
 - [Use host networking in Docker](https://docs.docker.com/network/host/)
-- [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/mac/networking/#use-cases-and-workarounds)
+- [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/features/networking/)
 - [Helm charts](https://helm.sh/docs/topics/charts/)
 - [Docker Compose File](https://docs.docker.com/compose/compose-file/compose-file-v3/)

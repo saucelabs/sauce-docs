@@ -9,10 +9,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs now supports **macOS 26 Tahoe** on Apple Silicon-powered Macs. These environments offer improved performance, modern architecture alignment, and compatibility with ARM versions of the major browsers. This enables you to test web apps on Safari 26 as well as Chrome, Firefox, and Edge.
+Sauce Labs now supports **macOS 27 Golden Gate** on Apple Silicon-powered Macs. These environments offer improved performance, modern architecture alignment, and compatibility with ARM versions of the major browsers. This enables you to test web apps on Safari 27 as well as Chrome, Firefox, and Edge.
 
 :::note Availability
-macOS 14, 15, and 26 are available to customers with the required subscription. If you don't have access, contact your account manager to discuss upgrading.
+macOS 14, 15, 26, and 27 are available to customers with the required subscription. If you don't have access, contact your account manager to discuss upgrading.
 :::
 
 ## Browsers available on macOS
@@ -20,10 +20,18 @@ macOS 14, 15, and 26 are available to customers with the required subscription. 
 | OS Version | Browser | Versions|
 |------------|---------|---------|
 | macOS 14 Sonoma <br/> macOS 15 Sequoia   | Safari  | 18      |
-| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Chrome  | 134+    |
-| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Firefox | 136+    |
-| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Edge    | 138+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe <br/> macOS 27 Golden Gate | Chrome  | 134+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe <br/> macOS 27 Golden Gate | Firefox | 136+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe <br/> macOS 27 Golden Gate | Edge    | 138+    |
 | macOS 26 Tahoe   | Safari  | 26      |
+| macOS 27 Golden Gate | Safari | 27      |
+
+## Known Limitations
+
+The following limitations apply to macOS 27 Golden Gate:
+
+- Beta and Dev channel browser builds are not yet available. Use the stable browser versions listed above.
+- The Playwright, Cypress, and TestCafe runners do not yet support macOS 27. Use macOS 14, 15, or 26 for those frameworks.
 
 ## Test Capabilities
 

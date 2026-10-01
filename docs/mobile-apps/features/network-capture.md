@@ -96,6 +96,13 @@ Alternatively, define it in your **saucectl** configuration the following way:
 - [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
 - [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
 
+### Access API
+
+[Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) sessions have their own endpoints for this, and capture is off by default. To capture traffic you can either inspect live traffic or have it recorded:
+
+- **Stream it live.** Turn capture on for the session with `POST /sessions/{sessionId}/device/enableNetworkCapture`, then read `device.har.entry` events from the Companion socket. Turn it off again with `POST /sessions/{sessionId}/device/disableNetworkCapture`. See [Mastering the Companion Socket](/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket).
+- **Store it on a test result.** Set `artifacts.networkCapture` to `true` when you start a test, and the HAR is attached to the test result and downloadable like any other job asset. See [Test Results and Artifacts for the Access API](/mobile-apps/real-device-access-api/real-device-access-api-test-results).
+
 ### Accessing Network Traffic in real-time (Live Testing)
 
 To be able to observe network traffic in real-time:

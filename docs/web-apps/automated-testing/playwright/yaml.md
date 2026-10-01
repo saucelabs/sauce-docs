@@ -1144,7 +1144,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Allows you to apply the configurations from your [Playwright project](https://playwright.dev/docs/test-advanced/#projects) to the suite.
+Allows you to apply the configurations from your [Playwright project](https://playwright.dev/docs/test-projects) to the suite.
 
 :::note
 `saucectl` browserName overrides the Playwright project browserName in the event of a conflict.

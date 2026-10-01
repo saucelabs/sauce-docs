@@ -866,6 +866,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 Download a specific asset for a job after it has completed running on a real device at the data center. The available assets for a specific job depend on the test framework and whether the corresponding feature was enabled during the test.
 
+For jobs created from a [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) session, the available assets depend on the artifact toggles you set when you start the test. See [Test Results for the Access API](/mobile-apps/real-device-access-api/real-device-access-api-test-results).
+
 #### Assets
 
 <table id="table-api">
@@ -881,13 +883,13 @@ Download a specific asset for a job after it has completed running on a real dev
     <tr>
      <td>Device Logs</td>
      <td>deviceLogs</td>
-     <td>Appium, Espresso, XCUITest</td>
+     <td>Appium, Espresso, XCUITest, Access API</td>
      <td>-</td>
     </tr>
     <tr>
      <td>Appium Logs</td>
      <td>appiumLogs</td>
-     <td>Appium</td>
+     <td>Appium, Access API</td>
      <td>-</td>
     </tr>
     <tr>
@@ -911,25 +913,25 @@ Download a specific asset for a job after it has completed running on a real dev
     <tr>
      <td>Video</td>
      <td>video.mp4</td>
-     <td>Appium, Espresso, XCUITest</td>
+     <td>Appium, Espresso, XCUITest, Access API</td>
      <td>-</td>
     </tr>
     <tr>
      <td>Screenshots</td>
      <td>screenshots.zip</td>
-     <td>Appium, Espresso</td>
+     <td>Appium, Espresso, Access API</td>
      <td><a href="/mobile-apps/automated-testing/espresso-xcuitest/espresso-capture/">Espresso Screenshot Capture</a></td>
     </tr>
     <tr>
      <td>App Logs</td>
      <td>deviceLogs</td>
-     <td>Appium, Espresso, XCUITest</td>
+     <td>Appium, Espresso, XCUITest, Access API</td>
      <td><a href="/mobile-apps/features/mobile-app-diagnostics/app-logs/">App Logs</a></td>
     </tr>
     <tr>
      <td>Network Logs</td>
      <td>network.har</td>
-     <td>Appium, Espresso, XCUITest</td>
+     <td>Appium, Espresso, XCUITest, Access API</td>
      <td><a href="/mobile-apps/features/network-capture/">Network Capture</a></td>
     </tr>
     <tr>

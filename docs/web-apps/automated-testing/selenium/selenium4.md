@@ -1068,7 +1068,7 @@ capabilities.setCapability("browserName", BrowserType.FIREFOX);
 
 <p><span className="sauceGreen"><small>C# only</small></span></p>
 
-The [`AddAdditionalCapability` capability](https://www.selenium.dev/selenium/docs/api/dotnet/html/M_OpenQA_Selenium_DriverOptions_AddAdditionalCapability.htm) is deprecated in Selenium 4. Instead, we recommend using `AddAdditionalOption`.
+The [`AddAdditionalCapability` capability](https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.DriverOptions.html) is deprecated in Selenium 4. Instead, we recommend using `AddAdditionalOption`.
 
 <Tabs
 defaultValue="Selenium 4"

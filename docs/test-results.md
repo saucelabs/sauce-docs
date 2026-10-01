@@ -15,6 +15,7 @@ Use the results of your Sauce Labs tests to maximize your testing.
 </p>
 <ul>
 <li><a href="/test-results/viewing-test-results">Viewing Test Results</a></li>
+<li><a href="/mobile-apps/real-device-access-api/real-device-access-api-test-results">Test Results for the Real Device Access API</a></li>
 <li><a href="/test-results/sharing-test-results">Building Sharable Links</a></li>
 </ul>
 </div>
