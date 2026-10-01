@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Saucelabs.com and the Sauce Labs testing service in the US, EU, and India will be down for planned maintenance on these days and times:
+Saucelabs.com and the Sauce Labs testing service in the US, EU, and Asia South will be down for planned maintenance on these days and times:
 
 | Region     | Date               | Time                           |
 | ---------- | ------------------ | ------------------------------ |
