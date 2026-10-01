@@ -2,6 +2,7 @@
 id: view-your-test-results
 title: View Test Results
 sidebar_label: View Test Results
+description: "Review results of Sauce AI test case and test suite runs, including status, videos, screenshots, logs, and other debugging artifacts grouped under Automated Builds."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

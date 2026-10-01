@@ -2,6 +2,7 @@
 id: generate-your-test-case
 title: Generate Test Case
 sidebar_label: Generate Test Case
+description: "Generate a test case with Sauce AI by selecting your application type, configuring the generation environment, writing a prompt, and adding soft or hard assertions."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -34,10 +35,17 @@ Choose the type of application you want to test based on your testing requiremen
 
 | Application Type | Description | Supported Formats |
 | :---- | ----- | :---- |
-| **Web Application** | Enter the complete URL of the web application you want to test. Sauce AI launches a browser session and interacts with your application based on the provided test prompt. | URL |
-| **Mobile Application** | Select your application from the available builds uploaded to [**App Management**](/docs/mobile-apps/app-storage.md#app-management). The list displays the latest uploaded application builds available in your Sauce Labs account. | **Android:** APK **iOS:** IPA, ZIP |
+| **Web** | Paste the complete URL of the web application you want to test in the **Paste initial URL to test** field. Sauce AI launches a desktop browser session and interacts with your application based on the provided test prompt. | URL |
+| **Mobile web** | Paste the complete URL of the website you want to test in the **Paste initial URL to test** field. Sauce AI opens the website in a mobile browser using emulated device dimensions and interacts with it based on the provided test prompt. | URL |
+| **Mobile** | Select your application from the available builds uploaded to [**App Management**](/docs/mobile-apps/app-storage.md#app-management). The list displays the latest uploaded application builds available in your Sauce Labs account. | **Android:** APK **iOS:** IPA, ZIP |
 
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-3.png')} alt=" test case" width="100%"/>
+
+:::note Mobile web
+Generation runs on **emulated device dimensions** based on your preferred mobile device selected.
+
+Once the test case is saved, you can run it against **real mobile devices** as well as **emulators and simulators**. Authoring uses emulated device dimensions; execution is not limited to them. See [**Run Test Cases**](/docs/sauce-ai/test-authoring/run-your-test-cases.md#run-a-mobile-web-test-case).
+:::
 
 ## Additional Test Generation Options (Optional)
 
@@ -47,7 +55,7 @@ The following configuration options are available:
 
 | Ref. | Option | Description |
 | :---: | ----- | ----- |
-| **1** | **Application Type** | Select whether you want to generate a test for a **Website** or a **Mobile** application. The available device configuration options are updated based on the selected application type. |
+| **1** | **Application Type** | Select whether you want to generate a test for a **Web**, **Mobile web**, or **Mobile** application. The available device configuration options are updated based on the selected application type. |
 | **2** | **Platform to Generate On** | Select the operating system or mobile platform where Sauce AI will perform the test generation.  |
 | **3** | **Browser to Generate On** | For web applications, select the browser that Sauce AI will use to interact with your application during test generation. |
 | **4** | **Tunnel Proxies** | Enable this option if your application is hosted on a private or restricted network that requires a **[Sauce Connect tunnel](/docs/secure-connections/sauce-connect-5/guides/tunnel-pool.md)** to establish secure access during test generation. If your organization enforces tunnel usage, the default tunnel is automatically selected for your test runs. |
@@ -88,6 +96,34 @@ Clear and specific prompts produce more reliable test flows. Include important d
 For additional prompting recommendations, see the [**Test Authoring Prompting Guide**](/docs/sauce-ai/ai-authoring-prompting-guide.md).
 
 <img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-5.png')} alt=" test case" width="100%"/>
+
+### Use Data Variables in Your Prompt
+
+Instead of entering usernames, passwords, URLs, or other reusable test data directly in your prompt, reference them as **[Data Variables](/docs/sauce-ai/test-authoring/data-variables.md)**. Variable values are stored separately from your prompt and are never sent to the AI model. Sauce AI only sees the variable reference, and the stored value is substituted when the step runs. For more information, see **[How Variable Values Are Protected](/docs/sauce-ai/test-authoring/data-variables.md#how-variable-values-are-protected)**.
+
+To add a variable to your prompt, type `{{` or click the `{x}` icon in the prompt field to open the variable picker, then select the variable you want to use. For step-by-step instructions, see **[Insert a Variable in the UI](/docs/sauce-ai/test-authoring/data-variables.md#insert-a-variable-in-the-ui)**.
+
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-12.png')} alt=" test case" width="100%"/>
+
+You can reference a variable by name, or target a specific scope with a prefix:
+
+| Syntax | Resolves to |
+| ----- | ----- |
+| `{{variable_name}}` | The variable with that name from the most specific scope that applies to the test. |
+| `{{org:variable_name}}` | The organization-scoped variable with that name. |
+| `{{team:variable_name}}` | The team-scoped variable with that name. |
+
+For the full list of supported scopes and how Sauce AI chooses between variables with the same name, see **[Variable Reference Syntax](/docs/sauce-ai/test-authoring/data-variables.md#variable-reference-syntax)** and **[Resolution Order](/docs/sauce-ai/test-authoring/data-variables.md#resolution-order)**.
+
+**For example:**
+
+```
+Go to {{org:base_url}}, log in using {{team:username}} and {{team:password}}, then verify the dashboard is displayed.
+```
+
+:::note
+During initial generation of a new test case, only team and org variables can be resolved without an explicit scope prefix. If a reference does not match any variable you have access to, the `{{...}}` text is passed to the AI as plain text and no error is raised. See **[Unresolved Variables](/docs/sauce-ai/test-authoring/data-variables.md#unresolved-variables)**.
+:::
 
 ## Start Test Generation
 
@@ -160,6 +196,84 @@ When using Safari:
 - Some selector types, including selectors inside Shadow DOM elements, may not be generated correctly.
 
 For the most reliable test generation experience, Sauce Labs recommends using a Chromium-based browser, such as **Google Chrome.**
+:::
+
+## Assertions
+
+An assertion is a check that Sauce AI performs against your application during a test. Every assertion has a **failure mode** that decides what happens to the rest of the test when that check fails during test generation or execution: **soft** assertions record the failure and let the test keep going, **hard** assertions stop the test immediately.
+
+Sauce AI only creates the assertions you ask for. If you want a value checked, so say in your prompt. See [**Writing assertions**](/docs/sauce-ai/ai-authoring-prompting-guide.md#9-ask-for-the-assertions-you-want) in your prompt.
+
+| Failure mode | What happens when the check fails | Rest of the test |
+| :---- | ----- | ----- |
+| **Soft** | The step is marked with a warning and the failure is recorded in the results. | Continues to the end. Every remaining check still runs and reports its own result. |
+| **Hard** | The step fails and the test is stopped at that point. | Does not run. Remaining steps are not executed. |
+
+In both cases the test case itself is reported as **failed**. A soft assertion does not hide a broken check, it only keeps the test running if possible so that the checks after it still report.
+
+When Sauce AI generates your test case:
+
+* A failed **soft** assertion is recorded against the step and generation continues through the rest of your prompt, so you get a complete test case to review and edit.
+* A failed **hard** assertion stops generation at that step.
+
+This means you can point Sauce AI at a screen you already know has a problem, generate the whole flow once, and see all the failing checks in the **Test Steps** view instead of regenerating after each fix.
+
+### Set the Default Failure Mode for a Test Case
+
+The failure mode you set on the test case applies to every assertion in it that does not have its own override.
+
+**Step 1:** On the test generation setup page, open **Additional options** (the **Settings** cog icon).
+
+**Step 2:** Set the assertion failure mode for the test case.
+
+**Step 3:** Write your prompt and click **Start Session**.
+
+The setting is stored with the test case, so it applies to later runs and regenerations until you change it.
+
+:::note
+Existing test cases keep the behavior they were authored against. They continue to stop at the first failed assertion until you change the setting on the test case and regenerate it.
+:::
+
+### Override the Failure Mode for a Single Step
+
+Any individual assertion can override the test case default. You can set the failure mode when you add a new assertion or when you edit an existing one.
+
+**Step 1:** In the **Test Steps** view, open the **Add Test Assertion** dialog in one of the following ways:
+
+* **To add a new assertion:** Click the **More options (⋯)** menu on the step where you want to add the assertion, then select **Add assertion above** or **Add assertion below**.
+* **To change an existing assertion:** Click the **Edit** (pencil) icon on the assertion step you want to change.
+
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-15.png')} alt=" test case" width="100%"/>
+
+**Step 2:** In the **Add Test Assertion** dialog, review the **Previous step action** displayed at the top. It shows the step the assertion is placed after, so you can confirm the assertion is in the right position.
+
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-19.png')} alt=" test case" width="100%"/>
+
+**Step 3:** Configure the assertion:
+
+| Ref. | Field | Description |
+| :---: | ----- | ----- |
+| **1** | **Target descriptor (CSS selector)** | Enter the CSS selector of the element you want to check, for example `[data-test="error"]`. |
+| **2** | **Assertion type** | Select how the element is compared with the expected value, for example **Equal to**. |
+| **3** | **Expected value** | Enter the value the element is expected to have. To use a stored value, click the `{x}` icon and select a **[Data Variable](/docs/sauce-ai/test-authoring/data-variables.md)**. |
+
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-16.png')} alt=" test case" width="100%"/>
+
+**Step 4:** Under **Failure mode**, select one of the following options:
+
+* **Soft (continue with warning):** If the assertion fails, the test continues, but the step is marked with a warning.
+* **Hard (fail and stop the test):** If the assertion fails, the test stops running and fails.
+
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-17.png')} alt=" test case" width="100%"/>
+
+**Step 5:** Click **Save** to apply the assertion. Click **Cancel** to close the dialog without saving your changes.
+
+<img src={useBaseUrl('/img/ai-authoring/generate-test-case/test-case-18.png')} alt=" test case" width="100%"/>
+
+A step with no override inherits the test case default.
+
+:::note
+The **More options (⋯)** menu also includes **Delete step**, which removes the step from the test flow. For more information, see **[Delete a Test Step](/docs/sauce-ai/test-authoring/manage-your-test-cases.md#delete-a-test-step)**.
 :::
 
 ## Save Your Test Case

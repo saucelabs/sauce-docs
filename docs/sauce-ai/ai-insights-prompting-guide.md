@@ -1,7 +1,7 @@
 ---
 id: ai-insights-prompting-guide
 title: AI Insights Prompting Guide
-sidebar_label: AI Insights Prompting Guide
+sidebar_label: AI Insights
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
