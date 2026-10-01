@@ -195,6 +195,19 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Triage',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/web-console/triage',
+                        'error-reporting/triage/dashboard-walkthrough',
+                        'error-reporting/triage/view-manage-fingerprint-status',
+                        'error-reporting/triage/fingerprint-group-details',
+                        'error-reporting/triage/fingerprint-in-debugger',
+                        'error-reporting/triage/other-action',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Explore',
                     collapsed: true,
                     items: [
@@ -222,7 +235,6 @@ module.exports = {
                         'error-reporting/web-console/getting-started',
                         'error-reporting/web-console/overview',
                         'error-reporting/web-console/releases',
-                        'error-reporting/web-console/triage',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
                     ],
@@ -582,6 +594,16 @@ module.exports = {
                     items: [
                         'sauce-basics',
                         'basics/quickstarts',
+                        {
+                            type: 'category',
+                            label: 'Community Frameworks',
+                            collapsed: true,
+                            items: [
+                                'basics/community-frameworks',
+                                'basics/community-frameworks/maestro',
+                                'basics/community-frameworks/vibium',
+                            ],
+                        },
                         'basics/platform-configurator',
                         'basics/data-center-endpoints',
                         'basics/environment-variables',
@@ -1069,6 +1091,11 @@ module.exports = {
                                 'mobile-apps/automated-testing/alttester/unreal',
                             ],
                         },
+                        {
+                            type: 'link',
+                            label: 'Maestro (Community)',
+                            href: '/basics/community-frameworks/maestro',
+                        },
                         'mobile-apps/automated-testing/ipa-files',
                         'mobile-apps/automated-testing/app-files',
                     ],
@@ -1201,6 +1228,11 @@ module.exports = {
                                 'web-apps/automated-testing/cdp-bidi',
                                 'web-apps/automated-testing/cdp-bidi/examples',
                             ],
+                        },
+                        {
+                            type: 'link',
+                            label: 'Vibium (Community)',
+                            href: '/basics/community-frameworks/vibium',
                         },
                     ],
                 },

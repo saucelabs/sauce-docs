@@ -2,6 +2,7 @@
 id: run-your-test-cases
 title: Run Test Cases
 sidebar_label: Run Test Cases
+description: "Run saved Sauce AI test cases on selected browsers, platforms, emulators, simulators, and real devices, including mobile web test cases on real mobile devices."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -45,6 +46,15 @@ Before triggering the workflow, review and configure the required test execution
 During execution, Test Authoring performs each generated test step in the selected environment and validates the expected outcomes. You can monitor the test execution progress and track the status of each test step while the test is running.
 
 <img src={useBaseUrl('/img/ai-authoring/run-test-cases/run-test-case-5.png')} alt="Run Your Test Cases" width="100%"/>
+
+## Run a Mobile Web Test Case
+
+A test case authored as **Mobile web** is generated on emulated device dimensions based on your preferred mobile device, but it is not bound to them. At run time you can execute the saved test case against:
+
+* **Real mobile devices** from the Real Device Cloud.
+* **Emulators and simulators** from the Virtual Device Cloud.
+
+This lets you author quickly using emulated device dimensions and then validate against the real hardware and OS versions your users are on.
 
 ## Review Test Results
 
