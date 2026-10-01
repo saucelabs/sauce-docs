@@ -204,9 +204,10 @@ module.exports = {
                         'error-reporting/triage/fingerprint-group-details',
                         'error-reporting/triage/fingerprint-in-debugger',
                         'error-reporting/triage/other-action',
-                      ],
+                    ],
                 },
                 {
+                    type: 'category',
                     label: 'Explore',
                     collapsed: true,
                     items: [
