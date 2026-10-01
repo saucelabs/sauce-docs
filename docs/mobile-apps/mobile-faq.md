@@ -105,7 +105,7 @@ or reach out to your Customer Success Manager or Sauce Labs Support for assistan
 
 #### **Is my app safe in the Real Device Cloud?**
 
-Our Real Device Cloud servers are located in the Europe and US at certified data centers. The communication is SSL secured. We try to ensure as much safety as a cloud service can provide. The Real Device Cloud will never abuse your data, and we respect your data privacy at all times.
+Our Real Device Cloud servers are located in Europe, the US, and Asia at certified data centers. The communication is SSL secured. We try to ensure as much safety as a cloud service can provide. The Real Device Cloud will never abuse your data, and we respect your data privacy at all times.
 
 For very high security requirements, we also provide a [private cloud solution](/mobile-apps/supported-devices/#private-device-cloud).
 
