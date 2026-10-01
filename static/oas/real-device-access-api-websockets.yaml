@@ -1,56 +1,87 @@
-### SKELETON — rough outline only, to see how Scalar renders AsyncAPI. Not complete or reviewed.
-### TODOs are marked inline. Message payloads below are placeholders, not the real contract.
 asyncapi: 3.0.0
 
 info:
   version: "2.0.0"
   title: "Real Device Access API — WebSockets"
   description: |
-    The two real-time channels of an active Real Device Access API session, described from the **client's** point of view:
-    `receive` means your client receives the message, `send` means your client sends it.
+    Live access to a running device over two WebSockets — one shows you the screen and takes your input, the other tells you what
+    the device is doing.
 
-    The HTTP `Upgrade` handshake that opens these channels is described in the
-    [Real Device Access API Reference](/real-device-access-api) under **WebSocket Streams**. Get the ready-made URLs from
-    `links.ioWebsocketUrl` and `links.eventsWebsocketUrl` in the Session Details response rather than building them by hand.
+    - **Companion Socket** — logs, network traffic, and session events as JSON. Watch a crash as it happens, or trigger your own
+      automation off device state, instead of digging through artifacts afterwards.
+    - **Device Control Socket** — the screen out as JPEG frames, taps and keystrokes in. Enough to build your own live view or to
+      drive a device without Appium.
 
-    Guides: [Device Control Socket](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-device-control-socket/) ·
-    [Companion Socket](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket/)
+    Everything here is written from your client's side: `receive` is what arrives, `send` is what you write.
+
+    Both sockets open as an HTTP `Upgrade` carrying HTTP Basic credentials against a session that is already `ACTIVE`, and stay
+    open for its lifetime. How you get a session and its socket addresses is out of scope — the
+    [Real Device Access API Reference](/real-device-access-api) documents one way. Both also drop a client that can't keep up,
+    each in its own way, described per socket. A normal close (`1000`) means the session ended: don't reconnect.
+  externalDocs:
+    description: Real Device Access API Guide
+    url: https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-introduction/
+
+defaultContentType: application/json
 
 servers:
   usWest1:
     host: api.us-west-1.saucelabs.com
     pathname: /rdc/v2
     protocol: wss
-    description: US West
+    title: US West
     security:
       - $ref: "#/components/securitySchemes/basicAuth"
-  # TODO: add euCentral1 and usEast4 once the skeleton looks right.
+  euCentral1:
+    host: api.eu-central-1.saucelabs.com
+    pathname: /rdc/v2
+    protocol: wss
+    title: EU Central
+    security:
+      - $ref: "#/components/securitySchemes/basicAuth"
+  usEast4:
+    host: api.us-east-4.saucelabs.com
+    pathname: /rdc/v2
+    protocol: wss
+    title: US East
+    security:
+      - $ref: "#/components/securitySchemes/basicAuth"
 
 channels:
-  deviceControl:
-    address: /socket/alternativeIo/{sessionId}
-    title: Device Control Socket
-    summary: Live device screen out, device input in.
-    servers:
-      - $ref: "#/servers/usWest1"
-    parameters:
-      sessionId:
-        description: The id of the device session.
-    messages:
-      videoFrame:
-        $ref: "#/components/messages/VideoFrame"
-      inputCommand:
-        $ref: "#/components/messages/InputCommand"
-
   companion:
     address: /socket/companion/{sessionId}
     title: Companion Socket
-    summary: Server-push stream of device logs, Appium logs, and network traffic.
+    summary: Device logs, network traffic, orientation, device state, and session expiry.
+    description: |
+      Subscribe once and switch on `type`. Every message carries one, but there are two shapes behind it: log lines are relayed
+      from the device and arrive flat, while events the service raises itself nest their payload under `value`.
+
+      ```json
+      { "type": "device.log.message", "level": "INFO", "message": "..." }
+      { "type": "device.state.update", "value": { "state": "ONLINE" } }
+      ```
+
+      Two things to know up front. Network capture is off by default, so `device.har.entry` stays silent until it is enabled for
+      the session. And messages get big — a single HAR entry can carry a whole response body — so give your client a generous
+      frame buffer; the [guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket/)
+      uses `websocat -B 2000000`. `binary` and `text` work as optional subprotocols.
+
+      If the server can't write to you fast enough it closes with code **`1013`** and the reason
+      `closing: client too slow to consume events` — a close frame, not a message, so catch it in `onclose`. Reconnect, then
+      consume faster or buffer more.
     servers:
       - $ref: "#/servers/usWest1"
+      - $ref: "#/servers/euCentral1"
+      - $ref: "#/servers/usEast4"
     parameters:
       sessionId:
-        description: The id of the device session.
+        description: The id of the device session, which must be in state `ACTIVE`.
+        examples:
+          - 054d8bf6-b247-43d6-8777-f8d79215e87f
+    bindings:
+      ws:
+        method: GET
+        bindingVersion: "0.1.0"
     messages:
       deviceLogMessage:
         $ref: "#/components/messages/DeviceLogMessage"
@@ -58,105 +89,650 @@ channels:
         $ref: "#/components/messages/DeviceAppiumMessage"
       deviceHarEntry:
         $ref: "#/components/messages/DeviceHarEntry"
+      deviceEvent:
+        $ref: "#/components/messages/DeviceEvent"
+      deviceStateUpdate:
+        $ref: "#/components/messages/DeviceStateUpdate"
+      orientationStart:
+        $ref: "#/components/messages/OrientationStart"
+      orientationFinish:
+        $ref: "#/components/messages/OrientationFinish"
+      sessionWillExpire:
+        $ref: "#/components/messages/SessionWillExpire"
+      sessionClosed:
+        $ref: "#/components/messages/SessionClosed"
+      logStreamCommand:
+        $ref: "#/components/messages/LogStreamCommand"
+
+  deviceControl:
+    address: /socket/alternativeIo/{sessionId}
+    title: Device Control Socket
+    summary: Live device screen out, touch and key input in.
+    description: |
+      Binary frames come down — each one a complete JPEG of the screen as it looks right now — and text commands go up: taps, key
+      presses, and one acknowledgment per frame.
+
+      You set the pace. The next frame arrives only after you acknowledge the last one with `n/`, so you can't be flooded; stop
+      acknowledging and the stream pauses until you resume.
+
+      Be ready for an abrupt disconnect. Unlike the Companion Socket, this one sends no close frame when it gives up on a slow
+      client — a send that doesn't finish within five seconds drops the connection with no code or reason. Reconnect with backoff:
+      1s, 2s, 4s, 8s, 16s, up to five attempts.
+    servers:
+      - $ref: "#/servers/usWest1"
+      - $ref: "#/servers/euCentral1"
+      - $ref: "#/servers/usEast4"
+    parameters:
+      sessionId:
+        description: The id of the device session, which must be in state `ACTIVE`.
+        examples:
+          - 054d8bf6-b247-43d6-8777-f8d79215e87f
+    bindings:
+      ws:
+        method: GET
+        bindingVersion: "0.1.0"
+    messages:
+      videoFrame:
+        $ref: "#/components/messages/VideoFrame"
+      frameAck:
+        $ref: "#/components/messages/FrameAck"
+      touchEvent:
+        $ref: "#/components/messages/TouchEvent"
+      keyEvent:
+        $ref: "#/components/messages/KeyEvent"
 
 operations:
-  streamDeviceScreen:
-    action: receive
-    channel:
-      $ref: "#/channels/deviceControl"
-    title: Receive screen frames
-    summary: Binary video frames of the live device screen.
-    messages:
-      - $ref: "#/channels/deviceControl/messages/videoFrame"
-
-  sendDeviceInput:
-    action: send
-    channel:
-      $ref: "#/channels/deviceControl"
-    title: Send device input
-    summary: Taps, swipes, and text entry.
-    messages:
-      - $ref: "#/channels/deviceControl/messages/inputCommand"
-
   streamSessionEvents:
     action: receive
     channel:
       $ref: "#/channels/companion"
     title: Receive session events
-    summary: |
-      JSON events, discriminated by `type`. Network capture is off by default — enable it with
-      `POST /sessions/{sessionId}/device/enableNetworkCapture` before expecting `device.har.entry`.
+    summary: Logs, network traffic, orientation, device state, and session expiry.
+    description: |
+      Every type below arrives interleaved on the one connection; switch on `type`.
     messages:
       - $ref: "#/channels/companion/messages/deviceLogMessage"
       - $ref: "#/channels/companion/messages/deviceAppiumMessage"
       - $ref: "#/channels/companion/messages/deviceHarEntry"
+      - $ref: "#/channels/companion/messages/deviceEvent"
+      - $ref: "#/channels/companion/messages/deviceStateUpdate"
+      - $ref: "#/channels/companion/messages/orientationStart"
+      - $ref: "#/channels/companion/messages/orientationFinish"
+      - $ref: "#/channels/companion/messages/sessionWillExpire"
+      - $ref: "#/channels/companion/messages/sessionClosed"
+
+  sendLogStreamCommand:
+    action: send
+    channel:
+      $ref: "#/channels/companion"
+    title: Forward text to the device log stream
+    summary: Text you send is relayed upstream to the device log stream.
+    description: |
+      The Companion Socket is push-oriented, but not strictly one-way: any text frame your client sends is forwarded verbatim to the
+      upstream device log stream. Most clients never need this and can treat the socket as receive-only.
+    messages:
+      - $ref: "#/channels/companion/messages/logStreamCommand"
+
+  streamDeviceScreen:
+    action: receive
+    channel:
+      $ref: "#/channels/deviceControl"
+    title: Receive screen frames
+    summary: A complete JPEG of the device screen, whenever it changes.
+    description: |
+      One binary frame per screen change, then the server waits for your acknowledgment. Each frame is a standalone JPEG — no
+      inter-frame compression, no envelope — so a frame written straight to `frame.jpg` is a valid image.
+    messages:
+      - $ref: "#/channels/deviceControl/messages/videoFrame"
+
+  acknowledgeFrame:
+    action: send
+    channel:
+      $ref: "#/channels/deviceControl"
+    title: Acknowledge a frame
+    summary: Request the next frame.
+    description: |
+      Send `n/` after processing each frame. This is the socket's flow control: no acknowledgment, no next frame.
+    messages:
+      - $ref: "#/channels/deviceControl/messages/frameAck"
+
+  sendTouchInput:
+    action: send
+    channel:
+      $ref: "#/channels/deviceControl"
+    title: Send touch input
+    summary: Taps, long presses, swipes, scrolls, and pinch gestures.
+    description: |
+      Every gesture is built from touch-down (`d`), touch-move (`m`), and touch-up (`u`) messages — the server has no notion of a
+      "tap" or a "swipe", only touch points over time. Hold durations and inter-tap delays are yours to control: a long press is a
+      down, a wait of 500 ms or more, then an up at the same point; a double tap is two full tap sequences about 100 ms apart.
+
+      Coordinates are relative to **your** canvas, not to the device resolution. Pass the size of the area you render the stream
+      into and the server maps the points onto the device. After a rotation, swap your canvas dimensions and flip the orientation
+      flag — and wait for `device.orientation.finish` on the Companion Socket first, because commands sent mid-rotation map to the
+      wrong coordinates.
+    messages:
+      - $ref: "#/channels/deviceControl/messages/touchEvent"
+
+  sendKeyInput:
+    action: send
+    channel:
+      $ref: "#/channels/deviceControl"
+    title: Send key and navigation input
+    summary: Hardware buttons and individual key presses.
+    description: |
+      One message per key. Hardware buttons use the reserved `Sauce_*` names; everything else is a standard keyboard event name.
+    messages:
+      - $ref: "#/channels/deviceControl/messages/keyEvent"
 
 components:
   securitySchemes:
     basicAuth:
       type: http
       scheme: basic
-      description: "`Authorization: Basic <base64(username:accessKey)>` on the upgrade request."
+      description: |
+        HTTP Basic Authentication on the upgrade request: `Authorization: Basic <base64(username:accessKey)>`.
+
+        Both values are on the **Account > User Settings** page in the Sauce Labs UI. The upgrade is rejected before any WebSocket
+        exists, as a plain HTTP error: `401` for bad or missing credentials, `403` for a session that is not yours, and `404` for
+        one that does not exist or has already closed.
+
+        Note that the browser `WebSocket` constructor cannot set request headers, so a browser client needs a proxy or a signed URL
+        issued by your own backend.
 
   messages:
-    # TODO: replace every payload below with the real schema.
-    VideoFrame:
-      name: videoFrame
-      title: Video frame
-      summary: A single encoded frame of the device screen.
-      contentType: application/octet-stream
-      payload:
-        type: string
-        format: binary
-
-    InputCommand:
-      name: inputCommand
-      title: Input command
-      summary: An interaction to perform on the device.
-      contentType: application/json
-      payload:
-        type: object
-        properties:
-          type:
-            type: string
-            example: "tap"
-          # TODO: real command set + per-command fields.
-
     DeviceLogMessage:
       name: deviceLogMessage
       title: Device log message
-      summary: One line of Android Logcat or iOS Syslog.
+      summary: A line of Android Logcat or iOS Syslog.
       contentType: application/json
+      description: |
+        Relayed as the device produces it, so crashes and stack traces show up while they happen rather than after the session ends.
+        Flat, with no `value` wrapper — the line comes straight off the device's log stream.
+
+        ```json
+        {
+          "type": "device.log.message",
+          "timestamp": "2026-08-12 05:40:58.000",
+          "level": "INFO",
+          "processId": 655,
+          "message": "SauceWebDriverAgentRunner-Runner(WebDriverAgentLib)[655] <Notice>: Got attribute fetch response"
+        }
+        ```
+
+        Note that `message` repeats the timestamp and level as its own prefix, so prefer the dedicated fields when filtering.
       payload:
-        $ref: "#/components/schemas/CompanionEventEnvelope"
+        $ref: "#/components/schemas/DeviceLogMessage"
 
     DeviceAppiumMessage:
       name: deviceAppiumMessage
       title: Appium log message
-      summary: One line from the hosted Appium server.
+      summary: A line from the hosted Appium server.
       contentType: application/json
+      description: |
+        Only while a hosted Appium server is running. Carries Appium's own logging and the raw WebDriver exchange — what you want
+        when a `click` or `findElement` behaves differently than it does locally.
+
+        ```json
+        {
+          "type": "device.appium.message",
+          "timestamp": "2026-08-12 05:40:58.000",
+          "level": "INFO",
+          "message": "Calling AppiumDriver.findElement() with args: [\"accessibility id\",\"login-button\"]"
+        }
+        ```
+
+        Relayed flat from the same log stream as `device.log.message`, so it shares that shape.
       payload:
-        $ref: "#/components/schemas/CompanionEventEnvelope"
+        $ref: "#/components/schemas/DeviceAppiumMessage"
 
     DeviceHarEntry:
       name: deviceHarEntry
       title: HAR entry
-      summary: One captured HTTP/S request/response pair.
+      summary: One captured HTTP/S request and response.
       contentType: application/json
+      description: |
+        Everything the device requests once network capture is on — API calls, image loads, analytics beacons — not just your own
+        app's traffic. The entry sits under `value.event` and follows HAR 1.2, so existing HAR tooling can read it.
+
+        ```json
+        {
+          "type": "device.har.entry",
+          "value": {
+            "event": {
+              "startedDateTime": "2026-09-02T17:04:11.512Z",
+              "time": 128,
+              "request": { "method": "GET", "url": "https://api.example.com/v1/items" },
+              "response": { "status": 200 }
+            }
+          }
+        }
+        ```
       payload:
-        $ref: "#/components/schemas/CompanionEventEnvelope"
+        $ref: "#/components/schemas/DeviceHarEntry"
+
+    DeviceEvent:
+      name: deviceEvent
+      title: Device event
+      summary: A low-level event reported by the device.
+      contentType: application/json
+      description: |
+        ```json
+        { "type": "device.event", "value": { "event": { ... } } }
+        ```
+      payload:
+        $ref: "#/components/schemas/DeviceEvent"
+
+    DeviceStateUpdate:
+      name: deviceStateUpdate
+      title: Device state update
+      summary: The device moved to a new state.
+      contentType: application/json
+      description: |
+        States progress in order, so `ONLINE` is the point at which the device is fully ready. `OFFLINE`, `FAILED`, and
+        `INTERRUPTED` mean the device is no longer usable for this session.
+
+        ```json
+        { "type": "device.state.update", "value": { "state": "ONLINE" } }
+        ```
+      payload:
+        $ref: "#/components/schemas/DeviceStateUpdate"
+
+    OrientationStart:
+      name: orientationStart
+      title: Orientation change started
+      summary: The device has begun rotating.
+      contentType: application/json
+      description: |
+        Rotation is triggered elsewhere, not on this socket; this event and its `finish` counterpart are how the socket reports the
+        transition.
+
+        ```json
+        { "type": "device.orientation.start", "value": { "orientation": "LANDSCAPE" } }
+        ```
+      payload:
+        $ref: "#/components/schemas/OrientationStart"
+
+    OrientationFinish:
+      name: orientationFinish
+      title: Orientation change finished
+      summary: The rotation is complete and the device has settled.
+      contentType: application/json
+      description: |
+        Wait for this before sending further touch events, and update the canvas dimensions and orientation flag in them to match.
+
+        ```json
+        { "type": "device.orientation.finish", "value": { "orientation": "LANDSCAPE" } }
+        ```
+      payload:
+        $ref: "#/components/schemas/OrientationFinish"
+
+    SessionWillExpire:
+      name: sessionWillExpire
+      title: Session will expire
+      summary: The session is approaching its time limit.
+      contentType: application/json
+      description: |
+        Your cue to finish up, extend, or save artifacts before the device is released.
+
+        ```json
+        { "type": "session_will_expire", "value": { "seconds_left": 60 } }
+        ```
+      payload:
+        $ref: "#/components/schemas/SessionWillExpire"
+
+    SessionClosed:
+      name: sessionClosed
+      title: Session closed
+      summary: The session has been closed.
+      contentType: application/json
+      description: |
+        The last message you will receive — the application-level "the session ended", distinct from the transport close frame that
+        follows it. Do not reconnect after this one.
+
+        ```json
+        { "type": "session_closed", "value": { "closed_by": "server" } }
+        ```
+      payload:
+        $ref: "#/components/schemas/SessionClosed"
+
+    LogStreamCommand:
+      name: logStreamCommand
+      title: Log stream command
+      summary: Text forwarded verbatim to the upstream device log stream.
+      contentType: text/plain
+      payload:
+        type: string
+
+    VideoFrame:
+      name: videoFrame
+      title: Video frame
+      summary: A complete JPEG image of the current device screen.
+      contentType: image/jpeg
+      description: |
+        Sent as a WebSocket **binary** frame. Decode it as a standalone JPEG, then acknowledge with `n/` to receive the next one.
+      payload:
+        type: string
+        format: binary
+        description: Raw JPEG bytes.
+
+    FrameAck:
+      name: frameAck
+      title: Frame acknowledgment
+      summary: Requests the next screen frame.
+      contentType: text/plain
+      description: |
+        ```
+        n/
+        ```
+      payload:
+        type: string
+        enum:
+          - "n/"
+
+    TouchEvent:
+      name: touchEvent
+      title: Touch event
+      summary: One touch point in a gesture.
+      contentType: text/plain
+      description: |
+        ```
+        mt/{action} {canvasWidth} {canvasHeight} {orientation} {touchCount} {touchIndex} {x} {y}
+        ```
+
+        | Field | Description |
+        |---|---|
+        | `action` | `d` touch down, `m` touch move, `u` touch up |
+        | `canvasWidth`, `canvasHeight` | Size of your rendering canvas in pixels |
+        | `orientation` | `0` portrait, `1` landscape — must match the device's current orientation |
+        | `touchCount` | Simultaneous touch points: `1` single touch, `2` multi-touch |
+        | `touchIndex` | Which finger this point belongs to: `0` or `1` |
+        | `x`, `y` | Coordinates within your canvas |
+
+        A tap on a 1080x1920 portrait canvas:
+
+        ```
+        mt/d 1080 1920 0 1 0 540 960
+        mt/u 1080 1920 0 1 0 540 960
+        ```
+
+        A swipe up — one down, several moves, one up:
+
+        ```
+        mt/d 1080 1920 0 1 0 540 1400
+        mt/m 1080 1920 0 1 0 540 1200
+        mt/m 1080 1920 0 1 0 540 1000
+        mt/u 1080 1920 0 1 0 540 600
+        ```
+
+        A two-finger gesture appends the second finger to the same message — here a pinch-out on a 360x640 canvas:
+
+        ```
+        mt/d 360 640 0 2 0 150 300 1 210 340
+        mt/m 360 640 0 2 0 120 260 1 240 380
+        mt/u 360 640 0 2 0 90 220 1 270 420
+        ```
+
+        The same tap after rotating to landscape, with the dimensions swapped and the orientation flag flipped:
+
+        ```
+        mt/d 1920 1080 1 1 0 960 540
+        mt/u 1920 1080 1 1 0 960 540
+        ```
+      payload:
+        type: string
+        pattern: '^mt/[dmu] \d+ \d+ [01] [12] [01] \d+ \d+( [01] \d+ \d+)?$'
+
+    KeyEvent:
+      name: keyEvent
+      title: Key or navigation event
+      summary: A hardware button or a single key press.
+      contentType: text/plain
+      description: |
+        ```
+        tt/{key}
+        ```
+
+        | Key | Action |
+        |---|---|
+        | `Sauce_Home_Key` | Home button |
+        | `Sauce_Back_Key` | Back button (Android) |
+        | `Sauce_Menu_Key` | App switcher / recent apps |
+        | `a`–`z`, `0`–`9` | Letter and number keys |
+        | `Enter`, `Backspace` | Enter / Return, Delete |
+        | `ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight` | Arrow keys |
+
+        Press Home, then type "hi":
+
+        ```
+        tt/Sauce_Home_Key
+        tt/h
+        tt/i
+        ```
+      payload:
+        type: string
+        pattern: "^tt/.+$"
 
   schemas:
-    # TODO: split into one real schema per event type instead of this shared placeholder.
-    CompanionEventEnvelope:
+    CompanionEvent:
+      title: Companion event
+      description: |
+        The one field every Companion Socket message has in common. `type` decides the rest of the shape, and there are two
+        families: `device.log.message` and `device.appium.message` are relayed from the device's log stream and arrive **flat**,
+        while every other type is raised by the service and nests its payload under `value`.
       type: object
+      required:
+        - type
       properties:
         type:
           type: string
+          description: The event type, which determines the rest of the message.
           enum:
             - device.log.message
             - device.appium.message
             - device.har.entry
-        payload:
+            - device.event
+            - device.state.update
+            - device.orientation.start
+            - device.orientation.finish
+            - session_will_expire
+            - session_closed
+
+    DeviceLogMessage:
+      title: Device log event
+      description: Relayed flat from the device's log stream — no `value` wrapper.
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: device.log.message
+        timestamp:
+          type: string
+          description: When the device emitted the line.
+          example: "2026-08-12 05:40:58.000"
+        level:
+          type: string
+          description: Log level as reported by the device.
+          example: INFO
+        processId:
+          type: integer
+          description: The device process that emitted the line.
+          example: 655
+        message:
+          type: string
+          description: The log line itself, prefixed by its own copy of the timestamp and level.
+
+    DeviceAppiumMessage:
+      title: Appium log event
+      description: Relayed flat from the same log stream as `device.log.message`, so it shares that shape.
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: device.appium.message
+        timestamp:
+          type: string
+          description: When the line was emitted.
+          example: "2026-08-12 05:40:58.000"
+        level:
+          type: string
+          description: Log level as reported by the Appium server.
+          example: INFO
+        processId:
+          type: integer
+          description: The process that emitted the line, when reported.
+          example: 655
+        message:
+          type: string
+          description: The log line itself.
+
+    DeviceHarEntry:
+      title: HAR entry event
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          const: device.har.entry
+        value:
           type: object
-          description: "Shape depends on `type`. TODO: document per type."
+          properties:
+            event:
+              type: object
+              description: |
+                An entry from the [HAR 1.2 specification](http://www.softwareishard.com/blog/har-12-spec/#entries) — the same
+                object shape a browser's network export produces, so existing HAR tooling can consume it.
+              properties:
+                startedDateTime:
+                  type: string
+                  format: date-time
+                time:
+                  type: number
+                  description: Total elapsed time of the request in milliseconds.
+                request:
+                  type: object
+                response:
+                  type: object
+
+    DeviceEvent:
+      title: Device event
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          const: device.event
+        value:
+          type: object
+          properties:
+            event:
+              description: The device event payload.
+
+    DeviceStateUpdate:
+      title: Device state event
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          const: device.state.update
+        value:
+          type: object
+          properties:
+            state:
+              type: string
+              enum:
+                - FAILED
+                - INTERRUPTED
+                - OFFLINE
+                - LAUNCH
+                - VIDEO
+                - BOOTED
+                - UI
+                - INPUT
+                - ONLINE
+                - CLOSING
+
+    OrientationStart:
+      title: Orientation start event
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          const: device.orientation.start
+        value:
+          type: object
+          properties:
+            orientation:
+              type: string
+              enum:
+                - PORTRAIT
+                - LANDSCAPE
+
+    OrientationFinish:
+      title: Orientation finish event
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          const: device.orientation.finish
+        value:
+          type: object
+          properties:
+            orientation:
+              type: string
+              enum:
+                - PORTRAIT
+                - LANDSCAPE
+
+    SessionWillExpire:
+      title: Session expiry warning event
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          const: session_will_expire
+        value:
+          type: object
+          properties:
+            seconds_left:
+              type: integer
+              description: Seconds remaining before the session is closed automatically.
+              example: 60
+
+    SessionClosed:
+      title: Session closed event
+      type: object
+      required:
+        - type
+        - value
+      properties:
+        type:
+          type: string
+          const: session_closed
+        value:
+          type: object
+          properties:
+            closed_by:
+              type: string
+              description: What ended the session.
+              example: server
