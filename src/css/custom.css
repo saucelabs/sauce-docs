@@ -1354,3 +1354,95 @@ html[data-theme="dark"] .tab-client-logo {
 .navbar button.clean-btn {
     color: var(--olive-100);
 }
+
+/* App Distribution role badges: colored pills in the "Role" column.
+   Each role declares one color; the pill background and the dark-theme
+   variant are both derived from it. */
+.role-badge {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.5;
+    border-radius: 6px;
+    white-space: nowrap;
+    color: var(--role-color);
+    background-color: color-mix(in srgb, var(--role-color) 12%, transparent);
+}
+
+.role-badge--owner {
+    --role-color: #e5484d;
+}
+
+.role-badge--org-admin {
+    --role-color: #2e8b96;
+}
+
+.role-badge--team-admin {
+    --role-color: #e8863d;
+}
+
+.role-badge--member {
+    --role-color: #4a7cf3;
+}
+
+.role-badge--tester {
+    --role-color: #3f5f7a;
+}
+
+html[data-theme="dark"] .role-badge {
+    color: color-mix(in srgb, var(--role-color) 60%, #ffffff);
+    background-color: color-mix(in srgb, var(--role-color) 20%, transparent);
+}
+
+/* "App Distribution (Classic)" sidebar category: de-emphasized, with a CLASSIC tag
+   so readers default to the current App Distribution docs. */
+.sidebar-classic > .menu__list-item-collapsible > .menu__link {
+    color: #8a9199;
+    font-weight: 500;
+}
+
+.sidebar-classic > .menu__list-item-collapsible > .menu__link:hover,
+html[data-theme="dark"]
+    .sidebar-classic
+    > .menu__list-item-collapsible
+    > .menu__link:hover {
+    color: #6b7280;
+}
+
+/* The label sits in a CSS-module span inside the link; the link's own ::after is
+   already the collapse caret, so the tag hangs off the label instead. */
+.sidebar-classic
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    content: "CLASSIC";
+    display: inline-block;
+    margin-left: 0.45em;
+    padding: 0.05em 0.4em;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    vertical-align: middle;
+    border-radius: 4px;
+    color: #e8863d;
+    background-color: #fcede2;
+    white-space: nowrap;
+}
+
+html[data-theme="dark"]
+    .sidebar-classic
+    > .menu__list-item-collapsible
+    > .menu__link {
+    color: #8a9199;
+}
+
+html[data-theme="dark"]
+    .sidebar-classic
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    color: #f0a973;
+    background-color: rgba(232, 134, 61, 0.18);
+}
