@@ -40,7 +40,7 @@ pod install
 ```
 
 :::note
-Once the package is published on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. If you still have the legacy `react-native-testfairy` package installed, run `npm uninstall react-native-testfairy` first. The two are mutually exclusive.
+After the package is published on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. If you still have the legacy `react-native-testfairy` package installed, run `npm uninstall react-native-testfairy` first. The two are mutually exclusive.
 :::
 
 On Android, add the Sauce Mobile Beta Maven repository to `android/settings.gradle` as shown in [Android](/testfairy/platforms/react-native/#android). `npx expo prebuild --clean` regenerates the native directories, so re-apply that change (or apply it with a config plugin) whenever you regenerate them.
@@ -62,4 +62,4 @@ export default function App() {
 
 ## Notes
 
-Since all Expo apps are React Native apps behind the scenes, everything on the [React Native](/testfairy/platforms/react-native/) page also applies to Expo: the migration steps from `react-native-testfairy`, the API notes, and the [Using with Backtrace](/testfairy/platforms/react-native/#using-with-backtrace) summary. If you use Backtrace in the same app, initialize Backtrace first and share the `sauce.correlation_id` attribute with both SDKs as described in [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+Since all Expo apps are React Native apps behind the scenes, everything on the [React Native](/testfairy/platforms/react-native/) page also applies to Expo: the migration steps from `react-native-testfairy`, the API notes, and the [Using With Backtrace](/testfairy/platforms/react-native/#using-with-backtrace) summary. If you use Backtrace in the same app, initialize Backtrace first and share the `sauce.correlation_id` attribute with both SDKs as described in [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).

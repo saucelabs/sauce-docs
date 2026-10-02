@@ -525,7 +525,7 @@ Update editable fields of a specific build. Only the fields included in the requ
 		</tr>
 		<tr>
 			<td><code>metadata_*</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>Custom metadata fields. Use the prefix <code>metadata_</code> followed by a key name (e.g. <code>metadata_title</code>, <code>metadata_env</code>).</p></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Custom metadata fields. Use the prefix <code>metadata_</code> followed by a key name (for example, <code>metadata_title</code>, <code>metadata_env</code>).</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -1583,7 +1583,7 @@ For multi-site accounts, account managers see logs across all related sites. Adm
 		<tr>
 			<td><code>site</code></td>
 			<td><code>string</code> or <code>int</code></td>
-			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (for example, <code>site-1</code>) or enterprise ID (for example, <code>456</code>). Must be in the caller's accessible sites.</td>
 		</tr>
 		<tr>
 			<td><code>action_type</code></td>
@@ -1674,7 +1674,7 @@ For multi-site accounts, account managers see logs across all related sites. Adm
 		<tr>
 			<td><code>site</code></td>
 			<td><code>string</code> or <code>int</code></td>
-			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (for example, <code>site-1</code>) or enterprise ID (for example, <code>456</code>). Must be in the caller's accessible sites.</td>
 		</tr>
 		<tr>
 			<td><code>action_type</code></td>
@@ -1765,7 +1765,7 @@ For multi-site accounts, account managers see logs across all related sites. Adm
 		<tr>
 			<td><code>site</code></td>
 			<td><code>string</code> or <code>int</code></td>
-			<td>Optional. Multi-site accounts only. Filter by site subdomain (e.g. <code>site-1</code>) or enterprise ID (e.g. <code>456</code>). Must be within the caller's accessible sites.</td>
+			<td>Optional. Multi-site accounts only. Filter by site subdomain (for example, <code>site-1</code>) or enterprise ID (for example, <code>456</code>). Must be in the caller's accessible sites.</td>
 		</tr>
 		<tr>
 			<td><code>action_type</code></td>

@@ -58,12 +58,12 @@ Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode 
 
 1. In the newly opened dialog, enter the Sauce Mobile Beta package URL `https://github.com/testfairy/testfairy-ios-sdk-swift-package` in the top right search bar.
 2. Set the **Dependency Rule** to **Exact Version** and enter `2.2.0-rc`.
-3. Click the **Add Package** button.
+3. Click **Add Package**.
 <img src={useBaseUrl('img/mobile-apps/xcframework-2.png')} alt="" width="800"/>
 
 1. After the package has been downloaded, in the newly opened dialog, make sure the `SauceMobileBeta` product is selected in the "Package Product" column.
 2. Make sure the right target is selected in the "Add to target" column.
-3. Click the **Add Package** button.
+3. Click **Add Package**.
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
 
 :::note Why Exact Version?
@@ -83,7 +83,7 @@ targets: [
 ]
 ```
 
-If the package URL moves to a Sauce Labs-owned repository, this page will be updated. Switching is a URL change only.
+If the package URL moves to a Sauce Labs-owned repository, this guide will be updated. Switching is a URL change only.
 
 ### Legacy TestFairy SDK 1.x
 
@@ -91,7 +91,7 @@ If the package URL moves to a Sauce Labs-owned repository, this page will be upd
 The following channels install the legacy, crash-capable **TestFairy SDK 1.x**, not the Sauce Mobile Beta SDK:
 
 * CocoaPods: `pod 'TestFairy'`
-* Carthage: `binary "https://app.testfairy.com/sdk/ios/carthage.json"`
+* Carthage: a `binary` entry pointing to `https://app.testfairy.com/sdk/ios/carthage.json`
 * Manual download of `TestFairySDK.framework` from the [TestFairy download page](https://app.testfairy.com/sdk/ios/)
 
 The CocoaPods pod `SauceMobileBeta` is not published yet. Use Swift Package Manager to add the Sauce Mobile Beta SDK.
@@ -123,7 +123,7 @@ values={[
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    // Initialize Backtrace here first when it is part of the app.
+    // Initialize Backtrace first when it is part of the app.
 
     [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 
@@ -145,7 +145,7 @@ import TestFairy
 ```
 
    An Objective-C bridging header also works, for example in a project that already has one. Since this process only needs to be done once per project, if you have already done so, just update your bridging header file.
-   * Right-click on your project, select New File...
+   * Right-click on your project and select **New File**.
    * Select Header File.h
    * Save as Bridging.h in your project
    * Click on Bridging.h to open it in editor
@@ -165,7 +165,7 @@ If the header is not found, try the framework-style import:
    Update Build Settings with the new bridging header:
    * Click on your project
    * Select Build Settings tab
-   * Select the "All" filter, in order to find Swift Compiler - General: Objective-C Bridging Header
+   * Select the "All" filter to find Swift Compiler - General: Objective-C Bridging Header
    * Edit Swift Compiler - General: Objective-C Bridging Header (double-click to edit).
    * Drag "Bridging.h" from the source tree onto the edit box opened
 
@@ -178,7 +178,7 @@ import UIKit
 import TestFairy
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Initialize Backtrace here first when it is part of the app.
+    // Initialize Backtrace first when it is part of the app.
 
     TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 
@@ -196,7 +196,7 @@ Plain `begin` is also crashless in the Sauce Mobile Beta SDK, and `installCrashH
 :::
 
 ## Using PencilKit for Better Feedback
-You can give your users a better set of tools to markup any screenshots provided during feedback by adding PencilKit to your project. Simply add the PencilKit.framework to your project.
+You can give your users a better set of tools to markup any screenshots provided during feedback by adding PencilKit to your project. Add the PencilKit.framework to your project.
 
 :::note
 This requires iOS 13 and Xcode 11.

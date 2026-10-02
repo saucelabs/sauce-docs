@@ -41,7 +41,7 @@ The default attributes are the primary attribute types (User, Session, Location,
 
 ## Custom Attributes Filters
 
-If you add [custom attributes](/testfairy/sdk/session-attributes/) to your app's session, you see them here and be able to filter according to their values:
+If you add [custom attributes](/testfairy/sdk/session-attributes/) to your app's session, you see them in this view and can filter according to their values:
 <img src={useBaseUrl('/img/testfairy/using-tf/custome-attributes.png')} alt="filter by custom attribute"/>
 
 This potent tool can help you identify specific sessions and filter them out of the many sessions in your app.

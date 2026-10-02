@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-Sauce Labs Mobile App Distribution offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging. 
+Sauce Labs Mobile App Distribution offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging.
 
 For example, you might want to prevent all information related to credit card data from appearing in the session:
 
@@ -89,7 +89,7 @@ Example
 
 <TabItem value="react">
 
-To hide a view from your recorded session, pass a reference to it to the SDK with `hideView`. Attach a ref to the element and call `hideView` once the component has mounted:
+To hide a view from your recorded session, pass a reference to it to the SDK with `hideView`. Attach a ref to the element and call `hideView` after the component has mounted:
 
 ```jsx
 import React, { useEffect, useRef } from 'react';
@@ -124,6 +124,6 @@ Below are two screens from a demo video. On the left is the app as it normally l
 
 :::note
 - Hidden views are automatically removed from the video before being sent to Sauce Labs Mobile App Distribution's servers, ensuring that sensitive data is never captured or exposed.
-- Developers can hide multiple views within a session to protect various sensitive elements in the application.
+- Developers can hide multiple views in a session to protect various sensitive elements in the application.
 - It is permissible to add the same view multiple times for hiding without any additional checks.
 :::

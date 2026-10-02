@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This documentation provides instructions on how to add testers' UDIDs (Unique Device Identifiers) to your iOS app development profile using Ad-Hoc certificates. This process enables you to distribute your app to specific devices for testing purposes. Please note that this guide pertains to Ad-Hoc certificates and assumes you have a basic understanding of the Apple Developer Portal and Sauce Labs Mobile App Distribution.
+This documentation provides instructions on how to add testers' UDIDs (Unique Device Identifiers) to your iOS app development profile using Ad-Hoc certificates. This process enables you to distribute your app to specific devices for testing purposes. This guide pertains to Ad-Hoc certificates and assumes you have a basic understanding of the Apple Developer Portal and Sauce Labs Mobile App Distribution.
 
 :::note
 While this guide offers general guidance, it is not a legal document. Always refer to Apple's official [iOS Developer Enterprise Program](https://developer.apple.com/programs/ios/enterprise/) for precise terms of service related to any Apple service.
@@ -22,14 +22,14 @@ While this guide offers general guidance, it is not a legal document. Always ref
 
 ## Adding UDIDs to Your Development Profile
 
-In order to add a UDID to your Ad-Hoc certificate please follow the following instructions:
+To add a UDID to your Ad-Hoc certificate, follow these instructions:
 
 1. Open your Sauce Labs Mobile App Distribution [testers page](https://app.testfairy.com/testers) and invite new testers. You can add multiple addresses, one per line.
    Your testers will get an email asking them to register their device. Once they register, you will get an email with your tester's UDID and their device details will be listed in https://app.testfairy.com/testers
 
-2. Once you have all your testers' UDIDs [export their details](https://app.testfairy.com/testers/export/).
+2. After you have all your testers' UDIDs [export their details](https://app.testfairy.com/testers/export/).
 
-3. Log into the Apple Developer Portal and go to the [Devices area](https://developer.apple.com/account/resources/devices/list).
+3. Log in to the Apple Developer Portal and go to the [Devices area](https://developer.apple.com/account/resources/devices/list).
 
 4. Click on the + icon
 

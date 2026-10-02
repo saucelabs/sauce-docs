@@ -288,7 +288,7 @@ Keep Backtrace under `implementation` and Sauce Mobile Beta under `debugImplemen
 
 ## How to Identify Users (Optional)
 
-Here is a quick example of identifying users by email address.
+The following example identifies users by email address.
 
 ```java
 TestFairy.setUserId("john@example.com");
@@ -321,6 +321,6 @@ To automatically upload the wifi status to your account, add the `android.permis
 
 ## Troubleshooting
 
-The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports `Could not GET 'https://jcenter.bintray.com/...'` or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
+The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports a `Could not GET` error for a `jcenter.bintray.com` URL, or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
 
-If the build fails with `Duplicate class com.testfairy...`, a legacy TestFairy artifact is still on the classpath, possibly as a transitive dependency of another module. Remove it. See [Migrating from the Legacy TestFairy SDK 1.x](#migrating-from-the-legacy-testfairy-sdk-1x).
+If the build fails with a `Duplicate class` error for `com.testfairy` classes, a legacy TestFairy artifact is still on the classpath, possibly as a transitive dependency of another module. Remove it. See [Migrating from the Legacy TestFairy SDK 1.x](#migrating-from-the-legacy-testfairy-sdk-1x).

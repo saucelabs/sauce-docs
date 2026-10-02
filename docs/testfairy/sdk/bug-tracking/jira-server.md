@@ -25,7 +25,7 @@ $ testfairy-connect configure
 The Configuration Wizard will prompt you with the following questions:
 
 - **What is your Sauce Labs Mobile App Distribution API Key?**
-  Enter your `Upload API key` here. You can find it on the [Settings Page](https://app.testfairy.com/settings/#api-key).
+  Enter your `Upload API key`. You can find it on the [Settings Page](https://app.testfairy.com/settings/#api-key).
 
 - **What kind of issue tracking system will you use with Sauce Labs Mobile App Distribution Connect?**
   Choose `JIRA`.
@@ -45,20 +45,20 @@ The Configuration Wizard will prompt you with the following questions:
 - **Jira password:**
   And your JIRA login password
 
-- Sometimes, depending on your user definitions in Jira, you may need to use an API token as your password. You can create one [here](https://id.atlassian.com/manage/api-tokens).
+- Sometimes, depending on your user definitions in Jira, you may need to use an API token as your password. You can create one on the [Atlassian API tokens page](https://id.atlassian.com/manage/api-tokens).
 
-- **Please enter HTTP proxy server address; leave empty if none:**
-  Send it here if you require an HTTP proxy to access this Jira server. For example, `http://user@10.0.0.1:8080`.
+- **Enter HTTP proxy server address; leave empty if none:**
+  Provide the proxy address if you require an HTTP proxy to access this Jira server. For example, `http://user@10.0.0.1:8080`.
 
-Once you have provided all the necessary information, the configuration wizard will display a success message: `Successfully connected to the issue tracker`.
+After you have provided all the necessary information, the configuration wizard will display a success message: `Successfully connected to the issue tracker`.
 
 You have now successfully configured Sauce Labs Mobile App Distribution Connect with Jira using basic authentication. Next, you can start the agent from the command line.
 
 ---
 
-## Configure Jira with OAuth
+## Configure Jira With OAuth
 
-#### Access Token & Secret Generation:
+#### Access Token and Secret Generation
 
 1.  Obtain a key pair:
 
@@ -80,7 +80,7 @@ You have now successfully configured Sauce Labs Mobile App Distribution Connect 
             - Application Type: `Generic Application`
             - Service Provider Name: `TestFairy`
             - Consumer Key: `testfairy-connect`
-            - Shared Secret: `[paste public key contents here]`
+            - Shared Secret: paste the contents of `jira_rsa.pub`
             - Request Token URL: `/plugins/servlet/oauth/request-token`
             - Access Token URL: `/plugins/servlet/oauth/access-token`
             - Authorize URL: `/plugins/servlet/oauth/authorize`
@@ -98,4 +98,4 @@ You have now successfully configured Sauce Labs Mobile App Distribution Connect 
 
 5.  **(optional)** Install the Sauce Labs Mobile App Distribution Chrome Extension.
 
-The Sauce Labs Mobile App Distribution Chrome Extension is available at [here](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every Jira issue that has a link to a Sauce Labs Mobile App Distribution session will contain the proper Sauce Labs Mobile App Distribution session, timeline, logs, and crash reports embedded in the Jira issue.
+The Sauce Labs Mobile App Distribution Chrome Extension is available in the [Chrome Web Store](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every Jira issue that has a link to a Sauce Labs Mobile App Distribution session will contain the proper Sauce Labs Mobile App Distribution session, timeline, logs, and crash reports embedded in the Jira issue.

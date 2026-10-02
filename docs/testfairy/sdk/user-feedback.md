@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. Sauce Labs Mobile App Distribution offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly from within the app.
+Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. Sauce Labs Mobile App Distribution offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly in the app.
 
-## Using In-app Feedback
+## Using In-App Feedback
 
 Sauce Labs Mobile App Distribution provides an effortless way to collect this feedback. If you [added the Sauce Mobile Beta SDK](/testfairy/sdk/adding-tf-sdk/) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the Sauce Labs Mobile App Distribution dashboard, and you can start collecting feedback from your users with "shake to report":
 
@@ -20,7 +20,7 @@ Sauce Labs Mobile App Distribution provides an effortless way to collect this fe
 
 Users or testers can initiate the feedback collection process by shaking their devices while using the app. When they shake the device, the feedback form will be triggered, allowing them to report bugs or share their suggestions.
 
-This feedback will be added to the existing app session they are currently running.
+This feedback will be added to the app session they are running.
 
 All feedback includes a screenshot, device information, submitter email, and text comments added. The feedback is added to the event timeline so you can find it without difficulty.
 
@@ -32,13 +32,13 @@ When users provide feedback using the In-App Bug Reporting feature, the followin
 - **Device Information** - Details about the device, such as model, OS version, and other relevant technical information.
 - **Submitter Email** - If available, the email address of the user or tester providing the feedback.
 - **Text Comments** - Users can include specific comments to describe the issue or suggestion they are reporting.
-- **Event Timeline** - The feedback will be added to the app's event timeline, making it easy for developers to track and analyze the feedback.
+- **Event Timeline** - The feedback will be added to the app's event timeline, so developers can track and analyze the feedback.
 
-## Customizing In-app Feedback
+## Customizing In-App Feedback
 
-Sauce Labs Mobile App Distribution allows you to customize the way In-App Feedback is collected. If you prefer not to use the shake gesture for feedback collection, you can programmatically invoke the feedback form using a button click or any other gesture within your app. This way, users can access the feedback form from a designated area within the app, like the help menu or after encountering unexpected errors.
+Sauce Labs Mobile App Distribution allows you to customize the way In-App Feedback is collected. If you prefer not to use the shake gesture for feedback collection, you can programmatically invoke the feedback form using a button click or any other gesture in your app. This way, users can access the feedback form from a designated area in the app, like the help menu or after encountering unexpected errors.
 
-Note that if you choose to invoke the feedback form programmatically, it will be shown regardless if the in-app feedback is disabled in your build settings.
+If you choose to invoke the feedback form programmatically, it will be shown regardless if the in-app feedback is disabled in your build settings.
 
 <Tabs
 groupId="sdk"
@@ -139,14 +139,14 @@ On React Native, `pushFeedbackController()` shows the form for the running sessi
 
 The built-in form has an email field, a message field and, depending on the platform, buttons to attach a screenshot or a screen recording. You customize it by building a feedback options object and handing it to the SDK before the form is shown. Doing so before `beginWithoutCrashHandler` is fine. The classes are the same in the legacy TestFairy SDK 1.x and in the Sauce Mobile Beta SDK (their names still start with `TestFairy` or `com.testfairy`).
 
-There are two ways to show the form. `showFeedbackForm()` with no arguments requires a running session and attaches the feedback to it. The overload that takes the app token (`showFeedbackForm(context, appToken, takeScreenshot)` on Android, `showFeedbackForm(appToken, takeScreenshot:)` on iOS and `showFeedbackForm(appToken, takeScreenshot)` on React Native) works without a session, optionally captures a screenshot first, and the feedback appears in the build's Feedbacks tab.
+The form can be shown in two ways. `showFeedbackForm()` with no arguments requires a running session and attaches the feedback to it. The overload that takes the app token (`showFeedbackForm(context, appToken, takeScreenshot)` on Android, `showFeedbackForm(appToken, takeScreenshot:)` on iOS and `showFeedbackForm(appToken, takeScreenshot)` on React Native) works without a session, optionally captures a screenshot first, and the feedback appears in the build's Feedbacks tab.
 
 Rules that apply on Android and iOS:
 
 - Setting a list of form fields **replaces** the default fields. To keep the email and message fields, add them yourself with the reserved attribute names `:userId` (email or user identifier) and `:text` (message). Always include a `:text` field.
 - Every other field is sent with the feedback as a feedback attribute named after the field's attribute key, so pick short, stable names.
-- Three field types are built in: single-line text (String), multi-line text (TextArea) and a dropdown (Select, a map of label to value). You can add up to 32 fields. Attribute names must be non-empty and unique (duplicates are dropped). For any other control, implement the `FeedbackFormField` interface (`onCreateView`, `getAttribute`, `getValue`) yourself.
-- The reserved fields are pre-filled by the SDK (last used email, unsent draft). The `defaultText` option only applies to the built-in form and is ignored once you set custom fields.
+- Three field types are built in: single-line text (String), multi-line text (TextArea) and a dropdown list (Select, a map of label to value). You can add up to 32 fields. Attribute names must be non-empty and unique (duplicates are dropped). For any other control, implement the `FeedbackFormField` interface (`onCreateView`, `getAttribute`, `getValue`) yourself.
+- The reserved fields are pre-filled by the SDK (last used email, unsent draft). The `defaultText` option only applies to the built-in form and is ignored after you set custom fields.
 - Email is mandatory by default. Hiding the email field lifts the requirement, and so does a custom field list without a `:userId` field.
 - A custom verifier **replaces** the SDK's default validation (email present and valid when mandatory, non-empty message), so re-implement the checks you still want.
 
@@ -278,7 +278,7 @@ final class CompanyEmailVerifier: NSObject, TestFairyFeedbackVerifier {
 }
 ```
 
-Objective-C uses the same types: `[TestFairyFeedbackOptions createWithBlock:^(TestFairyFeedbackOptionsBuilder *builder) { ... }]` followed by `[TestFairy setTestFairyFeedbackOptions:options]`. The `defaultText` builder property pre-fills the message of the built-in form. The dictionary-based `setFeedbackOptions:` and `setFeedbackEmailVisible:` are deprecated. The dropdown shows its options in dictionary order, which is not necessarily the order you typed them.
+Objective-C uses the same types: `[TestFairyFeedbackOptions createWithBlock:^(TestFairyFeedbackOptionsBuilder *builder) { ... }]` followed by `[TestFairy setTestFairyFeedbackOptions:options]`. The `defaultText` builder property pre-fills the message of the built-in form. The dictionary-based `setFeedbackOptions:` and `setFeedbackEmailVisible:` are deprecated. The dropdown list shows its options in dictionary order, which is not necessarily the order you typed them.
 
 Triggers: call `TestFairy.enableFeedbackForm("shake")`, `"screenshot"` or `"shake|screenshot"`, or `TestFairy.disableFeedbackForm()`, before `beginWithoutCrashHandler`.
 
@@ -286,7 +286,7 @@ Triggers: call `TestFairy.enableFeedbackForm("shake")`, `"screenshot"` or `"shak
 
 <TabItem value="react">
 
-The bridge exposes the simple options only, not custom fields:
+The bridge exposes the basic options only, not custom fields:
 
 ```js
 import TestFairy from '@saucelabs/mobile-beta-react-native';

@@ -30,7 +30,7 @@ values={[
 <TabItem value="android">
 
 ```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
+TestFairy.setServerEndpoint("<your-private-cloud-url>");
 ```
 
 Example
@@ -48,7 +48,7 @@ TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 <TabItem value="ios">
 
 ```js
-[TestFairy setServerEndpoint:@"<your private cloud url here>"];
+[TestFairy setServerEndpoint:@"<your-private-cloud-url>"];
 ```
 
 Example
@@ -66,7 +66,7 @@ Example
 <TabItem value="react">
 
 ```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
+TestFairy.setServerEndpoint("<your-private-cloud-url>");
 ```
 
 Example

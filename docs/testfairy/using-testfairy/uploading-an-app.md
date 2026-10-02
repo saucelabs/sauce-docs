@@ -26,7 +26,7 @@ The code of our command line uploader, Jenkins plugin, and Gradle plugin is open
 
 ### Expanding iOS Platform Support: Now Including VisionOS (XROS)
 
-We now support VisionOS in addition to all other iOS platforms. Below is the complete list of platforms. Note that **XROS** is used to indicate support for VisionOS:
+We now support VisionOS in addition to all other iOS platforms. Below is the complete list of platforms. **XROS** is used to indicate support for VisionOS:
 
 - iPhoneOS
 - WatchOS
@@ -37,7 +37,7 @@ We now support VisionOS in addition to all other iOS platforms. Below is the com
 
 ### Supporting Both APK and AAB Formats for Android Apps
 
-For Android apps, we support both APK and AAB formats. Here’s how it works:
+For Android apps, we support both APK and AAB formats. The process works as follows:
 
 - **APK Support:**
 
@@ -56,7 +56,7 @@ In the first stage, you need to select the file you want to upload. The supporte
 - **iOS:** `.ipa`
 - **Android:** `.apk` or `.aab`
 - **MacOS:** `.zip`
-- **Windows:** Typically `.exe` or `.zip` (Please contact support for further assistance)
+- **Windows:** Typically `.exe` or `.zip` (contact support for further assistance)
 
 Choose the appropriate file type based on your platform to proceed with the upload.
 
@@ -80,7 +80,7 @@ To update a build, upload the same file again (that is., the same build with the
 
 To upload a new build (a new version of the same app), upload the new version as you uploaded the old version. Sauce Labs Mobile App Distribution identifies that both apps have the same package name (bundle identifier) and group them together in the same project.
 
-### Symbols or Mapping file
+### Symbols or Mapping File
 
 In iOS and Android development, symbols or mapping files refer to files used to help debug and analyze crash reports. They are essential when apps are built with optimization settings, such as code obfuscation or stripping debug information, which make crash reports harder to read.
-If you're using the API to upload your app, you can attach this file to your build for easy retrieval later if needed.
+If you're using the API to upload your app, you can attach this file to your build for retrieval later if needed.

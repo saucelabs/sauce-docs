@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The Sauce Labs Mobile App Distribution dashboard lets you view the information about your uploaded apps. The dashboard includes a list of all uploaded apps, their app definitions, the latest sessions recorded in your account, and separate tabs for crashes, feedback, and insights.
 
-You can also upload apps from the dashboard using the **NEW UPLOAD** button and manage your users and account preferences.
+You can also upload apps from the dashboard by clicking **NEW UPLOAD**, and manage your users and account preferences.
 
 ### DASHBOARD Tab
 

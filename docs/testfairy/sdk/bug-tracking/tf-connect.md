@@ -12,9 +12,9 @@ Sauce Labs Mobile App Distribution Connect is a proxy server designed to facilit
 
 You can install Sauce Labs Mobile App Distribution Connect via a Docker image.
 
-## How does it work?
+## How Does It Work?
 
-The core component of Sauce Labs Mobile App Distribution Connect is the agent service. This service operates on a system within your firewall and establishes connections between Sauce Labs Mobile App Distribution's web app and your bug-tracking system. Through this connection, bug reports and relevant data can be seamlessly exchanged between the two platforms:
+The core component of Sauce Labs Mobile App Distribution Connect is the agent service. This service operates on a system behind your firewall and establishes connections between Sauce Labs Mobile App Distribution's web app and your bug-tracking system. Through this connection, bug reports and relevant data can be seamlessly exchanged between the two platforms:
 
 <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/0-overview.png')} alt="Overview"/>
 
@@ -45,7 +45,7 @@ By default, your configuration file `config.json` is saved to `.testfairy-connec
 
 ## Running Sauce Labs Mobile App Distribution Connect
 
-Once you have completed the configuration, Sauce Labs Mobile App Distribution Connect is ready to run. To start the Sauce Labs Mobile App Distribution Connect server, use the following command:
+After you have completed the configuration, Sauce Labs Mobile App Distribution Connect is ready to run. To start the Sauce Labs Mobile App Distribution Connect server, use the following command:
 
 ```sh
 docker run -d -v $PWD:/etc/testfairy-connect --restart=always testfairy/testfairy-connect:latest start

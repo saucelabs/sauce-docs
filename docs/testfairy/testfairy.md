@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Welcome to Sauce Labs Mobile App Distribution, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center. 
+Welcome to Sauce Labs Mobile App Distribution, the App Center distribution alternative. Use our enterprise-grade app distribution capabilities to migrate from App Center.
 
 ## Store and Manage Apps
 
@@ -18,7 +18,7 @@ For more information, see [Managing Apps through API](/testfairy/api-reference/r
 
 ## Distribute App to Testers
 
-Sauce Labs Mobile App Distribution offers enterprise-grade app distribution capabilities, allowing companies to easily and securely distribute the right apps to users, such as internal or external beta testers. The platform allows administrators to enforce corporate security policies during testing, and can automatically update apps to new versions or revoke access to installed apps or users.
+Sauce Labs Mobile App Distribution offers enterprise-grade app distribution capabilities, allowing companies to securely distribute the right apps to users, such as internal or external beta testers. The platform allows administrators to enforce corporate security policies during testing, and can automatically update apps to new versions or revoke access to installed apps or users.
 
 For more information, see [Managing Testers](/testfairy/testers/managing-testers/).
 
@@ -26,17 +26,17 @@ For more information, see [Managing Testers](/testfairy/testers/managing-testers
 
 Add the Sauce Mobile Beta SDK (formerly the TestFairy SDK) to your app to record tester sessions with video, collect in-app feedback, send remote logs, and identify users and sessions. The SDK is crashless: it never installs a crash handler and is designed to run beside Backtrace, Sauce Labs Error Reporting, which owns crash reporting.
 
-The SDK is currently a beta release. Each SDK page carries a beta note. For more information, see [Adding the Sauce Mobile Beta SDK](/testfairy/sdk/adding-tf-sdk/) and [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+The SDK is a beta release. Each SDK page carries a beta note. For more information, see [Adding the Sauce Mobile Beta SDK](/testfairy/sdk/adding-tf-sdk/) and [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
 
-## Manage everything through API and Integrations
+## Manage Everything Through API and Integrations
 
-Sauce Labs Mobile App Distribution provides comprehensive API and integration capabilities, allowing companies to automate app management, user management, beta testers and seamlessly integrate with existing workflows. Use our APIs to manage app/user distribution or to enforce security policies programmatically. 
+Sauce Labs Mobile App Distribution provides comprehensive API and integration capabilities, allowing companies to automate app management, user management, beta testers and seamlessly integrate with existing workflows. Use our APIs to manage app/user distribution or to enforce security policies programmatically.
 Integrate Sauce Labs Mobile App Distribution with your CI/CD pipelines, project management tools, and other enterprise systems to streamline your app development and distribution process.
 For more information, see [API Reference guide](/testfairy/api-reference/rest-api/)
 
 ## Security
 
 Sauce Labs Mobile App Distribution is available as a private cloud or an on-premise installation and can integrate with any SAML single-sign-on service. Sauce Labs Mobile App Distribution is the only platform that provides end-to-end data encryption using your private/public keys, so your data remains private.
-Sauce Labs Mobile App Distribution Public Cloud is available in the EU-Central-1 and US-East-1 data centers. The Private Cloud is available in various regions, customizable based on specific preferences. 
+Sauce Labs Mobile App Distribution Public Cloud is available in the EU-Central-1 and US-East-1 data centers. The Private Cloud is available in various regions, customizable based on specific preferences.
 
 For more information, see [SSO](/testfairy/security/sso/sso-intro/), or [Private Cloud](/testfairy/security/private-cloud/).
