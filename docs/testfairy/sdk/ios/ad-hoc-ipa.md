@@ -8,7 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 An Ad Hoc provisioning profile allows your app to be installed on designated devices without the assistance of Xcode. This distribution method is particularly useful for testing your app on specific devices before it's released to the public.
 
 Apple allows app distribution for testing on registered devices using an **Ad-Hoc** or **Enterprise** provisioning profile. The output file you create is an iOS App file (a file with an `.ipa` filename extension) that is then used to install your app on registered devices.
@@ -55,7 +54,6 @@ Xcode will perform preliminary validation tests on the archive. To proceed with 
 3. On the distribution options screen, customize the settings as needed and click "Next."
 4. Review the app details, entitlements, and provisioning profile in the appearing dialog.
 5. Click the **Export** button. The Finder will display the exported files. Save the exported IPA file to your desired location.
-
 
 ## Installing Your App on Test Devices Using Xcode
 

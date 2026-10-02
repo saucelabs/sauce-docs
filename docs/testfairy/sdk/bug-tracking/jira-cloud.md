@@ -1,6 +1,6 @@
 ---
 id: jira-cloud
-title: Connecting Sauce Labs Mobile App Distribution (TestFairy) to JIRA Cloud
+title: Connecting Sauce Labs Mobile App Distribution to Jira Cloud
 sidebar_label: Jira Cloud
 ---
 
@@ -15,7 +15,7 @@ To connect Sauce Labs Mobile App Distribution to Jira Cloud, you'll need to crea
 1. Log in to [https://id.atlassian.com/manage/api-tokens#](https://id.atlassian.com/manage/api-tokens#) and click on **Create API token**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-create-api.png')} alt="Create Jira API Token"/>
 
-1. Label the new token `TestFairy`.
+1. Label the new token `Sauce Labs Mobile App Distribution`.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-label.png')} alt="Set Sauce Labs Mobile App Distribution Jira Key"/>
 
 1. Copy the API Token.
@@ -36,12 +36,11 @@ To connect Sauce Labs Mobile App Distribution to Jira, you'll need to configure 
 
 ## (Optional) Installing the Sauce Labs Mobile App Distribution Chrome Extension
 
-The Sauce Labs Mobile App Distribution Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a Sauce Labs Mobile App Distribution session will contain the proper Sauce Labs Mobile App Distribution session, timeline, logs, and crash reports embedded in the Jira issue. Follow these steps to install the Chrome extension:
+The Sauce Labs Mobile App Distribution Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a Sauce Labs Mobile App Distribution session will contain the proper Sauce Labs Mobile App Distribution session, timeline, logs, and crash reports embedded in the Jira issue. Install the extension from the Chrome Web Store link above.
 
 ## (Optional) Adding the Sauce Labs Mobile App Distribution Jira Add-on to Your Jira Account
 
 If you choose not to use the Sauce Labs Mobile App Distribution Chrome Extension, you can add the Sauce Labs Mobile App Distribution Jira Add-on to your Jira account. This add-on allows you to include Sauce Labs Mobile App Distribution videos in Jira issues. Follow these steps to add the Sauce Labs Mobile App Distribution Jira Add-on:
-
 
 1. Open **Jira Settings**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-settings.png')} alt="Open Jira Settings"/>
@@ -69,7 +68,6 @@ If you choose not to use the Sauce Labs Mobile App Distribution Chrome Extension
 <p><span className="sauceGreen">Highly Recommended</span></p>
 
 To leverage the full capabilities of the Sauce Labs Mobile App Distribution Jira integration, it's recommended to map Jira custom fields. This feature allows you to automatically populate any field in Jira when creating a new issue, using standard Sauce Labs Mobile App Distribution data or your custom session attributes. Follow these steps to map Jira custom fields:
-
 
 1. First, you need to connect a Jira account. Follow the [instructions](#creating-a-jira-api-token)
    above.
@@ -125,7 +123,7 @@ To use these values, add them to the `Dynamic value` field that opens when you s
 
 - You can add attributes defined in your app's code to the `Dynamic value` field. The structure of a dynamic field is as follows:
   `{attr.[attribute_name]||[default_value]}`.
-- `attribute_name` - is the name of the Teasfairy attribute set in the code by the `TestFairy.setAttribute` function. What passes to the Jira is the value of this attribute.
+- `attribute_name` - is the name of the Sauce Labs Mobile App Distribution attribute set in the code by the `TestFairy.setAttribute` function. What passes to the Jira is the value of this attribute.
 - `default_value` - for each attribute, you can set a default value so that if you receive a null or wrong attribute value from the code (impossible in this field in Jira), the default value will be passed to Jira instead.
 
 <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-dynamic-attr-setattr.png')} alt="Attribute Setting"/>

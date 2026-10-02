@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
 The Sauce Mobile Beta SDK (formerly the TestFairy SDK) does not capture crashes. In a coexistence setup, Backtrace (Sauce Labs Error Reporting) owns crash reporting, and the Sauce Mobile Beta SDK records the session up to the crash. This page shows how to force a crash on iOS to verify that setup end to end. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) for the setup itself.
 
 `TestFairy.crash()` remains available in the Sauce Mobile Beta SDK as a test helper: it force-crashes the app with an invalid memory access, without any TestFairy crash infrastructure. Backtrace captures the crash.

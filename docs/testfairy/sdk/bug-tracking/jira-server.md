@@ -14,7 +14,6 @@ This documentation provides step-by-step instructions on how to integrate Sauce 
 To connect Sauce Labs Mobile App Distribution to Jira Server that is installed on-prem, start by installing [Sauce Labs Mobile App Distribution Connect](/testfairy/sdk/bug-tracking/tf-connect/).
 :::
 
-
 ## Using the Configuration Wizard
 
 Start the wizard by typing the following command in your terminal or command prompt:
@@ -26,7 +25,7 @@ $ testfairy-connect configure
 The Configuration Wizard will prompt you with the following questions:
 
 - **What is your Sauce Labs Mobile App Distribution API Key?**
-  Enter your `Upload API key` here; you can access it via the [Settings Page](https://app.testfairy.com/settings/#api-key).
+  Enter your `Upload API key` here. You can find it on the [Settings Page](https://app.testfairy.com/settings/#api-key).
 
 - **What kind of issue tracking system will you use with Sauce Labs Mobile App Distribution Connect?**
   Choose `JIRA`.
@@ -83,15 +82,14 @@ You have now successfully configured Sauce Labs Mobile App Distribution Connect 
             - Consumer Key: `testfairy-connect`
             - Shared Secret: `[paste public key contents here]`
             - Request Token URL: `/plugins/servlet/oauth/request-token`
-            - Request Token URL: `/plugins/servlet/oauth/access-token`
-            - Request Token URL: `/plugins/servlet/oauth/authorize`
+            - Access Token URL: `/plugins/servlet/oauth/access-token`
+            - Authorize URL: `/plugins/servlet/oauth/authorize`
 
         <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/4-verify-access-token.png')} alt="Verify access token"/>
 
-3.  Run the [token generation script](https://docs.testfairy.com/js/download/oauth.js). Right-click to copy the .js file path.
+3.  Run the token generation script (`oauth.js`). The script is no longer hosted on the documentation site. Contact [Sauce Labs Support](https://support.saucelabs.com/) to obtain it, save it next to your `config.json`, and run:
 
     ```bash
-    wget [paste file path here]
     npm install oauth
     node oauth.js
     ```

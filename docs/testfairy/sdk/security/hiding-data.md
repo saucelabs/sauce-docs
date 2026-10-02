@@ -8,8 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs Mobile App Distribution offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging. 
+<p><span className="sauceYellow">Beta release</span></p>
 
+Sauce Labs Mobile App Distribution offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging. 
 
 For example, you might want to prevent all information related to credit card data from appearing in the session:
 
@@ -20,8 +21,6 @@ values={[
 {label: 'Android', value: 'android'},
 {label: 'iOS', value: 'ios'},
 {label: 'React Native', value: 'react'},
-{label: 'Nativescript', value: 'native'},
-{label: 'Xamarin', value: 'xamarin'},
 ]}>
 
 <TabItem value="android">
@@ -90,73 +89,25 @@ Example
 
 <TabItem value="react">
 
-To hide views from your recorded session, you must pass a reference to a view to Sauce Labs Mobile App Distribution. First, give the element to be hidden as a ref attribute. For example:
+To hide a view from your recorded session, pass a reference to it to the SDK with `hideView`. Attach a ref to the element and call `hideView` once the component has mounted:
 
-```xml
-<Text ref="instructions">This will be hidden</Text>
-```
-
-Next, in a component callback, such as componentDidMount, pass the reference ID back to Sauce Labs Mobile App Distribution by invoking hideView.
-
-Example
-
-```js
+```jsx
+import React, { useEffect, useRef } from 'react';
+import { Text } from 'react-native';
 import TestFairy from '@saucelabs/mobile-beta-react-native';
-var MyComponent = React.createClass({
 
-    componentDidMount: function() {
-        TestFairy.hideView(this.refs.instructions);
-    },
+function CardNumber() {
+  const instructions = useRef(null);
 
-    render: function() {
-        return (<Text ref="instructions">This will be hidden</Text>);
-    }
-});
+  useEffect(() => {
+    TestFairy.hideView(instructions.current);
+  }, []);
+
+  return <Text ref={instructions}>This will be hidden</Text>;
+}
 ```
 
-</TabItem>
-
-<TabItem value="native">
-
-```js
-TestFairySDK.hideView(view);
-```
-
-Example
-
-```js
-// in Nativescript
-import { TestFairySDK } from 'nativescript-testfairy';
-
-// in Javascript
-var TestFairySDK = require('nativescript-testfairy').TestFairySDK;
-
-TestFairySDK.hideView(view);
-```
-
-</TabItem>
-
-<TabItem value="xamarin">
-
-```js
-TestFairy.HideView (View view) - on Android
-TestFairy.HideView (UIView view) - on iOS
-```
-
-Example
-
-```js
-// Be sure to import TestFairy
-using TestFairyLib;
-
-// On Android
-View view = ...
-TestFairy.HideView (view);
-
-// On iOS
-UIView view = ...
-TestFairy.HideView (view);
-```
+`hideView` accepts the ref's current value, a native view tag (`findNodeHandle(ref.current)`) or a `nativeID` string.
 
 </TabItem>
 
@@ -164,7 +115,7 @@ TestFairy.HideView (view);
 
 ### Example
 
-Below is a screen taken from a demo video: on the left, you can see what an app usually looks like; on the right is a screenshot taken with the Card Number EditText hidden by `testfairy-secure-viewid`.
+Below are two screens from a demo video. On the left is the app as it normally looks. On the right, the Card Number field is hidden with `hideView`.
 
 <img src={useBaseUrl('/img/testfairy/sdk/iphone-with-fields.png')} alt="iphone no hidden HTML elements" width="400"/>
 <img src={useBaseUrl('/img/testfairy/sdk/iphone-no-fields.png')} alt="iphone hidden HTML elements" width="400"/>

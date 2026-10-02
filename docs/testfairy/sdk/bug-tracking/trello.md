@@ -1,6 +1,6 @@
 ---
 id: trello
-title: Connecting Sauce Labs Mobile App Distribution (TestFairy) to Trello
+title: Connecting Sauce Labs Mobile App Distribution to Trello
 sidebar_label: Trello
 ---
 

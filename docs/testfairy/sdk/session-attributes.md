@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
 The Sauce Mobile Beta SDK (formerly the TestFairy SDK) can attach key-value attributes to a session, which helps you generate better insights and lets you search sessions by your own values.
 
 <Tabs
@@ -16,13 +18,7 @@ defaultValue="android"
 values={[
 {label: 'Android', value: 'android'},
 {label: 'iOS', value: 'ios'},
-{label: 'Cordova', value: 'cordova'},
 {label: 'React Native', value: 'react'},
-{label: 'Nativescript', value: 'native'},
-{label: 'Xamarin', value: 'xamarin'},
-{label: 'Unity', value: 'unity'},
-{label: 'Adobe Air', value: 'adobe'},
-{label: 'Titanium', value: 'titanium'},
 ]}>
 
 <TabItem value="android">
@@ -74,23 +70,6 @@ TestFairy.setAttribute("favorite_color", withValue: "blue")
 
 </TabItem>
 
-<TabItem value="cordova">
-
-```js
-TestFairy.setAttribute("<key>", "<value>");
-```
-
-Example
-
-```js
-TestFairy.setAttribute("name","John Snow");
-TestFairy.setAttribute("phone","+672-14-5109");
-TestFairy.setAttribute("age","20");
-TestFairy.setAttribute("favorite_color","blue");
-```
-
-</TabItem>
-
 <TabItem value="react">
 
 ```js
@@ -107,106 +86,6 @@ TestFairy.setAttribute("name","John Snow");
 TestFairy.setAttribute("phone","+672-14-5109");
 TestFairy.setAttribute("age","20");
 TestFairy.setAttribute("favorite_color","blue");
-```
-
-</TabItem>
-
-<TabItem value="native">
-
-```js
-TestFairySDK.setAttribute("<key>", "<value>");
-```
-
-Example
-
-```js
-// Be sure to import the SDK
-import { TestFairySDK } from 'nativescript-testfairy';
-
-TestFairySDK.setAttribute("name","John Snow");
-TestFairySDK.setAttribute("phone","+672-14-5109");
-TestFairySDK.setAttribute("age","20");
-TestFairySDK.setAttribute("favorite_color","blue");
-```
-
-</TabItem>
-
-<TabItem value="xamarin">
-
-```csharp
-TestFairy.SetAttribute ("<key>", "<value>");
-```
-
-Example
-
-```csharp
-// Be sure to import the SDK
-using TestFairyLib;
-
-TestFairy.SetAttribute ("name","John Snow");
-TestFairy.SetAttribute ("phone","+672-14-5109");
-TestFairy.SetAttribute ("age","20");
-TestFairy.SetAttribute ("favorite_color","blue");
-```
-
-</TabItem>
-
-<TabItem value="unity">
-
-```csharp
-TestFairy.setAttribute("<key>", "<value>");
-```
-
-Example
-
-```csharp
-// Be sure to import the SDK
-using TestFairyUnity;
-
-TestFairy.setAttribute("name","John Snow");
-TestFairy.setAttribute("phone","+672-14-5109");
-TestFairy.setAttribute("age","20");
-TestFairy.setAttribute("favorite_color","blue");
-```
-
-</TabItem>
-
-<TabItem value="adobe">
-
-```actionscript
-AirTestFairy.setAttribute("<key>", "<value>");
-```
-
-Example
-
-```actionscript
-// Be sure to import the SDK
-import com.testfairy.AirTestFairy;
-
-AirTestFairy.setAttribute("name","John Snow");
-AirTestFairy.setAttribute("phone","+672-14-5109");
-AirTestFairy.setAttribute("age","20");
-AirTestFairy.setAttribute("favorite_color","blue");
-```
-
-</TabItem>
-
-<TabItem value="titanium">
-
-```js
-TiTestFairy.setAttribute("<key>", "<value>");
-```
-
-Example
-
-```js
-// Be sure to import the SDK
-var TiTestFairy = require('com.testfairy.titestfairy');
-
-TiTestFairy.setAttribute("name","John Snow");
-TiTestFairy.setAttribute("phone","+672-14-5109");
-TiTestFairy.setAttribute("age","20");
-TiTestFairy.setAttribute("favorite_color","blue");
 ```
 
 </TabItem>
@@ -250,8 +129,8 @@ TestFairy.setAttribute("sauce.dist", String.valueOf(BuildConfig.VERSION_CODE));
 TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-token>");
 ```
 
-The reverse link is written on the Backtrace side only: on every session start, the app copies the session URL into the Backtrace attributes `sauce.mobile_beta.session_url` and `sauce.mobile_beta.session_started` (`"true"` or `"false"`) from a session state listener (`TestFairy.addSessionStateListener` on Android and React Native, `TestFairy.setSessionStateDelegate` on iOS). A launch can produce several sessions (`stop()` followed by resume), so overwrite these values on every start; never set them once.
+The reverse link is written on the Backtrace side only: on every session start, the app copies the session URL into the Backtrace attributes `sauce.mobile_beta.session_url` and `sauce.mobile_beta.session_started` (`"true"` or `"false"`) from a session state listener (`TestFairy.addSessionStateListener` on Android and React Native, `TestFairy.setSessionStateDelegate` on iOS). A launch can produce several sessions (`stop()` followed by resume), so overwrite these values on every start. Never set them once.
 
-Do not use the deprecated `setCorrelationId` or `identify` for `sauce.correlation_id`: they write the user-identity field, not an attribute. Keep `setUserId` for the real user; see [Identifying Your Users](/testfairy/sdk/identifying-users/).
+Do not use the deprecated `setCorrelationId` or `identify` for `sauce.correlation_id`: they write the user-identity field, not an attribute. Keep `setUserId` for the real user. See [Identifying Your Users](/testfairy/sdk/identifying-users/).
 
-In Backtrace, a custom attribute becomes filterable once it is indexed under Project Settings, Attributes (see [Backtrace attributes](/error-reporting/project-setup/attributes/)); index `sauce.correlation_id` with the UUID format. In the Sauce Labs Mobile App Distribution dashboard, search the session list for the same value. The initialization order and complete examples for each platform are in [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+In Backtrace, a custom attribute becomes filterable once it is indexed under Project Settings, Attributes (see [Backtrace attributes](/error-reporting/project-setup/attributes/)). Index `sauce.correlation_id` with the UUID format. In the Sauce Labs Mobile App Distribution dashboard, search the session list for the same value. The initialization order and complete examples for each platform are in [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).

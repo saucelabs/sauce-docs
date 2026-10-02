@@ -8,11 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
 The Sauce Mobile Beta SDK (formerly the TestFairy SDK) requires that you call `beginWithoutCrashHandler` (or `begin`) to start recording your sessions. However, developers can override the build settings to determine what is enabled during a session recording.
 
 Some commonly used options:
 
-- Crash Reporting
+- Crash Reporting (legacy TestFairy SDK 1.x only, not part of the Sauce Mobile Beta SDK)
 - Video Recording
 - Recorded Metrics
 - Max Session Length
