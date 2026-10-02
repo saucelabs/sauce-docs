@@ -8,6 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
 
 Sauce Labs Mobile App Distribution provides developers with the capability to conceal specific HTML elements within recorded videos displayed in `UIWebView` or `WKWebView` components within their application's user interface. This feature allows developers to enhance security and privacy by excluding sensitive information from video recordings.
 
@@ -26,7 +27,6 @@ The process of hiding a specific element from the recorded video involves utiliz
 Sauce Labs Mobile App Distribution finds any `UIWebView` or `WKWebView` in the view hierarchy and hides a given HTML element based on a valid CSS selector.
 
 ## Example
-
 
 Suppose you have a demo video showcasing your application's user interface. On the left side of the screen is the regular app interface, while the right side displays a screenshot with the HTML elements hidden:
 

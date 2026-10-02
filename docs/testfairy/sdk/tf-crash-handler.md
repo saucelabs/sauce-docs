@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
 The Sauce Mobile Beta SDK (formerly the TestFairy SDK) is crashless. It never installs a crash handler, and the crash APIs of the legacy SDK are no-ops in it:
 
 - `installCrashHandler` is a no-op. It does not start a session.

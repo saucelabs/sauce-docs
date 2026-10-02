@@ -1,6 +1,6 @@
 ---
 id: tf-connect
-title: Sauce Labs Mobile App Distribution (TestFairy) Connect
+title: Sauce Labs Mobile App Distribution Connect
 sidebar_label: Sauce Labs Mobile App Distribution Connect
 ---
 
@@ -36,7 +36,7 @@ If there are no issues, you can follow the interactive configuration wizard disp
 
 Before Sauce Labs Mobile App Distribution Connect can function correctly, you need to provide specific configuration data. Ensure you have the following information:
 
-- TestFairy API key. You can find at https://[your-subdomain].testfairy.com/settings/api-key/.
+- Sauce Labs Mobile App Distribution API key. You can find it at https://[your-subdomain].testfairy.com/settings/api-key/.
 - The URL to your bug system.
 - In the case of a Jira basic authentication - valid credentials (`Username` and `API Token`) for the Jira user.
 - In the case of a Jira OAuth authentication - admin access to Jira/the ability to manage Application Links (as described in the configuration wizard script).

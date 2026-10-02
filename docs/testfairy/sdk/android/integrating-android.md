@@ -8,6 +8,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
+:::info Beta release
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+
+- Final: the artifact names and the API.
+- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
+
+Share feedback with your Sauce Labs representative.
+:::
+
 Integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app can help you better understand how your app performs on real devices. It tells you when and how people use your app and provides any metrics you may need to optimize your user experience and code.
 
 Both Java and Kotlin apps are supported. The Android artifact is `com.saucelabs.mobilebeta:sauce-mobile-beta-android`. The Java package is still `com.testfairy`, so existing `TestFairy.*` calls keep compiling.
@@ -25,7 +36,7 @@ The Sauce Mobile Beta SDK is crashless: it never installs a crash handler, and t
 
 ### 1. Add the Maven Repository
 
-Add `https://maven.testfairy.com` to `settings.gradle` (projects created with recent versions of Android Studio). The `content` filter is optional; it tells Gradle to look up only the `com.saucelabs.mobilebeta` group in this repository.
+Add `https://maven.testfairy.com` to `settings.gradle` (projects created with recent versions of Android Studio). The `content` filter is optional. It tells Gradle to look up only the `com.saucelabs.mobilebeta` group in this repository.
 
 <Tabs
 groupId="gradle"
@@ -90,7 +101,7 @@ allprojects {
 
 ### 2. Add the Dependency
 
-Add the SDK to your app module's `build.gradle` (for example `app/build.gradle`). Pin the exact version; see [Upgrading](#upgrading).
+Add the SDK to your app module's `build.gradle` (for example `app/build.gradle`). Pin the exact version. See [Upgrading](#upgrading).
 
 <Tabs
 groupId="gradle"
@@ -211,7 +222,7 @@ Always pin an exact version, such as `2.2.0-rc`, and update it deliberately. Do 
 
 ## Migrating from the Legacy TestFairy SDK 1.x
 
-The Sauce Mobile Beta artifact is the crashless successor of the TestFairy Android SDK (`com.testfairy:testfairy-android-sdk`). The Maven coordinate changes; the Java package and the `TestFairy` API do not.
+The Sauce Mobile Beta artifact is the crashless successor of the TestFairy Android SDK (`com.testfairy:testfairy-android-sdk`). The Maven coordinate changes. The Java package and the `TestFairy` API do not.
 
 ### 1. Remove the Legacy Artifacts
 
@@ -312,4 +323,4 @@ To automatically upload the wifi status to your account, add the `android.permis
 
 The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports `Could not GET 'https://jcenter.bintray.com/...'` or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
 
-If the build fails with `Duplicate class com.testfairy...`, a legacy TestFairy artifact is still on the classpath, possibly as a transitive dependency of another module. Remove it; see [Migrating from the Legacy TestFairy SDK 1.x](#migrating-from-the-legacy-testfairy-sdk-1x).
+If the build fails with `Duplicate class com.testfairy...`, a legacy TestFairy artifact is still on the classpath, possibly as a transitive dependency of another module. Remove it. See [Migrating from the Legacy TestFairy SDK 1.x](#migrating-from-the-legacy-testfairy-sdk-1x).

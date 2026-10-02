@@ -8,8 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Connecting Your GitHub Issues
-
 1. Go to your account **Preferences** under your account email and select **Integrations**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/Github1.png')} alt="Select Integrations"/>
 

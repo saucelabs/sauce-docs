@@ -8,7 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Sauce Mobile Beta SDK does not require location permissions and does track location out of the box.
+<p><span className="sauceYellow">Beta release</span></p>
+
+The Sauce Mobile Beta SDK does not require location permissions and does not track location out of the box.
 
 To send location information to Sauce Labs Mobile App Distribution, add location permissions to your app and use the code below to call `TestFairy.updateLocation`. The location will then be presented on a map as part of the session page.
 
@@ -41,7 +43,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.testfairy.TestFairy;

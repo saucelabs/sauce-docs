@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
 Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. Sauce Labs Mobile App Distribution offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly from within the app.
 
 ## Using In-app Feedback
@@ -44,12 +46,7 @@ defaultValue="android"
 values={[
 {label: 'Android', value: 'android'},
 {label: 'iOS', value: 'ios'},
-{label: 'Cordova', value: 'cordova'},
 {label: 'React Native', value: 'react'},
-{label: 'Nativescript', value: 'native'},
-{label: 'Xamarin', value: 'xamarin'},
-{label: 'Unity', value: 'unity'},
-{label: 'Adobe Air', value: 'adobe'},
 ]}>
 
 <TabItem value="android">
@@ -106,25 +103,9 @@ TestFairy.showFeedbackForm()
 
 On iOS, if the In-App Bug Reporting feature is enabled, the feedback form will also be shown when the tester takes a screenshot.
 
-`pushFeedbackController` is deprecated; use `showFeedbackForm`. `showFeedbackForm` requires a running session; to collect feedback without one, call `[TestFairy showFeedbackForm:@"<sauce-mobile-beta-token>" takeScreenshot:YES]`. To hide the email field or add custom fields, see [Customizing the Feedback Form](#customizing-the-feedback-form) (`setFeedbackEmailVisible:` is deprecated).
+`pushFeedbackController` is deprecated. Use `showFeedbackForm`, which requires a running session. To collect feedback without one, call `[TestFairy showFeedbackForm:@"<sauce-mobile-beta-token>" takeScreenshot:YES]`. To hide the email field or add custom fields, see [Customizing the Feedback Form](#customizing-the-feedback-form) (`setFeedbackEmailVisible:` is deprecated).
 
 :::
-
-</TabItem>
-
-<TabItem value="cordova">
-
-```js
-TestFairy.pushFeedbackController();
-```
-
-Example
-
-```js
-// Can be invoked on a button press
-// or after your app passes a given page
-TestFairy.pushFeedbackController();
-```
 
 </TabItem>
 
@@ -148,81 +129,7 @@ TestFairy.pushFeedbackController();
 TestFairy.showFeedbackForm('<sauce-mobile-beta-token>', true);
 ```
 
-</TabItem>
-
-<TabItem value="native">
-
-```js
-TestFairySDK.pushFeedbackController();
-```
-
-Example
-
-```js
-// Be sure to import the SDK
-import { TestFairySDK } from 'nativescript-testfairy';
-
-// Can be invoked on a button press
-// or after your app passes a given page
-TestFairySDK.pushFeedbackController();
-```
-
-</TabItem>
-
-<TabItem value="xamarin">
-
-```csharp
-TestFairy.PushFeedbackController();
-```
-
-Example
-
-```csharp
-// Be sure to import the SDK
-using TestFairyLib;
-
-// Can be invoked on a button press
-// or after your app passes a given page
-TestFairy.PushFeedbackController();
-```
-
-</TabItem>
-
-<TabItem value="unity">
-
-```csharp
-TestFairy.pushFeedbackController();
-```
-
-Example
-
-```csharp
-// Be sure to import the SDK
-using TestFairyUnity;
-
-// Can be invoked on a button press
-// or after your app passes a given page
-TestFairy.pushFeedbackController();
-```
-
-</TabItem>
-
-<TabItem value="adobe">
-
-```actionscript
-AirTestFairy.pushFeedbackController();
-```
-
-Example
-
-```actionscript
-// Be sure to import the SDK
-import com.testfairy.AirTestFairy;
-
-// Can be invoked on a button press
-// or after your app passes a given page
-AirTestFairy.pushFeedbackController();
-```
+On React Native, `pushFeedbackController()` shows the form for the running session. `showFeedbackForm(appToken, takeScreenshot)` also works without a session.
 
 </TabItem>
 
@@ -230,7 +137,7 @@ AirTestFairy.pushFeedbackController();
 
 ## Customizing the Feedback Form
 
-The built-in form has an email field, a message field and, depending on the platform, buttons to attach a screenshot or a screen recording. You customize it by building a feedback options object and handing it to the SDK before the form is shown; doing so before `beginWithoutCrashHandler` is fine. The classes are the same in the legacy TestFairy SDK 1.x and in the Sauce Mobile Beta SDK (their names still start with `TestFairy` or `com.testfairy`).
+The built-in form has an email field, a message field and, depending on the platform, buttons to attach a screenshot or a screen recording. You customize it by building a feedback options object and handing it to the SDK before the form is shown. Doing so before `beginWithoutCrashHandler` is fine. The classes are the same in the legacy TestFairy SDK 1.x and in the Sauce Mobile Beta SDK (their names still start with `TestFairy` or `com.testfairy`).
 
 There are two ways to show the form. `showFeedbackForm()` with no arguments requires a running session and attaches the feedback to it. The overload that takes the app token (`showFeedbackForm(context, appToken, takeScreenshot)` on Android, `showFeedbackForm(appToken, takeScreenshot:)` on iOS and `showFeedbackForm(appToken, takeScreenshot)` on React Native) works without a session, optionally captures a screenshot first, and the feedback appears in the build's Feedbacks tab.
 
@@ -238,7 +145,7 @@ Rules that apply on Android and iOS:
 
 - Setting a list of form fields **replaces** the default fields. To keep the email and message fields, add them yourself with the reserved attribute names `:userId` (email or user identifier) and `:text` (message). Always include a `:text` field.
 - Every other field is sent with the feedback as a feedback attribute named after the field's attribute key, so pick short, stable names.
-- Three field types are built in: single-line text (String), multi-line text (TextArea) and a dropdown (Select, a map of label to value). You can add up to 32 fields; attribute names must be non-empty and unique (duplicates are dropped). For any other control, implement the `FeedbackFormField` interface (`onCreateView`, `getAttribute`, `getValue`) yourself.
+- Three field types are built in: single-line text (String), multi-line text (TextArea) and a dropdown (Select, a map of label to value). You can add up to 32 fields. Attribute names must be non-empty and unique (duplicates are dropped). For any other control, implement the `FeedbackFormField` interface (`onCreateView`, `getAttribute`, `getValue`) yourself.
 - The reserved fields are pre-filled by the SDK (last used email, unsent draft). The `defaultText` option only applies to the built-in form and is ignored once you set custom fields.
 - Email is mandatory by default. Hiding the email field lifts the requirement, and so does a custom field list without a `:userId` field.
 - A custom verifier **replaces** the SDK's default validation (email present and valid when mandatory, non-empty message), so re-implement the checks you still want.
@@ -314,7 +221,7 @@ Other `FeedbackOptions.Builder` options:
 
 - `setEmailFieldVisible(boolean)` hides the email field (and lifts the mandatory requirement).
 - `setDefaultText(String)` pre-fills the message of the built-in form.
-- `setBrowserUrl(String)` opens your own web form in the browser instead of the native form. The SDK appends `sessionUrl`, `timestamp`, `user` (your `setUserId` value), `platform`, `packageName`, `versionName`, `versionCode` and `screenName` as query parameters; the other options do not apply in this mode.
+- `setBrowserUrl(String)` opens your own web form in the browser instead of the native form. The SDK appends `sessionUrl`, `timestamp`, `user` (your `setUserId` value), `platform`, `packageName`, `versionName`, `versionCode` and `screenName` as query parameters. The other options do not apply in this mode.
 
 Shake trigger: call `TestFairy.enableFeedbackForm("shake")` (Android accepts only `"shake"`) or `TestFairy.disableFeedbackForm()` before `beginWithoutCrashHandler`.
 

@@ -8,6 +8,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
+:::info Beta release
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+
+- Final: the artifact names and the API.
+- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
+
+Share feedback with your Sauce Labs representative.
+:::
+
 The Sauce Mobile Beta SDK (formerly the TestFairy SDK) helps you understand how testers use your app. It records tester sessions, collects in-app feedback and remote logs, and ties every session to a user and a set of attributes, so you can find and inspect sessions on the Sauce Labs Mobile App Distribution dashboard.
 
 The SDK is crashless: it never installs a crash handler. Crash reporting is provided by Backtrace, [Sauce Labs Error Reporting](/error-reporting/getting-started/), and the two SDKs are designed to run side by side in one app. See [Sauce Mobile Beta and Backtrace](#sauce-mobile-beta-and-backtrace) below.
@@ -90,19 +101,6 @@ The Sauce Mobile Beta SDK ships crashless artifacts for the following platforms.
 - [Android](/testfairy/sdk/android/integrating-android/): `com.saucelabs.mobilebeta:sauce-mobile-beta-android`
 - [iOS](/testfairy/sdk/ios/integrating-ios/): Swift package `SauceMobileBeta` (module `TestFairy`)
 - [React Native](/testfairy/platforms/react-native/) and [Expo](/testfairy/platforms/expo/) (with prebuild): `@saucelabs/mobile-beta-react-native`
-
-### Other Platforms (Legacy TestFairy SDK 1.x)
-
-The following platform plugins still wrap the legacy TestFairy SDK 1.x, which includes its own crash handler. They are not crashless and must not be combined with Backtrace.
-
-- [Cordova and PhoneGap](/testfairy/platforms/cordova/)
-- [Ionic](/testfairy/platforms/ionic/)
-- [Unity](/testfairy/platforms/unity/)
-- [Xamarin](/testfairy/platforms/xamarin/)
-- [Titanium](/testfairy/platforms/titanium/)
-- [Nativescript](/testfairy/platforms/nativescript/)
-- [Neptune Software](/testfairy/platforms/neptune/)
-- [Flutter](/testfairy/platforms/flutter/)
 
 See [Supported Platforms](/testfairy/sdk/supported-platforms/) for the features available on each platform.
 

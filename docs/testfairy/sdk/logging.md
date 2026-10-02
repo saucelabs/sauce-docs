@@ -8,7 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs Mobile App Distribution gives you the ability to log all your network requests. It gives you an effortless way to monitor your app's network access.
+<p><span className="sauceYellow">Beta release</span></p>
+
+The Sauce Mobile Beta SDK can log your app's network requests and handled exceptions to the session timeline, giving you an effortless way to monitor your app's network access and non-fatal errors. For the iOS-specific network setup, see [Log Network](/testfairy/sdk/ios/log-network/).
 
 <img src={useBaseUrl('/img/testfairy/sdk/logHttp.png')} alt="example issues"/>
 
@@ -33,7 +35,7 @@ Example
 If you are using `OkHttp` or `Retrofit` all you need to do is add `CustomHttpInterceptor` to your client:
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 import com.testfairy.TestFairy;
 
 public class CustomHttpInterceptor implements Interceptor {
@@ -59,7 +61,6 @@ public class CustomHttpInterceptor implements Interceptor {
     }
 }
 
-
 OkHttpClient client = new OkHttpClient.Builder()
     .addInterceptor(new CustomHttpInterceptor())
     .build();
@@ -84,7 +85,7 @@ If you have `AFNetworking` added to your project, network requests are automatic
 :::
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 #import "TestFairy.h"
 
 __block NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -162,7 +163,7 @@ Sauce Labs Mobile App Distribution allows developers to log up to five exception
 
 :::note
 
-It does not mark the sessions as crashed; it will only log the exception or error to the session.
+It does not mark the session as crashed. It only logs the exception or error to the session.
 
 :::
 
@@ -173,9 +174,7 @@ values={[
 {label: 'Android', value: 'android'},
 {label: 'iOS Objective C', value: 'iosC'},
 {label: 'iOS Swift', value: 'iosS'},
-{label: 'Cordova', value: 'cordova'},
 {label: 'React Native', value: 'react'},
-{label: 'Nativescript', value: 'native'},
 ]}>
 
 <TabItem value="android">
@@ -187,7 +186,7 @@ TestFairy.logThrowable(<throwable exception>);
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 import com.testfairy.TestFairy;
 
 TestFairy.logThrowable(new Throwable("Some Message"));
@@ -205,7 +204,7 @@ TestFairy.logThrowable(new Throwable("Some Message"));
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 #import "TestFairy.h"
 
 [TestFairy logError:[NSError errorWithDomain:@"com.your.domain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Some Message"}]];
@@ -229,29 +228,6 @@ TestFairy.logError(error)
 
 </TabItem>
 
-<TabItem value="cordova">
-
-```js
-TestFairy.logException(<Error>);
-```
-
-Example
-
-```js
-var error = new Error("Some Message");
-TestFairy.logException(error);
-```
-
-We recommend adding a listener to the `window` to capture `error` statements, automatically sending the exception to TestFairy sessions. One suggestion we have is to add a method that looks like this:
-
-```js
-window.addEventListener("error", function(e) {
-    TestFairy.logException(e);
-});
-```
-
-</TabItem>
-
 <TabItem value="react">
 
 ```js
@@ -261,7 +237,7 @@ TestFairy.logException(<Error>);
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 import TestFairy from '@saucelabs/mobile-beta-react-native';
 
 var error = new Error("Some Message");
@@ -271,37 +247,11 @@ TestFairy.logException(error);
 We recommend replacing the `Global Handler` with a custom method, automatically sending the exception to Sauce Labs Mobile App Distribution sessions. One suggestion we have is to add a method that looks like this:
 
 ```js
-var ErrorUtils = require('ErrorUtils');
+const ErrorUtils = global.ErrorUtils;
 var originalGlobalHandler = ErrorUtils.getGlobalHandler();
 ErrorUtils.setGlobalHandler((error, isFatal) => {
     TestFairy.logException(error);
     originalGlobalHandler.handleException(error, isFatal);
-});
-```
-
-</TabItem>
-
-<TabItem value="native">
-
-```js
-TestFairySDK.logException(<Error>);
-```
-
-Example
-
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
-import { TestFairySDK } from 'nativescript-testfairy';
-
-var error = new Error("Some Message");
-TestFairySDK.logException(error);
-```
-
-We recommend adding a listener to the window to capture error statements, automatically sending the exception to Sauce Labs Mobile App Distribution sessions. One suggestion we have is to add a method that looks like this:
-
-```js
-window.addEventListener("error", function(e) {
-    TestFairy.logException(e);
 });
 ```
 

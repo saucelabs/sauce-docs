@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
 You can install the Sauce Labs Mobile App Distribution enterprise suite on a private cloud on any AWS location in the US, Europe, Asia, or South America. According to your security policy, servers can be protected by custom firewall rules allowing access only from your offices.
 
 With this installation, all data is stored privately using your resources.
@@ -22,13 +24,7 @@ defaultValue="android"
 values={[
 {label: 'Android', value: 'android'},
 {label: 'iOS', value: 'ios'},
-{label: 'Cordova', value: 'cordova'},
 {label: 'React Native', value: 'react'},
-{label: 'Nativescript', value: 'native'},
-{label: 'Xamarin', value: 'xamarin'},
-{label: 'Unity', value: 'unity'},
-{label: 'Adobe Air', value: 'adobe'},
-{label: 'Titanium', value: 'titanium'},
 ]}>
 
 <TabItem value="android">
@@ -40,7 +36,7 @@ TestFairy.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 import com.testfairy.TestFairy;
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
@@ -58,26 +54,11 @@ TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 #import "TestFairy.h"
 
 [TestFairy setServerEndpoint:@"my-subdomain.testfairy.com"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
-```
-
-</TabItem>
-
-<TabItem value="cordova">
-
-```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>");
 ```
 
 </TabItem>
@@ -91,101 +72,11 @@ TestFairy.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import Sauce Labs Mobile App Distribution
+// Be sure to import the SDK
 import TestFairy from '@saucelabs/mobile-beta-react-native';
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>");
-```
-
-</TabItem>
-
-<TabItem value="native">
-
-```js
-TestFairySDK.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
-import { TestFairySDK } from 'nativescript-testfairy';
-
-TestFairySDK.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairySDK.begin("<your app token here>");
-```
-
-</TabItem>
-
-<TabItem value="xamarin">
-
-```js
-TestFairy.SetServerEndpoint ("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
-using TestFairyLib;
-
-TestFairy.SetServerEndpoint ("my-subdomain.testfairy.com");
-TestFairy.Begin ("<your app token here>");
-```
-
-</TabItem>
-
-<TabItem value="unity">
-
-```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
-using TestFairyUnity;
-
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>");
-```
-
-</TabItem>
-
-<TabItem value="adobe">
-
-```js
-AirTestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
-import com.testfairy.AirTestFairy;
-
-AirTestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-AirTestFairy.begin("<your app token here>");
-```
-
-</TabItem>
-
-<TabItem value="titanium">
-
-```js
-TiTestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import Sauce Labs Mobile App Distribution
-var TiTestFairy = require('com.testfairy.titestfairy');
-
-TiTestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TiTestFairy.begin("<your app token here>");
 ```
 
 </TabItem>

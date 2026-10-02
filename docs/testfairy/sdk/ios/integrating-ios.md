@@ -8,10 +8,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
 
-<iframe width="854" height="480" src="https://www.youtube.com/embed/DhRX5UukvPM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+:::info Beta release
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
 
-The video shows the legacy TestFairy SDK 1.x CocoaPods flow; follow the Swift Package Manager steps below for the Sauce Mobile Beta SDK.
+- Final: the artifact names and the API.
+- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
+
+Share feedback with your Sauce Labs representative.
+:::
 
 Integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
 You get to:
@@ -34,7 +40,7 @@ The Sauce Mobile Beta SDK for iOS is distributed with Swift Package Manager. The
 ### Swift Package Manager
 
 :::note
-Requires Xcode 12+. Screenshots taken from Xcode 13.1.
+Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode versions.
 :::
 
 | Item | Value |
@@ -61,7 +67,7 @@ Requires Xcode 12+. Screenshots taken from Xcode 13.1.
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
 
 :::note Why Exact Version?
-`2.2.0-rc` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release, which ships with the same package URL and product name.
+`2.2.0-rc` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release. The product name `SauceMobileBeta` and the module name `TestFairy` do not change. The package URL may move to a Sauce Labs-owned repository before general availability.
 :::
 
 If you declare dependencies in a `Package.swift` manifest instead:
@@ -77,7 +83,7 @@ targets: [
 ]
 ```
 
-A Sauce-owned repository with the same versions will become the canonical package URL; this page will be updated when it is public. Switching later is a URL change only.
+If the package URL moves to a Sauce Labs-owned repository, this page will be updated. Switching is a URL change only.
 
 ### Legacy TestFairy SDK 1.x
 

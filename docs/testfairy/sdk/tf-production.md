@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
 Running the Sauce Mobile Beta SDK (formerly the TestFairy SDK) in production offers numerous benefits, such as gaining valuable insights into user behavior, detecting and resolving issues promptly, and continuously improving your app's performance. With the SDK, you can proactively monitor your production environment, gather valuable data, and make informed decisions to deliver a superior app to your users.
 
 Crash reporting is not one of these benefits: the Sauce Mobile Beta SDK is crashless. Production crash reporting comes from [Backtrace (Sauce Labs Error Reporting)](/error-reporting/getting-started/), which stays in your production builds whether or not the SDK does. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
@@ -39,7 +41,7 @@ Therefore it is important to follow these guidelines:
 
 ## Recommended: Keep the SDK Out of Store Builds
 
-The most reliable way to keep the SDK out of production is to not compile it into store builds at all. Disabling a feature at runtime does not change what code is packaged; a dependency-level switch does. Backtrace is a production tool and stays under a regular dependency in every variant, so store builds keep crash reporting while dropping session recording, tester feedback and update prompts. Both Sauce Labs demo apps use this layout.
+The most reliable way to keep the SDK out of production is to not compile it into store builds at all. Disabling a feature at runtime does not change what code is packaged. A dependency-level switch does. Backtrace is a production tool and stays under a regular dependency in every variant, so store builds keep crash reporting while dropping session recording, tester feedback and update prompts. Both Sauce Labs demo apps use this layout.
 
 ### Android: Debug-Only Dependency
 
@@ -92,7 +94,7 @@ Release builds then contain neither the SDK nor any call to it, and a release bu
 
 ### iOS: Info.plist and xcconfig Switch
 
-A Swift package product is linked into every build configuration, so the switch is a runtime one driven by build settings rather than code changes. [My Demo App for iOS](https://github.com/saucelabs/my-demo-app-ios) reads two Info.plist keys: a boolean `testfairyEnabled` and the token `sauceMobileBetaToken`, which Xcode expands from a build setting defined in an `.xcconfig` file. The SDK runs only when the flag is true and a token is present; otherwise the app uses a no-op wrapper (see Option 3 below).
+A Swift package product is linked into every build configuration, so the switch is a runtime one driven by build settings rather than code changes. [My Demo App for iOS](https://github.com/saucelabs/my-demo-app-ios) reads two Info.plist keys: a boolean `testfairyEnabled` and the token `sauceMobileBetaToken`, which Xcode expands from a build setting defined in an `.xcconfig` file. The SDK runs only when the flag is true and a token is present. Otherwise the app uses a no-op wrapper (see Option 3 below).
 
 ```text
 // Config/Demo.xcconfig (committed, empty defaults; the app target's base configuration)
@@ -218,7 +220,7 @@ final class SauceMobileBetaNoOp: SauceMobileBetaProtocol {
 }
 ```
 
-The legacy TestFairy iOS No-Op SDK (a `TestFairy.m` with empty implementations for the TestFairy SDK 1.x static library) served the same purpose; its repository is no longer available.
+The legacy TestFairy iOS No-Op SDK (a `TestFairy.m` with empty implementations for the TestFairy SDK 1.x static library) served the same purpose. Its repository is no longer available.
 
 ### Android
 
