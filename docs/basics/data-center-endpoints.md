@@ -33,7 +33,7 @@ To see your data center, check the upper-right corner of the Sauce Labs user int
 - Asia South 2
 
 :::note
-Virtual Device Testing is not available in US East 4.
+Virtual Device Testing is not available in US East 4 and Asia South 2.
 :::
 
 ## Data Center Endpoints
