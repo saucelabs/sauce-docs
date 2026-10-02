@@ -8,13 +8,24 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
+:::info Beta release
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+
+- Final: the artifact names and the API.
+- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
+
+Share feedback with your Sauce Labs representative.
+:::
+
 [Sauce Mobile Beta for React Native](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc) (`@saucelabs/mobile-beta-react-native`, formerly `react-native-testfairy`) is a bridge to the Sauce Mobile Beta SDK (formerly the TestFairy SDK) and is supported for Expo (with prebuild): Expo projects whose native `ios` and `android` directories are generated with `npx expo prebuild`. Integrating the Sauce Mobile Beta SDK into your app enables you to understand how your app performs on real devices. It shows when and how people use your app and provides any metrics you may need to optimize your user experience and code.
 
 ## Requirements
 
-The package contains native iOS and Android code, so it does not run in Expo Go. Your project needs generated `ios` and `android` directories before you install it. Generate them with `npx expo prebuild`, which Expo calls Continuous Native Generation; this replaced the older `expo eject` command and the "bare workflow" wording you may still see in older guides. See the [Expo prebuild docs](https://docs.expo.dev/workflow/prebuild/).
+The package contains native iOS and Android code, so it does not run in Expo Go. Your project needs generated `ios` and `android` directories before you install it. Generate them with `npx expo prebuild`, which Expo calls Continuous Native Generation. It replaced the older `expo eject` command and the "bare workflow" wording you may still see in older guides. See the [Expo prebuild docs](https://docs.expo.dev/workflow/prebuild/).
 
-The SDK is crashless and never installs a crash handler; crash reporting is provided by Backtrace. Start it with `beginWithoutCrashHandler`, and never install the legacy `react-native-testfairy` package alongside it. See [Crash Ownership](/testfairy/platforms/react-native/#crash-ownership).
+The SDK is crashless and never installs a crash handler. Crash reporting is provided by Backtrace. Start it with `beginWithoutCrashHandler`, and never install the legacy `react-native-testfairy` package alongside it. See [Crash Ownership](/testfairy/platforms/react-native/#crash-ownership).
 
 ## Steps
 
@@ -29,7 +40,7 @@ pod install
 ```
 
 :::note
-Once the package is published on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. If you still have the legacy `react-native-testfairy` package installed, run `npm uninstall react-native-testfairy` first; the two are mutually exclusive.
+Once the package is published on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. If you still have the legacy `react-native-testfairy` package installed, run `npm uninstall react-native-testfairy` first. The two are mutually exclusive.
 :::
 
 On Android, add the Sauce Mobile Beta Maven repository to `android/settings.gradle` as shown in [Android](/testfairy/platforms/react-native/#android). `npx expo prebuild --clean` regenerates the native directories, so re-apply that change (or apply it with a config plugin) whenever you regenerate them.
