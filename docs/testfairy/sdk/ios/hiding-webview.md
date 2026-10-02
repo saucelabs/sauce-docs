@@ -10,13 +10,13 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-Sauce Labs Mobile App Distribution provides developers with the capability to conceal specific HTML elements within recorded videos displayed in `UIWebView` or `WKWebView` components within their application's user interface. This feature allows developers to enhance security and privacy by excluding sensitive information from video recordings.
+Sauce Labs Mobile App Distribution provides developers with the capability to conceal specific HTML elements in recorded videos displayed in `UIWebView` or `WKWebView` components in their application's user interface. This feature allows developers to enhance security and privacy by excluding sensitive information from video recordings.
 
 In certain scenarios, developers might need to prevent some information, such as credit card details or other sensitive content, from being displayed in recorded video sessions. Sauce Labs Mobile App Distribution's **Hide Webview Elements from Video** feature addresses this concern by allowing developers to selectively hide designated HTML elements from the video playback.
 
 ## Syntax
 
-The process of hiding a specific element from the recorded video involves utilizing the static instance method `hideWebViewElements` within the `TestFairy` class. This method requires a valid CSS selector as its parameter to target the desired HTML element for concealment:
+The process of hiding a specific element from the recorded video involves utilizing the static instance method `hideWebViewElements` in the `TestFairy` class. This method requires a valid CSS selector as its parameter to target the desired HTML element for concealment:
 
 ```css
 [TestFairy hideWebViewElements:@"body"];
@@ -33,7 +33,7 @@ Suppose you have a demo video showcasing your application's user interface. On t
 <img src={useBaseUrl('/img/testfairy/sdk/iphone-with-fields.png')} alt="iphone no hidden HTML elements" width="400"/>
 <img src={useBaseUrl('/img/testfairy/sdk/iphone-no-fields.png')} alt="iphone hidden HTML elements" width="400"/>
 
-This functionality provides a clear visual representation of how Sauce Labs Mobile App Distribution's feature conceals elements within the video.
+This functionality provides a clear visual representation of how Sauce Labs Mobile App Distribution's feature conceals elements in the video.
 
 :::note
 - Sauce Labs Mobile App Distribution ensures that elements are hidden from screenshots before they are uploaded, thereby preserving the security and privacy of sensitive information.

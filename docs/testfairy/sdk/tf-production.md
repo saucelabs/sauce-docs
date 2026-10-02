@@ -37,7 +37,7 @@ Therefore it is important to follow these guidelines:
 1. You **must** include a proper disclaimer in your app terms of service document.
    You must explain exactly what data you collect, and how to request deletion of that data.
 
-1. Never use Auto-update with apps that are shipped to production. This is a clear violation of both Apple and Google's terms.
+1. Never use Auto-update with apps that are shipped to production. Auto-updating a store app is a clear violation of both Apple and Google's terms.
 
 ## Recommended: Keep the SDK Out of Store Builds
 
@@ -142,7 +142,15 @@ When it comes to using the SDK in a production environment, there may be instanc
 
 Without a call to `beginWithoutCrashHandler` (or `begin`), the SDK is not initialized. An uninitialized SDK won't consume any memory and won't open sockets. Even though it does not impact your app in any way, the SDK is still linked with your app.
 
-##### Objective-C
+<Tabs
+groupId="ios-language"
+defaultValue="objc"
+values={[
+{label: 'Objective-C', value: 'objc'},
+{label: 'Swift', value: 'swift'},
+]}>
+
+<TabItem value="objc">
 
 ```objectivec
 #ifdef DEBUG
@@ -150,7 +158,9 @@ Without a call to `beginWithoutCrashHandler` (or `begin`), the SDK is not initia
 #endif
 ```
 
-##### Swift
+</TabItem>
+
+<TabItem value="swift">
 
 ```swift
 #if DEBUG
@@ -158,9 +168,20 @@ TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 #endif
 ```
 
+</TabItem>
+</Tabs>
+
 If your publishing workflow has multiple build schemes, define a compiler flag for each scheme and enable the SDK only for the schemes relevant to testing:
 
-##### Objective-C
+<Tabs
+groupId="ios-language"
+defaultValue="objc"
+values={[
+{label: 'Objective-C', value: 'objc'},
+{label: 'Swift', value: 'swift'},
+]}>
+
+<TabItem value="objc">
 
 ```objectivec
 #if defined(DEBUG)
@@ -174,7 +195,9 @@ If your publishing workflow has multiple build schemes, define a compiler flag f
 #endif
 ```
 
-##### Swift
+</TabItem>
+
+<TabItem value="swift">
 
 ```swift
 #if DEBUG
@@ -187,6 +210,9 @@ TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 // Don't initialize the SDK
 #endif
 ```
+
+</TabItem>
+</Tabs>
 
 If you are also worried about reducing the app size in your final release build, proceed to Option 2.
 
@@ -269,4 +295,8 @@ try {
 } catch (Exception e) { /* ignore */ }
 ```
 
-Then, in your `build.gradle` file, declare the SDK with `debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc"`.
+Then, in your `build.gradle` file, declare the SDK with `debugImplementation`:
+
+```groovy
+debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc"
+```

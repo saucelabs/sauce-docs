@@ -313,8 +313,8 @@ curl https://app.testfairy.com/api/upload \
 
 Metadata is displayed and can be searched on in App Versions page by clicking on an app from the Dashboard. You can also view them on a single version's settings page.
 
-### Can I attach the symbols file to my app to download it later?
+### Can I Attach the Symbols File to My App to Download It Later?
 
-Yes! You can attach your dSYM zipped for iOS / Text file .txt for Android app while uploading the app. Check out the [Upload/Download Symbols file] documentation for more details.
+Yes. You can attach your dSYM zipped for iOS / Text file .txt for Android app while uploading the app. Check out the [Upload/Download Symbols file] documentation for more details.
 
 [Upload/Download Symbols file]: /testfairy/app-distribution/symbols-file/

@@ -12,7 +12,7 @@ To see all the testers you have for your app, invite new testers, or import/expo
 
 <img src={useBaseUrl('/img/test-fairy/group-testers.png')} alt="alt upload"/>
 
-## Manage testers through the API
+## Manage Testers Through the API
 You can fully automate and control tester management through our APIs. For more details, refer to our [API documentation.](/testfairy/api-reference/rest-api/#testers).
 
 ## Inviting Testers by Email
@@ -51,6 +51,6 @@ Tester groups help you manage the invitation process to your apps. If you want t
 
 ## Deleting Groups
 
-To delete a group, you must first delete all its mentions in the GROUPS field. Delete the group by pressing the x next to its name. Once you have deleted all its occurrences, it will be deleted. Then, refresh the page to make sure it was deleted.
+To delete a group, you must first delete all its mentions in the GROUPS field. Delete the group by pressing the x next to its name. After you have deleted all its occurrences, it will be deleted. Then, refresh the page to make sure it was deleted.
 
 <img src={useBaseUrl('/img/test-fairy/remove-group.png')} alt="Add multiple testers to the group"/>

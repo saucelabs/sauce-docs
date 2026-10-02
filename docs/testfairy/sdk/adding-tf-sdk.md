@@ -183,7 +183,7 @@ function PurchaseScreen() {
 
 </Tabs>
 
-## Attaching Files To Sessions
+## Attaching Files to Sessions
 
 Sauce Labs Mobile App Distribution allows developers to attach files to sessions. As a developer, you can upload up to five files to a given session, with a maximum size of 15MB per file. Files must be local to the device.
 

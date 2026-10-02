@@ -43,7 +43,7 @@ On the Notifications page, you can define what types of messages you want to rec
 
 You can integrate your Sauce Labs Mobile App Distribution account with different services to customize and streamline your work processes.
 
-- Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
+- SMTP and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
 
 - Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with Sauce Labs Mobile App Distribution.
 
@@ -67,7 +67,7 @@ To ensure testers first login to their tester accounts before downloading your a
 
 ### SAML/Single Sign-On
 
-Add the SSO metadata definitions file here. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate. See [SSO](/testfairy/security/sso/sso-intro) for more information.
+Add the SSO metadata definitions file in this section. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate. See [SSO](/testfairy/security/sso/sso-intro) for more information.
 
 ## Account
 

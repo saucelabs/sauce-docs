@@ -100,7 +100,7 @@ To leverage the full capabilities of the Sauce Labs Mobile App Distribution Jira
 
 When defining fields in the Configure Fields window, follow the below conventions:
 
-- When you choose a field from a drop-down list, this field as is (text) will be populated in the corresponding Jira field in the issue opened.
+- When you choose a field from a dropdown list, this field as is (text) will be populated in the corresponding Jira field in the issue opened.
   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-values-drop-down.png')} alt="Values drop down"/>
 
 - You can also choose from the fixed predefined values in the list below:
@@ -110,7 +110,7 @@ When defining fields in the Configure Fields window, follow the below convention
   - `{session.ipAddress}` - the IP address of the device running the session.
   - `{device.os}` - the running device OS
   - `{device.model}` - the device model of the handset
-  - `{device.osVersion}` - the OS version on the device (if the iPhone is running version IOS 12 value=12)
+  - `{device.osVersion}` - the OS version on the device (if the iPhone is running version iOS 12 value=12)
   - `{app.name}` - the app name.
   - `{app.version}` - the _versionName_ or _CFBundleShortVersionString_ of the build. example: 1.7.0
   - `{app.fullVersion}` - the _versionName_ + (_versionCode_ or _CFBundleVersion_) of the build. example: 1.7.0 (1700)

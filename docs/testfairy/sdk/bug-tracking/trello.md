@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connecting Sauce Labs Mobile App Distribution with Trello is pretty straightforward process, follow the steps below: 
+Connecting Sauce Labs Mobile App Distribution with Trello is pretty straightforward process, follow the steps below:
 
 1. Open your Sauce Labs Mobile App Distribution account Preferences.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Sauce Labs Mobile App Distribution Preferences"/>

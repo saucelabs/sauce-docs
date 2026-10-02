@@ -41,7 +41,7 @@ Initialize Backtrace before the SDK. See [Using Sauce Mobile Beta with Backtrace
 
 #### Syntax (Legacy TestFairy SDK 1.x)
 
-In the legacy, crash-capable TestFairy SDK 1.x, the crash handler captures and records stack traces if your application crashes and is enabled by default. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`. Once you enable the legacy crash handler, it cannot be disabled unless the app is restarted.
+In the legacy, crash-capable TestFairy SDK 1.x, the crash handler captures and records stack traces if your application crashes and is enabled by default. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`. After you enable the legacy crash handler, it cannot be disabled unless the app is restarted.
 
 ```java
 TestFairy.enableCrashHandler();
@@ -221,7 +221,7 @@ Initialize Backtrace before the SDK. See [Using Sauce Mobile Beta with Backtrace
 
 #### Syntax (Legacy TestFairy SDK 1.x)
 
-In the legacy, crash-capable TestFairy SDK 1.x, the crash handler captures and records stack traces if your application crashes and is enabled by default. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`. Once you enable the legacy crash handler, it cannot be disabled unless the app is restarted.
+In the legacy, crash-capable TestFairy SDK 1.x, the crash handler captures and records stack traces if your application crashes and is enabled by default. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`. After you enable the legacy crash handler, it cannot be disabled unless the app is restarted.
 
 ```objectivec
 [TestFairy enableCrashHandler];

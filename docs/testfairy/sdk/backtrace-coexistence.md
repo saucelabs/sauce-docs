@@ -19,7 +19,7 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-The Sauce Mobile Beta SDK (formerly the TestFairy SDK) and Backtrace, the Sauce Labs Error Reporting product, run side by side in one app. This page describes the contract that makes that possible: Backtrace owns crashes, Sauce Mobile Beta owns beta sessions, and both carry the same correlation attribute so a crash report and its session recording can be matched across the two consoles.
+The Sauce Mobile Beta SDK (formerly the TestFairy SDK) and Backtrace, the Sauce Labs Error Reporting product, run side by side in one app. This guide describes the contract that makes that possible: Backtrace owns crashes, Sauce Mobile Beta owns beta sessions, and both carry the same correlation attribute so a crash report and its session recording can be matched across the two consoles.
 
 ## Overview
 
@@ -72,7 +72,7 @@ values={[
 
 <TabItem value="android">
 
-Pass the attribute map to the `BacktraceClient` constructor that also takes `BacktraceDatabaseSettings`. The attributes-only constructor creates a disabled database, and `enableNativeIntegration()` then silently does nothing. Use the `/json` submission URL and keep `enableNativeIntegration()` as the last Backtrace setup call: native annotations are snapshotted there, so values added later reach native reports only through `client.addAttribute` (backtrace-android 3.8 and later) or `((BacktraceDatabase) client.database).addAttribute` (3.7.x).
+Pass the attribute map to the `BacktraceClient` constructor that also takes `BacktraceDatabaseSettings`. The attributes-only constructor creates a disabled database, and `enableNativeIntegration()` then silently does nothing. Use the `/json` submission URL and keep `enableNativeIntegration()` as the last Backtrace setup call: native annotations are snapshotted there, so values added later reach native reports only through `client.addAttribute` (`backtrace-android` 3.8 and later) or `((BacktraceDatabase) client.database).addAttribute` (3.7.x).
 
 ```kotlin
 import android.app.Application
@@ -265,7 +265,7 @@ Both SDKs receive the same keys and values. The values are copies, not reference
 | Attribute                    | Value                                                     | Why                                                                                                  |
 | :--------------------------- | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
 | `sauce.correlation_id`       | Lowercase UUID v4, generated once per app launch          | The join key. Search it in either console to find the matching report or session.                    |
-| `sauce.sdk.coexistence_mode` | `backtrace_crash_owner`                                   | Documents which product owns crashes in this build; useful when filtering mixed fleets.              |
+| `sauce.sdk.coexistence_mode` | `backtrace_crash_owner`                                   | Documents which product owns crashes in this build; use it to filter mixed fleets.                   |
 | `sauce.environment`          | `beta`, `production`, or your own environment name        | Separates beta traffic from other environments in both consoles.                                     |
 | `sauce.release`              | `<appId>@<version>` (for example `com.example.app@1.2.3`) | Ties reports and sessions to a release without relying on platform-specific version fields.          |
 | `sauce.dist`                 | Build number (`CFBundleVersion` or `versionCode`)         | Distinguishes builds of the same version.                                                            |
@@ -312,10 +312,10 @@ Keep the Sauce Mobile Beta SDK out of store builds and let Backtrace stay. Backt
 
 ## Reference Apps
 
-The pattern on this page is taken from the Sauce Labs demo apps and the React Native package's example app, all of which run the released SDKs:
+This pattern is taken from the Sauce Labs demo apps and the React Native package's example app, all of which run the released SDKs:
 
-- My Demo App for iOS: [saucelabs/my-demo-app-ios](https://github.com/saucelabs/my-demo-app-ios), release [2.3.0](https://github.com/saucelabs/my-demo-app-ios/releases/tag/2.3.0). See `My Demo App/AppDelegate.swift` and `My Demo App/Utilities/TestFairyWrapper.swift`.
-- My Demo App for Android: [saucelabs/my-demo-app-android](https://github.com/saucelabs/my-demo-app-android), release [2.3.0](https://github.com/saucelabs/my-demo-app-android/releases/tag/2.3.0). See `MyApplication.java` and `app/src/mobileBeta/.../SauceMobileBetaIntegration.java`, which also asserts after `beginWithoutCrashHandler` that Backtrace's uncaught-exception handler is still in place.
+- [My Demo App for iOS repository](https://github.com/saucelabs/my-demo-app-ios), release [2.3.0](https://github.com/saucelabs/my-demo-app-ios/releases/tag/2.3.0). See `My Demo App/AppDelegate.swift` and `My Demo App/Utilities/TestFairyWrapper.swift`.
+- [My Demo App for Android repository](https://github.com/saucelabs/my-demo-app-android), release [2.3.0](https://github.com/saucelabs/my-demo-app-android/releases/tag/2.3.0). See `MyApplication.java` and `app/src/mobileBeta/.../SauceMobileBetaIntegration.java`, which also asserts after `beginWithoutCrashHandler` that Backtrace's uncaught-exception handler is still in place.
 - React Native example app: [testfairy/react-native-testfairy](https://github.com/testfairy/react-native-testfairy), release [3.0.0-rc](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc). See `example/src/observability.ts`.
 
 To try it, run a demo app with your own Backtrace submission URL and Sauce Mobile Beta token, then trigger a crash: More > Crash the App on iOS, or Crash app (debug) in the menu on Android. The process dies as a genuine crash. The Sauce Mobile Beta SDK does not intercept it. Relaunch the app: Backtrace uploads the pending report while Sauce Mobile Beta starts a new session. Open the report, copy its `sauce.correlation_id`, and search for it in the session list to land on the recording of the launch that crashed.

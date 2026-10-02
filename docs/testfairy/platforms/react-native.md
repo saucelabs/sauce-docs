@@ -27,7 +27,7 @@ The package is a bridge to the native Sauce Mobile Beta SDKs for iOS and Android
 
 The Sauce Mobile Beta SDK is crashless: neither the JavaScript layer, the native bridges, nor the bundled native SDKs install a crash handler. Crash reporting is provided by Backtrace, the Sauce Labs Error Reporting product, which owns JavaScript unhandled errors and unhandled promise rejections, iOS native crashes, and Android JVM and native crashes. The legacy crash APIs (`enableCrashHandler()` and `disableCrashHandler()`) remain callable for source compatibility but are no-ops.
 
-Start the SDK with `beginWithoutCrashHandler(...)`. It forces the `enableCrashReporter` option to `false` even if you pass `true`. Plain `begin(...)` is also crashless in this package, but the explicit call documents the coexistence contract. See [Using with Backtrace](#using-with-backtrace) for the full setup.
+Start the SDK with `beginWithoutCrashHandler(...)`. It forces the `enableCrashReporter` option to `false` even if you pass `true`. Plain `begin(...)` is also crashless in this package, but the explicit call documents the coexistence contract. See [Using With Backtrace](#using-with-backtrace) for the full setup.
 
 :::caution
 Never install a legacy TestFairy artifact together with the Sauce Mobile Beta SDK or together with Backtrace. The legacy `react-native-testfairy` package (2.x) installs its own crash handler, which competes with Backtrace, and it exposes the same `TestFairyBridge` native module and the same `com.testfairy` native classes as this package, which causes duplicate-module and duplicate-class failures. The same applies to the legacy native artifacts: the `TestFairy` pod, a manually linked `TestFairySDK.framework` or `libTestFairy.a`, `com.testfairy:testfairy-android-sdk`, and `com.testfairy:testfairy-android-ndk`.
@@ -51,7 +51,7 @@ cd ios && pod install
 The package installs into `node_modules/@saucelabs/mobile-beta-react-native` and autolinks exactly like a registry install.
 
 :::note
-Publishing to the npm registry follows. Once the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. The package name, version scheme, and API stay the same. GA versions ship with the same coordinates.
+Publishing to the npm registry follows. After the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. The package name, version scheme, and API stay the same. GA versions ship with the same coordinates.
 :::
 
 ### iOS
@@ -111,7 +111,7 @@ dependencyResolutionManagement {
 
 The `content` filter is optional. It limits the repository to the Sauce Mobile Beta group. Do not use version wildcards for pre-release versions. If your app declares `com.testfairy:testfairy-android-sdk` or `com.testfairy:testfairy-android-ndk` anywhere, remove those dependencies first. The native artifact bundles its consumer ProGuard rules (`-keep class com.testfairy.** { *; }` and `-dontwarn com.testfairy.**`), so existing keep rules remain valid.
 
-## Migrating from react-native-testfairy
+## Migrating From `react-native-testfairy`
 
 The legacy `react-native-testfairy` package and `@saucelabs/mobile-beta-react-native` are mutually exclusive. Uninstall the legacy package first:
 
@@ -158,7 +158,7 @@ export default function App() {
 
 `beginWithoutCrashHandler` accepts the same optional second argument as `begin` for session options. Whatever you pass, `enableCrashReporter` is forced to `false`. Call `setUserId` and `setAttribute` before starting the session so the SDK attaches them to every session it starts. See [Identifying Users](/testfairy/sdk/identifying-users/) and [Session Attributes](/testfairy/sdk/session-attributes/).
 
-## Using with Backtrace
+## Using With Backtrace
 
 Sauce Mobile Beta and [Backtrace](/error-reporting/getting-started/) run side by side in one app: initialize Backtrace first, so it is the sole crash owner, then start Sauce Mobile Beta with `beginWithoutCrashHandler`. Both SDKs receive the same shared attributes (`sauce.correlation_id`, a lowercase UUID v4 generated once per app launch, plus `sauce.sdk.coexistence_mode`, `sauce.environment`, `sauce.release`, and `sauce.dist`): Backtrace as `userAttributes`, Sauce Mobile Beta through `TestFairy.setAttribute(key, value)` before `beginWithoutCrashHandler`. A session state listener registered before the start overwrites the Backtrace attributes `sauce.mobile_beta.session_url` and `sauce.mobile_beta.session_started` on every session start, because one launch can produce several sessions.
 
@@ -184,7 +184,7 @@ const shared: Record<string, string> = {
 };
 const backtrace = BacktraceClient.initialize({ // 1. Backtrace first: sole crash owner
   url: 'https://submit.backtrace.io/<universe>/<backtrace-token>/json',
-  userAttributes: shared, // add your database options here (see the Backtrace guide)
+  userAttributes: shared, // add your database options (see the Backtrace guide)
 });
 const subscription = TestFairy.addSessionStateListener({ // 2. before the start; runs on every session start
   onSessionStarted({ sessionUrl }) {

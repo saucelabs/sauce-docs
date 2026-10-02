@@ -4,22 +4,22 @@ title: Microsoft App Center Alternative
 sidebar_label: MS App Center Alternative
 ---
 
-Migrate now from App Center App Distribution to Sauce Labs! This is how you can get started with our [Sauce Labs Mobile App Distribution and Beta Testing solution](/testfairy). 
+Migrate now from App Center App Distribution to Sauce Labs. Get started with our [Sauce Labs Mobile App Distribution and Beta Testing solution](/testfairy).
 
 ## What You'll Need
 
 - A Sauce Labs account
-- [Mobile Beta Testing access (https://mobile.saucelabs.com/)
+- [Mobile Beta Testing access](https://mobile.saucelabs.com/)
 
-## Start migrating now from App Center! Upload your apps to Sauce Labs Mobile App Distribution!
+## Start Migrating Now From App Center: Upload Your Apps to Sauce Labs Mobile App Distribution
 
 Once your account is created and verified, you can upload your app. Click New Upload to upload an app.
 
-We recommend using the Upload API method to enable the Jenkins plugin, Gradle plugin, or Command line uploader like Fastlane. 
+We recommend using the Upload API method to enable the Jenkins plugin, Gradle plugin, or Command line uploader like Fastlane.
 
 ## Distribute App to Testers
 
-Sauce Labs Mobile App Distribution offers enterprise-grade app distribution capabilities, allowing companies to easily and securely distribute the right apps to the right users. The platform allows admins to enforce corporate security policies during testing, and has the capability to automatically update apps to new versions or revoke access to installed apps or users.
+Sauce Labs Mobile App Distribution offers enterprise-grade app distribution capabilities, allowing companies to securely distribute the right apps to the right users. The platform allows admins to enforce corporate security policies during testing, and has the capability to automatically update apps to new versions or revoke access to installed apps or users.
 
 For more information, see [Managing Testers](/testfairy/testers/managing-testers/).
 

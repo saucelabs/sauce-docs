@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-End-to-End Data Encryption in Sauce Labs Mobile App Distribution ensures that the logs and screenshots recorded from a mobile device are securely encrypted before being stored on the cloud. This encryption guarantees that only authorized team members with the private key can access and view the recorded data. To use this capability, you will need to create a public key and a private key. The public key initializes the Sauce Mobile Beta SDK in your app and the private key, which should not be shared with anybody, will be used by you when you log in to your Sauce Labs Mobile App Distribution dashboard. 
+End-to-End Data Encryption in Sauce Labs Mobile App Distribution ensures that the logs and screenshots recorded from a mobile device are securely encrypted before being stored on the cloud. This encryption guarantees that only authorized team members with the private key can access and view the recorded data. To use this capability, you will need to create a public key and a private key. The public key initializes the Sauce Mobile Beta SDK in your app and the private key, which should not be shared with anybody, will be used by you when you log in to your Sauce Labs Mobile App Distribution dashboard.
 
 The encryption process involves using a randomly generated 256-bit AES key (this AES key is only used in a single session recording), which is further protected with an RSA public key.
 
@@ -49,10 +49,10 @@ Enable end-to-end encryption for your iOS apps by calling `setPublicKey` before 
 
 ## Viewing Encrypted Sessions
 
-Since the data is encrypted using RSA, viewing a session requires the private key. Visiting a recorded session will prompt a dialog for entry of the RSA Private Key. Paste the private key text and click "OK". Your private key is never sent to the server and is only retained within the browser session.
+Since the data is encrypted using RSA, viewing a session requires the private key. Visiting a recorded session will prompt a dialog for entry of the RSA Private Key. Paste the private key text and click "OK". Your private key is never sent to the server and is only retained in the browser session.
 
 :::caution
-It's crucial that you keep the private key safe.  If it is lost, encrypted sessions cannot be recovered, rendering the recorded data useless.
+It's crucial that you keep the private key safe. If it is lost, encrypted sessions cannot be recovered, rendering the recorded data useless.
 :::
 
 ## Technical Details (How Does It Work?)
