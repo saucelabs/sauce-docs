@@ -8,9 +8,20 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><span className="sauceYellow">Beta release</span></p>
+
+:::info Beta release
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+
+- Final: the artifact names and the API.
+- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
+
+Share feedback with your Sauce Labs representative.
+:::
+
 Sauce Labs Mobile App Distribution lets you distribute beta builds to testers and see how they use your app. The Sauce Mobile Beta SDK (formerly the TestFairy SDK) for React Native, `@saucelabs/mobile-beta-react-native`, adds session recording, tester feedback, screenshots, remote logging, and session events to your React Native app, so you can identify and debug issues more effectively and optimize the user experience.
 
-The package is a bridge to the native Sauce Mobile Beta SDKs for iOS and Android. It replaces the legacy `react-native-testfairy` package; the JavaScript API is unchanged, so migrating is a package swap and one import change.
+The package is a bridge to the native Sauce Mobile Beta SDKs for iOS and Android. It replaces the legacy `react-native-testfairy` package. The JavaScript API is unchanged, so migrating is a package swap and one import change.
 
 ## Crash Ownership
 
@@ -24,7 +35,7 @@ Never install a legacy TestFairy artifact together with the Sauce Mobile Beta SD
 
 ## Requirements
 
-- React Native 0.71 or later and React 18 or later (the package's peer dependencies); Node.js 18 or later to install it. The package autolinks; no manual native linking is needed.
+- React Native 0.71 or later and React 18 or later (the package's peer dependencies). Node.js 18 or later is required to install it. The package autolinks, so no manual native linking is needed.
 - iOS 11 or later.
 - Android API level 16 or later for the SDK on its own. When you use it with Backtrace, use Backtrace's minimum, API level 21.
 
@@ -40,7 +51,7 @@ cd ios && pod install
 The package installs into `node_modules/@saucelabs/mobile-beta-react-native` and autolinks exactly like a registry install.
 
 :::note
-Publishing to the npm registry follows. Once the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL; the package name, version scheme, and API stay the same. GA versions ship with the same coordinates.
+Publishing to the npm registry follows. Once the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. The package name, version scheme, and API stay the same. GA versions ship with the same coordinates.
 :::
 
 ### iOS
@@ -98,7 +109,7 @@ dependencyResolutionManagement {
 </TabItem>
 </Tabs>
 
-The `content` filter is optional; it limits the repository to the Sauce Mobile Beta group. Do not use version wildcards for pre-release versions. If your app declares `com.testfairy:testfairy-android-sdk` or `com.testfairy:testfairy-android-ndk` anywhere, remove those dependencies first. The native artifact bundles its consumer ProGuard rules (`-keep class com.testfairy.** { *; }` and `-dontwarn com.testfairy.**`), so existing keep rules remain valid.
+The `content` filter is optional. It limits the repository to the Sauce Mobile Beta group. Do not use version wildcards for pre-release versions. If your app declares `com.testfairy:testfairy-android-sdk` or `com.testfairy:testfairy-android-ndk` anywhere, remove those dependencies first. The native artifact bundles its consumer ProGuard rules (`-keep class com.testfairy.** { *; }` and `-dontwarn com.testfairy.**`), so existing keep rules remain valid.
 
 ## Migrating from react-native-testfairy
 
@@ -145,7 +156,7 @@ export default function App() {
 }
 ```
 
-`beginWithoutCrashHandler` accepts the same optional second argument as `begin` for session options. Whatever you pass, `enableCrashReporter` is forced to `false`. Call `setUserId` and `setAttribute` before starting the session so the SDK attaches them to every session it starts; see [Identifying Users](/testfairy/sdk/identifying-users/) and [Session Attributes](/testfairy/sdk/session-attributes/).
+`beginWithoutCrashHandler` accepts the same optional second argument as `begin` for session options. Whatever you pass, `enableCrashReporter` is forced to `false`. Call `setUserId` and `setAttribute` before starting the session so the SDK attaches them to every session it starts. See [Identifying Users](/testfairy/sdk/identifying-users/) and [Session Attributes](/testfairy/sdk/session-attributes/).
 
 ## Using with Backtrace
 
@@ -153,10 +164,10 @@ Sauce Mobile Beta and [Backtrace](/error-reporting/getting-started/) run side by
 
 React Native specifics:
 
-- Install the UUID generator and its polyfill with `npm install uuid react-native-get-random-values`; neither is a dependency of the package. Import `react-native-get-random-values` before `uuid`.
+- Install the UUID generator and its polyfill with `npm install uuid react-native-get-random-values`. Neither is a dependency of the package. Import `react-native-get-random-values` before `uuid`.
 - The shared attributes go into `BacktraceClient.initialize(...)` as `userAttributes`.
-- `TestFairy.addSessionStateListener(...)` returns a subscription; call `remove()` on it if you tear the integration down.
-- Index `sauce.correlation_id` in Backtrace (Project Settings > Attributes, UUID format) before you filter or group on it; see [Attributes](/error-reporting/project-setup/attributes/).
+- `TestFairy.addSessionStateListener(...)` returns a subscription. Call `remove()` on it if you tear the integration down.
+- Index `sauce.correlation_id` in Backtrace (Project Settings > Attributes, UUID format) before you filter or group on it. See [Attributes](/error-reporting/project-setup/attributes/).
 
 ```ts
 import 'react-native-get-random-values'; // must come before uuid on React Native
@@ -191,11 +202,12 @@ For the complete contract, including the iOS and Android specifics, see [Using S
 
 The JavaScript API stays TestFairy-compatible: the default export is `TestFairy`, the native module is `TestFairyBridge`, and the Android runtime package is `com.testfairy`. Only the packaging names changed. Differences from the legacy package:
 
-- `beginWithoutCrashHandler(appToken, options?)` is the recommended entry point. `begin(appToken, options?)` is also crashless; both force `enableCrashReporter` to `false`.
+- `beginWithoutCrashHandler(appToken, options?)` is the recommended entry point. `begin(appToken, options?)` is also crashless. Both force `enableCrashReporter` to `false`.
 - `enableCrashHandler()` and `disableCrashHandler()` are no-ops kept for source compatibility. Use Backtrace for crash reporting and crash testing.
 - `isCrashReportingAvailable()` returns `false`.
+- `pushFeedbackController()` shows the feedback form for the running session. `showFeedbackForm(appToken, takeScreenshot?)` also works without a session. See [Submitting User Feedback](/testfairy/sdk/user-feedback/).
 - `getIntegrationInfo()` returns `{ sdkName, crashReportingAvailable: false, coexistenceMode: 'backtrace_crash_owner' }`.
 - `setAttribute(key, value)` before `beginWithoutCrashHandler` applies to every session the SDK starts, including sessions started after `stop()`. Limits: 64 attributes, keys up to 64 characters, values up to 1000 characters on iOS and 1024 on Android.
-- `setUserId(id)` identifies the tester. `setCorrelationId(...)` and `identify(...)` are deprecated; they write the same user-identity field.
+- `setUserId(id)` identifies the tester. `setCorrelationId(...)` and `identify(...)` are deprecated. They write the same user-identity field.
 - `addSessionStateListener(listener)` returns a subscription with `remove()`. The listener receives `onSessionStarted({ sessionUrl })`, `onSessionFailed()`, `onSessionLengthReached({ secondsFromStartSession })`, `onSessionStopped()`, and the auto-update events.
-- `getSessionUrl()` returns a promise that resolves to the session URL (or `null` before the session is accepted); `getVersion()` returns a promise with the native SDK version.
+- `getSessionUrl()` returns a promise that resolves to the session URL (or `null` before the session is accepted). `getVersion()` returns a promise with the native SDK version.
