@@ -8,14 +8,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The distribution process begins once you have uploaded your application.
+The distribution process begins after you have uploaded your application.
 
 For Android applications, refer to [Uploading Apps](/testfairy/using-testfairy/uploading-an-app).
 
 If you're distributing an iOS application:
 
 - When using an enterprise certificate, the process mirrors the Android distribution.
-- With an ad-hoc certificate, you will need to add tester device UDIDs to your provisioning profile before distributing.
+- With an ad-hoc certificate, follow the steps outlined in [Adding UDIDs to the iOS Development Profile](/testfairy/sdk/ios/adding-udids/).
 
 If you're distributing a macOS application, first zip the application (before zipping, the file extension will be `.app`; after zipping, it will become `.zip`). Then, proceed with the process described in [Uploading Apps](/testfairy/using-testfairy/uploading-an-app).
 
@@ -37,7 +37,7 @@ To pre-invite testers, add them to the testers list on the [TESTERS](https://app
 
 <img src={useBaseUrl('/img/testfairy/app-distribution/invite-testers-from-build-1.png')} alt="inviting testers to a build"/>
 
-Pre-inviting is useful when distributing iOS applications to specific devices without an enterprise certificate. It is also commonly used for in-house testing teams.
+Use pre-inviting when distributing iOS applications to specific devices without an enterprise certificate. It is also commonly used for in-house testing teams.
 
 ### Adding to a Specific Build
 
@@ -57,7 +57,7 @@ The **Testers Dashboard** is where a tester can view the apps they were invited 
 
 ## Permissions
 
-Permissions manage app distribution to groups of testers/users and are defined for each app (including all its builds). This means all testers within a group can access all builds of the app.
+Permissions manage app distribution to groups of testers/users and are defined for each app (including all its builds). This means all testers in a group can access all builds of the app.
 
 Permissions are based on defined groups of testers (see [Managing Testers](/testfairy/testers/managing-testers)).
 
