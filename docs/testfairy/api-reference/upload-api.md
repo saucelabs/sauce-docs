@@ -287,6 +287,18 @@ In the case of an error, Sauce Labs Mobile App Distribution returns a JSON with 
 
 </details>
 
+### Where Can I Find My API Key?
+
+To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **TestFairy Access Key**.
+
+### How Can I Create a New API Key?
+
+To create a new API KEY, click on **Regenerate** on your account preferences page.
+
+### Why Is My API Key Empty?
+
+In cases Sauce Labs Mobile App Distribution identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, Sauce Labs Mobile App Distribution automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
+
 ### Can I Add Custom Metadata?
 
 Yes. Any POST parameter prefixed with "metadata." in the name is considered custom data and stored along with the upload. For example, consider this command:

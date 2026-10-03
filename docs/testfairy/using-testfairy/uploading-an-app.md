@@ -64,7 +64,11 @@ Choose the appropriate file type based on your platform to proceed with the uplo
 
 You can define your build settings during the upload process:
 
+-- **In-app reporting** - Check this box to enable/disable the "shake to report" feature in your app. When enabled, users can shake their device to send a feedback report, along with a video recording, screenshots, logs, and metrics of their test.
+
 -- **Custom Comments** - Use this section to add release notes, describe the updates/changes, and anything else you want your testers to know.
+
+**Note:** These settings are relevant only if you add the SDK to your app.
 
 More build settings are available on the Account Settings page.
 

@@ -21,6 +21,10 @@ Yes. Sauce Labs Mobile App Distribution can provide a GDPR-compliant service to 
 Yes. Sauce Labs Mobile App Distribution end-users are ensured that their data is only used by Sauce Labs Mobile App Distribution for legitimate purposes, meaning for the purpose intended by the developers who use our platform. We do not and will never sell, transfer or otherwise harm your data, and we make sure it is only used via our services.
 ,.
 
+## Can Sauce Labs Mobile App Distribution End-Users See Their Sessions?
+
+Yes. On a Private cloud or on an on-prem installation, companies can allow their end-users to see their recorded sessions. The developer must identify the sessions using the SDK function [setUserId](/testfairy/sdk/identifying-users).
+Users can only see their sessions by logging into Sauce Labs Mobile App Distribution via their desktop browser. At the moment, mobile view is not supported.
 
 ## Can Sauce Labs Mobile App Distribution Users Request to Delete Their Sessions?
 
