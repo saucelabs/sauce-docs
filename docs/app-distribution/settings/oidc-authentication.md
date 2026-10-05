@@ -77,7 +77,7 @@ The OIDC configuration is also available through the API at `/api/v3/settings/oi
 After you save the configuration, the **Integration Details** section shows a **Config Key** (it starts with `oidc_`). Use this key together with the OIDC access token when making API requests.
 
 :::caution
-OIDC requests act as the organization's Account Owner: they have full owner permissions, and audit log entries show the owner's name.
+OIDC requests act as the organization's Account Owner: they have full owner permissions, and audit log entries show the owner's email address.
 :::
 
 Include the following headers:

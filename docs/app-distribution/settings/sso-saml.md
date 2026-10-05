@@ -38,7 +38,7 @@ Replace `your-org` with your organization's subdomain.
 
 <img src={useBaseUrl('/img/app-distribution/sso-saml/sso-3.png')} alt="SSO / SAML" width="100%"/>
 
-**Step 4:** Click **Save** to save the identity provider metadata. Once SSO is configured, this button reads **Update Metadata**.
+**Step 4:** Click **Save Metadata** to save the identity provider metadata. Once SSO is configured, this button reads **Update Metadata**.
 
 <img src={useBaseUrl('/img/app-distribution/sso-saml/sso-4.png')} alt="SSO / SAML" width="100%"/>
 
@@ -69,7 +69,7 @@ SSO login is only available when users access the login page via your organizati
 
 ## Service Provider Details
 
-These are the values to enter when creating the SAML application in your identity provider (the **SSO Settings** page shows them with your exact host):
+These are the values to enter when creating the SAML application in your identity provider (the **SSO / SAML Settings** page shows them with your exact host):
 
 | Field | Value | Also called |
 | --- | --- | --- |
@@ -83,7 +83,7 @@ These are the values to enter when creating the SAML application in your identit
 Replace `your-org` with your organization's subdomain. The SAML response must be delivered to the ACS URL via HTTP `POST`. The ACS URL may also end with a trailing slash.
 
 :::note
-For Okta, the Entity ID is `https://your-org.testfairy.com/login/sso/`. Always copy the exact values shown on the **SSO Settings** page, opened from your organization's subdomain.
+For Okta, the Entity ID is `https://your-org.testfairy.com/login/sso/`. Always copy the exact values shown on the **SSO / SAML Settings** page, opened from your organization's subdomain.
 :::
 
 ## User Provisioning

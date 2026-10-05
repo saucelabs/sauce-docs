@@ -163,4 +163,3 @@ Only relative paths are stored in the database - never full URLs. This means you
 | `404 Not Found` | Bucket name or region is incorrect, or the bucket doesn't exist | Check the bucket name and region |
 | `Connection timed out` | Wrong region, wrong endpoint, or network restriction | Verify the region matches the bucket's actual region. Check VPC/firewall rules. |
 
-The connection test uses `HeadBucket`, which returns no error body, so failures surface as generic `403` or `404` responses.

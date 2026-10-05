@@ -58,7 +58,7 @@ See [SSO / SAML](/app-distribution/settings/sso-saml) for the full setup.
 
 ## Timezone and Data Retention
 
-**Timezone** is set in the **Timezone Settings** section of **My Profile**. Select **Auto-detect** to use your browser's timezone, or choose one manually.
+**Timezone** is set in the **Timezone Settings** section of **My Profile**. Choose a timezone from the list; if none is selected, **UTC** is used.
 
 <img src={useBaseUrl('/img/app-distribution/acct-settings/acct-settings-7.png')} alt="Timezone Settings with the Timezone dropdown" width="100%"/>
 

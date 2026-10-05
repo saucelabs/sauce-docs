@@ -25,7 +25,7 @@ iOS ad-hoc and development builds always require you to log in before installing
 ## Install an App on Android
 
 1. Open the install link on your Android device.
-2. Tap **Install on Android**. If the build is download-only, the button reads **Download**.
+2. Tap **Install on Android**.
 3. If prompted, allow installation from unknown sources in your device settings.
 4. Open the downloaded `.apk` file and follow the installation prompts.
 

@@ -44,7 +44,6 @@ All endpoints require authentication. You can authenticate using any of the foll
 | Method | Example |
 | --- | --- |
 | `X-API-Key` header | `curl -H "X-API-Key: YOUR_KEY" ...` |
-| `Bearer` token | `curl -H "Authorization: Bearer YOUR_KEY" ...` |
 | `api_key` POST param | `curl -F api_key=YOUR_KEY ...` |
 
 ## Response Format
@@ -70,12 +69,12 @@ All responses return JSON with a `status` field (`"ok"` or `"fail"`).
 Upload an APK, AAB, or IPA file. The app is automatically matched by package name, or created if it doesn't exist.
 
 ```bash
-curl https://saucelabs-poc.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
   -F api_key=YOUR_API_KEY \
   -F file=@app-release.apk \
   -F changelog="Bug fixes and improvements" \
   -F notify=on \
-  -F testers_groups="QA,Beta"
+  -F groups="QA,Beta"
 ```
 
 | Parameter | Required | Description |
@@ -83,7 +82,7 @@ curl https://saucelabs-poc.testfairy.com/api/upload \
 | `file` | Yes | Binary file (`.apk`, `.aab`, or `.ipa`) |
 | `changelog` | No | Release notes. Also accepted as `comment` or `release_notes` |
 | `notify` | No | Set to `on` or `1` to email testers about the new build |
-| `testers_groups` | No | Comma-separated group names to notify. Also accepted as `groups` or `invitation_groups` |
+| `groups` | No | Comma-separated tester group names or IDs to grant the app to. Combine with `notify=on` to email them |
 | `app_version` | No | Override the auto-detected version string |
 | `version_code` | No | Override the auto-detected version code |
 | `folder_name` | No | Assign the app to a folder |
@@ -95,10 +94,10 @@ curl https://saucelabs-poc.testfairy.com/api/upload \
 List all apps in the organization.
 
 ```bash
-curl -H "X-API-Key: YOUR_KEY" https://saucelabs-poc.testfairy.com/api/1/projects/
+curl -H "X-API-Key: YOUR_KEY" https://app.testfairy.com/api/1/projects/
 ```
 
-Response includes: `id`, `name`, `packageName`, `platform`, `icon`, `folder_name`, `created`.
+Response includes: `id`, `self`, `name`, `folderName`, `packageName`, `platform`, `icon`, `landingPageMode`.
 
 ## Builds
 
@@ -110,7 +109,7 @@ List all builds for an app.
 
 Get a single build.
 
-Response includes: `id`, `projectId`, `appName`, `appVersion`, `appVersionCode`, `filesize`, `iconUrl`, `fileName`, `uploadedAt`, `uploadedVia`, `installsCount`, `tags`, `releaseNotes`, `installLink`.
+Response includes: `id`, `projectId`, `appName`, `appDisplayName`, `appVersion`, `appVersionCode`, `iconUrl`, `appUrl`, `platform`, `comment`, `tags`, `downloads`, `uploadedAt`, `uploadedVia`, `isDistributionEnabled`.
 
 ### <M>PATCH</M> `/api/1/projects/{projectId}/builds/{buildId}/`
 
@@ -127,7 +126,7 @@ Delete a build. Requires admin permissions.
 
 ### <M>GET</M> `/api/1/projects/{projectId}/builds/{buildId}/download/`
 
-Get the download URL for a build. Returns a pre-signed URL or install page link.
+Download a build. Responds with an HTTP 302 redirect to a pre-signed download URL (or to the install page when file storage isn't configured), so follow redirects, for example with `curl -L`.
 
 ### <M>POST</M> `/api/1/projects/{projectId}/builds/{buildId}/invites/`
 
@@ -139,7 +138,7 @@ Send install invitations to testers for a build.
 
 List all testers in the organization.
 
-Response includes: `id`, `email`, `name`.
+Response includes: `id`, `email`, `invitationStatus`, `isBlocked`, `groups`, `lastLogin`, `createdAt`, plus `hasUdidAccess`, `allowAll`, `hasPushToken`, `emailBounce`, `onlyAccount`, `account`, `allDevices`, `appleDevices`.
 
 ### <M>POST</M> `/api/1/testers/`
 
@@ -170,7 +169,7 @@ Unblock a tester. Requires admin permissions.
 
 ### <M>GET</M> `/api/1/testers/groups`
 
-List all tester groups. Response includes: `id`, `name`, `testersCount`.
+List all tester groups. Response includes: `id`, `name`, `testers` (a nested list of `{ "email" }` objects).
 
 ### <M>POST</M> `/api/1/testers/groups`
 
@@ -182,7 +181,7 @@ Create a tester group. Requires admin permissions.
 
 ### <M>POST</M> `/api/1/testers/groups/{groupId}`
 
-Add a tester to a group by email. Auto-creates the tester if they don't exist. Requires admin permissions.
+Add an existing tester to a group by email. If the email doesn't belong to a tester in your organization, the call returns `{ "status": "ok", "testers": [] }` and nothing changes. Requires admin permissions.
 
 | Parameter | Required | Description |
 | --- | --- | --- |
@@ -200,7 +199,7 @@ Remove a tester from a group by email. Requires admin permissions.
 
 ### <M>GET</M> `/api/1/groups/`
 
-List all groups in the organization. Response includes: `id`, `name`, `testersCount`.
+List all groups in the organization. Response includes: `id`, `name`, `private`.
 
 ### <M>GET</M> `/api/1/groups/{groupId}`
 
@@ -208,11 +207,11 @@ Get a single group.
 
 ### <M>GET</M> `/api/1/groups/{groupId}/testers/`
 
-List all testers in a group. Response includes: `id`, `email`, `name`.
+List all testers in a group. Each entry contains `email` only. Paginated with `page` and `per_page` (default 50, max 200).
 
 ### <M>GET</M> `/api/1/groups/{groupId}/projects/`
 
-List all apps assigned to a group. Response includes: `id`, `name`, `packageName`, `platform`.
+List all apps assigned to a group. Response includes: `id`, `name`. Paginated with `page` and `per_page` (default 25, max 100).
 
 ## Webhooks
 
@@ -220,7 +219,7 @@ List all apps assigned to a group. Response includes: `id`, `name`, `packageName
 
 List all webhooks for the organization.
 
-Response includes: `id`, `name`, `url`, `status`, `actions`, `projectIds`, `createdAt`.
+Response includes: `id`, `name`, `url`, `status`, `actions` (comma-separated), `projectIds` (comma-separated, or `*` for all apps).
 
 ### <M>POST</M> `/api/1/webhooks/`
 
@@ -229,7 +228,7 @@ Create a webhook. Requires admin permissions.
 | Parameter | Required | Description |
 | --- | --- | --- |
 | `url` | Yes | Webhook callback URL |
-| `name` | No | Display name (defaults to URL) |
+| `name` | Yes | Display name. Also accepted as `webhook-name`. Missing name returns code `104` |
 | `actions` | No | Comma-separated event types to listen for |
 | `project_ids` | No | Comma-separated app IDs (empty = all apps) |
 
@@ -253,7 +252,7 @@ In the legacy API, "sites" correspond to "teams" in the current platform.
 
 List all sites (teams) in the organization.
 
-Response includes: `id`, `name`, `projectsCount`, `membersCount`.
+Response is `{ "site": { "accounts": [...], "managers": [...] } }`. Each account includes `id`, `name`, `buildsCount` and `users` (each with `email` and `role`); each manager includes `email`. Only the account owner or an org admin can call this endpoint; other roles receive `{ "status": "fail", "code": 1, "message": "Feature is not enabled" }` with HTTP 200.
 
 ### <M>GET</M> `/api/1/sites/{siteId}`
 
@@ -269,12 +268,12 @@ Create a site (team). Requires admin permissions.
 
 ## Audit Logs
 
-Requires admin permissions. All audit endpoints support the following query parameters:
+Requires admin permissions. `GET /api/1/audits/` ignores query parameters and always returns up to 1000 app-download events. The `/api/2` audit endpoints support the following query parameters:
 
 | Parameter | Description |
 | --- | --- |
 | `page` | Page number (default: 1) |
-| `limit` | Results per page (default: 25, max: 100) |
+| `limit` | Results per page (default: 50, max: 100). `per_page` is also accepted and takes precedence |
 | `action` | Filter by action type |
 | `search` | Search in email and action data |
 | `from` | Start date (ISO 8601) |
@@ -296,7 +295,7 @@ List admin activity audit trail.
 
 List tester activity audit trail.
 
-Response includes: `id`, `user` (id, email), `ipAddress`, `action`, `data`, `createdAt`, plus `pagination` object.
+Response includes: `id`, `timestamp`, `enterpriseId`, `siteName`, `userId`, `userEmail`, `ipAddress`, `actionType`, `actionLabel`, `actionData`, plus `pagination` object.
 
 ## Error Codes
 
@@ -304,18 +303,20 @@ Response includes: `id`, `user` (id, email), `ipAddress`, `action`, `data`, `cre
 | --- | --- | --- |
 | `1` | 400 | Missing or invalid required parameter |
 | `2` | 400 | Duplicate resource (already exists) |
-| `5` | 401/403 | Invalid API key or insufficient permissions |
+| `5` | 401/403 | API key valid but no organization membership (401), or admin permissions required (403). On `/api/upload`, an invalid key also returns code `5` with HTTP 200 |
+| `104` | 401 | Missing or invalid API key (`/api/1` and `/api/2` endpoints) |
 | `112` | 400 | Empty file uploaded |
 | `121` | 400 | Invalid file type |
 | `133` | 400 | Organization not configured (no team found) |
-| `404` | 404 | Resource not found |
+| `400` | 200 | Tester not found (for example, `Invalid Tester`) |
+| `404` | 200 | Group not found |
 
 ## CI/CD Examples
 
 **Gradle (Android)**
 
 ```bash
-curl https://saucelabs-poc.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
   -F api_key=$API_KEY \
   -F file=@app/build/outputs/apk/release/app-release.apk \
   -F changelog="$(git log -1 --pretty=%B)"
@@ -324,7 +325,7 @@ curl https://saucelabs-poc.testfairy.com/api/upload \
 **Xcode (iOS)**
 
 ```bash
-curl https://saucelabs-poc.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
   -F api_key=$API_KEY \
   -F file=@build/MyApp.ipa \
   -F changelog="$(git log -1 --pretty=%B)" \
@@ -335,13 +336,13 @@ curl https://saucelabs-poc.testfairy.com/api/upload \
 
 ```bash
 # List apps
-curl -H "X-API-Key: $API_KEY" https://saucelabs-poc.testfairy.com/api/1/projects/
+curl -H "X-API-Key: $API_KEY" https://app.testfairy.com/api/1/projects/
 
 # List builds for an app
-curl -H "X-API-Key: $API_KEY" https://saucelabs-poc.testfairy.com/api/1/projects/123/builds/
+curl -H "X-API-Key: $API_KEY" https://app.testfairy.com/api/1/projects/123/builds/
 
 # Get download URL
-curl -H "X-API-Key: $API_KEY" https://saucelabs-poc.testfairy.com/api/1/projects/123/builds/456/download/
+curl -H "X-API-Key: $API_KEY" https://app.testfairy.com/api/1/projects/123/builds/456/download/
 ```
 
 ## Migration to API v3

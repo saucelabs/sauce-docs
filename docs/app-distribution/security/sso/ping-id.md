@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When SSO is configured into your account, the login page is replaced with a **Login with sso** button.
+When SSO is configured into your account, the login page is replaced with a **Login with PingIdentity** button.
 
 ## Setting Up Ping Identity In Your Account
 
@@ -31,6 +31,6 @@ For **Entity ID**, use the same format, **https://acme.testfairy.com**, and agai
 
 1. Download **SAML Metadata**.
 
-1. Login to Sauce Labs Mobile App Distribution, and select **Preferences**.
+1. Login to Sauce Labs Mobile App Distribution, click the **Profile** icon in the top-right corner, select **Integrations**, then find **SSO / SAML** and click **Connect**.
 
-1. Copy the contents of the file you just downloaded, and paste it into the textbox. Click on **Update SAML ID Provider Metadata**.
+1. Copy the contents of the file you just downloaded, and paste it into the **IdP Metadata XML** field. Click **Save Metadata** (or **Update Metadata** if SSO is already configured).

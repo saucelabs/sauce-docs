@@ -9,11 +9,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Single Sign-on (SSO) enables you to manage users and testers outside of Sauce Labs Mobile App Distribution, providing enhanced security and a streamlined user experience. With Sauce Labs Mobile App Distribution's SAML support (for more information, see [SAML Custom roles](/app-distribution/security/sso/saml/)), you can seamlessly integrate with popular SSO providers such as Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS.
+Single Sign-on (SSO) enables you to manage users and testers outside of Sauce Labs Mobile App Distribution, providing enhanced security and a streamlined user experience. With Sauce Labs Mobile App Distribution's SAML support (for more information, see [SAML Custom roles](/app-distribution/security/sso/saml/)), you can seamlessly integrate with popular SSO providers such as Okta, OneLogin, Ping, Oracle, and Azure ADFS.
 
 ## Integrating Sauce Labs Mobile App Distribution
 
-To integrate Sauce Labs Mobile App Distribution with your preferred SAML/SSO provider, refer to our integration guides for each supported provider below. These guides provide detailed instructions on configuring Sauce Labs Mobile App Distribution with Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS, respectively :
+To integrate Sauce Labs Mobile App Distribution with your preferred SAML/SSO provider, refer to our integration guides for each supported provider below. These guides provide detailed instructions on configuring Sauce Labs Mobile App Distribution with Okta, OneLogin, Azure Active Directory, Google, and Ping Identity:
 
 |                                                                                                                   |                                                         |
 | :---------------------------------------------------------------------------------------------------------------: |---------------------------------------------------------|

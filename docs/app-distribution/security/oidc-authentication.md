@@ -13,7 +13,7 @@ This guide explains how to configure OpenID Connect (OIDC) authentication for Sa
 
 ## Overview
 
-OIDC authentication allows organizations to authenticate API requests using JWT tokens from their identity provider instead of traditional API keys. This is designed for **machine-to-machine (M2M)** authentication using the OAuth 2.0 Client Credentials flow.
+OIDC authentication allows organizations to authenticate API requests using JWT tokens from their identity provider instead of traditional API keys. It is typically used for **machine-to-machine (M2M)** authentication with the OAuth 2.0 Client Credentials flow.
 
 ### Benefits
 
@@ -97,14 +97,13 @@ values={[
 
 <TabItem value="adfs">
 
-AD FS publishes its discovery document and signing keys under the AD FS service URL, while its access tokens carry a different value in the `iss` claim. Both are required.
+Mobile App Distribution compares the token's `iss` claim with the **Issuer URL** you configure, and uses the same URL to find the discovery document. Make sure the `iss` value in your AD FS access tokens matches the URL you enter.
 
 1. Go to **AD FS Management > Application Groups > Add Application Group**
 2. Add a **Server application** for machine-to-machine access, then note the **Client ID** and generate a **Client Secret**
 3. Add a **Web API** application and set its identifier (this is your audience)
 4. Note down:
-   - **Issuer URL**: the `issuer` value from `https://<adfs-host>/adfs/.well-known/openid-configuration`
-   - **Expected Issuer**: the `iss` claim from a decoded access token, typically `http://<adfs-host>/adfs/services/trust`
+   - **Issuer URL**: the `issuer` value from `https://<adfs-host>/adfs/.well-known/openid-configuration`; it must match the `iss` claim in a decoded access token
    - **Audience**: the Web API identifier
 
 </TabItem>
@@ -114,18 +113,17 @@ AD FS publishes its discovery document and signing keys under the AD FS service 
 
 ### Step 2: Configure OIDC Settings in Sauce Labs Mobile App Distribution
 
-1. Log in to Sauce Labs Mobile App Distribution as an account owner or manager
-2. Go to **Settings > OIDC Authentication**
+1. Log in to Sauce Labs Mobile App Distribution as an **Account Owner** or **Org Admin**
+2. Click the **Profile** icon, select **Integrations**, then click **Connect** in the **OIDC** row to open the **OIDC API Authentication** page
 3. Configure the following fields:
 
 | Setting | Description |
 | :------ | :---------- |
-| **Enable OIDC** | Toggle to enable OIDC authentication |
+| **Enable OIDC Authentication** | Toggle to enable OIDC authentication |
 | **Authentication Mode** | How to handle API key vs OIDC auth (see below) |
 | **Issuer URL** | Your identity provider's issuer URL (e.g., `https://your-tenant.auth0.com/`) |
-| **Expected Issuer** | *(Optional)* The token's `iss` claim value when it differs from the Issuer URL (for example, AD FS). Leave empty to validate against the Issuer URL. |
 | **Audience** | The expected audience claim in tokens (e.g., `https://api.testfairy.com`) |
-| **Signing Algorithms** | Allowed JWT signing algorithms (default: `RS256`) |
+| **Allowed Algorithms** | JWT signing algorithms used by your identity provider (default: `RS256`) |
 | **Required Scopes** | *(Optional)* Comma-separated list of scopes to validate |
 | **JWKS Cache TTL** | How long to cache public keys (default: 24 hours) |
 | **Clock Skew Tolerance** | Allowed time difference (default: 60 seconds) |
@@ -139,7 +137,7 @@ AD FS publishes its discovery document and signing keys under the AD FS service 
 
 ### Step 3: Test the Configuration
 
-1. Click **Test Connection** to verify:
+1. Click **Test** next to **Issuer URL** to verify:
    - The issuer URL is reachable
    - The OIDC discovery endpoint responds correctly
    - The JWKS (public keys) can be fetched
@@ -157,7 +155,7 @@ Each OIDC configuration is assigned a unique, unguessable config key (e.g., `oid
 - Is automatically generated when you save your OIDC configuration
 - Must be included in every API request via the `X-OIDC-Config-Key` header
 - Should be treated as a secret and stored securely (e.g., in CI/CD secrets)
-- Can be regenerated from the OIDC settings page if compromised
+- Cannot be regenerated on its own. If it is compromised, click **Delete Configuration** on the OIDC settings page and save the configuration again; the new configuration gets a new key
 
 The config key ensures that even if multiple organizations use the same OIDC provider with identical settings, they cannot accidentally access each other's data.
 
@@ -376,7 +374,7 @@ upload-to-testfairy:
 ### Debugging Tips
 
 1. **Decode your JWT token** at [jwt.io](https://jwt.io) to inspect claims
-2. **Verify the issuer URL** ends with `/` if your provider includes it
+2. **Verify the issuer URL** matches the token's `iss` claim (a trailing `/` is ignored on both sides)
 3. **Check the audience** matches exactly (case-sensitive)
 4. **Test the OIDC discovery endpoint** manually:
    ```bash
@@ -392,11 +390,11 @@ upload-to-testfairy:
 When a token is validated, the following checks are performed:
 
 1. Token format is valid JWT (three base64-encoded parts)
-2. Token header specifies an allowed algorithm (default: RS256)
+2. Token header specifies an algorithm that matches the signing key published in your identity provider's JWKS
 3. Token signature is valid (verified using JWKS public keys)
 4. Token is not expired (`exp` claim)
 5. Token is not used before valid time (`nbf` claim, if present)
-6. Issuer (`iss` claim) matches the Expected Issuer, or the issuer URL if none is configured
+6. Issuer (`iss` claim) matches the configured **Issuer URL** (a trailing `/` is ignored)
 7. Audience (`aud` claim) matches configured audience
 8. Required scopes are present (only if scope validation is configured)
 
@@ -404,16 +402,16 @@ When a token is validated, the following checks are performed:
 
 | Error | Solution |
 | :---- | :------- |
-| `X-OIDC-Config-Key header required` | Add the `X-OIDC-Config-Key` header to your request. |
-| `Invalid config key` | The config key is incorrect. Verify it from your OIDC settings page. |
-| `OIDC not enabled for this organization` | Enable OIDC in Settings > OIDC Authentication. |
-| `Invalid issuer` | Token's `iss` claim doesn't match. Verify the issuer URL matches exactly (including trailing slash). If your provider's tokens use a different `iss` value (for example, AD FS), set it in **Expected Issuer**. |
-| `Invalid audience` | Token's `aud` claim doesn't match. Verify the audience matches exactly (case-sensitive). |
-| `Token has expired` | Request a new token from your identity provider. |
-| `Invalid token signature` | Ensure the token is from the correct provider and hasn't been tampered with. |
-| `Missing required scope` | Request a token with the required scopes or update your OIDC configuration. |
-| `Failed to fetch JWKS` | Check network connectivity and verify the issuer URL. |
-| `Unsupported algorithm` | Only RS256, RS384, and RS512 are supported. |
+| `Missing X-OIDC-Config-Key header. OIDC JWT tokens require the X-OIDC-Config-Key header to identify the OIDC configuration.` | Add the `X-OIDC-Config-Key` header to your request. |
+| `Invalid OIDC config key.` | The config key is incorrect. Copy it again from the **Integration Details** section of the OIDC settings page. |
+| `OIDC authentication is disabled.` | Turn on **Enable OIDC Authentication** on the OIDC settings page and save. |
+| `Failed to fetch JWKS from issuer.` | The discovery document or JWKS could not be fetched from the **Issuer URL**. Check the URL and that the identity provider is reachable. |
+| `Issuer mismatch: expected "<issuer-url>", got "<iss>".` | The token's `iss` claim doesn't match the **Issuer URL**. Make the two identical (a trailing `/` is ignored). |
+| `Audience mismatch: expected "<audience>".` | The token's `aud` claim doesn't contain the configured **Audience**. Check it matches exactly (case-sensitive). |
+| `Token missing required scope. Required one of: <scopes>.` | Request a token that includes at least one of the configured **Allowed Scopes**, or change that field. |
+| `Token validation failed: <reason>` | The signature, expiry or algorithm check failed. The reason comes from the JWT library, for example `Expired token` or `Signature verification failed`. Request a new token and check it was issued by the configured provider. |
+
+The `/api/v3/...` endpoints return these messages as `{"error": "<message>"}` with HTTP `401`. The legacy endpoints used in the examples above don't pass them through: `/api/1/...` answers `401` with `{"status":"fail","code":104,"message":"User not found"}`, and `/api/upload` answers HTTP `200` with `"status":"fail"` and `"code": 1` or `"code": 5`. To see the real reason, repeat the call against `/api/v3/projects`.
 
 ---
 
@@ -437,11 +435,11 @@ A: No. The client ID and secret are only used client-side to obtain tokens. Sauc
 
 **Q: Which JWT algorithms are supported?**
 
-A: RS256, RS384, and RS512 are supported. RS256 is recommended and is the default.
+A: Mobile App Distribution doesn't restrict the algorithm. Any algorithm that matches a signing key your identity provider publishes in its JWKS works. RS256 is the most common choice and is the default value of **Allowed Algorithms**.
 
 **Q: Can I use HS256 (symmetric) algorithms?**
 
-A: No. Only asymmetric algorithms (RS\*) are supported for security reasons. Symmetric algorithms would require sharing the secret key.
+A: Mobile App Distribution doesn't block any algorithm; it verifies tokens with the keys your identity provider publishes in its JWKS. Identity providers normally publish only asymmetric keys (RS\*, ES\*, EdDSA), so use one of those.
 
 ## See Also
 

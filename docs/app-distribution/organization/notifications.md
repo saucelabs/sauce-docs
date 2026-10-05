@@ -38,7 +38,7 @@ Email notifications keep you informed about specific activity related to builds 
 
 ## Turn Off Email Notifications
 
-Go to **My Profile** ▸ **Email Settings** and turn off **Receive emails for new builds and app assignments**. The setting is on by default. You can also use the unsubscribe link in any notification email.
+Go to **My Profile** ▸ **Email Settings** and turn off **Receive emails for new builds and app assignments**. The setting is on by default. It stops the build upload emails and the group notifications. Emails sent when someone assigns you to an app individually or clicks **Resend Email** are always delivered. You can also use the unsubscribe link in any notification email.
 
 In-app notifications can't be turned off.
 

@@ -18,16 +18,16 @@ import TabItem from '@theme/TabItem';
 1. OKTA-side configuration is done. Now click **Done**.
 1. In the **Sign On** menu, click on **View Setup Instructions**.
 1. Copy `ID Provided Metadata` from section 4 into your clipboard.
-1. Now login to https://app.testfairy.com, and open the **Preferences**.
-1. In the **Security** menu item **SAML/Single Sign-on** section, paste the copied `ID Provided Metadata` into the text area.
+1. Now login to https://app.testfairy.com, click the **Profile** icon in the top-right corner and select **Integrations**.
+1. On the **Integrations** page, find **SSO / SAML** and click **Connect**. Paste the copied `ID Provided Metadata` into the **IdP Metadata XML** field and click **Save Metadata** (or **Update Metadata** if SSO is already configured).
 1. TestFairy-side configuration is done.
-   Now, log out, and if SSO is configured into your account, the login page is replaced with **Login with OKTA**.
+   Now, log out, and if SSO is configured into your account, the login page is replaced with **Login with Okta**.
 
 ### (Optional) Automatically Importing Groups From OKTA
 
 When managing large teams with OKTA, it is most likely that people are already associated with groups.
 
-For example, say Alice is associated with the following groups in OKTA: ["QA", "QA San Francisco"]. With auto-import of groups, Alice is automatically associated with the following groups in Sauce Labs Mobile App Distribution the next time she signs in: "okta", "okta-qa", and "okta-qa-san-francisco". Once removed from the group "QA", Alice is automatically removed from the "okta-qa" group in Sauce Labs Mobile App Distribution, the next time she signs in.
+For example, say Alice is associated with the following groups in OKTA: ["QA", "QA San Francisco"]. With auto-import of groups, Alice is automatically added to the following groups in Sauce Labs Mobile App Distribution the next time she signs in: "okta-qa" and "okta-qa-san-francisco". Group import only adds memberships: if Alice is later removed from "QA" in OKTA, she stays in the "okta-qa" group until an admin removes her.
 
 To import groups each time a user signs into Sauce Labs Mobile App Distribution:
 

@@ -40,13 +40,13 @@ The **User Information** section shows the name and email address on your accoun
 
 The **Timezone** setting controls how dates and times are displayed to you across the platform, for example build upload times and audit log entries. It only changes what you see, not the times other users see.
 
-Select **Auto-detect** to use your browser's timezone, or choose a timezone from the list, such as **UTC**.
+Choose a timezone from the list. If you don't select one, times are shown in **UTC**.
 
 <img src={useBaseUrl('/img/app-distribution/my-profile/profile-4.png')} alt="Timezone Settings with the Timezone dropdown" width="100%"/>
 
 ## Email Settings
 
-The **Email Settings** section controls whether Mobile App Distribution emails you about new builds and about apps assigned to you. Use the **Receive emails for new builds and app assignments** toggle to turn these emails on or off. You can also turn them off with the unsubscribe link in any notification email.
+The **Email Settings** section controls whether Mobile App Distribution emails you about new builds and about tester-group notifications. Use the **Receive emails for new builds and app assignments** toggle to turn these emails on or off. You can also turn them off with the unsubscribe link in any notification email. Emails sent when an admin assigns you to an app individually, or resends that invitation, are always delivered.
 
 Admins can see your email preference as a bell icon in the **Users** and **Testers** tables.
 
@@ -79,7 +79,7 @@ New passwords must be at least 8 characters and include an uppercase letter, a l
 
 Your API key authenticates requests to the Mobile App Distribution API, such as build uploads from a CI/CD pipeline or the [Fastlane plugin](/app-distribution/ci-tools/fastlane). It's tied to your account, and it doesn't expire until you regenerate it.
 
-Your API key is available from the **API Credentials** dropdown in the top navigation bar and the **API Key** section on the **My Profile** page. For automation, use a dedicated [service account](/app-distribution/security/service-accounts) instead of your personal key.
+Your API key is available from the **API Credentials** dropdown in the top navigation bar and the **API Key** section on the **My Profile** page. For automation, invite a dedicated user account and use its API key instead of your personal key. See [Service Accounts](/app-distribution/security/service-accounts).
 
 :::note
 Testers don't have an API key. The **API Credentials** menu and the **API Key** section aren't shown to them.

@@ -61,24 +61,24 @@ saucelabs_appdist(
 | `apk`                 | Path to your APK file (Android)                                |                           |
 | `symbols_file`        | Symbols mapping file                                           |                           |
 | `upload_url`          | Upload API URL for Sauce Labs Mobile App Distribution          | `https://app.testfairy.com` |
-| `testers_groups`      | Array of tester groups to be notified                          | `[]`                      |
+| `testers_groups`      | Accepted for compatibility; ignored by Mobile App Distribution | `[]`                      |
 | `comment`             | Additional release notes for this upload                       | `No comment provided`     |
-| `auto_update`         | Auto-upgrade users (`on`/`off`)                                | `off`                     |
+| `auto_update`         | Accepted for compatibility; ignored by Mobile App Distribution | `off`                     |
 | `notify`              | Send email to testers (`on`/`off`)                             | `off`                     |
-| `options`             | Array of options                                               | `[]`                      |
-| `custom`              | Custom options string                                          | `""`                      |
+| `options`             | Accepted for compatibility; ignored by Mobile App Distribution | `[]`                      |
+| `custom`              | Accepted for compatibility; ignored by Mobile App Distribution | `""`                      |
 | `timeout`             | Request timeout in seconds                                     |                           |
 | `tags`                | Custom tags for builds                                         | `[]`                      |
-| `metrics`             | Array of metrics to record                                     | `[]`                      |
+| `metrics`             | Accepted for compatibility; ignored by Mobile App Distribution | `[]`                      |
 | `folder_name`         | Dashboard folder name                                          | `""`                      |
 | `landing_page_mode`   | Landing page visibility (`open`/`closed`)                      | `open`                    |
 | `upload_to_saucelabs` | Upload to Sauce Labs (`on`/`off`)                              | `off`                     |
 | `platform`            | Platform override                                              | `""`                      |
 | `community_token`     | Custom URL token for the landing page                          | `""`                      |
-| `app_description`     | Description text to display on the landing page                | `""`                      |
+| `app_description`     | Accepted for compatibility; ignored by Mobile App Distribution | `""`                      |
 
 :::note
-If your server's security settings require users to login before downloading, you must set `landing_page_mode: "closed"`. Otherwise the upload will fail with error code 156.
+If your server's security settings require users to log in before downloading, the landing page is always closed at install time, regardless of `landing_page_mode`. The upload itself does not fail. `landing_page_mode` only accepts `open` or `closed`; any other value fails the upload with error code 135.
 :::
 
 ### Lane Variables
@@ -99,20 +99,20 @@ The response is a hash containing all fields from the upload API, including:
 | `app_name`                         | Name of the uploaded app                          |
 | `app_version`                      | Version of the uploaded app                       |
 | `file_size`                        | Size of the uploaded file in bytes                |
-| `build_url`                        | URL for the sessions of the newly uploaded build  |
+| `build_url`                        | URL of the project page in the dashboard          |
 | `download_page_url`                | URL of the download page                          |
 | `app_url`                          | Direct download URL for the build                 |
 | `invite_testers_url`               | URL to invite testers to this build               |
 | `icon_url`                         | URL of the app icon                               |
-| `options`                          | Configured options for this build                 |
+| `options`                          | Always `''`; present for compatibility only       |
 | `platform`                         | Platform (iOS/Android)                            |
 | `tags`                             | Tags associated with the build                    |
 | `metadata`                         | Metadata associated with the build                |
-| `has_testfairy_sdk`                | Whether the app includes the TestFairy SDK        |
+| `has_testfairy_sdk`                | Always `false`; present for compatibility only    |
 | `symbols_download_url`             | URL to download symbols file (if uploaded)        |
 | `landing_page_url`                 | URL of the build's landing page                   |
 | `build_specific_landing_page_url`  | Landing page URL specific to this build           |
-| `attachments`                      | Attachments associated with the build             |
+| `attachments`                      | Always `null`; present for compatibility only     |
 | `landing_page_mode`                | Landing page visibility (`open` or `closed`)      |
 | `app_description`                  | Description text displayed on the landing page    |
 

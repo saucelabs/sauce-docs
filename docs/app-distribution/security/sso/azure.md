@@ -25,7 +25,7 @@ When SSO is configured into your account, the login page is replaced with a **Lo
 
 1. Return to the menu and select **Single sign-on**.
 1. Select **SAML**.
-1. Click the pencil icon to edit the **Basic SAML Configuration** - `Identifier` and `Reply URL` fields. Add `https://acme.testfairy.com/` to the `Identifier` field and `https://acme.testfairy.com/login/sso` to the `Reply URL`. Change `acme` to your own **Sauce Labs Mobile App Distribution** subdomain.
+1. Click the pencil icon to edit the **Basic SAML Configuration** - `Identifier` and `Reply URL` fields. Add `https://acme.testfairy.com` to the `Identifier` field and `https://acme.testfairy.com/login/sso` to the `Reply URL`. Change `acme` to your own **Sauce Labs Mobile App Distribution** subdomain.
 1. Download the XML file in the `Federation Data`. You need it later for uploading to your Sauce Labs Mobile App Distribution Dashboard Security settings.
 
 ## Adding Users to the Application
@@ -36,7 +36,7 @@ When SSO is configured into your account, the login page is replaced with a **Lo
 
 ## Adding SAML Details To Sauce Labs Mobile App Distribution
 
-1. Go to your Sauce Labs Mobile App Distribution account preferences and select **Security**.
-1. Open the XML file previously saved and copy its content to the **ID Provider metadata** field.
-1. Click on **Update SAML ID Provider Metadata** when done.
-1. After saving the configuration, you see a success message. Now, log out and make sure you can see the **Login with Azure** button when trying to log in.
+1. In Sauce Labs Mobile App Distribution, click the **Profile** icon in the top-right corner, select **Integrations**, then find **SSO / SAML** and click **Connect**.
+1. Open the XML file previously saved and copy its content to the **IdP Metadata XML** field.
+1. Click **Save Metadata** (or **Update Metadata** if SSO is already configured) when done.
+1. After saving the configuration, you see a success message. Now, log out and make sure you can see the **Login with Azure AD** button when trying to log in.

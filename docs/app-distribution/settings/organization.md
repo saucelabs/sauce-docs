@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Other organization-wide settings have their own pages, also available from the user menu:
 
-- [SSO / SAML](/app-distribution/settings/sso-saml) and [OIDC Authentication](/app-distribution/settings/oidc-authentication) for sign-in and API authentication
+- [SSO / SAML](/app-distribution/settings/sso-saml) and [OIDC Authentication](/app-distribution/settings/oidc-authentication) for sign-in and API authentication. To open them, select **Integrations** from the user menu, then click **Connect** on the **SSO / SAML** or **OIDC** row.
 - [Integrations](/app-distribution/integrations/saucelabs-connection), such as the Sauce Labs connection, SMTP, webhooks and app stores
 - [Audit Log](/app-distribution/organization/audit-log) for a record of actions in your organization
 

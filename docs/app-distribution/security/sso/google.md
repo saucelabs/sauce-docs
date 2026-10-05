@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When SSO is configured into your account, the login page is replaced with the `Login with Google` button.
+When SSO is configured into your account, the login page is replaced with the **Login with Google SSO** button.
 
 ## Setting Up Login With Google In Your Account
 
@@ -21,7 +21,7 @@ When SSO is configured into your account, the login page is replaced with the `L
     -[Contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to provision a custom subdomain 
 1. Review and click **Next** and then click **Finish** when done.
 1. Ensure the service is `on` to finish the setup. If it isn't, go to **EDIT SERVICE** and change it to **ON** for everyone.
-1. Go to your Sauce Labs Mobile App Distribution account, click on **Account Preferences** in the top-right menu, and select **Security** from the left menu. Paste the previously saved file contents in the `ID Provider metadata`. Click on **Update SAML ID Provider metadata** when done. Log out and make sure you can see the **Login with Google** button.
+1. Go to your Sauce Labs Mobile App Distribution account, click the **Profile** icon in the top-right corner, select **Integrations**, then find **SSO / SAML** and click **Connect**. Paste the previously saved file contents in the **IdP Metadata XML** field. Click **Save Metadata** (or **Update Metadata** if SSO is already configured) when done. Log out and make sure you can see the **Login with Google SSO** button.
 
 ## Troubleshooting
 

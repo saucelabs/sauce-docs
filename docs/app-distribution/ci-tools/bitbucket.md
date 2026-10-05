@@ -30,14 +30,14 @@ Set up Bitbucket Pipelines to upload your build artifacts (IPA or APK) directly 
 4. Edit your `bitbucket-pipelines.yml` and add this command to your `script` section:
 
    ```bash
-   curl https://app.testfairy.com/api/upload -F api_key=${TESTFAIRY_API_KEY} -F file=@MyApplicationFile.apk -F format=readable
+   curl https://app.testfairy.com/api/upload -F api_key=${TESTFAIRY_API_KEY} -F file=@MyApplicationFile.apk
    ```
 
 :::caution
 Do not forget to replace `MyApplicationFile.apk` with the path to your APK or IPA files.
 :::
 
-Additional optional parameters such as `testers-groups`, `notify`, and `comment` can be added to this line. Refer to the [Upload API reference guide](/app-distribution/developer/legacy-api-v1#upload) for more information and examples.
+Additional optional parameters such as `groups`, `notify`, and `comment` can be added to this line. Refer to the [Upload API reference guide](/app-distribution/developer/legacy-api-v1#upload) for more information and examples.
 
 Here is a screenshot of a sample `bitbucket-pipelines.yml` file:
 

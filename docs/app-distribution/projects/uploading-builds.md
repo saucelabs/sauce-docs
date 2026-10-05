@@ -17,7 +17,7 @@ App Distribution supports the following application packages:
 |---|---|---|
 | **iOS** | `.ipa` | iOS application archive |
 | **Android** | `.apk`, `.aab` | Android application package. `.aab` files are converted to an APK for installation. |
-| **Any** | `.zip` | Generic archive |
+| **iOS** | `.zip` | A zipped iOS `.app` bundle (`Payload/<name>.app`). Other `.zip` archives are only accepted when Generic File Distribution is enabled for your organization. |
 
 Make sure your build is packaged in one of these supported formats before uploading it. Files can be up to 4 GB.
 
@@ -35,7 +35,7 @@ The **Upload Build** page opens. Enter the build information using the following
 
 | **Ref.** | **Field** | **Description** |
 |---:|---|---|
-| **1** | **App File** | Upload your application build by dragging and dropping the file into the upload area or selecting **browse to select a file**. Supported formats are `.apk`, `.aab`, `.ipa`, and `.zip`. |
+| **1** | **App File** | Upload your application build by dragging and dropping the file into the upload area or selecting **browse to select a file**. Supported formats are `.apk`, `.aab`, `.ipa`, and `.zip` (a zipped iOS `.app` bundle; other archives are only accepted when Generic File Distribution is enabled for your organization). |
 | **2** | **Version** | Enter the app version, or leave the field empty to use the value detected from the build. |
 | **3** | **Version Code / Build Number** | Enter the build number, or leave the field empty to use the value detected from the build. |
 | **4** | **Release Notes** | Describe the changes included in the build. |

@@ -68,12 +68,11 @@ While **Sync roles** is on, an existing <span className="role-badge role-badge--
 
 When team synchronization is active:
 
-- On every SauceLabs login, the user's team memberships are synced.
-- New SauceLabs teams are automatically created in Mobile App Distribution.
-- On each sign-in, the user is removed from every team whose name isn't in their Sauce Labs team list, including teams created in App Distribution.
-- If a user has no remaining SauceLabs teams, their Mobile App Distribution account is blocked (they cannot log in).
-- If they are re-added to a team in SauceLabs, their account is unblocked on next login.
-- Blocking and unblocking happen only when **Sync teams** is on.
+- On every Sauce Labs login, the user's team memberships are synced.
+- Teams that exist in Sauce Labs but not in Mobile App Distribution are created automatically.
+- The user is added to each of their Sauce Labs teams. Sauce Labs organization admins and team admins become **Team Admins**; everyone else becomes a **Team Member**.
+- The user is removed from any other team in the organization, except the **Default** team. Default team membership is never changed by the sync.
+- If Sauce Labs reports no teams for the user, nothing is changed: no teams are added or removed, and the user can still log in.
 
 ## Sync Settings
 

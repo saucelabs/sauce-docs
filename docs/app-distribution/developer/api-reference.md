@@ -153,7 +153,7 @@ For the full interactive API documentation with request/response examples, visit
 | `version` | No | Override the detected version string |
 | `release_notes` | No | Release notes for the build |
 | `folder` | No | Folder to place the app in |
-| `groups` | No | Tester groups to notify |
+| `groups` | No | Comma-separated tester group names or IDs to grant the app to. Replaces existing grants; omit to leave grants unchanged, or send `none` to remove all grants. Does not send email on its own (see `notify`) |
 | `notify` | No | Set to `1` to email testers about the new build |
 | `symbols_file` | No | Symbols file to attach to the build |
 | `sync_to_saucelabs` | No | Set to `1` to also copy the build to Sauce Labs App Storage |

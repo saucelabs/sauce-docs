@@ -55,10 +55,11 @@ The test payload looks like this:
 ```json
 {
   "event": "test",
-  "message": "This is a test webhook from Mobile App Distribution",
-  "appName": "My App",
-  "version": "1.2.3",
-  "build": "42"
+  "timestamp": "2026-03-26 14:30:00",
+  "message": "This is a test webhook from Mobile App Distribution.",
+  "appName": "Test App",
+  "version": "1.0.0",
+  "build": "1"
 }
 ```
 

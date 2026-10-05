@@ -29,8 +29,8 @@ Every user in your organization has one organization role. Choose the lowest rol
 
 | Role | Has an API key? | Use for a service account? | What it can do through the API |
 | --- | --- | --- | --- |
-| <span className="role-badge role-badge--member">Member</span> (in specific teams) | Yes | **Recommended** | Upload builds, create and update apps, update release notes and tags, and notify testers, but only in the teams it belongs to. |
-| <span className="role-badge role-badge--org-admin">Org Admin</span> | Yes | Only if needed | Everything a Member can do in **all** teams, plus deleting apps and builds, managing tester groups, testers, teams and webhooks, and reading the audit log. |
+| <span className="role-badge role-badge--member">Member</span> (in specific teams) | Yes, unless the organization's Members are read-only | **Recommended** | Upload builds, create and update apps, update release notes and tags, and notify testers, only in the teams it belongs to. |
+| <span className="role-badge role-badge--org-admin">Org Admin</span> | Yes | Only if needed | Everything a Member can do in **all** teams, plus deleting apps and builds in any team (a Member can delete only in teams where it is a Team Admin), managing tester groups, testers, teams and webhooks, and reading the audit log. |
 | <span className="role-badge role-badge--owner">Account Owner</span> | Yes | No | Full control of the organization. Don't use it for automation. OIDC requests also run as this account. |
 | <span className="role-badge role-badge--tester">Tester</span> | No | No | Testers can't use the API. |
 
@@ -155,7 +155,7 @@ The API key isn't deleted when you remove the account. If you invite the same em
 
 **403 Forbidden**
 
-- The account is a **Member** and the endpoint is admin-only, for example deleting a build or creating a tester group.
+- The account is a **Member** and the endpoint is admin-only, for example creating a tester group, or it tried to delete an app or build in a team where it isn't a Team Admin.
 - The app belongs to a team the account isn't in. Add the account to that team.
 - The account was removed from the organization. Invite it again.
 
