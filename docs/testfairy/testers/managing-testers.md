@@ -13,7 +13,7 @@ To see all the testers you have for your app, invite new testers, or import/expo
 <img src={useBaseUrl('/img/test-fairy/group-testers.png')} alt="alt upload"/>
 
 ## Manage Testers Through the API
-You can fully automate and control tester management through our APIs. For more details, refer to our [API documentation.](/testfairy/api-reference/rest-api/#testers).
+You can fully automate and control tester management through our APIs. For more details, refer to our [API documentation](/testfairy/api-reference/rest-api/#testers).
 
 ## Inviting Testers by Email
 
@@ -31,7 +31,7 @@ You can add testers manually or [import lists of testers](https://app.testfairy.
 
 :::note Only for iOS
 If you are **not** using an [iOS Enterprise certificate](https://developer.apple.com/programs/enterprise/), you will need to obtain the UDIDs (Unique Device Identifiers) of your testers' devices before sending them the app. The registration link in the email sent to testers will enable them to provide their UDIDs. These details will be added to your [testers page](https://app.testfairy.com/testers).
-For more information on how to add UDIDs to provisioning profiles, see [Adding UDIDs to iOS Development Profile](/testfairy/sdk/ios/adding-udids/).
+For more information on how to add UDIDs to provisioning profiles, see [Adding UDIDs to iOS Development Profile](/testfairy/app-distribution/adding-udids/).
 
 :::
 

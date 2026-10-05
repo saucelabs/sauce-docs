@@ -19,29 +19,25 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-Sauce Labs Mobile App Distribution lets you distribute beta builds to testers and see how they use your app. The Sauce Mobile Beta SDK (formerly the TestFairy SDK) for React Native, `@saucelabs/mobile-beta-react-native`, adds session recording, tester feedback, screenshots, remote logging, and session events to your React Native app, so you can identify and debug issues more effectively and optimize the user experience.
+Sauce Labs Mobile App Distribution lets you distribute beta builds to testers and see how they use your app. The Sauce Mobile Beta SDK for React Native, `@saucelabs/mobile-beta-react-native`, adds session recording, tester feedback, screenshots, remote logging, and session events to your React Native app, so you can identify and debug issues more effectively and optimize the user experience.
 
-The package is a bridge to the native Sauce Mobile Beta SDKs for iOS and Android. It replaces the legacy `react-native-testfairy` package. The JavaScript API is unchanged, so migrating is a package swap and one import change.
+The package is a bridge to the native Sauce Mobile Beta SDKs for iOS and Android.
 
 ## Crash Ownership
 
-The Sauce Mobile Beta SDK is crashless: neither the JavaScript layer, the native bridges, nor the bundled native SDKs install a crash handler. Crash reporting is provided by Backtrace, the Sauce Labs Error Reporting product, which owns JavaScript unhandled errors and unhandled promise rejections, iOS native crashes, and Android JVM and native crashes. The legacy crash APIs (`enableCrashHandler()` and `disableCrashHandler()`) remain callable for source compatibility but are no-ops.
+The SDK does not install a crash handler: neither the JavaScript layer, the native bridges, nor the bundled native SDKs do. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), which owns JavaScript unhandled errors and unhandled promise rejections, iOS native crashes, and Android JVM and native crashes. The two SDKs are designed to run in the same app.
 
-Start the SDK with `beginWithoutCrashHandler(...)`. It forces the `enableCrashReporter` option to `false` even if you pass `true`. Plain `begin(...)` is also crashless in this package, but the explicit call documents the coexistence contract. See [Using With Backtrace](#using-with-backtrace) for the full setup.
-
-:::caution
-Never install a legacy TestFairy artifact together with the Sauce Mobile Beta SDK or together with Backtrace. The legacy `react-native-testfairy` package (2.x) installs its own crash handler, which competes with Backtrace, and it exposes the same `TestFairyBridge` native module and the same `com.testfairy` native classes as this package, which causes duplicate-module and duplicate-class failures. The same applies to the legacy native artifacts: the `TestFairy` pod, a manually linked `TestFairySDK.framework` or `libTestFairy.a`, `com.testfairy:testfairy-android-sdk`, and `com.testfairy:testfairy-android-ndk`.
-:::
+Start the SDK with `beginWithoutCrashHandler(...)`. It starts a session and never installs a crash handler, and it forces the `enableCrashReporter` option to `false` even if you pass `true`. `begin(...)` also starts a session without a crash handler. Use `beginWithoutCrashHandler` to make the intent explicit in your code. See [Using With Backtrace](#using-with-backtrace) for the full setup.
 
 ## Requirements
 
 - React Native 0.71 or later and React 18 or later (the package's peer dependencies). Node.js 18 or later is required to install it. The package autolinks, so no manual native linking is needed.
-- iOS 11 or later.
-- Android API level 16 or later for the SDK on its own. When you use it with Backtrace, use Backtrace's minimum, API level 21.
+- iOS 12.4 or later, the React Native 0.71 minimum. The package's podspec requires iOS 12.0.
+- Android API level 21 or later, required by React Native 0.71 and by Backtrace.
 
 ## Installation
 
-The current release is `@saucelabs/mobile-beta-react-native` 3.0.0-rc, which bundles the crashless native SDKs 2.2.0-rc for iOS and Android. Until npm publishing is switched on, install the package from the tarball attached to the [GitHub Release](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc):
+The current release is `@saucelabs/mobile-beta-react-native` 3.0.0-rc, which bundles the native SDKs 2.2.0-rc for iOS and Android. Until npm publishing is switched on, install the package from the tarball attached to the [GitHub Release](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc):
 
 ```bash
 npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.0.0-rc/saucelabs-mobile-beta-react-native-3.0.0-rc.tgz
@@ -51,16 +47,16 @@ cd ios && pod install
 The package installs into `node_modules/@saucelabs/mobile-beta-react-native` and autolinks exactly like a registry install.
 
 :::note
-Publishing to the npm registry follows. After the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. The package name, version scheme, and API stay the same. GA versions ship with the same coordinates.
+Publishing to the npm registry follows. After the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. The package name, version scheme, and API are the same for both install methods. GA versions ship with the same coordinates.
 :::
 
 ### iOS
 
-Run `pod install` in your `ios` directory after every install or upgrade of the package. The package's podspec vendors the crashless `TestFairy` xcframework, so you do not add a pod for the native SDK yourself. Do not add `pod 'TestFairy'` to your Podfile, and remove it if a previous integration added it.
+Run `pod install` in your `ios` directory after every install or upgrade of the package. The package's podspec vendors the `TestFairy` xcframework, so you do not add a pod for the native SDK yourself.
 
 ### Android
 
-The package depends on the native artifact `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`, which is served from the Sauce Mobile Beta Maven repository at `https://maven.testfairy.com`. Declare that repository in `dependencyResolutionManagement` in your `settings.gradle` (or `settings.gradle.kts`):
+The package pins the native artifact `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc` and ships it in a local Maven repository, which its `build.gradle` registers on every Gradle project together with `https://maven.testfairy.com` as a fallback. A standard React Native project needs no repository change. If your `settings.gradle` (or `settings.gradle.kts`) restricts repositories with `dependencyResolutionManagement` and `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, declare the fallback repository there as well:
 
 <Tabs
 groupId="gradle"
@@ -109,32 +105,7 @@ dependencyResolutionManagement {
 </TabItem>
 </Tabs>
 
-The `content` filter is optional. It limits the repository to the Sauce Mobile Beta group. Do not use version wildcards for pre-release versions. If your app declares `com.testfairy:testfairy-android-sdk` or `com.testfairy:testfairy-android-ndk` anywhere, remove those dependencies first. The native artifact bundles its consumer ProGuard rules (`-keep class com.testfairy.** { *; }` and `-dontwarn com.testfairy.**`), so existing keep rules remain valid.
-
-## Migrating From `react-native-testfairy`
-
-The legacy `react-native-testfairy` package and `@saucelabs/mobile-beta-react-native` are mutually exclusive. Uninstall the legacy package first:
-
-```bash
-npm uninstall react-native-testfairy
-npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.0.0-rc/saucelabs-mobile-beta-react-native-3.0.0-rc.tgz
-cd ios && rm -rf Pods Podfile.lock && pod install
-```
-
-Then:
-
-1. Update the import. The runtime class is still `TestFairy`, so no other source changes are needed:
-
-   ```js
-   // Before
-   import TestFairy from 'react-native-testfairy';
-   // After
-   import TestFairy from '@saucelabs/mobile-beta-react-native';
-   ```
-
-2. Replace the legacy initialization (`disableCrashHandler()` followed by `begin(token)`) with `beginWithoutCrashHandler(token)`.
-3. Add the Maven repository from [Android](#android) and remove any legacy `com.testfairy` Gradle dependencies and any `pod 'TestFairy'` line.
-4. Remove manually registered `TestFairyPackage` instances from `MainApplication` (React Native 0.60 and later autolink the package), and clean the native build directories (`ios/build`, `android/.gradle`, `android/build`, `android/app/build`) before rebuilding.
+The `content` filter is optional. It limits the repository to the Sauce Mobile Beta group. Do not use version wildcards for pre-release versions. The native artifact bundles its consumer ProGuard rules (`-keep class com.testfairy.** { *; }` and `-dontwarn com.testfairy.**`), so you do not need to add keep rules for it.
 
 ## Usage
 
@@ -193,21 +164,20 @@ const subscription = TestFairy.addSessionStateListener({ // 2. before the start;
   onSessionFailed() { backtrace.addAttribute({ 'sauce.mobile_beta.session_started': 'false' }); },
 });
 Object.entries(shared).forEach(([key, value]) => TestFairy.setAttribute(key, value)); // 3. same attributes
-TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>'); // 4. crashless start
+TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>'); // 4. start without a crash handler
 ```
 
 For the complete contract, including the iOS and Android specifics, see [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/). For the Backtrace side of the setup, see the [Backtrace React Native integration guide](/error-reporting/language-integrations/react-native/). A working setup that shares all attributes is in the package repository at [example/src/observability.ts](https://github.com/testfairy/react-native-testfairy/blob/3.0.0-rc/example/src/observability.ts).
 
 ## API Notes
 
-The JavaScript API stays TestFairy-compatible: the default export is `TestFairy`, the native module is `TestFairyBridge`, and the Android runtime package is `com.testfairy`. Only the packaging names changed. Differences from the legacy package:
+The default export is `TestFairy`, the native module is `TestFairyBridge`, and the Android runtime package is `com.testfairy`.
 
-- `beginWithoutCrashHandler(appToken, options?)` is the recommended entry point. `begin(appToken, options?)` is also crashless. Both force `enableCrashReporter` to `false`.
-- `enableCrashHandler()` and `disableCrashHandler()` are no-ops kept for source compatibility. Use Backtrace for crash reporting and crash testing.
-- `isCrashReportingAvailable()` returns `false`.
+- `beginWithoutCrashHandler(appToken, options?)` starts a session. See [Crash Ownership](#crash-ownership).
+- `isCrashReportingAvailable()` returns `false`. Use Backtrace for crash reporting and crash testing.
 - `pushFeedbackController()` shows the feedback form for the running session. `showFeedbackForm(appToken, takeScreenshot?)` also works without a session. See [Submitting User Feedback](/testfairy/sdk/user-feedback/).
 - `getIntegrationInfo()` returns `{ sdkName, crashReportingAvailable: false, coexistenceMode: 'backtrace_crash_owner' }`.
 - `setAttribute(key, value)` before `beginWithoutCrashHandler` applies to every session the SDK starts, including sessions started after `stop()`. Limits: 64 attributes, keys up to 64 characters, values up to 1000 characters on iOS and 1024 on Android.
-- `setUserId(id)` identifies the tester. `setCorrelationId(...)` and `identify(...)` are deprecated. They write the same user-identity field.
+- `setUserId(id)` identifies the tester. `setCorrelationId(...)` and `identify(...)` are deprecated. They write the same user-identity field as `setUserId`. Use `setUserId` plus `setAttribute` instead.
 - `addSessionStateListener(listener)` returns a subscription with `remove()`. The listener receives `onSessionStarted({ sessionUrl })`, `onSessionFailed()`, `onSessionLengthReached({ secondsFromStartSession })`, `onSessionStopped()`, and the auto-update events.
 - `getSessionUrl()` returns a promise that resolves to the session URL (or `null` before the session is accepted). `getVersion()` returns a promise with the native SDK version.

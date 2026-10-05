@@ -25,17 +25,17 @@ An ad hoc provisioning profile is a distribution provisioning profile that allow
 
 You can create four types of distribution provisioning profiles for apps:
 
-- **iOS App Store** - for distributing through the apple app store.
+- **iOS App Store** - for distributing through the Apple App Store.
 
-- **Ad Hoc** - for installing on **[designated devices]** see [Adding UDIDs to iOS Development Profile](/testfairy/sdk/ios/adding-udids/).
+- **Ad Hoc** - for installing on designated devices. See [Adding UDIDs to iOS Development Profile](/testfairy/app-distribution/adding-udids/).
 
-- **Enterprise** - for distributing an app in your organization, see [this documentation](https://developer.apple.com/programs/enterprise/).
+- **Enterprise** - for distributing an app in your organization. See the [Apple Developer Enterprise Program](https://developer.apple.com/programs/enterprise/).
 
-- **Development** - For distributing to members of your team, see [this documentation](https://developer.apple.com/support/certificates/).
+- **Development** - for distributing to members of your team. See [Apple Developer certificates](https://developer.apple.com/support/certificates/).
 
-Make sure you have created an Ad Hoc provisioning profile specifying an `App ID` that matches one or more of your apps, a set of **test devices**, and a single **distribution certificate** at the developer portal. For more information, see [this documentation](https://idmsa.apple.com/IDMSWebAuth/login?&appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&path=%2F%2Fmembercenter%2Findex.action).
+Make sure you have created an Ad Hoc provisioning profile specifying an `App ID` that matches one or more of your apps, a set of **test devices**, and a single **distribution certificate** at the developer portal. For more information, see [Certificates, Identifiers and Profiles](https://developer.apple.com/account/resources/profiles/list) in the Apple Developer Portal.
 
-We warmly recommend any company to apply to Apple's iOS Developer Enterprise Program. See [](https://developer.apple.com/programs/enterprise/), and sign iOS apps for internal use with an Enterprise certificate.
+We recommend that companies apply to the [Apple Developer Enterprise Program](https://developer.apple.com/programs/enterprise/) and sign iOS apps for internal use with an Enterprise certificate.
 
 :::note
 This document is not a legal resource. For the most accurate and up-to-date information, refer to Apple's official documentation and terms of service.
@@ -48,12 +48,12 @@ Follow these steps to export your app for testing using the Ad Hoc provisioning 
 1. Open your Xcode project.
 2. In the Xcode project editor, select either `Generic iOS Device` or the name of your connected device from the Scheme toolbar menu. You cannot create an archive of a Simulator build.
 3. Choose **Product** and then **Archive** from the top menu. The **Archives organizer** will appear, displaying the new archive.
-Xcode will perform preliminary validation tests on the archive. To proceed with creating the IPA file, click **Distribute App**.
-1. A dialog will appear with export options. Choose the `Save for Ad Hoc Deployment` option. This ensures that the app will be code signed with the distribution certificate.
-2. In the next dialog, select a signing method and click "Next."
-3. On the distribution options screen, customize the settings as needed and click "Next."
-4. Review the app details, entitlements, and provisioning profile in the appearing dialog.
-5. Click **Export**. The Finder will display the exported files. Save the exported IPA file to your desired location.
+   Xcode will perform preliminary validation tests on the archive. To proceed with creating the IPA file, click **Distribute App**.
+4. A dialog will appear with export options. Choose the `Save for Ad Hoc Deployment` option. This ensures that the app will be code signed with the distribution certificate.
+5. In the next dialog, select a signing method and click "Next."
+6. On the distribution options screen, customize the settings as needed and click "Next."
+7. Review the app details, entitlements, and provisioning profile in the appearing dialog.
+8. Click **Export**. The Finder will display the exported files. Save the exported IPA file to your desired location.
 
 ## Installing Your App on Test Devices Using Xcode
 
