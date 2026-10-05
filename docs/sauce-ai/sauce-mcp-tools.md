@@ -191,7 +191,7 @@ Ask an open-ended question about your test history in plain English.
 
 | Tool | Description | Example prompt | Requirements |
 | --- | --- | --- | --- |
-| `ask_insights` | Answer a plain-English question about your jobs and builds with a table of results. Use it when no other Insights tool fits. | "Show failed jobs per browser for the last 30 days." | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+| `ask_insights` | Answer a plain-English question about your jobs and builds with a table of results. Use it when no other Insights tool fits. | "Show failed jobs per browser for the last 30 days." | (<span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span>) <span className="mcp-conn">and</span> <span className="mcp-tag">AI for Insights</span> |
 
 ## Storage
 
