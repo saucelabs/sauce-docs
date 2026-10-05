@@ -10,14 +10,14 @@ import TabItem from '@theme/TabItem';
 
 The distribution process begins after you have uploaded your application.
 
-For Android applications, refer to [Uploading Apps](/testfairy/using-testfairy/uploading-an-app).
+For Android applications, refer to [Uploading Apps](/testfairy/using-testfairy/uploading-an-app/).
 
 If you're distributing an iOS application:
 
 - When using an enterprise certificate, the process mirrors the Android distribution.
-- With an ad-hoc certificate, follow the steps outlined in [Adding UDIDs to the iOS Development Profile](/testfairy/sdk/ios/adding-udids/).
+- With an ad-hoc certificate, follow the steps outlined in [Adding UDIDs to iOS Development Profile](/testfairy/app-distribution/adding-udids/).
 
-If you're distributing a macOS application, first zip the application (before zipping, the file extension will be `.app`; after zipping, it will become `.zip`). Then, proceed with the process described in [Uploading Apps](/testfairy/using-testfairy/uploading-an-app).
+If you're distributing a macOS application, first zip the application. Before zipping, the file extension is `.app`. After zipping, it is `.zip`. Then proceed with the process described in [Uploading Apps](/testfairy/using-testfairy/uploading-an-app/).
 
 Distributing your application is a straightforward process:
 
@@ -49,7 +49,7 @@ This action sends them an email with a download link. It can be done with Androi
 
 ## Landing Pages
 
-You can build a community of testers or distribute your app by utilizing a pre-designed landing page (see [Landing Pages](/testfairy/app-distribution/landing-pages)). Share the landing page link with testers to facilitate app downloads. The download link on the landing page can be secured through login, requiring testers to log in before downloading.
+You can build a community of testers or distribute your app by utilizing a pre-designed landing page (see [Landing Pages](/testfairy/app-distribution/landing-pages/)). Share the landing page link with testers to facilitate app downloads. The download link on the landing page can be secured through login, requiring testers to log in before downloading.
 
 ## Testers Dashboard
 
@@ -59,7 +59,7 @@ The **Testers Dashboard** is where a tester can view the apps they were invited 
 
 Permissions manage app distribution to groups of testers/users and are defined for each app (including all its builds). This means all testers in a group can access all builds of the app.
 
-Permissions are based on defined groups of testers (see [Managing Testers](/testfairy/testers/managing-testers)).
+Permissions are based on defined groups of testers (see [Managing Testers](/testfairy/testers/managing-testers/)).
 
 Once groups are defined, they will appear on the **Permissions** page.
 

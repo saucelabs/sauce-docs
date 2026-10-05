@@ -1,6 +1,6 @@
 ---
 id: backtrace-coexistence
-title: Using Sauce Mobile Beta with Backtrace Error Reporting
+title: Using Sauce Mobile Beta with Backtrace
 sidebar_label: Using with Backtrace
 ---
 
@@ -19,35 +19,27 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-The Sauce Mobile Beta SDK (formerly the TestFairy SDK) and Backtrace, the Sauce Labs Error Reporting product, run side by side in one app. This guide describes the contract that makes that possible: Backtrace owns crashes, Sauce Mobile Beta owns beta sessions, and both carry the same correlation attribute so a crash report and its session recording can be matched across the two consoles.
+The Sauce Mobile Beta SDK and Backtrace (Sauce Labs Error Reporting) run side by side in one app. This guide describes the contract that makes that possible: Backtrace owns crashes, Sauce Mobile Beta owns beta sessions, and both carry the same correlation attribute so a crash report and its session recording can be matched across the two consoles.
 
 ## Overview
 
-A process can have only one owner of its signal and exception handlers. The legacy TestFairy SDK 1.x installed its own crash handler, so it could not share an app with Backtrace: whichever SDK initialized last took over, and crashes were lost or misattributed. The Sauce Mobile Beta SDK is crashless. It never installs a crash handler at any layer, on any platform, so Backtrace is always the sole crash owner.
+A process can have only one owner of its signal and exception handlers. The Sauce Mobile Beta SDK never installs one, at any layer and on any platform, so Backtrace is always the sole crash owner. The two SDKs are designed to run in the same app.
 
 | Product                    | Owns                                                                                                                        |
 | :------------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
 | Backtrace                  | Native crashes (iOS, Android JVM and NDK), JavaScript errors and unhandled promise rejections (React Native), out-of-memory detection, symbolication |
 | Sauce Mobile Beta SDK      | Beta sessions and video, tester feedback and screenshots, remote logs and events, session attributes, tester workflow |
 
-The runtime API stays TestFairy-compatible: the iOS module and class are still `TestFairy`, the Android package is still `com.testfairy`, and the React Native default export is still `TestFairy`. Only the packaging names changed. The one call that is new on every platform is `beginWithoutCrashHandler`, the recommended entry point for a Backtrace-owned app.
-
-:::caution
-Never combine a legacy TestFairy artifact with Backtrace, and never combine a legacy TestFairy artifact with the Sauce Mobile Beta SDK. The legacy artifacts are crash-capable: with Backtrace they compete for the same crash handlers, and with Sauce Mobile Beta they duplicate the `TestFairy` classes and can bring a crash handler back.
-:::
+Import the `TestFairy` module on iOS, `com.testfairy.TestFairy` on Android, and the `TestFairy` default export in React Native. On every platform, `beginWithoutCrashHandler` is the entry point for an app that runs Backtrace: it starts a session and never installs a crash handler.
 
 ## Before You Begin
 
-Install both SDKs, then remove every legacy TestFairy artifact from the project.
+Install both SDKs.
 
 1. Install Backtrace for your platform: [iOS](/error-reporting/platform-integrations/ios/setup/), [Android](/error-reporting/platform-integrations/android/setup/) (plus [Native Crash Integration](/error-reporting/platform-integrations/android/native-crash-integration/) if you want NDK crashes), or [React Native](/error-reporting/language-integrations/react-native/). New to Backtrace? Start with [Getting Started](/error-reporting/getting-started/).
-   - Android: use Backtrace Android SDK 3.8.0 or later, which provides `BacktraceClient.addAttribute` (see [Configuring Backtrace for Android](/error-reporting/platform-integrations/android/configuration/)). On 3.7.x, use `((BacktraceDatabase) client.database).addAttribute(key, value)` instead.
+   - Android: use Backtrace Android SDK 3.7.14 or later, which added `BacktraceClient.addAttribute` (see [Configuring Backtrace for Android](/error-reporting/platform-integrations/android/configuration/)). On 3.7.13 or earlier, use `((BacktraceDatabase) client.database).addAttribute(key, value)` instead.
 2. Install the Sauce Mobile Beta SDK: [iOS](/testfairy/sdk/ios/integrating-ios/), [Android](/testfairy/sdk/android/integrating-android/), or [React Native](/testfairy/platforms/react-native/).
-3. Remove the legacy TestFairy SDK 1.x artifacts if the project still references them:
-   - iOS: `pod 'TestFairy'`, a Carthage or manually added `TestFairySDK.framework`, and 1.x tags of `testfairy-ios-sdk-swift-package`.
-   - Android: `com.testfairy:testfairy-android-sdk` and `com.testfairy:testfairy-android-ndk`.
-   - React Native: `react-native-testfairy` (`npm uninstall react-native-testfairy`), including its bundled `libTestFairy.a` and `React-TestFairy.podspec`.
-4. On Android, use Backtrace's `minSdk` (21) for the combined app. Sauce Mobile Beta alone supports `minSdk` 16.
+3. On Android, use Backtrace's `minSdk` (21) for the combined app. Sauce Mobile Beta alone supports `minSdk` 16.
 
 ## Initialization Order
 
@@ -112,7 +104,7 @@ class MainApplication : Application() {
         // 3. Mirror every session URL into Backtrace (overwritten on each start).
         TestFairy.addSessionStateListener(object : SessionStateListener() {
             override fun onSessionStarted(sessionUrl: String?) {
-                // backtrace-android 3.8+; on 3.7.x: (backtrace.database as BacktraceDatabase).addAttribute(key, value)
+                // backtrace-android 3.7.14+; on 3.7.13 or earlier: (backtrace.database as BacktraceDatabase).addAttribute(key, value)
                 backtrace.addAttribute("sauce.mobile_beta.session_started", "true")
                 backtrace.addAttribute("sauce.mobile_beta.session_url", sessionUrl ?: "")
             }
@@ -124,7 +116,7 @@ class MainApplication : Application() {
         // 4. Same attributes before begin; the SDK keeps them for every session.
         shared.forEach { (key, value) -> TestFairy.setAttribute(key, value) }
 
-        // 5. Crashless start. Never installs a crash handler.
+        // 5. Start the SDK. It never installs a crash handler.
         TestFairy.beginWithoutCrashHandler(applicationContext, "<sauce-mobile-beta-token>")
     }
 }
@@ -139,7 +131,7 @@ Make the attributes assignment the very next statement after `try BacktraceClien
 ```swift
 import UIKit
 import Backtrace
-import TestFairy // module unchanged; the SwiftPM product is SauceMobileBeta
+import TestFairy // the SwiftPM product is SauceMobileBeta
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -170,7 +162,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // 4. Same attributes before begin; the SDK keeps them for every session.
         for (key, value) in shared { TestFairy.setAttribute(key, withValue: value) }
 
-        // 5. Crashless start. Never installs a crash handler.
+        // 5. Start the SDK. It never installs a crash handler.
         TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
         return true
     }
@@ -247,7 +239,7 @@ export function initializeObservability() {
     TestFairy.setAttribute(key, value);
   }
 
-  // 5. Crashless start. Never installs a crash handler.
+  // 5. Start the SDK. It never installs a crash handler.
   TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
   return { backtrace, subscription };
 }
@@ -256,7 +248,7 @@ export function initializeObservability() {
 </TabItem>
 </Tabs>
 
-`beginWithoutCrashHandler` forces the `enableCrashReporter` option to `false` even if you pass `true`. Plain `begin(...)` is also crashless in the Sauce Mobile Beta SDK, but the explicit call documents the contract in your code and is the recommended entry point.
+`beginWithoutCrashHandler` forces the `enableCrashReporter` option (`TFSDKEnableCrashReporterKey` on iOS) to `false` even if you pass `true`. Plain `begin(...)` also starts a session without a crash handler, but the explicit call documents the contract in your code and is the recommended entry point.
 
 ## Shared Attributes
 
@@ -265,7 +257,7 @@ Both SDKs receive the same keys and values. The values are copies, not reference
 | Attribute                    | Value                                                     | Why                                                                                                  |
 | :--------------------------- | :-------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
 | `sauce.correlation_id`       | Lowercase UUID v4, generated once per app launch          | The join key. Search it in either console to find the matching report or session.                    |
-| `sauce.sdk.coexistence_mode` | `backtrace_crash_owner`                                   | Documents which product owns crashes in this build; use it to filter mixed fleets.                   |
+| `sauce.sdk.coexistence_mode` | `backtrace_crash_owner`                                   | Documents which product owns crashes in this build. Use it to filter mixed fleets.                         |
 | `sauce.environment`          | `beta`, `production`, or your own environment name        | Separates beta traffic from other environments in both consoles.                                     |
 | `sauce.release`              | `<appId>@<version>` (for example `com.example.app@1.2.3`) | Ties reports and sessions to a release without relying on platform-specific version fields.          |
 | `sauce.dist`                 | Build number (`CFBundleVersion` or `versionCode`)         | Distinguishes builds of the same version.                                                            |
@@ -291,31 +283,20 @@ Do not use `setCorrelationId` or `identify` for the correlation id. Both are dep
 
 In the other direction, filter Backtrace on `sauce.correlation_id` with the value shown on a session's attributes to see whether that launch crashed.
 
-## Crash APIs in the Crashless SDK
+## Crash APIs
 
-The legacy crash entry points remain in the API for source compatibility, but they no longer do anything. Remove them from your code when you migrate. Nothing breaks if they stay.
-
-| API                                              | Legacy TestFairy SDK 1.x                    | Sauce Mobile Beta SDK                                                    |
-| :----------------------------------------------- | :------------------------------------------ | :----------------------------------------------------------------------- |
-| `installCrashHandler`                            | Installs the crash handler without a session | No-op (iOS and Android log that the call is ignored and return)          |
-| `enableCrashHandler`                             | Enables crash capture before `begin`        | No-op (logged)                                                           |
-| `disableCrashHandler`                            | Disables crash capture before `begin`       | No-op (already crashless)                                                |
-| `didLastSessionCrash`                            | Whether the previous session crashed        | Always `false`; query Backtrace for crash history instead                |
-| `enableCrashReporter` option (`TFSDKEnableCrashReporterKey`) | Turns crash capture on or off      | Forced to `false` by `beginWithoutCrashHandler`; `begin` is also crashless |
-| React Native `isCrashReportingAvailable()`       | Not present in `react-native-testfairy` 2.x | Returns `false`; `getIntegrationInfo().coexistenceMode` is `backtrace_crash_owner` |
-
-The [Crash Handler](/testfairy/sdk/tf-crash-handler/) page and the Crash Reporting section of [Begin with Options](/testfairy/sdk/options/) describe the legacy behavior for readers of the 1.x artifacts. Do not try to chain a TestFairy uncaught-exception handler with Backtrace's. The Sauce Mobile Beta SDK is built without one.
+These methods exist in the API and do nothing: `installCrashHandler`, `enableCrashHandler`, and `disableCrashHandler`. `didLastSessionCrash` always returns `false`. In React Native, `isCrashReportingAvailable()` returns `false` and `getIntegrationInfo().coexistenceMode` is `backtrace_crash_owner`. Use Backtrace for crash history.
 
 ## Production Builds
 
-Keep the Sauce Mobile Beta SDK out of store builds and let Backtrace stay. Backtrace is designed for production crash reporting. The Sauce Mobile Beta SDK records sessions for testers. On Android, declare the SDK with `debugImplementation` or in a beta flavor so release variants never package it. On iOS, gate the calls behind a build setting or a no-op wrapper. [Sauce Mobile Beta SDK in Production](/testfairy/sdk/tf-production/) describes the options, including the no-op SDK pattern. The shared attributes still go to Backtrace in production, which keeps `sauce.release` and `sauce.dist` consistent between beta and store reports.
+Keep the Sauce Mobile Beta SDK out of store builds and ship Backtrace in every build. Backtrace is designed for production crash reporting. The Sauce Mobile Beta SDK records sessions for testers. On Android, declare the SDK with `debugImplementation` or in a beta flavor so release variants never package it. On iOS, gate the calls behind a build setting or a no-op wrapper. [Sauce Mobile Beta SDK in Production](/testfairy/sdk/tf-production/) describes the options, including the no-op wrapper pattern. The shared attributes go to Backtrace in production as well, which keeps `sauce.release` and `sauce.dist` consistent between beta and store reports.
 
 ## Reference Apps
 
 This pattern is taken from the Sauce Labs demo apps and the React Native package's example app, all of which run the released SDKs:
 
 - [My Demo App for iOS repository](https://github.com/saucelabs/my-demo-app-ios), release [2.3.0](https://github.com/saucelabs/my-demo-app-ios/releases/tag/2.3.0). See `My Demo App/AppDelegate.swift` and `My Demo App/Utilities/TestFairyWrapper.swift`.
-- [My Demo App for Android repository](https://github.com/saucelabs/my-demo-app-android), release [2.3.0](https://github.com/saucelabs/my-demo-app-android/releases/tag/2.3.0). See `MyApplication.java` and `app/src/mobileBeta/.../SauceMobileBetaIntegration.java`, which also asserts after `beginWithoutCrashHandler` that Backtrace's uncaught-exception handler is still in place.
+- [My Demo App for Android repository](https://github.com/saucelabs/my-demo-app-android), release [2.3.0](https://github.com/saucelabs/my-demo-app-android/releases/tag/2.3.0). See `MyApplication.java` and `app/src/mobileBeta/.../SauceMobileBetaIntegration.java`, which also asserts after `beginWithoutCrashHandler` that Backtrace's uncaught-exception handler is the one installed in the process.
 - React Native example app: [testfairy/react-native-testfairy](https://github.com/testfairy/react-native-testfairy), release [3.0.0-rc](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc). See `example/src/observability.ts`.
 
 To try it, run a demo app with your own Backtrace submission URL and Sauce Mobile Beta token, then trigger a crash: More > Crash the App on iOS, or Crash app (debug) in the menu on Android. The process dies as a genuine crash. The Sauce Mobile Beta SDK does not intercept it. Relaunch the app: Backtrace uploads the pending report while Sauce Mobile Beta starts a new session. Open the report, copy its `sauce.correlation_id`, and search for it in the session list to land on the recording of the launch that crashed.

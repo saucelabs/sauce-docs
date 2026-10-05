@@ -1,6 +1,6 @@
 ---
 id: adding-tf-sdk
-title: Adding the Sauce Mobile Beta SDK to your App
+title: Adding the Sauce Mobile Beta SDK to Your App
 sidebar_label: Adding the Sauce Mobile Beta SDK
 ---
 
@@ -19,11 +19,9 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-The Sauce Mobile Beta SDK (formerly the TestFairy SDK) helps you understand how testers use your app. It records tester sessions, collects in-app feedback and remote logs, and ties every session to a user and a set of attributes, so you can find and inspect sessions on the Sauce Labs Mobile App Distribution dashboard.
+The Sauce Mobile Beta SDK helps you understand how testers use your app. It records tester sessions, collects in-app feedback and remote logs, and ties every session to a user and a set of attributes, so you can find and inspect sessions on the Sauce Labs Mobile App Distribution dashboard.
 
-The SDK is crashless: it never installs a crash handler. Crash reporting is provided by Backtrace, [Sauce Labs Error Reporting](/error-reporting/getting-started/), and the two SDKs are designed to run side by side in one app. See [Sauce Mobile Beta and Backtrace](#sauce-mobile-beta-and-backtrace) below.
-
-Sauce Mobile Beta SDK features include:
+SDK features include:
 
 - Recording sessions, including video of how testers interact with your app.
 - Collecting in-app feedback from testers. See [User Feedback](/testfairy/sdk/user-feedback/).
@@ -31,17 +29,13 @@ Sauce Mobile Beta SDK features include:
 - Identifying users so you can find their sessions. See [Identifying Your Users](/testfairy/sdk/identifying-users/).
 - Tagging sessions with attributes for searching and custom reports. See [Session Attributes](/testfairy/sdk/session-attributes/).
 
-Only the packaging names changed with the rename. The runtime API keeps its TestFairy names: you still `#import "TestFairy.h"` or `import TestFairy` on iOS, import `com.testfairy.TestFairy` on Android, and use the default export `TestFairy` in React Native.
-
-:::note
-Crash handling is no longer a feature of the SDK. Crashes are reported by Backtrace. The legacy crash APIs `installCrashHandler`, `enableCrashHandler`, `disableCrashHandler` and `didLastSessionCrash` remain for source compatibility but do nothing.
-:::
+The runtime API is the same on every platform. Import the `TestFairy` module on iOS, `com.testfairy.TestFairy` on Android, and the `TestFairy` default export in React Native.
 
 ## Sauce Mobile Beta and Backtrace
 
-**What changed.** The legacy TestFairy SDK 1.x installed its own crash handler. A process can have only one owner of its signal and exception handlers, so the TestFairy SDK and Backtrace could not run in the same app: depending on which SDK initialized last, crashes were lost or misattributed. The Sauce Mobile Beta SDK artifacts for iOS, Android and React Native remove that conflict at the source. Crash reporting is compiled out of the SDK, and Backtrace is the single crash owner.
+The SDK and Backtrace (Sauce Labs Error Reporting) cover two different parts of a tester's experience. The SDK records what happened during a session: the video, the logs, the feedback, and the attributes you set. Backtrace reports what went wrong when the app crashes: the stack trace, the device state, and the symbolicated frames. The SDK does not install a crash handler. Crash reporting is provided by Backtrace, and the two SDKs are designed to run in the same app.
 
-**The invariant.** The Sauce Mobile Beta SDK never installs a crash handler, at any layer. The entry point `beginWithoutCrashHandler` makes this explicit: it forces the `enableCrashReporter` option to `false` even if you pass `true`. Plain `begin` is also crashless in the Sauce Mobile Beta artifacts, but `beginWithoutCrashHandler` is the recommended call.
+Start the SDK with `beginWithoutCrashHandler`. It starts a session and never installs a crash handler, and it forces the `enableCrashReporter` option (`TFSDKEnableCrashReporterKey` on iOS) to `false` even if you pass `true`. `begin` also starts a session without a crash handler.
 
 <Tabs
 groupId="sdk"
@@ -84,19 +78,15 @@ TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
 
 </Tabs>
 
-**Where to go.**
+Where to go next:
 
-- To set up crash reporting, see [Sauce Labs Error Reporting](/error-reporting/getting-started/).
-- To run both SDKs in one app, initialize Backtrace first, then start Sauce Mobile Beta with `beginWithoutCrashHandler`, and give both SDKs the same `sauce.correlation_id` attribute so you can join a crash report with its session recording. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
-- To move an app from the legacy TestFairy SDK 1.x artifacts, follow the platform page for [Android](/testfairy/sdk/android/integrating-android/), [iOS](/testfairy/sdk/ios/integrating-ios/) or [React Native](/testfairy/platforms/react-native/).
-
-:::caution
-Never install a legacy TestFairy SDK 1.x artifact (`pod 'TestFairy'`, the Carthage or manual `TestFairySDK.framework`, `com.testfairy:testfairy-android-sdk`, `com.testfairy:testfairy-android-ndk` or `react-native-testfairy`) together with a Sauce Mobile Beta artifact, which fails with duplicate classes, or together with Backtrace, which leaves two SDKs competing for the crash handler. Remove the legacy artifact first.
-:::
+- To set up crash reporting, see [Getting Started with Backtrace](/error-reporting/getting-started/).
+- To run both SDKs in one app, initialize Backtrace first, then start the SDK with `beginWithoutCrashHandler`, and give both SDKs the same `sauce.correlation_id` attribute so you can join a crash report with its session recording. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+- To verify the setup end to end by forcing a crash, see [Testing Crash Reporting with Backtrace](/testfairy/sdk/crash-handler-testing/).
 
 ## Supported Platforms
 
-The Sauce Mobile Beta SDK ships crashless artifacts for the following platforms. Follow the instructions for your platform:
+The SDK is available for the following platforms. Follow the instructions for your platform:
 
 - [Android](/testfairy/sdk/android/integrating-android/): `com.saucelabs.mobilebeta:sauce-mobile-beta-android`
 - [iOS](/testfairy/sdk/ios/integrating-ios/): Swift package `SauceMobileBeta` (module `TestFairy`)
@@ -232,3 +222,7 @@ NSURL *file = [NSURL fileURLWithPath:@"/path/to/file.txt"];
 </TabItem>
 
 </Tabs>
+
+:::note Already using the TestFairy SDK?
+Follow [Migrating from the TestFairy SDK](/testfairy/sdk/migration/overview/) to move your app to the Sauce Mobile Beta SDK.
+:::

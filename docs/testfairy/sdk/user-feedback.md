@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. Sauce Labs Mobile App Distribution offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly in the app.
+Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. Sauce Labs Mobile App Distribution offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the Sauce Mobile Beta SDK into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly in the app.
 
 ## Using In-App Feedback
 
@@ -137,7 +137,7 @@ On React Native, `pushFeedbackController()` shows the form for the running sessi
 
 ## Customizing the Feedback Form
 
-The built-in form has an email field, a message field and, depending on the platform, buttons to attach a screenshot or a screen recording. You customize it by building a feedback options object and handing it to the SDK before the form is shown. Doing so before `beginWithoutCrashHandler` is fine. The classes are the same in the legacy TestFairy SDK 1.x and in the Sauce Mobile Beta SDK (their names still start with `TestFairy` or `com.testfairy`).
+The built-in form has an email field, a message field and, depending on the platform, buttons to attach a screenshot or a screen recording. You customize it by building a feedback options object and handing it to the SDK before the form is shown. Doing so before `beginWithoutCrashHandler` is fine. The feedback classes are in the `TestFairy` module on iOS and the `com.testfairy` package on Android.
 
 The form can be shown in two ways. `showFeedbackForm()` with no arguments requires a running session and attaches the feedback to it. The overload that takes the app token (`showFeedbackForm(context, appToken, takeScreenshot)` on Android, `showFeedbackForm(appToken, takeScreenshot:)` on iOS and `showFeedbackForm(appToken, takeScreenshot)` on React Native) works without a session, optionally captures a screenshot first, and the feedback appears in the build's Feedbacks tab.
 
@@ -230,7 +230,7 @@ Shake trigger: call `TestFairy.enableFeedbackForm("shake")` (Android accepts onl
 <TabItem value="ios">
 
 ```swift
-import TestFairy // the module name is unchanged in the SauceMobileBeta package
+import TestFairy // the TestFairy module of the SauceMobileBeta package
 
 let options = TestFairyFeedbackOptions.create { builder in
     builder?.title = "Send us feedback"

@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-Running the Sauce Mobile Beta SDK (formerly the TestFairy SDK) in production offers numerous benefits, such as gaining valuable insights into user behavior, detecting and resolving issues promptly, and continuously improving your app's performance. With the SDK, you can proactively monitor your production environment, gather valuable data, and make informed decisions to deliver a superior app to your users.
+The Sauce Mobile Beta SDK is built for beta and tester builds. The recommended layout keeps it out of store builds entirely and ships only Backtrace (Sauce Labs Error Reporting) to production. See [Keep the SDK Out of Store Builds](#recommended-keep-the-sdk-out-of-store-builds). If you do run the SDK in a production app, for example for customer support sessions, follow the guidelines below.
 
-Crash reporting is not one of these benefits: the Sauce Mobile Beta SDK is crashless. Production crash reporting comes from [Backtrace (Sauce Labs Error Reporting)](/error-reporting/getting-started/), which stays in your production builds whether or not the SDK does. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+The SDK does not install a crash handler. Production crash reporting comes from [Backtrace](/error-reporting/getting-started/), which ships in your production builds whether or not the SDK does. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
 
 ## Running the SDK in Production
 
@@ -32,7 +32,7 @@ Therefore it is important to follow these guidelines:
 1. In case you are using the SDK for customer support to better understand your users in case of a technical issue,
    it is recommended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.beginWithoutCrashHandler()`.
    Before starting the session, ask the user if it is ok to record their screen for quality assurance purposes.
-   When doing that, make sure that session duration is set to 2-3 minutes, just enough to identify the cause of a problem.
+   When doing that, make sure that the session duration is set to 2-3 minutes, which is long enough to identify the cause of a problem.
 
 1. You **must** include a proper disclaimer in your app terms of service document.
    You must explain exactly what data you collect, and how to request deletion of that data.
@@ -41,7 +41,7 @@ Therefore it is important to follow these guidelines:
 
 ## Recommended: Keep the SDK Out of Store Builds
 
-The most reliable way to keep the SDK out of production is to not compile it into store builds at all. Disabling a feature at runtime does not change what code is packaged. A dependency-level switch does. Backtrace is a production tool and stays under a regular dependency in every variant, so store builds keep crash reporting while dropping session recording, tester feedback and update prompts. Both Sauce Labs demo apps use this layout.
+The most reliable way to keep the SDK out of production is to not compile it into store builds at all. Disabling a feature at runtime does not change what code is packaged. A dependency-level switch does. Backtrace is a production tool and is declared as a regular dependency in every variant, so store builds keep crash reporting while dropping session recording, tester feedback and update prompts. Both Sauce Labs demo apps use this layout.
 
 ### Android: Debug-Only Dependency
 
@@ -57,7 +57,7 @@ dependencies {
 }
 ```
 
-Use 3.8.0 or later so `BacktraceClient.addAttribute` is available.
+Use Backtrace Android SDK 3.7.14 or later so that `BacktraceClient.addAttribute` is available.
 
 Because the `com.testfairy` classes do not exist in the release variant, route all SDK calls through one class that has two implementations in variant-specific source sets. The example below is simplified from the [My Demo App for Android](https://github.com/saucelabs/my-demo-app-android) source set, where `app/src/mobileBeta/java` holds the real integration and `app/src/noMobileBeta/java` holds empty methods:
 
@@ -130,7 +130,7 @@ For the App Store build, the release pipeline flips the flag and clears the toke
 sed -i '' 's/^SAUCE_MOBILE_BETA_TOKEN = .*/SAUCE_MOBILE_BETA_TOKEN =/' Config/Local.xcconfig
 ```
 
-Backtrace is initialized unconditionally before this check, so production crashes are still reported. If you also want the SDK's code out of the App Store binary, combine this switch with Option 2 below.
+Backtrace is initialized unconditionally before this check, so production crashes are reported even when the SDK does not start. If you also want the SDK's code out of the App Store binary, combine this switch with Option 2 below.
 
 ## Disabling the SDK in Production
 
@@ -138,7 +138,7 @@ When it comes to using the SDK in a production environment, there may be instanc
 
 ### iOS
 
-#### Option 1: Calling beginWithoutCrashHandler Only in DEBUG
+#### Option 1: Calling `beginWithoutCrashHandler` Only in DEBUG
 
 Without a call to `beginWithoutCrashHandler` (or `begin`), the SDK is not initialized. An uninitialized SDK won't consume any memory and won't open sockets. Even though it does not impact your app in any way, the SDK is still linked with your app.
 
@@ -220,14 +220,13 @@ If you are also worried about reducing the app size in your final release build,
 
 A common pattern is a dedicated scheme for the App Store, in addition to Debug and Release. This option still requires the `#ifdef` or `#if` directives from Option 1, but also omits the library from the App Store binary.
 
-- With the Swift package (`SauceMobileBeta`), a package product is linked per target, not per configuration. Create a separate app target for the App Store that does not depend on the `SauceMobileBeta` product, and keep the runtime switch above for the targets that do.
-- With the legacy manual integration of the TestFairy SDK 1.x (`libTestFairy.a`), navigate to the project build settings and locate the **Excluded Source File Names** option. Expand the list, find the build scheme you want to exclude the SDK from, and add two entries to the excluded file list, one for **TestFairy.h** and one for **libTestFairy.a**.
+With the Swift package (`SauceMobileBeta`), a package product is linked per target, not per configuration. Create a separate app target for the App Store that does not depend on the `SauceMobileBeta` product, and keep the runtime switch above for the targets that do.
 
 Try building your project. If the compilation fails, locate the lines where the SDK is used and wrap them with the `#ifdef` or `#if` directives explained in Option 1.
 
 #### Option 3: No-Op Wrapper
 
-Similar to Option 2, you keep multiple schemes or targets, but you do not need `#ifdef` or `#if` around every call. Route every SDK call through a wrapper protocol with a real implementation and a no-op implementation, and select the implementation from the `testfairyEnabled` flag (see above) or from a compiler flag. All `TestFairy` calls live in one file, and the rest of the app never imports the SDK. `TestFairyWrapper.swift` in [My Demo App for iOS](https://github.com/saucelabs/my-demo-app-ios) is a complete example.
+Similar to Option 2, you keep multiple schemes or targets, but you do not need `#ifdef` or `#if` around every call. Route every SDK call through a wrapper protocol with a real implementation and a no-op implementation, and select the implementation from the `testfairyEnabled` flag described in [iOS: Info.plist and xcconfig Switch](#ios-infoplist-and-xcconfig-switch) or from a compiler flag. All `TestFairy` calls live in one file, and the rest of the app never imports the SDK. `TestFairyWrapper.swift` in [My Demo App for iOS](https://github.com/saucelabs/my-demo-app-ios) is a complete example.
 
 ```swift
 protocol SauceMobileBetaProtocol {
@@ -246,11 +245,9 @@ final class SauceMobileBetaNoOp: SauceMobileBetaProtocol {
 }
 ```
 
-The legacy TestFairy iOS No-Op SDK (a `TestFairy.m` with empty implementations for the TestFairy SDK 1.x static library) served the same purpose. Its repository is no longer available.
-
 ### Android
 
-#### Option 1: Calling beginWithoutCrashHandler Only in Debug Builds
+#### Option 1: Calling `beginWithoutCrashHandler` Only in Debug Builds
 
 Your Gradle variants can alter the code path of your app. Use the debug variant to call `TestFairy.beginWithoutCrashHandler()`, and the release variant to omit the call.
 

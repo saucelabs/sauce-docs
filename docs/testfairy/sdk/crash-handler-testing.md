@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-The Sauce Mobile Beta SDK (formerly the TestFairy SDK) does not capture crashes. In a coexistence setup, Backtrace (Sauce Labs Error Reporting) owns crash reporting, and the Sauce Mobile Beta SDK records the session up to the crash. The following steps show how to force a crash on iOS to verify that setup end to end. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) for the setup itself.
+The Sauce Mobile Beta SDK does not install a crash handler. When you run it with Backtrace (Sauce Labs Error Reporting), Backtrace reports the crash and the SDK records the session up to the crash. The following steps show how to force a crash on iOS to verify that setup end to end. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) for the setup itself.
 
-`TestFairy.crash()` remains available in the Sauce Mobile Beta SDK as a test helper: it force-crashes the app with an invalid memory access, without any TestFairy crash infrastructure. Backtrace captures the crash.
+`TestFairy.crash()` is a test helper: it force-crashes the app with an invalid memory access. Backtrace captures the crash.
 
 :::note
 `crash()` is an iOS-only helper. The Android SDK has no equivalent: throw a plain uncaught exception instead (for example, `throw new RuntimeException("test crash")` from a button handler), as the Sauce Labs My Demo App for Android does.
@@ -109,12 +109,8 @@ class ViewController: UIViewController {
 3. In Backtrace, open the new error. Its attributes carry the `sauce.correlation_id` value your app generated for the crashed launch, `sauce.sdk.coexistence_mode` set to `backtrace_crash_owner`, and, when your app mirrors it, `sauce.mobile_beta.session_url` pointing at the session recording.
 4. In Sauce Labs Mobile App Distribution, search the session list for the same `sauce.correlation_id` value to open the recording that ends at the crash.
 
-Do not expect a crash report in Sauce Labs Mobile App Distribution: the Sauce Mobile Beta SDK does not intercept the crash, and `didLastSessionCrash` always returns `false`.
+The crash report appears in Backtrace only. The Sauce Labs Mobile App Distribution dashboard shows the session recording that ends at the crash.
 
 :::note
 Backtrace lets you filter or group by `sauce.correlation_id` only after the attribute is indexed once per project under **Project Settings** > **Attributes**, with the UUID format. See [Indexing Attributes](/error-reporting/project-setup/attributes/).
 :::
-
-## Legacy TestFairy SDK 1.x
-
-In the legacy, crash-capable TestFairy SDK 1.x (from iOS SDK 1.19.8), `crash()` triggers the TestFairy crash handler, and the stack trace appears with the session in Sauce Labs Mobile App Distribution. That behaviour does not exist in the Sauce Mobile Beta SDK.

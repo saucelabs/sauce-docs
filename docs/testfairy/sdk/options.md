@@ -10,15 +10,18 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-The Sauce Mobile Beta SDK (formerly the TestFairy SDK) requires that you call `beginWithoutCrashHandler` (or `begin`) to start recording your sessions. However, developers can override the build settings to determine what is enabled during a session recording.
+The Sauce Mobile Beta SDK requires that you call `beginWithoutCrashHandler` (or `begin`) to start recording your sessions. However, developers can override the build settings to determine what is enabled during a session recording.
 
 Some commonly used options:
 
-- Crash Reporting (legacy TestFairy SDK 1.x only, not part of the Sauce Mobile Beta SDK)
 - Video Recording
 - Recorded Metrics
 - Max Session Length
 - Feedback Form
+
+:::note Crash reporting
+The SDK does not install a crash handler. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), and the two SDKs are designed to run in the same app. `beginWithoutCrashHandler` starts the session without a crash handler and forces the `enableCrashReporter` option (`TFSDKEnableCrashReporterKey` on iOS) to `false` even if you pass `true` in the options. Initialize Backtrace before the SDK. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+:::
 
 <Tabs
 groupId="platform"
@@ -30,49 +33,11 @@ values={[
 
 <TabItem value="android">
 
-### Crash Reporting
+## Video Recording
 
-Crash reporting is not part of the Sauce Mobile Beta SDK. The artifact is crashless: it never installs a crash handler, so crashes are reported by Backtrace (Sauce Labs Error Reporting). In the Sauce Mobile Beta SDK:
+Sauce Labs Mobile App Distribution provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `beginWithoutCrashHandler`.
 
-- `enableCrashHandler` and `disableCrashHandler` are no-ops.
-- `beginWithoutCrashHandler` forces the `enableCrashReporter` begin option to `false`, even if you pass `"true"` in the options map. Plain `begin` is also crashless.
-
-Initialize Backtrace before the SDK. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) and [Setting Up Backtrace for Android](/error-reporting/platform-integrations/android/setup/).
-
-#### Syntax (Legacy TestFairy SDK 1.x)
-
-In the legacy, crash-capable TestFairy SDK 1.x, the crash handler captures and records stack traces if your application crashes and is enabled by default. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`. After you enable the legacy crash handler, it cannot be disabled unless the app is restarted.
-
-```java
-TestFairy.enableCrashHandler();
-TestFairy.disableCrashHandler();
-```
-
-#### Code Example (Legacy TestFairy SDK 1.x)
-
-In the following example, the legacy TestFairy crash handler will be disabled.
-
-```java
-import com.testfairy.TestFairy;
-
-public class MyApplication extends Application {
- @Override
- public void onCreate() {
- super.onCreate();
-
- TestFairy.disableCrashHandler();
- TestFairy.begin(this, "<app token>");
- }
-}
-```
-
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
-
-### Video Recording
-
-Sauce Labs Mobile App Distribution provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `begin`.
-
-#### Syntax
+### Syntax
 
 ```java
 TestFairy.disableVideo();
@@ -81,7 +46,7 @@ TestFairy.enableVideo("<policy>", "<quality>", <frames per second>);
 
 Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on `policy` and `quality` values.
 
-#### Code Example
+### Code Example
 
 In the following example, video only records when wifi is available. A high-quality video is recorded every 2 seconds.
 
@@ -101,17 +66,17 @@ public class MyApplication extends Application {
 
 Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
-### Recorded Metrics
+## Recorded Metrics
 
 Sauce Labs Mobile App Distribution can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
 
-Developers can call `enableMetric` or `disableMetric` before invoking `begin` with the metric they wish to enable or disable recording.
+Developers can call `enableMetric` or `disableMetric` before `beginWithoutCrashHandler` with the metric they wish to enable or disable recording.
 
 :::note
 Any metric that is enabled or disabled override the settings set in your app's build settings.
 :::
 
-#### Syntax
+### Syntax
 
 ```java
 TestFairy.enableMetric("<metric>");
@@ -120,7 +85,7 @@ TestFairy.disableMetric("<metric>");
 
 Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on which metric can be passed.
 
-#### Code Example
+### Code Example
 
 In the following snippet, the CPU metric will be recorded, and the Memory metric will not be recorded, regardless of what's set in the build settings.
 
@@ -141,21 +106,21 @@ public class MyApplication extends Application {
 
 Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
-### Max Session Length
+## Max Session Length
 
-Sauce Labs Mobile App Distribution only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
+Sauce Labs Mobile App Distribution only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before `beginWithoutCrashHandler`.
 
 :::note
 The value passed into this method must be less than or equal to the value defined in the build settings. A value larger than the one in the build settings will be ignored.
 :::
 
-#### Syntax
+### Syntax
 
 ```java
 TestFairy.setMaxSessionLength(<session length in seconds>);
 ```
 
-#### Code Example
+### Code Example
 
 ```java
 import com.testfairy.TestFairy;
@@ -173,11 +138,11 @@ public class MyApplication extends Application {
 
 Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
-### Feedback Form
+## Feedback Form
 
-Sauce Labs Mobile App Distribution provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `begin`.
+Sauce Labs Mobile App Distribution provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `beginWithoutCrashHandler`.
 
-#### Syntax
+### Syntax
 
 ```java
 TestFairy.disableFeedbackForm();
@@ -186,7 +151,7 @@ TestFairy.enableFeedbackForm("<method>");
 
 Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on values for `method`.
 
-#### Code Example
+### Code Example
 
 In the following example, feedback will be enabled when the device is shaken.
 
@@ -210,44 +175,11 @@ Once logged in, your app token is available from your [account preferences](http
 
 <TabItem value="ios">
 
-### Crash Reporting
+## Video Recording
 
-Crash reporting is not part of the Sauce Mobile Beta SDK. The artifact is crashless: it never installs a crash handler, so crashes are reported by Backtrace (Sauce Labs Error Reporting). In the Sauce Mobile Beta SDK:
+The Sauce Mobile Beta SDK provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `beginWithoutCrashHandler`.
 
-- `enableCrashHandler` and `disableCrashHandler` are no-ops.
-- `beginWithoutCrashHandler` forces the `TFSDKEnableCrashReporterKey` begin option to `NO`, even if you pass `YES` in the options dictionary. Plain `begin` is also crashless.
-
-Initialize Backtrace before the SDK. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) and [Setting Up Backtrace for iOS](/error-reporting/platform-integrations/ios/setup/).
-
-#### Syntax (Legacy TestFairy SDK 1.x)
-
-In the legacy, crash-capable TestFairy SDK 1.x, the crash handler captures and records stack traces if your application crashes and is enabled by default. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`. After you enable the legacy crash handler, it cannot be disabled unless the app is restarted.
-
-```objectivec
-[TestFairy enableCrashHandler];
-[TestFairy disableCrashHandler];
-```
-
-#### Code Example (Legacy TestFairy SDK 1.x)
-
-In the following example, the legacy TestFairy crash handler will be disabled.
-
-```objectivec
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
- [TestFairy disableCrashHandler];
- [TestFairy begin:@"<app token>"];
-}
-```
-
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
-
-### Video Recording
-
-The Sauce Mobile Beta SDK provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `begin`.
-
-#### Syntax
+### Syntax
 
 ```objectivec
 [TestFairy disableVideo];
@@ -256,7 +188,7 @@ The Sauce Mobile Beta SDK provides an option to enable or disable video recordin
 
 Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on `policy` and `quality` values.
 
-#### Code Example
+### Code Example
 
 In the following example, the video will only be recorded when wifi is available. A high-quality video will be recorded every 2 seconds.
 
@@ -271,17 +203,17 @@ In the following example, the video will only be recorded when wifi is available
 
 Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
-### Recorded Metrics
+## Recorded Metrics
 
 Sauce Labs Mobile App Distribution can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
 
-Developers can call `enableMetric` or `disableMetric` before invoking `begin` with the metric they wish to enable or disable recording.
+Developers can call `enableMetric` or `disableMetric` before `beginWithoutCrashHandler` with the metric they wish to enable or disable recording.
 
 :::note
 Any metric that is enabled or disabled will override the settings set in your app's build settings.
 :::
 
-#### Syntax
+### Syntax
 
 ```objectivec
 [TestFairy enableMetric:@"<metric>"];
@@ -290,7 +222,7 @@ Any metric that is enabled or disabled will override the settings set in your ap
 
 Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on which metric can be passed.
 
-#### Code Example
+### Code Example
 
 In the following snippet, the CPU metric will be recorded, and the Memory metric will not be recorded, regardless of what's set in the build settings.
 
@@ -307,21 +239,21 @@ In the following snippet, the CPU metric will be recorded, and the Memory metric
 
 Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
-### Max Session Length
+## Max Session Length
 
-The Sauce Mobile Beta SDK only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
+The Sauce Mobile Beta SDK only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before `beginWithoutCrashHandler`.
 
 :::note
 The value passed into this method must be less than or equal to the value defined in the build settings. A value larger than the one in the build settings will be ignored.
 :::
 
-#### Syntax
+### Syntax
 
 ```objectivec
 [TestFairy setMaxSessionLength:<session length in seconds>];
 ```
 
-#### Code Example
+### Code Example
 
 ```objectivec
 @implementation AppDelegate
@@ -334,11 +266,11 @@ The value passed into this method must be less than or equal to the value define
 
 Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
-### Feedback Form
+## Feedback Form
 
-The Sauce Mobile Beta SDK provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `begin`.
+The Sauce Mobile Beta SDK provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `beginWithoutCrashHandler`.
 
-#### Syntax
+### Syntax
 
 ```objectivec
 [TestFairy disableFeedbackForm];
@@ -347,7 +279,7 @@ The Sauce Mobile Beta SDK provides an option to enable or disable feedback colle
 
 Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on values for `method`.
 
-#### Code Example
+### Code Example
 
 In the following example, feedback will be enabled when the device is shaken.
 

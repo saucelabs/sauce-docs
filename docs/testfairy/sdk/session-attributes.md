@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-The Sauce Mobile Beta SDK (formerly the TestFairy SDK) can attach key-value attributes to a session, which helps you generate better insights and lets you search sessions by your own values.
+The Sauce Mobile Beta SDK can attach key-value attributes to a session, which helps you generate better insights and lets you search sessions by your own values.
 
 <Tabs
 groupId="sdk"
@@ -110,12 +110,12 @@ When you run the SDK together with Backtrace (Sauce Labs Error Reporting), a sma
 
 | Attribute | Meaning |
 |---|---|
-| `sauce.correlation_id` | One lowercase UUID v4 generated per app launch before either SDK starts; the join key between a Backtrace report and its session. |
-| `sauce.sdk.coexistence_mode` | Always `backtrace_crash_owner`: Backtrace owns crash reporting and the SDK is crashless. |
+| `sauce.correlation_id` | One lowercase UUID v4 generated per app launch before either SDK starts. It is the join key between a Backtrace report and its session. |
+| `sauce.sdk.coexistence_mode` | Always `backtrace_crash_owner`: Backtrace owns crash reporting and the SDK does not install a crash handler. |
 | `sauce.environment` | Deployment environment of the build, for example `beta` or `production`. |
 | `sauce.release` | Release identifier in the form `<appId>@<version>` (application or bundle ID and marketing version). |
 | `sauce.dist` | Build number (`versionCode` on Android, `CFBundleVersion` on iOS). |
-| `mad.distribution_id` | Mobile App Distribution distribution ID; set it only when your build is distributed through it. |
+| `mad.distribution_id` | The Mobile App Distribution distribution ID. Set it only when your build is distributed through it. |
 
 ```java
 // Android example; the keys and values are identical on iOS and React Native.

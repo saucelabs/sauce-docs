@@ -19,7 +19,7 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-Integrating the Sauce Mobile Beta SDK (formerly the TestFairy SDK) into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
+Integrating the Sauce Mobile Beta SDK into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
 You get to:
 
 * Track app use.
@@ -27,17 +27,18 @@ You get to:
 * Understand user flow, using checkpoints.
 * Grab NSLogs from client and report to server.
 * Collect in-app feedback from your testers.
-* Run beside Backtrace (Sauce Labs Error Reporting), which reports crashes.
 
 :::note
-The Sauce Mobile Beta SDK is crashless: it never installs a crash handler. Crash reporting is provided by Backtrace. Initialize Backtrace first, then start the Sauce Mobile Beta SDK with `beginWithoutCrashHandler`. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+The SDK does not install a crash handler. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), and the two SDKs are designed to run in the same app. Initialize Backtrace first, then start the SDK with `beginWithoutCrashHandler`. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
 :::
 
 ## Adding the SDK
 
-The Sauce Mobile Beta SDK for iOS is distributed with Swift Package Manager. The current release candidate is `2.2.0-rc` and requires iOS 11 or later.
+The SDK for iOS is distributed with Swift Package Manager. The current release candidate is `2.2.0-rc` and requires iOS 11 or later.
 
 ### Swift Package Manager
+
+The CocoaPods pod `SauceMobileBeta` is not published yet. Use Swift Package Manager to add the SDK.
 
 :::note
 Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode versions.
@@ -67,7 +68,7 @@ Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode 
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
 
 :::note Why Exact Version?
-`2.2.0-rc` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release. The product name `SauceMobileBeta` and the module name `TestFairy` do not change. The package URL may move to a Sauce Labs-owned repository before general availability.
+`2.2.0-rc` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release. The product name is `SauceMobileBeta` and the module name is `TestFairy`. The package URL may move to a Sauce Labs-owned repository before general availability.
 :::
 
 If you declare dependencies in a `Package.swift` manifest instead:
@@ -83,36 +84,21 @@ targets: [
 ]
 ```
 
-If the package URL moves to a Sauce Labs-owned repository, this guide will be updated. Switching is a URL change only.
-
-### Legacy TestFairy SDK 1.x
-
-:::caution Legacy TestFairy SDK 1.x
-The following channels install the legacy, crash-capable **TestFairy SDK 1.x**, not the Sauce Mobile Beta SDK:
-
-* CocoaPods: `pod 'TestFairy'`
-* Carthage: a `binary` entry pointing to `https://app.testfairy.com/sdk/ios/carthage.json`
-* Manual download of `TestFairySDK.framework` from the [TestFairy download page](https://app.testfairy.com/sdk/ios/)
-
-The CocoaPods pod `SauceMobileBeta` is not published yet. Use Swift Package Manager to add the Sauce Mobile Beta SDK.
-
-Never combine a legacy artifact with the Sauce Mobile Beta package (both provide the `TestFairy` module, which causes duplicate-module and duplicate-symbol errors) or with Backtrace (competing crash handlers). Remove the legacy dependency before you add the Sauce Mobile Beta package.
-:::
-
 ## Initializing the SDK
 
-Start the SDK with `beginWithoutCrashHandler`. It starts a session without installing a crash handler and forces the `TFSDKEnableCrashReporterKey` begin option to `NO`, even if you pass `YES`. When Backtrace is part of the app, initialize Backtrace before this call. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) for the full initialization order and the shared `sauce.correlation_id` attribute.
+Start the SDK with `beginWithoutCrashHandler`. It starts a session without installing a crash handler and forces the `TFSDKEnableCrashReporterKey` begin option to `NO`, even if you pass `YES`. `begin` also starts a session without a crash handler. Use `beginWithoutCrashHandler` to make the intent explicit. When Backtrace is part of the app, initialize Backtrace before this call. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/) for the full initialization order and the shared `sauce.correlation_id` attribute.
 
 Replace `<sauce-mobile-beta-token>` with your app token. Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 <Tabs
-defaultValue="Objective C"
+groupId="ios-language"
+defaultValue="objc"
 values={[
-{label: 'Objective C', value: 'Objective C'},
-{label: 'Swift', value: 'Swift'},
+{label: 'Objective-C', value: 'objc'},
+{label: 'Swift', value: 'swift'},
 ]}>
 
-<TabItem value="Objective C">
+<TabItem value="objc">
 
 1. Open your AppDelegate.m file.
 
@@ -134,17 +120,18 @@ values={[
 ```
 
 </TabItem>
-<TabItem value="Swift">
+
+<TabItem value="swift">
 
 1. Import the SDK
 
-   With Swift Package Manager, import the module directly in every Swift file that uses the SDK. The package product is `SauceMobileBeta`, but the module keeps its `TestFairy` name:
+   With Swift Package Manager, import the module directly in every Swift file that uses the SDK. The package product is `SauceMobileBeta` and the module name is `TestFairy`:
 
 ```swift
 import TestFairy
 ```
 
-   An Objective-C bridging header also works, for example in a project that already has one. Since this process only needs to be done once per project, if you have already done so, just update your bridging header file.
+   An Objective-C bridging header also works, for example in a project that already has one. This process only needs to be done once per project. If you have already done so, update your bridging header file.
    * Right-click on your project and select **New File**.
    * Select Header File.h
    * Save as Bridging.h in your project
@@ -190,10 +177,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 </TabItem>
 </Tabs>
-
-:::note
-Plain `begin` is also crashless in the Sauce Mobile Beta SDK, and `installCrashHandler`, `enableCrashHandler`, `disableCrashHandler` and `didLastSessionCrash` are no-ops. Use `beginWithoutCrashHandler` to make the intent explicit. See [Crash Handling (Legacy TestFairy SDK)](/testfairy/sdk/tf-crash-handler/).
-:::
 
 ## Using PencilKit for Better Feedback
 You can give your users a better set of tools to markup any screenshots provided during feedback by adding PencilKit to your project. Add the PencilKit.framework to your project.

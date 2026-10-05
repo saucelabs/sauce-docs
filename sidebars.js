@@ -891,10 +891,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'testfairy/sdk/ios/integrating-ios',
-                                'testfairy/sdk/ios/ad-hoc-ipa',
-                                'testfairy/sdk/ios/adding-udids',
-                                'testfairy/sdk/ios/custom-ent-apps',
-                                'testfairy/sdk/ios/dsyms',
                                 'testfairy/sdk/ios/hiding-webview',
                                 'testfairy/sdk/ios/log-network',
                             ],
@@ -917,21 +913,13 @@ module.exports = {
                         'testfairy/sdk/map-locations',
                         'testfairy/sdk/private-cloud-int',
                         'testfairy/sdk/tf-production',
-                        'testfairy/sdk/tf-crash-handler',
                         'testfairy/sdk/crash-handler-testing',
                         'testfairy/sdk/supported-platforms',
                         {
                             type: 'category',
                             label: 'Bug Tracking',
                             collapsed: true,
-                            items: [
-                                'testfairy/sdk/bug-tracking/using-bug-tracking',
-                                'testfairy/sdk/bug-tracking/github',
-                                'testfairy/sdk/bug-tracking/jira-cloud',
-                                'testfairy/sdk/bug-tracking/jira-server',
-                                'testfairy/sdk/bug-tracking/tf-connect',
-                                'testfairy/sdk/bug-tracking/trello',
-                            ],
+                            items: ['testfairy/sdk/bug-tracking/jira-cloud'],
                         },
                         {
                             type: 'category',
@@ -940,6 +928,17 @@ module.exports = {
                             items: [
                                 'testfairy/sdk/security/data-encryption',
                                 'testfairy/sdk/security/hiding-data',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Migrating from the TestFairy SDK',
+                            collapsed: true,
+                            items: [
+                                'testfairy/sdk/migration/overview',
+                                'testfairy/sdk/migration/ios',
+                                'testfairy/sdk/migration/android',
+                                'testfairy/sdk/migration/react-native',
                             ],
                         },
                     ],
@@ -951,6 +950,8 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'testfairy/app-distribution/managing-dist',
+                        'testfairy/app-distribution/ad-hoc-ipa',
+                        'testfairy/app-distribution/adding-udids',
                         'testfairy/app-distribution/app-versioning',
                         'testfairy/app-distribution/landing-pages',
                         'testfairy/app-distribution/app-expiration',
@@ -964,10 +965,12 @@ module.exports = {
                     label: 'Projects',
                     collapsed: true,
                     items: [
-                        'app-distribution/projects/uploading-builds',
-                        'app-distribution/projects/landing-pages',
-                        'app-distribution/projects/build-lifecycle',
-                        'app-distribution/projects/closed-beta',
+                        'testfairy/testers/managing-testers',
+                        'testfairy/testers/building-testers-app',
+                        'testfairy/testers/testing-android-apps',
+                        'testfairy/testers/reg-ios-device',
+                        'testfairy/testers/custom-ent-apps',
+                        'testfairy/testers/testers-dashboard',
                     ],
                 },
                 {

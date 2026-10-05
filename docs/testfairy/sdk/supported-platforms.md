@@ -10,16 +10,16 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-The Sauce Mobile Beta SDK (formerly the TestFairy SDK) ships as crashless artifacts for Android, iOS and React Native, including Expo projects that generate their native projects with prebuild. The artifacts never install a crash handler and are designed to run beside Backtrace, Sauce Labs Error Reporting, which owns crash reporting. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+The Sauce Mobile Beta SDK is available for Android, iOS and React Native, including Expo projects that generate their native projects with prebuild. The SDK does not install a crash handler. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), and the two SDKs are designed to run in the same app. See [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
 
-The runtime API is the same on every platform: `TestFairy` on iOS, `com.testfairy.TestFairy` on Android and the `TestFairy` default export in React Native. The feature pages below show each platform's syntax side by side.
+The runtime API is the same on every platform. Import the `TestFairy` module on iOS, `com.testfairy.TestFairy` on Android, and the `TestFairy` default export in React Native. The feature pages below show each platform's syntax side by side.
 
 ## Android
 
-- [Adding the SDK to your App](/testfairy/sdk/android/integrating-android/)
+- [Adding the SDK to Your App](/testfairy/sdk/android/integrating-android/)
 - [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/)
 - [Begin with Options](/testfairy/sdk/options/)
-- [Identifying your Users](/testfairy/sdk/identifying-users/)
+- [Identifying Your Users](/testfairy/sdk/identifying-users/)
 - [Session Attributes](/testfairy/sdk/session-attributes/)
 - [Submitting User Feedback](/testfairy/sdk/user-feedback/)
 - [Logging](/testfairy/sdk/logging/) and [Remote Logging](/testfairy/sdk/remote-logging/)
@@ -28,10 +28,10 @@ The runtime API is the same on every platform: `TestFairy` on iOS, `com.testfair
 
 ## iOS
 
-- [Adding the SDK to your App](/testfairy/sdk/ios/integrating-ios/)
+- [Adding the SDK to Your App](/testfairy/sdk/ios/integrating-ios/)
 - [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/)
 - [Begin with Options](/testfairy/sdk/options/)
-- [Identifying your Users](/testfairy/sdk/identifying-users/)
+- [Identifying Your Users](/testfairy/sdk/identifying-users/)
 - [Session Attributes](/testfairy/sdk/session-attributes/)
 - [Submitting User Feedback](/testfairy/sdk/user-feedback/)
 - [Logging](/testfairy/sdk/logging/) and [Remote Logging](/testfairy/sdk/remote-logging/)
@@ -41,9 +41,9 @@ The runtime API is the same on every platform: `TestFairy` on iOS, `com.testfair
 
 ## React Native
 
-- [Adding the SDK to your App](/testfairy/platforms/react-native/), including [Expo](/testfairy/platforms/expo/) (with prebuild)
+- [Adding the SDK to Your App](/testfairy/platforms/react-native/), including [Expo](/testfairy/platforms/expo/) (with prebuild)
 - [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/)
-- [Identifying your Users](/testfairy/sdk/identifying-users/)
+- [Identifying Your Users](/testfairy/sdk/identifying-users/)
 - [Session Attributes](/testfairy/sdk/session-attributes/)
 - [Submitting User Feedback](/testfairy/sdk/user-feedback/)
 - [Logging](/testfairy/sdk/logging/) and [Remote Logging](/testfairy/sdk/remote-logging/)
