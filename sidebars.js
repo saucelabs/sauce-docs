@@ -854,6 +854,7 @@ module.exports = {
                         'testfairy/sdk/session-attributes',
                         'testfairy/sdk/identifying-users',
                         'testfairy/sdk/user-feedback',
+                        'testfairy/sdk/app-updates',
                         'testfairy/sdk/logging',
                         'testfairy/sdk/remote-logging',
                         'testfairy/sdk/map-locations',

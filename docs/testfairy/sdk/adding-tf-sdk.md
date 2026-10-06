@@ -28,6 +28,7 @@ SDK features include:
 - Sending logs to the Sauce Labs Mobile App Distribution dashboard for later inspection. See [Remote Logging](/testfairy/sdk/remote-logging/).
 - Identifying users so you can find their sessions. See [Identifying Your Users](/testfairy/sdk/identifying-users/).
 - Tagging sessions with attributes for searching and custom reports. See [Session Attributes](/testfairy/sdk/session-attributes/).
+- Prompting testers to install a newer build that you mark for auto update. See [App Updates](/testfairy/sdk/app-updates/).
 
 The runtime API is the same on every platform. Import the `TestFairy` module on iOS, `com.testfairy.TestFairy` on Android, and the `TestFairy` default export in React Native.
 
