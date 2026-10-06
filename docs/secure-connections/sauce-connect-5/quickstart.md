@@ -41,14 +41,14 @@ SAUCE_ACCESS_KEY=<your access key>
   <TabItem value="Mac/Linux">
 
 ```bash
-sc run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central>
+sc run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central|asia-south>
 ```
 
   </TabItem>
   <TabItem value="Windows">
 
 ```bash
-sauce-connect.exe run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central>
+sauce-connect.exe run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central|asia-south>
 ```
 
   </TabItem>
