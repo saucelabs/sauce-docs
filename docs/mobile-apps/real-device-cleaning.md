@@ -83,6 +83,7 @@ We use a proprietary process that wipes every real device clean at the end of th
 - The browser history, cached website data, and cookies are deleted.
   - On iOS, only Safari remains installed.
   - On Android, only the default browser remains installed.
+  - On Android, carrier and manufacturer Chrome customizations are disabled, so Chrome starts on the New Tab Page.
 - AppleID’s are removed between sessions.
 - WiFi/network and DNS configuration settings are reset.
 - System locale, language, and time zone are reset to match those of the hosting Data Center. On iOS, changing the device language requires a device reboot, which terminates the active session. Because of this, the cleaning process cannot restore a non-English language after cleanup, as it relies on English menu texts to navigate the device UI. As a result, every new iOS session starts with the device language set to English, regardless of any language changes made during a previous session.
