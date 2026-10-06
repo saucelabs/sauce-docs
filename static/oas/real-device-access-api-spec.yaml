@@ -2342,11 +2342,12 @@ components:
           properties:
             ioWebsocketUrl:
               type: string
-              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000/wss/io"
+              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/socket/alternativeIo/123e4567-e89b-12d3-a456-426614174000"
+              description: "Websocket for the live device screen and device input. See the [Device Control Socket guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-device-control-socket/)."
             eventsWebsocketUrl:
               type: string
-              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/sessions/123e4567-e89b-12d3-a456-426614174000/wss/events"
-              description: Websocket for retrieving realtime logs, device events, and some statistics
+              example: "wss://api.us-west-1.saucelabs.com/rdc/v2/socket/companion/123e4567-e89b-12d3-a456-426614174000"
+              description: "Websocket for retrieving realtime logs, device events, and some statistics. See the [Companion Socket guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-mastering-companion-socket/)."
             liveViewUrl:
               type: string
               example: "https://app.saucelabs.com/live/mobile/dataCenters/US/devices/Samsung_Galaxy_S8_real2/shared/123e4567-e89b-12d3-a456-426614174000"
