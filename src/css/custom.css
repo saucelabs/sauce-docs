@@ -1144,7 +1144,11 @@ ul.dropdown__menu li a:hover {
 .scalar-app .introduction-section .section-content > div:has(> .badge) {
     display: none;
 }
-.references-classic-header-container {
+/* Scalar's classic header holds the document selector and the search button.
+   With a single document and `hideSearch` it renders as an empty bar, so hide it
+   in that case only — otherwise the document selector (two or more sources, e.g.
+   the OpenAPI spec plus the WebSockets AsyncAPI document) would be invisible. */
+.references-classic-header-container:not(:has(.document-selector)) {
     display: none;
 }
 
