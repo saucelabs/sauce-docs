@@ -434,7 +434,7 @@ module.exports = {
                 'dev/api/platform', // Platform
                 {
                     type: 'category',
-                    label: 'Real Device Access',
+                    label: 'Real Device Access API',
                     collapsed: true,
                     items: [
                         'dev/api/real-device-access', // HTTP API
