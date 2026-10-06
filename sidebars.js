@@ -432,9 +432,16 @@ module.exports = {
                 'dev/api/jobs', // Jobs
                 'dev/api/performance', // Performance
                 'dev/api/platform', // Platform
+                {
+                    type: 'category',
+                    label: 'Real Device Access',
+                    collapsed: true,
+                    items: [
+                        'dev/api/real-device-access', // HTTP API
+                        'dev/api/real-device-access-websockets', // WebSockets
+                    ],
+                },
                 'dev/api/rdc', // Real Devices
-                'dev/api/real-device-access', // Real Device Access API
-                'dev/api/real-device-access-websockets', // Real Device Access API WebSockets
                 'dev/api/connect', // Sauce Connect
                 'dev/api/storage', // Storage
                 'dev/api/test-authoring', // Test Authoring
