@@ -23,8 +23,6 @@ Therefore it is important to follow these guidelines:
 1. On iOS, you **must** request explicit user consent before recording start.
    See the [Apple guidelines](https://developer.apple.com/app-store/review/guidelines/) and pay special attention to section 2.5.14
 
-1. On Android, call `disableAutoUpdate()` before `beginWithoutCrashHandler()` to comply with the [Play Store Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html).
-
 1. When recording sensitive data you **must** use the SDK's [end-to-end encryption](/testfairy/sdk/security/data-encryption/) with your own private keys, so that only your team can see your sessions.
 
 1. You **must** [hide sensitive data](/testfairy/sdk/security/hiding-data/) such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
@@ -37,7 +35,7 @@ Therefore it is important to follow these guidelines:
 1. You **must** include a proper disclaimer in your app terms of service document.
    You must explain exactly what data you collect, and how to request deletion of that data.
 
-1. Never use Auto-update with apps that are shipped to production. Auto-updating a store app is a clear violation of both Apple and Google's terms.
+1. Never use auto update with apps that are shipped to production. Letting a store app update itself violates the [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) and the [Play Store Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html). Call `disableAutoUpdate` before `beginWithoutCrashHandler` in such builds. See [App Updates](/testfairy/sdk/app-updates/).
 
 ## Recommended: Keep the SDK Out of Store Builds
 
