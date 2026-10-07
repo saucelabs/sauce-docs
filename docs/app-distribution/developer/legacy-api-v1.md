@@ -77,15 +77,22 @@ curl https://app.testfairy.com/api/upload \
   -F groups="QA,Beta"
 ```
 
-| Parameter | Required | Description |
-| --- | --- | --- |
-| `file` | Yes | Binary file (`.apk`, `.aab`, or `.ipa`) |
-| `changelog` | No | Release notes. Also accepted as `comment` or `release_notes` |
-| `notify` | No | Set to `on` or `1` to email testers about the new build |
-| `groups` | No | Comma-separated tester group names or IDs to grant the app to. Combine with `notify=on` to email them |
-| `app_version` | No | Override the auto-detected version string |
-| `version_code` | No | Override the auto-detected version code |
-| `folder_name` | No | Assign the app to a folder |
+| Parameter | Required | Default | Description |
+| --- | --- | --- | --- |
+| `file` | Yes | — | Binary file (`.apk`, `.aab`, or `.ipa`). Also accepted as `apk_file` |
+| `team_id` | No | Auto-detected | Team to upload to. Required when you belong to several teams and the app doesn't exist yet, or when it exists on more than one of your teams (error code `136`) |
+| `folder_name` | No | None | Assign the app to a folder |
+| `app_version` | No | Detected from the file | Override the version string. Also accepted as `version` |
+| `version_code` | No | Detected from the file | Override the version code |
+| `changelog` | No | None | Release notes. Also accepted as `comment` or `release_notes` |
+| `tags` | No | None | Comma-separated tags for the build |
+| `groups` | No | Unchanged | Comma-separated tester group names or IDs to grant the app to. Replaces existing grants; send `none` to remove all. Combine with `notify=on` to email them |
+| `notify` | No | `off` | Set to `on` to email the app's tester groups about the new build |
+| `symbols_file` | No | None | Debug symbols to attach (iOS dSYM or Android mapping file). Also accepted as `proguard_file` |
+| `sync_to_saucelabs` | No | `off` | Set to `on` to also copy the build to Sauce Labs App Storage |
+| `community_token` | No | Unchanged | URL alias for the app's landing page. 6-63 characters: letters, digits, dot, hyphen, or underscore (error codes `124` invalid, `125` in use) |
+| `landing_page_mode` | No | Unchanged | Landing page visibility: `open` or `closed` (error code `135` otherwise) |
+| `metadata_*` | No | None | Any `metadata_<key>` field is stored as custom build metadata and returned under `metadata` |
 
 ## Projects
 
@@ -307,7 +314,12 @@ Response includes: `id`, `timestamp`, `enterpriseId`, `siteName`, `userId`, `use
 | `104` | 401 | Missing or invalid API key (`/api/1` and `/api/2` endpoints) |
 | `112` | 400 | Empty file uploaded |
 | `121` | 400 | Invalid file type |
+| `124` | 400 | Invalid `community_token` |
+| `125` | 400 | `community_token` already in use by another app |
 | `133` | 400 | Organization not configured (no team found) |
+| `135` | 400 | Unsupported `landing_page_mode` (use `open` or `closed`) |
+| `136` | 400 | `team_id` required or invalid: you belong to several teams, or the app exists on more than one of them |
+| `150` | 502 | App bundle could not be converted to an installable APK |
 | `400` | 200 | Tester not found (for example, `Invalid Tester`) |
 | `404` | 200 | Group not found |
 

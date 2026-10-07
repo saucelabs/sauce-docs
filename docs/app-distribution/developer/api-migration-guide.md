@@ -27,10 +27,31 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 | `POST /api/1/projects/{pid}/builds/{bid}/copy` | `POST /api/v3/builds/{id}/copy` | JSON body, no `folder_name` required |
 | `GET /api/1/projects/{pid}/builds/{bid}/download` | `GET /api/v3/builds/{id}/download` | Returns a JSON `url` instead of a redirect |
 | `POST /api/1/projects/{pid}/builds/{bid}/invites` | `POST /api/v3/builds/{id}/notify-testers` | Renamed to reflect what it actually does |
-| `POST /api/upload` | `POST /api/v3/builds/upload` | `team_id` required unless `project_id` is given; `folder_name` → `folder`; `app_version` → `version`; `release_notes` only (no `changelog`/`comment` aliases); `groups` only (no `app_permission_groups`); returns `201` with the v3 build object |
+| `POST /api/upload` | `POST /api/v3/builds/upload` | `team_id` required unless `project_id` is given; returns `201` with the v3 build object. See [Upload parameter changes](#upload-parameter-changes) |
 | `GET /api/1/projects/{pid}/builds/{bid}/symbols/download` | `GET /api/v3/builds/{id}/symbols/download` | Path flattened |
 
 Tags change from a comma-separated string (v1) to a JSON array (v3).
+
+#### Upload parameter changes
+
+| Legacy | v3 | Notes |
+| --- | --- | --- |
+| `file` or `apk_file` | `file` | `apk_file` alias dropped |
+| — | `project_id` | New. Upload to a specific app by ID |
+| `team_id` | `team_id` | Now required unless `project_id` is given. v1 only needed it when the app existed on more than one team; v3 never guesses a team |
+| `folder_name` | `folder` | Renamed |
+| `groups` | `groups` | Unchanged: replaces existing grants, `none` removes all |
+| `landing_page_mode` | `landing_page_mode` | Unchanged: `open` or `closed` |
+| `community_token` | `landing_page_slug` | Renamed. Same validation rules |
+| `metadata_*` | — | Dropped |
+| `notify` | `notify` | Unchanged: `on` to email testers, off by default |
+| `changelog`, `comment`, or `release_notes` | `release_notes` | `changelog` and `comment` aliases dropped |
+| `symbols_file` or `proguard_file` | `symbols_file` | `proguard_file` alias dropped |
+| `sync_to_saucelabs` | `sync_to_saucelabs` | Unchanged: `on` to copy to App Storage, off by default |
+| `tags` | — | Not accepted on upload. Set tags after upload with `PUT /api/v3/builds/{id}` (JSON array) |
+| `uploaded_via`, `uploaded-via` | — | Dropped |
+| `app_version` or `version` | `version` | `app_version` alias dropped |
+| `version_code` | `version_code` | Unchanged |
 
 ### Projects
 
