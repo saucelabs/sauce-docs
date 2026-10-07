@@ -1228,6 +1228,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/real-device-access-api/real-device-access-api-introduction',
+                        'mobile-apps/real-device-access-api/real-device-access-api-public-and-private-devices',
                         'mobile-apps/real-device-access-api/real-device-access-api-integration-guide',
                         'mobile-apps/real-device-access-api/real-device-access-api-test-results',
                         'mobile-apps/real-device-access-api/real-device-access-api-local-appium',
