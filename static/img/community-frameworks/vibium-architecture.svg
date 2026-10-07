@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" role="img" aria-labelledby="title desc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="title">How Vibium attaches to a SauceLabs browser session</title>
+  <desc id="desc">Step 1: your code creates a SauceLabs session with webSocketUrl set to true. Step 2: SauceLabs returns a WebDriver BiDi URL. Step 3: Vibium, through its CLI, JavaScript or Python client, or MCP server, connects to that URL and drives Chrome, Edge, or Firefox on a SauceLabs Windows, macOS, or Linux machine. Step 4: your code reports pass or fail through the Jobs API. Step 5: your code ends the session.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A5361"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2BB673"/>
+    </marker>
+  </defs>
+
+  <!-- Panel background keeps every label readable in light and dark mode -->
+  <rect x="0" y="0" width="900" height="470" rx="12" fill="#FFFFFF" stroke="#E3E7EB"/>
+
+  <!-- Left card: your side -->
+  <rect x="20" y="20" width="230" height="430" rx="10" fill="#FFFFFF" stroke="#132322" stroke-width="1.5"/>
+  <path d="M 30 20 H 240 A 10 10 0 0 1 250 30 V 84 H 20 V 30 A 10 10 0 0 1 30 20 Z" fill="#132322"/>
+  <text x="135" y="47" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Your machine, CI job,</text>
+  <text x="135" y="70" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">or coding agent</text>
+
+  <text x="135" y="122" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">Your test code</text>
+  <text x="135" y="143" text-anchor="middle" font-size="14" fill="#4A5361">creates, reports, and ends</text>
+  <text x="135" y="161" text-anchor="middle" font-size="14" fill="#4A5361">the session</text>
+
+  <line x1="40" y1="190" x2="230" y2="190" stroke="#D5DAE0" stroke-width="1"/>
+
+  <text x="135" y="222" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">Vibium</text>
+  <text x="135" y="243" text-anchor="middle" font-size="14" fill="#4A5361">drives the browser, using:</text>
+  <rect x="45" y="260" width="180" height="34" rx="17" fill="#E8FBF2" stroke="#2BB673" stroke-width="1.5"/>
+  <text x="135" y="282" text-anchor="middle" font-size="14" font-weight="600" fill="#132322">CLI</text>
+  <rect x="45" y="304" width="180" height="34" rx="17" fill="#E8FBF2" stroke="#2BB673" stroke-width="1.5"/>
+  <text x="135" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#132322">JavaScript or Python</text>
+  <rect x="45" y="348" width="180" height="34" rx="17" fill="#E8FBF2" stroke="#2BB673" stroke-width="1.5"/>
+  <text x="135" y="370" text-anchor="middle" font-size="14" font-weight="600" fill="#132322">MCP server</text>
+  <text x="135" y="412" text-anchor="middle" font-size="13" fill="#4A5361">pick one</text>
+
+  <!-- Right card: SauceLabs -->
+  <rect x="650" y="20" width="230" height="430" rx="10" fill="#FFFFFF" stroke="#132322" stroke-width="1.5"/>
+  <path d="M 660 20 H 870 A 10 10 0 0 1 880 30 V 84 H 650 V 30 A 10 10 0 0 1 660 20 Z" fill="#132322"/>
+  <text x="765" y="58" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">SauceLabs</text>
+
+  <rect x="668" y="214" width="194" height="140" rx="8" fill="#E8FBF2" stroke="#2BB673" stroke-width="2"/>
+  <text x="765" y="246" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">Desktop browser</text>
+  <text x="765" y="272" text-anchor="middle" font-size="14" fill="#132322">Chrome, Edge, or Firefox</text>
+  <text x="765" y="294" text-anchor="middle" font-size="14" fill="#132322">on Windows, macOS,</text>
+  <text x="765" y="316" text-anchor="middle" font-size="14" fill="#132322">or Linux</text>
+  <text x="765" y="340" text-anchor="middle" font-size="12" fill="#4A5361">No Safari or mobile</text>
+
+  <!-- Step 1: Create a session -->
+  <circle cx="282" cy="96" r="13" fill="#132322"/>
+  <text x="282" y="101" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="304" y="101" font-size="15" font-weight="700" fill="#132322">Create a session</text>
+  <text x="304" y="121" font-size="13" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#4A5361">webSocketUrl: true</text>
+  <line x1="254" y1="136" x2="646" y2="136" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Get the BiDi URL -->
+  <circle cx="282" cy="164" r="13" fill="#132322"/>
+  <text x="282" y="169" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="304" y="169" font-size="15" font-weight="700" fill="#132322">Get the BiDi URL back</text>
+  <text x="304" y="189" font-size="13" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#4A5361">wss://…/se/bidi</text>
+  <line x1="646" y1="204" x2="256" y2="204" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Vibium drives the browser -->
+  <circle cx="282" cy="246" r="13" fill="#132322"/>
+  <text x="282" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">3</text>
+  <text x="304" y="251" font-size="15" font-weight="700" fill="#132322">Vibium drives the browser</text>
+  <text x="304" y="271" font-size="13" fill="#4A5361">over WebDriver BiDi</text>
+  <line x1="258" y1="290" x2="662" y2="290" stroke="#2BB673" stroke-width="5" marker-start="url(#arrow-green)" marker-end="url(#arrow-green)"/>
+
+  <!-- Step 4: Report pass or fail -->
+  <circle cx="282" cy="326" r="13" fill="#132322"/>
+  <text x="282" y="331" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="304" y="331" font-size="15" font-weight="700" fill="#132322">Report pass or fail</text>
+  <text x="304" y="351" font-size="13" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#4A5361">PUT /jobs/&lt;id&gt;</text>
+  <line x1="254" y1="364" x2="646" y2="364" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: End the session -->
+  <circle cx="282" cy="392" r="13" fill="#132322"/>
+  <text x="282" y="397" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">5</text>
+  <text x="304" y="397" font-size="15" font-weight="700" fill="#132322">End the session</text>
+  <text x="304" y="417" font-size="13" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#4A5361">DELETE /session/&lt;id&gt;</text>
+  <line x1="254" y1="432" x2="646" y2="432" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+</svg>
