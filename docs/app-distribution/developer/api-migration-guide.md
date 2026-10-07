@@ -37,21 +37,21 @@ Tags change from a comma-separated string (v1) to a JSON array (v3).
 | Legacy | v3 | Notes |
 | --- | --- | --- |
 | `file` or `apk_file` | `file` | `apk_file` alias dropped |
-| `app_version` or `version` | `version` | `app_version` alias dropped |
-| `version_code` | `version_code` | Unchanged |
-| `changelog`, `comment`, or `release_notes` | `release_notes` | `changelog` and `comment` aliases dropped |
+| — | `project_id` | New. Upload to a specific app by ID |
+| `team_id` | `team_id` | Now required unless `project_id` is given. v1 only needed it when the app existed on more than one team; v3 never guesses a team |
 | `folder_name` | `folder` | Renamed |
 | `groups` | `groups` | Unchanged: replaces existing grants, `none` removes all |
-| `notify` | `notify` | Unchanged: `on` to email testers, off by default |
-| `sync_to_saucelabs` | `sync_to_saucelabs` | Unchanged: `on` to copy to App Storage, off by default |
-| `symbols_file` or `proguard_file` | `symbols_file` | `proguard_file` alias dropped |
-| `community_token` | `landing_page_slug` | Renamed. Same validation rules |
 | `landing_page_mode` | `landing_page_mode` | Unchanged: `open` or `closed` |
-| `tags` | — | Not accepted on upload. Set tags after upload with `PUT /api/v3/builds/{id}` (JSON array) |
+| `community_token` | `landing_page_slug` | Renamed. Same validation rules |
 | `metadata_*` | — | Dropped |
+| `notify` | `notify` | Unchanged: `on` to email testers, off by default |
+| `changelog`, `comment`, or `release_notes` | `release_notes` | `changelog` and `comment` aliases dropped |
+| `symbols_file` or `proguard_file` | `symbols_file` | `proguard_file` alias dropped |
+| `sync_to_saucelabs` | `sync_to_saucelabs` | Unchanged: `on` to copy to App Storage, off by default |
+| `tags` | — | Not accepted on upload. Set tags after upload with `PUT /api/v3/builds/{id}` (JSON array) |
 | `uploaded_via`, `uploaded-via` | — | Dropped |
-| `team_id` | `team_id` | Now required unless `project_id` is given. v1 only needed it when the app existed on more than one team; v3 never guesses a team |
-| — | `project_id` | New. Upload to a specific app by ID |
+| `app_version` or `version` | `version` | `app_version` alias dropped |
+| `version_code` | `version_code` | Unchanged |
 
 ### Projects
 

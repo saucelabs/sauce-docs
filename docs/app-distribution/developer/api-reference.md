@@ -124,15 +124,15 @@ For the full interactive API documentation with request/response examples, visit
 | `project_id` | See note | — | ID of the app to upload to. When set, `team_id` is ignored |
 | `team_id` | See note | — | ID of the team to upload to. Required unless `project_id` is given. The build goes to that team's existing app for the package name, or a new app is created there |
 | `folder` | No | None | Folder name. Scopes the package-name lookup and is applied to an auto-created app |
-| `version` | No | Detected from the file | Override the version string |
-| `version_code` | No | Detected from the file | Override the version code |
-| `release_notes` | No | None | Release notes for the build |
 | `groups` | No | Unchanged | Comma-separated tester group names or IDs to grant the app to. Replaces existing grants; omit to leave grants unchanged, or send `none` to remove all grants. Names that don't resolve are returned in `invalid_groups` and never revoke anything. Does not send email on its own (see `notify`). |
+| `landing_page_mode` | No | Unchanged | Landing page visibility: `open` or `closed` |
+| `landing_page_slug` | No | Unchanged | URL alias for the app's landing page. 6-63 characters: letters, digits, dot, hyphen, or underscore, not starting or ending with a separator. Returns `409` if the alias is already used by another app |
 | `notify` | No | `off` | Set to `on` to email the app's tester groups about the new build. Granting groups does not notify them on its own. Ignored for builds that can't be installed (for example, generic files) |
+| `release_notes` | No | None | Release notes for the build |
 | `symbols_file` | No | None | Debug symbols to attach (iOS dSYM or Android mapping file). Best-effort: an invalid symbols file never fails the upload. |
 | `sync_to_saucelabs` | No | `off` | Set to `on` to also copy the build to Sauce Labs App Storage. Requires a Sauce Labs connection on the organization |
-| `landing_page_slug` | No | Unchanged | URL alias for the app's landing page. 6-63 characters: letters, digits, dot, hyphen, or underscore, not starting or ending with a separator. Returns `409` if the alias is already used by another app |
-| `landing_page_mode` | No | Unchanged | Landing page visibility: `open` or `closed` |
+| `version` | No | Detected from the file | Override the version string |
+| `version_code` | No | Detected from the file | Override the version code |
 
 Provide either `project_id` or `team_id`. `PUT /api/v3/builds/{id}` accepts `release_notes`, `tags`, `landing_page_slug`, and `landing_page_mode`.
 
