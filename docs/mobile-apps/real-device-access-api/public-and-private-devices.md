@@ -14,7 +14,7 @@ Public and private devices are entitled separately and counted separately. Each 
 
 Organizations without a paid Access API entitlement for a device class fall back to the free tier, which allows one device of that class at a time. Contact your Customer Success Manager or the Sauce Labs Support Team to enable or raise an entitlement.
 
-A device counts against your concurrency from the moment its session is created until the session is closed or expires. When no concurrency is left for the device class the session would run on, `POST /sessions` returns a `409`:
+A device counts against your concurrency from the moment a device is allocated for that session, until the session is closed or expires. When no concurrency is left for the device class the session would run on, `POST /sessions` returns a `409`:
 
 | Title | Meaning |
 | --- | --- |
