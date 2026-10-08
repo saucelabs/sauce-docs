@@ -4,11 +4,6 @@ title: Real Device Access API Guide
 sidebar_label: Introduction
 ---
 
-:::info
-Access to public devices requires a separate entitlement. Contact your Customer Success Manager or the
-Sauce Labs Support Team to enable it.
-:::
-
 The **Real Device Access API** provides you with direct access to Sauce Labs’ real device cloud, both the public devices shared across all customers and the private devices reserved for your organization. Instead of wiring every workflow through test-frameworks, you reserve a device once, interact with it over HTTP/WebSockets, and decide how to drive automation, debugging, or observability.
 
 Historically, accessing real devices meant depending on a specific framework like Appium, XCTest, XCUITest, or Espresso. The Access API removes that dependency by exposing our infrastructure through standard protocols so you can build your own testing, validation, or monitoring solutions—without running a physical lab.
@@ -30,36 +25,8 @@ For the complete endpoint contract, see the [Real Device Access API Reference](/
 ## Public and Private Devices
 
 A session runs on a public device from the shared Sauce Labs cloud or on one of your organization's
-private devices. The API surface is the same for both: the same endpoints, the same session lifecycle,
-the same test results.
-
-Refer to the following table to learn about the differences between the Access API on the Private
-and Public Device Clouds.
-
-| Capability | Public Devices | Private Devices |
-|---|:---:|:---:|
-| **Session** | | |
-| Maximum session duration | Up to 1 hour | Up to 24 hours |
-| Many tests on one session | ✅ | ✅ |
-| Concurrency | Public device entitlement | Private device entitlement |
-| **Device control** | | |
-| App installation, launch, and uninstall | ✅ | ✅ |
-| File management (list, push, pull) | ✅ | ✅ |
-| `adb shell` commands (Android) | Allowlisted commands only | Unrestricted |
-| Device reboot | ❌ | ✅ |
-| Custom WebDriverAgent (iOS) | ❌ | ✅ |
-| Low-Level Device Access | ❌ | ✅ |
-| **Observability** | | |
-| Live video stream | ✅ | ✅ |
-| Live device logs | ✅ | ✅ |
-| Network capture (HAR) | ✅ | ✅ |
-| Test results and artifacts | ✅ | ✅ |
-| **Appium** | | |
-| Sauce Labs hosted Appium | ✅ | ✅ |
-
-The [Real Device Access API Reference](/real-device-access-api) carries the rest: the fields that
-identify a device's class under the `Device Catalog` tag, and the response each endpoint returns when an
-operation is unavailable on a public device.
+private devices. The API is the same for both, but entitlements, session duration, and a few device
+operations differ. See [Public and Private Devices](public-and-private-devices.md) for the details.
 
 ## What You'll Need
 
@@ -70,6 +37,7 @@ operation is unavailable on a public device.
 ## Where To Go Next
 
 - **[Integration Guide](integration-guide.md):** Step-by-step tour of authentication, device filtering, and session management.
+- **[Public and Private Devices](public-and-private-devices.md):** Entitlements, session limits, and what each device class supports.
 - **[Local Appium](local-appium.md):** Bridge a local Appium server to Sauce Labs devices using `vusbUrl` (Android) or HTTP forwarding (iOS).
 - **[Sauce Labs Hosted Appium](sauce-labs-hosted-appium.md):** Keep our hosted Appium server running next to your reserved device and run an entire suite on a single session.
 - **[Mastering the Companion Socket](mastering-companion-socket.md):** Learn how to stream real-time device logs, Appium logs, and network traffic using the Companion Socket.
