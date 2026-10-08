@@ -1399,23 +1399,10 @@ html[data-theme="dark"] .role-badge {
     background-color: color-mix(in srgb, var(--role-color) 20%, transparent);
 }
 
-/* "App Distribution (Classic)" sidebar category: de-emphasized, with a CLASSIC tag
-   so readers default to the current App Distribution docs. */
-.sidebar-classic > .menu__list-item-collapsible > .menu__link {
-    color: #8a9199;
-    font-weight: 500;
-}
-
-.sidebar-classic > .menu__list-item-collapsible > .menu__link:hover,
-html[data-theme="dark"]
-    .sidebar-classic
-    > .menu__list-item-collapsible
-    > .menu__link:hover {
-    color: #6b7280;
-}
-
-/* The label sits in a CSS-module span inside the link; the link's own ::after is
-   already the collapse caret, so the tag hangs off the label instead. */
+/* "App Distribution (Classic)" sidebar category: a CLASSIC tag so readers default
+   to the current App Distribution docs. The label sits in a CSS-module span inside
+   the link; the link's own ::after is already the collapse caret, so the tag hangs
+   off the label instead. */
 .sidebar-classic
     > .menu__list-item-collapsible
     > .menu__link
@@ -1438,15 +1425,38 @@ html[data-theme="dark"]
 html[data-theme="dark"]
     .sidebar-classic
     > .menu__list-item-collapsible
-    > .menu__link {
-    color: #8a9199;
-}
-
-html[data-theme="dark"]
-    .sidebar-classic
-    > .menu__list-item-collapsible
     > .menu__link
     [class*="categoryLinkLabel"]::after {
     color: #f0a973;
     background-color: rgba(232, 134, 61, 0.18);
+}
+
+/* "Sauce Mobile SDK" sidebar category: a BETA tag next to the label, in the
+   same yellow as the in-page "Beta release" label (.sauceYellow). */
+.sidebar-beta
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    content: "BETA";
+    display: inline-block;
+    margin-left: 0.45em;
+    padding: 0.05em 0.4em;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    vertical-align: middle;
+    border-radius: 4px;
+    color: var(--dark-300);
+    background-color: #fddf7f;
+    white-space: nowrap;
+}
+
+html[data-theme="dark"]
+    .sidebar-beta
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    color: #fddf7f;
+    background-color: rgba(253, 223, 127, 0.18);
 }

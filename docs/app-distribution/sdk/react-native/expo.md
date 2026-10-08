@@ -1,0 +1,66 @@
+---
+id: expo
+title: Expo (with prebuild)
+sidebar_label: Expo (with prebuild)
+description: Add the Sauce Mobile Beta SDK for React Native to an Expo project that generates its native projects with prebuild.
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<p><span className="sauceYellow">Beta release</span></p>
+
+:::info Beta release
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+
+- Final: the artifact names and the API.
+- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
+
+Share feedback with your Sauce Labs representative.
+:::
+
+[Sauce Mobile Beta for React Native](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc) (`@saucelabs/mobile-beta-react-native`) is a bridge to the Sauce Mobile Beta SDK and is supported for Expo (with prebuild): Expo projects whose native `ios` and `android` directories are generated with `npx expo prebuild`. Integrating the SDK into your app shows you how your app performs on real devices. It shows when and how people use your app and provides any metrics you may need to optimize your user experience and code.
+
+## Requirements
+
+The package contains native iOS and Android code, so it does not run in Expo Go. Your project needs generated `ios` and `android` directories before you install it. Generate them with `npx expo prebuild`, which Expo calls Continuous Native Generation. See the [Expo prebuild docs](https://docs.expo.dev/workflow/prebuild/).
+
+The SDK does not install a crash handler. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), and the two SDKs are designed to run in the same app. Start the SDK with `beginWithoutCrashHandler`. See [Crash Ownership](/app-distribution/sdk/react-native/react-native#crash-ownership).
+
+## Steps
+
+From your project root, run the following commands. Until npm publishing is switched on, the package is installed from the tarball attached to the GitHub Release:
+
+```bash
+npx expo prebuild
+npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.0.0-rc/saucelabs-mobile-beta-react-native-3.0.0-rc.tgz
+
+cd ios
+pod install
+```
+
+:::note
+After the package is published on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL.
+:::
+
+On Android, the package registers its Maven repositories on every Gradle project, so a standard Expo project needs no repository change. If your `android/settings.gradle` restricts repositories with `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, add the Sauce Mobile Beta Maven repository as shown in [Android](/app-distribution/sdk/react-native/react-native#android), and re-apply that change (or apply it with a config plugin) after every `npx expo prebuild --clean`, which regenerates the native directories.
+
+Then start the SDK once per app launch from your root component, using the app token from the [user preferences](https://app.testfairy.com/settings/) on your Sauce Labs Mobile App Distribution account:
+
+```js
+import React, { useEffect } from 'react';
+import TestFairy from '@saucelabs/mobile-beta-react-native';
+
+export default function App() {
+  useEffect(() => {
+    TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
+  }, []);
+
+  return <YourApp />; // your root component tree
+}
+```
+
+## Notes
+
+Since all Expo apps are React Native apps behind the scenes, everything on the [Integrating the React Native SDK](/app-distribution/sdk/react-native/react-native) page also applies to Expo: the API notes and the [Using With Backtrace](/app-distribution/sdk/react-native/react-native#using-with-backtrace) summary. If you use Backtrace in the same app, initialize Backtrace first and share the `sauce.correlation_id` attribute with both SDKs as described in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).
