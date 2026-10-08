@@ -4,15 +4,17 @@ title: Public and Private Devices on the Real Device Access API
 sidebar_label: Public and Private Devices
 ---
 
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
+
 A [Real Device Access API](introduction.md) session runs either on a **public device** from the shared Sauce Labs cloud or on one of your organization's **private devices**. The API surface is the same for both: the same endpoints, the same session lifecycle, the same test results.
 
 The differences come from what a public device is: shared infrastructure that is cleaned and handed to the next customer after your session. Anything that could change the device beyond a session, or that would give one customer low-level access to shared hardware, is reserved for private devices.
 
 ## Entitlements and Concurrency
 
-Public and private devices are entitled separately and counted separately. Each entitlement sets how many devices of that class your organization can hold in Access API sessions at the same time. Running out on one class does not affect the other.
+The Real Device Access API is available on Enterprise plans only. Public and private devices are entitled separately and counted separately. Each entitlement sets how many devices of that class your organization can hold in Access API sessions at the same time. Running out on one class does not affect the other.
 
-Organizations without a paid Access API entitlement for a device class fall back to the free tier, which allows one device of that class at a time. Contact your Customer Success Manager or the Sauce Labs Support Team to enable or raise an entitlement.
+Enterprise organizations without a paid Access API entitlement for a device class fall back to the free tier, which allows one device of that class at a time. Self-serve plans do not include the Access API; to upgrade, [request a demo](https://saucelabs.com/request-demo). Contact your Customer Success Manager or the Sauce Labs Support Team to enable or raise an entitlement.
 
 A device counts against your concurrency from the moment a device is allocated for that session, until the session is closed or expires. When no concurrency is left for the device class the session would run on, `POST /sessions` returns a `409`:
 
