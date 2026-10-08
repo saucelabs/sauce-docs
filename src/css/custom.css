@@ -1178,6 +1178,14 @@ ul.dropdown__menu li a:hover {
     width: 100%;
 }
 
+/* Scalar lets cells break mid-word, so a short first column (e.g. the close
+   code) gets squeezed to one or two characters. Keep it on one line and as
+   narrow as its content. */
+.api-reference-page .scalar-app .markdown table :is(td, th):first-child {
+    white-space: nowrap;
+    width: 1%;
+}
+
 /* Small, minimal availability tags for the Sauce MCP tools table */
 .mcp-tag {
     display: inline-block;
