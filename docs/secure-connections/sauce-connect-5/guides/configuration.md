@@ -55,7 +55,7 @@ and their usage.
 
 # region <data center>
 #
-# Sauce Labs region name, ex. us-west, us-east, or eu-central. More details
+# Sauce Labs region name, ex. us-west, us-east, eu-central, or asia-south. More details
 # here: https://docs.saucelabs.com/basics/data-center-endpoints.
 #region: 
 
@@ -463,7 +463,7 @@ Follow the steps below to configure Sauce Connect Proxy using environment variab
    ```bash
    export SAUCE_USERNAME="your Sauce username"
    export SAUCE_ACCESS_KEY="your Sauce access key"
-   export SAUCE_REGION="<us-west|eu-central>"
+   export SAUCE_REGION="<us-west|us-east|eu-central|asia-south>"
    export SAUCE_TUNNEL_NAME="your tunnel name"
    ```
 2. Starting a new Sauce Connect Proxy does not require adding required flags.

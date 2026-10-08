@@ -11,7 +11,7 @@ Although we encourage using [our hosted Appium solution](/mobile-apps/automated-
 Connecting a local Appium server to a Sauce Labs device relies on low-level device access, which is
 available on private devices only. A session running on a public device returns no `adbUrl`,
 `usbmuxdUrl`, or `vusbUrl`, so there is nothing to bridge a local connection to. See
-[Public and Private Devices](introduction.md#public-and-private-devices) for what each device class
+[Public and Private Devices](public-and-private-devices.md) for what each device class
 supports.
 :::
 

@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Welcome to Sauce Labs Mobile App Distribution, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center. 
+Welcome to Sauce Labs Mobile App Distribution, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center.
 
 ## Store and Manage Apps
 

@@ -14,7 +14,7 @@ Your existing scripts, profilers, and workflows carry over unchanged. See [How I
 Connecting your own tools to a device relies on low-level device access, which is available on private
 devices only. A session running on a public device returns no `adbUrl`, `usbmuxdUrl`, or `vusbUrl`, so
 the tunnel described below cannot be established. See
-[Public and Private Devices](introduction.md#public-and-private-devices) for what each device class
+[Public and Private Devices](public-and-private-devices.md) for what each device class
 supports.
 :::
 

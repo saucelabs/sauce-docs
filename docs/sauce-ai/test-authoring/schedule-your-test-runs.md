@@ -2,6 +2,7 @@
 id: schedule-your-test-runs
 title: Schedule Test Runs
 sidebar_label: Schedule Test Runs
+description: "Schedule Sauce AI test suites to run automatically at a set date and time or on a recurring cadence for continuous regression and smoke testing."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
