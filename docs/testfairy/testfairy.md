@@ -26,7 +26,7 @@ For more information, see [Managing Testers](/testfairy/testers/managing-testers
 
 Add the Sauce Mobile Beta SDK to your app to record tester sessions with video, collect in-app feedback, send remote logs, and identify users and sessions. The SDK does not install a crash handler. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), and the two SDKs are designed to run in the same app.
 
-The SDK is a beta release. Each SDK page carries a beta note. For more information, see [Adding the Sauce Mobile Beta SDK](/testfairy/sdk/adding-tf-sdk/) and [Using Sauce Mobile Beta with Backtrace](/testfairy/sdk/backtrace-coexistence/).
+The SDK is a beta release. Each SDK page carries a beta note. For more information, see [Adding the Sauce Mobile Beta SDK](/app-distribution/sdk/adding-tf-sdk) and [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).
 
 ## Manage Everything Through API and Integrations
 

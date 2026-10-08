@@ -1066,6 +1066,83 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Sauce Mobile SDK',
+                    className: 'sidebar-beta',
+                    collapsed: true,
+                    items: [
+                        'app-distribution/sdk/adding-tf-sdk',
+                        'app-distribution/sdk/backtrace-coexistence',
+                        {
+                            type: 'category',
+                            label: 'Android',
+                            collapsed: true,
+                            items: [
+                                'app-distribution/sdk/android/integrating-android',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'iOS',
+                            collapsed: true,
+                            items: [
+                                'app-distribution/sdk/ios/integrating-ios',
+                                'app-distribution/sdk/ios/hiding-webview',
+                                'app-distribution/sdk/ios/log-network',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'React Native',
+                            collapsed: true,
+                            items: [
+                                'app-distribution/sdk/react-native/react-native',
+                                'app-distribution/sdk/react-native/expo',
+                            ],
+                        },
+                        'app-distribution/sdk/options',
+                        'app-distribution/sdk/session-attributes',
+                        'app-distribution/sdk/identifying-users',
+                        'app-distribution/sdk/user-feedback',
+                        'app-distribution/sdk/app-updates',
+                        'app-distribution/sdk/logging',
+                        'app-distribution/sdk/remote-logging',
+                        'app-distribution/sdk/map-locations',
+                        'app-distribution/sdk/private-cloud-int',
+                        'app-distribution/sdk/tf-production',
+                        'app-distribution/sdk/crash-handler-testing',
+                        'app-distribution/sdk/supported-platforms',
+                        {
+                            type: 'category',
+                            label: 'Bug Tracking',
+                            collapsed: true,
+                            items: [
+                                'app-distribution/sdk/bug-tracking/jira-cloud',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Security',
+                            collapsed: true,
+                            items: [
+                                'app-distribution/sdk/security/data-encryption',
+                                'app-distribution/sdk/security/hiding-data',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Migrating from the TestFairy SDK',
+                            collapsed: true,
+                            items: [
+                                'app-distribution/sdk/migration/overview',
+                                'app-distribution/sdk/migration/ios',
+                                'app-distribution/sdk/migration/android',
+                                'app-distribution/sdk/migration/react-native',
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'App Distribution',
                     className: 'sidebar-classic',
                     collapsed: true,

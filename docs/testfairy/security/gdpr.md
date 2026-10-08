@@ -23,7 +23,7 @@ Yes. Sauce Labs Mobile App Distribution end-users are ensured that their data is
 
 ## Can Sauce Labs Mobile App Distribution End-Users See Their Sessions?
 
-Yes. On a Private cloud or on an on-prem installation, companies can allow their end-users to see their recorded sessions. The developer must identify the sessions using the SDK function [setUserId](/testfairy/sdk/identifying-users).
+Yes. On a Private cloud or on an on-prem installation, companies can allow their end-users to see their recorded sessions. The developer must identify the sessions using the SDK function [setUserId](/app-distribution/sdk/identifying-users).
 Users can only see their sessions by logging into Sauce Labs Mobile App Distribution via their desktop browser. At the moment, mobile view is not supported.
 
 ## Can Sauce Labs Mobile App Distribution Users Request to Delete Their Sessions?
