@@ -15,7 +15,7 @@ The Error Reporting MCP server (`https://mcp.saucelabs.com`) supports two ways t
 | Method | Best for | How it works |
 | ----- | ----- | ----- |
 | **Single sign-on (SSO)** | Interactive use on your own machine | You sign in through your browser with your usual Sauce Labs credentials. No tokens to manage. |
-| **Access token** | Scripts, CI jobs, and headless agents | You supply an Error Reporting token that is scoped to a single project. No browser required. |
+| **Access token** | Scripts, CI jobs, and headless agents | You supply an Error Reporting API token that is scoped to a single project. No browser required. |
 
 Both methods require your **universe** name, which is the Error Reporting tenant your projects belong to. It is the subdomain you use to reach Error Reporting: for `https://saucelabs.sp.backtrace.io`, the universe is `saucelabs`.
 
@@ -69,31 +69,35 @@ Use this method to automate engineering workflows such as CI/CD jobs, local deve
 | Header | Description | Required |
 | ----- | ----- | ----- |
 | `X-Backtrace-Universe` | Your universe name, for example `saucelabs`. | Yes |
-| `X-Backtrace-Token` | The Error Reporting token you create below. | Yes |
+| `X-Backtrace-Token` | The Error Reporting API token you create below. | Yes |
 | `X-Backtrace-Project` | The project the token is scoped to. | Yes |
 
-### Create a Token
+### Create an API Token
 
 **Step 1:** In Error Reporting, select your profile icon in the top-right corner, then select **Project Settings & Docs**.
 
 <img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-token-1.png')} alt="Open project settings from the profile menu" />
 
-**Step 2:** Confirm that the project shown in the breadcrumb is the project you want the token to access. Under **Error Submission**, select **Submission tokens**, then select the **plus (+)** button to create a new token.
+**Step 2:** Confirm that the project shown in the breadcrumb is the project you want the token to access. Under **Project**, select **API tokens**, then select **New** to create a new token.
 
-<img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-token-2.png')} alt="Submission tokens page in project settings" />
+<img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-token-2.png')} alt="API tokens page in project settings" />
 
-**Step 3:** Enter an optional description, select the following capabilities, then select **Create**:
+**Step 3:** In the dialog that opens, enter an optional description, select the following capabilities, then select **Create**:
 
 * **`object:get`** - allows the MCP tools to fetch individual errors and their attachments.
 * **`query:post`** - allows the MCP tools to run queries, such as listing crash groups.
 
-<img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-token-3.png')} alt="Create a new submission token dialog" />
+<img src={useBaseUrl('img/error-reporting/error-reporting-mcp/mcp-token-3.png')} alt="Token capabilities dialog with object:get and query:post selected" />
+
+:::note
+The dialog is titled **Create a new submission token**, but because you opened it from the **API tokens** page, it creates an API token.
+:::
 
 :::tip
 Leave the remaining capabilities cleared so that the token stays read-only.
 :::
 
-**Step 4:** Copy the token value from the **Submission tokens** table. You can revoke the token from the same page at any time by disabling it or deleting it.
+**Step 4:** Copy the token value from the **API tokens** table. You can revoke the token from the same page at any time by disabling it or deleting it.
 
 ### Add the Server Using the CLI (Access Token)
 
