@@ -33,7 +33,7 @@ In-app notifications cannot be turned off, they are always active for all users.
 
 Email notifications keep you informed about specific activity related to builds and app assignments.
 
-- **Build uploads** - when a new build is uploaded to an app your tester group is assigned to. Sent for web uploads; API uploads send email only when `notify=1` is set.
+- **Build uploads** - when a new build is uploaded to an app your tester group is assigned to. Sent for web uploads; [API uploads](/app-distribution/developer/api-reference#upload-parameters) send email only when `notify=1` is set.
 - **App assignments** - when you're assigned to an app individually, when someone clicks **Resend Email**, or when a team member sends a notification to your group.
 
 ## Turn Off Email Notifications
