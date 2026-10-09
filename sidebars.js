@@ -430,6 +430,16 @@ module.exports = {
                 'dev/api/error-reporting', // Error Reporting
                 'dev/api/insights', // Insights
                 'dev/api/jobs', // Jobs
+                {
+                    type: 'category',
+                    label: 'Mobile App Distribution API',
+                    collapsed: true,
+                    items: [
+                        'app-distribution/developer/api-reference', // API Reference
+                        'app-distribution/developer/legacy-api-v1', // Legacy API (v1)
+                        'app-distribution/developer/api-migration-guide', // API Migration Guide
+                    ],
+                },
                 'dev/api/performance', // Performance
                 'dev/api/platform', // Platform
                 {
@@ -944,14 +954,9 @@ module.exports = {
                     ],
                 },
                 {
-                    type: 'category',
-                    label: 'Developer',
-                    collapsed: true,
-                    items: [
-                        'app-distribution/developer/api-reference',
-                        'app-distribution/developer/legacy-api-v1',
-                        'app-distribution/developer/api-migration-guide',
-                    ],
+                    type: 'link',
+                    label: 'API Reference',
+                    href: '/app-distribution/developer/api-reference',
                 },
                 {
                     type: 'category',

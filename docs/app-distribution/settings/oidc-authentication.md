@@ -70,7 +70,7 @@ Choose how API requests should be authenticated:
 - **Clock Skew Tolerance** applies to the `exp`, `nbf` and `iat` claims.
 - **OIDC Only** mode also blocks Bearer tokens and Basic authentication for the organization.
 
-The OIDC configuration is also available through the API at `/api/v3/settings/oidc`.
+The OIDC configuration is also available through the [API](/app-distribution/developer/api-reference#settings) at `/api/v3/settings/oidc`.
 
 ## Making API Requests with OIDC
 
