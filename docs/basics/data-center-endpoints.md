@@ -66,10 +66,6 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 ### EU Central Data Center
 
-:::note
-Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU Central data center. See [Running Tests on EU Central](#running-tests-on-eu-central) for details.
-:::
-
 | Description                  | Endpoint                                                           |
 |------------------------------|--------------------------------------------------------------------|
 | Remote WebDriver Endpoint    | https://ondemand.eu-central-1.saucelabs.com/wd/hub                 |
@@ -163,16 +159,6 @@ Real devices are kept in our data center, behind locked racks and doors. Other s
 #### Authorization Credentials
 
 The URL hostname and authorization credentials for APIs are different for each data center, and can be found in Sauce Labs on the **User Settings** page.
-
-#### Running Tests on EU Central
-
-If you use any of the following and your data center is EU Central, you need to make changes to your tests and/or framework to run those tests in the EU data center.
-
-| Framework                 | Change                                                                                                                                 |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Java with JUnit or TestNG | Set `SAUCE_REST_ENDPOINT=https://eu-central-1.saucelabs.com/` as a system/environment variable, otherwise test status will not be set. |
-| Protractor                | Update to version 5.4.2 or later of Protractor and set `sauceRegion` to `eu` in your config file.                                      |
-| WebDriverIO               | Update to version 4.14.1 or later, or 5.0.0 or later, of WebDriverIO and set `region` to `eu` in your wdio.conf file.                  |
 
 ### Single Sign-On (SSO) Configuration
 
