@@ -5,3 +5,12 @@ level: warning
 scope: heading
 match: $title
 style: AP
+exceptions:
+  - iOS
+  - macOS
+  - dSYM
+  - dSYMs
+  - npm
+  - xcconfig
+  - Info.plist
+  - OAuth

@@ -12,13 +12,20 @@ To access the Settings page, click **Account** and then click **Sauce Labs Mobil
 
 <img src={useBaseUrl('img/testfairy/acct-settings-nav.png')} alt="Accessing Settings page" width="250"/>
 
+## SDK App Token
+
+<img src={useBaseUrl('img/testfairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
+
+Your app token initializes the Sauce Mobile Beta SDK. See [Adding the Sauce Mobile Beta SDK to your App](/app-distribution/sdk/adding-tf-sdk) for more information.
+Your access key (API key) authenticates API requests. See [API Keys](/testfairy/security/api-keys) for usage details.
+
+For automated workflows, use dedicated [service accounts](/testfairy/security/service-accounts).
+
 ## Sauce Labs Mobile App Distribution Access Key
 
 <img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="Sauce Labs Mobile App Distribution Access Key page" width="700"/>
 
-Your access key (API key) authenticates API requests. See [API Keys](/testfairy/security/api-keys) for usage details.
-
-For automated workflows, use dedicated [service accounts](/testfairy/security/service-accounts).
+You can use the Sauce Labs Mobile App Distribution API to upload builds and invite testers directly. For more information, see [Upload API](/testfairy/api-reference/upload-api).
 
 ## Sauce Labs Mobile App Distribution
 
@@ -28,7 +35,7 @@ On the Sauce Labs Mobile App Distribution page you can access the **Rename versi
 
 ## Notifications
 
-On the Notifications page, you can define what types of messages you want to receive about new builds.
+On the Notifications page, you can define what types of messages you want to receive about new builds, crashes, and user feedback.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-notifications.png')} alt="Notifications page" width="700"/>
 
@@ -36,7 +43,7 @@ On the Notifications page, you can define what types of messages you want to rec
 
 You can integrate your Sauce Labs Mobile App Distribution account with different services to customize and streamline your work processes.
 
-- Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
+- SMTP and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
 
 - Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with Sauce Labs Mobile App Distribution.
 
@@ -60,7 +67,7 @@ To ensure testers first login to their tester accounts before downloading your a
 
 ### SAML/Single Sign-On
 
-Add the SSO metadata definitions file here. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate. See [SSO](/testfairy/security/sso/sso-intro) for more information.
+Add the SSO metadata definitions file in this section. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate. See [SSO](/testfairy/security/sso/sso-intro) for more information.
 
 ## Account
 
@@ -68,6 +75,7 @@ On the **Account** page you can access the following settings:
 
 - Change Timezone
 - Data Retention
+- Session Quota
 
 <img src={useBaseUrl('img/testfairy/acct-settings-account.png')} alt="Account page" width="700"/>
 
