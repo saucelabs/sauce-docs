@@ -76,10 +76,6 @@ Paginated responses include a `pagination` object. The list key matches the reso
 }
 ```
 
-## Interactive Documentation
-
-For the full interactive API documentation with request/response examples, visit the **Swagger UI**.
-
 ## Endpoints
 
 ### Authentication
@@ -120,7 +116,7 @@ For the full interactive API documentation with request/response examples, visit
 
 | Parameter | Required | Default | Description |
 | --- | --- | --- | --- |
-| `file` | Yes | — | The build file (`.apk`, `.aab`, `.ipa`, or `.zip`) |
+| `file` | Yes | — | The build file itself (`.apk`, `.aab`, `.ipa`, or `.zip`), sent as a multipart **file** part, not a text field. A URL or path in a text field is rejected with `400 {"error": "file is required."}` |
 | `project_id` | See note | — | ID of the app to upload to. When set, `team_id` is ignored |
 | `team_id` | See note | — | ID of the team to upload to. Required unless `project_id` is given. The build goes to that team's existing app for the package name, or a new app is created there |
 | `folder` | No | None | Folder name. Scopes the package-name lookup and is applied to an auto-created app |
@@ -134,7 +130,19 @@ For the full interactive API documentation with request/response examples, visit
 | `version` | No | Detected from the file | Override the version string |
 | `version_code` | No | Detected from the file | Override the version code |
 
-Provide either `project_id` or `team_id`. `PUT /api/v3/builds/{id}` accepts `release_notes`, `tags`, `landing_page_slug`, and `landing_page_mode`.
+Provide either `project_id` or `team_id`.
+
+```bash
+curl -X POST https://your-org.testfairy.com/api/v3/builds/upload \
+  -H "X-API-Key: $API_KEY" \
+  -F project_id=$PROJECT_ID \
+  -F file=@app-release.apk \
+  -F notify=on
+```
+
+:::note
+The API does not fetch builds from a URL. Download the file first (for example from your own S3 bucket), then send its contents as the `file` part.
+:::
 
 ### Teams
 
