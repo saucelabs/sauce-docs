@@ -46,7 +46,7 @@ Once the connection is established, the following features are enabled:
 
 ## Copying Builds to App Storage
 
-Copying a build to SauceLabs App Storage is opt-in, not automatic. To copy a build, check **Also upload to SauceLabs App Storage** when uploading it, or send `sync_to_saucelabs=1` through the API.
+Copying a build to SauceLabs App Storage is opt-in, not automatic. To copy a build, check **Also upload to SauceLabs App Storage** when uploading it, or send `sync_to_saucelabs=1` through the [API](/app-distribution/developer/api-reference#upload-parameters).
 
 You must have signed in with Sauce Labs at least once, so that your Sauce Labs credentials are stored. If they aren't, the copy is skipped silently.
 
