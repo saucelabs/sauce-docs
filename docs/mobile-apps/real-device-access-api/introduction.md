@@ -4,6 +4,10 @@ title: Real Device Access API Guide
 sidebar_label: Introduction
 ---
 
+:::caution Enterprise Plans only
+The Access API is available on Enterprise plans only. It is not included in self-serve plans. To enable it for your organization, contact your Customer Success Manager or [request a demo](https://saucelabs.com/request-demo) to upgrade to an Enterprise plan.
+:::
+
 The **Real Device Access API** provides you with direct access to Sauce Labs’ real device cloud, both the public devices shared across all customers and the private devices reserved for your organization. Instead of wiring every workflow through test-frameworks, you reserve a device once, interact with it over HTTP/WebSockets, and decide how to drive automation, debugging, or observability.
 
 Historically, accessing real devices meant depending on a specific framework like Appium, XCTest, XCUITest, or Espresso. The Access API removes that dependency by exposing our infrastructure through standard protocols so you can build your own testing, validation, or monitoring solutions—without running a physical lab.
@@ -30,7 +34,7 @@ operations differ. See [Public and Private Devices](public-and-private-devices.m
 
 ## What You'll Need
 
-- A Sauce Labs account ([log in](https://accounts.saucelabs.com/am/XUI/#login/)) entitled to the Access API on public devices, private devices, or both.
+- A Sauce Labs Enterprise account ([log in](https://accounts.saucelabs.com/am/XUI/#login/)) entitled to the Access API on public devices, private devices, or both.
 - Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings) for Basic Auth.
 - Familiarity with REST/WebSocket clients (`curl`, Postman, Bruno, or an HTTP library).
 

@@ -6,6 +6,8 @@ sidebar_label: Sauce Labs Hosted Appium
 
 # Faster, Smarter Appium Testing with Real Device Access API Sessions
 
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
+
 For testers, time is a critical resource. This guide shows how to pair the Sauce Labs Access API with Sauce-hosted Appium so you can reserve a device once, reuse the Appium server, and finish your suites faster while keeping full control over the device lifecycle.
 
 ### Quick Start Overview
