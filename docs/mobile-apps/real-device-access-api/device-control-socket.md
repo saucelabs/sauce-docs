@@ -7,6 +7,8 @@ sidebar_label: Device Control Socket
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
+
 Connect to the Device Control Socket to receive a real-time stream of the device screen and send touch, keyboard, and navigation commands back to the device.
 
 ## Prerequisites
