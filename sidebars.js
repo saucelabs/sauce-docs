@@ -229,12 +229,22 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Project Releases',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/web-console/releases',
+                        'error-reporting/project-releases/configure-release-views',
+                        'error-reporting/project-releases/release-health-metrics',
+                        'error-reporting/project-releases/stability-metrics-table',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
                         'error-reporting/web-console/getting-started',
                         'error-reporting/web-console/overview',
-                        'error-reporting/web-console/releases',
                         'error-reporting/web-console/flame-graphs',
                         'error-reporting/web-console/debug',
                     ],
