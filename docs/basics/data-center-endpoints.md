@@ -75,12 +75,12 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 ### Asia South Data Center
 
-| Description                  | Endpoint                                            |
-|------------------------------|------------------------------------------------------|
-| Remote WebDriver Endpoint    | https://ondemand.asia-south-2.saucelabs.com/wd/hub  |
-| REST API                     | api.asia-south-2.saucelabs.com                      |
-| Sauce Connect Tunnel Servers | \*.tunnels.asia-south-2.saucelabs.com:443           |
-| Visual Storage Endpoint      | Not available                                       |
+| Description                  | Endpoint                                                          |
+|------------------------------|-------------------------------------------------------------------|
+| Remote WebDriver Endpoint    | https://ondemand.asia-south-2.saucelabs.com/wd/hub                |
+| REST API                     | api.asia-south-2.saucelabs.com                                    |
+| Sauce Connect Tunnel Servers | \*.tunnels.asia-south-2.saucelabs.com:443                         |
+| Visual Storage Endpoint      | https://storage.googleapis.com/sauce-iris-prod-asia-south2-d5ub/* |
 
 ## IP Address Ranges - Outgoing
 
