@@ -91,7 +91,8 @@ const client = BacktraceClient.initialize(options);
 ```
 
 Once initialized, the client automatically reports JavaScript errors that are not caught by the application and
-promise rejections without a handler. Use `client.send()` for errors your code catches.
+promise rejections without a handler. A fatal error is reported before the app closes. Use `client.send()` for errors
+your code catches.
 
 ### Verify the Setup
 
@@ -388,8 +389,8 @@ JavaScript reports in a few ways:
 - Attribute values set at initialization or with `addAttribute` are included. Attributes computed by a callback are
   not.
 - `beforeSend` and `skipReport` apply to JavaScript reports only.
-- Android native crashes are sent at crash time by a separate crash-handler process. Unhandled Java exceptions are
-  sent before the process exits or on the next launch. iOS native crashes are sent on the next launch.
+- Android native crashes are sent at crash time by a separate crash-handler process. Uncaught Java exceptions and
+  errors are sent before the process exits or on the next launch. iOS native crashes are sent on the next launch.
 - Only file attachments (`BacktraceFileAttachment`) are included. See [File Attachments](#file-attachments).
 - On iOS, the SDK also sends an `OOMException` report on the next launch when the previous session ended in the
   foreground without a crash. Debugger sessions and OS or application updates are excluded. A forced kill in the
@@ -459,20 +460,20 @@ module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 **On Android:**
 
 Hermes writes a source map for every release build unless a `hermesFlags` override drops `-output-source-map`. To
-upload it, add the Backtrace task at the end of `android/app/build.gradle`:
+upload it, add the Backtrace script at the end of `android/app/build.gradle`:
 
 ```gradle
 apply from: "$rootDir/../node_modules/@backtrace/react-native/android/upload-sourcemaps.gradle"
 ```
 
-Then run it after each release build:
+Each release variant then uploads its own source map after `assemble` or `bundle` packages it. Debug variants upload
+nothing. A failed upload fails the build. An existing `finalizedBy("uploadSourceMapsToBacktrace")` hook keeps working.
 
-```gradle
-tasks.matching {
-    it.name == "assembleRelease" || it.name == "bundleRelease"
-}.configureEach { task ->
-    task.finalizedBy("uploadSourceMapsToBacktrace")
-}
+To build a release without uploading, set `backtraceUploadSourceMaps=false` in `gradle.properties` or pass it on the
+command line:
+
+```
+./gradlew assembleRelease -PbacktraceUploadSourceMaps=false
 ```
 
 **On iOS:**
@@ -626,8 +627,9 @@ const client = BacktraceClient.initialize({
 
 ### Error Boundary
 
-`ErrorBoundary` reports errors thrown while React renders components. Initialize `BacktraceClient` before the
-boundary renders, then wrap your component tree:
+Render errors that no error boundary catches are reported as fatal unhandled exceptions. `ErrorBoundary` reports
+the errors in its subtree and keeps the app running with a fallback. Initialize `BacktraceClient` before the boundary
+renders, then wrap your component tree:
 
 ```tsx
 import { ErrorBoundary } from '@backtrace/react-native';

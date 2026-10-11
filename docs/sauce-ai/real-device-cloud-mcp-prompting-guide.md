@@ -1,7 +1,7 @@
 ---
 id: real-device-cloud-mcp-prompting-guide
 title: Real Device Cloud Prompting Guide
-sidebar_label: Real Device Cloud Prompting Guide
+sidebar_label: Real Device Cloud
 ---
 
 :::info Beta

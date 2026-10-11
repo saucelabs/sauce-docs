@@ -4,11 +4,18 @@ title: Real Device Access API Integration Guide
 sidebar_label: Integration Guide
 ---
 
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
+
 The Sauce Labs Real Device Access API v2 allows you to programmatically interact with real mobile devices in the Sauce Labs cloud. Use it for functional testing, debugging, and observability. This guide introduces the core concepts: checking device availability, creating and managing sessions, and streaming live logs. By following these steps, you can start testing in just a few minutes.
 
 ## Five-Minute Onboarding Checklist
+
+:::note[&#8203;]
+The Real Device Access API requires an Enterprise plan and is not available on self-serve plans. To upgrade, [request a demo](https://saucelabs.com/request-demo).
+:::
+
 Use this checklist to quickly set up your environment and run your first test using the Real Device Access API. These steps cover the minimum required configuration to begin interacting with real devices through the API:
-1. **Choose your data center** (US West, EU Central, or US East) and export `BASE_URL`.
+1. **Choose your data center** (Asia South, EU Central, US East, or US West) and export `BASE_URL`.
 2. **Grab your credentials** from Sauce Labs User Settings and export `SAUCE_USERNAME`/`SAUCE_ACCESS_KEY`.
 3. **Verify access** by listing devices with `curl -u $AUTH "$BASE_URL/devices/status"`.
 4. **Create a session** with `POST /sessions` and wait for the `ACTIVE` state.
@@ -17,10 +24,14 @@ Use this checklist to quickly set up your environment and run your first test us
 Each step is expanded in the sections below with copy‑and‑paste snippets.
 
 ## Base URLs
-Sauce Labs has three Real Device Cloud in the following regions:
-* US West: https://api.us-west-1.saucelabs.com/rdc/v2/
-* EU Central: https://api.eu-central-1.saucelabs.com/rdc/v2/
-* US East: https://api.us-east-4.saucelabs.com/rdc/v2/
+Sauce Labs has Real Device Cloud data centers in the following regions:
+
+| Region | Base URL |
+| --- | --- |
+| Asia South | `https://api.asia-south-2.saucelabs.com/rdc/v2/` |
+| EU Central | `https://api.eu-central-1.saucelabs.com/rdc/v2/` |
+| US East | `https://api.us-east-4.saucelabs.com/rdc/v2/` |
+| US West | `https://api.us-west-1.saucelabs.com/rdc/v2/` |
 
 ```shell
 export BASE_URL="https://api.us-west-1.saucelabs.com/rdc/v2"

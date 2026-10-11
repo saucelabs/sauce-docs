@@ -30,9 +30,10 @@ To see your data center, check the upper-right corner of the Sauce Labs user int
 - US West 1
 - US East 4
 - EU Central 1
+- Asia South 2
 
 :::note
-Virtual Device Testing is not available in US East 4.
+Virtual Device Testing is not available in US East 4 and Asia South 2.
 :::
 
 ## Data Center Endpoints
@@ -65,16 +66,21 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 ### EU Central Data Center
 
-:::note
-Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU Central data center. See [Running Tests on EU Central](#running-tests-on-eu-central) for details.
-:::
-
 | Description                  | Endpoint                                                           |
 |------------------------------|--------------------------------------------------------------------|
 | Remote WebDriver Endpoint    | https://ondemand.eu-central-1.saucelabs.com/wd/hub                 |
 | REST API                     | api.eu-central-1.saucelabs.com                                     |
 | Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443                         |
 | Visual Storage Endpoint      | https://storage.googleapis.com/sauce-iris-prod-europe-west3-ybyc/* |
+
+### Asia South Data Center
+
+| Description                  | Endpoint                                            |
+|------------------------------|------------------------------------------------------|
+| Remote WebDriver Endpoint    | https://ondemand.asia-south-2.saucelabs.com/wd/hub  |
+| REST API                     | api.asia-south-2.saucelabs.com                      |
+| Sauce Connect Tunnel Servers | \*.tunnels.asia-south-2.saucelabs.com:443           |
+| Visual Storage Endpoint      | Not available                                       |
 
 ## IP Address Ranges - Outgoing
 
@@ -116,9 +122,16 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | 162.222.79.0/27                    |
 | 185.94.24.0/22                     |
 
+### Asia South Region
+
+| Endpoints                          |
+| ---------------------------------- |
+| 151.158.35.0/24                    |
+| 34.131.227.16/28                   |
+
 ## Real Devices
 
-For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
+For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°). Devices in the Asia South data center default to EN-IN, and will display information like date, currency, and temperature using India standard terms (i.e., dd/MM/yyyy, ₹, and C°).
 
 :::note
 This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
@@ -146,16 +159,6 @@ Real devices are kept in our data center, behind locked racks and doors. Other s
 #### Authorization Credentials
 
 The URL hostname and authorization credentials for APIs are different for each data center, and can be found in Sauce Labs on the **User Settings** page.
-
-#### Running Tests on EU Central
-
-If you use any of the following and your data center is EU Central, you need to make changes to your tests and/or framework to run those tests in the EU data center.
-
-| Framework                 | Change                                                                                                                                 |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Java with JUnit or TestNG | Set `SAUCE_REST_ENDPOINT=https://eu-central-1.saucelabs.com/` as a system/environment variable, otherwise test status will not be set. |
-| Protractor                | Update to version 5.4.2 or later of Protractor and set `sauceRegion` to `eu` in your config file.                                      |
-| WebDriverIO               | Update to version 4.14.1 or later, or 5.0.0 or later, of WebDriverIO and set `region` to `eu` in your wdio.conf file.                  |
 
 ### Single Sign-On (SSO) Configuration
 

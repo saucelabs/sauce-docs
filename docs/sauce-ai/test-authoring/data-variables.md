@@ -2,6 +2,7 @@
 id: data-variables
 title: Data Variables
 sidebar_label: Data Variables
+description: "Store usernames, passwords, URLs, and other reusable test data as Data Variables and reference them in Sauce AI Test Authoring prompts using {{scope:variable_name}} syntax."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

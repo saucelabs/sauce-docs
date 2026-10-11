@@ -2,6 +2,7 @@
 id: create-and-manage-test-suites
 title: Create and Manage Test Suites
 sidebar_label: Create and Manage Test Suites
+description: "Group related Sauce AI test cases into test suites by feature, workflow, or testing goal, and create, update, rename, or delete suites from one place."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

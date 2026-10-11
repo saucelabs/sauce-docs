@@ -2,6 +2,7 @@
 id: ai-authoring
 title: Overview
 sidebar_label: Overview
+description: "Create automated web, mobile web, and mobile app test cases from natural-language prompts with Sauce AI for Test Authoring, then review, save, run, and schedule them."
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';

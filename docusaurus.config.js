@@ -326,6 +326,12 @@ const docusaurusConfig = {
                             title: 'Real Device Access API',
                             url: `${siteBaseUrl}oas/real-device-access-api-spec.yaml`,
                         },
+                        {
+                            // AsyncAPI description of the two WebSockets.
+                            // Keep in sync with docs/dev/api/real-device-access.mdx.
+                            title: 'Real Device Access API — WebSockets',
+                            url: `${siteBaseUrl}oas/real-device-access-api-websockets.yaml`,
+                        },
                     ],
                 },
             },
