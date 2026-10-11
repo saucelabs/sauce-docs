@@ -18,7 +18,7 @@ page performs in motion, such as while scrolling or tabbing.
 
 ### What You'll Need
 
-- Google Chrome (no older than 3 versions from latest)
+- Google Chrome (no older than 3 versions from latest). See [Chrome Browser Required](/performance/about/#chrome-browser-required) for supported operating systems.
 - Test configuration must have performance enabled.
   See [Set Performance Capabilities](/performance/transitions/#setting-performance-capabilities)
   for instructions.
