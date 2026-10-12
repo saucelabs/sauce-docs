@@ -1,7 +1,7 @@
 ---
 id: api-reference
 title: API Reference (v3)
-sidebar_label: API Reference
+sidebar_label: Mobile App Distribution
 description: Authenticate, paginate and call the Mobile App Distribution REST API v3 endpoints for apps, builds, teams, testers and more.
 ---
 
@@ -36,6 +36,8 @@ export const M = ({children}) => {
 };
 
 Use the REST API to integrate app distribution into your CI/CD pipeline.
+
+Migrating from TestFairy? See [Legacy API (v1)](/app-distribution/developer/legacy-api-v1) and the [API Migration Guide](/app-distribution/developer/api-migration-guide).
 
 ## Authentication
 
