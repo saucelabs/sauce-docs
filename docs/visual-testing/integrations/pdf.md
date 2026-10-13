@@ -50,7 +50,7 @@ Example: `npx @saucelabs/visual-snapshots pdf ./example.pdf ./dir_with_pdfs ./so
 
 #### Options
 
-- `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. If not provided, the value of `SAUCE_REGION` environment variable will be checked. Default: `us-west-1`.
+- `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`, `asia-south-2`. If not provided, the value of `SAUCE_REGION` environment variable will be checked. Default: `us-west-1`.
 - `-n`, `--build-name`: The name you would like to appear in the Sauce Visual dashboard. If not provided, the value of `SAUCE_VISUAL_BUILD_NAME` environment variable will be checked. Default: `Sauce Visual Build`.
 - `-b`, `--branch`: The branch name you would like to associate this build with. We recommend using your current VCS branch in CI. If not provided, the value of `SAUCE_VISUAL_BRANCH` environment variable will be checked. Default: `undefined`.
 - `-d`, `--default-branch`: Main branch name to associate the build with. Usually `main` or `master`. Read more [here](/visual-testing/workflows/ci/). If not provided, the value of `SAUCE_VISUAL_DEFAULT_BRANCH` environment variable will be checked. Default: `undefined`.
