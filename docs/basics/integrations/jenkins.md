@@ -28,7 +28,7 @@ Before you begin, make sure you have:
 - Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings), which you add to Jenkins as a credential.
 - A Jenkins server, and permission to install plugins and add credentials on it.
 - Network access from your Jenkins server to the Sauce Labs [IP ranges](/basics/data-center-endpoints/), `saucelabs.com`, and `ondemand.saucelabs.com`.
-- (Optional) The Jenkins Pipeline plugin, if you run your Sauce Labs tests in a pipeline. See [CI/CD Integration](#cicd-integration).
+- (Optional) The Jenkins Pipeline plugin, if you run your Sauce Labs tests in a pipeline. See [Using the OnDemand Plugin with the Jenkins Pipeline](#using-the-ondemand-plugin-with-the-jenkins-pipeline).
 
 ## Set Up the Integration
 
