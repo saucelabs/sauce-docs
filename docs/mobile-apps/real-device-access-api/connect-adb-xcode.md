@@ -4,6 +4,8 @@ title: Connect ADB, Xcode, and libimobiledevice to Sauce Labs Remote Devices
 sidebar_label: Connect ADB, Xcode, and libimobiledevice
 ---
 
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
+
 Testing on real devices shouldn't mean maintaining a device lab. But until now, using low-level tools like ADB or Xcode Instruments on cloud devices required a proprietary client and a complex setup.
 
 The Real Device Access API changes that. Reserve a device with a single API call, then connect your existing tools — `adb`, Xcode, Instruments, `idevicesyslog`, any libimobiledevice utility — as if the device were on your desk. All you need is a local reverse proxy and your Sauce Labs credentials. No proprietary software. No Java runtime. Just your tools, talking to our devices.
