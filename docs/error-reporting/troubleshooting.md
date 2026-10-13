@@ -382,7 +382,6 @@ No, Unreal crash reporting on Linux is not supported because the Unreal engine d
 
 If you've set up a Backtrace integration with JIRA, but are not receiving any new JIRA issues from Backtrace, check on the following:
 
-- Is your JIRA endpoint correct? Your Jira endpoint should end in /jira/rest/api/2/ or /rest/api/2/ , depending on your Jira configuration. Atlassian has recently released v3 in Beta, at this time it is not supported. Be sure to use a v2 endpoint.
 - Is your project key correct?
 - Does the JIRA user associated with the email you provided have permissions to create new issues in the project you specified?
 - Are you using email/password or username/password combination instead of email/API Token or username/API Token? API Token can be obtained here.
