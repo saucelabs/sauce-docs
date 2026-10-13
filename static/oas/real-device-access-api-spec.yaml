@@ -11,6 +11,8 @@ info:
 
     **New to this API?** Start with the [Real Device Access API Guide](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-introduction/) for authentication setup, integration walkthroughs, and advanced usage patterns.
 
+    **Note: Currently the Real Device Access API is limited to private devices**, we will let you know once we extend it to public devices.
+
 servers:
   - url: https://api.us-west-1.saucelabs.com/rdc/v2
     description: US West
