@@ -11,6 +11,8 @@ keywords:
   - ide plugin
 ---
 
+<!-- vale off -->
+
 Last update: July 29, 2026
 
 This Sauce Labs JetBrains Marketplace EULA (the "EULA") is entered into between You and Sauce Labs Inc ("Sauce Labs," "we," or "Developer") and governs Your use of any Plugin made available by Sauce Labs on the JetBrains Marketplace, whether now existing or subsequently made available (each a "Plugin"). If any Plugin-specific terms are provided via any separate addendum or Marketplace listing page for a particular Plugin, those terms supplement and control over this EULA to the extent of any conflict.
@@ -43,7 +45,7 @@ This Sauce Labs JetBrains Marketplace EULA (the "EULA") is entered into between 
 
 ## 2. Grant of License; Duration
 
-### 2.1. License
+### 2.1 License
 
 Sauce Labs hereby grants You a limited, worldwide, non-exclusive, non-transferable license to use the Plugin You have downloaded through the JetBrains Marketplace (including any generally available updates and upgrades released during Your rightful use of the Plugin) as long as the use is in line with the Documentation, the Sauce Labs Acceptable Use Policy (www., and the limits set out in this EULA. The license granted under this EULA commences on the date You first install or activate the Plugin and continues for so long as You maintain an active subscription to the Sauce Labs service(s) with which the Plugin is designed to operate, as set forth in Your Sauce Labs Service Agreement. Upon expiration or termination of Your Sauce Labs Service Agreement for any reason, Your license to use the Plugin terminates automatically and simultaneously, without further notice or action by Sauce Labs.
 
@@ -55,11 +57,11 @@ Under this EULA You may:
 
 (c) make backup copies of the Plugin for archival purposes.
 
-### 2.2. Restrictions
+### 2.2 Restrictions
 
 You may not modify, reverse-engineer, decompile, or disassemble the Plugin in whole or in part, or create any derivative works from the Plugin, or sublicense any rights to the Plugin, unless otherwise expressly authorized in writing by Sauce Labs.
 
-### 2.3. Conflicts
+### 2.3 Conflicts
 
 In the event of any conflict between this EULA and Your Sauce Labs Service Agreement, the Sauce Labs Service Agreement shall control.
 
