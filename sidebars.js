@@ -1568,6 +1568,7 @@ module.exports = {
                 'ide-plugins/real-device-cloud',
                 'ide-plugins/ai-test-authoring',
                 'ide-plugins/troubleshooting',
+                'ide-plugins/eula',
             ],
         },
         {
