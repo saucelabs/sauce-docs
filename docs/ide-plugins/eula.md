@@ -2,7 +2,7 @@
 id: eula
 title: Sauce Labs IDE Plug-in EULA (JetBrains Marketplace)
 sidebar_label: EULA (JetBrains Marketplace)
-description: End User License Agreement governing your use of Sauce Labs plug-ins distributed through the JetBrains Marketplace.
+description: The EULA that governs your use of Sauce Labs plug-ins distributed through the JetBrains Marketplace.
 keywords:
   - eula
   - license
