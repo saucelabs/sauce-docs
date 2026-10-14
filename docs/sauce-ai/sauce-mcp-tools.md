@@ -142,6 +142,57 @@ Inspect jobs and builds, and retrieve the assets they produce, such as logs, scr
 | `get_build_for_job` | Find the build a specific job belongs to. | "Which build was that job part of?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
 | `lookup_jobs_in_build` | List the jobs in a build, with optional status filters. | "List the failed jobs in that build." | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
 
+## Insights
+
+Analyze your organization's test history across many jobs: test health, errors and root causes, platform coverage, and usage. Insights data is not live; for what is running right now, use the [Jobs, Builds &amp; Assets](#jobs-builds--assets) tools.
+
+### Test Health
+
+Rank test cases by pass, fail, and error rates to tell flaky tests from real regressions.
+
+| Tool | Description | Example prompt | Requirements |
+| --- | --- | --- | --- |
+| `get_test_cases` | List test cases with pass, fail, and error counts, rates, and durations, sorted by run count, failure rate, or duration. | "Which tests had the highest failure rate this month?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+| `get_test_case_stats` | Summarize how many test cases are consistently passing, failing, or erroring. | "How healthy is our test suite this month?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+
+### Errors and Root Causes
+
+Group failures into the errors and failure patterns behind them.
+
+| Tool | Description | Example prompt | Requirements |
+| --- | --- | --- | --- |
+| `get_errors` | List the distinct error messages in a time window, ranked by how often each occurred. | "What errors caused the most failures yesterday?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+| `get_error_trends` | Compare error counts with the previous period to find new or rising errors. | "Are any of this week's errors new?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+| `get_failing_tests` | List the tests whose failures Failure Analysis matched to a known root cause. | "Which tests are failing for a known reason?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+| `get_root_causes` | List the root causes Failure Analysis detected, with the jobs and tests each one affected. | "Why is my nightly build failing?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+
+### Coverage
+
+See which platforms your tests actually ran on.
+
+| Tool | Description | Example prompt | Requirements |
+| --- | --- | --- | --- |
+| `get_coverage` | Break down test runs by device, browser, or OS, with run counts and total duration. | "Are we testing on Safari at all?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+
+### Usage
+
+Track concurrency and Sauce Visual snapshot usage for your organization and teams.
+
+| Tool | Description | Example prompt | Requirements |
+| --- | --- | --- | --- |
+| `get_org_concurrency` | Show your organization's peak concurrency over time, its limits, and each team's share. | "How close did we get to our concurrency limit last week?" | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+| `get_team_concurrency` | Show peak concurrency over time for one or more teams. | "Compare concurrency for the Web and Mobile teams." | <span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span> |
+| `get_org_visual_usage` | Show your organization's Sauce Visual snapshot usage over a date range. | "How many Sauce Visual snapshots did we use last month?" | <span className="mcp-tag">Sauce Visual</span> |
+| `get_team_visual_usage` | Show Sauce Visual snapshot usage for one or more teams over a date range. | "Which team used the most Sauce Visual snapshots?" | <span className="mcp-tag">Sauce Visual</span> |
+
+### Ask Insights
+
+Ask an open-ended question about your test history in plain English.
+
+| Tool | Description | Example prompt | Requirements |
+| --- | --- | --- | --- |
+| `ask_insights` | Answer a plain-English question about your jobs and builds with a table of results. Use it when no other Insights tool fits. | "Show failed jobs per browser for the last 30 days." | (<span className="mcp-tag">Real Device Cloud</span> <span className="mcp-conn">or</span> <span className="mcp-tag">Virtual Device Cloud</span>) <span className="mcp-conn">and</span> <span className="mcp-tag">AI for Insights</span> |
+
 ## Storage
 
 Upload and browse app builds in Sauce Storage.
@@ -237,4 +288,3 @@ Schedule test suites to run automatically on a recurring cadence.
 | `error_reporting_get_group` | Returns a single crash group in depth, beyond what the ranked list carries. Use after `list_groups` to investigate one group. | "Give me the full detail on crash group `<group id>` in `<project>`." |
 | `error_reporting_get_instance` | Returns one error object in full: the crashing thread's callstack, its attributes, and the attachments available on it. The main triage tool. | "Show me the callstack and attributes for error `<object id>` in `<project>`." |
 | `error_reporting_get_attachment` | Fetches one file attached to an error object—most usefully the SDK breadcrumbs. Call after `get_instance` surfaces the attachment list. | "Pull the breadcrumbs attachment for error `<object id>` and tell me what the user did in the seconds before the crash." |
-
