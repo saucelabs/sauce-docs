@@ -499,7 +499,7 @@ A `socket hang up` or `ECONNRESET` response means one of the following happened:
 
 **Description**
 
-You'll see this error on iOS real devices when an Appium command was sent to WebDriverAgent (WDA), the agent that automates the device, and WDA did not respond within the command timeout (60 seconds). In this case the Appium server (the XCUITest driver) ends the Appium session itself: the command that timed out returns `Appium did not get any response from '<command>' command in 60000 ms`, and every subsequent command fails with `invalid session id`. This is regular XCUITest driver behavior, see [proxy-helper.ts](https://github.com/appium/appium-xcuitest-driver/blob/v10.36.4/lib/commands/proxy-helper.ts#L99-L111). As the session cannot recover, Sauce Labs ends it with an explicit error, allowing you to retry your test run.
+You'll see this error on iOS real devices when an Appium command was sent to WebDriverAgent (WDA), the agent that automates the device, and WDA did not respond within the command timeout (60 seconds). In this case the Appium server (the XCUITest driver) ends the Appium session itself: the command that timed out returns `Appium did not get any response from '<command>' command in 60000 ms`, and every subsequent command fails with `invalid session id`. Closing the Appium session after WDA stopped responding is regular XCUITest driver behavior, see [proxy-helper.ts](https://github.com/appium/appium-xcuitest-driver/blob/v10.36.4/lib/commands/proxy-helper.ts#L99-L111). As the session cannot recover, Sauce Labs ends it with an explicit error, allowing you to retry your test run.
 
 **Cause(s)**
 
