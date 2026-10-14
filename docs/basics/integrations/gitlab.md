@@ -14,40 +14,37 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## GitLab Setup and Configuration - Sauce Labs
+[GitLab](https://about.gitlab.com/) is a collaboration platform that lets you build a Continuous Integration (CI) pipeline as a series of steps in a configuration file. Steps can include launching a containerized test environment, building your software, starting your tests with your preferred test runner, and deploying to production. The Sauce Labs integration with GitLab lets you run your tests on Sauce Labs as one or more steps of your GitLab CI/CD pipeline.
 
-[GitLab](https://about.gitlab.com/) is a collaboration platform that allows you to build a Continuous Integration (CI) pipeline as a series
-of steps in a configuration file. Steps can include things like launching a containerized test environment,
-building your software, starting your tests using your preferred test runner, and deploying to production.
+## How It Works
 
-This high-level guide shows how to configure GitLab’s Continuous Integration Pipeline to execute tests on Sauce Labs.
+If your tests run locally, they may point to your internal Selenium Grid or local Simulators. When you configure your tests to run on Sauce Labs, you change them to point to a Sauce Labs data center and our virtual machines, real devices, Emulators, and Simulators.
 
-- How Sauce Labs fits in with GitLab
-- Sauce Connect and GitLab
-- Additional Resources
+CI/CD systems rely heavily on repeatable steps and phases. This high level of abstraction and customization makes GitLab adaptable to your business needs, because you can mix, match, and repeat complex steps with a single line of configuration. Sauce Labs tests can be included in one or more of those steps.
 
-### How Sauce Labs fits in with GitLab
+GitLab uses a `.yml` file for configuration. You configure your environment the same way you would to run a shell script. For more flexibility, GitLab lets you launch Docker images as "services". This makes ephemeral or shared APIs and other services available at any time in the build process, and you can create or remove them at a moment's notice.
 
-If your tests are running locally they may point to your internal Selenium Grid or local Simulators. When you configure
-your tests to run on Sauce Labs, you will change your tests to point to a Sauce Labs data center and our
-VMs/Real Devices/Emulators/Simulators.
+If the site or app you test is not publicly accessible, your pipeline also needs Sauce Connect. The way you set up your GitLab pipeline determines how you start Sauce Connect. See [Set Up Sauce Connect](#set-up-sauce-connect).
 
-The way you set up your GitLab pipeline will determine how you need to initiate the Sauce Connect Proxy–covered in
-the next section.
+## Prerequisites
 
-CI/CD systems rely heavily on repeatable steps and phases. This high level of abstraction and customization makes the
-tool adaptable to your business needs, in that you can mix/match/repeat complex steps with a single line of config.
-Sauce Labs tests may be included in one or more of those steps.
+Before you begin, make sure you have:
 
-### The .yml File
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings), set as the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables. See [Authentication](#authentication).
+- A GitLab project with a CI/CD pipeline configured in a `.yml` file.
+- Tests that are configured to run on Sauce Labs.
+- (Optional) A GitLab Runner that can run Bash (Linux) or PowerShell (Windows), if you start Sauce Connect in your pipeline.
 
-GitLab uses `.yml` for configuration. GitLab allows you to configure your environment the same way you would to run a
-shell script. For ultimate flexibility, GitLab allows you to launch docker images as “services”. This gives you
-ephemeral and/or shared APIs or other services to be available at any time in the build process, which can be created
-or torn down at a moment’s notice.
+## Set Up the Integration
 
-In the example below (adapted from the [GitLab CI/CD pipeline configuration reference](https://gitlab.com/gitlab-org/gitlab/-/blob/e042b023f461be91c62d95dfd1de4547e1a8c572/doc/ci/yaml/README.md),
-step 3 runs our end-to-end suite. Job names are meant to be descriptive, so we’ve named it `e2e-Sauce`.
+To run your Sauce Labs tests in GitLab, add a job that runs them to your pipeline configuration file.
+
+1. Open the `.yml` file that defines your GitLab CI/CD pipeline.
+2. Add a job that runs your Sauce Labs tests to the stage where your tests run. Job names are meant to be descriptive, so the following example names it `e2e-sauce`.
+3. Commit the file to your repository.
+
+The following example is adapted from the [GitLab CI/CD pipeline configuration reference](https://gitlab.com/gitlab-org/gitlab/-/blob/e042b023f461be91c62d95dfd1de4547e1a8c572/doc/ci/yaml/README.md). Job 3 runs the end-to-end test suite on Sauce Labs.
 
 ```yaml title="gitlab.yml"
 stages:
@@ -75,43 +72,36 @@ job 5:
  script: make something useful at the end of the pipeline
 ```
 
-### Sauce Connect and GitLab
+### Set Up Sauce Connect
 
-[Sauce Connect](/secure-connections/sauce-connect-5/) is an HTTP proxy server that opens a secure "tunnel" connection for testing between a Sauce Labs
-virtual machine or real device and a website or mobile app hosted in your local environment (for example, behind a
-corporate firewall). It gives Sauce Labs secure access to your application or website.
+[Sauce Connect](/secure-connections/sauce-connect-5/) is an HTTP proxy server that opens a secure "tunnel" connection for testing between a Sauce Labs virtual machine or real device and a website or mobile app hosted in your local environment (for example, behind a corporate firewall). It gives Sauce Labs secure access to your application or website.
 
-Sauce Connect can be downloaded and managed in a few ways, some of which lend themselves better to GitLab, but all
-are do-able.
+You can download and manage Sauce Connect in a few ways. Some of them suit GitLab better than others, but all of them work.
 
 #### Continuously Running Sauce Connect Tunnel
 
 :::note
 This first method is recommended for those with a supportive DevOps team who is willing to host and maintain this image.
 :::
-Users download the Sauce Connect Binary and run it as a service on a dedicated machine (VM/server) that is available
-24/7. This instance of Sauce Connect is shared by the organization and utilized by the tests running in the CI
-pipeline. Running Sauce Connect as a service is the recommended method of running the Sauce Connect Proxy, which
-we call “[Tunnel Pool](/secure-connections/sauce-connect-5/guides/tunnel-pool/)”.
+
+Download the Sauce Connect binary and run it as a service on a dedicated machine (VM or server) that is available 24/7. This instance of Sauce Connect is shared by your organization and used by the tests running in the CI pipeline. Running Sauce Connect as a service is the recommended way to run the Sauce Connect Proxy, which we call "[Tunnel Pool](/secure-connections/sauce-connect-5/guides/tunnel-pool/)".
 
 #### Ephemeral Tunnel, Started in Every Build
 
 :::note
-Recommended for those experienced with shell scripting
+Recommended for those experienced with shell scripting.
 :::
-Using bash or equivalent in the GitLab .yml file, users can download Sauce Connect to a container and run it as
-a set-up step in their CI. Below is an example of what this might look like.
+
+Using Bash or an equivalent in your GitLab `.yml` file, you can download Sauce Connect to a container and run it as a setup step in your CI pipeline. The following examples show what this might look like.
 
 :::caution
-This script assumes that the environment variables SAUCE_USERNAME and SAUCE_ACCESS_KEY [have been set and are available to the script](/basics/environment-variables/).
+These scripts assume that the environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` [have been set and are available to the script](/basics/environment-variables/).
 :::
 
 :::note
-Replace the Sauce Connect version in the script with the most recent one. You can check for the latest version at
-the [Sauce Connect download links](/secure-connections/sauce-connect-5/installation/).
+Replace the Sauce Connect version in the script with the most recent one. You can check for the latest version at the [Sauce Connect download links](/secure-connections/sauce-connect-5/installation/).
 
-Also, make sure to set the `--region` flag to the correct [Sauce Labs data center](/basics/data-center-endpoints/)
-for your account.
+Also, make sure to set the `--region` flag to the correct [Sauce Labs data center](/basics/data-center-endpoints/) for your account.
 :::
 
 <Tabs>
@@ -138,9 +128,7 @@ script:
 <TabItem value="windows" label="Windows (PowerShell)">
 
 :::note
-This script requires a GitLab Runner configured with a PowerShell executor on Windows.
-In Windows, we recommend to start Sauce Connect in the same job as the tests that will use it, to ensure that the
-tunnel is properly closed after the tests finish and the job ends.
+This script requires a GitLab Runner configured with a PowerShell executor on Windows. On Windows, we recommend that you start Sauce Connect in the same job as the tests that use it, to make sure that the tunnel is closed properly after the tests finish and the job ends.
 :::
 
 ```yaml title="gitlab-sc.yml"
@@ -188,7 +176,60 @@ build_test_windows:
 </TabItem>
 </Tabs>
 
-### Additional Resources
+## Authentication
+
+Your tests authenticate with Sauce Labs using your Sauce Labs **username** and **access key**, which you can find in your Sauce Labs [User Settings](https://app.saucelabs.com/user-settings). Store them as the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables so that your pipeline jobs and the Sauce Connect scripts can read them, rather than writing them into your `.yml` file or test code. See [Environment Variables](/basics/environment-variables/).
+
+## Verify the Integration
+
+1. Run your GitLab pipeline.
+2. If you start Sauce Connect in the pipeline, open the job log and confirm that it shows `Sauce Connect Proxy is ready`.
+3. Open your Sauce Labs test results and confirm that the tests from the pipeline appear.
+
+## Use the Integration
+
+After you set up the integration, you can run your Sauce Labs tests every time your GitLab pipeline runs.
+
+To run your Sauce Labs tests in GitLab:
+
+1. Push a change to your repository, or start the pipeline from GitLab.
+2. Wait for the job that runs your Sauce Labs tests, for example `e2e-sauce`, to finish.
+3. Open your Sauce Labs test results.
+
+**Result:** The tests run on Sauce Labs as part of your pipeline, and the results appear in Sauce Labs.
+
+## Troubleshooting
+
+<details>
+<summary>**`Sauce Connect failed to start within 180 seconds`**</summary>
+
+The readiness check did not get a `200` response from `localhost:8032/readyz` in time. Check that the `--region` flag matches the [Sauce Labs data center](/basics/data-center-endpoints/) for your account, and that `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` are set.
+
+</details>
+
+<details>
+<summary>**The Sauce Connect download fails**</summary>
+
+The version in the script may be out of date. Replace it with the most recent version from the [Sauce Connect download links](/secure-connections/sauce-connect-5/installation/).
+
+</details>
+
+<details>
+<summary>**The tunnel stays open after a Windows job ends**</summary>
+
+Start Sauce Connect in the same job as the tests that use it, and stop the process at the end of the job, as shown in the Windows (PowerShell) example in
+[Ephemeral Tunnel, Started in Every Build](#ephemeral-tunnel-started-in-every-build).
+
+</details>
+
+<details>
+<summary>**Tests cannot authenticate with Sauce Labs**</summary>
+
+Set `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as environment variables that are available to the job. See [Authentication](#authentication).
+
+</details>
+
+## Next Steps
 
 - [Sauce Labs Data Center Endpoints](/basics/data-center-endpoints/)
 - [Sauce Connect Proxy Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview)
