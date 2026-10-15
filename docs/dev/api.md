@@ -28,9 +28,11 @@ Each endpoint is formed by a `{base-url}` prefix (which depends on the data-cent
 
 | Data Center | API Base URL                              |
 | :---------- | :---------------------------------------- |
-| US West     | `https://api.us-west-1.saucelabs.com/`    |
-| US East     | `https://api.us-east-4.saucelabs.com/`    |
+| Asia South  | `https://api.asia-south-2.saucelabs.com/` |
 | Europe      | `https://api.eu-central-1.saucelabs.com/` |
+| US East     | `https://api.us-east-4.saucelabs.com/`    |
+| US West     | `https://api.us-west-1.saucelabs.com/`    |
+
 
 ### Authentication
 

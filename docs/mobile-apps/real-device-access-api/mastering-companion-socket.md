@@ -4,6 +4,8 @@ title: Real-Time Insights Mastering the Companion Socket
 sidebar_label: Mastering the Companion Socket
 ---
 
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
+
 Connect to the Companion Socket to receive real-time device logs, Appium logs, and network traffic from an active session. This allows you 
 to debug issues live or trigger events in your infrastructure based on device state.
 

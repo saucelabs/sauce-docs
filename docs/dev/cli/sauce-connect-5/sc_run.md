@@ -29,7 +29,7 @@ For additional security, we recommend setting this as an environment variable.
 * Value Format: `<data center>`
 
 Sauce Labs region name, ex.
-us-west, us-east, or eu-central.
+us-west, us-east, eu-central, or asia-south.
 More details [here](/basics/data-center-endpoints).
 
 ### `-i, --tunnel-name` {#tunnel-name}
