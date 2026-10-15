@@ -13,6 +13,7 @@ Some tools need entitlements beyond a standard Sauce Labs account:
 
 - <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> tools (creating sessions, taking screenshots, tapping, installing apps, running shell commands, capturing network traffic, and working with device files) need **private (dedicated) devices** and **Real Device Access API concurrency**.
 - <span className="mcp-tag">Test Authoring</span> tools (generating, managing, running, and scheduling test cases and suites) need **Sauce AI for Test Authoring**, a paid add-on for Enterprise accounts. See [Sauce AI for Test Authoring](/sauce-ai/ai-authoring).
+- <span className="mcp-tag">AI for Insights</span> tools (ask-insights for plain-language queries) tool(s) need **Sauce AI for Insights**, a paid add-on for Enterprise accounts. See [Sauce AI for Insights](/sauce-ai/ai-insights).
 
 Beyond these entitlements, access to specific tools and capabilities can also depend on your role and permissions within your Sauce Labs organization. If a tool is missing or returns a permissions error, ask your organization administrator to review your team membership and access settings.
 :::
