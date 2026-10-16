@@ -440,6 +440,7 @@ module.exports = {
                 'dev/api/error-reporting', // Error Reporting
                 'dev/api/insights', // Insights
                 'dev/api/jobs', // Jobs
+                'app-distribution/developer/api-reference', // Mobile App Distribution
                 'dev/api/performance', // Performance
                 'dev/api/platform', // Platform
                 {
@@ -958,7 +959,11 @@ module.exports = {
                     label: 'Developer',
                     collapsed: true,
                     items: [
-                        'app-distribution/developer/api-reference',
+                        {
+                            type: 'link',
+                            label: 'API Reference',
+                            href: '/app-distribution/developer/api-reference',
+                        },
                         'app-distribution/developer/legacy-api-v1',
                         'app-distribution/developer/api-migration-guide',
                     ],

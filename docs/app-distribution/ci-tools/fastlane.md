@@ -89,7 +89,7 @@ The `saucelabs_appdist` action stores the full API response in `lane_context`, w
 lane_context[SharedValues::SAUCELABS_APPDIST_UPLOAD_RESPONSE]
 ```
 
-The response is a hash containing all fields from the upload API, including:
+The response is a hash containing all fields from the [upload API](/app-distribution/developer/legacy-api-v1#upload), including:
 
 | Key                                | Description                                       |
 |------------------------------------|---------------------------------------------------|
