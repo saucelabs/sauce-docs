@@ -1170,6 +1170,22 @@ ul.dropdown__menu li a:hover {
     max-width: 1800px;
 }
 
+/* Scalar sizes markdown tables to `max-content`, so a table with long rows
+   (e.g. the WebSocket close codes) widens the whole description column past
+   the viewport. Fill the column instead and let the cells wrap. */
+.api-reference-page .scalar-app .markdown table {
+    table-layout: auto;
+    width: 100%;
+}
+
+/* Scalar lets cells break mid-word, so a short first column (e.g. the close
+   code) gets squeezed to one or two characters. Keep it on one line and as
+   narrow as its content. */
+.api-reference-page .scalar-app .markdown table :is(td, th):first-child {
+    white-space: nowrap;
+    width: 1%;
+}
+
 /* Small, minimal availability tags for the Sauce MCP tools table */
 .mcp-tag {
     display: inline-block;
