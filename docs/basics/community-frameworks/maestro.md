@@ -82,7 +82,7 @@ Before you begin, make sure you have:
 - A SauceLabs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a
   [free trial license](https://saucelabs.com/sign-up)).
 - Your SauceLabs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- [Node.js](https://nodejs.org/en/) to install maestro-runner from npm.
+- macOS or Linux with `curl`, or [Node.js](https://nodejs.org/en/) if you prefer to install maestro-runner from npm.
 - Your app builds: an `.apk` for Android, an `.ipa` for iOS real devices, and a zipped `.app` simulator build for iOS
   simulators. To try the steps without your own app, use the SauceLabs My Demo App builds in the
   [SauceLabs maestro-runner demo repository](https://github.com/saucelabs-training/demo-maestro-runner).
@@ -115,8 +115,18 @@ Check the maestro-runner release notes for a fix to the credential echo before r
 
 ### Step 1: Install maestro-runner
 
-Install maestro-runner 1.1.25 or later as a development dependency of your test project. It is a single binary with no
-Java requirement.
+Install maestro-runner 1.1.25 or later. It is a single binary with no Java or Node.js requirement.
+
+**Shell (macOS and Linux):**
+
+```bash
+curl -fsSL https://open.devicelab.dev/install/maestro-runner | bash
+
+# A specific version
+curl -fsSL https://open.devicelab.dev/install/maestro-runner | bash -s -- --version 1.1.28
+```
+
+**npm**, if your project already uses Node.js:
 
 ```bash
 npm install --save-dev maestro-runner
@@ -125,6 +135,9 @@ npx maestro-runner --version
 
 You can also download a release binary from the
 [maestro-runner GitHub releases](https://github.com/devicelab-dev/maestro-runner/releases).
+
+If you installed with the shell script or a release binary, run `maestro-runner` instead of `npx maestro-runner` in
+the commands below.
 
 ### Step 2: Link Your SauceLabs Account
 
