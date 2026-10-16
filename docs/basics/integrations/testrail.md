@@ -9,33 +9,62 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestRail provides a [command line interface tool](https://support.testrail.com/hc/en-us/articles/7146548750868-TestRail-CLI#Overview) to import automated test results and automatically create test cases. The TestRail CLI parses JUnit reports and sends execution data to TestRail to centralize all your test results.
+[TestRail](https://www.testrail.com/) is a test case management tool. TestRail provides a [command line interface tool](https://support.testrail.com/hc/en-us/articles/7146548750868-TestRail-CLI#Overview) to import automated test results and automatically create test cases. The TestRail CLI parses JUnit reports and sends execution data to TestRail, so you can centralize all your Sauce Labs test results in TestRail.
 
-As shown in the diagram below, you can use `saucectl` to run your automated tests in Sauce Labs and generate a JUnit report of your test results in XML format, which can then be imported into TestRail with the TestRail CLI.
+## How It Works
+
+You use `saucectl` to run your automated tests in Sauce Labs and generate a JUnit report of your test results in XML format. You then import the report into TestRail with the TestRail CLI.
+
+The TestRail CLI is designed to parse JUnit reports and import certain execution data by default. It was specially designed to parse Sauce Labs test reports, including those with multiple executions in one report. When you run it with the `--special-parser saucectl` option, it imports the test executions for each browser or device into a separate test run in TestRail, and creates the test cases automatically. Each test run includes the `browser` and `platform` values in its description, and the result of each test case includes the URL of the Sauce Labs session, so you can go from TestRail straight to the test in Sauce Labs.
 
 <img src={useBaseUrl('img/integrations/testrail/testrail-1.png')} alt="Shows the saucectl-TestRail Flow" width="700"/>
 
-For more information, see the [TestRail CLI documentation](https://support.testrail.com/hc/en-us/articles/7146548750868-Overview-and-installation).
+## Prerequisites
 
-## What You'll Need
+Before you begin, make sure you have:
 
-- A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
-- A TestRail account (if you don't have one, start a [free trial](https://secure.gurock.com/customers/testrail/trial))
+- A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings).
+- A TestRail account (if you don't have one, start a [free trial](https://secure.gurock.com/customers/testrail/trial)).
+- [`saucectl`](/dev/cli/saucectl/), to run your tests in Sauce Labs and generate the JUnit report.
 
-## Using the TestRail CLI
+## Set Up the Integration
 
 :::info
 To get started, see the [cypress-saucectl](https://github.com/gurock/automation-frameworks-integration/tree/main/samples/javascript/cypress-saucectl) sample project on GitHub.
 :::
 
-As mentioned above, the TestRail CLI is designed to parse JUnit reports and import certain execution data by default. TestRail's CLI tool was specially designed to parse Sauce Labs' test reports, including those with multiple executions in one report.
+1. Install the TestRail CLI. See the [TestRail CLI documentation](https://support.testrail.com/hc/en-us/articles/7146548750868-Overview-and-installation).
+2. Run your tests in Sauce Labs with `saucectl` to generate a JUnit report of your test results in XML format.
 
-To import Sauce Labs results, when running the TestRail CLI in your command line, use the `--special-parser saucectl` option, which imports all test executions into separate test runs in TestRail.
+## Authentication
+
+The integration uses two sets of credentials:
+
+- **Sauce Labs**: `saucectl` authenticates with your Sauce Labs **username** and **access key**, which you can find in your Sauce Labs [User Settings](https://app.saucelabs.com/user-settings).
+- **TestRail**: The TestRail CLI authenticates with your TestRail instance using the `--username` and `--password` options. See [Sample Command](#sample-command).
+
+## Verify the Integration
+
+1. Run the [sample command](#sample-command) using the [sample report](#sample-report).
+2. In TestRail, go to the **Test Cases** page and check that the test cases were created.
+3. Go to the **Test Runs & Results** page and check that there is one test run for each browser.
+
+## Use the Integration
+
+After you set up the integration, you can import the JUnit report from each `saucectl` run into TestRail.
+
+To import your Sauce Labs results into TestRail:
+
+1. Run your tests with `saucectl` to generate the JUnit report.
+2. Run the TestRail CLI with the `--special-parser saucectl` option, as shown in [Sample Command](#sample-command).
+3. View the results in TestRail. See [View Sauce Labs Test Results in TestRail](#view-sauce-labs-test-results-in-testrail).
+
+The TestRail CLI imports all test executions into separate test runs in TestRail.
 
 ### Sample Report
 
-The following sample report shows the execution of the same test cases on two different devices (Firefox and Chrome), which can be identified in the `testsuite` element names.
+The following sample report shows the execution of the same test cases on two different browsers (Firefox and Chrome), which can be identified in the `testsuite` element names.
 
 ```xml
 <testsuites tests="8">
@@ -77,19 +106,19 @@ The following sample report shows the execution of the same test cases on two di
 </testsuites>
 ```
 
-The TestRail CLI will create two test runs in TestRail and add the corresponding test results. Each test run contains the same tests, which are `Component 2 Verify page structure` and `Component 1 Verify page structure`.
+The TestRail CLI creates two test runs in TestRail and adds the corresponding test results. Each test run contains the same tests, which are `Component 2 Verify page structure` and `Component 1 Verify page structure`.
 
 <img src={useBaseUrl('img/integrations/testrail/testrail-2.png')} alt="Shows a sample report with two test runs for two different devices." width="700"/>
 
-TestRail will also include the `browser` and `platform` values in each test run description and the `session url` in the results of each test case.
+TestRail also includes the `browser` and `platform` values in each test run description and the `session url` in the results of each test case.
 
 :::note
-More than one test case can be executed in one Sauce Labs session, so multiple test results will often have the URL to the same session.
+More than one test case can be executed in one Sauce Labs session, so multiple test results often have the URL to the same session.
 :::
 
 ### Sample Command
 
-In the snippet below you can find a sample of the command that parses Sauce Labs reports. The difference is the inclusion of the `--special-parser saucectl` flag.
+The following sample command parses Sauce Labs reports. The difference from a standard TestRail CLI command is the `--special-parser saucectl` flag.
 
 ```bash
 $ trcli -y \
@@ -103,18 +132,47 @@ $ trcli -y \
 >  "./saucelabs-report.xml"
 ```
 
-## Viewing Sauce Labs Test Results in TestRail
+### View Sauce Labs Test Results in TestRail
 
-If you run the [sample command](#sample-command) using the [sample report](#sample-report) above and go to the **Test Cases** page in TestRail, you will see that test cases were automatically created, resulting in a test suite similar to the one shown in the image below.
+If you run the [sample command](#sample-command) using the [sample report](#sample-report) and go to the **Test Cases** page in TestRail, you see that test cases were automatically created, resulting in a test suite similar to the one shown in the following image.
 
-Notice that although there are four `testcase` elements in the report file, they refer to the same two test cases being executed in two different browsers, so only two tests are created in TestRail.
+Although there are four `testcase` elements in the report file, they refer to the same two test cases being executed in two different browsers, so only two tests are created in TestRail.
 
 <img src={useBaseUrl('img/integrations/testrail/testrail-3.png')} alt="Shows the Test Cases page in TestRail." width="700"/>
 
-In the **Test Runs & Results page**, you will see two test runs, one for each browser, which is added to the test run title between parenthesis.
+On the **Test Runs & Results** page, you see two test runs, one for each browser. The browser is added to the test run title in parentheses.
 
 <img src={useBaseUrl('img/integrations/testrail/testrail-4.png')} alt="Shows two test runs for different devices in the Test Runs & Results page in TestRail." width="700"/>
 
-By drilling down to the first test run, relative to the automated tests execution using Chrome, we can see the execution platform information on the test run description and the session URL in the test result. This gives you execution context, as well as links to the Sauce Labs session to find more information about the test execution itself.
+When you drill down to the first test run, for the automated tests executed in Chrome, you can see the execution platform information in the test run description and the session URL in the test result. This gives you execution context, as well as links to the Sauce Labs session to find more information about the test execution itself.
 
 <img src={useBaseUrl('img/integrations/testrail/testrail-5.png')} alt="Shows test run details in TestRail." width="700"/>
+
+## Troubleshooting
+
+<details>
+<summary>**All executions are imported into one test run**</summary>
+
+Add the `--special-parser saucectl` option to your TestRail CLI command. Without it, the TestRail CLI does not import the executions for each browser or device into separate test runs. See [Sample Command](#sample-command).
+
+</details>
+
+<details>
+<summary>**TestRail shows fewer test cases than the report**</summary>
+
+When the same test cases run on more than one browser, the report has a `testcase` element for each execution, but TestRail creates each test case only once. The executions appear in separate test runs, one for each browser.
+
+</details>
+
+<details>
+<summary>**Several test results link to the same Sauce Labs session**</summary>
+
+More than one test case can be executed in one Sauce Labs session, so multiple test results can have the URL to the same session.
+
+</details>
+
+## Next Steps
+
+- [saucectl run](/dev/cli/saucectl/run/)
+- [TestRail CLI documentation](https://support.testrail.com/hc/en-us/articles/7146548750868-Overview-and-installation)
+- [Integrations Overview](/basics/integrations-overview/)
