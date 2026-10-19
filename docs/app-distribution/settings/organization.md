@@ -44,7 +44,7 @@ If no plan is assigned, the page shows **No plan assigned**. Limits can show **U
 
 The **General** section contains your organization's name and subdomain. The organization name is how your organization is identified across the platform.
 
-Your subdomain is part of every URL for your organization, including landing page and install links, the API base URL (for example, `https://your-org.testfairy.com/api/v3/`), and the service provider URLs you give your identity provider when you set up [SSO / SAML](/app-distribution/settings/sso-saml). It's also available as the `{organization_subdomain}` variable in [email templates](/app-distribution/integrations/smtp-email).
+Your subdomain is part of every URL for your organization, including landing page and install links, the [API](/app-distribution/developer/api-reference) base URL (for example, `https://your-org.testfairy.com/api/v3/`), and the service provider URLs you give your identity provider when you set up [SSO / SAML](/app-distribution/settings/sso-saml). It's also available as the `{organization_subdomain}` variable in [email templates](/app-distribution/integrations/smtp-email).
 
 | Sr. No. | Field | Description |
 |---:|---|---|
