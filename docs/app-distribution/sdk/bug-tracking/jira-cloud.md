@@ -1,253 +1,204 @@
 ---
 id: jira-cloud
-title: Connecting Sauce Labs Mobile App Distribution to Jira Cloud
+title: Creating Jira Issues from Tester Feedback
 sidebar_label: Jira Cloud
-description: Connect Mobile App Distribution to Jira Cloud so that tester feedback becomes a Jira issue with session data attached.
+description: Connect Sauce Labs Mobile App Distribution to Jira Cloud and turn tester feedback into Jira issues that link to the feedback and its session recording.
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-Bug tracking is an essential part of the software development process to identify, document, and resolve issues in a systematic manner. Sauce Labs Mobile App Distribution integrates with Jira Cloud so that tester feedback becomes a Jira issue that carries the session data developers need.
-
-Before using the bug-tracking features in Sauce Labs Mobile App Distribution, connect your Sauce Labs Mobile App Distribution account to Jira Cloud. The steps below establish a secure and authenticated connection between Sauce Labs Mobile App Distribution and Jira Cloud.
-
-## Creating a Jira API Token
-
-To connect Sauce Labs Mobile App Distribution to Jira Cloud, you'll need to create an API token in Jira. This token will be used to authenticate Sauce Labs Mobile App Distribution when accessing your Jira account. Follow these steps to create the API token:
-
-1. Log in to [https://id.atlassian.com/manage/api-tokens#](https://id.atlassian.com/manage/api-tokens#) and click on **Create API token**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-create-api.png')} alt="Create Jira API Token"/>
-
-1. Give the new token a label that identifies the integration.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-label.png')} alt="Set Sauce Labs Mobile App Distribution Jira Key"/>
-
-1. Copy the API Token.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-token.png')} alt="Copy the API Token"/>
-
-## Configuring Jira in Your Sauce Labs Mobile App Distribution Settings
-
-To connect Sauce Labs Mobile App Distribution to Jira, you'll need to configure Jira settings in your Sauce Labs Mobile App Distribution account. Follow these steps to complete the configuration:
-
-1. Open your Sauce Labs Mobile App Distribution account Preferences.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Open Sauce Labs Mobile App Distribution preferences"/>
-
-1. Choose **Integrations**, scroll to Jira and press **Add integration**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1-1.png')} alt="Jira cloud"/>
-
-1. Enter your Jira Username, API Token, and Jira URL in the next screen and press **Update Jira Settings**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-2.png')} alt="Configure Jira Cloud"/>
-
-## (Optional) Installing the Sauce Labs Mobile App Distribution Chrome Extension (Deprecated)
-
-The Sauce Labs Mobile App Distribution Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every Jira issue that has a link to a Sauce Labs Mobile App Distribution session will contain the proper Sauce Labs Mobile App Distribution session, timeline, and logs embedded in the Jira issue.
-
-:::note
-The Chrome extension is deprecated. Use the Jira add-on described in the next section instead.
+:::info Beta release
+The Sauce Mobile Beta SDK is in beta. The Jira integration described on this page can change before general availability. Share feedback with your Sauce Labs representative.
 :::
 
-## (Optional) Adding the Sauce Labs Mobile App Distribution Jira Add-on to Your Jira Account
+Connect Sauce Labs Mobile App Distribution to Jira Cloud to turn tester feedback into Jira issues. Each issue links to the feedback and its session recording, carries the feedback screenshot as an attachment, and fills Jira fields with values from the session, such as the device, the OS version, and the app version.
 
-Add the Sauce Labs Mobile App Distribution Jira Add-on to your Jira account to include Sauce Labs Mobile App Distribution videos in Jira issues. Follow these steps to add the add-on:
+You can create an issue for a feedback item by hand, or have Sauce Labs create one automatically for every new feedback item of an app.
 
-1. Open **Jira Settings**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-settings.png')} alt="Open Jira Settings"/>
+Setting up Jira takes three steps:
 
-1. Open **Apps**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-settings1.png')} alt="Open Apps"/>
+1. [Create an Atlassian API token](#step-1-create-an-atlassian-api-token).
+2. [Connect Jira to your organization](#step-2-connect-jira-to-your-organization).
+3. [Set up Jira for each app](#step-3-set-up-jira-for-an-app).
 
-1. In the Apps menu, press **Find new apps**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-find-apps.png')} alt="Find new apps"/>
+## What You'll Need
 
-1. Add **Sauce Labs Mobile App Distribution for Jira** to your account.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-discover.png')} alt="Sauce Labs Mobile App Distribution for Jira"/>
+- The Account Owner or Org Admin role in Sauce Labs Mobile App Distribution.
+- A Jira Cloud account that can create issues in the Jira project you want to use.
+- A Jira site that is reachable from the internet over HTTPS. Sauce Labs cannot connect to a Jira site on a private network or to a Jira URL that uses an IP address.
+- Sauce Mobile Beta enabled for your organization. If **Jira** is not listed on the **Integrations** page, contact your Sauce Labs representative.
 
-1. On the first issue created, click on the "3 dots" icon and choose **Sauce Labs Mobile App Distribution Session**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-3-dots.png')} alt="Sauce Labs Mobile App Distribution session"/>
+## Step 1: Create an Atlassian API Token
 
-   After the installation, the Jira issue looks like the following:
+Sauce Labs signs in to Jira with your Atlassian account email address and an API token.
 
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/hira6a.png')} alt="Jira ticket"/>
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira5b.png')} alt="Jira popup"/>
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira6c.png')} alt="Application logs"/>
+1. Sign in to [Atlassian API tokens](https://id.atlassian.com/manage/api-tokens) with the Jira account Sauce Labs should use.
+2. Click **Create API token**.
+3. Enter a label, such as `Sauce Labs Mobile App Distribution`, and click **Create**.
+4. Copy the token. Atlassian shows it only once.
 
-## (Optional) Mapping Jira Custom Fields
+Issues that Sauce Labs creates are created by this account. Use an account that has permission to create issues and add attachments in your Jira projects.
 
-<p><span className="sauceGreen">Highly Recommended</span></p>
+## Step 2: Connect Jira to Your Organization
 
-Mapping Jira custom fields lets you automatically populate fields in a Jira issue when it is created, using standard Sauce Labs Mobile App Distribution session data or your own custom session attributes. This removes manual data entry and ensures every issue is created with consistent, complete information.
+1. In Sauce Labs Mobile App Distribution, click your profile icon and then **Integrations**.
+2. In the **Jira** row, click **Connect**.
+3. Under **Credentials**, enter:
+   - **Jira URL**: the address of your Jira site, such as `https://your-domain.atlassian.net`. It must start with `https://`.
+   - **Email**: the email address of the Jira account the API token belongs to.
+   - **Atlassian API Token**: the token you created in Step 1.
+4. Optional: click **Test Connection** to check the values against Jira without saving them.
+5. Click **Connect Jira**.
 
-Follow these steps to map Jira custom fields.
+Sauce Labs checks the credentials against Jira before it saves them. When the check passes, you see "Connected to Jira as" followed by the name of the Jira account, and the **Connection Status** card shows **Connected**.
 
-### Prerequisites
+Your organization can connect one Jira site. Sauce Labs stores the API token encrypted and never shows it again.
 
-Before you begin, connect a Jira account by following the steps in [Creating a Jira API Token](#creating-a-jira-api-token) and [Configuring Jira in Your Sauce Labs Mobile App Distribution Settings](#configuring-jira-in-your-sauce-labs-mobile-app-distribution-settings) above.
+### Changing or Removing the Connection
 
-### Supported Field Types
+- **New API token.** Paste the new token in **Atlassian API Token** and click **Save Changes**. To keep the stored token, leave the field empty.
+- **Different Jira site.** Enter the new **Jira URL**, enter the API token again, and click **Save Changes**. Saving a different Jira URL deletes the Jira setups of your apps, because they belong to the old site.
+- **Disconnect.** Click **Disconnect Jira** and confirm. Sauce Labs deletes the stored URL, account, and API token. Nothing in Jira changes. Your apps' Jira setups are kept, and they work again if you reconnect the same Jira site.
 
-The following Jira field types can be mapped:
+## Step 3: Set Up Jira for an App
 
-| Field type | How it is mapped |
-| --- | --- |
-| Text field, Text area | Free text, a dynamic value, or a mix of both |
-| Single select, Radio buttons | A fixed option from the field's list, or a dynamic value that resolves to one of the options |
-| Multi-value fields with a fixed option list (for example, Labels) | A fixed option or a dynamic value |
-| Priority | A fixed priority or a dynamic value |
+Each app has its own Jira setup: the Jira project its issues go to, the issue type, labels, and how each Jira field is filled.
 
-Other field types, such as user pickers, date pickers, number fields, and cascading selects, cannot be mapped and do not appear in the configuration table.
+1. Open the app and click **SDK Settings**.
+2. Click **Jira**.
+3. Under **1. Jira project**, choose or type the project key, such as `MOB`, and click **Next**. The list shows up to 250 projects. To use another project, type its key.
+4. Under **2. Issue type**, choose the issue type and click **Next**.
+5. Under **3. Fields**, set the values for the issue fields. See [Mapping Jira Fields](#mapping-jira-fields).
+6. Click **Save Jira settings**.
 
-:::caution Important
-If your Jira project marks an unsupported field type as required, Jira may reject issues created by the integration. Make required fields in the target project either supported types or optional.
-:::
+The page then shows **Active** and the project and issue type the app's issues go to.
 
-:::note Summary and Description
-Mapping the standard **Summary** and **Description** fields requires an account-level feature that is disabled by default. Contact support to have it enabled. After it is enabled, both fields appear in the configuration table and accept dynamic values like any other field. Other standard Jira fields, such as Assignee and Reporter, cannot be mapped.
-:::
+To check the setup, click **Test**. Sauce Labs creates a real issue in your Jira project, filled with sample values, with `[MAD test]` at the start of the summary. The test issue does not include the links to the feedback and the session, or a screenshot. Delete it in Jira when you are done.
 
-### Configuring the Integration
+To stop using Jira for the app, click **Deactivate** and confirm. This deletes the app's field mapping.
 
-1. From your list of apps, select the app you want to connect and click **Activate**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-connect-proj-map1.png')} alt="Activate apps"/>
+### Mapping Jira Fields
 
-   You can now configure the Jira fields:
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-proj-fileds-config.png')} alt="Configure Jira fields"/>
+The **3. Fields** table lists the fields of the issue type you chose. For each field, enter a value. Fields that Jira requires are marked **Required by Jira**. Under each field, a preview shows what an issue will get.
 
-1. In the Jira configuration screen, select the **Project Key** for the Jira project you want to connect to.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-project-select.png')} alt="Connect project"/>
+- **Labels.** Enter up to 20 labels, separated by commas or spaces, such as `mad, beta-feedback`. They are added to every issue.
+- **Text fields**, such as **Summary** and **Description**, take text mixed with values from the session and the feedback. Write a value as `{name}`, or as `{name || default}` to use a default when the value is empty. Use **+ Value** next to the field to insert one. A field holds up to 4,000 characters.
+- **Single-choice fields**, such as select lists, radio buttons, and **Priority**, take one of the field's options.
 
-1. Select the **Issue Type** you want to configure.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/issue-type-select.png')} alt="Configure issue type"/>
+There is no default summary. Map **Summary**, and every other field Jira requires, before you save. A required field that ends up empty stops the issue from being created, rather than creating an incomplete issue.
 
-:::tip
-To verify the connection before saving, click **TEST**. If your mapping contains dynamic values, a dialog first asks you to enter a sample value for each one. A pop-up window then displays the result. A valid Jira link confirms that issue creation is working correctly. If you receive a **PENDING** response, review your connection configuration.
-<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-connect-test-ok.png')} alt="Connection test result"/>
-:::
-
-### Understanding the Field Table
-
-Each issue type has its own set of associated fields. In the configuration screen, each field is described by the following columns:
-
-| Column | Description |
-| --- | --- |
-| **Name** | The name of the Jira field. |
-| **Type** | The field type as defined in Jira. |
-| **Value** | The value to populate, drawn from Jira's available values, a predefined fixed value, or a dynamic value (see below). |
-| **Required?** | Indicates whether the field is required or optional. |
-
-<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-requiered-fildes-mark.png')} alt="Required fields"/>
-
-### Setting Field Values
-
-When defining values in the **Configure Fields** window, use one of the following methods.
-
-**Static values.** When you select a value from a dropdown list, that value is populated as-is (text) into the corresponding Jira field.
-<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-values-drop-down.png')} alt="Values drop down"/>
-
-**Predefined dynamic values.** Select the **Dynamic value** option to insert placeholders that are automatically replaced with live session data. Available placeholders include:
-
-| Placeholder | Description |
-| --- | --- |
-| `{user.id}` | The user ID of the running session. |
-| `{session.timestamp}` | The timestamp of the session. |
-| `{session.url}` | The session URL on the Sauce Labs Mobile App Distribution dashboard. The viewer must be signed in to open it. |
-| `{session.publicUrl}` | A public link to the same session that opens without signing in. Anyone who has the link can view the session recording, and the link does not expire. |
-| `{session.ipAddress}` | The IP address of the device running the session. |
-| `{device.os}` | The operating system of the running device. |
-| `{device.model}` | The device model of the handset. |
-| `{device.osVersion}` | The OS version on the device (for example, an iPhone running iOS 12 returns 12). |
-| `{app.name}` | The application name. |
-| `{app.version}` | The build's `versionName` (Android) or `CFBundleShortVersionString` (iOS). Example: 1.7.0. |
-| `{app.fullVersion}` | The `versionName` plus `versionCode` (Android) or `CFBundleVersion` (iOS). Example: 1.7.0 (1700). |
-| `{feedback.text}` | The feedback message. |
-| `{feedback.timestamp}` | The absolute timestamp of the feedback. |
-| `{feedback.relTimestamp}` | The relative timestamp of the feedback (mm:ss) since the session started. |
-
-<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-fixed-attr-popup.png')} alt="Dynamic value field"/>
-
-:::caution Important
-`{session.publicUrl}` places a link that requires no sign-in into every issue created from that mapping. Anyone who can read the Jira issue, including people outside your Sauce Labs account, can view the session recording, and the link cannot be revoked without a platform change. Accounts with strict data-sharing requirements should map `{session.url}` instead, which requires the viewer to be signed in.
-:::
-
-You can combine placeholders with plain text in the same field, for example:
+For example, to put the app and the feedback in the summary and the device details in the description:
 
 ```text
-{feedback.text||No feedback text} | Session: {session.url}
+Summary:      [{app.name} {app.fullVersion}] {feedback.text}
+Description:  {feedback.text}
+
+              Device: {device.model}, {device.os} {device.osVersion}
+              User: {user.id || anonymous}
+              Submitted {feedback.relTimestamp} into the session
 ```
 
-To give an entire Jira project access to the recording, map a field such as **Session URL** to the public link:
+### Values You Can Use
 
-```text
-{session.publicUrl||No session recorded}
-```
+| Value | What it contains |
+| :--- | :--- |
+| `{user.id}` | The tester: the user ID your app reports, otherwise the tester's email address. |
+| `{session.id}` | The session ID. |
+| `{session.url}` | A link to the session on the dashboard. The reader must sign in. |
+| `{session.timestamp}` | When Sauce Labs received the session, in UTC, ISO 8601. |
+| `{session.duration}` | The session length, such as `12m 05s`. |
+| `{session.cid}` | The correlation ID your app set. |
+| `{session.ipAddress}` | The IP address the session came from. |
+| `{session.country}` | The country code the session came from, such as `DE`. |
+| `{device.model}` | The device manufacturer and model. |
+| `{device.os}` | `iOS` or `Android`. |
+| `{device.osVersion}` | The OS version. |
+| `{device.memory}` | The total device memory, such as `5.8 GB`. |
+| `{device.language}` | The device language, such as `en`. |
+| `{app.name}` | The app name. |
+| `{app.version}` | The app version. |
+| `{app.fullVersion}` | The app version with the build number, such as `2.1.0 (431)`. |
+| `{sdk.version}` | The Sauce Mobile Beta SDK version in the app. |
+| `{feedback.text}` | The text the tester wrote. |
+| `{feedback.timestamp}` | When the tester submitted the feedback, in UTC, ISO 8601. |
+| `{feedback.relTimestamp}` | How far into the session the tester submitted the feedback, as `mm:ss`. |
+| `{attr.NAME}` | A session attribute or user data value your app set, where `NAME` is its name. If both exist with the same name, the user data value is used. See [Session Attributes](/app-distribution/sdk/session-attributes/). |
 
-**Placeholders are validated on save.** If a field contains a placeholder that does not exist, for example a misspelling such as `{sessio.publicUrl}`, the configuration is rejected and the message names both the placeholder and the Jira field. Nothing is saved until it is corrected. Jira text formatting such as `{color:red}` is still accepted, but single-word tags such as `{code}`, `{noformat}`, and a closing `{color}` cannot be used inside a mapped field.
+## Creating Issues
 
-**Custom attribute values.** You can also map attributes defined in your app's code. Enter them in the **Dynamic value** field using the following structure:
+Each feedback item can have one Jira issue. Issues are created from feedback only, not from sessions.
 
-```text
-{attr.[attribute_name]||[default_value]}
-```
+### By Hand
 
-- **attribute_name**: The name of the attribute set in your code (for example, with the [`setAttribute`](/app-distribution/sdk/session-attributes) function). The value of this attribute is passed to Jira.
-- **default_value**: A fallback value passed to Jira if the attribute is missing from the session. This ensures the Jira field always receives a valid entry. A default is mandatory for required fields. The configuration screen adds one automatically if you omit it. If a non-required field resolves to an empty value, the field is left out of the created issue.
+On the **Feedback** page, click **Create Jira** in the **Jira** column of a feedback item. You can also click **Create Jira** at the top of a feedback page. See [Viewing Feedback](/app-distribution/sdk/viewing-feedback/). Account Owners, Org Admins, and Members can create issues.
 
-**Example:** `{attr.build_channel||production}` maps the value of your `build_channel` attribute to the Jira field. If no value is available for a given session, `production` is used instead.
+### Automatically
 
-<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-dynamic-attr-setattr.png')} alt="Attribute Setting"/>
+To create an issue for every new feedback item of an app:
 
-### Setting Custom Attributes in Your App
+1. Set up Jira for the app, as described in [Step 3](#step-3-set-up-jira-for-an-app).
+2. Open the app and click **SDK Settings**.
+3. Under **Bug System**, turn on **Automatically create issue on session feedback**.
+4. Click **Save SDK Settings**.
 
-Set attributes from your app's code before or after the Sauce Mobile Beta SDK starts a session. See [Session Attributes](/app-distribution/sdk/session-attributes) for the full `setAttribute` reference.
+Sauce Labs creates an issue for each feedback item that arrives after you turn this on, including feedback submitted outside a recorded session. Feedback that arrived earlier keeps its **Create Jira** button.
 
-<Tabs
-groupId="sdk"
-defaultValue="android"
-values={[
-{label: 'Android', value: 'android'},
-{label: 'iOS (Swift)', value: 'ios'},
-{label: 'iOS (Objective-C)', value: 'ios-objc'},
-{label: 'React Native', value: 'react'},
-]}>
+Sauce Labs does not create issues for duplicate feedback or for feedback from the Google Play pre-launch report.
 
-<TabItem value="android">
+## What the Issue Contains
 
-```java
-TestFairy.setAttribute("build_channel", "production");
-```
+- The project, issue type, and labels from the app's Jira setup.
+- The field values from the app's field mapping. The summary is kept to one line of up to 255 characters.
+- Links added to the end of the description:
 
-</TabItem>
+  ```text
+  Session replay, logs and screenshots: <link>
+  Feedback: <link>
+  These links open without a MAD account.
+  ```
 
-<TabItem value="ios">
+  Feedback submitted outside a recorded session gets only the feedback link.
+- The feedback screenshot, attached as `feedback-<id>-screenshot` with the image's file extension, such as `.jpg`. Screenshots larger than 10 MB are not attached. Voice notes are not attached.
 
-```swift
-TestFairy.setAttribute("build_channel", withValue: "production")
-```
+## Following Issues on the Dashboard
 
-</TabItem>
+The **Jira** column on the **Feedback** page, and the top of each feedback page, show where each feedback item stands:
 
-<TabItem value="ios-objc">
+| What you see | Meaning |
+| :--- | :--- |
+| **Create Jira** | No issue yet. Click it to create one. |
+| **Submitting…** or **Creating automatically…** | Sauce Labs is creating the issue. |
+| An issue key, such as `MOB-123` | The issue exists. Click the key to open it in Jira. Hover over it to see who created it and when, or **Created automatically**. |
+| **Attaching the screenshot…** | The issue exists, and Sauce Labs is adding the screenshot. |
+| **Screenshot attachment failed** | The issue exists, but the screenshot was not attached. Click **Retry attachment**. |
+| A reason and **Retry** | The issue was not created. See [Troubleshooting](#troubleshooting). |
 
-```objectivec
-[TestFairy setAttribute:@"build_channel" withValue:@"production"];
-```
+On a session page, **View Jira** shows how many issues were created from the session's feedback. Click it to see their keys.
 
-</TabItem>
+Sauce Labs does not sync anything back from Jira. Changes to an issue in Jira, such as its status, are not shown on the dashboard, and an issue you delete in Jira still appears as linked. Sauce Labs never changes or deletes an issue after it creates it.
 
-<TabItem value="react">
+## Troubleshooting
 
-```javascript
-TestFairy.setAttribute('build_channel', 'production');
-```
+When Sauce Labs cannot create an issue, the feedback item shows the reason and a **Retry** button.
 
-</TabItem>
+| Reason starts with | What to do |
+| :--- | :--- |
+| **Connection expired** | Jira no longer accepts the connected account or its API token. An Account Owner or Org Admin must reconnect Jira with a new token. Then click **Retry**. |
+| **Permission refused** | The connected Jira account cannot create issues in the project. Ask a Jira admin to grant it permission. Then click **Retry**. |
+| **Required field rejected** or **Jira rejected the issue** | A field value from the app's field mapping is missing or not valid in Jira. An Account Owner or Org Admin must fix the mapping. Then click **Retry**. |
+| **Jira could not find project** | The project or issue type no longer exists, or the connected account cannot see it. Update the app's Jira setup. |
+| **Jira unreachable** | Sauce Labs could not reach Jira. Click **Retry** in a moment. |
+| **Jira is not connected** or **Jira is not activated for this app** | Finish [Step 2](#step-2-connect-jira-to-your-organization) or [Step 3](#step-3-set-up-jira-for-an-app), then click **Retry**. |
 
-</Tabs>
+:::caution Check Jira before you retry
+If the reason says Jira may have created the issue anyway, for example because the request timed out, look for the issue in your Jira project before you click **Retry**. Otherwise, the feedback can end up with two issues.
+:::
 
-Keep the following rules in mind:
+When an automatic issue fails, the Account Owners and Org Admins of your organization get an email with the subject "Jira issue not created for feedback on" followed by the app name. It includes the reason and an **Open this feedback** button. You get at most one email per reason per app each day, however many feedback items are affected.
 
-- **Attribute names must contain only letters, digits, and underscores.** Names with spaces, hyphens, or dots can be stored, but cannot be referenced as a dynamic value in Jira mappings.
-- Each session can store up to 64 attribute keys. Keys are limited to 64 characters and values to 1 KB.
-- The call returns `true` (Android) or `YES` (iOS) on success, and `false`/`NO` if a limit is exceeded. Check the return value during development, as failures are otherwise silent.
+## Who Can Do What
 
-To verify that attributes were recorded, open the session in the dashboard and check the **Session Information** panel: recorded attributes appear under **Custom Attributes**.
+| Task | Account Owner, Org Admin | Member |
+| :--- | :--- | :--- |
+| Connect, change, or disconnect Jira | Yes | No |
+| Set up, test, or deactivate Jira for an app | Yes | No |
+| Turn automatic issues on or off | Yes | No |
+| Create an issue, or retry a failed one | Yes | Yes |

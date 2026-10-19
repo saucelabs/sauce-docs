@@ -5,7 +5,6 @@ sidebar_label: Submitting User Feedback
 description: Collect bug reports and suggestions from testers in your app with the Sauce Mobile Beta SDK In-App Feedback feature.
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -15,31 +14,34 @@ Getting feedback from users and testers is crucial in the app development proces
 
 ## Using In-App Feedback
 
-Sauce Labs Mobile App Distribution provides an effortless way to collect this feedback. If you [added the Sauce Mobile Beta SDK](/app-distribution/sdk/adding-tf-sdk) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the Sauce Labs Mobile App Distribution dashboard, and you can start collecting feedback from your users with "shake to report":
+If you [added the Sauce Mobile Beta SDK](/app-distribution/sdk/adding-tf-sdk/) to your app, testers can report feedback by shaking the device. Shake to report is controlled by the **In-app bug reporting** setting of your app, which is on by default. To check or change it:
 
-<img src={useBaseUrl('/img/test-fairy/enable-bug-2.png')} alt="Enable Shake to Feedback"/>
+1. Open the app in the Sauce Labs Mobile App Distribution dashboard and click **SDK Settings**.
+2. Turn **In-app bug reporting** on or off.
+3. Click **Save SDK Settings**.
 
-Users or testers can initiate the feedback collection process by shaking their devices while using the app. When they shake the device, the feedback form will be triggered, allowing them to report bugs or share their suggestions.
+The setting applies to sessions that start after you save. Account Owners and Org Admins can change SDK settings.
 
-This feedback will be added to the app session they are running.
+When a tester shakes the device, the SDK asks "Would you like to provide feedback?" If the tester agrees, the feedback form opens, and the tester can report a bug or share a suggestion.
 
-All feedback includes a screenshot, device information, submitter email, and text comments added. The feedback is added to the event timeline so you can find it without difficulty.
+The feedback is added to the session the tester is running. It appears on the **Feedback** page of the dashboard and on the session's **Feedback** tab, where **Seek Video** jumps the session replay to the moment the tester submitted it. See [Viewing Feedback](/app-distribution/sdk/viewing-feedback/).
 
 ## Feedback Contents
 
-When users provide feedback using the In-App Bug Reporting feature, the following information will be included:
+When users provide feedback using the In-App Feedback feature, the following information is included:
 
-- **Screenshot** - A screenshot of the app at the moment the feedback was triggered.
-- **Device Information** - Details about the device, such as model, OS version, and other relevant technical information.
-- **Submitter Email** - If available, the email address of the user or tester providing the feedback.
-- **Text Comments** - Users can include specific comments to describe the issue or suggestion they are reporting.
-- **Event Timeline** - The feedback will be added to the app's event timeline, so developers can track and analyze the feedback.
+- **Text** - The comment the tester writes to describe the issue or suggestion.
+- **Email** - The email address the tester enters, if the form shows the email field.
+- **Screenshot** - A screenshot of the app at the moment the feedback form opened. On iOS, the tester can edit or remove the screenshot before sending.
+- **Device and app information** - The device model, the OS version, and the app version.
+- **Session** - The session the tester is running, and how far into the session the tester submitted the feedback.
+- **Custom fields** - The values of any custom fields you add to the form. See [Customizing the Feedback Form](#customizing-the-feedback-form).
 
 ## Customizing In-App Feedback
 
 Sauce Labs Mobile App Distribution allows you to customize the way In-App Feedback is collected. If you prefer not to use the shake gesture for feedback collection, you can programmatically invoke the feedback form using a button click or any other gesture in your app. This way, users can access the feedback form from a designated area in the app, like the help menu or after encountering unexpected errors.
 
-If you choose to invoke the feedback form programmatically, it will be shown regardless if the in-app feedback is disabled in your build settings.
+If you choose to invoke the feedback form programmatically, it is shown even if **In-app bug reporting** is turned off in your app's SDK settings.
 
 <Tabs
 groupId="sdk"
@@ -102,8 +104,6 @@ TestFairy.showFeedbackForm()
 
 :::note
 
-On iOS, if the In-App Bug Reporting feature is enabled, the feedback form will also be shown when the tester takes a screenshot.
-
 `pushFeedbackController` is deprecated. Use `showFeedbackForm`, which requires a running session. To collect feedback without one, call `[TestFairy showFeedbackForm:@"<sauce-mobile-beta-token>" takeScreenshot:YES]`. To hide the email field or add custom fields, see [Customizing the Feedback Form](#customizing-the-feedback-form) (`setFeedbackEmailVisible:` is deprecated).
 
 :::
@@ -140,7 +140,7 @@ On React Native, `pushFeedbackController()` shows the form for the running sessi
 
 The built-in form has an email field, a message field and, depending on the platform, buttons to attach a screenshot or a screen recording. You customize it by building a feedback options object and handing it to the SDK before the form is shown. Doing so before `beginWithoutCrashHandler` is fine. The feedback classes are in the `TestFairy` module on iOS and the `com.testfairy` package on Android.
 
-The form can be shown in two ways. `showFeedbackForm()` with no arguments requires a running session and attaches the feedback to it. The overload that takes the app token (`showFeedbackForm(context, appToken, takeScreenshot)` on Android, `showFeedbackForm(appToken, takeScreenshot:)` on iOS and `showFeedbackForm(appToken, takeScreenshot)` on React Native) works without a session, optionally captures a screenshot first, and the feedback appears in the build's Feedbacks tab.
+The form can be shown in two ways. `showFeedbackForm()` with no arguments requires a running session and attaches the feedback to it. The overload that takes the app token (`showFeedbackForm(context, appToken, takeScreenshot)` on Android, `showFeedbackForm(appToken, takeScreenshot:)` on iOS and `showFeedbackForm(appToken, takeScreenshot)` on React Native) works without a session and optionally captures a screenshot first. The feedback appears on the **Feedback** page of the dashboard, without a session.
 
 Rules that apply on Android and iOS:
 
@@ -281,7 +281,7 @@ final class CompanyEmailVerifier: NSObject, TestFairyFeedbackVerifier {
 
 Objective-C uses the same types: `[TestFairyFeedbackOptions createWithBlock:^(TestFairyFeedbackOptionsBuilder *builder) { ... }]` followed by `[TestFairy setTestFairyFeedbackOptions:options]`. The `defaultText` builder property pre-fills the message of the built-in form. The dictionary-based `setFeedbackOptions:` and `setFeedbackEmailVisible:` are deprecated. The dropdown list shows its options in dictionary order, which is not necessarily the order you typed them.
 
-Triggers: call `TestFairy.enableFeedbackForm("shake")`, `"screenshot"` or `"shake|screenshot"`, or `TestFairy.disableFeedbackForm()`, before `beginWithoutCrashHandler`.
+Triggers: call `TestFairy.enableFeedbackForm("shake")`, `"screenshot"` or `"shake|screenshot"`, or `TestFairy.disableFeedbackForm()`, before `beginWithoutCrashHandler`. The triggers you set this way replace the **In-app bug reporting** setting from the dashboard, for both shake and screenshot. Any other value is ignored, and the SDK uses the dashboard setting.
 
 </TabItem>
 

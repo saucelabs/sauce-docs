@@ -26,7 +26,7 @@ Share feedback with your Sauce Labs representative.
 
 The package contains native iOS and Android code, so it does not run in Expo Go. Your project needs generated `ios` and `android` directories before you install it. Generate them with `npx expo prebuild`, which Expo calls Continuous Native Generation. See the [Expo prebuild docs](https://docs.expo.dev/workflow/prebuild/).
 
-The SDK does not install a crash handler. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), and the two SDKs are designed to run in the same app. Start the SDK with `beginWithoutCrashHandler`. See [Crash Ownership](/app-distribution/sdk/react-native/react-native#crash-ownership).
+The SDK does not install a crash handler. Crash reporting is provided by Backtrace (Sauce Labs Error Reporting), and the two SDKs are designed to run in the same app. Start the SDK with `beginWithoutCrashHandler`. See [Crash Ownership](/app-distribution/sdk/react-native/#crash-ownership).
 
 ## Steps
 
@@ -44,7 +44,7 @@ pod install
 After the package is published on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL.
 :::
 
-On Android, the package registers its Maven repositories on every Gradle project, so a standard Expo project needs no repository change. If your `android/settings.gradle` restricts repositories with `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, add the Sauce Mobile Beta Maven repository as shown in [Android](/app-distribution/sdk/react-native/react-native#android), and re-apply that change (or apply it with a config plugin) after every `npx expo prebuild --clean`, which regenerates the native directories.
+On Android, the package registers its Maven repositories on every Gradle project, so a standard Expo project needs no repository change. If your `android/settings.gradle` restricts repositories with `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, add the Sauce Mobile Beta Maven repository as shown in [Android](/app-distribution/sdk/react-native/#android), and re-apply that change (or apply it with a config plugin) after every `npx expo prebuild --clean`, which regenerates the native directories.
 
 Then start the SDK once per app launch from your root component, using the app token from the [user preferences](https://app.testfairy.com/settings/) on your Sauce Labs Mobile App Distribution account:
 
@@ -63,4 +63,4 @@ export default function App() {
 
 ## Notes
 
-Since all Expo apps are React Native apps behind the scenes, everything on the [Integrating the React Native SDK](/app-distribution/sdk/react-native/react-native) page also applies to Expo: the API notes and the [Using With Backtrace](/app-distribution/sdk/react-native/react-native#using-with-backtrace) summary. If you use Backtrace in the same app, initialize Backtrace first and share the `sauce.correlation_id` attribute with both SDKs as described in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).
+Since all Expo apps are React Native apps behind the scenes, everything on the [Integrating the React Native SDK](/app-distribution/sdk/react-native/) page also applies to Expo: the API notes and the [Using With Backtrace](/app-distribution/sdk/react-native/#using-with-backtrace) summary. If you use Backtrace in the same app, initialize Backtrace first and share the `sauce.correlation_id` attribute with both SDKs as described in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).

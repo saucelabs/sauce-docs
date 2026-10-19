@@ -92,7 +92,7 @@ The SDK is available for the following platforms. Follow the instructions for yo
 
 - [Android](/app-distribution/sdk/android/integrating-android): `com.saucelabs.mobilebeta:sauce-mobile-beta-android`
 - [iOS](/app-distribution/sdk/ios/integrating-ios): Swift package `SauceMobileBeta` (module `TestFairy`)
-- [React Native](/app-distribution/sdk/react-native/react-native) and [Expo](/app-distribution/sdk/react-native/expo) (with prebuild): `@saucelabs/mobile-beta-react-native`
+- [React Native](/app-distribution/sdk/react-native/) and [Expo](/app-distribution/sdk/react-native/expo) (with prebuild): `@saucelabs/mobile-beta-react-native`
 
 See [Supported Platforms](/app-distribution/sdk/supported-platforms) for the features available on each platform.
 

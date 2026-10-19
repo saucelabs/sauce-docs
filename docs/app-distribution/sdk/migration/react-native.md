@@ -20,7 +20,7 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-Follow these steps to move a React Native app from the `react-native-testfairy` 2.x package to `@saucelabs/mobile-beta-react-native` 3.0.0-rc, the Sauce Mobile Beta SDK for React Native. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new package, see [Integrating the React Native SDK](/app-distribution/sdk/react-native/react-native) and, for Expo projects with prebuild, [Expo (with prebuild)](/app-distribution/sdk/react-native/expo).
+Follow these steps to move a React Native app from the `react-native-testfairy` 2.x package to `@saucelabs/mobile-beta-react-native` 3.0.0-rc, the Sauce Mobile Beta SDK for React Native. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new package, see [Integrating the React Native SDK](/app-distribution/sdk/react-native/) and, for Expo projects with prebuild, [Expo (with prebuild)](/app-distribution/sdk/react-native/expo).
 
 The JavaScript API is the same: the default export is `TestFairy` and the native module is `TestFairyBridge`. The migration is a package swap, one import change, and one initialization change. The package bundles the native Sauce Mobile Beta SDKs 2.2.0-rc for iOS and Android, so you do not add the native SDKs yourself.
 

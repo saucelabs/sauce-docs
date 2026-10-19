@@ -44,7 +44,7 @@ The runtime API is the same on every platform. Import the `TestFairy` module on 
 
 ## React Native
 
-- [Adding the SDK to Your App](/app-distribution/sdk/react-native/react-native), including [Expo](/app-distribution/sdk/react-native/expo) (with prebuild)
+- [Adding the SDK to Your App](/app-distribution/sdk/react-native/), including [Expo](/app-distribution/sdk/react-native/expo) (with prebuild)
 - [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence)
 - [Identifying Your Users](/app-distribution/sdk/identifying-users)
 - [Session Attributes](/app-distribution/sdk/session-attributes)

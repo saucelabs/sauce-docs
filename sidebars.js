@@ -1099,6 +1099,8 @@ module.exports = {
                                 'app-distribution/sdk/react-native/expo',
                             ],
                         },
+                        'app-distribution/sdk/viewing-sessions',
+                        'app-distribution/sdk/viewing-feedback',
                         'app-distribution/sdk/options',
                         'app-distribution/sdk/session-attributes',
                         'app-distribution/sdk/identifying-users',
