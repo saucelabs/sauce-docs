@@ -229,7 +229,7 @@ Do not use the deprecated `setCorrelationId` or `identify` methods for the corre
 2. A clean build succeeds. A duplicate module or duplicate symbol error for `TestFairy` means a TestFairy SDK 1.x artifact is still linked. Go back to step 1.
 3. Run a debug build with both SDKs initialized and force a crash. The process dies as a genuine crash. Relaunch the app: the crash appears in Backtrace only, and the Sauce Mobile Beta SDK starts a new session.
 4. Submit feedback from the app and confirm that the session shows `sauce.correlation_id` in its attributes, with the same value as the Backtrace report from that launch.
-5. Confirm that store builds do not contain the Sauce Mobile Beta SDK while Backtrace stays. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/tf-production).
+5. Confirm that store builds do not contain the Sauce Mobile Beta SDK while Backtrace stays. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/sauce-mobile-beta-production).
 
 ## Troubleshooting
 

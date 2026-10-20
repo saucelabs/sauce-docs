@@ -1,5 +1,5 @@
 ---
-id: adding-tf-sdk
+id: adding-sauce-mobile-beta-sdk
 title: Adding the Sauce Mobile Beta SDK to Your App
 sidebar_label: Adding the Sauce Mobile Beta SDK
 description: Add the Sauce Mobile Beta SDK to your Android, iOS, or React Native app to record tester sessions, collect in-app feedback, and send remote logs to Mobile App Distribution.

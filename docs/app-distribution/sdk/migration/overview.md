@@ -18,7 +18,7 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-This guide is for developers whose app already ships the TestFairy SDK 1.x (on React Native, the `react-native-testfairy` 2.x package) and who want to move it to the Sauce Mobile Beta SDK. If you are adding the SDK to an app for the first time, start with [Adding the Sauce Mobile Beta SDK to your App](/app-distribution/sdk/adding-tf-sdk) instead.
+This guide is for developers whose app already ships the TestFairy SDK 1.x (on React Native, the `react-native-testfairy` 2.x package) and who want to move it to the Sauce Mobile Beta SDK. If you are adding the SDK to an app for the first time, start with [Adding the Sauce Mobile Beta SDK to your App](/app-distribution/sdk/adding-sauce-mobile-beta-sdk) instead.
 
 The migration is a dependency swap plus a small set of code changes. The pages in this section walk through it step by step for each platform:
 
@@ -106,4 +106,4 @@ Follow the page for your platform:
 
 Backtrace owns crashes and the Sauce Mobile Beta SDK owns beta sessions. To match a crash report with the session recorded up to the crash, both SDKs must carry the same `sauce.correlation_id` attribute, together with the other reserved attributes. The initialization order, the attribute contract, and complete examples for every platform are in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence) and [Reserved Attributes for Backtrace Coexistence](/app-distribution/sdk/session-attributes#reserved-attributes-for-backtrace-coexistence).
 
-Keep the Sauce Mobile Beta SDK out of store builds and let Backtrace stay. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/tf-production).
+Keep the Sauce Mobile Beta SDK out of store builds and let Backtrace stay. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/sauce-mobile-beta-production).

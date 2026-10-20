@@ -14,7 +14,7 @@ Getting feedback from users and testers is crucial in the app development proces
 
 ## Using In-App Feedback
 
-If you [added the Sauce Mobile Beta SDK](/app-distribution/sdk/adding-tf-sdk/) to your app, testers can report feedback by shaking the device. Shake to report is controlled by the **In-app bug reporting** setting of your app, which is on by default. To check or change it:
+If you [added the Sauce Mobile Beta SDK](/app-distribution/sdk/adding-sauce-mobile-beta-sdk/) to your app, testers can report feedback by shaking the device. Shake to report is controlled by the **In-app bug reporting** setting of your app, which is on by default. To check or change it:
 
 1. Open the app in the Sauce Labs Mobile App Distribution dashboard and click **SDK Settings**.
 2. Turn **In-app bug reporting** on or off.

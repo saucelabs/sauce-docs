@@ -290,7 +290,7 @@ These methods exist in the API and do nothing: `installCrashHandler`, `enableCra
 
 ## Production Builds
 
-Keep the Sauce Mobile Beta SDK out of store builds and ship Backtrace in every build. Backtrace is designed for production crash reporting. The Sauce Mobile Beta SDK records sessions for testers. On Android, declare the SDK with `debugImplementation` or in a beta flavor so release variants never package it. On iOS, gate the calls behind a build setting or a no-op wrapper. [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/tf-production) describes the options, including the no-op wrapper pattern. The shared attributes go to Backtrace in production as well, which keeps `sauce.release` and `sauce.dist` consistent between beta and store reports.
+Keep the Sauce Mobile Beta SDK out of store builds and ship Backtrace in every build. Backtrace is designed for production crash reporting. The Sauce Mobile Beta SDK records sessions for testers. On Android, declare the SDK with `debugImplementation` or in a beta flavor so release variants never package it. On iOS, gate the calls behind a build setting or a no-op wrapper. [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/sauce-mobile-beta-production) describes the options, including the no-op wrapper pattern. The shared attributes go to Backtrace in production as well, which keeps `sauce.release` and `sauce.dist` consistent between beta and store reports.
 
 ## Reference Apps
 

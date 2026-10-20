@@ -76,7 +76,7 @@ TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
 </Tabs>
 
 :::caution Store builds
-Never let a build that ships through the App Store or Google Play update itself. It violates the [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) and the [Play Store Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html). Call `disableAutoUpdate` in those builds, or better, keep the SDK out of them entirely. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/tf-production).
+Never let a build that ships through the App Store or Google Play update itself. It violates the [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) and the [Play Store Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html). Call `disableAutoUpdate` in those builds, or better, keep the SDK out of them entirely. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/sauce-mobile-beta-production).
 :::
 
 ## Handling the Prompt

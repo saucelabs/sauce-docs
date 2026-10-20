@@ -1,5 +1,5 @@
 ---
-id: tf-production
+id: sauce-mobile-beta-production
 title: Sauce Mobile Beta SDK in Production
 sidebar_label: Sauce Mobile Beta SDK in Production
 description: Keep the Sauce Mobile Beta SDK out of store builds, or follow these guidelines if you run it in a production app.

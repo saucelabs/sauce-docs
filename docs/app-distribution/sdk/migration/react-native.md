@@ -216,7 +216,7 @@ Do not use the deprecated `setCorrelationId(...)` or `identify(...)` methods for
 2. A clean build of both platforms succeeds. A duplicate `TestFairyBridge` module error, a duplicate symbol error for `TestFairy`, or a `Duplicate class` error for `com.testfairy` classes means the old package or an old native artifact is still present. Go back to step 1 and step 5.
 3. Run a debug build with both SDKs initialized and force a crash, for example an unhandled JavaScript error and a native crash. The process dies as a genuine crash. Relaunch the app: the crashes appear in Backtrace only, and the Sauce Mobile Beta SDK starts a new session.
 4. Submit feedback from the app and confirm that the session shows `sauce.correlation_id` in its attributes, with the same value as the Backtrace report from that launch.
-5. Confirm that store builds do not contain the Sauce Mobile Beta SDK while Backtrace stays. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/tf-production).
+5. Confirm that store builds do not contain the Sauce Mobile Beta SDK while Backtrace stays. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/sauce-mobile-beta-production).
 
 ## Troubleshooting
 

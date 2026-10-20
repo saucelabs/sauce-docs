@@ -134,7 +134,7 @@ dependencies {
 
 </Tabs>
 
-The SDK provides beta-testing capabilities: session recording, tester feedback, remote logs and [update prompts](/app-distribution/sdk/app-updates). Prefer a beta or debug-only dependency, such as `debugImplementation` or a `betaImplementation` flavor configuration, so that store builds do not ship it. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/tf-production).
+The SDK provides beta-testing capabilities: session recording, tester feedback, remote logs and [update prompts](/app-distribution/sdk/app-updates). Prefer a beta or debug-only dependency, such as `debugImplementation` or a `betaImplementation` flavor configuration, so that store builds do not ship it. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/sauce-mobile-beta-production).
 
 ### 3. Initialize the SDK
 
