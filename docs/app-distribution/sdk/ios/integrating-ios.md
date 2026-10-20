@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
@@ -35,7 +35,7 @@ The SDK does not install a crash handler. Crash reporting is provided by Backtra
 
 ## Adding the SDK
 
-The SDK for iOS is distributed with Swift Package Manager. The current release candidate is `2.2.0-rc` and requires iOS 11 or later.
+The SDK for iOS is distributed with Swift Package Manager. The current release candidate is `2.2.0-rc2` and requires iOS 11 or later.
 
 ### Swift Package Manager
 
@@ -50,7 +50,7 @@ Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode 
 | Package URL | `https://github.com/testfairy/testfairy-ios-sdk-swift-package` |
 | Package product | `SauceMobileBeta` |
 | Module to import | `TestFairy` |
-| Dependency Rule | **Exact Version** `2.2.0-rc` |
+| Dependency Rule | **Exact Version** `2.2.0-rc2` |
 
 1. Select your project from the Xcode navigator to open your project's configuration.
 2. Make sure your project is selected from the Project and Target list.
@@ -59,7 +59,7 @@ Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode 
 <img src={useBaseUrl('img/mobile-apps/xcframework-1.png')} alt="" width="800"/>
 
 1. In the newly opened dialog, enter the Sauce Mobile Beta package URL `https://github.com/testfairy/testfairy-ios-sdk-swift-package` in the top right search bar.
-2. Set the **Dependency Rule** to **Exact Version** and enter `2.2.0-rc`.
+2. Set the **Dependency Rule** to **Exact Version** and enter `2.2.0-rc2`.
 3. Click **Add Package**.
 <img src={useBaseUrl('img/mobile-apps/xcframework-2.png')} alt="" width="800"/>
 
@@ -69,14 +69,14 @@ Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode 
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
 
 :::note Why Exact Version?
-`2.2.0-rc` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release. The product name is `SauceMobileBeta` and the module name is `TestFairy`. The package URL may move to a Sauce Labs-owned repository before general availability.
+`2.2.0-rc2` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release. The product name is `SauceMobileBeta` and the module name is `TestFairy`. The package URL may move to a Sauce Labs-owned repository before general availability.
 :::
 
 If you declare dependencies in a `Package.swift` manifest instead:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/testfairy/testfairy-ios-sdk-swift-package.git", exact: "2.2.0-rc")
+    .package(url: "https://github.com/testfairy/testfairy-ios-sdk-swift-package.git", exact: "2.2.0-rc2")
 ],
 targets: [
     .target(name: "MyApp", dependencies: [

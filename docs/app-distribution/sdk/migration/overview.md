@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
@@ -40,8 +40,8 @@ The runtime API keeps its TestFairy names, so your existing code keeps compiling
 
 | Area | TestFairy SDK 1.x | Sauce Mobile Beta SDK |
 | :--- | :--- | :--- |
-| iOS artifact | CocoaPods `pod 'TestFairy'`, Carthage binary from `https://app.testfairy.com/sdk/ios/carthage.json`, or a manually added `TestFairySDK.framework` | Swift package `https://github.com/testfairy/testfairy-ios-sdk-swift-package`, product `SauceMobileBeta`, module `TestFairy`, exact version `2.2.0-rc`. The CocoaPods pod `SauceMobileBeta` is not published yet. |
-| Android artifact | `com.testfairy:testfairy-android-sdk` and `com.testfairy:testfairy-android-ndk` | `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc` from `https://maven.testfairy.com` |
+| iOS artifact | CocoaPods `pod 'TestFairy'`, Carthage binary from `https://app.testfairy.com/sdk/ios/carthage.json`, or a manually added `TestFairySDK.framework` | Swift package `https://github.com/testfairy/testfairy-ios-sdk-swift-package`, product `SauceMobileBeta`, module `TestFairy`, exact version `2.2.0-rc2`. The CocoaPods pod `SauceMobileBeta` is not published yet. |
+| Android artifact | `com.testfairy:testfairy-android-sdk` and `com.testfairy:testfairy-android-ndk` | `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2` from `https://maven.testfairy.com` |
 | React Native package | `react-native-testfairy` 2.x | `@saucelabs/mobile-beta-react-native` 3.0.0-rc, installed from the GitHub Release tarball until npm publishing is on |
 | Entry point | `begin(...)`, often preceded by `enableCrashHandler` or `disableCrashHandler` | `beginWithoutCrashHandler(...)`. It starts a session, never installs a crash handler, and forces the `enableCrashReporter` option (`TFSDKEnableCrashReporterKey` on iOS) to false even if you pass true. |
 | Crash reporting | Captured by the SDK's own crash handler and shown in Sauce Labs Mobile App Distribution | Provided by Backtrace (Sauce Labs Error Reporting). An app on the Sauce Mobile Beta SDK sends no crash reports to Sauce Labs Mobile App Distribution, so no crash reports or dSYM symbolication appear there for it. |

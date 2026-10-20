@@ -52,7 +52,7 @@ dependencies {
     implementation "com.github.backtrace-labs.backtrace-android:backtrace-library:<add-latest-version>"
 
     // Sauce Mobile Beta ships in debug builds only. With a beta flavor, use betaImplementation.
-    debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc"
+    debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
 }
 ```
 
@@ -294,5 +294,5 @@ try {
 Then, in your `build.gradle` file, declare the SDK with `debugImplementation`:
 
 ```groovy
-debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc"
+debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
 ```

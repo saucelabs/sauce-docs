@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.

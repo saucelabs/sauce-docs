@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
@@ -22,7 +22,7 @@ Share feedback with your Sauce Labs representative.
 
 Follow these steps to move a React Native app from the `react-native-testfairy` 2.x package to `@saucelabs/mobile-beta-react-native` 3.0.0-rc, the Sauce Mobile Beta SDK for React Native. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new package, see [Integrating the React Native SDK](/app-distribution/sdk/react-native/) and, for Expo projects with prebuild, [Expo (with prebuild)](/app-distribution/sdk/react-native/expo).
 
-The JavaScript API is the same: the default export is `TestFairy` and the native module is `TestFairyBridge`. The migration is a package swap, one import change, and one initialization change. The package bundles the native Sauce Mobile Beta SDKs 2.2.0-rc for iOS and Android, so you do not add the native SDKs yourself.
+The JavaScript API is the same: the default export is `TestFairy` and the native module is `TestFairyBridge`. The migration is a package swap, one import change, and one initialization change. The package bundles the native Sauce Mobile Beta SDKs 2.2.0-rc2 for iOS and Android, so you do not add the native SDKs yourself.
 
 Requirements: React Native 0.71 or later, React 18 or later, Node.js 18 or later, iOS 12.4 or later (the React Native 0.71 minimum; the package's podspec requires iOS 12.0), and Android API level 21 or later (required by React Native 0.71 and by Backtrace (Sauce Labs Error Reporting)).
 
@@ -132,7 +132,7 @@ cd ios && rm -rf Pods Podfile.lock && pod install
 
 Run `pod install` again after every install or upgrade of the package.
 
-**Android.** The package pins the native artifact `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc` and ships it in a local Maven repository (`local-native/android/maven`), which its `build.gradle` registers on every Gradle project together with `https://maven.testfairy.com` as a fallback. A standard React Native project needs no repository change. If your `android/settings.gradle` (or `settings.gradle.kts`) restricts repositories with `dependencyResolutionManagement` and `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, declare the fallback repository there as well. The `content` filter is optional and limits the repository to the Sauce Mobile Beta group:
+**Android.** The package pins the native artifact `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2` and ships it in a local Maven repository (`local-native/android/maven`), which its `build.gradle` registers on every Gradle project together with `https://maven.testfairy.com` as a fallback. A standard React Native project needs no repository change. If your `android/settings.gradle` (or `settings.gradle.kts`) restricts repositories with `dependencyResolutionManagement` and `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, declare the fallback repository there as well. The `content` filter is optional and limits the repository to the Sauce Mobile Beta group:
 
 <Tabs
 groupId="gradle"
@@ -224,7 +224,7 @@ Do not use the deprecated `setCorrelationId(...)` or `identify(...)` methods for
 
 **The app crashes at startup with `Native module TestFairyModule tried to override TestFairyModule`.** A manual `new TestFairyPackage()` registration from the old integration is still in `MainApplication`. The new package autolinks and also provides `com.testfairy.react.TestFairyPackage`, so the module is registered twice. Remove the manual entry and its import.
 
-**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`.** Confirm that `node_modules/@saucelabs/mobile-beta-react-native/local-native/android/maven` exists, and reinstall the package if it does not. If `android/settings.gradle` sets `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, Gradle rejects the repositories the package registers: declare `https://maven.testfairy.com` in `dependencyResolutionManagement` as shown in step 5. On Expo, re-check after every `npx expo prebuild --clean`.
+**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`.** Confirm that `node_modules/@saucelabs/mobile-beta-react-native/local-native/android/maven` exists, and reinstall the package if it does not. If `android/settings.gradle` sets `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, Gradle rejects the repositories the package registers: declare `https://maven.testfairy.com` in `dependencyResolutionManagement` as shown in step 5. On Expo, re-check after every `npx expo prebuild --clean`.
 
 **The iOS build still links the old SDK after the uninstall.** Run `cd ios && rm -rf Pods Podfile.lock && pod install` and delete `ios/build`.
 

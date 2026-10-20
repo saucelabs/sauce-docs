@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
@@ -38,7 +38,7 @@ Start the SDK with `beginWithoutCrashHandler(...)`. It starts a session and neve
 
 ## Installation
 
-The current release is `@saucelabs/mobile-beta-react-native` 3.0.0-rc, which bundles the native SDKs 2.2.0-rc for iOS and Android. Until npm publishing is switched on, install the package from the tarball attached to the [GitHub Release](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc):
+The current release is `@saucelabs/mobile-beta-react-native` 3.0.0-rc, which bundles the native SDKs 2.2.0-rc2 for iOS and Android. Until npm publishing is switched on, install the package from the tarball attached to the [GitHub Release](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc):
 
 ```bash
 npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.0.0-rc/saucelabs-mobile-beta-react-native-3.0.0-rc.tgz
@@ -57,7 +57,7 @@ Run `pod install` in your `ios` directory after every install or upgrade of the 
 
 ### Android
 
-The package pins the native artifact `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc` and ships it in a local Maven repository, which its `build.gradle` registers on every Gradle project together with `https://maven.testfairy.com` as a fallback. A standard React Native project needs no repository change. If your `settings.gradle` (or `settings.gradle.kts`) restricts repositories with `dependencyResolutionManagement` and `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, declare the fallback repository there as well:
+The package pins the native artifact `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2` and ships it in a local Maven repository, which its `build.gradle` registers on every Gradle project together with `https://maven.testfairy.com` as a fallback. A standard React Native project needs no repository change. If your `settings.gradle` (or `settings.gradle.kts`) restricts repositories with `dependencyResolutionManagement` and `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, declare the fallback repository there as well:
 
 <Tabs
 groupId="gradle"

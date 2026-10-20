@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
@@ -20,7 +20,7 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-Follow these steps to move an iOS app from the TestFairy SDK 1.x to the Sauce Mobile Beta SDK 2.2.0-rc. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new SDK, see [Integrating the iOS SDK](/app-distribution/sdk/ios/integrating-ios).
+Follow these steps to move an iOS app from the TestFairy SDK 1.x to the Sauce Mobile Beta SDK 2.2.0-rc2. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new SDK, see [Integrating the iOS SDK](/app-distribution/sdk/ios/integrating-ios).
 
 The module name does not change: you keep `import TestFairy` in Swift and `#import "TestFairy.h"` in Objective-C. What changes is the artifact, the entry point, and where crashes go.
 
@@ -52,7 +52,7 @@ binary "https://app.testfairy.com/sdk/ios/carthage.json"
 
 **Manual download.** Remove the `TestFairySDK.framework` that was downloaded from the TestFairy download page from the project navigator and from the **Frameworks, Libraries, and Embedded Content** section of your target. Also remove a `libTestFairy.a` static library if one is linked.
 
-**Swift Package Manager at a 1.x version.** If the project already depends on `https://github.com/testfairy/testfairy-ios-sdk-swift-package` at a 1.x tag, keep the package. The 1.x package product was named `TestFairy`, while 2.2.0-rc names it `SauceMobileBeta`, so in step 2 you change the version rule and swap the linked product. The module you import stays `TestFairy`.
+**Swift Package Manager at a 1.x version.** If the project already depends on `https://github.com/testfairy/testfairy-ios-sdk-swift-package` at a 1.x tag, keep the package. The 1.x package product was named `TestFairy`, while 2.2.0-rc2 names it `SauceMobileBeta`, so in step 2 you change the version rule and swap the linked product. The module you import stays `TestFairy`.
 
 **Verify.** The following command prints nothing. Add the files your project uses:
 
@@ -71,15 +71,15 @@ The Sauce Mobile Beta SDK for iOS is distributed with Swift Package Manager and 
 | Package URL | `https://github.com/testfairy/testfairy-ios-sdk-swift-package` |
 | Package product | `SauceMobileBeta` |
 | Module to import | `TestFairy` |
-| Dependency Rule | **Exact Version** `2.2.0-rc` |
+| Dependency Rule | **Exact Version** `2.2.0-rc2` |
 
-In Xcode, select the project, open **Package Dependencies**, click **+**, enter the package URL, set the **Dependency Rule** to **Exact Version** `2.2.0-rc`, and add the `SauceMobileBeta` product to your app target. If the package is already present at a 1.x tag, edit its rule to **Exact Version** `2.2.0-rc` instead of adding it again, then remove the old `TestFairy` package product from **Frameworks, Libraries, and Embedded Content** and add the `SauceMobileBeta` product in its place. In a `Package.swift` manifest, change the product name in the `.product(name:package:)` entry from `TestFairy` to `SauceMobileBeta`.
+In Xcode, select the project, open **Package Dependencies**, click **+**, enter the package URL, set the **Dependency Rule** to **Exact Version** `2.2.0-rc2`, and add the `SauceMobileBeta` product to your app target. If the package is already present at a 1.x tag, edit its rule to **Exact Version** `2.2.0-rc2` instead of adding it again, then remove the old `TestFairy` package product from **Frameworks, Libraries, and Embedded Content** and add the `SauceMobileBeta` product in its place. In a `Package.swift` manifest, change the product name in the `.product(name:package:)` entry from `TestFairy` to `SauceMobileBeta`.
 
 If you declare dependencies in a `Package.swift` manifest:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/testfairy/testfairy-ios-sdk-swift-package.git", exact: "2.2.0-rc")
+    .package(url: "https://github.com/testfairy/testfairy-ios-sdk-swift-package.git", exact: "2.2.0-rc2")
 ],
 targets: [
     .target(name: "MyApp", dependencies: [
@@ -89,10 +89,10 @@ targets: [
 ```
 
 :::note Why Exact Version?
-`2.2.0-rc` is a semantic-version pre-release. The default **Up to Next Major Version** rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release.
+`2.2.0-rc2` is a semantic-version pre-release. The default **Up to Next Major Version** rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release.
 :::
 
-**Verify.** `Package.resolved` lists `testfairy-ios-sdk-swift-package` at version `2.2.0-rc`, and a file that contains `import TestFairy` compiles.
+**Verify.** `Package.resolved` lists `testfairy-ios-sdk-swift-package` at version `2.2.0-rc2`, and a file that contains `import TestFairy` compiles.
 
 ## 3. Update the Initialization
 
@@ -225,7 +225,7 @@ Do not use the deprecated `setCorrelationId` or `identify` methods for the corre
 
 ## 7. Validate Before Release
 
-1. The dependency check from step 1 prints nothing, and `Package.resolved` lists `testfairy-ios-sdk-swift-package` at `2.2.0-rc` only.
+1. The dependency check from step 1 prints nothing, and `Package.resolved` lists `testfairy-ios-sdk-swift-package` at `2.2.0-rc2` only.
 2. A clean build succeeds. A duplicate module or duplicate symbol error for `TestFairy` means a TestFairy SDK 1.x artifact is still linked. Go back to step 1.
 3. Run a debug build with both SDKs initialized and force a crash. The process dies as a genuine crash. Relaunch the app: the crash appears in Backtrace only, and the Sauce Mobile Beta SDK starts a new session.
 4. Submit feedback from the app and confirm that the session shows `sauce.correlation_id` in its attributes, with the same value as the Backtrace report from that launch.
@@ -233,7 +233,7 @@ Do not use the deprecated `setCorrelationId` or `identify` methods for the corre
 
 ## Troubleshooting
 
-**The package does not resolve.** The **Up to Next Major Version** rule skips the `2.2.0-rc` pre-release. Set the **Dependency Rule** to **Exact Version** `2.2.0-rc`.
+**The package does not resolve.** The **Up to Next Major Version** rule skips the `2.2.0-rc2` pre-release. Set the **Dependency Rule** to **Exact Version** `2.2.0-rc2`.
 
 **Duplicate module or duplicate symbol errors for `TestFairy`.** A TestFairy SDK 1.x artifact is still in the project: a `pod 'TestFairy'` line, a Carthage or manually added `TestFairySDK.framework`, or a `libTestFairy.a`. Remove it, delete the derived data, and rebuild.
 

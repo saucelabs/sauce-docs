@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
@@ -116,7 +116,7 @@ values={[
 
 ```groovy
 dependencies {
-    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc"
+    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
 }
 ```
 
@@ -126,7 +126,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc")
+    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2")
 }
 ```
 
@@ -206,9 +206,9 @@ The AAR bundles its consumer ProGuard rules, so Gradle applies them to your app 
 
 ## Upgrading
 
-Always pin an exact version, such as `2.2.0-rc`, and update it deliberately. Do not use version wildcards such as `2.+`: they resolve unpredictably for pre-release versions and can pull in a build you have not tested.
+Always pin an exact version, such as `2.2.0-rc2`, and update it deliberately. Do not use version wildcards such as `2.+`: they resolve unpredictably for pre-release versions and can pull in a build you have not tested.
 
-`2.2.0-rc` is a release candidate. The general availability release uses the same coordinates with a plain version number. To upgrade, change the version string in `build.gradle` and rebuild. `2.2.0-rc` is served from `https://maven.testfairy.com` under the coordinate `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`.
+`2.2.0-rc2` is a release candidate. The general availability release uses the same coordinates with a plain version number. To upgrade, change the version string in `build.gradle` and rebuild. `2.2.0-rc2` is served from `https://maven.testfairy.com` under the coordinate `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`.
 
 ## How to Identify Users (Optional)
 
@@ -245,4 +245,4 @@ To automatically upload the wifi status to your account, add the `android.permis
 
 ## Troubleshooting
 
-The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports a `Could not GET` error for a `jcenter.bintray.com` URL, or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
+The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports a `Could not GET` error for a `jcenter.bintray.com` URL, or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc for iOS and Android and 3.0.0-rc for React Native.
+The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
 
 - Final: the artifact names and the API.
 - Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
@@ -20,7 +20,7 @@ The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-r
 Share feedback with your Sauce Labs representative.
 :::
 
-Follow these steps to move an Android app from the TestFairy SDK 1.x to the Sauce Mobile Beta SDK 2.2.0-rc. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new SDK, see [Integrating the Android SDK](/app-distribution/sdk/android/integrating-android).
+Follow these steps to move an Android app from the TestFairy SDK 1.x to the Sauce Mobile Beta SDK 2.2.0-rc2. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new SDK, see [Integrating the Android SDK](/app-distribution/sdk/android/integrating-android).
 
 The Maven coordinate changes. The Java package `com.testfairy` and the `TestFairy` API do not, so `import com.testfairy.TestFairy;` and your `TestFairy.*` calls keep compiling. Both Java and Kotlin apps are supported.
 
@@ -114,7 +114,7 @@ values={[
 
 ```groovy
 dependencies {
-    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc"
+    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
 }
 ```
 
@@ -124,7 +124,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc")
+    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2")
 }
 ```
 
@@ -140,7 +140,7 @@ Your imports stay the same:
 import com.testfairy.TestFairy;
 ```
 
-**Verify.** Gradle sync succeeds and the dependency graph lists `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`:
+**Verify.** Gradle sync succeeds and the dependency graph lists `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`:
 
 ```bash
 ./gradlew :app:dependencies --configuration debugRuntimeClasspath | grep mobilebeta
@@ -269,7 +269,7 @@ Do not use the deprecated `setCorrelationId` or `identify` methods for the corre
 
 ## Troubleshooting
 
-**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc`** or a `Could not GET` error for a `jcenter.bintray.com` URL. The SDK is served from `https://maven.testfairy.com`, not from jcenter or Maven Central. Add the repository as shown in step 2.
+**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`** or a `Could not GET` error for a `jcenter.bintray.com` URL. The SDK is served from `https://maven.testfairy.com`, not from jcenter or Maven Central. Add the repository as shown in step 2.
 
 **`Duplicate class` errors for `com.testfairy` classes.** A TestFairy SDK 1.x artifact (`com.testfairy:testfairy-android-sdk` or `com.testfairy:testfairy-android-ndk`) is still on the classpath, possibly through another module. Run the dependency graph command from step 1 for every module and remove it.
 
