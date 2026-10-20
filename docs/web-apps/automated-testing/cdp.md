@@ -275,7 +275,10 @@ For more information, please refer to the [Playwright Selenium Grid documentatio
 ## Limitations
 
 - CDP / BiDi Sessions require Selenium 4+
-- CDP / BiDi Sessions are currently limited to 10mins
+- CDP / BiDi WebSocket connections are closed after 60 minutes without any messages
+- CDP / BiDi WebSocket connections are closed 4 hours after they are opened, even when active
+- CDP / BiDi WebSocket connections end with the test, so the test's [`maxDuration`](/dev/test-configuration-options/#maxduration) still applies
+- Enabling CDP / BiDi (`webSocketUrl` or `devTools`) raises [`idleTimeout`](/dev/test-configuration-options/#idletimeout) to at least 600 seconds. CDP / BiDi commands count as test activity, so a test that only sends CDP / BiDi commands does not time out as idle
 - Extended debugging cannot be used along CDP / BiDi
 - CDP /BiDi is NOT available on legacy OS versions
   - MacOS Sierra (10.12)
