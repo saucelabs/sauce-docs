@@ -96,7 +96,7 @@ $ saucectl authoring variables list [flags]
 
 ```bash
 saucectl authoring variables list --scope org
-saucectl authoring variables list --scope testSuite --test-suite-id 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b
+saucectl authoring variables list --scope testSuite --test-suite-id <test-suite-id>
 saucectl authoring variables list --search pass -o json
 ```
 
@@ -126,7 +126,7 @@ $ saucectl authoring variables get <id> [flags]
 </table>
 
 ```bash
-saucectl authoring variables get 5e7a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
+saucectl authoring variables get <variable-id>
 ```
 
 ## create
@@ -208,7 +208,7 @@ $ saucectl authoring variables create [flags]
 ```bash
 saucectl authoring variables create --scope org --name password --secret --value-from-env SAUCE_DEMO_PASSWORD
 echo -n "standard_user" | saucectl authoring variables create --scope team --name username --value-from-file -
-saucectl authoring variables create --scope testCase --test-case-id 6a882c1dc8b4482c166e96c9 --name coupon --value SAVE10
+saucectl authoring variables create --scope testCase --test-case-id <test-case-id> --name coupon --value SAVE10
 ```
 
 ## update
@@ -274,10 +274,10 @@ $ saucectl authoring variables update <id> [flags]
 </table>
 
 ```bash
-saucectl authoring variables update 5e7a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c --value-from-env NEW_PASSWORD
-saucectl authoring variables update 5e7a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c --secret=true
-saucectl authoring variables update 5e7a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c --description "Rotated 2026-09" \
-    --expected-last-update 2026-09-05T14:59:59.000Z
+saucectl authoring variables update <variable-id> --value-from-env NEW_PASSWORD
+saucectl authoring variables update <variable-id> --secret=true
+saucectl authoring variables update <variable-id> --description "Rotated 2026-09" \
+    --expected-last-update <last-update>
 ```
 
 ## delete
@@ -313,6 +313,6 @@ $ saucectl authoring variables delete <id> [flags]
 </table>
 
 ```bash
-saucectl authoring variables delete 5e7a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
-saucectl authoring variables delete 5e7a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c --yes --expected-last-update 2026-09-05T14:59:59.000Z
+saucectl authoring variables delete <variable-id>
+saucectl authoring variables delete <variable-id> --yes --expected-last-update <last-update>
 ```

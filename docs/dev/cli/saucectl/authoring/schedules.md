@@ -107,7 +107,7 @@ $ saucectl authoring schedules list [flags]
 
 ```bash
 saucectl authoring schedules list
-saucectl authoring schedules list --test-suite-id 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b
+saucectl authoring schedules list --test-suite-id <test-suite-id>
 ```
 
 ## get
@@ -136,7 +136,7 @@ $ saucectl authoring schedules get <id> [flags]
 </table>
 
 ```bash
-saucectl authoring schedules get 9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f
+saucectl authoring schedules get <schedule-id>
 ```
 
 ## create
@@ -223,10 +223,10 @@ $ saucectl authoring schedules create [flags]
 
 ```bash
 saucectl authoring schedules create --name "Nightly" --cron "0 0 2 * * *" --timezone Europe/Berlin \
-    --test-suite-id 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --build nightly
+    --test-suite-id <test-suite-id> --build nightly
 
 saucectl authoring schedules create --name "Smoke" --cron "0 */30 * * * *" --timezone America/New_York \
-    --test-suite-id 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --max-runs 10 --state disabled
+    --test-suite-id <test-suite-id> --max-runs 10 --state disabled
 ```
 
 ## update
@@ -279,9 +279,9 @@ $ saucectl authoring schedules update <id> [flags]
 </table>
 
 ```bash
-saucectl authoring schedules update 9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f --cron "0 0 3 * * *"
-saucectl authoring schedules update 9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f --add-test-suite-id 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --unset maxRuns
-saucectl authoring schedules update 9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f --unset tunnelName
+saucectl authoring schedules update <schedule-id> --cron "0 0 3 * * *"
+saucectl authoring schedules update <schedule-id> --add-test-suite-id <test-suite-id> --unset maxRuns
+saucectl authoring schedules update <schedule-id> --unset tunnelName
 ```
 
 ## enable and disable
@@ -311,8 +311,8 @@ $ saucectl authoring schedules disable <id> [flags]
 </table>
 
 ```bash
-saucectl authoring schedules disable 9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f
-saucectl authoring schedules enable 9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f
+saucectl authoring schedules disable <schedule-id>
+saucectl authoring schedules enable <schedule-id>
 ```
 
 ## delete
@@ -343,5 +343,5 @@ $ saucectl authoring schedules delete <id> [flags]
 </table>
 
 ```bash
-saucectl authoring schedules delete 9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f --yes
+saucectl authoring schedules delete <schedule-id> --yes
 ```

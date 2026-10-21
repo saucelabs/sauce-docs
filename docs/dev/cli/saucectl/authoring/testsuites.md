@@ -130,7 +130,7 @@ $ saucectl authoring testsuites get <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testsuites get 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b
+saucectl authoring testsuites get <test-suite-id>
 ```
 
 ## create
@@ -175,7 +175,7 @@ $ saucectl authoring testsuites create [flags]
 
 ```bash
 saucectl authoring testsuites create --name "Checkout Regression" --tag smoke \
-    --test-case 6a882c1dc8b4482c166e96c9 --test-case 6a6b903c0405fb400076b2ba
+    --test-case <test-case-id> --test-case <another-test-case-id>
 ```
 
 ## update
@@ -231,9 +231,9 @@ $ saucectl authoring testsuites update <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testsuites update 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --name "Checkout Regression v2"
-saucectl authoring testsuites update 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --add-test-case 6a882c1dc8b4482c166e96c9
-saucectl authoring testsuites update 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --remove-test-case 6a6b903c0405fb400076b2ba
+saucectl authoring testsuites update <test-suite-id> --name "Checkout Regression v2"
+saucectl authoring testsuites update <test-suite-id> --add-test-case <test-case-id>
+saucectl authoring testsuites update <test-suite-id> --remove-test-case <another-test-case-id>
 ```
 
 ## delete
@@ -269,8 +269,8 @@ $ saucectl authoring testsuites delete <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testsuites delete 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b
-saucectl authoring testsuites delete 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --delete-test-cases --yes
+saucectl authoring testsuites delete <test-suite-id>
+saucectl authoring testsuites delete <test-suite-id> --delete-test-cases --yes
 ```
 
 ## run
@@ -306,5 +306,5 @@ $ saucectl authoring testsuites run <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testsuites run 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b --build nightly
+saucectl authoring testsuites run <test-suite-id> --build nightly
 ```

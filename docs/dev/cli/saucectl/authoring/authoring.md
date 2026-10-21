@@ -63,7 +63,7 @@ The `authoring` commands start runs and return immediately. To run authored test
 
 ```bash
 saucectl authoring testcases list --tag smoke
-saucectl authoring testcases get 6a882c1dc8b4482c166e96c9 --show-steps
-saucectl authoring testsuites create --name "Checkout" --test-case 6a882c1dc8b4482c166e96c9
+saucectl authoring testcases get <test-case-id> --show-steps
+saucectl authoring testsuites create --name "Checkout" --test-case <test-case-id>
 saucectl authoring variables create --scope org --name password --secret --value-from-env PASSWORD
 ```

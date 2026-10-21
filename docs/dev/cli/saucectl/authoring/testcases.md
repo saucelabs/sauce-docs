@@ -113,7 +113,7 @@ $ saucectl authoring testcases list [flags]
 ```bash
 saucectl authoring testcases list
 saucectl authoring testcases list --search checkout --tag smoke
-saucectl authoring testcases list --test-suite-id 3f2a9c1e4b5d6e7f8a9b0c1d2e3f4a5b -o json
+saucectl authoring testcases list --test-suite-id <test-suite-id> -o json
 saucectl authoring testcases list --limit 0
 ```
 
@@ -184,9 +184,9 @@ $ saucectl authoring testcases get <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases get 6a882c1dc8b4482c166e96c9
-saucectl authoring testcases get 6a882c1dc8b4482c166e96c9 --show-steps
-saucectl authoring testcases get 6a882c1dc8b4482c166e96c9 -o json | jq '.revisions[-1].steps'
+saucectl authoring testcases get <test-case-id>
+saucectl authoring testcases get <test-case-id> --show-steps
+saucectl authoring testcases get <test-case-id> -o json | jq '.revisions[-1].steps'
 ```
 
 ## generate
@@ -337,8 +337,8 @@ $ saucectl authoring testcases generate-status <task-id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases generate-status 8b1f2c3d4e5f6a7b8c9d0e1f2a3b4c5d
-saucectl authoring testcases generate-status 8b1f2c3d4e5f6a7b8c9d0e1f2a3b4c5d --wait
+saucectl authoring testcases generate-status <task-id>
+saucectl authoring testcases generate-status <task-id> --wait
 ```
 
 ## rename
@@ -367,7 +367,7 @@ $ saucectl authoring testcases rename <id> <name> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases rename 6a882c1dc8b4482c166e96c9 "Checkout - add two items"
+saucectl authoring testcases rename <test-case-id> "Checkout - add two items"
 ```
 
 ## delete
@@ -398,7 +398,7 @@ $ saucectl authoring testcases delete <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases delete 6a882c1dc8b4482c166e96c9 --yes
+saucectl authoring testcases delete <test-case-id> --yes
 ```
 
 ## run
@@ -458,9 +458,9 @@ $ saucectl authoring testcases run <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases run 6a882c1dc8b4482c166e96c9 --build nightly
-saucectl authoring testcases run 6a882c1dc8b4482c166e96c9 --target browserName=firefox,platformName="Windows 11"
-saucectl authoring testcases run 6a882c1dc8b4482c166e96c9 --target-json @pixel9.json --tunnel-name my-tunnel
+saucectl authoring testcases run <test-case-id> --build nightly
+saucectl authoring testcases run <test-case-id> --target browserName=firefox,platformName="Windows 11"
+saucectl authoring testcases run <test-case-id> --target-json @pixel9.json --tunnel-name my-tunnel
 ```
 
 ## list-runs
@@ -526,8 +526,8 @@ $ saucectl authoring testcases list-runs <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases list-runs 6a882c1dc8b4482c166e96c9
-saucectl authoring testcases list-runs 6a882c1dc8b4482c166e96c9 --all -o json
+saucectl authoring testcases list-runs <test-case-id>
+saucectl authoring testcases list-runs <test-case-id> --all -o json
 ```
 
 ## get-run
@@ -556,7 +556,7 @@ $ saucectl authoring testcases get-run <id> <run-id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases get-run 6a882c1dc8b4482c166e96c9 ed320d67-5f56-4e81-b61d-72e325661c77
+saucectl authoring testcases get-run <test-case-id> <run-id>
 ```
 
 ## list-code-targets
@@ -587,7 +587,7 @@ $ saucectl authoring testcases list-code-targets <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases list-code-targets 6a882c1dc8b4482c166e96c9
+saucectl authoring testcases list-code-targets <test-case-id>
 ```
 
 ## code
@@ -638,9 +638,9 @@ $ saucectl authoring testcases code <id> [flags]
 </table>
 
 ```bash
-saucectl authoring testcases code 6a882c1dc8b4482c166e96c9 --target typescript_playwright > login.spec.ts
-saucectl authoring testcases code 6a882c1dc8b4482c166e96c9 --target python_selenium -d tests/
-saucectl authoring testcases code 6a882c1dc8b4482c166e96c9 --target java_selenium -f LoginTest.java --force
+saucectl authoring testcases code <test-case-id> --target typescript_playwright > login.spec.ts
+saucectl authoring testcases code <test-case-id> --target python_selenium -d tests/
+saucectl authoring testcases code <test-case-id> --target java_selenium -f LoginTest.java --force
 ```
 
 ## Specify Targets
