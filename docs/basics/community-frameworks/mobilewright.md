@@ -2,7 +2,7 @@
 id: mobilewright
 title: Mobilewright on Sauce Labs
 sidebar_label: Mobilewright
-description: Run Mobilewright tests on Sauce Labs Android and iOS real devices with the @saucelabs/mobilewright-driver package.
+description: Run Mobilewright tests on Sauce Labs Android and iOS real devices with the Sauce Labs driver for Mobilewright.
 keywords:
 - mobilewright
 - mobilewright-driver
@@ -15,15 +15,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceGreen">Community Supported</span> <span className="sauceGreen">Real Devices Only</span> <span className="sauceGreen">Enterprise Plans only</span></p>
 
-[Mobilewright](https://github.com/mobile-next/mobilewright) is an open-source mobile testing framework with a
+[Mobilewright](https://github.com/mobile-next/mobilewright) is an open source mobile testing framework with a
 Playwright-style API: locators, auto-waiting assertions, and a test runner built on Playwright Test. The Sauce Labs
 driver for Mobilewright, [`@saucelabs/mobilewright-driver`](https://www.npmjs.com/package/@saucelabs/mobilewright-driver),
 runs your Mobilewright tests on Sauce Labs Android and iOS real devices. You add the driver to your config; your tests
 don't change. This guide explains how to set up the driver and use it with your Sauce Labs tests.
 
 :::caution Community Supported
-Mobilewright is built and maintained by its open-source project, not by Sauce Labs. Sauce Labs maintains the driver in
-the [mobilewright-saucelabs](https://github.com/saucelabs/mobilewright-saucelabs) repository and supports the cloud side:
+Mobilewright is built and maintained by its open source project, not by Sauce Labs. Sauce Labs maintains the driver in
+the [`mobilewright-saucelabs`](https://github.com/saucelabs/mobilewright-saucelabs) repository and supports the cloud side:
 devices, sessions, and test artifacts. Report Mobilewright issues to the
 [Mobilewright issue tracker](https://github.com/mobile-next/mobilewright/issues), and driver issues to the
 [driver issue tracker](https://github.com/saucelabs/mobilewright-saucelabs/issues).
@@ -46,7 +46,7 @@ or [request a demo](https://saucelabs.com/request-demo).
 2. For each test worker, the driver opens a session on a Sauce Labs real device through the
    [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction), and installs your
    app from a URL, [App Storage](/mobile-apps/app-storage), or a local file.
-3. The driver turns each Mobilewright command (read the screen, tap, type, launch an app, and so on) into Access API
+3. The driver turns each Mobilewright command (read the screen, tap, type, or launch an app) into Access API
    calls on that device.
 4. Each Mobilewright test shows up on the Sauce Labs
    [Test Results](/mobile-apps/real-device-access-api/real-device-access-api-test-results) page with its name, status,
@@ -65,13 +65,13 @@ next to the device when a test uses a web view.
 | iOS real device        | ✔️                             |
 | Public devices         | ✔️ see [limits](#public-and-private-devices) |
 | Private devices        | ✔️                             |
-| Android emulator       | ❌ not supported               |
-| iOS simulator          | ❌ not supported               |
+| Android Emulator       | ❌ not supported               |
+| iOS Simulator          | ❌ not supported               |
 | Desktop browsers       | ❌ not supported               |
 
 ### Limitations
 
-- **Real devices only.** The driver uses the Real Device Access API, which has no emulators or simulators.
+- **Real devices only.** The driver uses the Real Device Access API, which has no Emulators or Simulators.
 - **Android 13 or later.** The driver's `fill()` needs it, and fails with a clear message on older devices.
 
 ## What You'll Need
@@ -94,7 +94,7 @@ system's secret store, so you never write them into tests or config files.
 
 You can also pass `username` and `accessKey` to `sauceLabsDriver()`, but environment variables are safer.
 
-## Set Up with Mobilewright
+## Set Up the Driver
 
 ### Step 1: Install the Driver
 

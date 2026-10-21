@@ -2,7 +2,7 @@
 id: community-frameworks
 title: Community Frameworks on Sauce Labs
 sidebar_label: Overview
-description: Open-source test frameworks and tools built outside Sauce Labs that run on the Sauce Labs cloud through our standard Appium, WebDriver BiDi, and Real Device Access API endpoints.
+description: Open source test frameworks and tools built outside Sauce Labs that run on the Sauce Labs cloud through our standard Appium, WebDriver BiDi, and Real Device Access API endpoints.
 keywords:
 - community
 - frameworks
