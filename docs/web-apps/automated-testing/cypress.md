@@ -37,20 +37,25 @@ Sauce Labs supports the following test configurations for Cypress:
   </tr>
   <tbody>
      <tr>
-<<<<<<< ours
       <td rowspan='2'>15.21.1</td>
-=======
-      <td rowspan='2'>15.20.0</td>
->>>>>>> theirs
       <td rowspan='2'>22</td>
       <td rowspan='2'>✅</td>
       <td><b>macOS:</b> 11.00, 12, 13, 14*, 15*†, 26*†</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-<<<<<<< ours
       <td rowspan='2'>September 3rd, 2027</td>
-=======
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+     <tr>
+      <td rowspan='2'>15.20.0</td>
+      <td rowspan='2'>22</td>
+      <td rowspan='2'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13, 14*, 15*†, 26*†</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>August 10th, 2027</td>
->>>>>>> theirs
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
@@ -129,19 +134,6 @@ Sauce Labs supports the following test configurations for Cypress:
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>November 30th, 2026</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-     <tr>
-      <td rowspan='2'>15.3.0</td>
-      <td rowspan='2'>22</td>
-      <td rowspan='2'>✅</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-      <td rowspan='2'>October 3rd, 2026</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
