@@ -24,7 +24,7 @@ Extended Debugging is intended only for active troubleshooting. Enabling it gene
 :::caution Chrome and OS Compatibility
 Check the [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to verify your selected 
 operating system supports the latest three versions of Chrome; otherwise, you might run into issues when using Extended 
-Debugging.
+Debugging. On macOS with Intel processors, Extended Debugging is supported only on macOS 13.
 :::
 
 :::caution Multi-Window Limitation on Chrome Browser

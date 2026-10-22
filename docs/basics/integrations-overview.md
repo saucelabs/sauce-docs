@@ -11,6 +11,7 @@ Sauce Labs integrates with the most important tools for your SDLC. Whether you n
 
 We partner with the top companies in the industry to bring you a complete solution for your testing needs. We also integrate seamlessly with the best open source tools in the ecosystem.
 
+Looking for community-built test frameworks such as Maestro or Vibium? See [Community Frameworks](/basics/community-frameworks).
 ## AI Agents and Assistants
 
 [Sauce MCP](/sauce-ai/sauce-mcp) is a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that lets your AI assistant or agent talk to Sauce Labs directly. Your agent can discover and drive real devices, author and run test cases, and inspect jobs, builds, and test artifacts using natural language. Sauce MCP works with any MCP-compatible client, including:

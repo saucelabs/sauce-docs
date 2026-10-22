@@ -135,7 +135,7 @@ Sauce Visual for Cypress plugin extends Cypress configuration, allowing to defin
 
 Options:
 
-- `region`: Sauce Labs Region where the new build will be created (default: `us-west-1`)
+- `region`: Sauce Labs Region where the new build will be created. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`, `asia-south-2` (default: `us-west-1`)
 - `buildName`: Name of the build (default: `Cypress Visual Testing`)
 - `project`: Name of the project (default: `None`)
 - `branch`: Name of branch (default: `None`)

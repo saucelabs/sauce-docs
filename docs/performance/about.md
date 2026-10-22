@@ -27,12 +27,12 @@ Consider the following guidelines to optimize your performance testing implement
 ### Chrome Browser Required
 
 Sauce Performance works in conjunction with Google Lighthouse and must be run on one of the latest 3 versions of the 
-Chrome desktop browser on Windows, macOS, or Linux.
+Chrome desktop browser on Windows, macOS, or Linux. On macOS with Intel processors, only macOS 13 is supported.
 
 :::caution Chrome and OS Compatibility
 Check the [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to verify your selected
 operating system supports the latest three versions of Chrome; otherwise, you might run into issues when using Sauce
-Performance.
+Performance. On macOS with Intel processors, Sauce Performance is supported only on macOS 13.
 :::
 
 ### WebDriver BiDi Not Supported

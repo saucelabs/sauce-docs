@@ -25,6 +25,7 @@ Achieving digital confidence for your website app involves knowing that every us
       <li><a href="/web-apps/automated-testing/cucumberjs-playwright/quickstart">Cucumber.js with Playwright</a></li>
       <li><a href="/web-apps/automated-testing/testcafe">TestCafe</a></li>
       <li><a href="/web-apps/automated-testing/replay">Replay</a></li>
+      <li><a href="/basics/community-frameworks/vibium">Vibium</a> (community framework)</li>
   </ul>
   </div>
   </div>

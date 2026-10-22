@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" role="img" aria-labelledby="title desc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <title id="title">How maestro-runner runs Maestro flows on SauceLabs</title>
+  <desc id="desc">On your machine or CI, maestro-runner reads your Maestro flows and sends each step as an Appium command to the SauceLabs Appium server. SauceLabs installs your app from App Storage on an Android emulator, iOS simulator, or real device and drives it. maestro-runner writes HTML, JUnit, and Allure reports to a local folder, and SauceLabs records video, logs, screenshots, and pass or fail status in Test Results.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A5361"/>
+    </marker>
+  </defs>
+
+  <!-- Panel background keeps every label readable in light and dark mode -->
+  <rect x="0" y="0" width="900" height="420" rx="12" fill="#FFFFFF" stroke="#E3E7EB"/>
+
+  <!-- Card 1: Your machine or CI -->
+  <rect x="20" y="20" width="220" height="210" rx="10" fill="#FFFFFF" stroke="#132322" stroke-width="1.5"/>
+  <path d="M 30 20 H 230 A 10 10 0 0 1 240 30 V 64 H 20 V 30 A 10 10 0 0 1 30 20 Z" fill="#132322"/>
+  <text x="130" y="48" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Your machine or CI</text>
+  <text x="130" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">Maestro flows</text>
+  <text x="130" y="121" text-anchor="middle" font-size="14" fill="#4A5361">your YAML test files</text>
+  <text x="130" y="165" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">maestro-runner</text>
+  <text x="130" y="186" text-anchor="middle" font-size="14" fill="#4A5361">runs the flows</text>
+
+  <!-- Card 2: SauceLabs -->
+  <rect x="340" y="20" width="220" height="210" rx="10" fill="#FFFFFF" stroke="#132322" stroke-width="1.5"/>
+  <path d="M 350 20 H 550 A 10 10 0 0 1 560 30 V 64 H 340 V 30 A 10 10 0 0 1 350 20 Z" fill="#132322"/>
+  <text x="450" y="48" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">SauceLabs</text>
+  <text x="450" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">Appium server</text>
+  <text x="450" y="121" text-anchor="middle" font-size="14" fill="#4A5361">receives the commands</text>
+  <text x="450" y="165" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">App Storage</text>
+  <text x="450" y="186" text-anchor="middle" font-size="14" fill="#4A5361">holds your app build</text>
+
+  <!-- Card 3: Test device -->
+  <rect x="660" y="20" width="220" height="210" rx="10" fill="#E8FBF2" stroke="#2BB673" stroke-width="2"/>
+  <path d="M 670 20 H 870 A 10 10 0 0 1 880 30 V 64 H 660 V 30 A 10 10 0 0 1 670 20 Z" fill="#132322"/>
+  <text x="770" y="48" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Test device</text>
+  <text x="770" y="104" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">Android emulator,</text>
+  <text x="770" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">iOS simulator,</text>
+  <text x="770" y="148" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">or real device</text>
+  <text x="770" y="186" text-anchor="middle" font-size="14" fill="#4A5361">runs your app</text>
+
+  <!-- Card 1 to Card 2 -->
+  <text x="290" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#132322">Appium</text>
+  <text x="290" y="136" text-anchor="middle" font-size="14" font-weight="700" fill="#132322">commands</text>
+  <line x1="242" y1="152" x2="336" y2="152" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="290" y="174" text-anchor="middle" font-size="12" fill="#4A5361">one per step</text>
+
+  <!-- Card 2 to Card 3 -->
+  <text x="610" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#132322">Installs and</text>
+  <text x="610" y="136" text-anchor="middle" font-size="14" font-weight="700" fill="#132322">drives app</text>
+  <line x1="562" y1="152" x2="656" y2="152" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Down arrows to results -->
+  <line x1="130" y1="232" x2="130" y2="290" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="142" y="266" font-size="14" font-weight="700" fill="#132322">writes</text>
+  <line x1="450" y1="232" x2="450" y2="290" stroke="#4A5361" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="462" y="266" font-size="14" font-weight="700" fill="#132322">records</text>
+
+  <!-- Result 1: Local reports -->
+  <rect x="20" y="294" width="220" height="106" rx="10" fill="#F4F6F8" stroke="#8A93A0" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="130" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">Local reports</text>
+  <text x="130" y="352" text-anchor="middle" font-size="14" fill="#132322">HTML, JUnit, and Allure</text>
+  <text x="130" y="374" text-anchor="middle" font-size="14" fill="#4A5361">in your --output folder</text>
+
+  <!-- Result 2: SauceLabs Test Results -->
+  <rect x="340" y="294" width="220" height="106" rx="10" fill="#F4F6F8" stroke="#8A93A0" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="450" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="#132322">SauceLabs Test Results</text>
+  <text x="450" y="352" text-anchor="middle" font-size="14" fill="#132322">Video, logs, screenshots,</text>
+  <text x="450" y="374" text-anchor="middle" font-size="14" fill="#132322">and pass/fail status</text>
+</svg>

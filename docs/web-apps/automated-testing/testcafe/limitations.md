@@ -11,7 +11,26 @@ Firefox is not supported on macOS 15 (Sequoia) due to a [known macOS firewall bu
 
 ### Special Characters in Test Names
 
-We recommend that you avoid using special characters when naming your tests. If your test name contains any special characters, your test may not run, or its artifacts may not be visible on our platform.
+Test names are validated before execution. The following rules apply:
+
+**Allowed characters (no change):**
+- Letters: `A-Z`, `a-z`
+- Digits: `0-9`
+- Dash: `-`
+- Underscore: `_`
+
+**Replaced characters (automatically converted to `-`):**
+
+`` + , @ / % ' \ = ? < > ` # & $ " | : ! ( ) (space) . ; [ ] * { } ~ ^ " " ' ' — ``
+
+These characters are silently replaced with a dash (`-`) to prevent errors in report generation.
+
+**Disallowed characters (test will fail to start):**
+- Non-ASCII characters such as `®`, `™`, `–`, `é`
+- Emoji characters
+- Any other characters not listed in the allowed or replaced categories above
+
+If your test name contains disallowed characters, the test will be rejected with an error response before execution begins.
 
 ### Chrome 130+
 

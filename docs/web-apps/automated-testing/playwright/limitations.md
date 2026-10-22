@@ -15,7 +15,26 @@ Firefox is not supported on macOS 15 (Sequoia) due to a [known macOS firewall bu
 
 ### Special Characters in Test Names
 
-We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+Test names are validated before execution. The following rules apply:
+
+**Allowed characters (no change):**
+- Letters: `A-Z`, `a-z`
+- Digits: `0-9`
+- Dash: `-`
+- Underscore: `_`
+
+**Replaced characters (automatically converted to `-`):**
+
+`` + , @ / % ' \ = ? < > ` # & $ " | : ! ( ) (space) . ; [ ] * { } ~ ^ " " ' ' — ``
+
+These characters are silently replaced with a dash (`-`) to prevent errors in report generation.
+
+**Disallowed characters (test will fail to start):**
+- Non-ASCII characters such as `®`, `™`, `–`, `é`
+- Emoji characters
+- Any other characters not listed in the allowed or replaced categories above
+
+If your test name contains disallowed characters, the test will be rejected with an error response before execution begins.
 
 ### Playwright 1.31.1 + Webkit + Sauce-Connect
 
@@ -25,6 +44,14 @@ Local websites can still be loaded.
 ### macOS 12 + Playwright 1.44+ + Webkit
 
 Webkit is not working on macOS 12 since Playwright 1.44.0.
+
+### macOS 14 + Playwright 1.62+ + Webkit
+
+Webkit is not working on macOS 14 since Playwright 1.62.0. Playwright pins macOS 14 to a frozen WebKit build that the 1.62 library is no longer protocol compatible with. Use macOS 15 for Webkit testing on Apple Silicon.
+
+### macOS 12 + Playwright 1.62+ + Chromium
+
+Chromium is not working on macOS 12 since Playwright 1.62.0. Chrome for Testing 151 (bundled with Playwright 1.62) requires macOS 13 or later. Firefox on macOS 12 is unaffected.
 
 ### macOS 11 + Playwright 1.29+ + Webkit
 
@@ -46,7 +73,7 @@ This is because playwright's project specific settings override the global confi
 
 ### Webkit + Windows
 
-There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs by setting the [platformName](https://docs.saucelabs.com/web-apps/automated-testing/playwright/yaml/#platformname) to either `macOS 13` or `macOS 12`.
+There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs by setting the [platformName](/web-apps/automated-testing/playwright/yaml/#platformname) to `macOS 15`.
 
 :::note
 Tests running through Sauce Tunnels are unaffected.

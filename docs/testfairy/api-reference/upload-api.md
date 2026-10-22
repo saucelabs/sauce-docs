@@ -287,6 +287,18 @@ In the case of an error, Sauce Labs Mobile App Distribution returns a JSON with 
 
 </details>
 
+### Where Can I Find My API Key?
+
+To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **TestFairy Access Key**.
+
+### How Can I Create a New API Key?
+
+To create a new API KEY, click on **Regenerate** on your account preferences page.
+
+### Why Is My API Key Empty?
+
+In cases Sauce Labs Mobile App Distribution identifies that by mistake, you initialize the SDK by using your API KEY instead of using your APP TOKEN, Sauce Labs Mobile App Distribution automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
+
 ### Can I Add Custom Metadata?
 
 Yes. Any POST parameter prefixed with "metadata." in the name is considered custom data and stored along with the upload. For example, consider this command:
@@ -301,8 +313,8 @@ curl https://app.testfairy.com/api/upload \
 
 Metadata is displayed and can be searched on in App Versions page by clicking on an app from the Dashboard. You can also view them on a single version's settings page.
 
-### Can I attach the symbols file to my app to download it later?
+### Can I Attach the Symbols File to My App to Download It Later?
 
-Yes! You can attach your dSYM zipped for iOS / Text file .txt for Android app while uploading the app. Check out the [Upload/Download Symbols file] documentation for more details.
+Yes. You can attach your dSYM zipped for iOS / Text file .txt for Android app while uploading the app. Check out the [Upload/Download Symbols file] documentation for more details.
 
 [Upload/Download Symbols file]: /testfairy/app-distribution/symbols-file/

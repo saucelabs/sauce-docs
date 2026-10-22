@@ -495,6 +495,35 @@ A `socket hang up` or `ECONNRESET` response means one of the following happened:
 - If this yields no conclusive results and the error keeps reappearing, reach out to your Sauce Labs representative with the affected job IDs so we can take a closer look.
 
 
+### WebDriverAgent Stopped Responding
+
+**Description**
+
+You'll see this error on iOS real devices when an Appium command was sent to WebDriverAgent (WDA), the agent that automates the device, and WDA did not respond within the command timeout (60 seconds). In this case the Appium server (the XCUITest driver) ends the Appium session itself: the command that timed out returns `Appium did not get any response from '<command>' command in 60000 ms`, and every subsequent command fails with `invalid session id`. Closing the Appium session after WDA stopped responding is regular XCUITest driver behavior, see [proxy-helper.ts](https://github.com/appium/appium-xcuitest-driver/blob/v10.36.4/lib/commands/proxy-helper.ts#L99-L111). As the session cannot recover, Sauce Labs ends it with an explicit error, allowing you to retry your test run.
+
+**Cause(s)**
+
+WDA was busy with, or stuck in, a command and did not respond in time. Common reasons are:
+
+- WDA crashed or was killed by the OS while executing the command.
+- WDA is waiting on the device for something that never happens, for example for an app or a system dialog to appear.
+- A bug in WDA or in Apple's XCTest framework.
+
+**How to Resolve**
+
+- Retry the job. A single occurrence is often a transient issue on the device.
+- If you see this error consistently or can reproduce it, figure out which command did not respond and what was happening on the device at that time:
+  - Look at the Appium logs: the command that timed out is named in the `Appium did not get any response from '<command>'` message, usually right before the end of the log.
+  - Watch the test video around that time. Look for system overlays, alerts or dialogs covering your app, or for your app not being in the foreground.
+  - Search the verbose device logs around that time for `WebDriverAgent` to see what WDA was doing, or whether it crashed.
+- Some commands are known to block WDA on the device:
+  - Opening a URL with `driver.get(url)` (`setUrl`) on iOS versions before 16.4: WDA cannot open the URL directly, and falls back to asking Siri to open it. Siri is disabled on Sauce Labs devices, so WDA waits for Siri until the command times out, while a Siri overlay is shown on the screen. Instead, use [`mobile: deepLink`](https://appium.github.io/appium-xcuitest-driver/latest/reference/execute-methods/#mobile-deeplink) with the `bundleId` of the app that should open the URL, or test on iOS 16.4 or later.
+  - Retrieving the UI hierarchy of a large or busy screen, for example with `driver.getPageSource()` or with broad XPath locators. If your app does not deliver its accessibility hierarchy in time, WDA falls back to querying the elements one by one, which can take longer than the command timeout on complex screens. Prefer specific locators (accessibility id, predicate string or class chain) over page source and XPath, and consider limiting the hierarchy depth with the [`snapshotMaxDepth`](https://appium.github.io/appium-xcuitest-driver/latest/reference/settings/#snapshotmaxdepth) setting.
+    - To check if your app is affected, search the verbose device logs for `Cannot take a snapshot with attribute(s)`, `kAXErrorIPCTimeout` and `Falling back to the default snapshotting mechanism`. These show that your app did not deliver its accessibility hierarchy in time. The Appium logs only show the command and, after 60 seconds, its timeout.
+- Try to increase the `commandTimeouts` capability [as described in the Appium documentation](https://appium.github.io/appium-xcuitest-driver/latest/reference/capabilities/). Beware: the upper ceiling to the `commandTimeouts` is 90s, otherwise you will hit the [90s Sauce Labs timeout](#your-test-timed-out-the-appium-session-was-ended-after-x-seconds-of-inactivity)
+- If this yields no conclusive results and the error keeps reappearing, reach out to your Sauce Labs representative with the affected job IDs so we can take a closer look.
+
+
 ### Your Test Was Ended Because the Device Battery Reached a Critically Low Level
 
 **Description**

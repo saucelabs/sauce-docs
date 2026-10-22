@@ -306,7 +306,7 @@ Any test run with a Sauce Connect tunnel has to use the proxy and this flag will
 
 <p><small>| BOOLEAN |</small></p>
 
-Enables [Extended Debugging features](/insights/debug). This applies to Firefox and Chrome only. It records HAR files and console logs for both of these browsers. In Chrome, it also enables network interception, network and cpu throttling as well as access to network logs during the session. It is required to be true for [`capturePerformance`](#captureperformance). The default value is `false`.
+Enables [Extended Debugging features](/insights/debug). This applies to Chrome only; on macOS with Intel processors, only macOS 13 is supported. It records HAR files and console logs, and enables network interception, network and cpu throttling as well as access to network logs during the session. It is required to be true for [`capturePerformance`](#captureperformance). The default value is `false`.
 
 ```java
 "extendedDebugging": true
@@ -318,7 +318,7 @@ Enables [Extended Debugging features](/insights/debug). This applies to Firefox 
 
 <p><small>| BOOLEAN |</small></p>
 
-Enables Performance Capture feature. Sauce Performance Testing can be enabled by setting both [`extendedDebugging`](#extendeddebugging) and `capturePerformance` to `true`. Default value is `false`. See [Getting Started with Sauce Front-End Performance](/performance) for more information.
+Enables Performance Capture feature. Sauce Performance Testing can be enabled by setting both [`extendedDebugging`](#extendeddebugging) and `capturePerformance` to `true`. This applies to Chrome only; on macOS with Intel processors, only macOS 13 is supported. Default value is `false`. See [Getting Started with Sauce Front-End Performance](/performance) for more information.
 
 ```java
 "capturePerformance": true

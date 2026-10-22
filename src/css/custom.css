@@ -1144,7 +1144,11 @@ ul.dropdown__menu li a:hover {
 .scalar-app .introduction-section .section-content > div:has(> .badge) {
     display: none;
 }
-.references-classic-header-container {
+/* Scalar's classic header holds the document selector and the search button.
+   With a single document and `hideSearch` it renders as an empty bar, so hide it
+   in that case only — otherwise the document selector (two or more sources, e.g.
+   the OpenAPI spec plus the WebSockets AsyncAPI document) would be invisible. */
+.references-classic-header-container:not(:has(.document-selector)) {
     display: none;
 }
 
@@ -1164,6 +1168,22 @@ ul.dropdown__menu li a:hover {
 .api-reference-page .container .section,
 .api-reference-page .container .section-accordion {
     max-width: 1800px;
+}
+
+/* Scalar sizes markdown tables to `max-content`, so a table with long rows
+   (e.g. the WebSocket close codes) widens the whole description column past
+   the viewport. Fill the column instead and let the cells wrap. */
+.api-reference-page .scalar-app .markdown table {
+    table-layout: auto;
+    width: 100%;
+}
+
+/* Scalar lets cells break mid-word, so a short first column (e.g. the close
+   code) gets squeezed to one or two characters. Keep it on one line and as
+   narrow as its content. */
+.api-reference-page .scalar-app .markdown table :is(td, th):first-child {
+    white-space: nowrap;
+    width: 1%;
 }
 
 /* Small, minimal availability tags for the Sauce MCP tools table */
@@ -1353,4 +1373,106 @@ html[data-theme="dark"] .tab-client-logo {
 
 .navbar button.clean-btn {
     color: var(--olive-100);
+}
+
+/* App Distribution role badges: colored pills in the "Role" column.
+   Each role declares one color; the pill background and the dark-theme
+   variant are both derived from it. */
+.role-badge {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.5;
+    border-radius: 6px;
+    white-space: nowrap;
+    color: var(--role-color);
+    background-color: color-mix(in srgb, var(--role-color) 12%, transparent);
+}
+
+.role-badge--owner {
+    --role-color: #e5484d;
+}
+
+.role-badge--org-admin {
+    --role-color: #2e8b96;
+}
+
+.role-badge--team-admin {
+    --role-color: #e8863d;
+}
+
+.role-badge--member {
+    --role-color: #4a7cf3;
+}
+
+.role-badge--tester {
+    --role-color: #3f5f7a;
+}
+
+html[data-theme="dark"] .role-badge {
+    color: color-mix(in srgb, var(--role-color) 60%, #ffffff);
+    background-color: color-mix(in srgb, var(--role-color) 20%, transparent);
+}
+
+/* "App Distribution (Classic)" sidebar category: a CLASSIC tag so readers default
+   to the current App Distribution docs. The label sits in a CSS-module span inside
+   the link; the link's own ::after is already the collapse caret, so the tag hangs
+   off the label instead. */
+.sidebar-classic
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    content: "CLASSIC";
+    display: inline-block;
+    margin-left: 0.45em;
+    padding: 0.05em 0.4em;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    vertical-align: middle;
+    border-radius: 4px;
+    color: #e8863d;
+    background-color: #fcede2;
+    white-space: nowrap;
+}
+
+html[data-theme="dark"]
+    .sidebar-classic
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    color: #f0a973;
+    background-color: rgba(232, 134, 61, 0.18);
+}
+
+/* "Sauce Mobile SDK" sidebar category: a BETA tag next to the label, in the
+   same yellow as the in-page "Beta release" label (.sauceYellow). */
+.sidebar-beta
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    content: "BETA";
+    display: inline-block;
+    margin-left: 0.45em;
+    padding: 0.05em 0.4em;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    vertical-align: middle;
+    border-radius: 4px;
+    color: var(--dark-300);
+    background-color: #fddf7f;
+    white-space: nowrap;
+}
+
+html[data-theme="dark"]
+    .sidebar-beta
+    > .menu__list-item-collapsible
+    > .menu__link
+    [class*="categoryLinkLabel"]::after {
+    color: #fddf7f;
+    background-color: rgba(253, 223, 127, 0.18);
 }

@@ -1,7 +1,7 @@
 ---
 id: error-reporting
 title: AI Error Reporting Prompting Guide
-sidebar_label: AI Error Reporting Prompting Guide
+sidebar_label: Error Reporting
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
