@@ -734,6 +734,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
       <td>
         <ul>
           <li>
+            <a href="#appium-3-versions">
+              <code>3.8.0</code>
+            </a>
+          </li>
+          <li>
             <a href="#appium-2-versions">
               <code>2.11.0</code>
             </a>
@@ -746,8 +751,8 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         </a>
       </td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.11.0</code>
+        <a href="#appium-3-versions">
+          <code>3.8.0</code>
         </a>
       </td>
     </tr>
@@ -756,6 +761,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
       <td>
         <ul>
           <li>
+            <a href="#appium-3-versions">
+              <code>3.8.0</code>
+            </a>
+          </li>
+          <li>
             <a href="#appium-2-versions">
               <code>2.11.0</code>
             </a>
@@ -773,8 +783,8 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         </a>
       </td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.11.0</code>
+        <a href="#appium-3-versions">
+          <code>3.8.0</code>
         </a>
       </td>
     </tr>
@@ -783,6 +793,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
       <td>
         <ul>
           <li>
+            <a href="#appium-3-versions">
+              <code>3.8.0</code>
+            </a>
+          </li>
+          <li>
             <a href="#appium-2-versions">
               <code>2.11.0</code>
             </a>
@@ -800,8 +815,8 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         </a>
       </td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.11.0</code>
+        <a href="#appium-3-versions">
+          <code>3.8.0</code>
         </a>
       </td>
     </tr>
@@ -810,6 +825,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
       <td>
         <ul>
           <li>
+            <a href="#appium-3-versions">
+              <code>3.8.0</code>
+            </a>
+          </li>
+          <li>
             <a href="#appium-2-versions">
               <code>2.11.0</code>
             </a>
@@ -827,8 +847,8 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         </a>
       </td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
+        <a href="#appium-3-versions">
+          <code>3.8.0</code>
         </a>
       </td>
     </tr>
@@ -2708,6 +2728,37 @@ The Appium 3 versions for Virtual Devices are also collections of drivers that a
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>
+        <code>3.8.0</code>
+      </td>
+      <td>-</td>
+      <td>
+        This is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.8.0" target="_blank">
+              <code>appium</code>: 3.8.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-espresso-driver/releases/tag/v9.3.6" target="_blank">
+              <code>appium-espresso-driver</code>: 9.3.6
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v8.7.0" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 8.7.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v4.0.0" target="_blank">
+              <code>appium-flutter-driver</code>: 4.0.0
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
     <tr>
       <td>
         <code>3.3.0</code>

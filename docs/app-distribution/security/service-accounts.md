@@ -5,7 +5,7 @@ sidebar_label: Service Accounts
 description: Create service accounts for CI/CD pipelines and automation, choose the right role, and keep their API keys safe.
 ---
 
-A service account is a dedicated user account for automation: CI/CD pipelines, scripts, and integrations that call the Mobile App Distribution API. It isn't tied to a person, so your automation keeps working when people join, leave, or change roles.
+A service account is a dedicated user account for automation: CI/CD pipelines, scripts, and integrations that call the [Mobile App Distribution API](/app-distribution/developer/api-reference). It isn't tied to a person, so your automation keeps working when people join, leave, or change roles.
 
 This guide explains which role to give a service account, how to create one, and how to keep its API key safe.
 
