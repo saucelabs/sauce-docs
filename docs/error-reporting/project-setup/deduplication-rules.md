@@ -1,80 +1,172 @@
 ---
 id: deduplication-rules
-title: Customizing Deduplication Rules
-sidebar_label: Customizing Deduplication Rules
-description: Backtrace offers customers the ability to upload their symbols directly to our systems, or to retrieve symbols from your managed private symbol server on demand.
+title: Configure Deduplication Rules
+sidebar_label: Configure Deduplication Rules
+description: Add custom deduplication rulesets and rules to a project, so Error Reporting groups errors from your callstacks the way your application needs.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Backtrace provides a programmable callstack based fingerprinting system, more commonly called our deduplication system. You can find more detailed information about our deduplication system here.
+Error Reporting groups errors into fingerprints by analyzing their callstacks, a process called deduplication. The same bug can produce slightly different callstacks because of non-determinism, compiler optimizations, or recursion. To group these errors correctly, Error Reporting evaluates each frame of an incoming callstack against a set of rules and decides whether to remove, transform, or keep the frame.
 
-In summary, this system allows Backtrace to group errors where root cause can be extrapolated from the contents of one or more faulting callstacks. A callstack may have differences for the same bug due to reasons like non-determinism, optimizations and recursion. To account for this, Backtrace built a programmable rules based system that can efficiently evaluate each frame in a callstack to decide if it needs removal or transformation to be normalized for more accurate grouping. We have developed a set of rules that are provided out of the box from common frameworks and platforms. (We call this the Backtrace Ruleset).
+Error Reporting includes rules for common platforms and frameworks out of the box. When your application uses its own frameworks, event dispatchers, or error-handling code, you can add custom rules, so errors with the same root cause are grouped together and different bugs stay separate. For how deduplication works, see [Deduplication](/error-reporting/project-setup/deduplication/).
 
-## Feature Overview
-
-Backtrace customers on the Enterprise plan can now easily add their own rulesets and rules to best fit their individual use cases and environments. Features include:
-
-- Manage rulesets for a project. A ruleset is evaluated for an incoming callstack to a specified project, and consists of a set of rules for evaluation and an optional language or OS that the rules apply to.
-- Manage rules in a ruleset: A rule consists of a reg-ex that can be evaluated on a given frame in a callstack, and a set of actions that should occur if the expression evaluates to true. The actions are extensive, including ability to rename functions, skip frames in current object file, ignore current frame, terminate after frame, add attribute to signature values, and more. The point is that you can create rules to normalize for various optimizations and code paths for a given callstack, optionally limiting to specific language or operating systems.
-- Test rulesets to preview actions they would take on an incoming callstack.
-
-## Feature Details
-
-Deduplication rules can be access under Project Settings.
-
-### Deduplication Settings for a Project
-
-Under Project Settings, you'll see a Deduplication section. This section will list for you the named rulesets that are associated with the project, in order of their execution. You will see a default and un-editable ruleset, called the Backtrace Ruleset. These are rules we automatically process for all incoming callstacks (Note you can't view or manage this - it's part of our secret sauce!). You can add and manage additional custom rulesets for the project. See a screenshot below for an out of the box view of project with no custom deduplication rules.
-
-<img src={useBaseUrl('img/error-reporting/project-settings/deduplication-config.png')} alt="deduplication config" />
-
-### Create a Custom Ruleset
-
-Click **Add new ruleset** to create a new ruleset.
-
-<img src={useBaseUrl('img/error-reporting/project-settings/add-new-dedup-ruleset.png')} alt="add new deduplication ruleset" />
-
-As you can see, each ruleset consists of a name, an optional set or languages or OS that the rules within should apply to, an enable/disable toggle, and the ability to add a set of rules that should be evaluated.
-
-### Manage Rules in Rulesets
-
-A rule consists of a set of predicates (IF statements), and a set of actions to take IF the statements evaluate TRUE.
-The IF statements evaluate matches against functions, objects, or sources using regex:
-
-- Function is the name of the function.
-- Source is the name of the source file that the function came from.
-- Object is the name of the object.
-
-Click **Add a rule** to add a new rule.
-
-:::caution Regex Support
-Backtrace supports "PCRE minus", a subset of the PCRE standard.
-You can find the library at [https://docs.rs/regex/latest/regex/](https://docs.rs/regex/latest/regex/).
+:::note
+Custom deduplication rules are available on the Enterprise plan.
 :::
 
-<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset.png')} alt="ruleset" />
+## Introduction to Error Grouping & Fingerprints
 
-### More Examples of Rules
+Each group of errors is identified by a fingerprint, the primary fault signature that Error Reporting generates from the callstack of an error. All errors with the same fingerprint are grouped together, so you triage and track them as one issue instead of as many separate reports. Deduplication rules decide which frames of the callstack are used to generate the fingerprint.
 
-Below is an example of a more complex rule, with three predicates and a list of all available actions:
+### How Deduplication Rules Work
 
-<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-examples.png')} alt="examples" />
+Deduplication rules are organized in rulesets:
 
-The second example shows two rules for a rule set. The first rule has 3 actions, including ignoring and skipping frames, and setting a new attribute. The second rule shows how to perform a replacement of a function name.
+| Term | Description |
+| --- | --- |
+| **Backtrace ruleset** | The default ruleset that Error Reporting applies to every incoming callstack. It can't be viewed or edited. |
+| **Ruleset** | A named group of rules that you create for a project. Each ruleset can be limited to specific operating systems or languages, and can be enabled or disabled. Rulesets are applied sequentially, in the order they are listed. |
+| **Rule** | One or more predicates (IF conditions) that match a frame in the callstack, and the actions to take when they match. If a predicate is omitted, it is considered a wildcard. |
 
-<img src={useBaseUrl('img/error-reporting/project-settings/ruleset-replace-example.png')} alt="ruleset replace example" />
+A predicate matches a frame using a regular expression against one of these fields:
 
-### Enable and Disable
+| Field | Matches |
+| --- | --- |
+| **function** | The name of the function. |
+| **source** | The name of the source file that the function came from. |
+| **object** | The name of the object. |
 
-You can quickly enable or disable rules in the toggle menu.
+When a rule matches, its actions change how the frame is used for grouping. For example, an action can rename a function, ignore the current frame, skip frames in the current object file, stop processing after the frame, or add an attribute to the signature values.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/disable-dedup-rules.webp')} alt="disable deduplication rules" />
+:::caution Regular Expression Support
+Error Reporting supports "PCRE minus", a subset of the PCRE standard. For the supported syntax, see the [Rust regular expression library documentation](https://docs.rs/regex/latest/regex/).
+:::
 
-### Ruleset Testing
+## Open the Deduplication Settings
 
-After creating a ruleset, you can test the output of the deduplication engine with an existing crash report (or error) in the system. Just enter the Instance ID of the crash report in the Ruleset Testing field. (You can get an instance ID from the Debug view. You will see the Ruleset Testing field after you have saved a Ruleset).
+Each project has its own deduplication settings and rulesets, which you manage from the project settings.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-testing.webp')} alt="deduplication ruleset testing" />
+**Step 1:** In your project, click your profile icon in the top-right corner, and then select **Project Settings & Docs**.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-1.png')} alt="Project Settings & Docs option in the profile menu" />
+
+**Step 2:** Under **Error processing** in the left menu, click **Deduplication**.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-2.png')} alt="Deduplication option under Error processing in the Project settings menu" />
+
+The **Deduplication settings** page opens. It shows the information included for grouping, and the rulesets of the project, in the order they are applied. To view the details of a ruleset, click it.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-3.png')} alt="Deduplication settings page with the Include for grouping toggles and the deduplication rulesets" />
+
+## Configuring Basic Crash Grouping Criteria
+
+Under **Include for grouping**, choose which information from the callstack Error Reporting uses to group errors. Turn on a toggle to include that information in grouping, or turn it off to leave it out.
+
+| Toggle | Includes |
+| --- | --- |
+| **Executable name** | The name of the executable. |
+| **Source file name** | The name of the source file. |
+| **Frame associated metadata** | The metadata associated with each frame. |
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-4.png')} alt="Include for grouping toggles for Executable name, Source file name, and Frame associated metadata" />
+
+## Creating and Prioritizing Custom Rulesets
+
+Create a ruleset to group the rules for one part of your application, such as a framework or a platform.
+
+**Step 1:** On the **Deduplication settings** page, click **Add new ruleset**.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-5.png')} alt="Add new ruleset button on the Deduplication settings page" />
+
+**Step 2:** In the **Create new ruleset** panel, fill in the following fields:
+
+| Sr. No. | Field | Description |
+| --- | --- | --- |
+| 1 | **Name** | The name of the ruleset. |
+| 2 | **Operating systems** | The operating systems that the ruleset applies to. **Any** is selected by default. To include an operating system that isn't listed, enter it in **Other** as a lowercase, space-separated list. |
+| 3 | **Languages** | The languages that the ruleset applies to. **Any** is selected by default. To include a language that isn't listed, enter it in **Other** as a lowercase, space-separated list. |
+| 4 | **Ruleset enabled for all errors** | Turn on to apply the ruleset to all errors. |
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-6.png')} alt="Create new ruleset panel with numbered Name, Operating systems, Languages, and Ruleset enabled for all errors fields" />
+
+**Step 3:** Add at least one rule to the ruleset. See [Add Rules to a Ruleset](#add-rules-to-a-ruleset).
+
+**Step 4:** Click **Save**.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-7.png')} alt="Save button in the Create new ruleset panel" />
+
+The ruleset appears under **Deduplication rulesets**. Click it to view its details, including its operating systems, languages, rules, and the **Ruleset testing** field.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-8.png')} alt="Saved ruleset selected in the list, with its details, rules, and Ruleset testing field" />
+
+### Add Rules to a Ruleset
+
+Rules decide which frames of a callstack Error Reporting uses to group errors. Add a rule for each callstack pattern you want to change, such as frames from an error-handling function that shouldn't be used for grouping.
+
+**Step 1:** In the **Create new ruleset** or **Edit ruleset** panel, click **Add a rule**.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-9.png')} alt="Add a rule button in the Create new ruleset panel" />
+
+**Step 2:** To add a predicate, click **function**, **object**, or **source**, and enter the regular expression to match. If you omit a predicate, it is considered a wildcard.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-10.png')} alt="Function, object, source, and Action buttons of a new rule" />
+
+**Step 3:** From the **THEN** dropdown list, select the action to take when the predicates match. To add more actions, click **Action**.
+
+The first predicate appears as **IF**, and each additional predicate appears as **AND**. The following example shows a rule with three predicates and two actions. To remove a predicate or an action, click the **X** next to it.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-11.png')} alt="Rule with function, object, and source predicates and two THEN actions" />
+
+To change the order of the rules, drag them. To remove a rule, click the delete icon next to it.
+
+#### Rule Examples
+
+The following example shows a more complex rule, with three predicates and the list of all available actions:
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-12.png')} alt="Rule with three predicates and the list of available actions" />
+
+The following example shows a ruleset with two rules. The first rule has three actions: ignoring a frame, skipping frames, and setting a new attribute. The second rule replaces a function name.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-13.png')} alt="Ruleset with two rules, including a function name replacement" />
+
+### Ruleset Priority
+
+Rulesets are applied sequentially, in the order they are listed under **Deduplication rulesets**. To change the priority of a ruleset, drag it to a new position in the list.
+
+When more than one ruleset can match the same frames, keep this order in mind, and limit each ruleset to the operating systems or languages it is meant for, so its rules apply only to those errors.
+
+## Edit, Disable, or Delete a Ruleset
+
+Disable a ruleset to stop applying its rules without deleting them, for example, while you check how a change affects grouping.
+
+To edit, disable, or delete a ruleset, click the **More options** icon (**⋮**) next to it, and then select **Edit**, **Disable**, or **Delete**. A disabled ruleset appears grayed out in the list.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-14.png')} alt="More options menu of a ruleset with the Edit, Disable, and Delete options" />
+
+When you select **Edit**, the **Edit ruleset** panel opens. Change the operating systems, languages, or the **Ruleset enabled for all errors** toggle, or click **Add a rule** to add rules, and then click **Save**.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-15.png')} alt="Edit ruleset panel with the Add a rule button" />
+
+## Test a Ruleset
+
+Before you rely on a ruleset, test it against an error that is already in Error Reporting to preview how the deduplication engine processes its callstack.
+
+**Step 1:** Open the error in the **Debug** view, and copy its instance ID.
+
+**Step 2:** On the **Deduplication settings** page, click the saved ruleset. The **Ruleset testing** field appears in its details.
+
+**Step 3:** Enter the instance ID in the **Ruleset testing** field, and then click **Test**.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-16.webp')} alt="Ruleset Testing field with an instance ID and the test result" />
+
+## Splitting and Merging Overlapping Errors
+
+When grouping doesn't match your application, the same bug may be split across several fingerprints, or different bugs may share one fingerprint.
+
+- **To split errors that are grouped together**, add a rule that keeps the frames that tell the errors apart, or that adds an attribute to the signature values, so the errors get different fingerprints.
+- **To merge errors that are split apart**, add a rule that ignores or skips the frames that differ between them, so the errors get the same fingerprint. To combine existing fingerprints without changing your rules, merge them in the **Triage** view. See [Merge or Unmerge Fingerprints](/error-reporting/triage/other-action/#merge-or-unmerge-fingerprints).
+
+:::note
+New rules apply to errors submitted after you save them. To regroup errors that were submitted earlier, reprocess them. See [Reprocess Past Crashes for New Attributes](/error-reporting/project-setup/object-reprocessing/).
+:::
