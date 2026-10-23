@@ -46,4 +46,12 @@ On Sauce Labs real and virtual devices, traffic reaches Sauce Connect through a 
 
 ## Troubleshooting
 
-To see whether gRPC requests reach Sauce Connect, start it with `--log-level debug` and check the logs for requests to your gRPC host. For more help, see the [Sauce Connect 5 Troubleshooting Guide](/secure-connections/sauce-connect-5/troubleshooting).
+To check whether your app's gRPC calls reach Sauce Connect, start Sauce Connect with [`--log-http proxy:url`](/dev/cli/sauce-connect-5/run/#log-http). Because TLS resigning is turned off for your gRPC hosts, Sauce Connect can't see individual gRPC calls. Instead, look for a `CONNECT` request to your gRPC host and port, for example:
+
+```
+level=INFO msg="HTTP dump" module=proxy request="CONNECT //grpc.example.com:443" response=200
+```
+
+Only requests that go through Sauce Connect on your machine are logged. Hosts in [`--direct-domains`](/dev/cli/sauce-connect-5/run/#direct-domains) don't appear in the log as they don't go through Sauce Connect.
+
+For more help, see the [Sauce Connect 5 Troubleshooting Guide](/secure-connections/sauce-connect-5/troubleshooting).
