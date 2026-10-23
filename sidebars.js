@@ -457,6 +457,7 @@ module.exports = {
                 'dev/api/storage', // Storage
                 'dev/api/test-authoring', // Test Authoring
                 'dev/api/usage', // Usage Analytics
+                'dev/api/visual', // Visual
             ],
         },
         {
