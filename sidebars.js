@@ -457,6 +457,7 @@ module.exports = {
                 'dev/api/storage', // Storage
                 'dev/api/test-authoring', // Test Authoring
                 'dev/api/usage', // Usage Analytics
+                'dev/api/visual', // Visual
             ],
         },
         {
@@ -620,6 +621,7 @@ module.exports = {
                             items: [
                                 'basics/community-frameworks',
                                 'basics/community-frameworks/maestro',
+                                'basics/community-frameworks/mobilewright',
                                 'basics/community-frameworks/vibium',
                             ],
                         },
@@ -1314,6 +1316,11 @@ module.exports = {
                             type: 'link',
                             label: 'Maestro (Community)',
                             href: '/basics/community-frameworks/maestro',
+                        },
+                        {
+                            type: 'link',
+                            label: 'Mobilewright (Community)',
+                            href: '/basics/community-frameworks/mobilewright',
                         },
                         'mobile-apps/automated-testing/ipa-files',
                         'mobile-apps/automated-testing/app-files',
