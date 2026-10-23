@@ -72,9 +72,7 @@ Send requests to the endpoint for the data center your Sauce Labs account belong
 | US East | `https://api.us-east-4.saucelabs.com/v1/visual/graphql` |
 | US West | `https://api.us-west-1.saucelabs.com/v1/visual/graphql` |
 
-Like the other Sauce Labs APIs, the Visual API is versioned in its URL, and its current version is `v1`. See [Versioning](/dev/api#versioning).
-
-<!-- TODO (PD-1624): Confirm with the Visual team whether /v1 is stable or whether a v2 is planned, and update this note. -->
+Like the other Sauce Labs APIs, the Visual API is versioned in its URL. `v1` is the current, stable version of the Visual API. See [Versioning](/dev/api#versioning).
 
 ## Image Storage Endpoints
 
@@ -101,8 +99,10 @@ Use the storage endpoint and the GraphQL endpoint for the data center your Sauce
 
 The GraphQL Explorer is an interactive, in-browser tool for the Visual API. Use it to browse the schema, including the available queries, mutations, and types, read the description of each field, and run test queries before you add them to your own tooling.
 
-To open the Explorer, go to the GraphQL endpoint for your data center in your browser, for example, `https://api.us-west-1.saucelabs.com/v1/visual/graphql`.
+The Explorer requires authentication. To open it, sign in to Sauce Labs first, and then open the GraphQL endpoint in the same browser.
 
-The Explorer requires authentication. Requests without valid Sauce Labs credentials fail with an authorization error.
+**Step 1:** Sign in to the [Sauce Labs app](https://app.saucelabs.com) with your Sauce Labs credentials.
 
-<!-- TODO (PD-1624): Confirm with the Visual team how users sign in to the Explorer in the browser (for example, with their Sauce Labs username and access key), and add that step here. -->
+**Step 2:** In the same browser, open the GraphQL endpoint for your data center, for example, `https://api.us-west-1.saucelabs.com/v1/visual/graphql`. See [Endpoint by Data Center](#endpoint-by-data-center).
+
+The interactive Explorer opens. If you open the endpoint without signing in to Sauce Labs, the request fails with an authorization error.
