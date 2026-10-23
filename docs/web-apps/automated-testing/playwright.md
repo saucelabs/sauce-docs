@@ -27,6 +27,7 @@ Supported OS:
 
 Sauce Labs supports the following test configurations for Playwright:
 
+<!-- vale sauce.DateFormat = NO -->
 <table id="table-fw">
   <tr>
     <th>Playwright Version</th>
@@ -36,6 +37,19 @@ Sauce Labs supports the following test configurations for Playwright:
     <th width="30%">Supported Browsers</th>
     <th width="30%">End of Life</th>
   </tr>
+    <tbody>
+      <tr>
+        <td rowspan='2'>1.62.1</td>
+        <td rowspan='2'>24</td>
+        <td rowspan='2'>✅</td>
+        <td><b>macOS:</b> 14*, 15*, 26*</td>
+        <td rowspan='2'>Chromium 151.0.7922.34, Chrome, Firefox 153.0, Webkit 26.5</td>
+        <td rowspan='2'>August 10th, 2027</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
     <tbody>
       <tr>
         <td rowspan='2'>1.61.1</td>
@@ -114,72 +128,8 @@ Sauce Labs supports the following test configurations for Playwright:
       <td><b>Windows:</b> 10, 11</td>
     </tr>
   </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='2'>1.55.1</td>
-      <td rowspan='2'>22</td>
-      <td rowspan='2'>✅</td>
-      <td><b>macOS:</b> 12, 13</td>
-      <td rowspan='2'>Chromium 140.0.7339.16, Chrome, Firefox 141.0, Webkit 26.0</td>
-      <td rowspan='2'>October 3rd, 2026</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.54.1</td>
-      <td rowspan='2'>22</td>
-      <td rowspan='2'>✅</td>
-      <td><b>macOS:</b> 12, 13</td>
-      <td rowspan='2'>Chromium 139.0.7258.5, Chrome, Firefox 140.0.2, Webkit 26.0</td>
-      <td rowspan='2'>July 24th, 2026</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.52.0</td>
-      <td rowspan='2'>22</td>
-      <td rowspan='2'>✅</td>
-      <td><b>macOS:</b> 12, 13</td>
-      <td rowspan='2'>Chromium 136.0.7103.25, Chrome, Firefox 137.0, Webkit 18.4</td>
-      <td rowspan='2'>April 30th, 2026</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.50.1</td>
-      <td rowspan='2'>22</td>
-      <td rowspan='2'>✅</td>
-      <td><b>macOS:</b> 12, 13</td>
-      <td rowspan='2'>Chromium 133.0.6943.16, Chrome, Firefox 134.0, Webkit 18.2</td>
-      <td rowspan='2'>March 18, 2026</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.49.1</td>
-      <td rowspan='2'>22</td>
-      <td rowspan='2'>✅</td>
-      <td><b>macOS:</b> 12, 13</td>
-      <td rowspan='2'>Chromium 131.0.6778.33, Chrome, Firefox 132.0, Webkit 18.2</td>
-      <td rowspan='2'>February 06, 2026</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
 </table>
+<!-- vale sauce.DateFormat = YES -->
 
 *macOS 14+ requires an appropriate subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon)
 
