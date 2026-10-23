@@ -4,7 +4,7 @@ title: Testing gRPC Services with Sauce Connect 5
 sidebar_label: gRPC
 ---
 
-This guide explains how to set up Sauce Connect so that apps running on Sauce Labs virtual and real devices can reach gRPC services in your private network.
+This guide explains how to set up Sauce Connect so that apps running on Sauce Labs virtual and real devices can reach gRPC services.
 
 ## Setting Up Sauce Connect for gRPC
 
@@ -22,6 +22,10 @@ sc run \
   --tunnel-name my-grpc-tunnel \
   --tls-passthrough-domains 'grpc\.example\.com'
 ```
+
+### gRPC Services on the Internet
+
+If your gRPC server isn't in your private network, you can add its host to the [`--direct-domains`](/dev/cli/sauce-connect-5/run/#direct-domains) option. Requests to direct domains go over the internet instead of through the tunnel. Direct domains aren't TLS resigned, so gRPC calls to them work.
 
 ### Trusting Your Server Certificate
 
