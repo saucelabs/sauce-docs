@@ -40,14 +40,15 @@ Tags change from a comma-separated string (v1) to a JSON array (v3).
 | — | `project_id` | New. Upload to a specific app by ID |
 | `team_id` | `team_id` | Now required unless `project_id` is given. v1 only needed it when the app existed on more than one team; v3 never guesses a team |
 | `folder_name` | `folder` | Renamed |
-| `groups` | `groups` | Unchanged: replaces existing grants, `none` removes all |
+| `groups` or `app_permission_groups` | `groups` | Unchanged: replaces existing app-level grants, `none` removes all. `app_permission_groups` alias dropped |
+| `testers_groups`, `testers-groups`, or `invitation_groups` | `build_groups` | Renamed. No longer needs `notify=on` |
 | `landing_page_mode` | `landing_page_mode` | Unchanged: `open` or `closed` |
 | `community_token` | `landing_page_slug` | Renamed. Same validation rules |
 | `metadata_*` | — | Dropped |
 | `notify` | `notify` | Unchanged: `on` to email testers, off by default |
 | `changelog`, `comment`, or `release_notes` | `release_notes` | `changelog` and `comment` aliases dropped |
 | `symbols_file` or `proguard_file` | `symbols_file` | `proguard_file` alias dropped |
-| `sync_to_saucelabs` | `sync_to_saucelabs` | Unchanged: `on` to copy to App Storage, off by default |
+| `sync_to_saucelabs` or `upload_to_saucelabs` | `sync_to_saucelabs` | Unchanged: `on` to copy to App Storage, off by default. `upload_to_saucelabs` alias dropped |
 | `tags` | — | Not accepted on upload. Set tags after upload with `PUT /api/v3/builds/{id}` (JSON array) |
 | `uploaded_via`, `uploaded-via` | — | Dropped |
 | `app_version` or `version` | `version` | `app_version` alias dropped |
