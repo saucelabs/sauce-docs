@@ -44,12 +44,80 @@ The Sauce Labs API uses API keys to authenticate requests. You can view and mana
 
 Alternatively, you can use the username and access key of a [service account](/basics/acct-team-mgmt/managing-service-accounts) to authenticate API requests. Service account credentials are generated during [account creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
-Authentication is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username as the basic username and your API key as the password. All requests must use HTTPS. Calls made over HTTP or without proper authentication will fail.
+You can send these credentials in two ways:
+
+- **Basic Auth:** send your username and access key with every request.
+- **Access token:** exchange your username and access key for a short-lived token.
+
+All requests must use HTTPS. Calls made over HTTP or without proper authentication will fail.
+
+#### Basic Auth
+
+Authentication is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username as the basic username and your API key as the password.
 
 ```bash title="Basic Auth Request Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams'
 ```
+
+#### Access Tokens
+
+An access token is a short-lived credential. You send it in an `Authorization: Bearer` header. A token can do everything that the access key it came from can do.
+
+Use access tokens when your network removes Basic Auth headers. They also keep your access key out of every request.
+
+#### Get an Access Token
+
+Send a `POST` request to the `/auth/oauth2/token` endpoint of your data center. Put your username and access key in the form body, not in a header.
+
+```bash title="Token Request Example"
+curl -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
+  -d grant_type=client_credentials \
+  -d client_id="$SAUCE_USERNAME" \
+  -d client_secret="$SAUCE_ACCESS_KEY"
+```
+
+```json title="Token Response Example"
+{
+  "access_token": "eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJSUzI1NiIs...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+
+A wrong username or access key returns `400` with `"error": "invalid_client"`.
+
+You can use the username and access key of a service account in the same way.
+
+#### Use an Access Token
+
+This example gets a token and then calls the API with it. It uses [jq](https://jqlang.org/) to read the token from the response.
+
+```bash title="Bearer Authenticated Request Example"
+SAUCE_API_TOKEN=$(curl -s -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
+  -d grant_type=client_credentials \
+  -d client_id="$SAUCE_USERNAME" \
+  -d client_secret="$SAUCE_ACCESS_KEY" | jq -r .access_token)
+
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams' \
+  -H "Authorization: Bearer $SAUCE_API_TOKEN"
+```
+
+Access tokens work with the REST APIs. To run tests, keep your username and access key in the [`sauce:options` capabilities](/dev/test-configuration-options/#username).
+
+#### Access Token Lifetime
+
+- A token is valid for about 1 hour. The `expires_in` value gives the exact number of seconds.
+- Access tokens don't come with a refresh token. When a token expires, request a new one the same way.
+- Request a new token a few minutes before the old one expires, so that no request fails.
+- If you regenerate your access key, tokens you already have keep working until they expire.
+- If your account is deactivated, its tokens stop working right away.
+
+#### Expired or Invalid Access Tokens
+
+The API returns `401` with a `WWW-Authenticate` header that contains `error="invalid_token"`.
+
+Request a new token and try the request once more. Don't retry in a loop. If the new token fails too, check your username and access key.
 
 ### Versioning
 
