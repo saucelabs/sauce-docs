@@ -8,7 +8,7 @@ Manage [Sauce AI for Test Authoring](/sauce-ai/ai-authoring) assets from the com
 
 ## Requirements
 
-- `saucectl` version 0.216.0 or later.
+- `saucectl` version 0.216.2 or later. This is the first version with `authoring` commands that is published to npm.
 - **Sauce AI for Test Authoring**, a paid add-on for Enterprise accounts. `saucectl` checks your entitlement each time you run an `authoring` command.
 - Your Sauce Labs credentials, set with [`saucectl configure`](/dev/cli/saucectl/configure/configure) or the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables.
 

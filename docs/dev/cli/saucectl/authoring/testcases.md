@@ -216,12 +216,12 @@ $ saucectl authoring testcases generate [flags]
     <tr>
       <td><span className="t-cli">--intent</span></td>
       <td><span className="t-cli">None</span></td>
-      <td>Plain-language description of what the test should do, 1 to 20000 characters. Use either <code>--intent</code> or <code>--intent-file</code>.</td>
+      <td><b>Required</b> if <code>--intent-file</code> isn't set. Plain-language description of what the test should do, 1 to 20000 characters. Set either <code>--intent</code> or <code>--intent-file</code>. Setting both, or neither, returns an error.</td>
     </tr>
     <tr>
       <td><span className="t-cli">--intent-file</span></td>
       <td><span className="t-cli">None</span></td>
-      <td>Read the description from a file, or use <code>-</code> to read it from standard input.</td>
+      <td><b>Required</b> if <code>--intent</code> isn't set. Read the description from a file, or use <code>-</code> to read it from standard input.</td>
     </tr>
     <tr>
       <td><span className="t-cli">--target</span></td>
