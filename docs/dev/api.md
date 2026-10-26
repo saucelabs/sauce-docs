@@ -119,6 +119,28 @@ The API returns `401` with a `WWW-Authenticate` header that contains `error="inv
 
 Request a new token and try the request once more. Don't retry in a loop. If the new token fails too, check your username and access key.
 
+#### Check Your Credentials
+
+The `/auth/v1/identity` endpoint tells you whether a credential works and whose it is. It accepts an access token and Basic Auth.
+
+```bash title="Identity Request Example"
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/auth/v1/identity' \
+  -H "Authorization: Bearer $SAUCE_API_TOKEN"
+```
+
+```json title="Identity Response Example"
+{
+  "sub": "usr_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90",
+  "username": "john.smith",
+  "organization": "9f3b2a17-6c4d-4e8a-b5f2-0d1e7c9a8b34",
+  "auth_method": "oauth_token",
+  "credential_id": "cred_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90",
+  "expires_at": "2026-11-02T10:15:00Z"
+}
+```
+
+A credential that doesn't work returns `401`. For all response fields, see [Get Your Identity](/dev/api/accounts/#get-your-identity).
+
 ### Versioning
 
 The API is versioned via the URL, and different endpoints may be at different stages of release, The currently published version of each endpoint is visible in its URL, for example:
