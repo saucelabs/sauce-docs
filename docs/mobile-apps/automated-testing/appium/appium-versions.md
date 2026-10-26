@@ -1979,6 +1979,11 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
 
 ### iOS Simulators
 
+:::note iOS 27.1 is only available on the iPhone Duo Simulator
+iOS 27.1 is available on one device only: `iPhone Duo Simulator`. To test on iOS 27.1, set `appium:deviceName` to
+`iPhone Duo Simulator` and `appium:platformVersion` to `27.1`. Use iOS 27.0 for all other iPhone and iPad Simulators.
+:::
+
 <table>
   <thead>
     <tr>
@@ -1989,6 +1994,28 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
     </tr>
   </thead>
   <tbody>
+     <tr>
+      <td>iOS 27.1<br />(iPhone Duo Simulator only)</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-3-versions">
+              <code>3.8.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.8.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-3-versions">
+          <code>3.8.0</code>
+        </a>
+      </td>
+    </tr>
      <tr>
       <td>iOS 27.0</td>
       <td>
@@ -2742,8 +2769,13 @@ The Appium 3 versions for Virtual Devices are also collections of drivers that a
             </a>
           </li>
           <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v12.15.0" target="_blank">
+              <code>appium-xcuitest-driver</code>: 12.15.0 (iOS only)
+            </a>
+          </li>
+          <li>
             <a href="https://github.com/appium/appium-espresso-driver/releases/tag/v9.3.6" target="_blank">
-              <code>appium-espresso-driver</code>: 9.3.6
+              <code>appium-espresso-driver</code>: 9.3.6 (Android only)
             </a>
           </li>
           <li>
@@ -2753,7 +2785,7 @@ The Appium 3 versions for Virtual Devices are also collections of drivers that a
           </li>
           <li>
             <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v4.0.0" target="_blank">
-              <code>appium-flutter-driver</code>: 4.0.0
+              <code>appium-flutter-driver</code>: 4.0.0 (Android only)
             </a>
           </li>
         </ul>
