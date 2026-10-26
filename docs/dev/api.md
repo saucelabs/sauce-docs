@@ -44,18 +44,11 @@ The Sauce Labs API uses API keys to authenticate requests. You can view and mana
 
 Alternatively, you can use the username and access key of a [service account](/basics/acct-team-mgmt/managing-service-accounts) to authenticate API requests. Service account credentials are generated during [account creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
-Authentication is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). PRovide your username as the basic username and your API key as the password. All requests must use HTTPS. Calls made over HTTP or without proper authentication will fail.
+Authentication is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username as the basic username and your API key as the password. All requests must use HTTPS. Calls made over HTTP or without proper authentication will fail.
 
-You can provide your authentication credentials as inline parameters of your request or using a Basic Header.
-
-```bash title="Inline Authenticated Request Example"
+```bash title="Basic Auth Request Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams'
-```
-
-```bash title="Header Authenticated Request Example"
-curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
--u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY
 ```
 
 ### Versioning
