@@ -12,15 +12,10 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
-
-- Final: the artifact names and the API.
-- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
-
-Share feedback with your Sauce Labs representative.
+The Sauce Mobile Beta SDK is in beta. The artifact names and the API are final; this documentation can still change. Share feedback with your Sauce Labs representative.
 :::
 
-Follow these steps to move an Android app from the TestFairy SDK 1.x to the Sauce Mobile Beta SDK 2.2.0-rc2. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new SDK, see [Integrating the Android SDK](/app-distribution/sdk/android/integrating-android).
+Follow these steps to move an Android app from the TestFairy SDK 1.x to the Sauce Mobile Beta SDK 2.3.0. Read [Migrating from the TestFairy SDK](/app-distribution/sdk/migration/overview) first for what changes and why. For the full install reference of the new SDK, see [Integrating the Android SDK](/app-distribution/sdk/android/integrating-android).
 
 The Maven coordinate changes. The Java package `com.testfairy` and the `TestFairy` API do not, so `import com.testfairy.TestFairy;` and your `TestFairy.*` calls keep compiling. Both Java and Kotlin apps are supported.
 
@@ -100,7 +95,7 @@ dependencyResolutionManagement {
 
 </Tabs>
 
-Then add the dependency to your app module. Pin the exact version. Do not use version wildcards such as `2.+`: they resolve unpredictably for pre-release versions.
+Then add the dependency to your app module. Pin the exact version. Do not use version wildcards such as `2.+`: they can pull in a build you have not tested.
 
 <Tabs
 groupId="gradle"
@@ -114,7 +109,7 @@ values={[
 
 ```groovy
 dependencies {
-    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
+    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0"
 }
 ```
 
@@ -124,7 +119,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2")
+    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0")
 }
 ```
 
@@ -140,7 +135,7 @@ Your imports stay the same:
 import com.testfairy.TestFairy;
 ```
 
-**Verify.** Gradle sync succeeds and the dependency graph lists `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`:
+**Verify.** Gradle sync succeeds and the dependency graph lists `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`:
 
 ```bash
 ./gradlew :app:dependencies --configuration debugRuntimeClasspath | grep mobilebeta
@@ -148,7 +143,14 @@ import com.testfairy.TestFairy;
 
 ## 3. Update the Initialization
 
-Replace `begin` with `beginWithoutCrashHandler` in the `onCreate` method of your `Application` subclass. It starts a session, never installs a crash handler, and forces the `enableCrashReporter` option to `false` even if you pass `true` through the options overload `beginWithoutCrashHandler(context, appToken, options)`. Replace `<sauce-mobile-beta-token>` with the app token from your Sauce Labs Mobile App Distribution dashboard.
+Replace `begin` with `beginWithoutCrashHandler` in the `onCreate` method of your `Application` subclass. It starts a session, never installs a crash handler, and forces the `enableCrashReporter` option to `false` even if you pass `true` through the options overload `beginWithoutCrashHandler(context, appToken, options)`. Replace `<sauce-mobile-beta-token>` and `<server-endpoint>` with your values.
+
+Both values are in **Organization Settings > SDK Settings** on your Mobile App Distribution dashboard, under the organization that owns the app. Only Account Owners and Org Admins can open that page. See [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
+
+- **SDK App Token**: the organization-wide token your app starts sessions with. Regenerating it invalidates the previous token for every build that still carries it.
+- **Server Endpoint**: the URL the SDK sends session data to, in the form `https://<host>/services/`. It is specific to your region or private instance, so copy it exactly. If it reads **Not configured**, contact Sauce Labs support before you ship a build.
+
+Pass the endpoint to `setServerEndpoint` before `beginWithoutCrashHandler`. The SDK's built-in default server is no longer in service: an app that skips this call starts no sessions.
 
 <Tabs
 groupId="lang"
@@ -173,6 +175,7 @@ public class MyApplication extends Application {
         // TestFairy.begin(this, "<app-token>");
 
         // After. Initialize Backtrace before this line when it is part of the app.
+        TestFairy.setServerEndpoint("<server-endpoint>");
         TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
     }
 }
@@ -194,6 +197,7 @@ class MyApplication : Application() {
         // TestFairy.begin(this, "<app-token>")
 
         // After. Initialize Backtrace before this line when it is part of the app.
+        TestFairy.setServerEndpoint("<server-endpoint>")
         TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>")
     }
 }
@@ -225,7 +229,7 @@ Crash reporting is provided by Backtrace. Add the Backtrace Android SDK by follo
 
 Two requirements come with Backtrace:
 
-- Use Backtrace Android SDK 3.7.14 or later. That release added `BacktraceClient.addAttribute`, which the correlation step uses to copy the session URL into Backtrace. On 3.7.13 or earlier, use `((BacktraceDatabase) client.database).addAttribute(key, value)` instead. See [Configuring Backtrace for Android](/error-reporting/platform-integrations/android/configuration/).
+- Use Backtrace Android SDK 3.7.14 or later. That release added `BacktraceClient.addAttribute`, which the SDK calls on the client linked in step 6. 3.14.0 or later is recommended. On 3.7.13 or earlier, the SDK falls back to the client's attribute map and `BacktraceDatabase.addAttribute`. See [Configuring Backtrace for Android](/error-reporting/platform-integrations/android/configuration/).
 - Backtrace Android requires API level 21. The Sauce Mobile Beta SDK alone supports API level 16, so an app that ships both must set `minSdk 21`.
 
 **Verify.** The following command prints nothing:
@@ -249,33 +253,65 @@ An app on the Sauce Mobile Beta SDK sends no crash reports to Sauce Labs Mobile 
 
 **Verify.** A minified build runs, and a crash report in Backtrace shows your class and method names.
 
-## 6. Add the Correlation Attributes
+## 6. Let the SDK Correlate Sessions
 
-To match a Backtrace crash report with the session recorded up to the crash, both SDKs must carry the same `sauce.correlation_id` attribute: one lowercase UUID v4 generated per app launch before either SDK starts, together with the other reserved attributes. Use `TestFairy.addSessionStateListener` before `beginWithoutCrashHandler` to copy the session URL into Backtrace on every session start.
+The SDK matches a Backtrace crash report with the session recorded up to the crash. At every session start it generates a new `sauce.correlation_id`, attaches it to the session, and hands it to Backtrace together with `sauce.mobile_beta.session_url`, `sauce.mobile_beta.session_started`, `sauce.sdk.coexistence_mode`, `sauce.release`, and `sauce.dist`. The SDK writes them into the Backtrace client you link with `setBacktraceClient` before `beginWithoutCrashHandler`. The parameter is typed `Object`, so the SDK has no compile-time dependency on Backtrace:
 
-The contract is defined once, in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence), which has the initialization order and a complete `Application` example in Kotlin, and [Reserved Attributes for Backtrace Coexistence](/app-distribution/sdk/session-attributes#reserved-attributes-for-backtrace-coexistence).
+<Tabs
+groupId="lang"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Kotlin', value: 'kotlin'},
+]}>
 
-Do not use the deprecated `setCorrelationId` or `identify` methods for the correlation id. They write the user-identity field that `setUserId` writes, and on Android only the first call per session takes effect. See [Identifying Your Users](/app-distribution/sdk/identifying-users).
+<TabItem value="java">
 
-**Verify.** A session's attributes in Sauce Labs Mobile App Distribution show `sauce.correlation_id`, and a Backtrace report from the same launch shows the same value.
+```java
+TestFairy.setBacktraceClient(backtrace);
+TestFairy.setServerEndpoint("<server-endpoint>");
+TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
+```
+
+</TabItem>
+
+<TabItem value="kotlin">
+
+```kotlin
+TestFairy.setBacktraceClient(backtrace)
+TestFairy.setServerEndpoint("<server-endpoint>")
+TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>")
+```
+
+</TabItem>
+
+</Tabs>
+
+Remove any code that generates a UUID for `sauce.correlation_id`, sets the SDK-managed keys with `setAttribute`, or copies the session URL into Backtrace from a `SessionStateListener`. `setAttribute` ignores the reserved keys with a warning, and the SDK overwrites the Backtrace values at the next session start. Keep `sauce.environment` and `mad.distribution_id` as your own attributes on both SDKs. To read the current id, call `TestFairy.getSessionCorrelationId()`.
+
+The contract is defined once, in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/), which has the initialization order and a complete `Application` example, and [SDK-Managed Attributes](/app-distribution/sdk/session-attributes/#sdk-managed-attributes).
+
+Do not use the deprecated `setCorrelationId` or `identify` methods for the correlation id. They write the user-identity field that `setUserId` writes, and on Android only the first call per process takes effect. See [Identifying Your Users](/app-distribution/sdk/identifying-users/).
+
+**Verify.** A session's attributes in Sauce Labs Mobile App Distribution show `sauce.correlation_id`, and a Backtrace report from that session shows the same value. After `stop()` and a new `beginWithoutCrashHandler`, `getSessionCorrelationId()` returns a different value.
 
 ## 7. Validate Before Release
 
 1. Inspect the runtime dependency graph of every module. `./gradlew :app:dependencies --configuration debugRuntimeClasspath | grep testfairy` must list nothing from the `com.testfairy` group.
 2. A clean build succeeds. A `Duplicate class` error for `com.testfairy` classes means a TestFairy SDK 1.x artifact is still on the classpath, possibly as a transitive dependency of another module. Go back to step 1.
 3. Run a debug build with both SDKs initialized and force one crash (and one native crash if you enabled the native integration). The process dies as a genuine crash. Relaunch the app: the crashes appear in Backtrace only, and the Sauce Mobile Beta SDK starts a new session.
-4. Submit feedback from the app and confirm that the session shows `sauce.correlation_id` in its attributes, with the same value as the Backtrace report from that launch.
+4. Submit feedback from the app and confirm that the session shows `sauce.correlation_id` in its attributes, with the same value as a Backtrace report from that session.
 5. Confirm that release variants do not package the Sauce Mobile Beta SDK while Backtrace stays. See [Sauce Mobile Beta SDK in Production](/app-distribution/sdk/sauce-mobile-beta-production).
 
 ## Troubleshooting
 
-**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`** or a `Could not GET` error for a `jcenter.bintray.com` URL. The SDK is served from `https://maven.testfairy.com`, not from jcenter or Maven Central. Add the repository as shown in step 2.
+**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`** or a `Could not GET` error for a `jcenter.bintray.com` URL. The SDK is served from `https://maven.testfairy.com`, not from jcenter or Maven Central. Add the repository as shown in step 2.
 
 **`Duplicate class` errors for `com.testfairy` classes.** A TestFairy SDK 1.x artifact (`com.testfairy:testfairy-android-sdk` or `com.testfairy:testfairy-android-ndk`) is still on the classpath, possibly through another module. Run the dependency graph command from step 1 for every module and remove it.
 
 **`minSdk` conflict after adding Backtrace.** Backtrace Android requires API level 21. Set `minSdk 21` for the combined app.
 
-**`addAttribute` is not found on `BacktraceClient`.** You are on Backtrace Android SDK 3.7.13 or earlier. Upgrade to 3.7.14 or later, or use `((BacktraceDatabase) client.database).addAttribute(key, value)`.
+**The log says Backtrace is present but not linked.** The app did not call `setBacktraceClient` before the first session start, so crash reports carry none of the SDK-managed attributes. Call `TestFairy.setBacktraceClient(backtrace)` before `beginWithoutCrashHandler`, as shown in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/). On Backtrace Android SDK 3.7.13 or earlier, the SDK falls back to the client's attribute map and `BacktraceDatabase.addAttribute`; upgrade to 3.7.14 or later (3.14.0 or later is recommended).
 
 **A crash shows up nowhere.** The Sauce Mobile Beta SDK does not report crashes. Make sure Backtrace is initialized before `beginWithoutCrashHandler` and that its submission URL is correct. See [Setting Up Backtrace for Android](/error-reporting/platform-integrations/android/setup/).
 
