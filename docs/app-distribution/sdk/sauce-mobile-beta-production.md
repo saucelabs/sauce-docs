@@ -29,7 +29,7 @@ Therefore it is important to follow these guidelines:
 1. You **must** [hide sensitive data](/app-distribution/sdk/security/hiding-data) such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
 
 1. In case you are using the SDK for customer support to better understand your users in case of a technical issue,
-   it is recommended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.beginWithoutCrashHandler()`.
+   it is recommended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.setServerEndpoint(...)` followed by `TestFairy.beginWithoutCrashHandler()`.
    Before starting the session, ask the user if it is ok to record their screen for quality assurance purposes.
    When doing that, make sure that the session duration is set to 2-3 minutes, which is long enough to identify the cause of a problem.
 
@@ -52,11 +52,11 @@ dependencies {
     implementation "com.github.backtrace-labs.backtrace-android:backtrace-library:<add-latest-version>"
 
     // Sauce Mobile Beta ships in debug builds only. With a beta flavor, use betaImplementation.
-    debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
+    debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0"
 }
 ```
 
-Use Backtrace Android SDK 3.7.14 or later so that `BacktraceClient.addAttribute` is available.
+Use Backtrace Android SDK 3.7.14 or later so that `BacktraceClient.addAttribute`, which the SDK calls on the linked client, is available.
 
 Because the `com.testfairy` classes do not exist in the release variant, route all SDK calls through one class that has two implementations in variant-specific source sets. The example below is simplified from the [My Demo App for Android](https://github.com/saucelabs/my-demo-app-android) source set, where `app/src/mobileBeta/java` holds the real integration and `app/src/noMobileBeta/java` holds empty methods:
 
@@ -77,6 +77,7 @@ final class SauceMobileBetaIntegration {
         for (Map.Entry<String, String> attribute : sharedAttributes.entrySet()) {
             TestFairy.setAttribute(attribute.getKey(), attribute.getValue());
         }
+        TestFairy.setServerEndpoint("<server-endpoint>");
         TestFairy.beginWithoutCrashHandler(application.getApplicationContext(), "<sauce-mobile-beta-token>");
     }
 }
@@ -88,6 +89,8 @@ final class SauceMobileBetaIntegration {
     }
 }
 ```
+
+Call `setBacktraceClient` in the debug implementation as well, before `beginWithoutCrashHandler`, so that the SDK writes its per-session attributes to Backtrace. See [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/).
 
 Release builds then contain neither the SDK nor any call to it, and a release build that accidentally references `TestFairy` fails to compile instead of shipping the SDK.
 
@@ -118,6 +121,7 @@ let enabled = info["testfairyEnabled"] as? Bool ?? false
 let token = info["sauceMobileBetaToken"] as? String ?? ""
 
 if enabled && !token.isEmpty {
+    TestFairy.setServerEndpoint("<server-endpoint>")
     TestFairy.beginWithoutCrashHandler(token)
 }
 ```
@@ -153,6 +157,7 @@ values={[
 
 ```objectivec
 #ifdef DEBUG
+[TestFairy setServerEndpoint:@"<server-endpoint>"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 #endif
 ```
@@ -163,6 +168,7 @@ values={[
 
 ```swift
 #if DEBUG
+TestFairy.setServerEndpoint("<server-endpoint>")
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 #endif
 ```
@@ -184,10 +190,13 @@ values={[
 
 ```objectivec
 #if defined(DEBUG)
+[TestFairy setServerEndpoint:@"<server-endpoint>"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 #elif defined(SCHEME1)
+[TestFairy setServerEndpoint:@"<server-endpoint>"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 #elif defined(SCHEME2)
+[TestFairy setServerEndpoint:@"<server-endpoint>"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 #else
 // Don't initialize the SDK
@@ -200,10 +209,13 @@ values={[
 
 ```swift
 #if DEBUG
+TestFairy.setServerEndpoint("<server-endpoint>")
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 #elseif SCHEME1
+TestFairy.setServerEndpoint("<server-endpoint>")
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 #elseif SCHEME2
+TestFairy.setServerEndpoint("<server-endpoint>")
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 #else
 // Don't initialize the SDK
@@ -234,7 +246,10 @@ protocol SauceMobileBetaProtocol {
 }
 
 final class SauceMobileBetaLive: SauceMobileBetaProtocol {
-    func begin() { TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>") }
+    func begin() {
+        TestFairy.setServerEndpoint("<server-endpoint>")
+        TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
+    }
     func showFeedbackForm() { TestFairy.showFeedbackForm() }
 }
 
@@ -258,6 +273,7 @@ In order for ProGuard or R8 to fully remove the SDK from the final binary, use a
 ```java
 public class TestFairyWrapper {
     public static void begin(Context context, String appToken) {
+        TestFairy.setServerEndpoint("<server-endpoint>");
         TestFairy.beginWithoutCrashHandler(context, appToken);
     }
 }
@@ -281,11 +297,12 @@ Without any calls to the SDK, ProGuard or R8 removes the entire compiled code fr
 
 Android allows advanced developers to load classes into memory on the fly. You can use Java reflection to load the SDK class into memory only on a debug build.
 
-Replace the code where you call `TestFairy.beginWithoutCrashHandler()` with the code below.
+Replace the code where you call `TestFairy.setServerEndpoint()` and `TestFairy.beginWithoutCrashHandler()` with the code below.
 
 ```java
 try {
     Class<?> cls = Class.forName("com.testfairy.TestFairy");
+    cls.getMethod("setServerEndpoint", String.class).invoke(null, "<server-endpoint>");
     Method method = cls.getMethod("beginWithoutCrashHandler", android.content.Context.class, String.class);
     method.invoke(null, this, "<sauce-mobile-beta-token>");
 } catch (Exception e) { /* ignore */ }
@@ -294,5 +311,5 @@ try {
 Then, in your `build.gradle` file, declare the SDK with `debugImplementation`:
 
 ```groovy
-debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
+debugImplementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0"
 ```

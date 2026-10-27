@@ -12,12 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
-
-- Final: the artifact names and the API.
-- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
-
-Share feedback with your Sauce Labs representative.
+The Sauce Mobile Beta SDK is in beta. The artifact names and the API are final; this documentation can still change. Share feedback with your Sauce Labs representative.
 :::
 
 Integrating the Sauce Mobile Beta SDK into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
@@ -35,7 +30,7 @@ The SDK does not install a crash handler. Crash reporting is provided by Backtra
 
 ## Adding the SDK
 
-The SDK for iOS is distributed with Swift Package Manager. The current release candidate is `2.2.0-rc2` and requires iOS 11 or later.
+The SDK for iOS is distributed with Swift Package Manager. The current release is `2.3.0` and requires iOS 13 or later.
 
 ### Swift Package Manager
 
@@ -50,7 +45,7 @@ Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode 
 | Package URL | `https://github.com/testfairy/testfairy-ios-sdk-swift-package` |
 | Package product | `SauceMobileBeta` |
 | Module to import | `TestFairy` |
-| Dependency Rule | **Exact Version** `2.2.0-rc2` |
+| Dependency Rule | **Exact Version** `2.3.0` |
 
 1. Select your project from the Xcode navigator to open your project's configuration.
 2. Make sure your project is selected from the Project and Target list.
@@ -58,25 +53,25 @@ Screenshots were taken with Xcode 13.1. The steps are the same in current Xcode 
 4. Click the '+' icon to add a package.
 <img src={useBaseUrl('img/mobile-apps/xcframework-1.png')} alt="" width="800"/>
 
-1. In the newly opened dialog, enter the Sauce Mobile Beta package URL `https://github.com/testfairy/testfairy-ios-sdk-swift-package` in the top right search bar.
-2. Set the **Dependency Rule** to **Exact Version** and enter `2.2.0-rc2`.
-3. Click **Add Package**.
+5. In the newly opened dialog, enter the Sauce Mobile Beta package URL `https://github.com/testfairy/testfairy-ios-sdk-swift-package` in the top right search bar.
+6. Set the **Dependency Rule** to **Exact Version** and enter `2.3.0`.
+7. Click **Add Package**.
 <img src={useBaseUrl('img/mobile-apps/xcframework-2.png')} alt="" width="800"/>
 
-1. After the package has been downloaded, in the newly opened dialog, make sure the `SauceMobileBeta` product is selected in the "Package Product" column.
-2. Make sure the right target is selected in the "Add to target" column.
-3. Click **Add Package**.
+8. After the package has been downloaded, in the newly opened dialog, make sure the `SauceMobileBeta` product is selected in the "Package Product" column.
+9. Make sure the right target is selected in the "Add to target" column.
+10. Click **Add Package**.
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
 
 :::note Why Exact Version?
-`2.2.0-rc2` is a semantic-version pre-release. The default "Up to Next Major Version" rule (`from: "2.2.0"`) skips pre-releases, so the package would not resolve. Pin the exact version until the general availability release. The product name is `SauceMobileBeta` and the module name is `TestFairy`. The package URL may move to a Sauce Labs-owned repository before general availability.
+Pin the exact version and update it deliberately, so a new SDK release never reaches a build you have not tested. The product name is `SauceMobileBeta` and the module name is `TestFairy`.
 :::
 
 If you declare dependencies in a `Package.swift` manifest instead:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/testfairy/testfairy-ios-sdk-swift-package.git", exact: "2.2.0-rc2")
+    .package(url: "https://github.com/testfairy/testfairy-ios-sdk-swift-package.git", exact: "2.3.0")
 ],
 targets: [
     .target(name: "MyApp", dependencies: [
@@ -87,9 +82,16 @@ targets: [
 
 ## Initializing the SDK
 
-Start the SDK with `beginWithoutCrashHandler`. It starts a session without installing a crash handler and forces the `TFSDKEnableCrashReporterKey` begin option to `NO`, even if you pass `YES`. `begin` also starts a session without a crash handler. Use `beginWithoutCrashHandler` to make the intent explicit. When Backtrace is part of the app, initialize Backtrace before this call. See [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence) for the full initialization order and the shared `sauce.correlation_id` attribute.
+Start the SDK with `beginWithoutCrashHandler`. It starts a session without installing a crash handler and forces the `TFSDKEnableCrashReporterKey` begin option to `NO`, even if you pass `YES`. `begin` also starts a session without a crash handler. Use `beginWithoutCrashHandler` to make the intent explicit. When Backtrace is part of the app, initialize Backtrace before this call. See [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/) for the full initialization order and how the SDK writes the `sauce.correlation_id` it generates for every session to `BacktraceClient.shared`.
 
-Replace `<sauce-mobile-beta-token>` with your app token. Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Replace `<sauce-mobile-beta-token>` and `<server-endpoint>` with your values.
+
+Both values are in **Organization Settings > SDK Settings** on your Mobile App Distribution dashboard, under the organization that owns the app. Only Account Owners and Org Admins can open that page. See [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
+
+- **SDK App Token**: the organization-wide token your app starts sessions with. Regenerating it invalidates the previous token for every build that still carries it.
+- **Server Endpoint**: the URL the SDK sends session data to, in the form `https://<host>/services/`. It is specific to your region or private instance, so copy it exactly. If it reads **Not configured**, contact Sauce Labs support before you ship a build.
+
+Pass the endpoint to `setServerEndpoint` before `beginWithoutCrashHandler`. The SDK's built-in default server is no longer in service: an app that skips this call starts no sessions.
 
 <Tabs
 groupId="ios-language"
@@ -112,6 +114,7 @@ values={[
 
     // Initialize Backtrace first when it is part of the app.
 
+    [TestFairy setServerEndpoint:@"<server-endpoint>"];
     [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 
     // the rest of the didFinishLaunchingWithOptions method
@@ -168,6 +171,7 @@ import TestFairy
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Initialize Backtrace first when it is part of the app.
 
+    TestFairy.setServerEndpoint("<server-endpoint>")
     TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 
     // the rest of the didFinishLaunchingWithOptions method

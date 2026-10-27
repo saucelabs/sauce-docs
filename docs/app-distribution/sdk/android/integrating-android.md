@@ -12,12 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
-
-- Final: the artifact names and the API.
-- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
-
-Share feedback with your Sauce Labs representative.
+The Sauce Mobile Beta SDK is in beta. The artifact names and the API are final; this documentation can still change. Share feedback with your Sauce Labs representative.
 :::
 
 Integrating the Sauce Mobile Beta SDK into your app can help you better understand how your app performs on real devices. It tells you when and how people use your app and provides any metrics you may need to optimize your user experience and code.
@@ -116,7 +111,7 @@ values={[
 
 ```groovy
 dependencies {
-    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2"
+    implementation "com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0"
 }
 ```
 
@@ -126,7 +121,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2")
+    implementation("com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0")
 }
 ```
 
@@ -138,7 +133,14 @@ The SDK provides beta-testing capabilities: session recording, tester feedback, 
 
 ### 3. Initialize the SDK
 
-Initialize the SDK in the `onCreate` method of an `Application` subclass with `beginWithoutCrashHandler`. Replace `<sauce-mobile-beta-token>` with the app token from your Sauce Labs Mobile App Distribution dashboard.
+Initialize the SDK in the `onCreate` method of an `Application` subclass: set the server endpoint, then call `beginWithoutCrashHandler`. Replace `<sauce-mobile-beta-token>` and `<server-endpoint>` with your values.
+
+Both values are in **Organization Settings > SDK Settings** on your Mobile App Distribution dashboard, under the organization that owns the app. Only Account Owners and Org Admins can open that page. See [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
+
+- **SDK App Token**: the organization-wide token your app starts sessions with. Regenerating it invalidates the previous token for every build that still carries it.
+- **Server Endpoint**: the URL the SDK sends session data to, in the form `https://<host>/services/`. It is specific to your region or private instance, so copy it exactly. If it reads **Not configured**, contact Sauce Labs support before you ship a build.
+
+Pass the endpoint to `setServerEndpoint` before `beginWithoutCrashHandler`. The SDK's built-in default server is no longer in service: an app that skips this call starts no sessions.
 
 <Tabs
 groupId="lang"
@@ -160,6 +162,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // If you use Backtrace, initialize it before this line.
+        TestFairy.setServerEndpoint("<server-endpoint>");
         TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
     }
 }
@@ -178,6 +181,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // If you use Backtrace, initialize it before this line.
+        TestFairy.setServerEndpoint("<server-endpoint>")
         TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>")
     }
 }
@@ -198,17 +202,17 @@ Register the class in `AndroidManifest.xml`:
 
 `beginWithoutCrashHandler` is the recommended entry point: it starts a session, never installs a crash handler, and forces the `enableCrashReporter` option to `false`, even if you pass `true` through the options overload `beginWithoutCrashHandler(context, appToken, options)`. The plain `begin(...)` overloads also start a session without a crash handler.
 
-When you run both SDKs, give them the same `sauce.correlation_id` session attribute. Both SDKs should carry the same `sauce.correlation_id` session attribute. The order, the shared attributes and a complete `Application` example are in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).
+When you run both SDKs, pass the Backtrace client to `setBacktraceClient` before `beginWithoutCrashHandler`, so that the SDK writes the `sauce.correlation_id` it generates for every session to Backtrace. The order, the SDK-managed attributes, and a complete `Application` example are in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/).
 
 ## ProGuard and R8 (Optional)
 
-The AAR bundles its consumer ProGuard rules, so Gradle applies them to your app automatically when minification is enabled. You do not need to add rules for the SDK.
+The AAR bundles its consumer ProGuard rules, so Gradle applies them to your app automatically when minification is enabled. You do not need to add rules for the SDK. The rules also keep the Backtrace members the SDK reaches by reflection (`addAttribute`, `getAttributes` and the `database` field of `BacktraceBase`), so the session link survives R8 in release builds. If your app replaces the bundled rules, keep those entries.
 
 ## Upgrading
 
-Always pin an exact version, such as `2.2.0-rc2`, and update it deliberately. Do not use version wildcards such as `2.+`: they resolve unpredictably for pre-release versions and can pull in a build you have not tested.
+Always pin an exact version, such as `2.3.0`, and update it deliberately. Do not use version wildcards such as `2.+`: they can pull in a build you have not tested.
 
-`2.2.0-rc2` is a release candidate. The general availability release uses the same coordinates with a plain version number. To upgrade, change the version string in `build.gradle` and rebuild. `2.2.0-rc2` is served from `https://maven.testfairy.com` under the coordinate `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`.
+To upgrade, change the version string in `build.gradle` and rebuild. `2.3.0` is served from `https://maven.testfairy.com` under the coordinate `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`.
 
 ## How to Identify Users (Optional)
 
@@ -245,4 +249,4 @@ To automatically upload the wifi status to your account, add the `android.permis
 
 ## Troubleshooting
 
-The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports a `Could not GET` error for a `jcenter.bintray.com` URL, or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.2.0-rc2`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
+The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports a `Could not GET` error for a `jcenter.bintray.com` URL, or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
