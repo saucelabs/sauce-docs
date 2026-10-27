@@ -1,76 +1,79 @@
 ---
 id: scheduled-reports
-title: Scheduled Reports
-sidebar_label: Scheduled Reports
-description: Scheduled reports are e-mail digests containing the latest trends and anomalies of instability for your projects.
+title: Create Scheduled Reports
+sidebar_label: Create Scheduled Reports
+description: Create scheduled reports to send email summaries of the error activity in your project to your team on a daily, weekly, or monthly schedule.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Scheduled reports are e-mail digests containing the latest trends and anomalies of instability for your projects. An excerpt from a report is presented below.
+Scheduled reports are email summaries of the error activity in your project over a period you choose, with week-to-week comparisons. Error Reporting generates and sends them on a daily, weekly, or monthly schedule, so your team stays informed about the stability of your application without having to open the Error Reporting console.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/scheduled-report.png')} alt="" />
+You can create multiple reports for a project. Combined with filters, this lets you send a separate report for each version of your application, or for any other attribute. To edit, preview, disable, or delete your reports, see [Manage Scheduled Reports](/error-reporting/project-setup/manage-scheduled-reports/).
 
-The report includes trends for the current reporting period, the previous reporting period, histograms of attribute values, classifiers as well as an activity of recent unique crashes. If your project is configured with Stability Monitoring, the report will also include error free user metrics (percentage of users who have not experienced an error).
+## What a Report Includes
 
-## Creating and Modifying Reports
+Each report gives your team a snapshot of how stable your application was during the reporting period, and how that compares with the period before. It shows how many errors occurred, which kinds of errors they were, and which devices, operating systems, or other attributes they affected, so readers can spot new problems without opening Error Reporting.
 
-The Scheduled Reports settings are in the project settings page. From there, click on the Create a New Report button to begin setting up a scheduled report.
+Each report includes:
 
-The following criteria are used to modify the contents of a report.
+- The errors seen over the reporting period, by day, with the total number of errors, fingerprints, and hosts, and a **View report** link to the errors in Error Reporting.
+- The classifiers of the errors.
+- A summary by attributes, with the top values of attributes such as the device or operating system, and histograms of any attributes you add.
+- Error-free user metrics, which show the percentage of users who haven't experienced an error, if your project is configured with [Stability Monitoring](/error-reporting/project-setup/metrics-stability-scores/).
 
-### Report Name
+The following is an example of a weekly report:
 
-This is the title of the report. Since you are able to create multiple reports, it is good practice to provide sufficient context in the title so the readers have visibility into the context of the report. For example, "Production Crashes for HelloWorld" is a good title.
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-1.png')} alt="Weekly summary report email with the errors seen last week, classifiers, and summary by attributes" width="400" />
 
-### Frequency
+## Create a Scheduled Report
 
-This is the frequency which a report should be generated and sent. The two options today are daily or weekly.
+You create scheduled reports for each project from the **Scheduled reports** page in the project settings. When you create a report, you choose what it covers, how often and when it is sent, who receives it, and which errors and attributes it includes. You can change any of these settings later.
 
-### Day of Week
+**Step 1:** In your project, click your profile icon in the top-right corner, and then select **Project Settings & Docs**.
 
-If a Weekly frequency is selected, Day of Week specifies the day of the week the report should be generated and sent.
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-2.png')} alt="Project Settings & Docs option in the profile menu" />
 
-### Time to Send
+**Step 2:** In the left menu, under **Workflow**, click **Scheduled reports**.
 
-This is the time of day that the report should be generated and scheduled for delivery.
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-3.png')} alt="Scheduled reports option under Workflow in the Project settings menu" />
 
-### Timezone
+The **Scheduled reports** page opens. It lists the existing reports of the project, with their title, owner, status, and the date they were last sent.
 
-This specifies the timezone of the report, dictating which timezone timestamps in the report should be rendered in as well as the time the report should be sent. For example, "9:00 AM EST" would specify a report should be sent around "9:00 AM EST" and that the timestamps of the report should be in "EST".
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-4.png')} alt="List of scheduled reports with their title, owner, status, and last sent date" />
 
-### Recipients
+**Step 3:** Click **Create a new report**. The **Report Setup** form opens.
 
-This section specifies who should receive a copy of the report. If the Send to all team members checkbox is checked, then all users with accounts on the Backtrace instance will receive an e-mail with the report. The Other Recipients section allows you to include people that may not have accounts on the system as well as mailing lists.
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-5.png')} alt="Create a new report button on the Scheduled reports page" />
 
-### Filter Report Content
+**Step 4:** Fill in the following fields:
 
-This section allows you to include or exclude crashes for the purposes of reporting. You are able to filter on any attribute using query builder filters.
+| Sr. No. | Field | Description |
+| --- | --- | --- |
+| 1 | **Report Title** | **Required.** The title of the report. Because you can create multiple reports, use a title that tells readers what the report covers, such as `Production Crashes for UnityDemo`. |
+| 2 | **Time frame** | **Required.** The period of error activity the report covers, such as **LAST 7 DAYS**. |
+| 3 | **Repeat** | **Required.** How often the report is sent: **DAILY**, **WEEKLY**, or **MONTHLY**. A daily report is sent every day, unless you customize the days. |
+| 4 | **Time** | **Required.** The time of day the report is sent. |
+| 5 | **Timezone** | **Required.** The timezone for the time the report is sent and for the timestamps in the report. For example, with `09:00 AM` and `America/New_York`, the report is sent at 9:00 AM Eastern Time, and its timestamps are shown in Eastern Time. |
+| 6 | **Customize** | The days of the week to send the report on. For example, clear **Sunday** and **Saturday** to send the report on weekdays only. |
+| 7 | **Email** | **Required.** The email address of a recipient. Click **Add** to add it, and repeat to add more recipients. You can also add mailing lists. |
+| 8 | **Filter attribute** | Optional. The attribute to filter the report content by, such as `error.type`. You can filter on any attribute. |
+| 9 | **Filter operator** | The operator to compare the attribute with the value, such as **equal**. |
+| 10 | **Filter value** | The value to compare the attribute with, such as `Crash`. To apply the filter, click **Add**. To report only on fatal errors, see [How can I see only fatal errors in my report?](/error-reporting/project-setup/manage-scheduled-reports/#how-can-i-see-only-fatal-errors-in-my-report) |
+| 11 | **Attribute content (histograms)** | Optional. The attribute to add a histogram for, such as the affected versions or operating systems. |
 
-### Custom Content (Histograms)
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-6.png')} alt="Report Setup form with numbered fields from Report Title to Attribute content" />
 
-This section allows you to add histograms to the report. For example, you may want a histogram of affected versions, operating systems or more included in your report. Simply provide the attribute names which you would like histograms for.
+**Step 5:** Save the report using one of the following buttons:
 
-## Saving the Report
+| Sr. No. | Button | Description |
+| --- | --- | --- |
+| 1 | **Cancel** | Closes the form without saving the report. |
+| 2 | **Save report** | Saves the report. |
+| 3 | **Save and preview report** | Saves the report and sends a preview of it to your email, so you can check its content. |
 
-You are able to save the report with Save and Close. If you would like to save the report and see a preview, then use Save and send me a preview.
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-7.png')} alt="Cancel, Save report, and Save and preview report buttons at the bottom of the Report Setup form" />
 
-## Sending Previews
+The report appears on the **Scheduled reports** page, with an **Active** status.
 
-In the scheduled report list, you are able to click on the Preview button to have a report scheduled for immediate delivery to your e-mail for review.
-
-## Common Questions
-
-### How can I see only fatal errors in my report?
-
-In the filter settings, you can enter `error.type` equals `crash`. This will modify the statistics to only reflect crashes. Error-free user rate would reflect the crash-free user rates. `error.type` can be used for hangs, exceptions, and other values as well.
-
-### Can I have individual users opt-out of reports?
-
-No, not at the moment. You are able to use a manual recipient list or may want to consider using a mailing list which will have finer-grained control over membership and distribution lists.
-
-#### Can I save multiple reports?
-
-Yes! This is a common use-case when coupled with filters. For example, you may want a report for every version of your application or facet by other attributes.
+<img src={useBaseUrl('img/error-reporting/scheduled-reports/create-scheduled-reports/create-scheduled-reports-8.png')} alt="Saved report in the list on the Scheduled reports page with an Active status" />
