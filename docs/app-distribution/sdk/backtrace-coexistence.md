@@ -321,11 +321,26 @@ Do not use `setCorrelationId` or `identify` for the correlation id. Both are dep
 
 ## Finding a Crash's Session
 
-1. Index the attributes in Backtrace. Backtrace lets you filter and group on a custom attribute only after it has been indexed once per project under Project Settings > Attributes. Index `sauce.correlation_id` with the UUID format, and `sauce.mobile_beta.session_url` as a string. See [Indexing Attributes](/error-reporting/project-setup/attributes/).
+1. Index the attributes in Backtrace. Backtrace lets you filter and group on a custom attribute only after it has been indexed once per project under Project Settings > Attributes. Index `sauce.correlation_id` with the UUID format (select **Miscellaneous**, then **UUID**), and `sauce.mobile_beta.session_url` as a string. See [Indexing Attributes](/error-reporting/project-setup/attributes/).
 2. From a crash report, copy the `sauce.correlation_id` value and search for it in the Sauce Labs Mobile App Distribution session list. Exactly one session carries that value: the one that was running when the crash happened.
 3. Or follow `sauce.mobile_beta.session_url` from the report directly to the recording. It points at that same session. If `sauce.mobile_beta.session_started` is `"false"`, the crash happened before Sauce Labs accepted the session, for example offline. The report still carries the id, and the search returns no session.
 
 In the other direction, filter Backtrace on `sauce.correlation_id` with the value shown on a session's attributes to see whether that session crashed.
+
+## Linking Jira Tickets to Sessions
+
+If you create Jira tickets from Backtrace, each ticket can link to the session behind the crash. The link needs both the Mobile App Distribution URL and the indexed `sauce.correlation_id` attribute. Without either one, tickets are still created, but without the link.
+
+1. Set up the Jira integration for your Backtrace project. See [Connect to Jira](/error-reporting/workflow-integrations/issue-tracking/jira/#connect-to-jira).
+2. In the Jira integration settings, enter your **Mobile App Distribution URL**. If you don't know it, contact Sauce Labs Support. See [Mobile App Distribution URL](/error-reporting/workflow-integrations/issue-tracking/jira/#mobile-app-distribution-url).
+3. Index `sauce.correlation_id` in the Backtrace project. Go to **Project Settings** > **Attributes**, click **+**, and enter:
+   - **Name**: `sauce.correlation_id`. It must match exactly.
+   - **Description**: Any text, for example `Mobile App Distribution session correlation id`.
+   - **Format**: Select **Miscellaneous**, then **UUID**. **Type** changes to **UUID** automatically.
+
+   See [Indexing Attributes](/error-reporting/project-setup/attributes/).
+
+New tickets then include a **View Mobile App Distribution session** link.
 
 ## Crash APIs
 
