@@ -12,15 +12,10 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
-
-- Final: the artifact names and the API.
-- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
-
-Share feedback with your Sauce Labs representative.
+The Sauce Mobile Beta SDK is in beta. The artifact names and the API are final; this documentation can still change. Share feedback with your Sauce Labs representative.
 :::
 
-[Sauce Mobile Beta for React Native](https://github.com/testfairy/react-native-testfairy/releases/tag/3.0.0-rc) (`@saucelabs/mobile-beta-react-native`) is a bridge to the Sauce Mobile Beta SDK and is supported for Expo (with prebuild): Expo projects whose native `ios` and `android` directories are generated with `npx expo prebuild`. Integrating the SDK into your app shows you how your app performs on real devices. It shows when and how people use your app and provides any metrics you may need to optimize your user experience and code.
+[Sauce Mobile Beta for React Native](https://github.com/testfairy/react-native-testfairy/releases/tag/3.1.0) (`@saucelabs/mobile-beta-react-native`) is a bridge to the Sauce Mobile Beta SDK and is supported for Expo (with prebuild): Expo projects whose native `ios` and `android` directories are generated with `npx expo prebuild`. Integrating the SDK into your app shows you how your app performs on real devices. It shows when and how people use your app and provides any metrics you may need to optimize your user experience and code.
 
 ## Requirements
 
@@ -34,7 +29,7 @@ From your project root, run the following commands. Until npm publishing is swit
 
 ```bash
 npx expo prebuild
-npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.0.0-rc/saucelabs-mobile-beta-react-native-3.0.0-rc.tgz
+npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.1.0/saucelabs-mobile-beta-react-native-3.1.0.tgz
 
 cd ios
 pod install
@@ -46,7 +41,14 @@ After the package is published on npm, install it with `npm install @saucelabs/m
 
 On Android, the package registers its Maven repositories on every Gradle project, so a standard Expo project needs no repository change. If your `android/settings.gradle` restricts repositories with `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, add the Sauce Mobile Beta Maven repository as shown in [Android](/app-distribution/sdk/react-native/#android), and re-apply that change (or apply it with a config plugin) after every `npx expo prebuild --clean`, which regenerates the native directories.
 
-Then start the SDK once per app launch from your root component, using the app token from the [user preferences](https://app.testfairy.com/settings/) on your Sauce Labs Mobile App Distribution account:
+The snippet below uses two values, `<sauce-mobile-beta-token>` and `<server-endpoint>`. Both values are in **Organization Settings > SDK Settings** on your Mobile App Distribution dashboard, under the organization that owns the app. Only Account Owners and Org Admins can open that page. See [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
+
+- **SDK App Token**: the organization-wide token your app starts sessions with. Regenerating it invalidates the previous token for every build that still carries it.
+- **Server Endpoint**: the URL the SDK sends session data to, in the form `https://<host>/services/`. It is specific to your region or private instance, so copy it exactly. If it reads **Not configured**, contact Sauce Labs support before you ship a build.
+
+Pass the endpoint to `setServerEndpoint` before `beginWithoutCrashHandler`. The SDK's built-in default server is no longer in service: an app that skips this call starts no sessions.
+
+Then set the endpoint and start the SDK once per app launch from your root component:
 
 ```js
 import React, { useEffect } from 'react';
@@ -54,6 +56,7 @@ import TestFairy from '@saucelabs/mobile-beta-react-native';
 
 export default function App() {
   useEffect(() => {
+    TestFairy.setServerEndpoint('<server-endpoint>');
     TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
   }, []);
 
@@ -63,4 +66,4 @@ export default function App() {
 
 ## Notes
 
-Since all Expo apps are React Native apps behind the scenes, everything on the [Integrating the React Native SDK](/app-distribution/sdk/react-native/) page also applies to Expo: the API notes and the [Using With Backtrace](/app-distribution/sdk/react-native/#using-with-backtrace) summary. If you use Backtrace in the same app, initialize Backtrace first and share the `sauce.correlation_id` attribute with both SDKs as described in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).
+Since all Expo apps are React Native apps behind the scenes, everything on the [Integrating the React Native SDK](/app-distribution/sdk/react-native/) page also applies to Expo: the API notes and the [Using With Backtrace](/app-distribution/sdk/react-native/#using-with-backtrace) summary. If you use Backtrace in the same app, initialize Backtrace first and use `@backtrace/react-native` 0.2.3 or later (until it is published as stable, `npm install @backtrace/react-native@rc`), so that the SDK can hand the `sauce.correlation_id` it generates for every session to Backtrace, as described in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/).

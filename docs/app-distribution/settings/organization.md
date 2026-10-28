@@ -78,12 +78,12 @@ The **Organization Team Overview** section provides a summary of your organizati
 
 ## SDK Settings
 
-Organizations with SDK data enabled also see an **SDK Settings** section. It holds the values your app needs to report SDK data, such as sessions, crashes and feedback, to Mobile App Distribution.
+Organizations with SDK data enabled also see an **SDK Settings** section. It holds the values your app needs to report SDK data, such as sessions and feedback, to Mobile App Distribution.
 
 | Field | Description |
 | --- | --- |
-| **App Token** | The token your app uses to report SDK data. Use **Regenerate** to issue a new one. |
-| **Server Endpoint** | The endpoint the SDK reports to. |
+| **SDK App Token** | The organization-wide token your app starts sessions with. Use **Regenerate** to issue a new one; the previous token stops working after a few seconds for every build that still carries it. |
+| **Server Endpoint** | The full URL, ending in `/services/`, that your app must pass to `setServerEndpoint` before starting a session. It is set per deployment, so it differs between regions and private instances; copy it exactly. If it reads **Not configured**, contact Sauce Labs support before shipping a build. |
 | **Setup snippets** | Code snippets for adding the SDK to your app. |
 | **Crash and feedback emails** | Toggles that control whether crash and feedback emails are sent. |
 | **Monthly session quota** | The number of SDK sessions included each month. |
