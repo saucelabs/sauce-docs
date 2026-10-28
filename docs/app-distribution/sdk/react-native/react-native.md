@@ -139,7 +139,7 @@ Sauce Mobile Beta and [Backtrace](/error-reporting/getting-started/) run side by
 
 React Native specifics:
 
-- Use `@backtrace/react-native` 0.2.3 or later (until it is published as stable, `npm install @backtrace/react-native@rc`). With that package installed, there is nothing to register: the SDK forwards its attributes to `BacktraceClient.instance.addAttribute(...)` on its own.
+- Use `@backtrace/react-native` 0.2.3 or later. With that package installed, there is nothing to register: the SDK forwards its attributes to `BacktraceClient.instance.addAttribute(...)` on its own.
 - If your app wraps the Backtrace client behind its own module, or your package manager does not let the SDK resolve `@backtrace/react-native` (strict pnpm or Yarn PnP layouts), link it with `TestFairy.setBacktraceClient(myClient)` before `beginWithoutCrashHandler`. Pass `null` to go back to `BacktraceClient.instance`.
 - Your own attributes, such as `sauce.environment`, go into `BacktraceClient.initialize(...)` as `userAttributes` and into `TestFairy.setAttribute(key, value)`.
 - Index `sauce.correlation_id` in Backtrace (Project Settings > Attributes, UUID format) before you filter or group on it. See [Attributes](/error-reporting/project-setup/attributes/).
