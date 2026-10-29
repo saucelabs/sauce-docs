@@ -68,13 +68,24 @@ Use access tokens when your network removes Basic Auth headers. They also keep y
 
 #### Get an Access Token
 
-Send a `POST` request to the `/auth/oauth2/token` endpoint of your data center. Put your username and access key in the form body, not in a header.
+Send a `POST` request to the `/auth/oauth2/token` endpoint of your data center, with `grant_type=client_credentials`. Send your username and access key in one of two ways:
 
-```bash title="Token Request Example"
+- **In the form body**, as `client_id` and `client_secret`. Use this when your network removes Basic Auth headers.
+- **In a Basic Auth header.** Most OAuth client libraries do this by default.
+
+Don't use both in the same request.
+
+```bash title="Token Request Example (Form Body)"
 curl -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
   -d grant_type=client_credentials \
   -d client_id="$SAUCE_USERNAME" \
   -d client_secret="$SAUCE_ACCESS_KEY"
+```
+
+```bash title="Token Request Example (Basic Auth)"
+curl -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
+  -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+  -d grant_type=client_credentials
 ```
 
 ```json title="Token Response Example"
@@ -85,9 +96,15 @@ curl -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
 }
 ```
 
-A wrong username or access key returns `400` with `"error": "invalid_client"`.
+A few rules for the token request:
 
-You can use the username and access key of a service account in the same way.
+- Send the fields as a form (`application/x-www-form-urlencoded`), not as JSON. A JSON body returns `400` with `"error": "invalid_request"`.
+- Never put your username or access key in the URL. Such a request is refused.
+- Don't send a `scope` parameter. A token always has the full access of its account, and a request with a scope returns `400` with `"error": "invalid_scope"`.
+
+A wrong username or access key returns `401` with `"error": "invalid_client"`.
+
+You can use the username and access key of a service account in the same way. A token works in every data center, not only in the one that issued it.
 
 #### Use an Access Token
 
@@ -110,6 +127,7 @@ Access tokens work with the REST APIs. To run tests, keep your username and acce
 - A token is valid for about 1 hour. The `expires_in` value gives the exact number of seconds.
 - Access tokens don't come with a refresh token. When a token expires, request a new one the same way.
 - Request a new token a few minutes before the old one expires, so that no request fails.
+- Reuse one token for all calls and parallel workers until it is close to expiry. The token endpoint is rate limited: if it returns `429`, wait the number of seconds in the `Retry-After` header.
 - If you regenerate your access key, tokens you already have keep working until they expire.
 - If your account is deactivated, its tokens stop working right away.
 
