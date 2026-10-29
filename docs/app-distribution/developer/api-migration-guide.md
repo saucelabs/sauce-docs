@@ -45,7 +45,7 @@ Tags change from a comma-separated string (v1) to a JSON array (v3).
 | `landing_page_mode` | `landing_page_mode` | Unchanged: `open` or `closed` |
 | `community_token` | `landing_page_slug` | Renamed. Same validation rules |
 | `metadata_*` | — | Dropped |
-| `notify` | `notify` | Unchanged: `on` to email testers, off by default |
+| `notify` | `notify` | `on` (or `1`) to email testers, off by default. Now emails everyone with access to the build, not only the groups named in the upload. `groups=all` is no longer a keyword |
 | `changelog`, `comment`, or `release_notes` | `release_notes` | `changelog` and `comment` aliases dropped |
 | `symbols_file` or `proguard_file` | `symbols_file` | `proguard_file` alias dropped |
 | `sync_to_saucelabs` or `upload_to_saucelabs` | `sync_to_saucelabs` | Unchanged: `on` to copy to App Storage, off by default. `upload_to_saucelabs` alias dropped |
