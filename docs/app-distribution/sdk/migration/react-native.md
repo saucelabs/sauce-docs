@@ -117,7 +117,7 @@ TestFairy.disableCrashHandler();
 
 Two new calls describe the behavior: `isCrashReportingAvailable()` returns `false`, and `getIntegrationInfo()` returns `{ sdkName, crashReportingAvailable: false, coexistenceMode: 'backtrace_crash_owner' }`.
 
-Crash reporting is provided by Backtrace, which owns JavaScript unhandled errors and unhandled promise rejections, iOS native crashes, and Android JVM and native crashes. Add `@backtrace/react-native` 0.2.3 or later (until it is published as stable, `npm install @backtrace/react-native@rc`) by following the [Backtrace React Native integration guide](/error-reporting/language-integrations/react-native/), and initialize it before `beginWithoutCrashHandler` so that it is the only crash owner. 0.2.3 forwards attributes added after `initialize()` to native crash reports, which step 6 relies on. New to Backtrace? Start with [Getting Started](/error-reporting/getting-started/).
+Crash reporting is provided by Backtrace, which owns JavaScript unhandled errors and unhandled promise rejections, iOS native crashes, and Android JVM and native crashes. Add `@backtrace/react-native` 0.2.3 or later by following the [Backtrace React Native integration guide](/error-reporting/language-integrations/react-native/), and initialize it before `beginWithoutCrashHandler` so that it is the only crash owner. 0.2.3 forwards attributes added after `initialize()` to native crash reports, which step 6 relies on. New to Backtrace? Start with [Getting Started](/error-reporting/getting-started/).
 
 **Verify.** The following command prints nothing:
 
