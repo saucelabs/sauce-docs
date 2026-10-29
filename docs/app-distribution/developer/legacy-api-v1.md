@@ -87,8 +87,8 @@ curl https://app.testfairy.com/api/upload \
 | `changelog` | No | None | Release notes. Also accepted as `comment` or `release_notes` |
 | `tags` | No | None | Comma-separated tags for the build |
 | `groups` | No | Unchanged | Comma-separated tester group names or IDs to grant every build of the app to. Also accepted as `app_permission_groups`, which is used only when `groups` is not sent. Replaces existing app-level grants; send `none` to remove all app-level grants. Build-level grants from `testers_groups` are not affected. Names that don't resolve are returned in `invalid_groups`. Combine with `notify=on` to email them |
-| `testers_groups` | No | Unchanged | Comma-separated tester group names or IDs to grant access to this build only. Requires `notify=on`; ignored otherwise. Adds to existing grants; send `none` to remove this build's own grants. Names that don't resolve are returned in `invalid_build_groups`. Also accepted as `testers-groups` or `invitation_groups`; if more than one is sent, `invitation_groups` is used first, then `testers-groups` |
-| `notify` | No | `off` | Set to `on` to email the app's tester groups about the new build |
+| `testers_groups` | No | Unchanged | Comma-separated tester group names or IDs to grant access to this build only. Requires `notify` (`on` or `1`); ignored otherwise. Adds to existing grants; send `none` to remove this build's own grants. Names that don't resolve are returned in `invalid_build_groups`. Also accepted as `testers-groups` or `invitation_groups`; if more than one is sent, `invitation_groups` is used first, then `testers-groups` |
+| `notify` | No | `off` | Set to `on` (or `1`) to email the app's tester groups about the new build |
 | `symbols_file` | No | None | Debug symbols to attach (iOS dSYM or Android mapping file). Also accepted as `proguard_file` |
 | `sync_to_saucelabs` | No | `off` | Set to `on` to also copy the build to Sauce Labs App Storage |
 | `upload_to_saucelabs` | No | `off` | Legacy name for `sync_to_saucelabs`. Only the exact value `on` copies the build to Sauce Labs App Storage |
