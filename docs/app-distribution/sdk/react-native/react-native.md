@@ -33,18 +33,14 @@ Start the SDK with `beginWithoutCrashHandler(...)`. It starts a session and neve
 
 ## Installation
 
-The current release is `@saucelabs/mobile-beta-react-native` 3.1.0, which bundles the native SDKs 2.3.0 for iOS and Android. Until npm publishing is switched on, install the package from the tarball attached to the [GitHub Release](https://github.com/testfairy/react-native-testfairy/releases/tag/3.1.0):
+The current release is [`@saucelabs/mobile-beta-react-native`](https://www.npmjs.com/package/@saucelabs/mobile-beta-react-native) 3.1.0, which bundles the native SDKs 2.3.0 for iOS and Android. Install it from the npm registry:
 
 ```bash
-npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.1.0/saucelabs-mobile-beta-react-native-3.1.0.tgz
+npm install @saucelabs/mobile-beta-react-native
 cd ios && pod install
 ```
 
-The package installs into `node_modules/@saucelabs/mobile-beta-react-native` and autolinks exactly like a registry install.
-
-:::note
-Publishing to the npm registry follows. After the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. The package name, version scheme, and API are the same for both install methods.
-:::
+The package installs into `node_modules/@saucelabs/mobile-beta-react-native` and autolinks on both platforms.
 
 ### iOS
 
