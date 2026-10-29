@@ -94,6 +94,10 @@ curl https://app.testfairy.com/api/upload \
 | `landing_page_mode` | No | Unchanged | Landing page visibility: `open` or `closed` (error code `135` otherwise) |
 | `metadata_*` | No | None | Any `metadata_<key>` field is stored as custom build metadata and returned under `metadata` |
 
+:::note
+iOS apps signed with an ad-hoc or development certificate are closed beta unless your organization turns on **Allow ad-hoc apps to be open beta** in [Organization Settings](/app-distribution/settings/organization#security). Without that setting, `landing_page_mode=open` is ignored for these apps, and the upload still succeeds. A landing page that an upload creates for such an app starts closed; send `landing_page_mode=open` to open it once the setting is on. If **Require login before download** is on, every app is closed beta, whatever `landing_page_mode` says.
+:::
+
 ## Projects
 
 ### <M>GET</M> `/api/1/projects/`

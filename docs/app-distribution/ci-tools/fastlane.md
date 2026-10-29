@@ -79,6 +79,8 @@ saucelabs_appdist(
 
 :::note
 If your server's security settings require users to log in before downloading, the landing page is always closed at install time, regardless of `landing_page_mode`. The upload itself does not fail. `landing_page_mode` only accepts `open` or `closed`; any other value fails the upload with error code 135.
+
+iOS apps signed with an ad-hoc or development certificate are closed beta unless your organization turns on **Allow ad-hoc apps to be open beta** in [Organization Settings](/app-distribution/settings/organization#security). Without that setting, `landing_page_mode` `open` is ignored for these apps, and the upload still succeeds. A landing page that an upload creates for such an app starts closed; send `landing_page_mode` `open` to open it once the setting is on.
 :::
 
 ### Lane Variables
