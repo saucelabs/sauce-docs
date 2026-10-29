@@ -59,6 +59,10 @@ The **Security** section includes the **Require login before download** setting.
 
 Turning this on makes every app in your organization [closed beta](/app-distribution/projects/closed-beta), and the **Visibility** option on each project's [landing page](/app-distribution/projects/landing-pages) is locked. Use it when no build should ever be reachable through a public link.
 
+The **Security** section also includes **Allow ad-hoc apps to be open beta**. iOS apps signed with an ad-hoc or development certificate are closed beta by default. When this setting is on, you can set them to **Open Beta** on their landing page, and testers install them without logging in. Apple still limits installation to the devices listed in the app's provisioning profile, but anyone with the link can download the `.ipa` file.
+
+When you turn it on, MAD closes the landing page of every ad-hoc app first. Nothing becomes public until you open an app yourself. While **Require login before download** is on, this setting is not applied.
+
 Click **Update** to save your changes. **Organization Name** is required.
 
 <img src={useBaseUrl('/img/app-distribution/organization/organization-4.png')} alt="Security section with Require login before download" width="100%"/>

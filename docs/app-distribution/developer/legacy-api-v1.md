@@ -96,6 +96,10 @@ curl https://app.testfairy.com/api/upload \
 | `landing_page_mode` | No | Unchanged | Landing page visibility: `open` or `closed` (error code `135` otherwise) |
 | `metadata_*` | No | None | Any `metadata_<key>` field is stored as custom build metadata and returned under `metadata` |
 
+:::note
+iOS apps signed with an ad-hoc or development certificate are closed beta unless your organization turns on **Allow ad-hoc apps to be open beta** in [Organization Settings](/app-distribution/settings/organization#security). Without that setting, `landing_page_mode=open` is ignored for these apps, and the upload still succeeds. A landing page that an upload creates for such an app starts closed; send `landing_page_mode=open` to open it after the setting is on. If **Require login before download** is on, every app is closed beta, whatever `landing_page_mode` says.
+:::
+
 ## Projects
 
 ### <M>GET</M> `/api/1/projects/`
@@ -126,8 +130,13 @@ Update a build's metadata.
 
 | Parameter | Description |
 | --- | --- |
-| `comment` | Update release notes |
-| `tags` | Comma-separated tags |
+| `comment` | Update release notes. Also accepted as `changelog` or `release_notes` |
+| `tags` | Comma-separated tags. Replaces the build's tags |
+| `landing_page_mode` | Landing page visibility for the build's app: `open` or `closed` (error code `135` otherwise) |
+| `community_token` | URL alias for the app's landing page, same rules as on upload (error codes `124` invalid, `125` in use) |
+| `metadata_*` | Custom build metadata. Merged with the build's existing metadata, so you can update one key at a time |
+
+`landing_page_mode` and `community_token` change the whole app, not just this build. The ad-hoc rules in the `/api/upload` note above apply to this endpoint too: without **Allow ad-hoc apps to be open beta**, `open` is ignored for ad-hoc apps and the request still succeeds.
 
 ### <M>DELETE</M> `/api/1/projects/{projectId}/builds/{buildId}`
 
