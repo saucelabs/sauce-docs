@@ -106,6 +106,16 @@ A wrong username or access key returns `401` with `"error": "invalid_client"`.
 
 You can use the username and access key of a service account in the same way. A token works in every data center, not only in the one that issued it.
 
+#### Discovery
+
+OAuth 2.0 client libraries can read the token endpoint from the discovery document of your data center ([RFC 8414](https://www.rfc-editor.org/rfc/rfc8414)), so you don't need to configure the URL by hand.
+
+```bash title="Discovery Request Example"
+curl 'https://api.us-west-1.saucelabs.com/.well-known/oauth-authorization-server'
+```
+
+The document lists the token endpoint, the supported grant type (`client_credentials`), the supported client authentication methods (`client_secret_post`, `client_secret_basic`) and the location of the public signing keys (`/.well-known/jwks.json`).
+
 #### Use an Access Token
 
 This example gets a token and then calls the API with it. It uses [jq](https://jqlang.org/) to read the token from the response.
