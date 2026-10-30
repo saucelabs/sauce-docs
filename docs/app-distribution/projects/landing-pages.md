@@ -27,7 +27,7 @@ A landing page provides a single page where testers can view your app informatio
 |---:|---|---|
 | **1** | **URL Alias** | Enter a custom alias for the landing page URL (e.g., `/install/my-app` instead of a random token). Leave it empty to use the default install token. 6–63 characters; letters, numbers, dots, hyphens and underscores only; must be unique across apps. |
 | **2** | **App Version** | Select the app version that you want to display on the landing page. The default option is **Latest version**. |
-| **3** | **Visibility** | Select **Open Beta** to allow anyone with the install link to access the page, or **Closed Beta** to require authentication. iOS ad-hoc and development builds are always closed beta, and the organization's **Require login before download** setting forces closed beta for all apps. |
+| **3** | **Visibility** | Select **Open Beta** to allow anyone with the install link to access the page, or **Closed Beta** to require authentication. iOS ad-hoc and development builds are closed beta unless the organization turns on **Allow ad-hoc apps to be open beta**; an open ad-hoc app still installs only on devices in its provisioning profile, and the page shows how many devices that is. The organization's **Require login before download** setting forces closed beta for all apps. |
 | **4** | **App Description** | Enter a description of your app. The description is displayed on the landing page. |
 | **5** | **Include release notes on landing page** | Select this option to display the release notes for the selected build on the landing page. On by default. |
 | **6** | **Show iOS direct download (.ipa) link** | Select this option to display a direct download link for the iOS `.ipa` file on the landing page. On by default. |

@@ -105,7 +105,7 @@ Paginated responses include a `pagination` object. The list key matches the reso
 | <M>GET</M> | `/api/v3/projects/{projectId}/builds` | List builds for an app (paginated) |
 | <M>GET</M> | `/api/v3/builds/{id}` | Get a build |
 | <M>POST</M> | `/api/v3/builds/upload` | Upload a new build (multipart/form-data) |
-| <M>PUT</M> | `/api/v3/builds/{id}` | Update release notes and tags |
+| <M>PUT</M> | `/api/v3/builds/{id}` | Update release notes, tags, and the app's landing page visibility and URL alias |
 | <M>GET</M> | `/api/v3/builds/{id}/download` | Get pre-signed download URL. If storage isn't configured, returns the install-page URL instead. |
 | <M>DELETE</M> | `/api/v3/builds/{id}` | Delete a build (admin) |
 | <M>POST</M> | `/api/v3/builds/{id}/copy` | Duplicate a build within the same app (references the same file) |
@@ -135,6 +135,10 @@ Paginated responses include a `pagination` object. The list key matches the reso
 
 Provide either `project_id` or `team_id`.
 
+:::note
+iOS apps signed with an ad-hoc or development certificate are closed beta unless your organization turns on **Allow ad-hoc apps to be open beta** in [Organization Settings](/app-distribution/settings/organization#security). Without that setting, `landing_page_mode=open` is ignored for these apps, and the upload still succeeds. A landing page that an upload creates for such an app starts closed; send `landing_page_mode=open` to open it after the setting is on. If **Require login before download** is on, every app is closed beta, whatever `landing_page_mode` says.
+:::
+
 ```bash
 curl -X POST https://your-org.testfairy.com/api/v3/builds/upload \
   -H "X-API-Key: $API_KEY" \
@@ -146,6 +150,26 @@ curl -X POST https://your-org.testfairy.com/api/v3/builds/upload \
 :::note
 The API does not fetch builds from a URL. Download the file first (for example from your own S3 bucket), then send its contents as the `file` part.
 :::
+
+#### Update Parameters
+
+`PUT /api/v3/builds/{id}` takes a JSON body. Omitted fields are left unchanged. Testers can't update builds (`403`).
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `release_notes` | string | Release notes for the build |
+| `tags` | array of strings | Replaces the build's tags |
+| `landing_page_mode` | string | Landing page visibility for the build's app: `open` or `closed`. Any other value returns `400` |
+| `landing_page_slug` | string | URL alias for the app's landing page, same rules as on upload. Also accepted as `community_token`. Returns `400` if invalid, `409` if another app already uses it |
+
+```bash
+curl -X PUT https://your-org.testfairy.com/api/v3/builds/$BUILD_ID \
+  -H "X-API-Key: $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"release_notes": "Bug fixes", "landing_page_mode": "closed"}'
+```
+
+`landing_page_mode` and `landing_page_slug` change the whole app, not just this build. The ad-hoc rules in the upload note above apply to this endpoint too: without **Allow ad-hoc apps to be open beta**, `open` is ignored for ad-hoc apps and the request still succeeds.
 
 ### Teams
 
