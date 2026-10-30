@@ -12,6 +12,131 @@ The Accounts API exposes the following endpoints related to individual and team 
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+## Identity
+
+### Get Your Identity
+
+<details>
+<summary><span className="api get">GET</span> <code>/auth/v1/identity</code></summary>
+<p/>
+
+Returns who the credential of the request belongs to, and how the request authenticated. Use it to check that an access token or an access key works.
+
+The endpoint accepts an [access token](/dev/api/#access-tokens) and [Basic Auth](/dev/api/#basic-auth).
+
+#### Parameters
+
+This endpoint takes no parameters.
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/auth/v1/identity' \
+  -H "Authorization: Bearer $SAUCE_API_TOKEN" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -L -X GET 'https://api.eu-central-1.saucelabs.com/auth/v1/identity' \
+  -H "Authorization: Bearer $SAUCE_API_TOKEN" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. Identity returned.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Unauthorized. The credential is missing, not valid, or can't be used with this endpoint.</td>
+  </tr>
+</tbody>
+</table>
+
+#### Response Fields
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>sub</code></td>
+     <td><p><small>| STRING |</small></p><p>The ID of the account. It starts with <code>usr_</code> for a user and <code>sa_</code> for a service account.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>username</code></td>
+     <td><p><small>| STRING |</small></p><p>The username of the account.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>organization</code></td>
+     <td><p><small>| STRING |</small></p><p>The ID of the organization of the account.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>auth_method</code></td>
+     <td><p><small>| STRING |</small></p><p>How the request authenticated: <code>oauth_token</code> for an access token, <code>basic</code> for Basic Auth.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>credential_id</code></td>
+     <td><p><small>| STRING |</small></p><p>The ID of the access key the request used, directly or through an access token.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>expires_at</code></td>
+     <td><p><small>| STRING |</small></p><p>When the access token expires, in UTC. Only returned for an access token.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Response for an Access Token"
+{
+  "sub": "usr_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90",
+  "username": "john.smith",
+  "organization": "9f3b2a17-6c4d-4e8a-b5f2-0d1e7c9a8b34",
+  "auth_method": "oauth_token",
+  "credential_id": "cred_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90",
+  "expires_at": "2026-11-02T10:15:00Z"
+}
+```
+
+```jsx title="Sample Response for Basic Auth"
+{
+  "sub": "usr_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90",
+  "username": "john.smith",
+  "organization": "9f3b2a17-6c4d-4e8a-b5f2-0d1e7c9a8b34",
+  "auth_method": "basic",
+  "credential_id": "cred_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90"
+}
+```
+
+</details>
+
+---
+
 ## Team
 
 ### Lookup Teams
