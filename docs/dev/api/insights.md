@@ -58,7 +58,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST "https://api.us-west-1.saucelabs.com/ai-assistant-gateway/insights/ask" \
+--request POST "https://api.us-west-1.saucelabs.com/ai-assistant-gateway/v1/insights/ask" \
 --header "Content-Type: application/json" \
 --data '{"prompt": "<your question>"}' | json_pp
 ```
