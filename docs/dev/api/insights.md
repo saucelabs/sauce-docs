@@ -17,7 +17,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 ### Ask AI for Insights
 
 <details>
-<summary><span className="api post">POST</span> <code>/ai-assistant-gateway/insights/ask</code></summary>
+<summary><span className="api post">POST</span> <code>/ai-assistant-gateway/v1/insights/ask</code></summary>
 <p/>
 
 Ask a question about your test data in plain language. Get the AI for Insights answer back in one response, without opening the Sauce Labs UI. Use it to:
