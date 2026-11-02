@@ -135,6 +135,7 @@ If you need to localize the capture context with just the browser and omit all n
 - Android network capture is supported on Android 10 and above.
 - Flutter applications are not supported at the moment.
 - Only HTTP/HTTPS network traffic is captured.
+- If you start the capture while your app is already running, for example during a Live Testing session, only requests sent over connections the app opens after that are captured. Requests the app sends over connections it opened earlier, such as at launch, are missing, so you may see only some of your app's traffic. To capture all of it, restart the app after you start the capture.
 - Android Emulators are not supported.
 - iOS Simulators are not supported.
 - SSL pinning, e.g. when using a self-signed certificate, your custom trust manager must not trust only your certificate.
