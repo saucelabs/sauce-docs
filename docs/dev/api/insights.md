@@ -20,9 +20,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 <summary><span className="api post">POST</span> <code>/ai-assistant-gateway/insights/ask</code></summary>
 <p/>
 
-Ask a question about your test data in plain language. Get the AI for Insights answer back in one response, without opening the Sauce Labs UI.
-
-Use it to:
+Ask a question about your test data in plain language. Get the AI for Insights answer back in one response, without opening the Sauce Labs UI. Use it to:
 
 - Post a root cause summary to your team channel when a pipeline job fails.
 - Check whether a build is stable enough to ship before a release.
