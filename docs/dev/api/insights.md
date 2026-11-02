@@ -12,6 +12,115 @@ Use the Insights API methods to retrieve analytics data about your Sauce Labs jo
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+## AI for Insights
+
+### Ask AI for Insights
+
+<details>
+<summary><span className="api post">POST</span> <code>/ai-assistant-gateway/insights/ask</code></summary>
+<p/>
+
+Ask a question about your test data in plain language. Get the AI for Insights answer back in one response, without opening the Sauce Labs UI.
+
+Use it to:
+
+- Post a root cause summary to your team channel when a pipeline job fails.
+- Check whether a build is stable enough to ship before a release.
+- Explain the failing tests on a pull request.
+- Feed a weekly quality summary into an internal dashboard.
+
+:::note
+This call requires a Sauce AI for Insights entitlement. Each request is one question and one answer. Follow-up questions and conversation history are not supported yet. Answers are returned as text. Charts are not included.
+:::
+
+:::tip
+Complex questions can take some time to answer. Increase your client timeout if you see issues
+:::
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>prompt</code></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Your question, in plain language. For more precise answers, include a time range, build name, or job ID. Example: <code>"Why did build &lt;build&gt; fail?"</code></p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST "https://api.us-west-1.saucelabs.com/ai-assistant-gateway/insights/ask" \
+--header "Content-Type: application/json" \
+--data '{"prompt": "<your question>"}' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST "https://api.eu-central-1.saucelabs.com/ai-assistant-gateway/insights/ask" \
+--header "Content-Type: application/json" \
+--data '{"prompt": "<your question>"}' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>401</code></td>
+    <td colSpan='2'>Unauthorized. Check your username and access key.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Forbidden. Your organization does not have a Sauce AI for Insights entitlement.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error. The <code>prompt</code> field is missing or empty.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>429</code></td>
+    <td colSpan='2'>Too Many Requests. You have reached the rate limit. Wait and try again.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "answer": "<answer>"
+}
+```
+
+</details>
+
 ## Analytics
 
 ### Get Test Results
