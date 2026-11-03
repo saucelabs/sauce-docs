@@ -219,7 +219,7 @@ try {
 Breadcrumbs are snippets of chronological data tracing runtime events. This SDK records a number of events by default,
 and manual breadcrumbs can also be added.
 
-[(Breadcrumbs feature documentation)](/error-reporting/web-console/debug/#breadcrumbs)
+[(Breadcrumbs feature documentation)](/error-reporting/debug-errors/inspect-crash-details/#scan-the-prior-event-logs)
 
 #### Breadcrumbs Configuration
 
