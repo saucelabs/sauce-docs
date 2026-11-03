@@ -335,8 +335,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Create a Team
 
-{/* TODO (concurrency mgmt UI, IAM-7387): confirm whether team settings accept Mac / iOS (x86), Mac / iOS (ARM), and Android (ARM) limits and their field names, then document them alongside virtual_machines. */}
-
 <details>
 <summary><span className="api post">POST</span> <code>/team-management/v1/teams/</code></summary>
 <p/>
@@ -519,8 +517,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Update a Team
 
-{/* TODO (concurrency mgmt UI, IAM-7387): confirm whether team settings accept Mac / iOS (x86), Mac / iOS (ARM), and Android (ARM) limits and their field names, then document them alongside virtual_machines. */}
-
 <details>
 <summary><span className="api put">PUT</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
 <p/>
@@ -644,8 +640,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ---
 
 ### Partially Update a Team
-
-{/* TODO (concurrency mgmt UI, IAM-7387): confirm whether team settings accept Mac / iOS (x86), Mac / iOS (ARM), and Android (ARM) limits and their field names, then document them alongside virtual_machines. */}
 
 <details>
 <summary><span className="api patch">PATCH</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
@@ -1577,8 +1571,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ---
 
 ### Get User Concurrency
-
-{/* TODO (concurrency mgmt UI, IAM-7387): the live response also returns mac_arm_vms and android_arm_vms (seen Sep 2026). Confirm and add them to the sample response and the device-type list below. */}
 
 <details>
 <summary><span className="api get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>

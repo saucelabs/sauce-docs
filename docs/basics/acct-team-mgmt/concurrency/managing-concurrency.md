@@ -205,9 +205,6 @@ To retrieve concurrency over time and limits for your organization or teams by r
 `mac_arm_virtual_machine` and `android_arm_virtual_machine`, use the
 [Usage Analytics API](/dev/api/usage/#organization-concurrency).
 
-{/* TODO: confirm the Get User Concurrency and team-settings API fields for Mac / iOS (ARM) and Android (ARM)
-and document them here and in /dev/api/accounts. */}
-
 ### Exceeding Virtual Cloud Concurrency
 
 Organization admins can choose how Virtual Device Cloud tests behave when the organization reaches its purchased
