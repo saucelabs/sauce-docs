@@ -100,14 +100,15 @@ This call requires <code>org_id</code> parameter.
             <p><small>| QUERY | OPTIONAL | STRING |</small></p>
             <p>Return results only for given resource type</p>
             <p/>
-            For the Virtual Could tests:
+            For Virtual Cloud tests:
             <ul>
                 <li><code>virtual_machine</code></li>
                 <li><code>mac_virtual_machine</code></li>
                 <li><code>mac_arm_virtual_machine</code></li>
+                <li><code>android_arm_virtual_machine</code></li>
                 <li><code>total_virtual_machine</code></li>
             </ul>
-            For the Real Devices Could tests:
+            For Real Device Cloud tests:
             <ul>
                 <li><code>private_real_device</code></li>
                 <li><code>public_real_device</code></li>
@@ -304,14 +305,15 @@ This call requires <code>org_id</code> and <code>team_id</code> parameters.
         <td>
             <p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
             <p/>
-            For the Virtual Could tests:
+            For Virtual Cloud tests:
             <ul>
                 <li><code>virtual_machine</code></li>
                 <li><code>mac_virtual_machine</code></li>
                 <li><code>mac_arm_virtual_machine</code></li>
+                <li><code>android_arm_virtual_machine</code></li>
                 <li><code>total_virtual_machine</code></li>
             </ul>
-            For the Real Devices Could tests:
+            For Real Device Cloud tests:
             <ul>
                 <li><code>private_real_device</code></li>
                 <li><code>public_real_device</code></li>
