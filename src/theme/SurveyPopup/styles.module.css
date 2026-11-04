@@ -1,0 +1,51 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 8px;
+    background-color: var(--ifm-background-surface-color);
+    color: var(--ifm-font-color-base);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--ifm-color-emphasis-700);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.title {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.text {
+    margin-bottom: 1.25rem;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
