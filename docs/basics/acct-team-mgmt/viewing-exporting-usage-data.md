@@ -36,9 +36,17 @@ The **TEAMS** tab on the **Organization Management** page provides the following
 | **Virtual Device Concurrency Usage (Last 28D)** | **Peak Usage vs Cap** | The highest number of virtual device tests the team ran at the same time in the previous 28 days, compared with its Max Limit, as a number, a percentage, and a bar. |
 | | **Tests** | The number of tests the team ran in the previous 28 days. |
 
-A value with a **default** label means the team has no limit of its own for that platform, so the organization limit
-applies. For details on how team and platform limits interact, see
-[Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency#how-concurrency-limits-work).
+How values appear in the table:
+
+- A value with a **default** label means the team has no limit of its own for that platform, so the organization
+  limit applies.
+- A value shown in orange is a platform limit that is higher than the team's Max Limit, so it has no effect. Hover
+  over the value for details.
+
+To change a team's limits, see
+[Setting Team Concurrency Limits](/basics/acct-team-mgmt/concurrency/managing-concurrency#setting-team-concurrency-limits).
+For details on how team and platform limits interact, see
+[How Concurrency Limits Work](/basics/acct-team-mgmt/concurrency/managing-concurrency#how-concurrency-limits-work).
 
 <img src={useBaseUrl('img/team-mgmt/usage-data-teams-tab.png')} alt="TEAMS tab with Virtual Device Concurrency Usage columns highlighted" width="700"/>
 
