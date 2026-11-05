@@ -18,7 +18,7 @@ This feature is available as a paid add on for Enterprise users. **[Contact us](
 
 * You must have a **[Sauce Labs Enterprise](https://saucelabs.com/enterprise)** account to access the tool. 
 
-* You must have available **[Real Device Concurrency](/docs/basics/acct-team-mgmt/concurrency/managing-concurrency.md#real-device-cloud-concurrency) or [Virtual Device Concurrency](/docs/basics/acct-team-mgmt/concurrency/managing-concurrency.md#virtual-cloud-concurrency)** to generate and run test cases.
+* You must have available **[Real Device Concurrency](/docs/basics/acct-team-mgmt/concurrency/managing-concurrency.md#concurrency-types) or [Virtual Device Concurrency](/docs/basics/acct-team-mgmt/concurrency/managing-concurrency.md#concurrency-types)** to generate and run test cases.
 
 * For native mobile app testing, you must upload your **[Android or iOS application builds to App Management](/docs/mobile-apps/app-storage.md#uploading-apps)** before creating test cases.
 
