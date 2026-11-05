@@ -27,16 +27,28 @@ The **USERS** tab on the **Organization Management** page provides the following
 
 The **TEAMS** tab on the **Organization Management** page provides the following information for each team:
 
-| Column                       | Description                                                                                                                                                             |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Active Members               | Current number of active team members.                                                                                                                                  |
-| Team VM Concurrency          | The concurrency set for the team, covering all virtual platforms, Windows, Android, Linux, and Mac                                                                      |
-| Team Mac VM Concurrency      | The concurrency set for the team, specifically for Mac x86 tests                                                                                                        |
-| Team Real Device Concurrency | The concurrency set for the team, covering Real Device tests                                                                                                            |
-| Peak VM Concurrency          | The highest number of concurrent tests run during a single session on a virtual machine, including web browser, emulator, and simulator tests, in the previous 28 days. |
-| Tests (Last 28 Days)         | The number of tests run by the team in the last 28 days.                                                                                                                |
+| Column group | Column | Description |
+| --- | --- | --- |
+| **Team Details** | **Team Name** | The team name, with the number of team members underneath. |
+| **Real Device Concurrency Limit** | **Max Limit** | The team's limit for public real device tests. |
+| **Virtual Device Concurrency Limits** | **Max Limit** | The team's Total Concurrency limit for all virtual device tests. |
+| | **Mac / iOS (x86)**, **Mac / iOS (ARM)**, **Android (ARM)** | The team's platform limits, which sit inside its Total Concurrency. |
+| **Virtual Device Concurrency Usage (Last 28D)** | **Peak Usage vs Cap** | The highest number of virtual device tests the team ran at the same time in the previous 28 days, compared with its Max Limit, as a number, a percentage, and a bar. |
+| | **Tests** | The number of tests the team ran in the previous 28 days. |
 
-<img src={useBaseUrl('img/team-mgmt/usage-data-teams-tab.jpg')} alt="Usage data - TEAMS tab"/>
+How values appear in the table:
+
+- A value with a **default** label means the team has no limit of its own for that platform, so the organization
+  limit applies.
+- A value shown in orange is a platform limit that is higher than the team's Max Limit, so it has no effect. Hover
+  over the value for details.
+
+To change a team's limits, see
+[Setting Team Concurrency Limits](/basics/acct-team-mgmt/concurrency/managing-concurrency#setting-team-concurrency-limits).
+For details on how team and platform limits interact, see
+[How Concurrency Limits Work](/basics/acct-team-mgmt/concurrency/managing-concurrency#how-concurrency-limits-work).
+
+<img src={useBaseUrl('img/team-mgmt/usage-data-teams-tab.png')} alt="TEAMS tab with Virtual Device Concurrency Usage columns highlighted" width="700"/>
 
 
 ## USAGE Widget

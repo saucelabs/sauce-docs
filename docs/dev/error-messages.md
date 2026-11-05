@@ -107,7 +107,7 @@ You have requested too many tests to run at the same time.
 
 **Cause(s)**
 
-Each Sauce Labs account has a maximum number of tests it's allowed to have open at the same time. We refer to this as your concurrency. You can see your concurrency limit on your Sauce Labs. Sauce Labs will not run additional tests once you've reached your concurrency limit.
+Each Sauce Labs account has a maximum number of tests it's allowed to have open at the same time. We refer to this as your concurrency. You can see the concurrency available to you on the [User Settings](https://app.saucelabs.com/user-settings) page. If your team has its own limit, it can be lower than your organization's. Sauce Labs will not run additional tests once you've reached your concurrency limit.
 
 **How to Resolve**
 
