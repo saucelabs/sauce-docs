@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 The Sauce Mobile Beta SDK is in beta. The artifact names and the API are final; this documentation can still change. Share feedback with your Sauce Labs representative.
 :::
 
-[Sauce Mobile Beta for React Native](https://github.com/testfairy/react-native-testfairy/releases/tag/3.1.0) (`@saucelabs/mobile-beta-react-native`) is a bridge to the Sauce Mobile Beta SDK and is supported for Expo (with prebuild): Expo projects whose native `ios` and `android` directories are generated with `npx expo prebuild`. Integrating the SDK into your app shows you how your app performs on real devices. It shows when and how people use your app and provides any metrics you may need to optimize your user experience and code.
+[Sauce Mobile Beta for React Native](https://www.npmjs.com/package/@saucelabs/mobile-beta-react-native) (`@saucelabs/mobile-beta-react-native`) is a bridge to the Sauce Mobile Beta SDK and is supported for Expo (with prebuild): Expo projects whose native `ios` and `android` directories are generated with `npx expo prebuild`. Integrating the SDK into your app shows you how your app performs on real devices. It shows when and how people use your app and provides any metrics you may need to optimize your user experience and code.
 
 ## Requirements
 
@@ -25,19 +25,15 @@ The SDK does not install a crash handler. Crash reporting is provided by Backtra
 
 ## Steps
 
-From your project root, run the following commands. Until npm publishing is switched on, the package is installed from the tarball attached to the GitHub Release:
+From your project root, run the following commands:
 
 ```bash
 npx expo prebuild
-npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.1.0/saucelabs-mobile-beta-react-native-3.1.0.tgz
+npm install @saucelabs/mobile-beta-react-native
 
 cd ios
 pod install
 ```
-
-:::note
-After the package is published on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL.
-:::
 
 On Android, the package registers its Maven repositories on every Gradle project, so a standard Expo project needs no repository change. If your `android/settings.gradle` restricts repositories with `RepositoriesMode.FAIL_ON_PROJECT_REPOS`, add the Sauce Mobile Beta Maven repository as shown in [Android](/app-distribution/sdk/react-native/#android), and re-apply that change (or apply it with a config plugin) after every `npx expo prebuild --clean`, which regenerates the native directories.
 

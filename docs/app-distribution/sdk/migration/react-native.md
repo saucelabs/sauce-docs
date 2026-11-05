@@ -48,17 +48,13 @@ grep -rn "react-native-testfairy\|TestFairyPackage\|com.testfairy:testfairy" ios
 
 ## 2. Add the Sauce Mobile Beta Package
 
-Until npm publishing is switched on, install the package from the tarball attached to the [GitHub Release](https://github.com/testfairy/react-native-testfairy/releases/tag/3.1.0). It installs into `node_modules/@saucelabs/mobile-beta-react-native` and autolinks exactly like a registry install:
+Install the package from the npm registry. It installs into `node_modules/@saucelabs/mobile-beta-react-native` and autolinks on both platforms:
 
 ```bash
-npm install https://github.com/testfairy/react-native-testfairy/releases/download/3.1.0/saucelabs-mobile-beta-react-native-3.1.0.tgz
+npm install @saucelabs/mobile-beta-react-native
 ```
 
-:::note
-After the package is on npm, install it with `npm install @saucelabs/mobile-beta-react-native` instead of the release asset URL. The package name, version scheme, and API stay the same.
-:::
-
-**Verify.** `package.json` lists `@saucelabs/mobile-beta-react-native`, and `npm ls @saucelabs/mobile-beta-react-native` prints version `3.1.0`.
+**Verify.** `package.json` lists `@saucelabs/mobile-beta-react-native`, and `npm ls @saucelabs/mobile-beta-react-native` prints `3.1.0` or later.
 
 ## 3. Update the Import and the Initialization
 
