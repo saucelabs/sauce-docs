@@ -26,13 +26,13 @@ The SDK does not install a crash handler. Crash reporting is provided by [Backtr
 ## Requirements
 
 - Android API level 16 or later. When you also ship Backtrace, use Backtrace's minimum (`minSdk 21`).
-- Gradle with access to `https://maven.testfairy.com`. The SDK is not served from Maven Central or jcenter.
+- Gradle with access to `https://maven.saucelabs.com`. The SDK is not served from Maven Central or jcenter.
 
 ## Installation
 
 ### 1. Add the Maven Repository
 
-Add `https://maven.testfairy.com` to `settings.gradle` (projects created with recent versions of Android Studio). The `content` filter is optional. It tells Gradle to look up only the `com.saucelabs.mobilebeta` group in this repository.
+Add `https://maven.saucelabs.com` to `settings.gradle` (projects created with recent versions of Android Studio). The `content` filter is optional. It tells Gradle to look up only the `com.saucelabs.mobilebeta` group in this repository. Projects that already declare `https://maven.testfairy.com` can keep it: both hosts serve the same repository.
 
 <Tabs
 groupId="gradle"
@@ -52,7 +52,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url 'https://maven.testfairy.com'
+            url 'https://maven.saucelabs.com'
             content { includeGroup 'com.saucelabs.mobilebeta' }
         }
     }
@@ -71,7 +71,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url = uri("https://maven.testfairy.com")
+            url = uri("https://maven.saucelabs.com")
             content { includeGroup("com.saucelabs.mobilebeta") }
         }
     }
@@ -90,7 +90,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://maven.testfairy.com' }
+        maven { url 'https://maven.saucelabs.com' }
     }
 }
 ```
@@ -212,7 +212,7 @@ The AAR bundles its consumer ProGuard rules, so Gradle applies them to your app 
 
 Always pin an exact version, such as `2.3.0`, and update it deliberately. Do not use version wildcards such as `2.+`: they can pull in a build you have not tested.
 
-To upgrade, change the version string in `build.gradle` and rebuild. `2.3.0` is served from `https://maven.testfairy.com` under the coordinate `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`.
+To upgrade, change the version string in `build.gradle` and rebuild. `2.3.0` is served from `https://maven.saucelabs.com` under the coordinate `com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`.
 
 ## How to Identify Users (Optional)
 
@@ -249,4 +249,4 @@ To automatically upload the wifi status to your account, add the `android.permis
 
 ## Troubleshooting
 
-The SDK is served from `maven.testfairy.com`, not jcenter. If Gradle reports a `Could not GET` error for a `jcenter.bintray.com` URL, or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
+The SDK is served from `maven.saucelabs.com` (and from `maven.testfairy.com`, which serves the same repository), not jcenter. If Gradle reports a `Could not GET` error for a `jcenter.bintray.com` URL, or `Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`, add the repository as described in [step 1](#1-add-the-maven-repository) of the installation section.
