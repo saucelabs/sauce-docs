@@ -323,7 +323,12 @@ Do not use `setCorrelationId` or `identify` for the correlation id. Both are dep
 
 1. Index the attributes in Backtrace. Backtrace lets you filter and group on a custom attribute only after it has been indexed once per project under Project Settings > Attributes. Index `sauce.correlation_id` with the UUID format (select **Miscellaneous**, then **UUID**), and `sauce.mobile_beta.session_url` as a string. See [Indexing Attributes](/error-reporting/project-setup/attributes/).
 2. From a crash report, copy the `sauce.correlation_id` value and search for it in the Sauce Labs Mobile App Distribution session list. Exactly one session carries that value: the one that was running when the crash happened.
+
+   <img src={useBaseUrl('/img/app-distribution/sdk/sauce-correlation-id.png')} alt="Shows sauce.correlation_id in the Attributes tab of a Backtrace crash report." width="676" />
+
 3. Or follow `sauce.mobile_beta.session_url` from the report directly to the recording. It points at that same session. If `sauce.mobile_beta.session_started` is `"false"`, the crash happened before Sauce Labs accepted the session, for example offline. The report still carries the id, and the search returns no session.
+
+   <img src={useBaseUrl('/img/app-distribution/sdk/sauce-mobile-beta-session-url.png')} alt="Shows sauce.mobile_beta.session_url in the Attributes tab of a Backtrace crash report." width="744" />
 
 In the other direction, filter Backtrace on `sauce.correlation_id` with the value shown on a session's attributes to see whether that session crashed.
 
