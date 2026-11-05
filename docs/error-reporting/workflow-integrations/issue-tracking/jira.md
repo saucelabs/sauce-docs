@@ -315,6 +315,21 @@ The field behaves as follows:
 - **Format**: Must be a full URL starting with `http://` or `https://`. Enter the instance's base URL (for example `https://yourcompany.atlassian.net`), not a link to a specific ticket such as `.../browse/PROJ-123`. Self-hosted, on-prem, proxy, localhost, and custom-port URLs are all supported.
 - **Reverting**: Clearing the field and saving reverts to the default (connection URL).
 
+### Mobile App Distribution URL
+
+Use **Mobile App Distribution URL** to add a link to the Sauce Labs Mobile App Distribution session behind each crash to the Jira tickets Backtrace creates. This setting is optional and only applies if your app runs the Sauce Mobile SDK alongside Backtrace. For the app setup, see [Using the Sauce Mobile SDK with Backtrace](/app-distribution/sdk/backtrace-coexistence/).
+
+When the field is set, each new ticket gets a **View Mobile App Distribution session** link next to **Group Link** and **View last instance**. The link is built as `<Mobile App Distribution URL>/sessions/<sauce.correlation_id>`, using the `sauce.correlation_id` of the most recent crash in the error group.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-mobile-app-distribution-url.png')} alt="Shows the optional Mobile App Distribution URL field for Jira ticket links." width="700" />
+
+The field behaves as follows:
+
+- **Optional**: Leave it blank and tickets are created as before, without the session link.
+- **Format**: Must be a full URL starting with `http://` or `https://`. Enter the base URL of your Mobile App Distribution instance, for example `https://app.testfairy.com`, or your private host. Don't add a path to a specific session, a query string or a fragment. If you don't know your URL, contact Sauce Labs Support.
+- **Required attribute**: The `sauce.correlation_id` attribute must be indexed in the project under that exact name. Use the UUID format. If it isn't indexed, tickets are still created but without the session link, and no error is shown. See [Indexing Attributes](/error-reporting/project-setup/attributes/).
+- **Reverting**: Clearing the field and saving stops adding the link to new tickets.
+
 ## Issue Based Alerts
 
 To further automate your workflow, you can configure automated actions for your Jira workflow integration with issue based alerts. Use issue based alerts to automatically generate issues in Jira based on the conditions and frequency that you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alerts).
