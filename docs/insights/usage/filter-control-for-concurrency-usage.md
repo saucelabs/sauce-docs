@@ -17,7 +17,7 @@ The selected filters are reflected in the chart and data table, allowing you to 
 | ----- | ----- |
 | **Environment** | Select **Virtual Devices** or **Real Devices** to view concurrency usage for the selected testing environment. |
 | **Owner** | Select **My Organization**, **My Team**, or a specific team to view concurrency usage for that scope. |
-| **Concurrency Type** | Select the type of concurrency usage you want to review, such as **Total VM Concurrency**, **Android/Linux/Windows**, **Apple - x86**, or **Apple - ARM**. |
+| **Concurrency Type** | Select the type of concurrency usage you want to review, such as **Total VM Concurrency**, **Android/Linux/Windows**, **Apple - x86**, **Apple - ARM**, or **Android - ARM**. |
 | **Time Period** | Select the period for which you want to review concurrency usage, such as **Today**, **Last 7 Days**, **Last 14 Days**, **Last 30 Days**, or **All Time**. |
 | **Granularity** | Controls how the concurrency data is grouped in the report, such as **Daily**. |
 | **Reset Filters** | Clears the selected filters and returns the report to its default state. |
@@ -63,12 +63,14 @@ Available options include:
 * **Android/Linux/Windows**: Displays concurrency usage for tests running on Android, Linux, and Windows virtual environments.
 * **Apple - x86**: Displays concurrency usage for Apple environments using x86-based processors.
 * **Apple - ARM**: Displays concurrency usage for Apple environments using ARM-based processors.
+* **Android - ARM**: Displays concurrency usage for Android environments using ARM-based processors.
+
 
 The selected concurrency type determines the usage data represented in the chart and data table.
 
 For example, selecting **Total VM Concurrency** provides an overall view of virtual-machine concurrency, while selecting a specific resource type allows you to focus on that type of concurrency usage.
 
-<img src={useBaseUrl('img/insights/usage/filter-control-for-usage/filter-for-concurrency-usage-3.png')} alt="Filter Control for Concurrency Usage"/>
+<img src={useBaseUrl('img/insights/usage/filter-control-for-usage/filter-for-concurrency-usage-6.png')} alt="Filter Control for Concurrency Usage"/>
 
 ### Time Period
 
