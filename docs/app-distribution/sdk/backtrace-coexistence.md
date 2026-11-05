@@ -35,7 +35,7 @@ Install both SDKs.
 1. Install Backtrace for your platform: [iOS](/error-reporting/platform-integrations/ios/setup/), [Android](/error-reporting/platform-integrations/android/setup/) (plus [Native Crash Integration](/error-reporting/platform-integrations/android/native-crash-integration/) if you want NDK crashes), or [React Native](/error-reporting/language-integrations/react-native/). New to Backtrace? Start with [Getting Started](/error-reporting/getting-started/).
    - iOS: any current Backtrace iOS SDK release. The SDK writes through the `attributes` property of `BacktraceClient.shared`.
    - Android: use Backtrace Android SDK 3.7.14 or later, which added `BacktraceClient.addAttribute`. 3.14.0 or later is recommended. On 3.7.13 or earlier, the SDK falls back to the client's attribute map and `BacktraceDatabase.addAttribute`. See [Configuring Backtrace for Android](/error-reporting/platform-integrations/android/configuration/).
-   - React Native: use `@backtrace/react-native` 0.2.3 or later. Until 0.2.3 is published as stable, install it from the `rc` dist-tag: `npm install @backtrace/react-native@rc`. That release forwards attributes added after `initialize()` to native crash reports; 0.2.2 does not.
+   - React Native: use `@backtrace/react-native` 0.2.3 or later. That release forwards attributes added after `initialize()` to native crash reports; 0.2.2 does not.
 2. Install the Sauce Mobile Beta SDK: [iOS](/app-distribution/sdk/ios/integrating-ios/), [Android](/app-distribution/sdk/android/integrating-android/), or [React Native](/app-distribution/sdk/react-native/).
 3. On Android, use Backtrace's `minSdk` (21) for the combined app. Sauce Mobile Beta alone supports `minSdk` 16.
 
