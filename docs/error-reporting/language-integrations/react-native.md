@@ -245,7 +245,7 @@ client.addAttachment(new BacktraceFileAttachment(new ReactNativeFileSystem(), lo
 Breadcrumbs are snippets of chronological data tracing runtime events. This SDK records a number of events by default,
 and manual breadcrumbs can also be added.
 
-See [Breadcrumbs in the web console](/error-reporting/web-console/debug/#breadcrumbs).
+See [Breadcrumbs in the web console](/error-reporting/debug-errors/inspect-crash-details/#scan-the-prior-event-logs).
 
 #### Breadcrumbs Configuration
 
