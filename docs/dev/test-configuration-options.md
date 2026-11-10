@@ -1300,6 +1300,24 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `disablePlayStore`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+
+Disables the Google Play Store for the duration of your test by setting it to `true`, then enables it again before the device is handed to the next session.
+
+Use this when Play Store activity interferes with your test, such as a Google Play services update closing your app after a language change. Leave it enabled if your test needs Google Play billing or in-app updates.
+
+```java title="Real Device Setting"
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("disablePlayStore", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `tabletOnly`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
