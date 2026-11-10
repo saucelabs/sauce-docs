@@ -372,9 +372,11 @@ It might be that you are targeting the wrong data center. You can change your en
 
 ## Mobile App Testing Only
 
-### We Could Not Execute Your Test Because the Timeout for Retrying Was Reached
+### The Timeout for Retrying Was Reached
 
 **Description**
+
+The full message starts with "We could not execute your test because the timeout for retrying was reached."
 
 An Espresso or XCUITest test on real devices waited for a free concurrency slot until the retry timeout was reached. The job has the status **Errored**, shows no device, and its duration is the time it spent waiting.
 

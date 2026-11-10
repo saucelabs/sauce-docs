@@ -105,7 +105,7 @@ until a concurrency slot becomes available. How long a test waits depends on the
 - **Espresso and XCUITest**: a waiting test checks for a free slot again at intervals of up to a few minutes, so it
   can start a few minutes after a slot frees up. A test that is still waiting when the retry timeout is reached ends
   with the status **Errored**. See
-  [We Could Not Execute Your Test Because the Timeout for Retrying Was Reached](/dev/error-messages/#we-could-not-execute-your-test-because-the-timeout-for-retrying-was-reached).
+  [The Timeout for Retrying Was Reached](/dev/error-messages/#the-timeout-for-retrying-was-reached).
 
 Waiting real device tests are not started in the order you submitted them. Each waiting test checks for a free slot
 on its own schedule, so a newly submitted test can start before one that has waited longer. To start Espresso and
