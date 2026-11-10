@@ -271,13 +271,15 @@ The number of concurrent test sessions in your plan tells you:
 
 #### **If I run a test and all the devices of the selected model are "Unavailable," how long will the test be queued?**
 
-15 minutes by default. You can increase it up to 30 minutes using a timeout capability. See [Test Configuration Options](/dev/test-configuration-options).
+For Appium tests, 15 minutes by default. You can increase it up to 30 minutes using a timeout capability. See [Test Configuration Options](/dev/test-configuration-options).
 
 You can also shorten it, but putting it to less than two minutes is probably a bad idea. At less than two minutes, you may see tests not starting because the session may not have time to be initialized.
 
 #### **If I have a concurrency of five and I start 10 tests, will the Real Device Cloud queue five of the tests to run later?**
 
 Yes. The five other tests will try to get the requested devices for the next 15 minutes. That’s the default time -- it can be increased to 30 minutes through a timeout command. See [Test Configuration Options](/dev/test-configuration-options).
+
+This applies to Appium tests. Espresso and XCUITest tests wait until a concurrency slot is free or the retry timeout is reached. In both cases, waiting tests are not started in the order you submitted them. See [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency#real-devices).
 
 ## Pricing Plans and Billing
 
