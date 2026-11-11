@@ -32,7 +32,7 @@ Sauce Visual will support the following languages/frameworks at launch: Selenium
 
 ### What subsequent languages/frameworks will be supported?
 
-Support for additional languages/frameworks will be determined based on demand. Frameworks like Playwright, TestCafe, XCUIT, Espresso, etc., are currently under consideration. Contributions are encouraged. Check out the [examples project](https://github.com/saucelabs/visual-examples). If you create your own public library or binding, feel free to add another example to that project.
+Support for additional languages/frameworks will be determined based on demand. Frameworks like Playwright, TestCafe, Espresso, etc., are currently under consideration. Contributions are encouraged. Check out the [examples project](https://github.com/saucelabs/visual-examples). If you create your own public library or binding, feel free to add another example to that project.
 
 ### When will it support "my favorite framework"?
 
