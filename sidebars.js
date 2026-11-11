@@ -303,6 +303,15 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Alerts Setup',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/alerts',
+                        'error-reporting/project-setup/error-threshold-alerts',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Project Settings',
                     collapsed: true,
                     items: [
@@ -323,7 +332,6 @@ module.exports = {
                             label: 'Workflow',
                             collapsed: true,
                             items: [
-                                'error-reporting/project-setup/alerts',
                                 'error-reporting/project-setup/connections',
                                 'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',

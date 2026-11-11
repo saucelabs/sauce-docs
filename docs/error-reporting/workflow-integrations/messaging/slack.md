@@ -60,4 +60,4 @@ You can specify attributes to be appended to the description in the Main body co
 
 ## Issue Based Alerts​
 
-You can configure automated actions for your Slack workflow integration with issue-based alerts to further automate your workflow. Use issue-based alerts to automatically generate issues in Slack based on the conditions and frequency you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alerts).
+You can configure automated actions for your Slack workflow integration with issue-based alerts to further automate your workflow. Use issue-based alerts to automatically generate issues in Slack based on the conditions and frequency you specify. For more information, see [Create Issue Based Alerts](/error-reporting/project-setup/alerts/).
