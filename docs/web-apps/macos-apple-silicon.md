@@ -20,11 +20,14 @@ macOS 14, 15, 26, and 27 are available to customers with the required subscripti
 | OS Version | Browser | Versions|
 |------------|---------|---------|
 | macOS 14 Sonoma <br/> macOS 15 Sequoia   | Safari  | 18      |
-| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe <br/> macOS 27 Golden Gate | Chrome  | 134+    |
-| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe <br/> macOS 27 Golden Gate | Firefox | 136+    |
-| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe <br/> macOS 27 Golden Gate | Edge    | 138+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Chrome  | 134+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Firefox | 136+    |
+| macOS 14 Sonoma <br/> macOS 15 Sequoia <br/> macOS 26 Tahoe | Edge    | 138+    |
 | macOS 26 Tahoe   | Safari  | 26      |
-| macOS 27 Golden Gate | Safari | 27      |
+| macOS 27 Golden Gate | Chrome  | 150+ (also 135, 137, 138, and 140) |
+| macOS 27 Golden Gate | Firefox | 154+    |
+| macOS 27 Golden Gate | Edge    | 153+ (also 138) |
+| macOS 27 Golden Gate | Safari  | 27      |
 
 ## Known Limitations
 

@@ -23,6 +23,179 @@ All browser versions listed here are available in the [Sauce Labs Platform Confi
 
 ---
 
+## Q3 2026 (July – September 2026)
+
+### Browser Versions Released
+
+#### Chrome
+
+| Version | Release Date | Release Notes | ChromeDriver |
+|---------|-------------|---------------|--------------|
+| Chrome 150 | July 2, 2026 | [Release Notes](https://developer.chrome.com/release-notes/150) | chromedriver 150.0.7871.46 |
+| Chrome 151 | July 31, 2026 | [Release Notes](https://developer.chrome.com/release-notes/151) | chromedriver 151.0.7922.71 |
+| Chrome 152 | August 26, 2026 | [Release Notes](https://developer.chrome.com/release-notes/152) | chromedriver 152.0.7977.64 |
+| Chrome 153 | September 10, 2026 | [Release Notes](https://developer.chrome.com/release-notes/153) | — |
+| Chrome 154 | September 24, 2026 | [Release Notes](https://developer.chrome.com/release-notes/154) | — |
+
+#### Microsoft Edge
+
+| Version | Release Date | Release Notes | EdgeDriver |
+|---------|-------------|---------------|------------|
+| Edge 150 | July 6, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/150) | edgedriver 150.0.4078.48 (150.0.4078.50 on macOS) |
+| Edge 151 | August 7, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/151) | — |
+| Edge 152 | September 1, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/152) | edgedriver 152.0.4191.53 |
+| Edge 153 | September 10, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/153) | — |
+| Edge 154 | September 28, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/154) | edgedriver 154.0.4258.37 |
+
+#### Firefox
+
+| Version | Release Date | Release Notes |
+|---------|-------------|---------------|
+| Firefox 153 | July 23, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/153.0/releasenotes/) |
+| Firefox 154 | August 18, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/154.0/releasenotes/) |
+| Firefox 155 | September 2, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/155.0/releasenotes/) |
+| Firefox 156 | September 22, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/156.0/releasenotes/) |
+| Firefox 157 | September 29, 2026 | [Release Notes](https://www.mozilla.org/en-US/firefox/157.0/releasenotes/) |
+
+#### Safari
+
+| Version | Release Date | Release Notes | Platform |
+|---------|-------------|---------------|----------|
+| Safari 27 | September 23, 2026 | [Release Notes](https://changelog.saucelabs.com/en/now-available-safari-27-and-macos-27-golden-gate-browser-testing) | macOS 27 Golden Gate |
+
+:::note
+macOS 27 Golden Gate is available for live and automated (Selenium/WebDriver) testing on [Apple Silicon](/web-apps/macos-apple-silicon/) with Safari 27, Chrome 150+, Firefox 154+, and Edge 153+. The Cypress, Playwright, and TestCafe runners, Electron app testing, and Beta/Dev browser channels aren't available on macOS 27 yet.
+:::
+
+#### ChromiumOS
+
+| Version | Release Date | Release Notes |
+|---------|-------------|---------------|
+| Chrome 151 on ChromiumOS | July 31, 2026 | [Release Notes](https://developer.chrome.com/release-notes/151) |
+| Chrome 152 on ChromiumOS | August 27, 2026 | [Release Notes](https://developer.chrome.com/release-notes/152) |
+| Chrome 153 on ChromiumOS | September 21, 2026 | [Release Notes](https://developer.chrome.com/release-notes/153) |
+| Chrome 154 on ChromiumOS | September 24, 2026 | [Release Notes](https://developer.chrome.com/release-notes/154) |
+
+:::note
+Sauce Labs supports the **latest two Chromium releases** on [ChromiumOS](/web-apps/chromiumos/) at any time, and older versions are retired as new ones ship. We recommend setting `browserVersion` to `latest` or `latest-1` in your test configurations so your tests move to each new release automatically, instead of failing when a pinned version is retired.
+:::
+
+#### Electron
+
+| Version | Release Date | Release Notes |
+|---------|-------------|---------------|
+| Electron 43 | August 11, 2026 | [Release Notes](https://www.electronjs.org/blog/electron-43-0) |
+| Electron 44 | August 26, 2026 | [Release Notes](https://www.electronjs.org/blog/electron-44-0) |
+
+[Electron app testing](/web-apps/automated-testing/electron/) is available on Windows 10 and 11 and on macOS 11, 12, 13, 14, 15, and 26.
+
+---
+
+### Notable Changes for Testing
+
+Here's what stood out in Q3 2026 from a test automation and quality engineering perspective.
+
+#### Chrome Moves to a Two-Week Release Cycle (Chrome 153)
+
+As we flagged in Q1, Chrome 153 is the first release on Google's new **two-week release cadence**, which replaces the four-week cycle. Edge follows the same Chromium schedule. Expect `latest` and `latest-1` to move twice as often as before. If your suite can't absorb a browser change every two weeks, pin `browserVersion` to a specific version and upgrade it on your own schedule.
+
+#### Legacy Mobile Emulation Device Names Removed (Chrome 153)
+
+ChromeDriver 153 dropped several legacy presets from the `mobileEmulation.deviceName` list, including **`iPad`, `iPad Air`, `iPad Pro`, and `iPhone X`**. Sessions that request one of these names on Chrome 153 or later fail at startup with an error like `'iPad' must be a valid device`. This hit suites that combine `deviceName` with `browserVersion: latest` as soon as latest rolled to 153. `iPad Mini` is still valid. The durable fix is to replace `deviceName` with explicit `deviceMetrics` (`width`, `height`, `pixelRatio`, `touch`) and a `userAgent`, which work on every Chrome version.
+
+#### Manifest V2 Extensions Fully Deprecated (Chrome 150)
+
+As previewed in our Q2 update, Chrome 150 **fully deprecates Manifest V2 extensions**. Test automation that loads MV2 extensions, such as content blockers or custom testing tools, will no longer work. Migrate those extensions to Manifest V3, or pin an older Chrome version while you do.
+
+#### Chrome and Edge End Support for macOS 12 Monterey (Chrome 151, Edge 151)
+
+Chrome 151 and Edge 151 **require macOS 13 (Ventura) or later**. On Sauce Labs, Chrome 150 and Edge 150 are the last versions available on macOS 12, so `latest` on macOS 12 now stops at 150 for both browsers. Firefox is unaffected and still ships new versions on macOS 12. To keep testing the newest Chrome and Edge on a Mac, move your macOS 12 jobs to macOS 13 or to an [Apple Silicon](/web-apps/macos-apple-silicon/) platform.
+
+#### Chrome Now Warns Before Loading HTTP Sites (Chrome 154)
+
+Chrome 154 **prompts by default before connecting to sites over insecure HTTP**, completing the "Always use secure connections" rollout we previewed in Q2 (Chrome 150 enabled it only for users opted into Enhanced Safe Browsing). If your application under test or your test environments are served over plain HTTP, expect a warning interstitial instead of your page. Serve test environments over HTTPS where you can. Administrators can manage this behavior with the `HttpsOnlyMode` and `HttpAllowlist` enterprise policies.
+
+#### Firefox Automation Changes in geckodriver and WebDriver BiDi (Firefox 156 and 157)
+
+Firefox shipped several changes this quarter that can break existing automation code:
+
+- **System access moves to geckodriver** (Firefox 157): Browser UI (chrome-scope) testing now requires the `geckodriver --allow-system-access` argument. Passing `--remote-allow-system-access` to Firefox through `moz:firefoxOptions` is no longer supported. This builds on the chrome-scope BiDi support we covered in Q1.
+- **`destinationFolder` required for downloads** (Firefox 157): `browser.setDownloadBehavior` now requires the `destinationFolder` parameter when `type="allowed"`. Pass `null` to keep the default download location. This follows the download folder override we covered in Q2.
+- **New exit code on startup failure** (Firefox 156): Marionette and the Remote Agent now exit with code `69` when their server fails to start. Update any process-management scripts that check for specific exit codes.
+- **More consistent action timing** (Firefox 156): Intermediate events for actions with a duration greater than 0 now fire closer to every 16ms, which can affect tests sensitive to drag or animation timing.
+
+#### Local Network Access Restrictions Keep Tightening (Firefox 154, Chrome 154, Edge 154)
+
+The trend we've tracked since Q1 continues. Firefox 154 extends **Local Network Access protections to WebSocket connections**, so a site opening a WebSocket to a local network device now needs permission. Chrome 154 and Edge 154 now apply CORS and **require Local Network Access permission for Background Fetch** requests to local or loopback servers. They also add a `targetAddressSpace` option to the `WebSocket` constructor, which lets a connection to a public hostname be treated as local or loopback. If your browser sessions reach localhost or internal services, watch for new permission prompts or blocked connections.
+
+#### `unload` Handlers Stop Firing by Default (Edge 154)
+
+Edge 154 begins deprecating the **`unload` event**: unload handlers no longer fire by default for 80% of page loads unless a page explicitly enables them through Permissions Policy. Tests that rely on `unload` for cleanup, analytics beacons, or "are you sure?" logic may become intermittent. Migrate to lifecycle events such as `pagehide` and `visibilitychange`.
+
+#### New Permission Elements and a Removed Link Target (Chrome 151 and 153, Edge 153)
+
+Chrome 151 introduced the declarative **`<usermedia>`** element, and Chrome 153 and Edge 153 added **`<camera>`** and **`<microphone>`**. These elements embed a browser-controlled button that requires an explicit user click before a permission prompt appears or a stream starts. That affects how you automate media-permission flows on pages that adopt them. Chrome 153 and Edge 153 also **removed the non-standard `_current` link target**, so update any links or scripts that navigate with `target="_current"`.
+
+#### Workers Created from `data:` URLs Get an Opaque Origin (Chrome 150, Edge 150)
+
+Dedicated and shared Workers created from `data:` URLs now receive a **unique opaque origin** instead of inheriting their creator's origin. Those workers can no longer reach same-origin state such as `localStorage` and `IndexedDB`. Tests that expect such workers to read or write same-origin data will fail.
+
+#### XSLT Deprecation Advances (Chrome 152)
+
+Following the Edge 147 XSLT policy we covered in Q2, Chrome 152 formally **deprecates client-side XSLT**. A deprecation trial runs until Chrome 175. The Rust-based XML parser for non-XSLT scenarios (`DOMParser`, `XMLHttpRequest.responseXML`, SVG documents) also reached Chrome in version 151. If your application depends on XSLT, now is the time to plan the migration.
+
+#### Popovers and Dialogs Ignore Right-Clicks and Touch Scrolls (Edge 154)
+
+Edge 154 changed **light dismiss** for popovers and dialogs: scrolling gestures on touch screens and right-clicks no longer close them. Automated tests that close a popover or dialog with a right-click or a touch scroll need a different dismissal action, such as pressing Escape or clicking outside the element.
+
+#### CSS and UI Changes That May Affect Visual Regression Tests
+
+Several rendering changes landed this quarter that could cause pixel-matching failures:
+
+- **Firefox visual refresh** (Firefox 157): Firefox has modernized toolbars, menus, and the sidebar, and added new light and dark themes. Page `alert()`, `confirm()`, and `prompt()` dialogs, color and date pickers, and form autocomplete dropdowns now follow the page's light or dark color scheme, which can change both screenshots and interaction tests that target them.
+- **SVG filters no longer apply to plugins or restricted iframes** (Chrome 150): SVG filters aren't applied to embedded plugins (such as PDFs) or to cross-origin and sandboxed iframes.
+- **`position-anchor` initial value changed** (Edge 151): The initial value is now `normal` instead of `none`, matching other browsers and the anchor positioning specification.
+- **New text decoration properties** (Edge 154): `text-decoration-skip-spaces` and `text-decoration-inset` change how underlines and other decoration lines are drawn over whitespace and at text edges.
+- **`scroll-marker-group` link and tab modes** (Edge 154): The new `links` and `tabs` modes can change accessibility tree roles and sequential tab stops for scroll markers, which matters for accessibility and keyboard navigation tests.
+- **Responsive iframe sizing** (Edge 154): The new `frame-sizing` property lets `<iframe>` elements size to their content to avoid inner scrollbars.
+- **Web Animations alignment** (Firefox 157): `Animation.reverse()` and `Animation.playbackRate` now follow the specification, which affects animations with a `playbackRate` of `0` and scroll-driven animations.
+
+#### New Performance and Network APIs Worth Knowing (Chrome 151, 152, and 154)
+
+- **SPA performance entries** (Chrome 151): New `soft-navigation` and `interaction-contentful-paint` performance entries let you measure JavaScript-driven route changes and interaction latency in Single-Page Applications.
+- **Connection Allowlists** (Chrome 152): A new HTTP response header can restrict the network connections a document or web worker is allowed to make. Network-related tests against pages that send it may see blocked requests.
+- **Fetch cancellation reasons** (Chrome 154, Edge 154): The reason passed to an `AbortController` is now forwarded to the `Response` object and its `ReadableStream`, so assertions on canceled fetch requests can check the specific reason.
+
+:::note Coming in Q4: More Firefox Automation and Deprecation Changes
+Firefox 159 (October 28, 2026) removes the `--remote-allow-system-access` command-line argument entirely: set the `MOZ_REMOTE_ALLOW_SYSTEM_ACCESS` environment variable to `1` instead. Edge 155 (October 12, 2026) completes the `unload` deprecation, so handlers stop firing by default for all page loads. Edge plans to turn browser-native XSLT off by default in the Stable channel with Edge 159. We'll cover these in detail in the Q4 update.
+:::
+
+---
+
+### Framework and Integration Updates
+
+#### Playwright 1.61.1 and 1.62.1
+
+[Playwright 1.61.1](/web-apps/automated-testing/playwright/) (July) and [Playwright 1.62.1](/web-apps/automated-testing/playwright/) (August) are now available on Sauce Labs on **macOS 14, 15, and 26** and **Windows 10 and 11**, running on Node.js 24. Playwright 1.62.1 bundles Chromium 151, Firefox 153, and WebKit 26.5. Starting with Playwright 1.62, two combinations no longer work: **WebKit on macOS 14** (use macOS 15 for WebKit on Apple Silicon) and **Chromium on macOS 12**, because Chrome for Testing 151 requires macOS 13 or later. See [Playwright limitations](/web-apps/automated-testing/playwright/limitations/) for details.
+
+#### Cypress 15.18.0, 15.20.0, and 15.21.1
+
+Three Cypress releases shipped on Sauce Labs this quarter: [Cypress 15.18.0](/web-apps/automated-testing/cypress/) (July), 15.20.0 (August), and 15.21.1 (September). All three run on Node.js 22 and support Chrome, Firefox, Microsoft Edge, and WebKit (Experimental) on macOS 11.00, 12, 13, 14, 15, and 26, and Windows 10 and 11.
+
+#### TestCafe 3.7.6
+
+[TestCafe 3.7.6](/web-apps/automated-testing/testcafe/) is now available on Sauce Labs, running on Node.js 22.
+
+#### ChromiumOS Generally Available
+
+[ChromiumOS testing](/web-apps/chromiumos/) is now generally available. Sauce Labs supports the latest two Chromium releases on ChromiumOS at a time, so set `browserVersion` to `latest` or `latest-1` to stay current as new releases ship. You can also now drive ChromiumOS sessions with [Playwright over Selenium Grid](/web-apps/chromiumos/#playwright-via-selenium-grid).
+
+#### Sauce Connect 4 End of Life and Sauce Connect 5.5.3
+
+Sauce Connect 4 reached end of life on **July 31, 2026**, and Sauce Labs no longer accepts traffic from it. If you still run Sauce Connect 4, [migrate to Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) to keep your tunnels working. Sauce Connect 5 had two releases this quarter: 5.5.2 in July and 5.5.3 in August, which addresses security vulnerabilities.
+
+---
+
 ## Q2 2026 (April – June 2026)
 
 ### Browser Versions Released
