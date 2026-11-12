@@ -204,7 +204,7 @@ Sauce Connect 4 reached end of life on **July 31, 2026**, and Sauce Labs no long
 
 | Version | Release Date | Release Notes | ChromeDriver |
 |---------|-------------|---------------|--------------|
-| Chrome 148 | May 6, 2026 | [Release Notes](https://developer.chrome.com/release-notes/148) | — |
+| Chrome 148 | May 6, 2026 | [Release Notes](https://developer.chrome.com/release-notes/148) | chromedriver 148.0.7778.97 |
 | Chrome 149 | June 3, 2026 | [Release Notes](https://developer.chrome.com/release-notes/149) | chromedriver 149.0.7827.54 |
 
 #### Microsoft Edge
