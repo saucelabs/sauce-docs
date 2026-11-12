@@ -34,17 +34,17 @@ All browser versions listed here are available in the [Sauce Labs Platform Confi
 | Chrome 150 | July 2, 2026 | [Release Notes](https://developer.chrome.com/release-notes/150) | chromedriver 150.0.7871.46 |
 | Chrome 151 | July 31, 2026 | [Release Notes](https://developer.chrome.com/release-notes/151) | chromedriver 151.0.7922.71 |
 | Chrome 152 | August 26, 2026 | [Release Notes](https://developer.chrome.com/release-notes/152) | chromedriver 152.0.7977.64 |
-| Chrome 153 | September 10, 2026 | [Release Notes](https://developer.chrome.com/release-notes/153) | — |
-| Chrome 154 | September 24, 2026 | [Release Notes](https://developer.chrome.com/release-notes/154) | — |
+| Chrome 153 | September 10, 2026 | [Release Notes](https://developer.chrome.com/release-notes/153) | chromedriver 153.0.8010.36 |
+| Chrome 154 | September 24, 2026 | [Release Notes](https://developer.chrome.com/release-notes/154) | chromedriver 154.0.8037.57 |
 
 #### Microsoft Edge
 
 | Version | Release Date | Release Notes | EdgeDriver |
 |---------|-------------|---------------|------------|
 | Edge 150 | July 6, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/150) | edgedriver 150.0.4078.48 (150.0.4078.50 on macOS) |
-| Edge 151 | August 7, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/151) | — |
+| Edge 151 | August 7, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/151) | edgedriver 151.0.4129.59 |
 | Edge 152 | September 1, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/152) | edgedriver 152.0.4191.53 |
-| Edge 153 | September 10, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/153) | — |
+| Edge 153 | September 10, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/153) | edgedriver 153.0.4234.32 |
 | Edge 154 | September 28, 2026 | [Release Notes](https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/154) | edgedriver 154.0.4258.37 |
 
 #### Firefox
