@@ -36,6 +36,7 @@ Enable end-to-end encryption for your Android apps by calling `setPublicKey` bef
 
 ```java
 TestFairy.setPublicKey("<PUBLIC KEY>");
+TestFairy.setServerEndpoint("<server-endpoint>");
 TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 ```
 
@@ -43,8 +44,9 @@ TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 
 Enable end-to-end encryption for your iOS apps by calling `setPublicKey` before calling `beginWithoutCrashHandler` (or `begin`):
 
-```js
+```objectivec
 [TestFairy setPublicKey:@"<PUBLIC KEY>"];
+[TestFairy setServerEndpoint:@"<server-endpoint>"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 ```
 

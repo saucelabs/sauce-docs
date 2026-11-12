@@ -57,11 +57,11 @@ Customers on legacy plans or those that requested specific terms may not have ac
 Organization Admins can now manage how their Sauce Labs Virtual Device Cloud (VDC) concurrency behaves under peak load.
 The **Concurrency** tab (available only to Orgs on **Fixed** or **On-Demand** plans) provides a toggle between strict concurrency limits and temporary burst capacity.
 
-<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency1.png')} alt="AI Insights View" width="auto"/>
+<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency1.png')} alt="Concurrency tab in Organization Settings" width="auto"/>
 
 **Fixed Concurrency** enforces your organization’s contractual concurrency limits without allowing any burst capacity. When this mode is active, your tests cannot exceed the number of concurrent sessions included in your contract. Any additional jobs that attempt to run are placed into the throttling queue, which is available to Enterprise customers. Fixed Concurrency is generally recommended for organizations that need strict control over usage and predictable testing costs.
 
-**On-Demand Concurrency** allows your organization to temporarily exceed its contracted concurrency by up to 10%, enabling tests to run at up to 110% of your purchased limit. Any usage beyond the contractual threshold is billed according to your agreement. This mode also closes previous multi-resource features ensuring that Mac and non-Mac concurrency limits are enforced consistently. Once the 110% capacity is reached, additional jobs enter the throttling queue. When switching from Fixed to On-Demand, users are shown a confirmation modal that explains the potential cost implications of enabling burst capacity.
+**On-Demand Concurrency** allows your organization to temporarily exceed its contracted concurrency by up to 10%, enabling tests to run at up to 110% of your purchased limit. Any usage beyond the contractual threshold is billed according to your agreement. In this mode, tests on all virtual platforms, Mac and non-Mac, count toward one Total Concurrency limit instead of the separate Mac and non-Mac limits used on older plans. Team platform limits, such as Mac / iOS (ARM), are caps within that total. See [How Concurrency Limits Work](/basics/acct-team-mgmt/concurrency/managing-concurrency#how-concurrency-limits-work). Once the 110% capacity is reached, additional jobs enter the throttling queue. When switching from Fixed to On-Demand, users are shown a confirmation modal that explains the potential cost implications of enabling burst capacity.
 
 Changing concurrency mode applies immediately to the entire organization.
 When the toggle is switched:
@@ -70,7 +70,7 @@ When the toggle is switched:
 * Queued jobs may begin running immediately if On-Demand is enabled and headroom is available.
 * Jobs that exceeded the Fixed limit will remain queued once switching back to Fixed.
 
-<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency2.png')} alt="AI Insights View" width="700"/>
+<img src={useBaseUrl('img/basics/acct-team-mgmt/service-accounts/concurrency2.png')} alt="Confirmation dialog when changing concurrency mode" width="700"/>
 
 
 ## Single Sign-On Settings (Deprecated Flow)

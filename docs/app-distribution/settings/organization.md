@@ -59,6 +59,10 @@ The **Security** section includes the **Require login before download** setting.
 
 Turning this on makes every app in your organization [closed beta](/app-distribution/projects/closed-beta), and the **Visibility** option on each project's [landing page](/app-distribution/projects/landing-pages) is locked. Use it when no build should ever be reachable through a public link.
 
+The **Security** section also includes **Allow ad-hoc apps to be open beta**. iOS apps signed with an ad-hoc or development certificate are closed beta by default. When this setting is on, you can set them to **Open Beta** on their landing page, and testers install them without logging in. Apple still limits installation to the devices listed in the app's provisioning profile, but anyone with the link can download the `.ipa` file.
+
+When you turn it on, MAD closes the landing page of every ad-hoc app first. Nothing becomes public until you open an app yourself. While **Require login before download** is on, this setting is not applied.
+
 Click **Update** to save your changes. **Organization Name** is required.
 
 <img src={useBaseUrl('/img/app-distribution/organization/organization-4.png')} alt="Security section with Require login before download" width="100%"/>
@@ -78,12 +82,12 @@ The **Organization Team Overview** section provides a summary of your organizati
 
 ## SDK Settings
 
-Organizations with SDK data enabled also see an **SDK Settings** section. It holds the values your app needs to report SDK data, such as sessions, crashes and feedback, to Mobile App Distribution.
+Organizations with SDK data enabled also see an **SDK Settings** section. It holds the values your app needs to report SDK data, such as sessions and feedback, to Mobile App Distribution.
 
 | Field | Description |
 | --- | --- |
-| **App Token** | The token your app uses to report SDK data. Use **Regenerate** to issue a new one. |
-| **Server Endpoint** | The endpoint the SDK reports to. |
+| **SDK App Token** | The organization-wide token your app starts sessions with. Use **Regenerate** to issue a new one; the previous token stops working after a few seconds for every build that still carries it. |
+| **Server Endpoint** | The full URL, ending in `/services/`, that your app must pass to `setServerEndpoint` before starting a session. It is set per deployment, so it differs between regions and private instances; copy it exactly. If it reads **Not configured**, contact Sauce Labs support before shipping a build. |
 | **Setup snippets** | Code snippets for adding the SDK to your app. |
 | **Crash and feedback emails** | Toggles that control whether crash and feedback emails are sent. |
 | **Monthly session quota** | The number of SDK sessions included each month. |

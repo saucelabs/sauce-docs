@@ -102,36 +102,38 @@ Adding these lines will mark this session with the values above, so when you rev
 - `setAttribute` may be called many times.
 - You may call `setAttribute` before or after `beginWithoutCrashHandler` (or `begin`). Attributes set before the session starts are kept by the SDK and applied to every session it starts, including the new session created after `stop()` and resume.
 - Limits: 64 attributes per session, keys of up to 64 characters, and values of up to 1000 characters on iOS and 1024 characters on Android. On Android and iOS, `setAttribute` returns a boolean and returns `false` when the attribute is rejected, for example when the limit is exceeded.
+- Three of the keys that the SDK manages for Backtrace coexistence (`sauce.correlation_id`, `sauce.mobile_beta.session_started`, and `sauce.mobile_beta.session_url`) are reserved. `setAttribute` ignores them with a warning. See [SDK-Managed Attributes](#sdk-managed-attributes).
 
 :::
 
-## Reserved Attributes for Backtrace Coexistence
+## SDK-Managed Attributes
 
-When you run the SDK together with Backtrace (Sauce Labs Error Reporting), a small set of attributes is shared by both SDKs so that a crash report in Backtrace and the session recording in Sauce Labs Mobile App Distribution can be joined. Treat these keys as reserved: set them with `setAttribute` before `beginWithoutCrashHandler`, send the same values to Backtrace, and do not reuse the keys for anything else.
+When the SDK runs together with Backtrace (Sauce Labs Error Reporting), a set of attributes links a crash report in Backtrace to the session recording in Sauce Labs Mobile App Distribution. The SDK sets most of them itself: it generates a new `sauce.correlation_id` at every session start, attaches it to the session, and writes the full set to Backtrace itself (through `BacktraceClient.shared` on iOS, the client passed to `setBacktraceClient` on Android, and `BacktraceClient.instance` in React Native). Two attributes stay with your app.
 
-| Attribute | Meaning |
-|---|---|
-| `sauce.correlation_id` | One lowercase UUID v4 generated per app launch before either SDK starts. It is the join key between a Backtrace report and its session. |
-| `sauce.sdk.coexistence_mode` | Always `backtrace_crash_owner`: Backtrace owns crash reporting and the SDK does not install a crash handler. |
-| `sauce.environment` | Deployment environment of the build, for example `beta` or `production`. |
-| `sauce.release` | Release identifier in the form `<appId>@<version>` (application or bundle ID and marketing version). |
-| `sauce.dist` | Build number (`versionCode` on Android, `CFBundleVersion` on iOS). |
-| `mad.distribution_id` | The Mobile App Distribution distribution ID. Set it only when your build is distributed through it. |
+| Attribute | Set by | Value |
+|---|---|---|
+| `sauce.correlation_id` | The SDK, at every session start. Attached to the session and sent to Backtrace. | Lowercase UUID v4, new for every session. It is the join key between a Backtrace report and its session. |
+| `sauce.sdk.coexistence_mode` | The SDK. Attached to the session and sent to Backtrace. | Always `backtrace_crash_owner`: Backtrace owns crash reporting and the SDK does not install a crash handler. |
+| `sauce.mobile_beta.session_started` | The SDK. Sent to Backtrace only. | `"false"` at session start, `"true"` once Sauce Labs accepts the session, `"false"` if the start fails. |
+| `sauce.mobile_beta.session_url` | The SDK. Sent to Backtrace only. | Empty at session start, then the URL of the session recording. |
+| `sauce.release` | The SDK. Sent to Backtrace only. | Release identifier in the form `<appId>@<version>` (application or bundle ID and marketing version). |
+| `sauce.dist` | The SDK. Sent to Backtrace only. | Build number (`versionCode` on Android, `CFBundleVersion` on iOS). |
+| `sauce.environment` | Your app, with `setAttribute` and in the Backtrace attributes. | Deployment environment of the build, for example `beta` or `production`. |
+| `mad.distribution_id` | Your app, with `setAttribute` and in the Backtrace attributes. | The Mobile App Distribution distribution ID. Set it only when your build is distributed through it. |
+
+`sauce.correlation_id`, `sauce.mobile_beta.session_started`, and `sauce.mobile_beta.session_url` are reserved. `setAttribute` ignores them, logs a warning once per key, and returns `true` on iOS and Android, so the value the SDK generates for the session always wins. The 64-attribute limit counts your own keys only. To read the current id, call `sessionCorrelationId` (`getSessionCorrelationId` on Android and React Native), or implement the `onSessionCorrelationIdChanged` callback (`sessionCorrelationIdDidChange:` on iOS) of the session state listener.
 
 ```java
 // Android example; the keys and values are identical on iOS and React Native.
-String correlationId = UUID.randomUUID().toString(); // generated before either SDK starts
-
-TestFairy.setAttribute("sauce.correlation_id", correlationId);
-TestFairy.setAttribute("sauce.sdk.coexistence_mode", "backtrace_crash_owner");
+TestFairy.setBacktraceClient(backtrace);
 TestFairy.setAttribute("sauce.environment", "beta");
-TestFairy.setAttribute("sauce.release", BuildConfig.APPLICATION_ID + "@" + BuildConfig.VERSION_NAME);
-TestFairy.setAttribute("sauce.dist", String.valueOf(BuildConfig.VERSION_CODE));
+TestFairy.setServerEndpoint("<server-endpoint>");
 TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-token>");
+
+// Later, for example to tag your own analytics events with the session:
+String correlationId = TestFairy.getSessionCorrelationId();
 ```
 
-The reverse link is written on the Backtrace side only: on every session start, the app copies the session URL into the Backtrace attributes `sauce.mobile_beta.session_url` and `sauce.mobile_beta.session_started` (`"true"` or `"false"`) from a session state listener (`TestFairy.addSessionStateListener` on Android and React Native, `TestFairy.setSessionStateDelegate` on iOS). A launch can produce several sessions (`stop()` followed by resume), so overwrite these values on every start. Never set them once.
+Do not use the deprecated `setCorrelationId` or `identify` for `sauce.correlation_id`: they write the user-identity field, not an attribute. Keep `setUserId` for the real user. See [Identifying Your Users](/app-distribution/sdk/identifying-users/).
 
-Do not use the deprecated `setCorrelationId` or `identify` for `sauce.correlation_id`: they write the user-identity field, not an attribute. Keep `setUserId` for the real user. See [Identifying Your Users](/app-distribution/sdk/identifying-users).
-
-In Backtrace, a custom attribute becomes filterable once it is indexed under Project Settings, Attributes (see [Backtrace attributes](/error-reporting/project-setup/attributes/)). Index `sauce.correlation_id` with the UUID format. In the Sauce Labs Mobile App Distribution dashboard, search the session list for the same value. The initialization order and complete examples for each platform are in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).
+In Backtrace, a custom attribute becomes filterable once it is indexed under Project Settings, Attributes (see [Backtrace attributes](/error-reporting/project-setup/attributes/)). Index `sauce.correlation_id` with the UUID format. In the Sauce Labs Mobile App Distribution dashboard, search the session list for the same value. The initialization order, how each platform links Backtrace, and complete examples are in [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/).

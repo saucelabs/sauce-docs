@@ -1,8 +1,8 @@
 ---
 id: private-cloud-int
-title: Private Cloud Integration
-sidebar_label: Private Cloud Integration
-description: Point the Sauce Mobile Beta SDK at your Mobile App Distribution Private Cloud endpoint.
+title: Server Endpoint
+sidebar_label: Server Endpoint
+description: Point the Sauce Mobile Beta SDK at your Mobile App Distribution server endpoint.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,11 +11,11 @@ import TabItem from '@theme/TabItem';
 
 <p><span className="sauceYellow">Beta release</span></p>
 
-If your organization runs Sauce Labs Mobile App Distribution on a [Private Cloud](/app-distribution/security/private-cloud), point the Sauce Mobile Beta SDK at your Private Cloud endpoint so that session data goes to your dedicated instance.
+Every Mobile App Distribution deployment has its own server endpoint: the public instances per region as well as [Private Cloud](/app-distribution/security/private-cloud) instances. The SDK's built-in default server is no longer in service, so every app must pass its endpoint to `setServerEndpoint` before `beginWithoutCrashHandler`; an app that skips this call starts no sessions.
 
 ## Setting Your Endpoint
 
-Once your private cloud is set up, get the URL endpoint your app will direct all of its data towards. This URL must be passed into the SDK before the `begin` method is called.
+Copy the **Server Endpoint** from **Organization Settings > SDK Settings** on your dashboard (see [Organization Settings](/app-distribution/settings/organization/#sdk-settings)). It has the form `https://<host>/services/` and must be passed to the SDK before `beginWithoutCrashHandler` is called. If it reads **Not configured**, contact Sauce Labs support.
 
 <Tabs
 groupId="sdk"
@@ -28,17 +28,17 @@ values={[
 
 <TabItem value="android">
 
-```js
-TestFairy.setServerEndpoint("<your-private-cloud-url>");
+```java
+TestFairy.setServerEndpoint("<server-endpoint>");
 ```
 
 Example
 
-```js
+```java
 // Be sure to import the SDK
 import com.testfairy.TestFairy;
 
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
+TestFairy.setServerEndpoint("https://<host>/services/");
 TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 ```
 
@@ -46,17 +46,17 @@ TestFairy.beginWithoutCrashHandler(context, "<sauce-mobile-beta-token>");
 
 <TabItem value="ios">
 
-```js
-[TestFairy setServerEndpoint:@"<your-private-cloud-url>"];
+```objectivec
+[TestFairy setServerEndpoint:@"<server-endpoint>"];
 ```
 
 Example
 
-```js
+```objectivec
 // Be sure to import the SDK
 #import "TestFairy.h"
 
-[TestFairy setServerEndpoint:@"my-subdomain.testfairy.com"];
+[TestFairy setServerEndpoint:@"https://<host>/services/"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 ```
 
@@ -65,7 +65,7 @@ Example
 <TabItem value="react">
 
 ```js
-TestFairy.setServerEndpoint("<your-private-cloud-url>");
+TestFairy.setServerEndpoint("<server-endpoint>");
 ```
 
 Example
@@ -74,7 +74,7 @@ Example
 // Be sure to import the SDK
 import TestFairy from '@saucelabs/mobile-beta-react-native';
 
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
+TestFairy.setServerEndpoint("https://<host>/services/");
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>");
 ```
 

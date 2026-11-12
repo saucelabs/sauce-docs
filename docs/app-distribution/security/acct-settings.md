@@ -46,6 +46,8 @@ For the full list, see the **Integrations** section, starting with [Sauce Labs C
 
 To ensure testers log in before downloading your app, enable **Require login before download** in the **Security** section of **Organization Settings**, then click **Update**.
 
+The same section has **Allow ad-hoc apps to be open beta**, which lets iOS apps signed with an ad-hoc or development certificate use open beta. See [Organization Settings](/app-distribution/settings/organization#security).
+
 <img src={useBaseUrl('/img/app-distribution/acct-settings/acct-settings-5.png')} alt="Security section with Require login before download" width="100%"/>
 
 ### SAML/Single Sign-On

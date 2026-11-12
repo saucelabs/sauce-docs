@@ -53,6 +53,7 @@ Example: `npx @saucelabs/visual build create -n "My Build Name"`
 - `--default-branch`: Main branch name to associate the build with. Usually `main` or `master`. Read more [here](https://docs.saucelabs.com/visual-testing/workflows/ci/)
 - `-p`, `--project`: Label/project to associate the build with.
 - `-c`, `--custom-id`: User-supplied custom ID to associate the build with. For advanced users.
+- `-t`, `--tag`: Tag to add to the build. Repeat the option to add more than one tag, such as `-t smoke -t nightly`.
 
 ### build finish
 

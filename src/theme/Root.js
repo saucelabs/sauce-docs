@@ -10,6 +10,12 @@ function Root({ children }) {
                     return <Segment />;
                 }}
             </BrowserOnly>
+            <BrowserOnly>
+                {() => {
+                    const SurveyPopup = require('./SurveyPopup').SurveyPopup;
+                    return <SurveyPopup />;
+                }}
+            </BrowserOnly>
             {children}
         </>
     );

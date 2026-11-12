@@ -140,6 +140,7 @@ Options:
 - `project`: Name of the project (default: `None`)
 - `branch`: Name of branch (default: `None`)
 - `defaultBranch`: Name of the main or default branch (default: `None`)
+- `tags`: Tags to add to the build, as an array of strings, such as `['smoke', 'nightly']` (default: `None`). Overrides the `SAUCE_VISUAL_TAGS` environment variable.
 
 They need to be set through the `saucelabs` attribute of `e2e` configuration.
 

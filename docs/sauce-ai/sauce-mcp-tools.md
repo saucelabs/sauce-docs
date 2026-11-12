@@ -12,7 +12,7 @@ Sauce MCP exposes Sauce Labs capabilities as MCP tools, grouped by capability ar
 Some tools need entitlements beyond a standard Sauce Labs account:
 
 - <span className="mcp-tag">Private Device</span> <span className="mcp-conn">and</span> <span className="mcp-tag">Real Device Access API</span> tools (creating sessions, taking screenshots, tapping, installing apps, running shell commands, capturing network traffic, and working with device files) need **private (dedicated) devices** and **Real Device Access API concurrency**.
-- <span className="mcp-tag">Test Authoring</span> tools (generating, managing, running, and scheduling test cases and suites) need **Sauce AI for Test Authoring**, a paid add-on for Enterprise accounts. See [Sauce AI for Test Authoring](/sauce-ai/ai-authoring).
+- <span className="mcp-tag">Test Authoring</span> tools (generating, managing, running, and scheduling test cases and suites, and managing variables) need **Sauce AI for Test Authoring**, a paid add-on for Enterprise accounts. See [Sauce AI for Test Authoring](/sauce-ai/ai-authoring).
 - <span className="mcp-tag">AI for Insights</span> tools (ask-insights for plain-language queries) tool(s) need **Sauce AI for Insights**, a paid add-on for Enterprise accounts. See [Sauce AI for Insights](/sauce-ai/ai-insights).
 - <span className="mcp-tag">Error Reporting</span> tools (listing projects, and finding and investigating crashes and errors) need **Error Reporting** access to the projects you query. See [Set Up Error Reporting MCP](/error-reporting/mcp/set-up-error-reporting-mcp).
 
@@ -219,7 +219,7 @@ Inspect Sauce Connect tunnels and the jobs running through them.
 
 ## Test Authoring
 
-The following tools are powered by [Sauce AI for Test Authoring](/sauce-ai/ai-authoring), a paid add-on for Enterprise accounts. They let your agent generate test cases from natural-language intent, manage and run them, organize them into suites, and schedule recurring runs, all without writing code. All tools in this section require the Test Authoring add-on.
+The following tools are powered by [Sauce AI for Test Authoring](/sauce-ai/ai-authoring), a paid add-on for Enterprise accounts. They let your agent generate test cases from natural-language intent, manage and run them, organize them into suites, schedule recurring runs, and manage the variables they use, all without writing code. All tools in this section require the Test Authoring add-on.
 
 ### Test Cases
 
@@ -230,6 +230,7 @@ Generate test cases from natural-language intent and manage your saved test case
 | `generate_test_case` | Generate a test case from a natural-language intent against a web URL or a mobile app in Sauce Storage. | "Generate a test case using the latest Chrome version on Linux that logs into saucedemo.com and adds an item to the cart." | <span className="mcp-tag">Test Authoring</span> |
 | `Get_test_case_generation_status` | Check the status of an asynchronous generation task and get the resulting test case ID when it completes. | "Is my test case done generating yet?" | <span className="mcp-tag">Test Authoring</span> |
 | `List_test_cases` | List and search your saved test cases, with filters for search term, date range, user, team, and suite. | "List my test cases that mention checkout." | <span className="mcp-tag">Test Authoring</span> |
+| `List_distinct_test_case_tags` | List every distinct tag in use across your organization's test cases. | "What tags are used on our test cases?" | <span className="mcp-tag">Test Authoring</span> |
 | `Get_a_test_case` | Retrieve the full details and steps of a single test case. | "Show me the steps in the login test case." | <span className="mcp-tag">Test Authoring</span> |
 | `Rename_a_test_case` | Rename an existing test case. | "Rename that test case to 'Checkout - happy path'." | <span className="mcp-tag">Test Authoring</span> |
 | `Delete_a_test_case` | Delete a test case. | "Delete the old smoke-test test case." | <span className="mcp-tag">Test Authoring</span> |
@@ -278,6 +279,37 @@ Schedule test suites to run automatically on a recurring cadence.
 | `Get_a_test_schedule` | Retrieve the details of a single schedule. | "Show the settings for my nightly schedule." | <span className="mcp-tag">Test Authoring</span> |
 | `Update_a_test_schedule` | Update a schedule: change its cadence, suites, run owner, or enable or pause it. | "Pause the nightly schedule." | <span className="mcp-tag">Test Authoring</span> |
 | `Delete_a_test_schedule` | Delete a schedule. | "Delete the nightly schedule." | <span className="mcp-tag">Test Authoring</span> |
+
+### Variables
+
+Manage [Data Variables](/sauce-ai/test-authoring/data-variables), the reusable values such as usernames, passwords, and URLs that your test cases reference. Every variable belongs to one of four scopes: `org`, `team`, `testSuite`, or `testCase`. Org variables are visible to every team in your organization. Variables in the other scopes are visible only to your own team.
+
+| Tool | Description | Example prompt | Requirements |
+| --- | --- | --- | --- |
+| `List_variables` | Return a paginated list of variables, with optional filters for scope and name. For secret variables, the value is left out. | "List our org-level variables." | <span className="mcp-tag">Test Authoring</span> |
+| `Get_a_single_variable` | Return a single variable by its ID. For a secret variable, the value is not returned. | "Show me the details of the login_url variable." | <span className="mcp-tag">Test Authoring</span> |
+| `Create_a_variable` | Create a variable in a scope, optionally marked as secret. A secret's value is stored separately and is never returned when you list or retrieve variables. | "Create a secret team variable called password." | <span className="mcp-tag">Test Authoring</span> |
+| `Update_a_variable` | Change a variable's name, value, description, or secret setting. Only the team that owns the variable can update it. | "Rotate the value of the password variable." | <span className="mcp-tag">Test Authoring</span> |
+| `Delete_a_variable` | Delete a variable. If the variable is secret, its stored value is deleted too. Only the team that owns the variable can delete it. | "Delete the old coupon_code variable." | <span className="mcp-tag">Test Authoring</span> |
+
+#### Variable Parameters
+
+| Parameter | Used by | Description |
+| --- | --- | --- |
+| `id` | Get, Update, Delete | The variable's UUID. Required. |
+| `scope` | List, Create | One of `org`, `team`, `testSuite`, or `testCase`. On create, the team comes from your login. |
+| `testSuiteId` | List, Create | Required when `scope` is `testSuite`. On create, leave it out for other scopes. |
+| `testCaseId` | List, Create | Required when `scope` is `testCase`. On create, leave it out for other scopes. |
+| `name` | Create, Update | 1 to 255 characters, using lowercase letters, digits, and underscores only (`^[a-z0-9_]+$`). |
+| `value` | Create, Update | Plain text, at least 1 character. On update, the value is optional. |
+| `isSecret` | Create, Update | Whether the value is secret. On update, you can switch it either way. If you don't supply a new value, the existing value is moved between normal and secret storage. |
+| `description` | Create, Update | Optional, up to 1000 characters. On update, an empty string clears it. |
+| `expectedLastUpdate` | Update, Delete | The `lastUpdate` value from the last time you retrieved the variable. If the variable has changed since then, the call fails with a `412` error. Required for delete. |
+| `search` | List | Case-insensitive match on the variable name, 1 to 100 characters. |
+| `limit` | List | Number of results to return, 1 to 200. |
+| `skip` | List | Number of results to skip, for paging. Default is `0`. |
+
+On update, any field you leave out stays as it is.
 
 ## Error Reporting
 

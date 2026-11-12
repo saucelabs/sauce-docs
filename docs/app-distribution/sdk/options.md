@@ -45,7 +45,7 @@ TestFairy.disableVideo();
 TestFairy.enableVideo("<policy>", "<quality>", <frames per second>);
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on `policy` and `quality` values.
+Refer to the Javadoc shipped with the Android package for more information on `policy` and `quality` values.
 
 ### Code Example
 
@@ -60,12 +60,13 @@ public class MyApplication extends Application {
  super.onCreate();
 
  TestFairy.enableVideo("wifi", "high", 2.0f);
+ TestFairy.setServerEndpoint("<server-endpoint>");
  TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
  }
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 ## Recorded Metrics
 
@@ -84,7 +85,7 @@ TestFairy.enableMetric("<metric>");
 TestFairy.disableMetric("<metric>");
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on which metric can be passed.
+Refer to the Javadoc shipped with the Android package for more information on which metric can be passed.
 
 ### Code Example
 
@@ -100,12 +101,13 @@ public class MyApplication extends Application {
 
  TestFairy.enableMetric("cpu");
  TestFairy.disableMetric("memory");
+ TestFairy.setServerEndpoint("<server-endpoint>");
  TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
  }
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 ## Max Session Length
 
@@ -132,12 +134,13 @@ public class MyApplication extends Application {
  super.onCreate();
 
  TestFairy.setMaxSessionLength(10 * 60); // Record for 10 minutes
+ TestFairy.setServerEndpoint("<server-endpoint>");
  TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
  }
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 ## Feedback Form
 
@@ -150,7 +153,7 @@ TestFairy.disableFeedbackForm();
 TestFairy.enableFeedbackForm("<method>");
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on values for `method`.
+Refer to the Javadoc shipped with the Android package for more information on values for `method`.
 
 ### Code Example
 
@@ -165,12 +168,13 @@ public class MyApplication extends Application {
  super.onCreate();
 
  TestFairy.enableFeedbackForm("shake");
+ TestFairy.setServerEndpoint("<server-endpoint>");
  TestFairy.beginWithoutCrashHandler(this, "<sauce-mobile-beta-token>");
  }
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 </TabItem>
 
@@ -187,7 +191,7 @@ The Sauce Mobile Beta SDK provides an option to enable or disable video recordin
 [TestFairy enableVideo:@"<policy>" quality:@"<quality>" framesPerSecond:<frames per second>];
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on `policy` and `quality` values.
+Refer to the header documentation shipped with the iOS package for more information on `policy` and `quality` values.
 
 ### Code Example
 
@@ -198,11 +202,12 @@ In the following example, the video will only be recorded when wifi is available
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
  [TestFairy enableVideo:@"wifi" quality:@"high" framesPerSecond:2.0];
+ [TestFairy setServerEndpoint:@"<server-endpoint>"];
  [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 ## Recorded Metrics
 
@@ -221,7 +226,7 @@ Any metric that is enabled or disabled will override the settings set in your ap
 [TestFairy disableMetric:@"<metric>"];
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on which metric can be passed.
+Refer to the header documentation shipped with the iOS package for more information on which metric can be passed.
 
 ### Code Example
 
@@ -233,12 +238,13 @@ In the following snippet, the CPU metric will be recorded, and the Memory metric
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
  [TestFairy enableMetric:@"cpu"];
  [TestFairy disableMetric:@"memory"];
+ [TestFairy setServerEndpoint:@"<server-endpoint>"];
  [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
  // ...
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 ## Max Session Length
 
@@ -261,11 +267,12 @@ The value passed into this method must be less than or equal to the value define
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
  [TestFairy setMaxSessionLength:(10 * 60)]; // Record for 10 minutes
+ [TestFairy setServerEndpoint:@"<server-endpoint>"];
  [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 ## Feedback Form
 
@@ -278,7 +285,7 @@ The Sauce Mobile Beta SDK provides an option to enable or disable feedback colle
 [TestFairy enableFeedbackForm:@"<method>"];
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on values for `method`.
+Refer to the header documentation shipped with the iOS package for more information on values for `method`.
 
 ### Code Example
 
@@ -289,11 +296,12 @@ In the following example, feedback will be enabled when the device is shaken.
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
  [TestFairy enableFeedbackForm:@"shake|screenshot"];
+ [TestFairy setServerEndpoint:@"<server-endpoint>"];
  [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 }
 ```
 
-Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
+Your app token and server endpoint are in **Organization Settings > SDK Settings** on your dashboard; see [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
 
 </TabItem>
 </Tabs>

@@ -12,12 +12,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceYellow">Beta release</span></p>
 
 :::info Beta release
-The Sauce Mobile Beta SDK is in beta. The current release candidates are 2.2.0-rc2 for iOS and Android and 3.0.0-rc for React Native.
-
-- Final: the artifact names and the API.
-- Can still change before general availability: the version numbers, the iOS package URL, and this documentation.
-
-Share feedback with your Sauce Labs representative.
+The Sauce Mobile Beta SDK is in beta. The artifact names and the API are final; this documentation can still change. Share feedback with your Sauce Labs representative.
 :::
 
 The Sauce Mobile Beta SDK helps you understand how testers use your app. It records tester sessions, collects in-app feedback and remote logs, and ties every session to a user and a set of attributes, so you can find and inspect sessions on the Sauce Labs Mobile App Distribution dashboard.
@@ -39,6 +34,13 @@ The SDK and Backtrace (Sauce Labs Error Reporting) cover two different parts of 
 
 Start the SDK with `beginWithoutCrashHandler`. It starts a session and never installs a crash handler, and it forces the `enableCrashReporter` option (`TFSDKEnableCrashReporterKey` on iOS) to `false` even if you pass `true`. `begin` also starts a session without a crash handler.
 
+The snippets below use two values, `<sauce-mobile-beta-token>` and `<server-endpoint>`. Both values are in **Organization Settings > SDK Settings** on your Mobile App Distribution dashboard, under the organization that owns the app. Only Account Owners and Org Admins can open that page. See [Organization Settings](/app-distribution/settings/organization/#sdk-settings).
+
+- **SDK App Token**: the organization-wide token your app starts sessions with. Regenerating it invalidates the previous token for every build that still carries it.
+- **Server Endpoint**: the URL the SDK sends session data to, in the form `https://<host>/services/`. It is specific to your region or private instance, so copy it exactly. If it reads **Not configured**, contact Sauce Labs support before you ship a build.
+
+Pass the endpoint to `setServerEndpoint` before `beginWithoutCrashHandler`. The SDK's built-in default server is no longer in service: an app that skips this call starts no sessions.
+
 <Tabs
 groupId="sdk"
 defaultValue="android"
@@ -53,6 +55,7 @@ values={[
 ```java
 import com.testfairy.TestFairy;
 
+TestFairy.setServerEndpoint("<server-endpoint>");
 TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-token>");
 ```
 
@@ -63,6 +66,7 @@ TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-
 ```swift
 import TestFairy
 
+TestFairy.setServerEndpoint("<server-endpoint>")
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 ```
 
@@ -73,6 +77,7 @@ TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 ```js
 import TestFairy from '@saucelabs/mobile-beta-react-native';
 
+TestFairy.setServerEndpoint('<server-endpoint>');
 TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
 ```
 
@@ -83,7 +88,7 @@ TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
 Where to go next:
 
 - To set up crash reporting, see [Getting Started with Backtrace](/error-reporting/getting-started/).
-- To run both SDKs in one app, initialize Backtrace first, then start the SDK with `beginWithoutCrashHandler`, and give both SDKs the same `sauce.correlation_id` attribute so you can join a crash report with its session recording. See [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence).
+- To run both SDKs in one app, initialize Backtrace first, then start the SDK with `beginWithoutCrashHandler` (on Android, pass the Backtrace client to `setBacktraceClient` first). The SDK gives every session a `sauce.correlation_id` and writes it to Backtrace, so you can join a crash report with its session recording. See [Using Sauce Mobile Beta with Backtrace](/app-distribution/sdk/backtrace-coexistence/).
 - To verify the setup end to end by forcing a crash, see [Testing Crash Reporting with Backtrace](/app-distribution/sdk/crash-handler-testing).
 
 ## Supported Platforms

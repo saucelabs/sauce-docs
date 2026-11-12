@@ -107,7 +107,7 @@ You have requested too many tests to run at the same time.
 
 **Cause(s)**
 
-Each Sauce Labs account has a maximum number of tests it's allowed to have open at the same time. We refer to this as your concurrency. You can see your concurrency limit on your Sauce Labs. Sauce Labs will not run additional tests once you've reached your concurrency limit.
+Each Sauce Labs account has a maximum number of tests it's allowed to have open at the same time. We refer to this as your concurrency. You can see the concurrency available to you on the [User Settings](https://app.saucelabs.com/user-settings) page. If your team has its own limit, it can be lower than your organization's. Sauce Labs will not start additional tests once you've reached your concurrency limit. On real devices, additional tests [wait for a free concurrency slot](/basics/acct-team-mgmt/concurrency/managing-concurrency#real-devices).
 
 **How to Resolve**
 
@@ -371,6 +371,24 @@ Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static
 It might be that you are targeting the wrong data center. You can change your endpoint with one of the following [urls](/basics/data-center-endpoints/).
 
 ## Mobile App Testing Only
+
+### The Timeout for Retrying Was Reached
+
+**Description**
+
+The full message starts with "We could not execute your test because the timeout for retrying was reached."
+
+An Espresso or XCUITest test on real devices waited for a free concurrency slot until the retry timeout was reached. The job has the status **Errored**, shows no device, and its duration is the time it spent waiting.
+
+**Cause(s)**
+
+Your organization or team was running as many public real device tests as its concurrency limit allows for the whole time the test waited. Waiting tests are not started in the order you submitted them, so tests you submitted later may have started in the meantime. See [When You Reach Your Limit](/basics/acct-team-mgmt/concurrency/managing-concurrency#real-devices).
+
+**How to Resolve**
+
+- Start fewer tests at the same time. With `saucectl`, set [`concurrency`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#concurrency) to no more than your real device concurrency, so that `saucectl` holds the excess suites and starts them in order.
+- Check your limits on the [User Settings](https://app.saucelabs.com/user-settings) page. If your team has its own limit, it can be lower than your organization's.
+- [Upgrade your account](https://saucelabs.com/pricing) to run more tests at the same time.
 
 ### Failed to Download Mobile Application
 

@@ -148,6 +148,7 @@ Options:
 - `project`: Name of the project
 - `branch`: Name of the branch, used for matching
 - `defaultBranch`: Name of the default branch, used for matching
+- `tags`: Tags to add to the build, as an array of strings, such as `['smoke', 'nightly']`. Overrides the `SAUCE_VISUAL_TAGS` environment variable.
 
 They need to be set through the `options` parameter.
 

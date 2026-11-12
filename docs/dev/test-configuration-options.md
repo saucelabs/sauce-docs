@@ -1300,6 +1300,24 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `disablePlayStore`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+
+Disables the Google Play Store for the duration of your test by setting it to `true`, then enables it again before the device is handed to the next session.
+
+Use this when Play Store activity interferes with your test, such as a Google Play services update closing your app after a language change. Leave it enabled if your test needs Google Play billing or in-app updates.
+
+```java title="Real Device Setting"
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("disablePlayStore", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `tabletOnly`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
@@ -1679,13 +1697,13 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | INTEGER | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Specify the amount of automatic retries that Sauce Labs will execute to find and assign an available device before the test will fail. The default value is 1 and the max is 3.
+Specify the number of automatic retries that Sauce Labs makes to find and assign an available device before the test will fail. The default value is 3 and the max is 10.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-// Set it to 5 minutes (5*60*1000=300000)
+// Retry up to 2 times
 sauceOptions.setCapability("sessionCreationRetry", 2);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```

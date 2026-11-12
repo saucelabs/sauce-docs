@@ -105,7 +105,7 @@ Paginated responses include a `pagination` object. The list key matches the reso
 | <M>GET</M> | `/api/v3/projects/{projectId}/builds` | List builds for an app (paginated) |
 | <M>GET</M> | `/api/v3/builds/{id}` | Get a build |
 | <M>POST</M> | `/api/v3/builds/upload` | Upload a new build (multipart/form-data) |
-| <M>PUT</M> | `/api/v3/builds/{id}` | Update release notes and tags |
+| <M>PUT</M> | `/api/v3/builds/{id}` | Update release notes, tags, and the app's landing page visibility and URL alias |
 | <M>GET</M> | `/api/v3/builds/{id}/download` | Get pre-signed download URL. If storage isn't configured, returns the install-page URL instead. |
 | <M>DELETE</M> | `/api/v3/builds/{id}` | Delete a build (admin) |
 | <M>POST</M> | `/api/v3/builds/{id}/copy` | Duplicate a build within the same app (references the same file) |
@@ -122,10 +122,11 @@ Paginated responses include a `pagination` object. The list key matches the reso
 | `project_id` | See note | — | ID of the app to upload to. When set, `team_id` is ignored |
 | `team_id` | See note | — | ID of the team to upload to. Required unless `project_id` is given. The build goes to that team's existing app for the package name, or a new app is created there |
 | `folder` | No | None | Folder name. Scopes the package-name lookup and is applied to an auto-created app |
-| `groups` | No | Unchanged | Comma-separated tester group names or IDs to grant the app to. Replaces existing grants; omit to leave grants unchanged, or send `none` to remove all grants. Names that don't resolve are returned in `invalid_groups` and never revoke anything. Does not send email on its own (see `notify`). |
+| `groups` | No | Unchanged | Comma-separated tester group names or IDs to grant every build of the app to. Replaces existing app-level grants; omit to leave grants unchanged, or send `none` to remove all app-level grants. Build-level grants from `build_groups` are not affected. Names that don't resolve are returned in `invalid_groups`. If none resolve, grants are left unchanged; if some do, only those are applied, so a misspelled group loses its access. Does not send email on its own (see `notify`). |
+| `build_groups` | No | Unchanged | Comma-separated tester group names or IDs to grant access to this build only. Adds to existing grants; a group not listed keeps its access, and omitting the parameter changes nothing. A group that already has app-level access is still granted this build, so it keeps the build if that app-level grant is later removed. Send `none` (case-insensitive, as the only value) to remove this build's own grants; app-level grants from `groups` stay. Names that don't resolve are returned in `invalid_build_groups`. Independent of `groups` and `notify`. Ignored for multi-app zip uploads. Replaces legacy `testers_groups`, `testers-groups` and `invitation_groups` |
 | `landing_page_mode` | No | Unchanged | Landing page visibility: `open` or `closed` |
 | `landing_page_slug` | No | Unchanged | URL alias for the app's landing page. 6-63 characters: letters, digits, dot, hyphen, or underscore, not starting or ending with a separator. Returns `409` if the alias is already used by another app |
-| `notify` | No | `off` | Set to `on` to email the app's tester groups about the new build. Granting groups does not notify them on its own. Ignored for builds that can't be installed (for example, generic files) |
+| `notify` | No | `off` | Set to `on` (or `1`) to email the app's tester groups about the new build. Granting groups does not notify them on its own. Ignored for builds that can't be installed (for example, generic files) |
 | `release_notes` | No | None | Release notes for the build |
 | `symbols_file` | No | None | Debug symbols to attach (iOS dSYM or Android mapping file). Best-effort: an invalid symbols file never fails the upload. |
 | `sync_to_saucelabs` | No | `off` | Set to `on` to also copy the build to Sauce Labs App Storage. Requires a Sauce Labs connection on the organization |
@@ -133,6 +134,10 @@ Paginated responses include a `pagination` object. The list key matches the reso
 | `version_code` | No | Detected from the file | Override the version code |
 
 Provide either `project_id` or `team_id`.
+
+:::note
+iOS apps signed with an ad-hoc or development certificate are closed beta unless your organization turns on **Allow ad-hoc apps to be open beta** in [Organization Settings](/app-distribution/settings/organization#security). Without that setting, `landing_page_mode=open` is ignored for these apps, and the upload still succeeds. A landing page that an upload creates for such an app starts closed; send `landing_page_mode=open` to open it after the setting is on. If **Require login before download** is on, every app is closed beta, whatever `landing_page_mode` says.
+:::
 
 ```bash
 curl -X POST https://your-org.testfairy.com/api/v3/builds/upload \
@@ -145,6 +150,26 @@ curl -X POST https://your-org.testfairy.com/api/v3/builds/upload \
 :::note
 The API does not fetch builds from a URL. Download the file first (for example from your own S3 bucket), then send its contents as the `file` part.
 :::
+
+#### Update Parameters
+
+`PUT /api/v3/builds/{id}` takes a JSON body. Omitted fields are left unchanged. Testers can't update builds (`403`).
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `release_notes` | string | Release notes for the build |
+| `tags` | array of strings | Replaces the build's tags |
+| `landing_page_mode` | string | Landing page visibility for the build's app: `open` or `closed`. Any other value returns `400` |
+| `landing_page_slug` | string | URL alias for the app's landing page, same rules as on upload. Also accepted as `community_token`. Returns `400` if invalid, `409` if another app already uses it |
+
+```bash
+curl -X PUT https://your-org.testfairy.com/api/v3/builds/$BUILD_ID \
+  -H "X-API-Key: $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"release_notes": "Bug fixes", "landing_page_mode": "closed"}'
+```
+
+`landing_page_mode` and `landing_page_slug` change the whole app, not just this build. The ad-hoc rules in the upload note above apply to this endpoint too: without **Allow ad-hoc apps to be open beta**, `open` is ignored for ad-hoc apps and the request still succeeds.
 
 ### Teams
 
