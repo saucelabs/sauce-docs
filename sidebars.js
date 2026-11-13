@@ -219,6 +219,18 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Debug Errors',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/web-console/debug',
+                        'error-reporting/debug-errors/error-status-lifecycle',
+                        'error-reporting/debug-errors/error-tracking-categorization',
+                        'error-reporting/debug-errors/find-broken-line-of-code',
+                        'error-reporting/debug-errors/inspect-crash-details',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'MCP',
                     collapsed: true,
                     items: [
@@ -246,7 +258,6 @@ module.exports = {
                         'error-reporting/web-console/getting-started',
                         'error-reporting/web-console/overview',
                         'error-reporting/web-console/flame-graphs',
-                        'error-reporting/web-console/debug',
                     ],
                 },
                 {
