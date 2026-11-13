@@ -240,6 +240,19 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Error Processing',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/attributes',
+                        'error-reporting/project-setup/object-reprocessing',
+                        'error-reporting/project-setup/submission-actions',
+                        'error-reporting/project-setup/deduplication',
+                        'error-reporting/project-setup/deduplication-rules',
+                        'error-reporting/security-compliance/privacy-control',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
@@ -317,18 +330,6 @@ module.exports = {
                     items: [
                         {
                             type: 'category',
-                            label: 'Error Processing',
-                            collapsed: true,
-                            items: [
-                                'error-reporting/project-setup/attributes',
-                                'error-reporting/project-setup/deduplication',
-                                'error-reporting/project-setup/deduplication-rules',
-                                'error-reporting/project-setup/submission-actions',
-                                'error-reporting/project-setup/object-reprocessing',
-                            ],
-                        },
-                        {
-                            type: 'category',
                             label: 'Workflow',
                             collapsed: true,
                             items: [
@@ -373,7 +374,6 @@ module.exports = {
                     items: [
                         'error-reporting/security-compliance/audit-logs',
                         'error-reporting/security-compliance/common-questions',
-                        'error-reporting/security-compliance/privacy-control',
                     ],
                 },
                 {
