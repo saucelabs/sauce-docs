@@ -98,8 +98,20 @@ assigned limit, even when the organization has capacity available.
 ### Real Devices
 
 If your organization tries to run more public real device tests than your subscription allows, the extra tests wait
-until a concurrency slot becomes available. A device request waits up to 15 minutes by default, and you can raise
-this to 30 minutes in your [Test Configuration Options](/dev/test-configuration-options).
+until a concurrency slot becomes available. How long a test waits depends on the framework:
+
+- **Appium**: a device request waits up to 15 minutes by default, and you can raise this to 30 minutes with
+  [`sessionCreationTimeout`](/dev/test-configuration-options#sessioncreationtimeout).
+- **Espresso and XCUITest**: a waiting test checks for a free slot again at intervals of up to a few minutes, so it
+  can start a few minutes after a slot frees up. A test that is still waiting when the retry timeout is reached ends
+  with the status **Errored**. See
+  [The Timeout for Retrying Was Reached](/dev/error-messages/#the-timeout-for-retrying-was-reached).
+
+Waiting real device tests are not started in the order you submitted them. Each waiting test checks for a free slot
+on its own schedule, so a newly submitted test can start before one that has waited longer. To start Espresso and
+XCUITest suites in order, set the `saucectl`
+[`concurrency`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#concurrency) to no more than your real
+device concurrency: `saucectl` then holds the excess suites and starts them in order as earlier suites complete.
 
 For example, if your public real device concurrency is 5 and you start 10 tests, 5 run immediately and the other 5
 wait until earlier tests finish.
