@@ -7,7 +7,9 @@ title: sc run
 
 Usage: `sc run --username <username> --access-key <UUID> --region <data center> --tunnel-name <value> [flags]`
 
-Run Sauce Connect Proxy
+Start a tunnel.
+
+Option precedence (highest first): command flags, environment variables, config file, default values.
 
 **Note:** You can also specify the options as YAML, JSON or TOML file using `--config-file` flag.
 You can generate a config file by running `sc run config-file` command.
@@ -29,7 +31,7 @@ For additional security, we recommend setting this as an environment variable.
 * Value Format: `<data center>`
 
 Sauce Labs region name, ex.
-us-west, us-east, eu-central, or asia-south.
+us-west, us-east, eu-central or asia-south.
 More details [here](/basics/data-center-endpoints).
 
 ### `-i, --tunnel-name` {#tunnel-name}
@@ -206,7 +208,6 @@ Example:
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```
 
-
 ### `--debug-address` {#debug-address}
 
 * Environment variable: `SAUCE_DEBUG_ADDRESS`
@@ -284,13 +285,14 @@ Establish a tunnel through an upstream proxy.
 Proxy for requests to Sauce Labs REST API and Sauce Connect servers only.
 See the -x, --proxy flag for more details on the format.
 
-### --proxy-sauce-enable-kerberos-auth {#proxy-sauce-enable-kerberos-auth}
+### `--proxy-sauce-enable-kerberos-auth` {#proxy-sauce-enable-kerberos-auth}
 
 * Environment variable: `SAUCE_PROXY_SAUCE_ENABLE_KERBEROS_AUTH`
-* Value Format: `<value>` (you can use empty command line switch to enable)
-* Default Value: `false`
+* Value Format: `<value>`
+* Default value: `false`
 
-Authenticate to proxy specified in `--proxy-sauce` using Kerberos. Kerberos authentication must be enabled and configured for `sc`.
+Authenticate to proxy server defined in --proxy-sauce using Kerberos.
+Requires Kerberos authentication to be configured for sc client.
 
 ## DNS
 
@@ -372,6 +374,14 @@ For instance, TCP timeouts are often around 3 minutes.
 
 The maximum amount of time an idle (keep-alive) connection will remain idle before closing itself.
 Zero means no limit.
+
+### `--http-max-conns-per-host` {#http-max-conns-per-host}
+
+* Environment variable: `SAUCE_HTTP_MAX_CONNS_PER_HOST`
+* Value Format: `<int>`
+* Default value: `0`
+
+The maximum number of connections active for given host:port pair.
 
 ### `--http-response-header-timeout` {#http-response-header-timeout}
 
@@ -475,24 +485,78 @@ The following example specifies that the API module logs errors, the proxy modul
 
 Log level.
 
-## Time-based access control
+## Kerberos
 
-Impose time restrictions on connection tunneling operations. User can configure day of week + hour ranges when traffic tunneling over Sauce Connect client is allowed.
-Outside specified time ranges, all HTTP/HTTPS requests over tunnel will be denied using a HTTP 451 error code.
+### `--kerberos-auth-upstream-proxy` {#kerberos-auth-upstream-proxy}
 
-All hour ranges are specified in local time zone specific for the machine running forwarder. Hours are specified using 24h format.
+* Environment variable: `SAUCE_KERBEROS_AUTH_UPSTREAM_PROXY`
+* Value Format: `<value>`
+* Default value: `false`
 
-If there is no time frame specified - no time-based access control will be enforced.
+Authenticate to upstream proxy using Kerberos (with Proxy-Authorization header)
 
-Limitations: 
+### `--kerberos-cfg-file` {#kerberos-cfg-file}
 
-* Access control is enforced only on newly opened connections. Long lasting sessions opened during allowed time-frame will NOT be forcibly closed if allowed time frame ends.
-* Connections for domains matching `--direct-domains` setting will not be affected as those do not pass through Sauce Connect client tunnel on a given machine.
+* Environment variable: `SAUCE_KERBEROS_CFG_FILE`
+* Value Format: `<string>`
+
+Path to krb5.conf file with kerberos configuration
+
+### `--kerberos-enabled-hosts` {#kerberos-enabled-hosts}
+
+* Environment variable: `SAUCE_KERBEROS_ENABLED_HOSTS`
+* Value Format: `<string>,...`
+
+List of hosts for which send Kerberos auth headers (SPNEGO)
+
+### `--kerberos-keytab-file` {#kerberos-keytab-file}
+
+* Environment variable: `SAUCE_KERBEROS_KEYTAB_FILE`
+* Value Format: `<string>`
+
+Path to kerberos keytab file
+
+### `--kerberos-run-diagnostics` {#kerberos-run-diagnostics}
+
+* Environment variable: `SAUCE_KERBEROS_RUN_DIAGNOSTICS`
+* Value Format: `<value>`
+* Default value: `false`
+
+Run basic Kerberos config/connection diagnostics and exit forwarder process.
+
+### `--kerberos-user-name` {#kerberos-user-name}
+
+* Environment variable: `SAUCE_KERBEROS_USER_NAME`
+* Value Format: `<string>`
+
+Path to kerberos user name (principal name)
+
+### `--kerberos-user-realm` {#kerberos-user-realm}
+
+* Environment variable: `SAUCE_KERBEROS_USER_REALM`
+* Value Format: `<string>`
+
+Path to kerberos user realm (principal realm)
+
+## Other
 
 ### `--allow-time-frame` {#allow-time-frame}
 
 * Environment variable: `SAUCE_ALLOW_TIME_FRAME`
-* Value Format: `{day-of-week}/{hour_start}-{hour_end},...`
+* Value Format: `<timeframe-spec>,...`
+
+Allow tunnel traffic only within particular time frames.
+
+## Time-based access control
+
+Impose time restrictions on connection tunneling operations with [`--allow-time-frame`](#allow-time-frame). User can configure day of week + hour ranges when traffic tunneling over Sauce Connect client is allowed.
+Outside specified time ranges, all HTTP/HTTPS requests over tunnel will be denied using a HTTP 451 error code.
+
+All hour ranges are specified in local time zone specific for the machine running `sc`. Hours are specified using 24h format.
+
+If there is no time frame specified - no time-based access control will be enforced.
+
+Value format: `{day-of-week}/{hour_start}-{hour_end},...`
 
 Examples of value format:
 
@@ -500,6 +564,10 @@ Examples of value format:
 * allow tunneling on Tuesdays and Fridays between 18:00 and 23:59:59: `tue/18-24,fri/18-24`
 * allow tunneling on Mondays between 00:00 and 23:59:59: `mon/00-24`
 
+Limitations:
+
+* Access control is enforced only on newly opened connections. Long lasting sessions opened during allowed time-frame will NOT be forcibly closed if allowed time frame ends.
+* Connections for domains matching [`--direct-domains`](#direct-domains) setting will not be affected as those do not pass through Sauce Connect client tunnel on a given machine.
 
 ## Kerberos authentication
 
@@ -507,17 +575,17 @@ Examples of value format:
 
 Sauce Connect 5 supports Kerberos authentication for both upstream proxy and tested applications.
 
-The `sc` client process connects to your Kerberos KDC server, authenticates as the configured account ("principal name") and retrieves relevant Kerberos service tickets. Kerberos connection and authentication are local only to your `sc` client - Sauce Labs servers do not participate in it. 
+The `sc` client process connects to your Kerberos KDC server, authenticates as the configured account ("principal name") and retrieves relevant Kerberos service tickets. Kerberos connection and authentication are local only to your `sc` client - Sauce Labs servers do not participate in it.
 
 It is also fully transparent to your tests as `sc` injects relevant HTTP headers with Kerberos authentication tokens automatically for all needed requests forwarded through the tunnel.
 
 Supported modes:
 
-* Kerberos authentication to the upstream proxy defined in `--proxy-sauce` - using `Proxy-Authorization` HTTP header
-* Kerberos authentication to the upstream proxy defined in `--proxy` - using `Proxy-Authorization` HTTP header
-* Kerberos authentication to tested web applications by injecting `Authorization` header to forwarded HTTP requests
+* Kerberos authentication to the upstream proxy defined in [`--proxy-sauce`](#proxy-sauce) - using `Proxy-Authorization` HTTP header, see [`--proxy-sauce-enable-kerberos-auth`](#proxy-sauce-enable-kerberos-auth)
+* Kerberos authentication to the upstream proxy defined in [`--proxy`](#proxy) - using `Proxy-Authorization` HTTP header, see [`--kerberos-auth-upstream-proxy`](#kerberos-auth-upstream-proxy)
+* Kerberos authentication to tested web applications by injecting `Authorization` header to forwarded HTTP requests, see [`--kerberos-enabled-hosts`](#kerberos-enabled-hosts)
 
-It is possible to have combination of settings - for example when both upstream proxy and tested application require Kerberos authentication
+It is possible to have combination of settings - for example when both upstream proxy and tested application require Kerberos authentication.
 
 Sauce Connect 5 generates SPNEGO tokens from relevant Kerberos tickets to pass in HTTP headers which is the most popular and standardized way of handling Kerberos HTTP authentication.
 
@@ -527,72 +595,18 @@ Current implementation uses HTTP request host (or configured proxy hostname) as 
 
 To use Kerberos authentication mechanism, you must have both a `krb5.conf` file, which points to proper realms and Kerberos servers and keytab file accessible to `sc` client. Those are standardized format files used in most Kerberos related software suites and are not specific to Sauce Connect 5 client.
 
-### --kerberos-cfg-file {#kerberos-cfg-file}
+### Configuration
 
-* Environment variable: `SAUCE_KERBEROS_CFG_FILE`
-* Value Format: `<path>`
+* [`--kerberos-cfg-file`](#kerberos-cfg-file) - path to `krb5.conf` configuration file with Kerberos connection settings. File format reference: https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html
+* [`--kerberos-keytab-file`](#kerberos-keytab-file) - path to keytab file holding credentials to an account as which `sc` authenticates to a Kerberos KDC server. Keytab files are in binary format and can be created and managed for example using `ktutil` tool distributed with MIT Kerberos software: https://web.mit.edu/kerberos/krb5-latest/doc/admin/admin_commands/ktutil.html#ktutil-1
+* [`--kerberos-user-name`](#kerberos-user-name) - name of the account username (principal name using Kerberos nomenclature) as which `sc` will authenticate to a Kerberos KDC server. User and its password (hashed) must be present in keytab file specified in `--kerberos-keytab-file`.
+* [`--kerberos-user-realm`](#kerberos-user-realm) - Kerberos realm of the user specified in `--kerberos-user-name`. It depends on Kerberos settings in organisation but in most cases it's the company domain name.
+* [`--kerberos-enabled-hosts`](#kerberos-enabled-hosts) - list of hosts for which Kerberos (SPNEGO) authorization tokens will be injected as `Authorization` header. If a forwarded HTTP request already has such header (or header is added by `sc` by means of other settings, like custom headers or credentials) - this header value will be overwritten by SPNEGO token. This host list does not support wildcards.
+* [`--kerberos-auth-upstream-proxy`](#kerberos-auth-upstream-proxy) - authenticate to a configured upstream proxy with Kerberos (using `Proxy-Authorization` HTTP header). If `sc` configuration results in multiple proxies available (like PAC for example), `sc` will try to authenticate with Kerberos to each one of them. To enable Kerberos authentication for the proxy server specified in `--proxy-sauce`, see [`--proxy-sauce-enable-kerberos-auth`](#proxy-sauce-enable-kerberos-auth).
 
-Path to krb5.conf configuration file with kerberos connection settings. 
-File format reference:
+### Diagnostics
 
-https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html
-
-
-### --kerberos-keytab-file {#kerberos-cfg-file}
-
-* Environment variable: `SAUCE_KERBEROS_KEYTAB_FILE`
-* Value Format: `<path>`
-
-Path to keytab file holding credentials to an account as which `sc` authenticates to a Kerberos KDC server.
-
-Keytab files are in binary format and can be created and managed for example using `ktutil` tool distributed with MIT Kerberos software:
-https://web.mit.edu/kerberos/krb5-latest/doc/admin/admin_commands/ktutil.html#ktutil-1
-
-
-### --kerberos-user-name {#kerberos-user-name}
-
-* Environment variable: `SAUCE_KERBEROS_USER_NAME`
-* Value Format: `<username>`
-
-Name of the account username (principal name using Kerberos nomenclature) as which `sc` will authenticate to a Kerberos KDC server. User and its password (hashed) must be present in keytab file specified in `--kerberos-keytab-file`
-
-### --kerberos-user-realm {#kerberos-user-realm}
-
-* Environment variable: `SAUCE_KERBEROS_USER_REALM`
-* Value Format: `<domain name>`
-
-Kerberos realm of the user specified in `--kerberos-user-name`. It depends on Kerberos settings in organisation but in most cases it's the company domain name.
-
-
-### --kerberos-enabled-hosts {#kerberos-enabled-hosts}
-
-* Environment variable: `SAUCE_KERBEROS_ENABLED_HOSTS`
-* Value Format: `host1,host2,host3....`
-
-List of hosts for which Kerberos (SPNEGO) authorization tokens will be injected as `Authorization` header. If a forwarded HTTP request already has such header (or header is added by `sc` by means of other settings, like custom headers or credentials) - this header value will be overwritten by SPNEGO token.
-
-Please note that this host list does not support wildcards.
-
-
-### --kerberos-auth-upstream-proxy {#kerberos-auth-upstream-proxy}
-
-* Environment variable: `SAUCE_KERBEROS_AUTH_UPSTREAM_PROXY`
-* Value Format: `<value>` (you can use empty command-line switch to enable)
-* Default Value: `false`
-
-Authenticate to a configured upstream proxy with Kerberos (using `Proxy-Authorization` HTTP header). Please note that if `sc` configuration results in multiple proxies available (like PAC for example), `sc` will try to authenticate with Kerberos to each one of them.
-
-To enable Kerberos authentication for `--proxy-sauce` specified proxy server, see:  [--proxy-sauce-enable-kerberos-auth](#proxy-sauce-enable-kerberos-auth)
-
-
-### --kerberos-run-diagnostics {#kerberos-run-diagnostics}
-
-* Environment variable: `SAUCE_KERBEROS_RUN_DIAGNOSTICS`
-* Value Format: `<value>` (you can use empty commant switch to enable)
-* Default Value: `false`
-
-
-Running `sc` with `--kerberos-run-diagnostics` switch will run basic Kerberos diagnostics and exit the process.
+Running `sc` with [`--kerberos-run-diagnostics`](#kerberos-run-diagnostics) switch will run basic Kerberos diagnostics and exit the process.
 
 Diagnostics will print debugging information about Kerberos connection or known configuration errors - for example an error when there are discrepancies between supported encryption types and keytab entry:
 
@@ -619,13 +633,11 @@ Diagnostics printout will allow you to match enctype number to string:
 	  17,
 	  23
 	],
-
 ```
 
 (17 is aes128-cts-hmac-sha1-96, etc)
 
-Often having only one enctype in user configuration will work but can break at any time if hosts decide to negotiate something different than usual. For simplification you can restrict supported encryption types to 1-2 entries in krb5.conf file. The enctypes listed in diagnostics mode are sorted from most secure to least secure so in most cases first 1-2 positions are good enough to choose from and check if KDC server supports them. When in doubt - contact your Active Directory or Kerberos administrator.
-
+Often having only one enctype in user configuration will work but can break at any time if hosts decide to negotiate something different than usual. For simplification you can restrict supported encryption types to 1-2 entries in `krb5.conf` file. The enctypes listed in diagnostics mode are sorted from most secure to least secure so in most cases first 1-2 positions are good enough to choose from and check if KDC server supports them. When in doubt - contact your Active Directory or Kerberos administrator.
 
 ## Formatting Domains
 
@@ -634,11 +646,11 @@ Here are some guidelines to follow when formatting domain regular expressions:
 - Use only the domain name. Do not precede it with `http:` or `https:`.
 	- Example: `mydomain\.com`
 - Make sure your comma-separated list of domains doesn't include any spaces.
-	- Example, `mydomain\.com,saucelabs\.com,mysite\.com`
+	- Example, `mydomain\.com,saucelabs.com,mysite\.com`
 - Domains flags can be repeated multiple times
 	- Example, `--direct-domains mydomain\.com,saucelabs\.com --direct-domains mysite\.com`
 - Prefix domain names with `.*` to match all its subdomains.
-	- Example: You could refer to `docs\.saucelabs\.com` and `my\.saucelabs\.com` as `.*\.saucelabs\.com`.
+	- Example: You could refer to `docs\.saucelabs\.com` and `my\.saucelabs\.com` as `.*saucelabs\.com`.
 - Escape special characters, such as `.` to ensure they are not parsed
 	- Not escaping dot character doesn't result in error, dot matches every single character except a newline. For example, `example.com` will match `example.com` and also `examplescom`, while `example\.com` will match `example.com` only.
 

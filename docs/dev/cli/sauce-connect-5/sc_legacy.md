@@ -7,7 +7,7 @@ title: sc legacy
 
 Usage: `sc legacy [flags]`
 
-Run Sauce Connect Proxy in compatibility mode with Sauce Connect 4.9.X
+Start a tunnel in Sauce Connect 4.9 compatibility mode
 
 **Note:** You can also specify the options as YAML, JSON or TOML file using `--config-file` flag.
 You can generate a config file by running `sc legacy config-file` command.
