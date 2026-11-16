@@ -1,7 +1,7 @@
 ---
 id: submission-actions
-title: Configure Actions for Incoming Crashes
-sidebar_label: Configure Actions for Incoming Crashes
+title: Submission Actions
+sidebar_label: Submission Actions
 description: Use submission actions to have Error Reporting reject, sample, assign, or tag incoming errors based on rules you define.
 ---
 

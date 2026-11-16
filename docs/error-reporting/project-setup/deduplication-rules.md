@@ -158,7 +158,26 @@ Before you rely on a ruleset, test it against an error that is already in Error 
 
 **Step 3:** Enter the instance ID in the **Ruleset testing** field, and then click **Test**.
 
-<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-16.webp')} alt="Ruleset Testing field with an instance ID and the test result" />
+When you click **Test**, Error Reporting runs the ruleset against the callstack of that error and shows the result as JSON below the field. Your existing errors and fingerprints don't change.
+
+<img src={useBaseUrl('img/error-reporting/error-processing/deduplication/deduplication-rules-16.png')} alt="Ruleset testing field with an instance ID and the JSON test result" />
+
+The result includes the following fields:
+
+| Field | Description |
+| --- | --- |
+| `response` | `ok` when the ruleset was evaluated against the error. |
+| `signature` | The fingerprint that the ruleset generates for the error. Compare it with the current fingerprint of the error to check whether the ruleset changes how the error is grouped. |
+| `action` | The result of the evaluation, for example, `VALID`. |
+| `eval_latency` | How long the evaluation took, in microseconds (`us`). |
+| `log` | The ruleset that was evaluated, followed by each frame of the callstack and what happened to it. A frame is either added to the signature, with the number of rules it matched (for example, `added; 0 rules matched`), or skipped, with the reason (for example, `skip reason: previous frame matches`). |
+| `callstack` | The frames that the fingerprint is generated from. |
+
+Use the result to check your rules:
+
+- **The rules work as expected** when the frames that identify the error are added and the boilerplate frames are skipped.
+- **The rules need adjusting** when frames that identify the error are skipped, or when a rule you expected to match shows `0 rules matched`. Edit the ruleset, save it, and test again.
+- If the rules skip every frame, the log ends with `Empty rule-based signature callstack, falling back to object names`. The fingerprint is then generated from object names instead of the frames you expected, so adjust the rules to keep the frames that identify the error.
 
 ## Splitting and Merging Overlapping Errors
 
@@ -168,5 +187,5 @@ When grouping doesn't match your application, the same bug may be split across s
 - **To merge errors that are split apart**, add a rule that ignores or skips the frames that differ between them, so the errors get the same fingerprint. To combine existing fingerprints without changing your rules, merge them in the **Triage** view. See [Merge or Unmerge Fingerprints](/error-reporting/triage/other-action/#merge-or-unmerge-fingerprints).
 
 :::note
-New rules apply to errors submitted after you save them. To regroup errors that were submitted earlier, reprocess them. See [Reprocess Past Crashes for New Attributes](/error-reporting/project-setup/object-reprocessing/).
+New rules apply to errors submitted after you save them. To regroup errors that were submitted earlier, reprocess them. See [Object Reprocessing](/error-reporting/project-setup/object-reprocessing/).
 :::

@@ -1,7 +1,7 @@
 ---
 id: object-reprocessing
-title: Reprocess Past Crashes for New Attributes
-sidebar_label: Reprocess Past Crashes for New Attributes
+title: Object Reprocessing
+sidebar_label: Object Reprocessing
 description: Reprocess the error objects stored in Error Reporting to index new attributes or regenerate callstacks after you upload debug symbols.
 ---
 
@@ -58,7 +58,7 @@ Retention policies may limit which objects are reprocessed.
 
 ## Reprocess by Fingerprint
 
-A fingerprint is the primary fault signature that Error Reporting uses to group errors. All errors with the same fingerprint are grouped together, so reprocessing a fingerprint reprocesses every error in that group at once.
+A fingerprint is the [primary fault signature](/error-reporting/project-setup/deduplication-rules/#introduction-to-error-grouping--fingerprints) that Error Reporting uses to group errors. All errors with the same fingerprint are grouped together, so reprocessing a fingerprint reprocesses every error in that group at once.
 
 Reprocess by fingerprint when a change affects one error group but not the rest of your project, for example, after you upload the debug symbols that a crash was missing. Only the errors in that fingerprint are reprocessed, and the other errors in your project stay unchanged.
 
