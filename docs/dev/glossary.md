@@ -103,7 +103,7 @@ See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel name](#tunnel-na
 
 ### Concurrency Limit
 
-The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user and service accounts in your organization. Concurrency limits vary according to pricing plan. After you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
+The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user and service accounts in your organization. Concurrency limits vary according to pricing plan. On Enterprise plans, organization admins can also set limits for each team, including platform limits for Mac / iOS (x86), Mac / iOS (ARM), and Android (ARM). After you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 
 ### Continuous Deployment (CD)
 

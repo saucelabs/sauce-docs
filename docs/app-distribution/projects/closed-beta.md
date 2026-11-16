@@ -13,13 +13,13 @@ Closed beta limits app access to authorized users. Use closed beta when you want
 
 The access behavior depends on the app platform:
 
-- **iOS ad-hoc and development builds** are always distributed as closed beta. You cannot change the visibility to open beta.
+- **iOS ad-hoc and development builds** are closed beta by default, and the **Visibility** option is locked. An Org Admin can allow open beta for them with **Allow ad-hoc apps to be open beta** in [Organization Settings](/app-distribution/settings/organization#security). Even then, only devices listed in the build's provisioning profile can install it.
 - **iOS enterprise and App Store builds**, and **Android apps**, can use either **Open Beta** or **Closed Beta**. You can configure this through the **Visibility** setting on the app's **Landing Page Settings** page (**Landing Page** ▸ **Edit**).
 
 When an app is configured as closed beta, users must be authorized to access and install the app.
 
 :::note
-If **Require login before download** is turned on in [Organization Settings](/app-distribution/settings/organization), every app is closed beta and the **Visibility** option is locked.
+If **Require login before download** is turned on in [Organization Settings](/app-distribution/settings/organization), every app is closed beta and the **Visibility** option is locked. This overrules **Allow ad-hoc apps to be open beta**.
 :::
 
 ## Access Rules

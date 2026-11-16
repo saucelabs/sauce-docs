@@ -60,7 +60,7 @@ Below is the current mapping of the default Chrome browser version installed on 
 Sauce Labs offers **ARM-based Android emulators** in the Virtual Device Cloud. These emulators run on native ARM hardware — no instruction translation and no x86-bridge ABI overhead — producing an Android environment that is architecturally closer to the ARM devices your end users run.
 
 :::note Availability
-ARM-based Android emulators are available to Enterprise customers with the required subscription and Android ARM concurrency allocated to their account. If you don't have access, contact your account manager to discuss upgrading.
+ARM-based Android emulators are available to Enterprise customers with the required subscription and [Android (ARM) concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency#concurrency-types) allocated to their account. If you don't have access, contact your account manager to discuss upgrading.
 
 Capacity above a certain threshold and scale will require advance reservation and purchase commitment. If you have questions about access or concurrency for your account, contact your account manager or Sauce Labs support.
 :::

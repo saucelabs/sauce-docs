@@ -312,6 +312,15 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Scheduled Reports',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/scheduled-reports',
+                        'error-reporting/project-setup/manage-scheduled-reports',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Project Settings',
                     collapsed: true,
                     items: [
@@ -333,7 +342,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'error-reporting/project-setup/connections',
-                                'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
                                 'error-reporting/project-setup/metric-export',
@@ -529,6 +537,22 @@ module.exports = {
                                         'dev/cli/saucectl/artifacts/download',
                                         'dev/cli/saucectl/artifacts/list',
                                         'dev/cli/saucectl/artifacts/upload',
+                                    ],
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'saucectl authoring',
+                                    collapsed: true,
+                                    link: {
+                                        type: 'doc',
+                                        id: 'dev/cli/saucectl/authoring/authoring',
+                                    },
+                                    items: [
+                                        'dev/cli/saucectl/authoring/testcases',
+                                        'dev/cli/saucectl/authoring/testsuites',
+                                        'dev/cli/saucectl/authoring/schedules',
+                                        'dev/cli/saucectl/authoring/variables',
+                                        'dev/cli/saucectl/authoring/download-artifact',
                                     ],
                                 },
                                 'dev/cli/saucectl/completion',

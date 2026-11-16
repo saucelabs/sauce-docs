@@ -168,6 +168,8 @@ Sets the maximum number of suites to execute at the same time. If the test defin
 Set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
 :::
 
+On real devices, suites started beyond your concurrency limit [wait for a free slot](/basics/acct-team-mgmt/concurrency/managing-concurrency#real-devices) and are not started in the order you submitted them. Keep this value at or below your real device concurrency to have `saucectl` start the suites in order.
+
 ```yaml
 sauce:
   concurrency: 5

@@ -21,8 +21,8 @@ The Sauce Mobile Beta SDK does not install a crash handler. When you run it with
 
 ## What You'll Need
 
-- A working iOS app project with Backtrace initialized first and the Sauce Mobile Beta SDK started with `beginWithoutCrashHandler`.
-- The shared attributes, including `sauce.correlation_id`, set on both SDKs before either starts.
+- A working iOS app project with Backtrace initialized first and the Sauce Mobile Beta SDK started with `setServerEndpoint` followed by `beginWithoutCrashHandler`.
+- `BacktraceClient.shared` assigned before `beginWithoutCrashHandler`, so that the SDK writes `sauce.correlation_id` and the other attributes it manages to Backtrace at every session start.
 - A build running on a device or Simulator without the Xcode debugger attached, so the crash reaches Backtrace's crash reporter. See `allowsAttachingDebugger` in [Configuring Backtrace for iOS](/error-reporting/platform-integrations/ios/configuration/).
 - Basic knowledge of iOS development using either Objective-C or Swift.
 
@@ -103,12 +103,38 @@ class ViewController: UIViewController {
 
 </Tabs>
 
+## Crashing in a Second Session
+
+One launch can contain several sessions, and the SDK gives each one its own `sauce.correlation_id`. To confirm that a crash is matched to the session that was running, stop the session and start a new one before you crash:
+
+```objectivec
+NSString *first = [TestFairy sessionCorrelationId];
+[TestFairy stop];
+[TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"]; // second session, new id; the endpoint set before the first session still applies
+NSString *second = [TestFairy sessionCorrelationId];
+NSLog(@"first %@, second %@", first, second);
+[TestFairy crash];
+```
+
+Swift
+
+```swift
+let first = TestFairy.sessionCorrelationId()
+TestFairy.stop()
+TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>") // second session, new id; the endpoint set before the first session still applies
+let second = TestFairy.sessionCorrelationId()
+print("first \(first ?? "nil"), second \(second ?? "nil")")
+TestFairy.crash()
+```
+
+The two logged values differ. The Backtrace report carries the second value and the URL of the second session. Searching the first value in the session list returns the first recording, which ends at `stop()` and not at the crash.
+
 ## Expected Result
 
 1. The app terminates immediately. Backtrace's crash reporter writes the report to disk, and the Sauce Mobile Beta session ends at the crash.
 2. Relaunch the app. Backtrace uploads the pending crash report while it initializes, and the Sauce Mobile Beta SDK starts a new session.
-3. In Backtrace, open the new error. Its attributes carry the `sauce.correlation_id` value your app generated for the crashed launch, `sauce.sdk.coexistence_mode` set to `backtrace_crash_owner`, and, when your app mirrors it, `sauce.mobile_beta.session_url` pointing at the session recording.
-4. In Sauce Labs Mobile App Distribution, search the session list for the same `sauce.correlation_id` value to open the recording that ends at the crash.
+3. In Backtrace, open the new error. Its attributes carry the `sauce.correlation_id` the SDK generated for the session that was running at the crash, `sauce.mobile_beta.session_url` pointing at that session's recording, `sauce.mobile_beta.session_started` set to `"true"`, `sauce.sdk.coexistence_mode` set to `backtrace_crash_owner`, and `sauce.release` and `sauce.dist` for the build.
+4. In Sauce Labs Mobile App Distribution, search the session list for the same `sauce.correlation_id` value. Exactly one session matches: the recording that ends at the crash. If you crashed in a second session, the first session's id still leads to the first recording, which ends when you stopped it.
 
 The crash report appears in Backtrace only. The Sauce Labs Mobile App Distribution dashboard shows the session recording that ends at the crash.
 

@@ -43,6 +43,7 @@ values={[
 
 ```java
 TestFairy.disableAutoUpdate();
+TestFairy.setServerEndpoint("<server-endpoint>");
 TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-token>");
 ```
 
@@ -52,6 +53,7 @@ TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-
 
 ```objectivec
 [TestFairy disableAutoUpdate];
+[TestFairy setServerEndpoint:@"<server-endpoint>"];
 [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
 ```
 
@@ -59,6 +61,7 @@ Swift
 
 ```swift
 TestFairy.disableAutoUpdate()
+TestFairy.setServerEndpoint("<server-endpoint>")
 TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 ```
 
@@ -68,6 +71,7 @@ TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
 
 ```js
 TestFairy.disableAutoUpdate();
+TestFairy.setServerEndpoint('<server-endpoint>');
 TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
 ```
 
@@ -120,6 +124,7 @@ TestFairy.addSessionStateListener(new SessionStateListener() {
         Log.i("MyApp", "The tester declined the update");
     }
 });
+TestFairy.setServerEndpoint("<server-endpoint>");
 TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-token>");
 ```
 
@@ -137,6 +142,7 @@ TestFairy.beginWithoutCrashHandler(getApplicationContext(), "<sauce-mobile-beta-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [TestFairy setSessionStateDelegate:self];
+    [TestFairy setServerEndpoint:@"<server-endpoint>"];
     [TestFairy beginWithoutCrashHandler:@"<sauce-mobile-beta-token>"];
     return YES;
 }
@@ -161,6 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TestFairySessionStateDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         TestFairy.setSessionStateDelegate(self)
+        TestFairy.setServerEndpoint("<server-endpoint>")
         TestFairy.beginWithoutCrashHandler("<sauce-mobile-beta-token>")
         return true
     }
@@ -187,6 +194,7 @@ const subscription = TestFairy.addSessionStateListener({
   onAutoUpdateDismissed: () => console.log('The tester declined the update'),
   onAutoUpdateDownloadFailed: () => console.log('The prompt could not be shown'),
 });
+TestFairy.setServerEndpoint('<server-endpoint>');
 TestFairy.beginWithoutCrashHandler('<sauce-mobile-beta-token>');
 
 // Later, to stop receiving the events:
