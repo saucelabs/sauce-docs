@@ -303,6 +303,15 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Scheduled Reports',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/scheduled-reports',
+                        'error-reporting/project-setup/manage-scheduled-reports',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Project Settings',
                     collapsed: true,
                     items: [
@@ -325,7 +334,6 @@ module.exports = {
                             items: [
                                 'error-reporting/project-setup/alerts',
                                 'error-reporting/project-setup/connections',
-                                'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
                                 'error-reporting/project-setup/metric-export',
