@@ -772,6 +772,7 @@ module.exports = {
                                 'basics/integrations/appdome',
                                 'basics/integrations/testrail',
                                 'basics/integrations/jira',
+                                'basics/integrations/slack',
                                 'basics/integrations/webhooks',
                             ],
                         },

@@ -1,7 +1,7 @@
 ---
 id: jira
-title: Jira
-sidebar_label: Jira
+title: Jira (Beta)
+sidebar_label: Jira (Beta)
 description: Connect Sauce Labs to Jira Cloud to create Jira tickets from your test results, with the test context and attachments included.
 ---
 
