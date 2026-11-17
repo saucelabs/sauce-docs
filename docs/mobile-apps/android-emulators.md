@@ -5,6 +5,8 @@ sidebar_label: Android Emulators
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Sauce Labs offers a wide range of Android Emulators on our Virtual Device Cloud, providing a stable and high-performance environment for your automated and live testing needs. Our emulators are built to align closely with the latest official Google Developer tools, ensuring parity with the Android Virtual Devices (AVDs) available in [Android Studio](https://developer.android.com/studio).
 
@@ -15,7 +17,7 @@ Our selection of Android Emulators corresponds to the most popular AVDs publishe
 
 Android 12 virtual devices on Sauce Labs are built with API level 32 (also known as Android 12L)
 
-Sauce Labs also offers ARM-native Android emulators for Enterprise customers with the required subscription. See [ARM-Based Android Emulators](#arm-based-android-emulators).
+Sauce Labs also offers ARM-native Android emulators for Enterprise customers with the required subscription, including ARM versions of the Android 14–17 device options listed in the Platform Configurator. See [ARM-Based Android Emulators](#arm-based-android-emulators).
 
 ### Android 15, 16, and 17 with 16KB Page Size Support
 
@@ -74,6 +76,89 @@ App and Android test APKs must include the `arm64-v8a` ABI to run on ARM emulato
 :::caution Long-running tests
 We don't recommend tests that run longer than 60 minutes on ARM emulators. The ARM Cloud is maintained on a regular cadence, and a session still running when maintenance begins can be interrupted before your test finishes. For the session length limits that apply to all virtual devices, see [`maxDuration`](/dev/test-configuration-options/#maxduration).
 :::
+
+### Automated Testing on ARM
+
+You can run automated tests on ARM emulators in two ways. Both are available to accounts with ARM access, and
+you can use them side by side in the same test suite.
+
+| Option | Device names | How to select ARM |
+| :----- | :----------- | :---------------- |
+| Dedicated ARM devices | `Google ARM Medium Phone Emulator`<br/>`Google ARM Small Phone Emulator`<br/>`Google ARM Medium Tablet Emulator` | Set `appium:deviceName` to one of these names. `armRequired` isn't needed. |
+| ARM versions of existing device options | Android 14–17 device options in the [Platform Configurator](https://saucelabs.com/products/platform-configurator), for example `Google Pixel 9 Pro XL Emulator` | Keep your existing `appium:deviceName` and add `armRequired: true` to `sauce:options`. |
+
+#### Dedicated ARM Devices
+
+The `Google ARM` device names always run on ARM, so you don't need to pass `armRequired`. They're available on
+Android 14, 15, 16, and 17.
+
+#### Run Existing Device Options on ARM with `armRequired`
+
+In addition to the dedicated ARM devices, you can run the device options you already use on x86 emulators, such
+as Google Pixel phones and tablets, on ARM. Keep the same `appium:deviceName` and `appium:platformVersion`, and
+add `armRequired: true` to `sauce:options`. This works the same way as `armRequired` for
+[iOS Simulators on Apple Silicon](/mobile-apps/virtual-apple-silicon). Without `armRequired`, the same device
+option continues to run on an x86 emulator.
+
+<Tabs groupId="lang-ex">
+  <TabItem value="java" label="Java" default>
+
+```java title="Run a Pixel device option on ARM"
+UiAutomator2Options options = new UiAutomator2Options();
+options.setPlatformName("Android");
+options.setPlatformVersion("16");
+options.setDeviceName("Google Pixel 9 Pro XL Emulator");
+options.setApp("storage:filename=my-app.apk");
+
+Map<String, Object> sauceOptions = new HashMap<>();
+sauceOptions.put("armRequired", true);
+options.setCapability("sauce:options", sauceOptions);
+```
+
+  </TabItem>
+  <TabItem value="js" label="Node.js">
+
+```javascript title="Run a Pixel device option on ARM"
+const capabilities = {
+  platformName: 'Android',
+  'appium:platformVersion': '16',
+  'appium:deviceName': 'Google Pixel 9 Pro XL Emulator',
+  'appium:automationName': 'UiAutomator2',
+  'appium:app': 'storage:filename=my-app.apk',
+  'sauce:options': {
+    armRequired: true,
+  },
+};
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python title="Run a Pixel device option on ARM"
+from appium.options.android import UiAutomator2Options
+
+options = UiAutomator2Options()
+options.platform_name = "Android"
+options.platform_version = "16"
+options.device_name = "Google Pixel 9 Pro XL Emulator"
+options.app = "storage:filename=my-app.apk"
+options.set_capability("sauce:options", {"armRequired": True})
+```
+
+  </TabItem>
+</Tabs>
+
+:::caution Pass `armRequired` inside `sauce:options`
+`armRequired` must be set inside `sauce:options`. If you pass it as `appium:armRequired`, the test still starts,
+but it runs on an x86 emulator and no error is returned.
+:::
+
+Support for ARM versions of existing device options has the following limits:
+
+- **Android 14, 15, 16, and 17 only.** Device options on Android 13 and earlier run on x86 emulators only.
+- **Not every device option is supported yet.** The `Google Pixel 10 Pro Fold ps16k Emulator` isn't yet
+  available on ARM. Run it without `armRequired` to test on x86.
+- **Automated testing only.** In Live Testing, use the **Google ARM Emulator**. See [Live Testing](#live-testing).
 
 ### Live Testing
 
