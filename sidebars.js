@@ -1739,6 +1739,7 @@ module.exports = {
                         'espresso',
                         'figma',
                         'pdf',
+                        'xcuitest',
                     ]
                         .sort()
                         .map((el) => `visual-testing/integrations/${el}`),
