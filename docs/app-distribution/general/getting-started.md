@@ -80,7 +80,7 @@ Testers open the link on their device and install the app.
 See [Landing Pages](/app-distribution/projects/landing-pages) and [Installing Apps](/app-distribution/general/installing-apps).
 
 :::note
-Choose **Closed Beta** visibility to require testers to sign in before installing. iOS ad-hoc and development builds are always closed beta. See [Closed Beta](/app-distribution/projects/closed-beta).
+Choose **Closed Beta** visibility to require testers to sign in before installing. iOS ad-hoc and development builds are closed beta unless an Org Admin turns on **Allow ad-hoc apps to be open beta** in [Organization Settings](/app-distribution/settings/organization#security). See [Closed Beta](/app-distribution/projects/closed-beta).
 :::
 
 ## Role Hierarchy

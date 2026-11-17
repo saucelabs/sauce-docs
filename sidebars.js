@@ -316,6 +316,15 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Scheduled Reports',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/scheduled-reports',
+                        'error-reporting/project-setup/manage-scheduled-reports',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Project Settings',
                     collapsed: true,
                     items: [
@@ -326,7 +335,6 @@ module.exports = {
                             items: [
                                 'error-reporting/project-setup/alerts',
                                 'error-reporting/project-setup/connections',
-                                'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
                                 'error-reporting/project-setup/metric-export',
@@ -457,6 +465,7 @@ module.exports = {
                 'dev/api/storage', // Storage
                 'dev/api/test-authoring', // Test Authoring
                 'dev/api/usage', // Usage Analytics
+                'dev/api/visual', // Visual
             ],
         },
         {
@@ -520,6 +529,22 @@ module.exports = {
                                         'dev/cli/saucectl/artifacts/download',
                                         'dev/cli/saucectl/artifacts/list',
                                         'dev/cli/saucectl/artifacts/upload',
+                                    ],
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'saucectl authoring',
+                                    collapsed: true,
+                                    link: {
+                                        type: 'doc',
+                                        id: 'dev/cli/saucectl/authoring/authoring',
+                                    },
+                                    items: [
+                                        'dev/cli/saucectl/authoring/testcases',
+                                        'dev/cli/saucectl/authoring/testsuites',
+                                        'dev/cli/saucectl/authoring/schedules',
+                                        'dev/cli/saucectl/authoring/variables',
+                                        'dev/cli/saucectl/authoring/download-artifact',
                                     ],
                                 },
                                 'dev/cli/saucectl/completion',
@@ -620,6 +645,7 @@ module.exports = {
                             items: [
                                 'basics/community-frameworks',
                                 'basics/community-frameworks/maestro',
+                                'basics/community-frameworks/mobilewright',
                                 'basics/community-frameworks/vibium',
                             ],
                         },
@@ -799,6 +825,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/localhost-proxying',
                                 'secure-connections/sauce-connect-5/guides/proxies',
                                 'secure-connections/sauce-connect-5/guides/tls-resigning',
+                                'secure-connections/sauce-connect-5/guides/grpc',
                                 'secure-connections/sauce-connect-5/guides/inspecting',
                                 'secure-connections/sauce-connect-5/guides/ci-cd-integration',
                                 'secure-connections/sauce-connect-5/guides/sharing-tunnel',
@@ -1314,6 +1341,11 @@ module.exports = {
                             type: 'link',
                             label: 'Maestro (Community)',
                             href: '/basics/community-frameworks/maestro',
+                        },
+                        {
+                            type: 'link',
+                            label: 'Mobilewright (Community)',
+                            href: '/basics/community-frameworks/mobilewright',
                         },
                         'mobile-apps/automated-testing/ipa-files',
                         'mobile-apps/automated-testing/app-files',

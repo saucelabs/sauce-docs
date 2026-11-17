@@ -263,6 +263,7 @@ Available methods:
 - `withProject(String project)`: Sets the name of the project
 - `withBranch(String branch)`: Sets the name of the branch
 - `withDefaultBranch(String defaultBranch)`: Sets the name of the default branch
+- `withTags(String... tags)` or `withTags(List<String> tags)`: Sets the tags to add to the build. Overrides the `SAUCE_VISUAL_TAGS` environment variable.
 
 Example:
 

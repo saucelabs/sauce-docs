@@ -17,7 +17,7 @@ You can install an app on your device using the install link or landing page sha
 4. The app will appear on your home screen. You may need to trust the developer certificate before opening it.
 
 :::caution iOS Note
-iOS ad-hoc and development builds always require you to log in before installing. Enterprise and App Store builds follow the app's landing-page **Visibility** setting (Open Beta or Closed Beta). Make sure you have an account and are assigned to the app, either directly, through a tester group, or through a build invite.
+iOS ad-hoc and development builds require you to log in before installing, unless your organization allows open beta for them. Enterprise and App Store builds follow the app's landing-page **Visibility** setting (Open Beta or Closed Beta). Ad-hoc and development builds install only on devices listed in their provisioning profile. Make sure you have an account and are assigned to the app, either directly, through a tester group, or through a build invite.
 :::
 
 <img src={useBaseUrl('/img/app-distribution/installing-apps/installing-app-1.png')} alt="Installing App" width="300"/>

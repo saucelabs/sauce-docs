@@ -228,6 +228,7 @@ Options:
 - `project`: Name of the project, used for matching
 - `branch`: Name of the branch, used for matching
 - `defaultBranch`: Name of the default branch, used for matching
+- `tags`: Tags to add to the build, as an array of strings, such as `['smoke', 'nightly']`. Overrides the `SAUCE_VISUAL_TAGS` environment variable.
 - `captureDom`: Enable DOM capture globally, can also be enabled on a per-screenshot basis
 
 ```ts

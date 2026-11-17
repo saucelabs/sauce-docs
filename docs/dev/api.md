@@ -44,19 +44,130 @@ The Sauce Labs API uses API keys to authenticate requests. You can view and mana
 
 Alternatively, you can use the username and access key of a [service account](/basics/acct-team-mgmt/managing-service-accounts) to authenticate API requests. Service account credentials are generated during [account creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
-Authentication is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). PRovide your username as the basic username and your API key as the password. All requests must use HTTPS. Calls made over HTTP or without proper authentication will fail.
+You can send these credentials in two ways:
 
-You can provide your authentication credentials as inline parameters of your request or using a Basic Header.
+- **Basic Auth:** send your username and access key with every request.
+- **Access token:** exchange your username and access key for a short-lived token.
 
-```bash title="Inline Authenticated Request Example"
+All requests must use HTTPS. Calls made over HTTP or without proper authentication will fail.
+
+#### Basic Auth
+
+Authentication is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username as the basic username and your API key as the password.
+
+```bash title="Basic Auth Request Example"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams'
 ```
 
-```bash title="Header Authenticated Request Example"
-curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/' \
--u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY
+#### Access Tokens
+
+An access token is a short-lived credential. You send it in an `Authorization: Bearer` header. A token can do everything that the access key it came from can do.
+
+Use access tokens when your network removes Basic Auth headers. They also keep your access key out of every request.
+
+#### Get an Access Token
+
+Send a `POST` request to the `/auth/oauth2/token` endpoint of your data center, with `grant_type=client_credentials`. Send your username and access key in one of two ways:
+
+- **In the form body**, as `client_id` and `client_secret`. Use this when your network removes Basic Auth headers.
+- **In a Basic Auth header.** Most OAuth client libraries do this by default.
+
+Don't use both in the same request.
+
+```bash title="Token Request Example (Form Body)"
+curl -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
+  -d grant_type=client_credentials \
+  -d client_id="$SAUCE_USERNAME" \
+  -d client_secret="$SAUCE_ACCESS_KEY"
 ```
+
+```bash title="Token Request Example (Basic Auth)"
+curl -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
+  -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+  -d grant_type=client_credentials
+```
+
+```json title="Token Response Example"
+{
+  "access_token": "eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJSUzI1NiIs...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+
+A few rules for the token request:
+
+- Send the fields as a form (`application/x-www-form-urlencoded`), not as JSON. A JSON body returns `400` with `"error": "invalid_request"`.
+- Never put your username or access key in the URL. Such a request is refused.
+- Don't send a `scope` parameter. A token always has the full access of its account, and a request with a scope returns `400` with `"error": "invalid_scope"`.
+
+A wrong username or access key returns `401` with `"error": "invalid_client"`.
+
+You can use the username and access key of a service account in the same way. A token works in every data center, not only in the one that issued it.
+
+#### Discovery
+
+OAuth 2.0 client libraries can read the token endpoint from the discovery document of your data center ([RFC 8414](https://www.rfc-editor.org/rfc/rfc8414)), so you don't need to configure the URL by hand.
+
+```bash title="Discovery Request Example"
+curl 'https://api.us-west-1.saucelabs.com/.well-known/oauth-authorization-server'
+```
+
+The document lists the token endpoint, the supported grant type (`client_credentials`), the supported client authentication methods (`client_secret_post`, `client_secret_basic`) and the location of the public signing keys (`/.well-known/jwks.json`).
+
+#### Use an Access Token
+
+This example gets a token and then calls the API with it. It uses [jq](https://jqlang.org/) to read the token from the response.
+
+```bash title="Bearer Authenticated Request Example"
+SAUCE_API_TOKEN=$(curl -s -X POST 'https://api.us-west-1.saucelabs.com/auth/oauth2/token' \
+  -d grant_type=client_credentials \
+  -d client_id="$SAUCE_USERNAME" \
+  -d client_secret="$SAUCE_ACCESS_KEY" | jq -r .access_token)
+
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams' \
+  -H "Authorization: Bearer $SAUCE_API_TOKEN"
+```
+
+Access tokens work with the REST APIs. To run tests, keep your username and access key in the [`sauce:options` capabilities](/dev/test-configuration-options/#username).
+
+#### Access Token Lifetime
+
+- A token is valid for about 1 hour. The `expires_in` value gives the exact number of seconds.
+- Access tokens don't come with a refresh token. When a token expires, request a new one the same way.
+- Request a new token a few minutes before the old one expires, so that no request fails.
+- Reuse one token for all calls and parallel workers until it is close to expiry. The token endpoint is rate limited: if it returns `429`, wait the number of seconds in the `Retry-After` header.
+- If you regenerate your access key, tokens you already have keep working until they expire.
+- If your account is deactivated, its tokens stop working right away.
+
+#### Expired or Invalid Access Tokens
+
+The API returns `401` with a `WWW-Authenticate` header that contains `error="invalid_token"`.
+
+Request a new token and try the request once more. Don't retry in a loop. If the new token fails too, check your username and access key.
+
+#### Check Your Credentials
+
+The `/auth/v1/identity` endpoint tells you whether a credential works and whose it is. It accepts an access token and Basic Auth.
+
+```bash title="Identity Request Example"
+curl -L -X GET 'https://api.us-west-1.saucelabs.com/auth/v1/identity' \
+  -H "Authorization: Bearer $SAUCE_API_TOKEN"
+```
+
+```json title="Identity Response Example"
+{
+  "sub": "usr_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90",
+  "username": "john.smith",
+  "organization": "9f3b2a17-6c4d-4e8a-b5f2-0d1e7c9a8b34",
+  "auth_method": "oauth_token",
+  "credential_id": "cred_7c21e3a0-5d2b-4f7e-9a41-3b8c2d6e1f90",
+  "expires_at": "2026-11-02T10:15:00Z"
+}
+```
+
+A credential that doesn't work returns `401`. For all response fields, see [Get Your Identity](/dev/api/accounts/#get-your-identity).
 
 ### Versioning
 

@@ -2,17 +2,18 @@
 id: community-frameworks
 title: Community Frameworks on Sauce Labs
 sidebar_label: Overview
-description: Open-source test frameworks and tools built outside Sauce Labs that run on the Sauce Labs cloud through our standard Appium and WebDriver BiDi endpoints.
+description: Open source test frameworks and tools built outside Sauce Labs that run on the Sauce Labs cloud through our standard Appium, WebDriver BiDi, and Real Device Access API endpoints.
 keywords:
 - community
 - frameworks
 - maestro
+- mobilewright
 - vibium
 ---
 
 Community frameworks are open-source test frameworks and tools built and maintained outside Sauce Labs. They run on
-the Sauce Labs cloud through our standard Appium and WebDriver BiDi endpoints, and Sauce Labs has validated each guide
-in this section end to end, so you get the same video, logs, and test results as with any other framework.
+the Sauce Labs cloud through our standard Appium, WebDriver BiDi, and Real Device Access API endpoints, and Sauce Labs
+has validated each guide in this section end to end, so you get the same video, logs, and test results as with any other framework.
 
 ## How Community Frameworks Differ from Sauce Labs Frameworks
 
@@ -23,7 +24,7 @@ open-source project.
 
 |                                                        | Sauce Labs frameworks                                               | Community frameworks                                                                                     |
 | ------------------------------------------------------ | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Examples                                               | Selenium, Appium, Cypress, Playwright, TestCafe, Espresso, XCUITest | Maestro (via maestro-runner), Vibium                                                                     |
+| Examples                                               | Selenium, Appium, Cypress, Playwright, TestCafe, Espresso, XCUITest | Maestro (via maestro-runner), Mobilewright, Vibium                                                               |
 | Who builds and maintains the Sauce Labs integration    | Sauce Labs, or Sauce Labs together with the framework project       | The framework's open-source project                                                                      |
 | Where to report a problem in the framework             | Sauce Labs Support triages it                                       | The project's issue tracker; Sauce Labs Support can confirm whether the Sauce Labs side behaved correctly |
 | Where to report a device, browser, session, or artifact problem | Sauce Labs Support                                         | Sauce Labs Support                                                                                       |
@@ -32,11 +33,12 @@ open-source project.
 
 ## Supported Targets
 
-Verified by Sauce Labs in September 2026 with the framework versions shown.
+Verified by Sauce Labs in September and October 2026 with the framework versions shown.
 
 | Framework                                                             | Desktop browsers                                                   | Android emulators              | iOS simulators | Android real devices | iOS real devices | How it reaches Sauce Labs                                              |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------ | -------------- | -------------------- | ---------------- | ---------------------------------------------------------------------- |
 | [Maestro via maestro-runner](/basics/community-frameworks/maestro) 1.1.25 | ❌                                                                 | ✔️ including ARM emulators     | ✔️             | ✔️                   | ✔️               | Appium endpoint (`ondemand.<dc>.saucelabs.com/wd/hub`)                 |
+| [Mobilewright](/basics/community-frameworks/mobilewright) 0.0.67 with driver 0.0.2 | ❌ | ❌ | ❌ | ✔️ Android 13 or later | ✔️ | [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) (Enterprise plans only) |
 | [Vibium](/basics/community-frameworks/vibium) 26.8.21                 | ✔️ Chrome, Edge, Firefox on Windows, macOS, and Linux (not Safari) | ❌                             | ❌             | ❌                   | ❌               | WebDriver BiDi URL returned by a Sauce Labs session (`webSocketUrl`)   |
 
 ## Guides
@@ -49,6 +51,12 @@ Verified by Sauce Labs in September 2026 with the framework versions shown.
     </div>
   </div>
   <div className="box box2 card">
+    <div className="container">
+    <a href="/basics/community-frameworks/mobilewright"><h3>Mobilewright</h3></a>
+    <p>Run Mobilewright tests on Sauce Labs Android and iOS real devices with the Sauce Labs driver, <code>@saucelabs/mobilewright-driver</code>.</p>
+    </div>
+  </div>
+  <div className="box box3 card">
     <div className="container">
     <a href="/basics/community-frameworks/vibium"><h3>Vibium</h3></a>
     <p>Attach Vibium's CLI, MCP server, or JavaScript and Python clients to a Sauce Labs desktop browser session over WebDriver BiDi.</p>

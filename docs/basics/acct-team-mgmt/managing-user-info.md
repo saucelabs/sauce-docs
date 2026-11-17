@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ## Updating User Information
 
-Organization admins can update the name, email address, user name, role, and team assignment for any user in their organization. Team admins can update that information for users on their team. If you invite a user via email, you will need to edit their concurrency limit and other account details after they have accepted your invitation and created an account.
+Organization admins can update the name, email address, user name, role, and team assignment for any user in their organization. Team admins can update that information for users on their team. If you invite a user via email, you will need to edit their account details after they have accepted your invitation and created an account.
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
@@ -114,6 +114,10 @@ address. You can also regenerate an access key, as well as copy a driver string
 and [Create a Remote Session](/web-apps/automated-testing/selenium/#step-1-create-a-remote-session)).
 If you are an admin and want to change the settings for users in your org, see
 [Updating User Information](/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
+
+The User Settings screen also shows your active team and the concurrency available to you: Total Concurrency,
+Mac / iOS (x86), Mac / iOS (ARM), Android (ARM), and Real Device concurrency. Each value is your team's limit if your
+team has its own, or your organization's limit if it doesn't. See [Viewing Your Available Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency#viewing-your-available-concurrency).
 
 To access the User Settings screen, on Sauce Labs, click **ACCOUNT** and then click **User settings**.
 
