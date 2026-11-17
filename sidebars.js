@@ -771,6 +771,7 @@ module.exports = {
                                 'basics/integrations/wonderproxy',
                                 'basics/integrations/appdome',
                                 'basics/integrations/testrail',
+                                'basics/integrations/jira',
                                 'basics/integrations/webhooks',
                             ],
                         },
