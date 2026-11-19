@@ -242,25 +242,25 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-          <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
+          <a href="https://docs.deque.com/devtools-mobile/2026.11.11/en/intro" target="_blank">
               Deque axe DevTools® Mobile Analyzer Accessibility tools
           </a>
           &nbsp;help you with automated accessibility testing. Contains only the latest version of Appium. The tools help to identify and to resolve accessibility issues. Requires Deque axe DevTools® license. See the <a href="../appium-deque-accessibility-testing">detailed usage documentation</a>.
         <br />
         <ul>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-xcuitest-driver </code>: 1.7.2
+                <a href="https://docs.deque.com/devtools-mobile/2026.11.11/en/intro" target="_blank">
+                    <code>axe-appium3-xcuitest-driver </code>: 2.0.0
                 </a>
             </li>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/september-2025" target="_blank">
-                    <code>axe-appium3-uiautomator2-driver </code>: 1.7.2
+                <a href="https://docs.deque.com/devtools-mobile/2026.11.11/en/intro" target="_blank">
+                    <code>axe-appium3-uiautomator2-driver </code>: 2.0.0
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%403.9.0" target="_blank">
-                    <code>appium</code>: 3.9.0
+                <a href="https://github.com/appium/appium/releases/tag/appium%403.9.1" target="_blank">
+                    <code>appium</code>: 3.9.1
                 </a>
             </li>
         </ul>
