@@ -109,7 +109,7 @@ By default, the `Application Launches` metric group is automatically created whe
 
 ## Creating New Metric Groups via Unity SDK
 
-This section explains configuring your Unity game to send custom metric groups using the SDK's public APIs. For information on uploading metric groups from external data sources, refer to the [Importing Metrics documentation](/error-reporting/project-setup/metrics-stability-scores/).
+This section explains configuring your Unity game to send custom metric groups using the SDK's public APIs. For information on uploading metric groups from external data sources, refer to [Imported Metrics and Stability Scores](/error-reporting/project-setup/stability-metrics/#imported-metrics-and-stability-scores).
 
 ### `MinutesPlayed` Configuration
 

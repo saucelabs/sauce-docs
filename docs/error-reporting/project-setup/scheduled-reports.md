@@ -20,7 +20,7 @@ Each report includes:
 - The errors seen over the reporting period, by day, with the total number of errors, fingerprints, and hosts, and a **View report** link to the errors in Error Reporting.
 - The classifiers of the errors.
 - A summary by attributes, with the top values of attributes such as the device or operating system, and histograms of any attributes you add.
-- Error-free user metrics, which show the percentage of users who haven't experienced an error, if your project is configured with [Stability Monitoring](/error-reporting/project-setup/metrics-stability-scores/).
+- Error-free user metrics, which show the percentage of users who haven't experienced an error, if your project is configured with [Stability Monitoring](/error-reporting/project-setup/stability-metrics/).
 
 The following is an example of a weekly report:
 

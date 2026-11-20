@@ -334,6 +334,19 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Stability Monitoring',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/stability-metrics',
+                        'error-reporting/project-setup/metrics-stability-scores',
+                        'error-reporting/project-setup/create-metrics',
+                        'error-reporting/project-setup/create-metric-source',
+                        'error-reporting/project-setup/create-metric-importer',
+                        'error-reporting/project-setup/view-stability-scores',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Project Settings',
                     collapsed: true,
                     items: [
@@ -343,8 +356,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'error-reporting/project-setup/connections',
-                                'error-reporting/project-setup/metrics-stability-scores',
-                                'error-reporting/project-setup/stability-metrics',
                                 'error-reporting/project-setup/metric-export',
                                 'error-reporting/project-setup/source-code',
                             ],
