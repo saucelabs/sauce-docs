@@ -172,8 +172,8 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
 
 | Appium Version | iOS WebDriverAgent |
 |---|---|
-| All Appium 2 versions, `appium3-2025-10`, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
-| `appium3-2026-01` and later, all Appium 4 versions | Official Appium WebDriverAgent |
+| All Appium 2 versions, `latest`, `stable` | SauceWebDriverAgent (Sauce Labs fork) |
+| All Appium 3 and Appium 4 versions | Official Appium WebDriverAgent |
 :::
 
 ### Appium 4.x
