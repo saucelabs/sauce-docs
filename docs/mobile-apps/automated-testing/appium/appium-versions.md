@@ -188,32 +188,34 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
   <tbody>
     <tr>
       <td>
-        <code>appium3-2025-10</code>
+        <code>appium3-2026-11</code>
       </td>
       <td>
-        <span className="sauceGold">October 1st, 2026</span>
+        <span className="sauceGreen">Active</span>
       </td>
       <td>
-        The following drivers and plugins were released on October 28th 2025 <br />
+        The following drivers and plugins were released on November 20th 2026.
+        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/appium-ios/tree/main/packages/webdriveragent" target="_blank">official Appium WebDriverAgent</a>.
+        See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%403.1.0" target="_blank">
-              <code>appium</code>: 3.1.0
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.9.1" target="_blank">
+              <code>appium</code>: 3.9.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.1.0" target="_blank">
-              <code>appium-flutter-driver</code>: 3.1.0
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v4.1.0" target="_blank">
+              <code>appium-flutter-driver</code>: 4.1.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v6.0.2" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 6.0.2
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v8.7.3" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 8.7.3
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.2.2" target="_blank">
-              <code>appium-xcuitest-driver</code>: 10.2.2
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v12.22.8" target="_blank">
+              <code>appium-xcuitest-driver</code>: 12.22.8
             </a>
           </li>
           <li>
@@ -222,13 +224,18 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.0.2" target="_blank">
-              <code>@appium/images-plugin</code>: 4.0.2
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%405.0.2" target="_blank">
+              <code>@appium/images-plugin</code>: 5.0.2
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.0.1" target="_blank">
-              <code>@appium/relaxed-caps-plugin</code>: 2.0.1
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%403.0.2" target="_blank">
+              <code>@appium/relaxed-caps-plugin</code>: 3.0.2
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-ios/releases/tag/appium-webdriveragent%4016.17.7" target="_blank">
+              <code>WebDriverAgent</code>: 16.17.7
             </a>
           </li>
         </ul>
@@ -268,34 +275,34 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
     </tr>
     <tr>
       <td>
-        <code>appium3-2026-01</code>
+        <code>appium3-2026-10</code>
       </td>
       <td>
-        <span className="sauceGold">January 1st, 2027</span>
+        <span className="sauceGold">October 1st, 2027</span>
       </td>
       <td>
-        The following drivers and plugins were released on January 6th 2026.
+        The following drivers and plugins were released on October 1st 2026.
         <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>.
         See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
-              <code>appium</code>: 3.1.2
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.8.0" target="_blank">
+              <code>appium</code>: 3.8.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.3.0" target="_blank">
-              <code>appium-flutter-driver</code>: 3.3.0
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v4.0.0" target="_blank">
+              <code>appium-flutter-driver</code>: 4.0.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v6.7.8" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 6.7.8
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v8.7.0" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 8.7.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.14.4" target="_blank">
-              <code>appium-xcuitest-driver</code>: 10.14.4
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v12.13.3" target="_blank">
+              <code>appium-xcuitest-driver</code>: 12.13.3
             </a>
           </li>
           <li>
@@ -304,73 +311,18 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.0.4" target="_blank">
-              <code>@appium/images-plugin</code>: 4.0.4
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%405.0.1" target="_blank">
+              <code>@appium/images-plugin</code>: 5.0.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.0.1" target="_blank">
-              <code>@appium/relaxed-caps-plugin</code>: 2.0.1
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%403.0.1" target="_blank">
+              <code>@appium/relaxed-caps-plugin</code>: 3.0.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.1.0" target="_blank">
-              <code>WebDriverAgent</code>: 11.1.0
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>appium3-2026-04</code>
-      </td>
-      <td>
-        <span className="sauceGold">April 1st, 2027</span>
-      </td>
-      <td>
-        The following drivers and plugins were released on April 1st 2026.
-        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>.
-        See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%403.2.2" target="_blank">
-              <code>appium</code>: 3.2.2
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.5.0" target="_blank">
-              <code>appium-flutter-driver</code>: 3.5.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v7.1.0" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 7.1.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.36.4" target="_blank">
-              <code>appium-xcuitest-driver</code>: 10.36.4
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v2.0.3" target="_blank">
-              <code>appium-flutter-integration-driver</code>: 2.0.3
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.1.1" target="_blank">
-              <code>@appium/images-plugin</code>: 4.1.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.1.0" target="_blank">
-              <code>@appium/relaxed-caps-plugin</code>: 2.1.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.4.1" target="_blank">
-              <code>WebDriverAgent</code>: 11.4.1
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v16.12.11" target="_blank">
+              <code>WebDriverAgent</code>: 16.12.11
             </a>
           </li>
         </ul>
@@ -433,34 +385,34 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
     </tr>
     <tr>
       <td>
-        <code>appium3-2026-10</code>
+        <code>appium3-2026-04</code>
       </td>
       <td>
-        <span className="sauceGold">October 1st, 2027</span>
+        <span className="sauceGold">April 1st, 2027</span>
       </td>
       <td>
-        The following drivers and plugins were released on October 1st 2026.
+        The following drivers and plugins were released on April 1st 2026.
         <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>.
         See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%403.8.0" target="_blank">
-              <code>appium</code>: 3.8.0
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.2.2" target="_blank">
+              <code>appium</code>: 3.2.2
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v4.0.0" target="_blank">
-              <code>appium-flutter-driver</code>: 4.0.0
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.5.0" target="_blank">
+              <code>appium-flutter-driver</code>: 3.5.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v8.7.0" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 8.7.0
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v7.1.0" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 7.1.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v12.13.3" target="_blank">
-              <code>appium-xcuitest-driver</code>: 12.13.3
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.36.4" target="_blank">
+              <code>appium-xcuitest-driver</code>: 10.36.4
             </a>
           </li>
           <li>
@@ -469,18 +421,73 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%405.0.1" target="_blank">
-              <code>@appium/images-plugin</code>: 5.0.1
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.1.1" target="_blank">
+              <code>@appium/images-plugin</code>: 4.1.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%403.0.1" target="_blank">
-              <code>@appium/relaxed-caps-plugin</code>: 3.0.1
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.1.0" target="_blank">
+              <code>@appium/relaxed-caps-plugin</code>: 2.1.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v16.12.11" target="_blank">
-              <code>WebDriverAgent</code>: 16.12.11
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.4.1" target="_blank">
+              <code>WebDriverAgent</code>: 11.4.1
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>appium3-2026-01</code>
+      </td>
+      <td>
+        <span className="sauceGold">January 1st, 2027</span>
+      </td>
+      <td>
+        The following drivers and plugins were released on January 6th 2026.
+        <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/WebDriverAgent" target="_blank">official Appium WebDriverAgent</a>.
+        See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%403.1.2" target="_blank">
+              <code>appium</code>: 3.1.2
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v3.3.0" target="_blank">
+              <code>appium-flutter-driver</code>: 3.3.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v6.7.8" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 6.7.8
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v10.14.4" target="_blank">
+              <code>appium-xcuitest-driver</code>: 10.14.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v2.0.3" target="_blank">
+              <code>appium-flutter-integration-driver</code>: 2.0.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%404.0.4" target="_blank">
+              <code>@appium/images-plugin</code>: 4.0.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Frelaxed-caps-plugin%402.0.1" target="_blank">
+              <code>@appium/relaxed-caps-plugin</code>: 2.0.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/WebDriverAgent/releases/tag/v11.1.0" target="_blank">
+              <code>WebDriverAgent</code>: 11.1.0
             </a>
           </li>
         </ul>
