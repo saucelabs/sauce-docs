@@ -51,6 +51,30 @@ Saucelabs.com and the Sauce Labs testing service in the US, EU, and Asia South w
 | US East    | December 5, 2026       | 8 AM - 10 AM EST (1300-1500 UTC) |
 | EU Central | December 5, 2026       | 4 PM - 6 PM CET (1500-1700 UTC) |
 | US West    | December 5, 2026       | 9 AM - 11 AM PST (1700-1900 UTC) |
+| Asia South | January 9, 2027        | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
+| EU Central | January 9, 2027        | 2 PM - 4 PM CET (1300-1500 UTC) |
+| US East    | January 9, 2027        | 10 AM - 12 PM EST (1500-1700 UTC) |
+| US West    | January 9, 2027        | 9 AM - 11 AM PST (1700-1900 UTC) |
+| Asia South | February 6, 2027       | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
+| EU Central | February 6, 2027       | 2 PM - 4 PM CET (1300-1500 UTC) |
+| US East    | February 6, 2027       | 10 AM - 12 PM EST (1500-1700 UTC) |
+| US West    | February 6, 2027       | 9 AM - 11 AM PST (1700-1900 UTC) |
+| Asia South | March 6, 2027          | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
+| EU Central | March 6, 2027          | 2 PM - 4 PM CET (1300-1500 UTC) |
+| US East    | March 6, 2027          | 10 AM - 12 PM EST (1500-1700 UTC) |
+| US West    | March 6, 2027          | 9 AM - 11 AM PST (1700-1900 UTC) |
+| Asia South | April 3, 2027          | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
+| EU Central | April 3, 2027          | 3 PM - 5 PM CEST (1300-1500 UTC) |
+| US East    | April 3, 2027          | 11 AM - 1 PM EDT (1500-1700 UTC) |
+| US West    | April 3, 2027          | 10 AM - 12 PM PDT (1700-1900 UTC) |
+| Asia South | May 8, 2027            | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
+| EU Central | May 8, 2027            | 3 PM - 5 PM CEST (1300-1500 UTC) |
+| US East    | May 8, 2027            | 11 AM - 1 PM EDT (1500-1700 UTC) |
+| US West    | May 8, 2027            | 10 AM - 12 PM PDT (1700-1900 UTC) |
+| Asia South | June 5, 2027           | 4:30 PM - 6:30 PM IST (1100-1300 UTC) |
+| EU Central | June 5, 2027           | 3 PM - 5 PM CEST (1300-1500 UTC) |
+| US East    | June 5, 2027           | 11 AM - 1 PM EDT (1500-1700 UTC) |
+| US West    | June 5, 2027           | 10 AM - 12 PM PDT (1700-1900 UTC) |
 
 :::note Asia South maintenance window is off-cycle in November
 The Asia South window for November is **November 21**. The schedule predates the Asia South region, and the previously scheduled date occurs during Diwali.
