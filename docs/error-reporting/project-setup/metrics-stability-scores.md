@@ -1,107 +1,85 @@
 ---
 id: metrics-stability-scores
-title: Importing Metrics and Generating Stability Scores
-sidebar_label: Importing Metrics and Generating Stability Scores
-description: This guide will show admins how to get started set up a common type of stability monitoring.
+title: Create a Metric Group
+sidebar_label: Create a Metric Group
+description: Create a metric group in Stability Monitoring and link the attributes, such as version, that you want to compute stability scores by.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Backtrace allows users to compute error rates against any metrics you collect like "Sessions started”, “Minutes used”, “Online connections made” or "Songs played". These metrics can be imported from raw data that lives in external systems like Graphite, Influx, Redshift, or Postgres. In the future, you will be able to supply raw data directly through the Backtrace client SDKs.
+A metric group defines what you measure to compute stability scores, such as **Sessions Started**, **Minutes Played**, or **Multiplayer Sessions Started**. It holds the individual metrics you add later, and it's linked to the attributes you want to compare stability by, such as `version`.
 
-Below, you can see how Backtrace displays the number of errors by session (stability score) for each version:
+Creating a metric group is the first step to set up imported metrics. For an overview of all the steps, see [Stability Monitoring Overview](/error-reporting/project-setup/stability-metrics/#imported-metrics-and-stability-scores).
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-errors-session.webp')} alt="" />
+## Prerequisites
 
-To use the system, a Project Admin needs to define a metric group with a series of metrics contained within it, and a metric source with a series of importers to populate data for each metric you define.
+- You need the Project Admin role in the project.
+- Each attribute you want to link must exist both in Error Reporting and in your metric data, for example, a `version` attribute in your errors and a `version` column in your metrics database.
 
-This guide will show admins how to use the UI to take the steps needed to get started set up a common type of stability monitoring, which is errors by session and minutes played for each released version of your application or game.
+<a id="manage-the-backtrace-metric-objects"></a>
 
-## Project Settings
+## Create the Metric Group
 
-Click into **Project Settings > Stability Monitoring** to setup the required metric groups, individual metrics, data sources, and importers.
+**Step 1:** In your project, click your profile icon in the top-right corner, and then select **Project Settings & Docs**.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/create-metric-group.webp')} alt="" />
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-1.png')} alt="Project Settings & Docs option in the profile menu" />
 
-## Manage the Backtrace Metric Objects
+**Step 2:** In the left menu, under **Workflow**, click **Stability monitoring**. The **Stability monitoring** page opens on the **Metrics groups** tab, with the metric groups of your project.
 
-### Create the Metric Group
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-2.png')} alt="Stability monitoring option under Workflow in the left menu, and the Metrics groups tab" />
 
-First, we set up a metric group. Common metric groups are named "Sessions Started", "Minutes Played", or "Multiplayer Sessions Started".
+**Step 3:** Click **Create a metric group**.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metric-group-settings.webp')} alt="" />
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-3.png')} alt="Create a metric group button on the Metrics groups tab" />
 
-When defining a metric group, you will want to link an Attribute that you want to track stability scores for when grouped by it (i.e. Version). You can provide a default value in case that the queries you use to import data have no value for the attribute.
+**Step 4:** In the **Create metric group** dialog, fill in the following fields:
 
-Note: If you are linking attributes for a metric group that you expect to receive via events from one of our SDKs (Unity 3.5.0+ for example), you must ensure that the SDK is sending ALL of the attributes that you have linked on the metric events for that metrics group. If a metric event is missing an attribute that is expected for that metric group, the event will be dropped.
+| Ref. | Field | Description |
+| --- | --- | --- |
+| **1** | **Name** | A name for the metric group, such as `SessionsStarted` or `MinutesPlayed`. |
+| **2** | **Description** | A short description of what the group measures, such as the number of sessions that users start in a period. |
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-link-attribute.webp')} alt="" />
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-4.png')} alt="Create metric group dialog with the Name and Description fields numbered 1 and 2" width="500" />
 
-### Create the Metrics
+**Step 5:** Click **Save and link attributes**. The **Edit linked attributes** dialog opens.
 
-Now we can start adding metrics, it’s good practice to have naming conventions like \{metricGroupName}-\{attributeName}\{attributeValue} for each metric (i.e. minutesPlayed-version1.0, minutesPlayed-version1.1, etc).
+To create the metric group without linking attributes, click **Save** instead. You can link attributes later from the metric group, with **Edit linked attributes**.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/create-metric.webp')} alt="" />
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-5.png')} alt="Save and link attributes and Save buttons in the Create metric group dialog" width="500" />
 
-If you are following these examples, you should create a few metrics to manage number of Minutes Played or Sessions Started for each of your last few versions. Below, we have metrics for Minutes Played in Version 3.16.0, 3.16.2, 3.16.4, and 3.16.5.
+## Link Attributes to the Metric Group
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-example.webp')} alt="" />
+Link the attributes that you want to compute stability scores by, such as `version`. When you group by a linked attribute in the **Explore** view, Error Reporting shows the stability score for each value of the attribute, such as each version.
 
-We now have the 'shape' of the metrics in Backtrace. Next, we need to populate these metrics with data.
+**Step 1:** In the **Edit linked attributes** dialog, fill in the following fields under **Link attributes**:
 
-## Manage the Data Import System
+| Ref. | Field | Description |
+| --- | --- | --- |
+| **1** | **Attribute** | The name of the attribute to link, such as `memory.warning` or `application.version`. |
+| **2** | **Default metric value** | The value to use when the data that you import has no value for the attribute, such as `Unknown`. |
 
-The Metric Sources tab allows you to define connections to metric systems like Postgres, Graphite, Redshift, or Influx. In the screenshot below, a metric source to a Postgres instance called postgres-sessions is created.
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-6.png')} alt="Edit linked attributes dialog with the Attribute and Default metric value fields numbered 1 and 2" width="500" />
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metric-sources.webp')} alt="" />
+**Step 2:** Click **Add**.
 
-### Create the Metric Data Source
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-7.png')} alt="Add button in the Edit linked attributes dialog" width="500" />
 
-Click **Add Metric Source** to bring up the Create Metric Source dialog. Here, you will name your source, choose your source type (Graphite, Postgres, Influx, Redshift) and relevant connection and authentication options.
+The attribute appears below the fields with the other linked attributes, such as `memory.warning` next to `application.version` and `backtrace.version`. To link more attributes, repeat Steps 1 and 2. To unlink an attribute, click the delete icon next to it.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/add-metrics-source.webp')} alt="" />
+**Step 3:** Click **Save and add metrics** to continue to [Create the Metrics](/error-reporting/project-setup/create-metrics/), or click **Save** to add the metrics later.
 
-You'll notice above a Coronerd URL and Submission token as part of the metric source creation. Backtrace should fill in default values for you here. These are used by the metrics source to post the results of importers back into your backtrace project. You can generate other tokens to use under **Project Settings > Error Submission Tokens**.
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-8.png')} alt="Linked application.version, backtrace.version, and memory.warning attributes, and the Save and add metrics and Save buttons" width="500" />
 
-### Create a Metric Importer and link to each Metric
+:::caution
+If your SDK sends metric events for this group, for example, the Unity SDK 3.5.0 or later, every metric event must include all the attributes linked to the group. Error Reporting drops metric events that are missing a linked attribute.
+:::
 
-An Importer is the place where you write the query to pull metric information from the source systems and use results of that query to populate one of the metrics you defined earlier. Importers have three key sections
+## Verify the Metric Group
 
-1. The query to capture data
-1. The metric to link the results to
-1. Execution plan (how much history, how often to run)
+On the **Metrics groups** tab, the new metric group appears in the list. Expand the group to see its linked attributes and metrics. To unlink an attribute, click the delete icon next to it.
 
-See below for an example:
-<img src={useBaseUrl('img/error-reporting/project-settings/create-importer.webp')} alt="" />
+<img src={useBaseUrl('img/error-reporting/stability-monitoring/metrics-stability-scores/metrics-stability-scores-9.png')} alt="Expanded SessionsStarted metric group with the delete icons of its linked attributes highlighted" />
 
-You can see we named the importer something meaningful (MinsPlayedVersion3.16.2) and wrote a query to gather the required metric data, linked it to the Metric Minutes Played/minsPlayed-v3.16.2, and defined the execution plan (7 days of history with a 60 second time period between syncs).
+## Next Steps
 
-#### Parameterized Query Expectations
-
-Backtrace uses parametrized queries to bound the time period for which data is being queried. If you use the "Test query" button, the system will try to inform you of any missing variables or other syntax issues. You should use the format of "time >= $1 and time < $2" within your query, and the system will populate $1 as either the last time the query was run or how far back in history you want, and $2 as the current time.
-
-It is expected that you test your rest of your query body against the data source to make sure you are getting the results you expect. For example, below, you see a query to select the number of minutes played for version 3.16.2 with the time bounds.
-
-`select mins_played, time from metric_table where version = '3.16.2' and time >= $1 and time < $2`
-
-The results of your query will stored in the linked metric, so you may want to confirm the results of the query if you see incorrect data in Backtrace after the importers are run.
-
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-source-example.png')} alt="" />
-
-## View Stability Scores
-
-Once configured and populating, Stability Scores can be viewed in the Triage and Explore Views. You'll see a dropdown in the upper right for "Errors normalized by \{metric group}".
-
-## Stability Scores in Triage
-
-Below, we can see errors normalized by sessions started. The top bar graph now shows how many sessions were seen over the time period (last 7 days), and the Errors by Sessions columns shows what % of sessions were impacted by a particular fingerprint.
-
-<img src={useBaseUrl('img/error-reporting/project-settings/stability-scores-triage.webp')} alt="" />
-
-## Stability Scores in Explore with Group By
-
-When we defined the original metric group, we linked to an attribute (version), and then defined metrics and importers for getting the minutes played metric for each version. Now, when you use Explore and Group By version, the "Errors" column will show a % of sessions that have seen errors seen for that given version. It helps better see which versions are buggier than others.
-
-<img src={useBaseUrl('img/error-reporting/project-settings/stability-score-explore.webp')} alt="" />
+- [Create the Metrics](/error-reporting/project-setup/create-metrics/) for the metric group, such as one metric for each version.
