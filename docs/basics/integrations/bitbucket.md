@@ -2,23 +2,74 @@
 id: bitbucket
 title: Sauce Labs with Bitbucket
 sidebar_label: Bitbucket
-description: Use our plugin to run your Sauce Labs tests within your Bitbucket pipeline.
+description: Run your Sauce Labs tests in your Bitbucket pipeline.
 ---
 
-Bitbucket is Atlassian's cloud service continuous integration tool. Launch your automated Selenium and Appium tests on Sauce Labs as part of your Bitbucket Pipelines build process.
+[Bitbucket](https://bitbucket.org/) is Atlassian's cloud service continuous integration tool. The Sauce Labs integration with Bitbucket Pipelines lets you launch your automated Selenium and Appium tests on Sauce Labs as part of your Bitbucket Pipelines build process.
 
-## What You'll Need
+## How It Works
 
-- Sauce Labs account [Sign Up](https://saucelabs.com/signup/trial)
-- The `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` specific to your Sauce Labs account [Find these](/basics/acct-team-mgmt/managing-user-info)
-- Bitbucket account [Sign Up](https://bitbucket.org/account/signup/)
-- Bitbucket Pipelines installed on your Bitbucket account [Create pipelines](https://confluence.atlassian.com/bitbucket/bitbucket-pipelines-792496469.html)
+You run your Sauce Labs tests as part of your Bitbucket Pipelines build process. Your `bitbucket-pipelines.yml` file runs your tests with your test runner of choice, and your tests connect to Sauce Labs instead of a local browser or device.
 
-## Procedure
+Your tests authenticate with Sauce Labs using your Sauce Labs username and access key, which you store as environment variables in Bitbucket. Your tests read them from the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` variables, so you don't need to write your credentials into your test code. When you kick off a build with Bitbucket Pipelines, the pipeline runs your tests on Sauce Labs, and the results appear in Sauce Labs.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Sauce Labs account ([sign up](https://saucelabs.com/signup/trial) if you don't have one).
+- The `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` for your Sauce Labs account. See [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
+- A Bitbucket account ([sign up](https://bitbucket.org/account/signup/) if you don't have one).
+- Bitbucket Pipelines enabled on your Bitbucket account. See [Bitbucket Pipelines](https://confluence.atlassian.com/bitbucket/bitbucket-pipelines-792496469.html).
+
+## Set Up the Integration
 
 1. Configure your `bitbucket-pipelines.yml` file to run your tests using your test runner of choice.
-1. From your Bitbucket dashboard, choose `Settings`.
-1. Under `Pipelines`, choose `Environment Variables`.
-1. Add your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as environment variables.
+2. Add your Sauce Labs credentials to Bitbucket as environment variables. See [Authentication](#authentication).
 
-Once these configurations are complete, when you kick off a build with Bitbucket Pipelines, it runs your tests on Sauce Labs.
+## Authentication
+
+The integration authenticates with your Sauce Labs **username** and **access key**, which you can find in your Sauce Labs [User Settings](https://app.saucelabs.com/user-settings). Store them as environment variables in Bitbucket so you don't need to write them into your test code.
+
+1. From your Bitbucket dashboard, choose **Settings**.
+2. Under **Pipelines**, choose **Environment Variables**.
+3. Add your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` as environment variables.
+
+## Verify the Integration
+
+1. Kick off a build with Bitbucket Pipelines.
+2. When the build completes, open the [Automated Test Results](https://app.saucelabs.com/dashboard/tests/vdc) page in Sauce Labs.
+3. Confirm that the tests from your build appear in the list.
+
+## Use the Integration
+
+After you set up the integration, every build that you kick off with Bitbucket Pipelines runs your tests on Sauce Labs.
+
+To run your Sauce Labs tests from Bitbucket:
+
+1. Push a change to your repository, or kick off a build manually with Bitbucket Pipelines.
+2. When the build completes, open your test results in Sauce Labs.
+
+The tests run on Sauce Labs, and the results appear in Sauce Labs. See [Viewing Test Results](/test-results/viewing-test-results/).
+
+## Troubleshooting
+
+<details>
+<summary>**Your tests cannot authenticate with Sauce Labs**</summary>
+
+Check that the environment variables in Bitbucket are named exactly `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, and that their values match your Sauce Labs [User Settings](https://app.saucelabs.com/user-settings).
+
+</details>
+
+<details>
+<summary>**The pipeline does not run your tests**</summary>
+
+Make sure Bitbucket Pipelines is enabled for your account, and that your `bitbucket-pipelines.yml` file runs your tests with your test runner.
+
+</details>
+
+## Next Steps
+
+- [Viewing Test Results](/test-results/viewing-test-results/)
+- [Data Center Endpoints](/basics/data-center-endpoints/)
+- [Integrations Overview](/basics/integrations-overview/)
