@@ -52,7 +52,7 @@ You can add the SDK with Swift Package Manager or as an XCFramework.
 <TabItem value="spm" label="Swift Package Manager" default>
 
 1. In Xcode, select **File** > **Add Package Dependencies**.
-2. Enter the SauceVisual package URL `<SAUCEVISUAL_PACKAGE_URL>`, and then add the `SauceVisual` product to your UI test target.
+2. Enter the SauceVisual package URL `https://github.com/saucelabs/visual-apple`, and then add the `SauceVisual` product to your UI test target.
 3. Select the UI test target and open **Build Phases**.
 4. Select **+** > **New Copy Files Phase**, set **Destination** to **Frameworks**, and leave **Subpath** empty. You can rename the phase to **Embed Frameworks**.
 5. Click **+** in the new phase, add the `SauceVisual` product, and make sure **Code Sign On Copy** is selected.
