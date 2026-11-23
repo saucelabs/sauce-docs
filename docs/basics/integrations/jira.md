@@ -7,7 +7,9 @@ description: Connect Sauce Labs to Jira Cloud to create Jira tickets from your t
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Jira is an issue and project tracking tool that teams use to plan, track, and resolve work. The Sauce Labs integration with Jira lets you create Jira tickets directly from your Sauce Labs test results, so you can log a defect where you find it without copying details between tools. Each ticket includes the test context you choose and a link back to the result in Sauce Labs, and stays linked to the test result, so you can see which tickets were already created for it. The following sections explain how to set up the integration and use it with your Sauce Labs tests.
+Jira is an issue and project tracking tool that teams use to plan, track, and resolve work. The Sauce Labs integration with Jira lets you create Jira tickets directly from your Sauce Labs test results, so you can log a defect where you find it without copying details between tools. 
+
+Each ticket includes the test context you choose and a link back to the result in Sauce Labs, and stays linked to the test result, so you can see which tickets were already created for it.
 
 :::note
 To create Jira issues from production errors and crashes instead of test results, see **[Jira Integration with Error Reporting](/error-reporting/workflow-integrations/issue-tracking/jira/)**.
