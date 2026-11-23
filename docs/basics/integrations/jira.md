@@ -37,13 +37,21 @@ Before you begin, make sure you have:
 
 * A Jira Cloud site.
 * A Sauce Labs account with access to the [Integrations](https://app.saucelabs.com/integrations) page. Only an organization admin can connect or disconnect a Jira site.
-* Permission to create issues in the Jira projects where you want to create tickets.
+* An Atlassian account for the organization admin who connects the site, with permission to create issues in the Jira projects where you want to create tickets. Sauce Labs creates every ticket with this account.
 
 ## Authentication and Permissions
 
 The Jira integration uses **Atlassian's app authorization** instead of an API key or token. When you connect a Jira site, Atlassian asks you to choose the site and to authorize Sauce Labs to access it on your behalf. Atlassian lists the permissions that Sauce Labs requests before you accept.
 
-{/* TODO: Add the list of permissions shown on the Atlassian authorization screen, as in the Slack page. */}
+Sauce Labs creates every ticket with the Atlassian account of the organization admin who connected the site. Other users don't sign in to Atlassian to create tickets, so the connecting account needs permission to create issues in each Jira project you want to use.
+
+Sauce Labs requests the following permissions:
+
+| Type | Permissions |
+| --- | --- |
+| Read | `read:project:jira`, `read:project.property:jira`, `read:project.component:jira`, `read:project-category:jira`, `read:project-version:jira`, `read:issue-type:jira`, `read:issue-type-hierarchy:jira`, `read:issue-meta:jira`, `read:field:jira`, `read:field.default-value:jira`, `read:field.option:jira`, `read:field-configuration:jira`, `read:status:jira`, `read:issue-status:jira`, `read:issue.transition:jira`, `read:issue:jira`, `read:issue-details:jira`, `read:issue-security-level:jira`, `read:issue.changelog:jira`, `read:issue.vote:jira`, `read:attachment:jira`, `read:user:jira`, `read:application-role:jira`, `read:group:jira`, `read:avatar:jira` |
+| Write | `write:issue:jira`, `write:issue.property:jira`, `write:attachment:jira`, `write:comment:jira`, `write:comment.property:jira` |
+| Other | `offline_access`, which keeps the connection active without signing in again. |
 
 To revoke access, [disconnect the Jira site](#disconnect-a-jira-site) in Sauce Labs.
 
@@ -134,19 +142,29 @@ Create a ticket from a build to report a problem with the build as a whole, such
 
 Create a ticket from a visual snapshot to report a visual change that is a defect.
 
-**Step 1:** In Sauce Labs, click **Visual Testing**, click **Builds**, and then open the build that contains the snapshot.
+**Step 1:** In Sauce Labs, click **Visual Testing**, and then click **Builds**.
 
-**Step 2:** Open the snapshot you want to report. The snapshot review opens and shows the baseline and the current snapshot.
+<img src={useBaseUrl('/img/integrations/jira/jira-22.png')} alt="Builds option under Visual Testing in the left navigation"/>
 
-**Step 3:** Select the **&#8943;** (More options) menu in the upper-right corner, and then select **Create Jira Ticket**.
+**Step 2:** Click the build that contains the snapshot you want to report.
 
-<img src={useBaseUrl('/img/integrations/jira/jira-13.png')} alt="Create Jira Ticket option in the More options menu of the visual snapshot review"/>
+<img src={useBaseUrl('/img/integrations/jira/jira-23.png')} alt="List of Visual Testing builds on the Builds page"/>
 
-**Step 4:** Complete the **Create Jira Ticket** dialog. See [Fill In the Create Jira Ticket Dialog](#fill-in-the-create-jira-ticket-dialog).
+**Step 3:** Open the snapshot you want to report. The snapshot review opens and shows the baseline and the current snapshot.
+
+<img src={useBaseUrl('/img/integrations/jira/jira-24.png')} alt="Snapshots of a test on the Visual Testing Build Details page"/>
+
+**Step 4:** Select the **&#8943;** (More options) menu in the upper-right corner, and then select **Create Jira Ticket**.
+
+<img src={useBaseUrl('/img/integrations/jira/jira-13.png')} alt="Create Jira Ticket option in the More options menu of the visual snapshot review, with the baseline and current snapshots side by side"/>
+
+**Step 5:** Complete the **Create Jira Ticket** dialog. See [Fill In the Create Jira Ticket Dialog](#fill-in-the-create-jira-ticket-dialog).
+
+<img src={useBaseUrl('/img/integrations/jira/jira-25.png')} alt="Create Jira Ticket dialog opened from the visual snapshot review, with the linked visual test" width="450"/>
 
 ### Fill In the Create Jira Ticket Dialog
 
-The **Create Jira Ticket** dialog shows the connected Jira site next to **Workspace**, and the test the ticket will be linked to under **Linked test**.
+The **Create Jira Ticket** dialog shows the connected Jira site next to **Workspace**, and the test the ticket will be linked to under **Linked test**. If more than one Jira site is connected, the dialog also shows a **Jira Site** list above **Project**. Select the site where you want to create the ticket first.
 
 **Step 1:** In **Project**, search for and select the Jira project where you want to create the ticket. The rest of the fields appear after you select a project.
 
@@ -159,12 +177,12 @@ The **Create Jira Ticket** dialog shows the connected Jira site next to **Worksp
 | **1** | **Project** | The Jira project where the ticket is created. Search by project name or key. |
 | **2** | **Issue Type** | The Jira issue type of the ticket, for example, **Bug**. |
 | **3** | **Summary** | The title of the ticket in Jira. Sauce Labs fills it in from the test result, and you can edit it. |
-| **4** | **Status** | The Jira status the ticket is created with, for example, **In Progress**. |
+| **4** | **Status** | The Jira status to move the ticket to, for example, **In Progress**. Jira always creates the ticket in the first status of its workflow, and Sauce Labs then moves it to the status you select. If the Jira workflow doesn't allow that move, the ticket stays in its first status, and a warning tells you so. |
 | **5** | **Priority** | The Jira priority of the ticket, for example, **Major**. |
 | **6** | **Include in Description** | The test details to add to the ticket description: **Test name**, **Job ID**, **Status**, **OS**, and **Browser**. Select or clear each detail. You can also edit the description text directly. |
 | **7** | **Assignee** | The Jira user the ticket is assigned to. Search by name. |
 | **8** | **Tags** | (Optional) Labels to add to the ticket. Separate multiple tags with commas, for example, `cypress, e2e, failed-test`. |
-| **9** | **Attachments** | The files from the test to attach to the ticket, such as screenshots, the video, the browser console log, the job configuration, the test report, and the Sauce Labs job log. The video is attached as a link. The available files depend on the test. |
+| **9** | **Attachments** | The files from the test to attach to the ticket, such as screenshots, the video, the browser console log, the job configuration, the test report, and the Sauce Labs job log. The video is uploaded as a file, `video.mp4`. Files larger than 25 MB aren't attached. The available files depend on the test. |
 | **10** | **Linked test** | The test result that the ticket is linked to, with its status. Select **Linked tickets** to view the tickets already linked to the test. |
 
 <img src={useBaseUrl('/img/integrations/jira/jira-15.png')} alt="Create Jira Ticket dialog with the ticket fields, the description, and the attachments" width="450"/>
@@ -173,7 +191,7 @@ The **Create Jira Ticket** dialog shows the connected Jira site next to **Worksp
 
 <img src={useBaseUrl('/img/integrations/jira/jira-16.png')} alt="Create Ticket button in the Create Jira Ticket dialog" width="450"/>
 
-**Result:** Sauce Labs creates the ticket in Jira and shows the **Ticket created successfully** message, with a link to open the ticket in Jira. The ticket is linked to the test result, and the number next to the **Jira** icon on the test result increases by one. The selected attachments are uploaded to the ticket after it is created.
+**Result:** Sauce Labs creates the ticket in Jira and uploads the selected attachments to it. While the files upload, the button shows **Attaching assets**. When the upload is complete, Sauce Labs shows the **Ticket created successfully** message, with a link to open the ticket in Jira. If a file can't be attached, a warning lists the file and the reason. The ticket is linked to the test result, and the number next to the **Jira** icon on the test result increases by one.
 
 <img src={useBaseUrl('/img/integrations/jira/jira-17.png')} alt="Ticket created successfully message with a link to the ticket in Jira" width="500"/>
 
@@ -211,7 +229,7 @@ Disconnect the Jira site when you no longer want to create Jira tickets from Sau
 
 <img src={useBaseUrl('/img/integrations/jira/jira-21.png')} alt="Disconnect button for the connected Jira site on the Jira Configuration page"/>
 
-**Result:** The Jira site is disconnected from Sauce Labs, and the **Create Jira Ticket** option is no longer available. Tickets that were already created stay in Jira.
+**Result:** The Jira site is disconnected from Sauce Labs. If no other Jira site is connected, the **Create Jira Ticket** option is disabled, with the hint **Connect a Jira site under Integrations**. Tickets that were already created stay in Jira.
 
 ## Troubleshooting
 
@@ -225,23 +243,23 @@ Only an organization admin can connect a Jira site, and the site must be a Jira 
 </details>
 
 <details>
-<summary><strong>The Create Jira Ticket option is not available</strong></summary>
+<summary><strong>The Create Jira Ticket option is disabled</strong></summary>
 
-Check that a Jira site is listed under **Connected Sites** on the **Jira Configuration** page. If no site is connected, contact an organization admin to [connect your Jira Cloud site](#connect-your-jira-cloud-site).
+If the **Create Jira Ticket** option is disabled with the hint **Connect a Jira site under Integrations**, no Jira site is connected to your organization. Check that a Jira site is listed under **Connected Sites** on the **Jira Configuration** page. If no site is connected, contact an organization admin to [connect your Jira Cloud site](#connect-your-jira-cloud-site).
 
 </details>
 
 <details>
-<summary><strong>A Jira project is missing from the Project list</strong></summary>
+<summary><strong>You can't create a ticket in a Jira project</strong></summary>
 
-The **Project** list shows only the projects you can create issues in. Ask your Jira administrator to give you permission to create issues in the project.
+The **Project** list shows every project that the Atlassian account used to connect the site can see, including projects it can't create issues in. Sauce Labs creates tickets with that account, not with your own. Ask your Jira administrator to give the connecting account permission to create issues in the project.
 
 </details>
 
 <details>
 <summary><strong>An attachment is missing from the ticket</strong></summary>
 
-Attachments are uploaded after the ticket is created, so they can take a moment to appear in Jira. Refresh the ticket in Jira. The video is added as a link, not as a file.
+Files larger than 25 MB, including the video, aren't attached to the ticket. If a file fails to upload, the **Create Jira Ticket** dialog shows a warning with the file and the reason. To share a file that wasn't attached, add it to the ticket in Jira.
 
 </details>
 
