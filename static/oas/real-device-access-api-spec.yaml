@@ -878,7 +878,6 @@ paths:
               example:
                 type: about:blank
                 title: Failed to get fold state
-                status: 400
                 detail: The device is not foldable or does not support changing its fold state (requires Android 12L or newer)
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
@@ -922,14 +921,12 @@ paths:
                   value:
                     type: about:blank
                     title: Failed to set fold state to HALF_FOLDED
-                    status: 400
                     detail: The device does not support the fold state HALF_FOLDED, it supports [FOLDED, UNFOLDED]
                 notFoldable:
                   summary: Device does not fold
                   value:
                     type: about:blank
                     title: Failed to set fold state to FOLDED
-                    status: 400
                     detail: The device is not foldable or does not support changing its fold state (requires Android 12L or newer)
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
