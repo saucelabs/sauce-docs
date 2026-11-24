@@ -256,7 +256,7 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-        This is the final Appium 3 release provided by Sauce Labs. It stays supported until its EOL date is announced. We recommend using this version if you intend to remain on Appium 3. This release contains the last drivers still compatible with Appium 3.<br /><br />
+        Sauce Labs provides this version as the final Appium 3 release. It stays supported until its EOL date is announced. We recommend using this version if you intend to remain on Appium 3. This release contains the last drivers still compatible with Appium 3.<br /><br />
         <strong>Note:</strong> Newer Appium drivers now list Appium 4 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="../migration-guides/appium-4-migration">migrate to Appium 4</a>.<br /><br />
         The following drivers and plugins were released on November 20th 2026.
         <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/appium-ios/tree/main/packages/webdriveragent" target="_blank">official Appium WebDriverAgent</a>.
@@ -580,7 +580,7 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-        This is the final Appium 2 release provided by Sauce Labs. It stays supported until its EOL date is announced. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
+        Sauce Labs provides this version as the final Appium 2 release. It stays supported until its EOL date is announced. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
         <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="../migration-guides/appium-3-migration">migrate to Appium 3</a>.
         <br />
         <ul>

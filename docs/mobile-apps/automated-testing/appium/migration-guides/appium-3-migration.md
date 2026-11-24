@@ -144,7 +144,7 @@ For iOS, use `platformName: ios` and `appium:automationName: xcuitest`. For acce
 
 ### 2. Removed Endpoints: Update Your Client Library
 
-Appium 3 removes 98 deprecated server endpoints, mostly from the old JSONWP and MJSONWP protocols. Most of them have a replacement: a W3C endpoint, or a `mobile:` execute method of the driver. The full list with replacements is in the [Removed Endpoints](https://appium.io/docs/en/4.0/guides/migrating-2-to-3/#removed) section of the official guide.
+Appium 3 removes 98 deprecated server endpoints, mostly from the old JSONWP and MJSONWP protocols. Most of them have a replacement: a W3C endpoint, or a `mobile:` command of the driver. The full list with replacements is in the [Removed Endpoints](https://appium.io/docs/en/4.0/guides/migrating-2-to-3/#removed) section of the official guide.
 
 **Action Required:** Use a current release of your Appium client library. Older client versions still call the removed endpoints and will get `404 Not Found` errors. Then search your tests for the removed commands. The ones most often used in mobile tests:
 
@@ -199,7 +199,7 @@ A few endpoints only changed their parameters: `POST /session` accepts `capabili
 
 - [ ] Update your Appium client library to a current release.
 
-- [ ] Search your test suite for `TouchAction`, `MultiTouchAction` and the removed commands in section 2. Replace them with W3C Actions or `mobile:` execute methods.
+- [ ] Search your test suite for `TouchAction`, `MultiTouchAction` and the removed commands in section 2. Replace them with W3C Actions or `mobile:` commands.
 
 - [ ] Android: check that your target devices run Android 8.0 or newer. Update code that parses `mobile: listApps`.
 

@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 :::
 
 :::caution Flutter is not available on Appium 4 yet
-The Flutter and Flutter Integration drivers currently require Appium 3 and are not part of `appium4-2026-11`. A session with `appium:automationName` set to `Flutter` or `FlutterIntegration` on an Appium 4 version is rejected with:
+The Flutter and Flutter Integration drivers require Appium 3 and are not part of `appium4-2026-11`. A session with `appium:automationName` set to `Flutter` or `FlutterIntegration` on an Appium 4 version is rejected with:
 
 ```
 The automationName 'Flutter' is not available for Appium version 'appium4-2026-11': the Flutter drivers are not released for Appium 4 yet. Use an Appium 3 version for Flutter tests, or XCUITest / UiAutomator2 with this version.
