@@ -167,48 +167,59 @@ Each policy applies to one operating system, Android or iOS. After a session, a 
 2. Otherwise, the organization policy for its operating system.
 3. Otherwise, the default steps, which are the same as **Fast cleaning**.
 
+### Organization Cleaning Policy Banner
+
+When cleaning policies are on, the **Organization Cleaning Policy** banner is shown at the top of the **DEVICES** tab on the **Organization Management** page.
+
+<img src={useBaseUrl('img/team-mgmt/cleaning-policy-org-banner.png')} alt="Organization Cleaning Policy banner with an Android policy label, an iOS policy label, and the View link" width="700"/>
+
+The banner shows one label for each operating system:
+
+- **Custom policy** (orange): your organization has saved a policy for this operating system.
+- **Default cleaning** (gray): your organization has no policy for this operating system, so the default steps run.
+
+To open the organization policy, click **View**, highlighted in the image above.
+
 ### Presets
 
-Every policy starts from a preset. You can change individual steps after choosing a preset.
+Every policy starts from a preset. The presets are shown as three cards at the top of the policy dialog. Select a card to apply its steps, and then change individual steps if you need to.
 
 | Preset | Steps that run |
 | --- | --- |
 | **Full clean** | Every cleaning step. |
-| **Fast cleaning** | Only the steps that are on by default: it removes the apps from the last session, signs out of accounts, and deletes files. This is the recommended default. |
-| **Custom** | The steps you turn on individually. Changing any step of Full clean or Fast cleaning makes the policy Custom. |
+| **Fast cleaning** | Only the steps that are on by default: it removes the apps from the last session, signs out of accounts, and deletes files. Sauce Labs recommends this preset. |
+| **Custom** | The steps you turn on individually. Changing any step of Full clean or Fast cleaning selects **Custom**. |
 
-<img src={useBaseUrl('img/team-mgmt/cleaning-policy-presets.png')} alt="Cleaning policy presets" width="700"/>
+### Policy Dialog
+
+The organization policy and the device policies are edited in the same kind of dialog.
+
+<img src={useBaseUrl('img/team-mgmt/cleaning-policy-presets.png')} alt="Device Management dialog with Fast cleaning selected, 3 of 10 steps running, and the App Allowlist exceptions filled in" width="700"/>
+
+The numbers in the image match the table below.
+
+| # | Item | Description |
+| --- | --- | --- |
+| 1 | **Preset cards** | **Full clean**, **Fast cleaning** and **Custom**. The selected card is highlighted. See [Presets](#presets). |
+| 2 | **CLEANING STEPS AFTER EACH SESSION** | The list of cleaning steps for the selected operating system. The counter next to the heading, for example **3 of 10 running**, shows how many steps are turned on. Hover over the info icon next to a step name to see what the step does. For the full list, see [Cleaning Steps](#cleaning-steps). |
+| 3 | **Turn all on** | Turns on every step in the list. |
+| 4 | **EXCEPTIONS KEPT ON DEVICE** | For steps that can keep data, a field for the entries the step leaves on the device, for example the package names or bundle IDs of the apps to keep. Type an entry and press **Enter** to add it. To remove an entry, click the **X** next to it. A dash (**—**) means the step has no exceptions. |
+| 5 | **RUN AFTER SESSION** | A toggle for each step. When the toggle is on, the step runs after every session. |
+| 6 | **Cancel** / **Apply** | **Apply** saves the policy. **Cancel** or the **X** in the upper-right corner closes the dialog without saving. |
+
+Below the steps, **Other settings** lists the settings that are not cleaning steps. See [Other Settings](#other-settings).
 
 ### Setting the Organization Policy
 
 The organization policy applies to every private device of that operating system that doesn't have its own policy, including devices added to your organization later.
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
-2. Click the **DEVICES** tab. The **Organization Cleaning Policy** banner shows the policy for each operating system:
-   - **Custom policy**: your organization has saved a policy for this operating system.
-   - **Default cleaning**: your organization has no policy for this operating system, so the default steps run.
-
-   <img src={useBaseUrl('img/team-mgmt/cleaning-policy-org-banner.png')} alt="Organization cleaning policy banner" width="700"/>
-
-3. Click **View**.
+2. Click the **DEVICES** tab.
+3. In the **Organization Cleaning Policy** banner, click **View**. The **Organization Cleaning Policy** dialog opens.
 4. Select **Android** or **iOS**.
-5. Choose a preset, or turn individual steps on or off under **Cleaning steps after each session**. To run every step, click **Turn all on**.
-6. For steps that keep data, add the entries to keep under **Exceptions kept on device**. See [Cleaning Steps](#cleaning-steps).
+5. Select a preset card, or turn individual steps on or off with the toggles in the **RUN AFTER SESSION** column. To run every step, click **Turn all on**.
+6. Under **EXCEPTIONS KEPT ON DEVICE**, add the entries you want to keep on the device, such as apps or folders.
 7. Click **Apply**. Each operating system you changed is saved.
-
-### Setting a Device Policy
-
-A device policy replaces the organization policy for one device. The device keeps its own policy when the organization policy changes later.
-
-1. On the **DEVICES** tab, click the Pencil icon under the Action column of the device.
-2. The **Device Management** dialog shows whether the device follows the organization policy or has its own.
-3. Choose a preset, change individual steps, or edit the exceptions.
-
-   <img src={useBaseUrl('img/team-mgmt/cleaning-policy-device-modal.png')} alt="Device cleaning policy" width="700"/>
-
-4. Click **Apply**. The steps are saved as the device's own policy.
-
-To make a device follow the organization policy again, open it and click **Use organization policy**. Its own policy is removed right away.
 
 ### Cleaning Column
 
@@ -219,13 +230,29 @@ When cleaning policies are on, the **Cleaning** column of the **DEVICES** tab sh
 | **Org policy: Fast cleaning** (gray) | The device follows the organization policy, or the default steps, and they match the preset shown: Full clean, Fast cleaning or Custom. |
 | **Fast cleaning** (orange) | The device has its own policy, which matches the preset shown: Full clean, Fast cleaning or Custom. |
 
-<img src={useBaseUrl('img/team-mgmt/cleaning-policy-column.png')} alt="Cleaning column" width="700"/>
+<img src={useBaseUrl('img/team-mgmt/cleaning-policy-column.png')} alt="DEVICES tab with the Cleaning column and the Pencil icon highlighted" width="700"/>
 
 The **App Allowlist**, **System App Allowlist**, **Account Allowlist**, **Skip Cleaning Folders/Files** and **Apple Pay** columns show the values of the policy the device follows.
 
+### Setting a Device Policy
+
+A device policy replaces the organization policy for one device. The device keeps its own policy when the organization policy changes later.
+
+1. On the **DEVICES** tab, click the Pencil icon under the **Action** column of the device, highlighted in the image in [Cleaning Column](#cleaning-column). The **Device Management** dialog opens.
+2. Check the sentence at the top of the dialog:
+   - "This device has no policy of its own." means the device follows the organization policy, or the default steps if your organization has no policy. The dialog shows those steps.
+   - "This device has its own policy, which replaces the organization's Android policy." (or iOS policy) means the device already has a device policy.
+
+   <img src={useBaseUrl('img/team-mgmt/cleaning-policy-device-modal.png')} alt="Device Management dialog for a device with its own policy, showing the Use organization policy link and the Full clean preset" width="700"/>
+
+3. Select a preset card, turn individual steps on or off, or edit the exceptions.
+4. Click **Apply**. The steps are saved as the device's own policy.
+
+To make a device follow the organization policy again, open its **Device Management** dialog and click **Use organization policy**, highlighted in the image above. The device policy is removed right away, without clicking **Apply**.
+
 ### Cleaning Steps
 
-**On by default** shows the steps that run when no policy turns them off. These are the steps of **Fast cleaning**.
+**On by default** shows the steps that run when no policy turns them off. **Fast cleaning** runs exactly these steps.
 
 #### Android
 
