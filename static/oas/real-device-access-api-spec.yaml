@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: "2.0.0"
   title: "Real Device Access API Reference"
-  x-last-modified: "2026-09-15"
+  x-last-modified: "2026-11-23"
   x-beta: false
   description: |
     Access Sauce Labs' specialized real device farm to automate, test, and develop on real iOS and Android devices in the cloud. This API opens up our device infrastructure, enabling you to go beyond traditional testing workflows. Reserve a device once, then run multiple operations back-to-back on the same session—whether you're running automated tests, developing new features, or building custom automation workflows.
@@ -845,6 +845,89 @@ paths:
               schema:
                 type: string
                 format: binary
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+
+  /sessions/{sessionId}/device/foldState:
+    get:
+      operationId: getFoldState
+      summary: Get the fold state of a foldable device
+      description: "Returns how a foldable device is folded. `foldState` is `null` when the device is folded in a way none of the fold states describe, for example in tent mode. Any other device answers `400`."
+      tags:
+        - "Device Interactions"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetFoldStateResponse"
+        "400":
+          description: The device does not fold
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/BadRequestBody"
+              example:
+                type: about:blank
+                title: Failed to get fold state
+                detail: The device is not foldable or does not support changing its fold state (requires Android 12L or newer)
+        "404":
+          $ref: "#/components/responses/DeviceSessionNotFound"
+    post:
+      operationId: setFoldState
+      summary: Fold or unfold a foldable device
+      description: "Puts a foldable device into the given fold state and answers once the device is in it. The device is unfolded again when the session ends."
+      tags:
+        - "Device Interactions"
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          description: The id of the device session
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SetFoldStateRequest"
+      responses:
+        "204":
+          description: The device is in the requested fold state
+        "400":
+          description: The request body is invalid, or the device does not fold or does not support the fold state
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/BadRequestBody"
+              examples:
+                invalidRequestBody:
+                  summary: Invalid request body
+                  value:
+                    type: about:blank
+                    title: Invalid Fold State Request Body.
+                    detail: "Invalid 'foldState' value: 'TENT'. Accepted values are 'FOLDED', 'HALF_FOLDED', 'UNFOLDED'."
+                unsupportedFoldState:
+                  summary: Fold state not supported by the device
+                  value:
+                    type: about:blank
+                    title: Failed to set fold state to HALF_FOLDED
+                    detail: The device does not support the fold state HALF_FOLDED, it supports [FOLDED, UNFOLDED]
+                notFoldable:
+                  summary: Device does not fold
+                  value:
+                    type: about:blank
+                    title: Failed to set fold state to FOLDED
+                    detail: The device is not foldable or does not support changing its fold state (requires Android 12L or newer)
         "404":
           $ref: "#/components/responses/DeviceSessionNotFound"
 
@@ -2662,6 +2745,36 @@ components:
       properties:
         networkConditions:
           $ref: "#/components/schemas/NetworkConditions"
+    FoldState:
+      type: string
+      description: "`FOLDED`: closed. `HALF_FOLDED`: half open, standing like a laptop. `UNFOLDED`: open flat."
+      enum:
+        - FOLDED
+        - HALF_FOLDED
+        - UNFOLDED
+      example: HALF_FOLDED
+    GetFoldStateResponse:
+      type: object
+      required:
+        - foldState
+      properties:
+        foldState:
+          type: string
+          nullable: true
+          description: "How the device is folded, or `null` when none of the fold states describe it."
+          enum:
+            - FOLDED
+            - HALF_FOLDED
+            - UNFOLDED
+            - null
+          example: UNFOLDED
+    SetFoldStateRequest:
+      type: object
+      required:
+        - foldState
+      properties:
+        foldState:
+          $ref: "#/components/schemas/FoldState"
     StartTestRequest:
       type: object
       description: Optional metadata and artifact toggles for the test. Every field is optional.
