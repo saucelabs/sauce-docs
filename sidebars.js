@@ -1287,6 +1287,8 @@ module.exports = {
                                     collapsed: true,
                                     items: [
                                         'mobile-apps/automated-testing/appium/migration-guides/appium-2-migration',
+                                        'mobile-apps/automated-testing/appium/migration-guides/appium-3-migration',
+                                        'mobile-apps/automated-testing/appium/migration-guides/appium-4-migration',
                                         'mobile-apps/automated-testing/appium/migration-guides/appium-stable-migration',
                                     ],
                                 },

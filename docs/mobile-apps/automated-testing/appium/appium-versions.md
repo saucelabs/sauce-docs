@@ -156,6 +156,8 @@ For example, `appium3-2025-10` is an Appium 3 version built in October 2025.
 These releases are scheduled for January (01), April (04), July (07), and October (10) of each year.
 Each version will include the latest drivers available at the time of its release.
 
+***Final Releases:*** The last version of a major line is marked **Final**. No newer version of that major is built, because newer Appium drivers require the next major Appium version. A final release stays supported until its EOL date is announced.
+
 ### Real Device Appium Images
 
 We provide several specific, dated Appium versions. Please check the supported versions for Real Devices in the
@@ -194,29 +196,29 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
         <span className="sauceGold">November 1st, 2027</span>
       </td>
       <td>
-        The following drivers and plugins were released on November 19th 2026.
+        The following drivers and plugins were released on November 24th 2026.
         <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/appium-ios/tree/main/packages/webdriveragent" target="_blank">official Appium WebDriverAgent</a>.
         See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.
         <br /> <strong>Flutter:</strong> The Flutter drivers do not support Appium 4 yet and are not included. Use <code>appium3-2026-11</code> for Flutter tests.<br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%404.0.0" target="_blank">
-              <code>appium</code>: 4.0.0
+            <a href="https://github.com/appium/appium/releases/tag/appium%404.0.1" target="_blank">
+              <code>appium</code>: 4.0.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v9.2.2" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 9.2.2
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v10.1.0" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 10.1.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v13.1.3" target="_blank">
-              <code>appium-xcuitest-driver</code>: 13.1.3
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v13.7.0" target="_blank">
+              <code>appium-xcuitest-driver</code>: 13.7.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%406.0.0" target="_blank">
-              <code>@appium/images-plugin</code>: 6.0.0
+            <a href="https://github.com/appium/appium/releases/tag/%40appium%2Fimages-plugin%406.0.1" target="_blank">
+              <code>@appium/images-plugin</code>: 6.0.1
             </a>
           </li>
           <li>
@@ -225,8 +227,8 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-ios/releases/tag/appium-webdriveragent%4017.0.12" target="_blank">
-              <code>WebDriverAgent</code>: 17.0.12
+            <a href="https://github.com/appium/appium-ios/releases/tag/appium-webdriveragent%4017.1.3" target="_blank">
+              <code>WebDriverAgent</code>: 17.1.3
             </a>
           </li>
         </ul>
@@ -247,14 +249,15 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
   <tbody>
     <tr>
       <td>
-        <code>appium3-2026-11</code>
+        <code>appium3-2026-11</code><br />
+        <span className="sauceOrange">Final Appium 3 release</span>
       </td>
       <td>
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-        This is the final Appium 3 release provided by Sauce Labs. We recommend using this version if you intend to remain on Appium 3. This release contains the last drivers still compatible with Appium 3.<br /><br />
-        <strong>Note:</strong> Newer Appium drivers now list Appium 4 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/4.0/guides/migrating-3-to-4/" target="_blank">migrate to Appium 4</a>.<br /><br />
+        This is the final Appium 3 release provided by Sauce Labs. It stays supported until its EOL date is announced. We recommend using this version if you intend to remain on Appium 3. This release contains the last drivers still compatible with Appium 3.<br /><br />
+        <strong>Note:</strong> Newer Appium drivers now list Appium 4 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="../migration-guides/appium-4-migration">migrate to Appium 4</a>.<br /><br />
         The following drivers and plugins were released on November 20th 2026.
         <br /> <strong>iOS WebDriverAgent:</strong> Uses the <a href="https://github.com/appium/appium-ios/tree/main/packages/webdriveragent" target="_blank">official Appium WebDriverAgent</a>.
         See <a href="../real-devices/#webdriveragent-for-ios-real-devices">details</a>.<br />
@@ -570,14 +573,15 @@ Starting with `appium3-2026-01`, iOS automated test sessions on Sauce Labs Real 
   <tbody>
     <tr>
       <td>
-        <code>appium2-20250901</code> alias: <code>appium2-2025-09</code>
+        <code>appium2-20250901</code> alias: <code>appium2-2025-09</code><br />
+        <span className="sauceOrange">Final Appium 2 release</span>
       </td>
       <td>
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-        This is the final Appium 2 release provided by Sauce Labs. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
-        <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="https://appium.io/docs/en/3.1/guides/migrating-2-to-3/" target="_blank">migrate to Appium 3</a>.
+        This is the final Appium 2 release provided by Sauce Labs. It stays supported until its EOL date is announced. We recommend using this version if you intend to remain on Appium 2. This release contains the last drivers still compatible with Appium 2.<br /><br />
+        <strong>Note:</strong> Newer Appium drivers now list Appium 3 as a peer dependency. To receive future driver updates and support for new mobile OS versions, you must <a href="../migration-guides/appium-3-migration">migrate to Appium 3</a>.
         <br />
         <ul>
           <li>
