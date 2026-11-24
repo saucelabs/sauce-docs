@@ -1,71 +1,105 @@
 ---
 id: alerts
-title: Alerts
-sidebar_label: Alerts
-description: Backtrace offers an Alert capability that enables teams to be notified at Warning and Critical levels if error reports climb to a critical rate.
+title: Create Issue Based Alerts
+sidebar_label: Create Issue Based Alerts
+description: Create issue based alerts to notify your team or create issues in your workflow integrations when Error Reporting detects new errors, new fingerprints, or a drop in stability.
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Backtrace offers an Alert capability that enables teams to be notified at Warning and Critical levels if error reports reach a critical rate. Alerts are configured to trigger a notification for a workflow integration (for example, a message through Slack or a ticket in Jira) when an error group’s count of crashes reaches a specified threshold within a defined timeframe.
+Issue based alerts notify your team when Error Reporting detects a new error or fingerprint, or when the stability or impact of your application crosses a value you set. Alerts are sent through your workflow integrations, for example, as a message in Slack or as a ticket in Jira, so your team can act on new issues without watching the console.
 
-## Issue Based Alerts
+To be notified when the number of errors in a query reaches a rate over a time window, see [Create Error Threshold Alerts](/error-reporting/project-setup/error-threshold-alerts/).
 
 :::tip New Feature
 Want to see alerts about your application stability? Check out our new [Error Free User Alerting](https://changelog.saucelabs.com/en/now-available-error_free-user-metrics-alerting-D1ZgYKZg).
 :::
 
-Use issue based alerts to automatically generate notifications or create issues for your third-party integrations when Backtrace detects a new error or fingerprint in the system. You can specify the conditions and frequency for which alerts are triggered.
+## Prerequisites
 
-### Define Alert Conditions
+Alerts are sent through a workflow integration, so set up the integration you want to notify first. See [Workflow Integrations](/error-reporting/workflow-integrations/overview/).
 
-To get started, you must choose whether to be notified with every new error or every new fingerprint. If you have a high volume of errors or are connecting with an issue-tracking system like Jira, it's generally recommended to set triggers for new fingerprints to reduce noise.
+## Alert Triggers
 
-**Alert Triggers**
-- A new error is detected 
-    - Receive a message for each individual error. 
-    - Good for low volumes of unique errors. Suggested only for messaging systems like Slack.
-- A new fingerprint is detected
-    - Receive a message for errors grouped by root cause.
-    - Reduces duplicate messages when using an issue tracker like Jira.
-- Error-free user rate is below a threshold
-    - Set a minimum threshold for application stability (number of unique users who have not experienced an error). 
-    - Filter by `error.type = crash` for crash free rates.
-- Number of errors in a fingerprint is greater than a value 
-    - Notifies you of high frequency errors in a specific timeframe. 
-    - Good for spike detection.
-- Number of users affected by fingerprint is greater than a value 
-    - Notifies you of high user impacting errors.
-    - Only triggers when errors are affecting a large population.
+The trigger decides when an alert is sent. Choose the trigger that matches what you want to be notified about.
 
-Include attribute filtering to focus the messages specific to your use case.
+| Trigger | Notifies you when | Use it for |
+| --- | --- | --- |
+| **A new error is detected** | Each individual error is detected. | Low volumes of unique errors. Suggested only for messaging systems like Slack. |
+| **A new fingerprint is detected** | A new group of errors with the same root cause is detected. | Reducing duplicate messages when you use an issue tracker like Jira. |
+| **Error-free user rate is below a threshold** | The rate of unique users who haven't experienced an error falls below the minimum you set. | Monitoring application stability. Filter by `error.type = crash` for crash-free rates. |
+| **Number of errors in a fingerprint is greater than a value** | A fingerprint has more errors than the value you set, in a specific timeframe. | Detecting spikes of high-frequency errors. |
+| **Number of users affected by fingerprint is greater than a value** | A fingerprint affects more users than the value you set. | Catching errors that affect a large population of users. |
 
-Alert frequency allows you to control how often an alert will trigger. If you want to send messages for new errors, longer alert frequencies will allow batching of the same error and reduce the overall number of messages.
+If you have a high volume of errors, or you are connecting with an issue tracker like Jira, set the trigger to new fingerprints to reduce noise.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/issue-based-alerts.png')} alt="Shows how to create an issue based alert for a workflow integration." width="700" />
+## Create an Issue Based Alert
 
-## Error Threshold Alerts
+Each project has its own alerts, which you create from the **Alerts** page in the project settings. Before you start, make sure the workflow integration you want to notify is set up. See [Prerequisites](#prerequisites).
 
-Error Threshold Alerts can be created from the Explore view after applying filters by using Export as:
+**Step 1:** Open the project you want to create the alert for. In the top-right corner, click your profile icon, and then select **Project Settings & Docs**. The project settings open.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/alerts-export-as.webp')} alt="Shows how to create an alert based on a query." />
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-1.png')} alt="Project Settings & Docs option in the profile menu" />
 
-You can configure the alert as follows:
+**Step 2:** In the left menu, under **Workflow**, click **Alerts**. The **Alerts and notifications** page opens. It has a tab for each type of alert: **Issue Based Alerts** and **Error Threshold Alerts**.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/alerts-export-as-settings.png')} alt="Shows the configuration settings to create an alert based on a query." />
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-2.png')} alt="Alerts option under Workflow in the Project settings menu" />
 
-In this example, we are filtering for crashes in the production release channel in non muted fingerprints and grouping by fingerprint. The thresholds are set to fire a warning if any fingerprint within the filter gains 10 new objects within 5 minutes, and a critical alert if any fingerprint within the filter gains 20 new objects within 5 minutes. Alerts will be spaced by the notification interval, set to 15 minutes in this example. The final step in configuring the Alert is selecting a workflow integration for the notification to be sent with.
+**Step 3:** Select the **Issue Based Alerts** tab. The tab lists the issue based alerts already created for the project, with their name, integrations, and status.
 
-Once an alert has been saved, its configuration will display under Project settings > Alerts.
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-3.png')} alt="Issue Based Alerts tab on the Alerts and notifications page" />
 
-When a threshold is met, a notification including a link to the alert’s Activity feed (under Project settings > Alerts) will be sent to the integration configured.
+**Step 4:** Click **Create alert**. The **New alert** form opens, where you name the alert and set its conditions.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/slack-alert-example.png')} alt="Shows an example notification message in Slack." width="600"/>
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-4.png')} alt="Create alert button on the Issue Based Alerts tab" />
 
-The activity feed will display the fingerprint(s) that met the alert, providing teams with the information they need to investigate the spike.
+**Step 5:** Enter a name for the alert, choose the trigger, and select the integration to notify. Optionally, add attribute filters so the alert covers only the errors you care about, for example, errors from one platform or application version. The form has the following fields:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/alert-activity-feed.png')} alt="Shows the activity feed for the error fingerprints that meet the specified thresholds." />
+| Sr. No. | Field | Description |
+| --- | --- | --- |
+| 1 | **Alert Name** | **Required.** A name for the alert. |
+| 2 | **Trigger an alert when** | **Required.** The condition that sends the alert. See [Alert Triggers](#alert-triggers). |
+| 3 | **Filter attribute** | Optional. The attribute to filter errors by, so the alert focuses on your use case. |
+| 4 | **Filter operator** | The operator to compare the attribute with the value. |
+| 5 | **Filter value** | The value to compare the attribute with. To apply the filter, click **Add**. |
+| 6 | **Notify me via** | **Required.** The workflow integration to send the alert to. To remove an integration, click **Remove**. To send the alert to another integration, click **Add new integration**. |
+| 7 | **Alert frequency** | How often the alert can be triggered. For alerts on new errors, a longer frequency batches the same error and reduces the number of messages. |
+| 8 | **Alert execution delay** | How long to wait before the alert runs. The default is **No delay**. |
 
-Alerts can also be created, edited, or deleted from Project settings > Alerts, with the limitation that attribute filters cannot be edited from this endpoint (the explore view must be used for alerts with attribute filters).
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-5.png')} alt="New alert form with numbered Alert Name, Trigger an alert when, filter attribute, operator, and value, Notify me via, Alert frequency, and Alert execution delay fields" />
+
+**Step 6:** Review the fields, and then click **Save alert**. To discard the alert, click **Cancel**.
+
+The alert appears on the **Issue Based Alerts** tab, with its name, the integrations it notifies, and its status. A new alert is **Active**, so Error Reporting starts sending notifications as soon as the trigger conditions are met.
+
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-6.png')} alt="Saved issue based alerts with their names, integrations, and status" />
+
+## Edit or Delete an Issue Based Alert
+
+Edit an alert to change its trigger, filters, integrations, or frequency, or delete an alert you no longer need. You manage alerts from the **Issue Based Alerts** tab.
+
+### Edit an Alert
+
+Edit an alert when you need to change what it monitors or where it sends notifications, for example, to switch the trigger from new errors to new fingerprints, or to add another integration.
+
+**Step 1:** On the **Issue Based Alerts** tab, find the alert you want to change.
+
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-7.png')} alt="Issue Based Alerts tab on the Alerts and notifications page" />
+
+**Step 2:** In the **Actions** column, click the edit icon next to the alert. The alert form opens with the current settings.
+
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-8.png')} alt="Edit icons in the Actions column of the Issue Based Alerts tab" />
+
+**Step 3:** Update the fields, and then click **Save alert**.
+
+### Delete an Alert
+
+Delete an alert when you no longer need its notifications.
+
+**Step 1:** On the **Issue Based Alerts** tab, find the alert you want to remove.
+
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-9.png')} alt="Issue Based Alerts tab on the Alerts and notifications page" />
+
+**Step 2:** In the **Actions** column, click the delete icon next to the alert.
+
+<img src={useBaseUrl('img/error-reporting/alerts-setup/issue-based-alerts/issue-based-alerts-10.png')} alt="Delete icons in the Actions column of the Issue Based Alerts tab" />
