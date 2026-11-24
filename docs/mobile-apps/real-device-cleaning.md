@@ -127,3 +127,5 @@ Setting up VPNs on private devices is not supported. Please consult our document
 :::
 
 While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see [Private Device Management](/basics/acct-team-mgmt/private-device-mgmt) for details.
+
+If cleaning policies are turned on for your organization, organization admins can also choose which cleaning steps run on their private devices, for the whole organization or for a single device. Please see [Cleaning Policies](/basics/acct-team-mgmt/private-device-mgmt#cleaning-policies) for details.

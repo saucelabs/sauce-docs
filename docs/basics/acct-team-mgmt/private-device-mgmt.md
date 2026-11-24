@@ -14,6 +14,7 @@ Private device management allows an organization admin to view and manage the pr
 
 - Assign a private device to one or multiple teams.
 - Customize a private device to allow apps, system apps, and accounts to persist between sessions.
+- Choose which cleaning steps run after each session with [cleaning policies](#cleaning-policies).
 
 :::important
 
@@ -67,6 +68,10 @@ Any new team assignments will override the existing ones.
 3. In the device modal, you can configure your private device: App Allow List, Account Allow List, System App Allow List, Retain folders, Enable Apple Pay.
    
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit-modal.png')} alt="Private device management modal view" width="450" height="600"/>
+
+:::note
+If cleaning policies are turned on for your organization, the Pencil icon opens the cleaning policy of the device instead, and these settings are part of the policy. See [Cleaning Policies](#cleaning-policies).
+:::
 
 ### App Allow List
 The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this setting for each of the application identifiers. This might be the app you are testing or dependent apps, e.g. MFA app, Microsoft Authenticator, etc.
@@ -147,6 +152,126 @@ Please send us a support ticket to set up Confirm with AssistiveTouch on your de
 This feature **requires** setting the Account Allow List.  
 Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for more information.  
 :::
+
+## Cleaning Policies
+
+After every session, Sauce Labs cleans the device so the next session starts from a known state (see [Real Device Cleaning Process](/mobile-apps/real-device-cleaning)). Cleaning policies let organization admins choose which cleaning steps run on their private devices. Skipping the steps you don't need gets devices ready for the next session sooner, and keeps data you want to reuse between sessions.
+
+:::note
+Cleaning policies are turned on per organization by Sauce Labs. Until they are turned on, private devices are cleaned as described in [Real Device Cleaning Process](/mobile-apps/real-device-cleaning), and the settings in [Customizing Private Devices](#customizing-private-devices) apply. To turn them on for your organization, contact your Sauce Labs account team.
+:::
+
+Each policy applies to one operating system, Android or iOS. After a session, a private device is cleaned with:
+
+1. Its own policy (a device policy), if it has one.
+2. Otherwise, the organization policy for its operating system.
+3. Otherwise, the default steps, which are the same as **Fast cleaning**.
+
+### Presets
+
+Every policy starts from a preset. You can change individual steps after choosing a preset.
+
+| Preset | Steps that run |
+| --- | --- |
+| **Full clean** | Every cleaning step. |
+| **Fast cleaning** | Only the steps that are on by default: it removes the apps from the last session, signs out of accounts, and deletes files. This is the recommended default. |
+| **Custom** | The steps you turn on individually. Changing any step of Full clean or Fast cleaning makes the policy Custom. |
+
+<img src={useBaseUrl('img/team-mgmt/cleaning-policy-presets.png')} alt="Cleaning policy presets" width="700"/>
+
+### Setting the Organization Policy
+
+The organization policy applies to every private device of that operating system that doesn't have its own policy, including devices added to your organization later.
+
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
+2. Click the **DEVICES** tab. The **Organization Cleaning Policy** banner shows the policy for each operating system:
+   - **Custom policy**: your organization has saved a policy for this operating system.
+   - **Default cleaning**: your organization has no policy for this operating system, so the default steps run.
+
+   <img src={useBaseUrl('img/team-mgmt/cleaning-policy-org-banner.png')} alt="Organization cleaning policy banner" width="700"/>
+
+3. Click **View**.
+4. Select **Android** or **iOS**.
+5. Choose a preset, or turn individual steps on or off under **Cleaning steps after each session**. To run every step, click **Turn all on**.
+6. For steps that keep data, add the entries to keep under **Exceptions kept on device**. See [Cleaning Steps](#cleaning-steps).
+7. Click **Apply**. Each operating system you changed is saved.
+
+### Setting a Device Policy
+
+A device policy replaces the organization policy for one device. The device keeps its own policy when the organization policy changes later.
+
+1. On the **DEVICES** tab, click the Pencil icon under the Action column of the device.
+2. The **Device Management** dialog shows whether the device follows the organization policy or has its own.
+3. Choose a preset, change individual steps, or edit the exceptions.
+
+   <img src={useBaseUrl('img/team-mgmt/cleaning-policy-device-modal.png')} alt="Device cleaning policy" width="700"/>
+
+4. Click **Apply**. The steps are saved as the device's own policy.
+
+To make a device follow the organization policy again, open it and click **Use organization policy**. Its own policy is removed right away.
+
+### Cleaning Column
+
+When cleaning policies are on, the **Cleaning** column of the **DEVICES** tab shows which policy each device follows:
+
+| Cleaning column | Meaning |
+| --- | --- |
+| **Org policy: Fast cleaning** (gray) | The device follows the organization policy, or the default steps, and they match the preset shown: Full clean, Fast cleaning or Custom. |
+| **Fast cleaning** (orange) | The device has its own policy, which matches the preset shown: Full clean, Fast cleaning or Custom. |
+
+<img src={useBaseUrl('img/team-mgmt/cleaning-policy-column.png')} alt="Cleaning column" width="700"/>
+
+The **App Allowlist**, **System App Allowlist**, **Account Allowlist**, **Skip Cleaning Folders/Files** and **Apple Pay** columns show the values of the policy the device follows.
+
+### Cleaning Steps
+
+**On by default** shows the steps that run when no policy turns them off. These are the steps of **Fast cleaning**.
+
+#### Android
+
+| Step | What it does | On by default | Exceptions kept on device |
+| --- | --- | --- | --- |
+| Uninstall customer-installed apps | Uninstalls every app you or your tests installed, except the ones in your App Allowlist. | Yes | App Allowlist |
+| Verify no third-party packages remain | Checks that every app you or your tests installed is gone, except the ones in your App Allowlist. Cleaning fails if one is left. Runs only while **Uninstall customer-installed apps** is on. | Yes | |
+| Delete files | Deletes the files saved on the device, such as downloads. | Yes | Skip Cleaning Folders/Files |
+| Reset device settings | Sets system settings, such as font size, autofill, and text-to-speech, back to their defaults. | No | |
+| Reset locale and country | Sets the device's locale and country back to the data center's defaults, clears the clipboard, and sets a black wallpaper. | No | |
+| Reset time zone | Turns automatic date and time back on and sets the time zone back to the data center's. | No | |
+| Reset navigation mode | Sets navigation back to its default: three buttons on Samsung devices, gestures on others. | No | |
+| Clear alarms, clipboard, browser, and launcher data | Deletes alarms, clipboard contents, browser data, and home screen changes. | No | |
+| Enable high-accuracy location | Turns high-accuracy location back on, so apps get precise locations. | No | |
+| Reset mock GPS location | Sets the GPS location back to the data center's location. | No | |
+
+#### iOS
+
+| Step | What it does | On by default | Exceptions kept on device |
+| --- | --- | --- | --- |
+| Uninstall customer-installed apps | Uninstalls every app you or your tests installed, except the ones in your App Allowlist. It also signs out of Google Chrome before removing it. | Yes | App Allowlist |
+| Delete files | Deletes the files saved on the device, such as downloads. | Yes | |
+| Delete saved passwords | Deletes the passwords saved in Settings, on iOS 17 and earlier. | Yes | |
+| Sign out of Apple ID | Signs out of the Apple ID, unless it's in your Account Allowlist. | Yes | Account Allowlist |
+| Reset language | Sets the device's language back to the data center's default. | Yes | |
+| Reset locale | Sets the device's locale back to the data center's default. | No | |
+| Reset time zone | Turns automatic date and time back on and sets the time zone back to the data center's. | No | |
+| Clear Safari history and website data | Clears Safari's history and website data, such as cookies, and turns JavaScript and Web Inspector back on. | No | |
+| Reset Safari website permissions | Sets websites' access to the camera, microphone, and location back to Ask. | No | |
+| Reset Safari settings | Turns JavaScript and Web Inspector back on in Safari's settings when Safari wasn't used during the session. | No | |
+| Delete reminders | Deletes all reminders. | No | |
+| Delete all photos | Deletes all photos in the Photos app. | No | |
+| Clear Wallet | Removes the cards and passes in Wallet. | No | |
+| Reset mock GPS location | Sets the GPS location back to the data center's location. | No | |
+
+:::note
+The exceptions are kept only while their step runs. For example, the App Allowlist has no effect while **Uninstall customer-installed apps** is off, because no apps are removed.
+:::
+
+#### Other Settings
+
+These settings are not cleaning steps. You can find them under **Other settings** in the policy:
+
+- **Account Allowlist** (Android): see [Account Allow List](#account-allow-list).
+- **System App Allowlist** (iOS): see [System App Allow List (iOS)](#system-app-allow-list-ios).
+- **Apple Pay Support** (iOS): see [Enable Apple Pay](#enable-apple-pay).
 
 ## Private Device Management API
 Easily manage your private real devices with our [Device Management API endpoints](/dev/api/rdc/#private-real-device-management) 
