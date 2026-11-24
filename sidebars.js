@@ -334,6 +334,29 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Universe Settings',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/org-settings/project-management',
+                        'error-reporting/project-setup/connections',
+                        'error-reporting/org-settings/manage-ai-features',
+                        'error-reporting/org-settings/manage-server-settings',
+                        'error-reporting/org-settings/manage-subscriptions',
+                        {
+                            type: 'category',
+                            label: 'Users and Access',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/org-settings/user-mgmnt',
+                                'error-reporting/org-settings/team-mgmnt',
+                                'error-reporting/org-settings/saml-sso',
+                                'error-reporting/org-settings/manage-universe-access',
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Project Settings',
                     collapsed: true,
                     items: [
@@ -342,7 +365,6 @@ module.exports = {
                             label: 'Workflow',
                             collapsed: true,
                             items: [
-                                'error-reporting/project-setup/connections',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
                                 'error-reporting/project-setup/metric-export',
@@ -361,18 +383,6 @@ module.exports = {
                                 'error-reporting/project-setup/access-control',
                             ],
                         },
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Universe Settings',
-                    collapsed: true,
-                    items: [
-                        'error-reporting/org-settings/user-mgmnt',
-                        'error-reporting/org-settings/team-mgmnt',
-                        'error-reporting/org-settings/project-management',
-                        'error-reporting/org-settings/saml-sso',
-                        'error-reporting/org-settings/manage-universe-access',
                     ],
                 },
                 {
