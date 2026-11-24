@@ -9,11 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info Final Appium 2 release
-`appium2-20250901` (alias `appium2-2025-09`) is the final Appium 2 release on Sauce Labs Real Devices. Newer Appium drivers require Appium 3, so this version will not receive new drivers or support for new mobile OS versions. See [Appium Versions](/mobile-apps/automated-testing/appium/appium-versions/#appium-2x).
-:::
-
-Appium 3 is a smaller upgrade than Appium 2 was. It removes deprecated server endpoints and raises the requirements of the Appium server itself. Sauce Labs runs the Appium server for you, so the server-side changes (Node.js version, installation, server flags) need no action on your side. What can affect your tests are the removed endpoints and the major driver updates that ship with Appium 3.
+Appium 3 is a smaller upgrade than Appium 2 was. It removes deprecated server endpoints and raises the requirements of the Appium server itself. Sauce Labs runs the Appium server for you, so the server-side changes (Node.js version, installation, server flags) need no action on your side. Your tests can be affected by the removed endpoints and by the driver updates that ship with Appium 3.
 
 This guide lists the changes that have an impact on running your tests on Sauce Labs. For the complete list, read the official [Appium 3 migration guide](https://appium.io/docs/en/4.0/guides/migrating-2-to-3/) and the [Appium release notes](https://github.com/appium/appium/releases).
 

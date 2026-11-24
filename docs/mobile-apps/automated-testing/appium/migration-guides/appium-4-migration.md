@@ -9,10 +9,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info Final Appium 3 release
-`appium3-2026-11` is the final Appium 3 release on Sauce Labs Real Devices. Newer Appium drivers require Appium 4, so this version will not receive new drivers or support for new mobile OS versions. See [Appium Versions](/mobile-apps/automated-testing/appium/appium-versions/#appium-3x).
-:::
-
 :::caution Flutter is not available on Appium 4 yet
 The Flutter and Flutter Integration drivers require Appium 3 and are not part of `appium4-2026-11`. A session with `appium:automationName` set to `Flutter` or `FlutterIntegration` on an Appium 4 version is rejected with:
 
@@ -23,7 +19,7 @@ The automationName 'Flutter' is not available for Appium version 'appium4-2026-1
 Keep Flutter tests on `appium3-2026-11` until the drivers support Appium 4.
 :::
 
-Appium 4 focuses on alignment with the W3C WebDriver protocol, removal of the remaining deprecated items, and modernizing the server. Sauce Labs runs the Appium server for you, so the server-side changes (Node.js version, ESM-only packages, server flags, logging defaults) need no action on your side. What can affect your tests are the removed endpoints and capabilities, the stricter protocol handling, and the driver updates that ship with Appium 4.
+Appium 4 focuses on alignment with the W3C WebDriver protocol, removal of the remaining deprecated items, and modernizing the server. Sauce Labs runs the Appium server for you, so the server-side changes (Node.js version, ESM-only packages, server flags, logging defaults) need no action on your side. Your tests can be affected by the removed endpoints and capabilities, by the stricter protocol handling, and by the driver updates that ship with Appium 4.
 
 This guide lists the changes that have an impact on running your tests on Sauce Labs. For the complete list, read the official [Appium 4 migration guide](https://appium.io/docs/en/4.0/guides/migrating-3-to-4/) and the [Appium release notes](https://github.com/appium/appium/releases).
 
