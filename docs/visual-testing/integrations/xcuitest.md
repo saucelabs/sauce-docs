@@ -51,12 +51,9 @@ Choose one installation method for each UI test target.
 <Tabs>
 <TabItem value="spm" label="Swift Package Manager" default>
 
-1. In Xcode, select **File** > **Add Package Dependencies**.
-2. Enter the public package URL `https://github.com/saucelabs/visual-apple`, select a released version, and add the `SauceVisual` product to your UI test target. For a prerelease, select **Exact Version** and enter its full version.
-3. Select the UI test target and open **Build Phases**.
-4. Select **+** > **New Copy Files Phase**, set **Destination** to **Frameworks**, and leave **Subpath** empty. You can rename the phase to **Embed Frameworks**.
-5. Click **+** in the new phase, add the `SauceVisual` product, and make sure **Code Sign On Copy** is selected.
-6. Build for your test destination and verify that the test bundle contains `SauceVisual.framework`. For iOS, look under `MyAppUITests-Runner.app/PlugIns/MyAppUITests.xctest/Frameworks/`.
+1. In Xcode, choose **File → Add Package Dependencies…** and enter `https://github.com/saucelabs/visual-apple`.
+2. Select a released version and add the `SauceVisual` product to your UI test target.
+3. In the UI test target’s **Build Phases**, add or reuse a **Copy Files** phase with **Destination** set to **Frameworks** and **Subpath** left empty. Add `SauceVisual` to the phase and enable **Code Sign On Copy** so the test runner can load the framework on physical devices.
 
 :::note
 `SauceVisual` is a dynamic framework, and Xcode copies it into the test bundle only if the UI test target has a **Copy Files** phase for it. Without this phase, Debug runs on a Simulator still work, because the Simulator loads the framework from the build folder in DerivedData. Runs on a physical device fail with `Library not loaded: @rpath/SauceVisual.framework/SauceVisual`.
@@ -65,10 +62,8 @@ Choose one installation method for each UI test target.
 </TabItem>
 <TabItem value="xcframework" label="XCFramework">
 
-1. Open the [SauceVisual Releases page](https://github.com/saucelabs/visual-apple/releases) and choose a release with a `SauceVisual-*.xcframework.zip` file under **Assets**. For versions without a binary asset, use Swift Package Manager.
-2. Download and extract the XCFramework ZIP. The archive contains `SauceVisual.xcframework` and its matching debug symbols (dSYMs).
-3. Add the extracted `SauceVisual.xcframework` to your Xcode project and link it in the UI test target. Choose **Embed & Sign** if Xcode offers that option.
-4. If the embedding option is unavailable, open the UI test target’s **Build Phases** and add the XCFramework to **Link Binary With Libraries**. Add or reuse a **Copy Files** phase with **Frameworks** as its destination, add the XCFramework, and enable **Code Sign On Copy**.
+1. Open [SauceVisual Releases page](https://github.com/saucelabs/visual-apple/releases), choose a release that lists a `SauceVisual-*.xcframework.zip` asset, and download and unzip it. For versions without a binary asset, use Swift Package Manager.
+2. Add the extracted `SauceVisual.xcframework` to your project and link it in the UI test target. If Xcode offers an embedding option, choose **Embed & Sign**. Otherwise, add it to the test target’s **Link Binary With Libraries** and to a **Copy Files** phase with destination **Frameworks** and **Code Sign On Copy** enabled.
 
 </TabItem>
 </Tabs>
