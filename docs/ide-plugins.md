@@ -87,7 +87,7 @@ Working with Sauce Labs traditionally means leaving the IDE: testing on a real d
 
 The plugin itself is free to install and comes at no additional cost. Sign in with your existing Sauce Labs credentials; no separate plugin licensing or API setup is required. Access to specific features depends on your account:
 
-- **Live device sessions** are powered by the [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) and require **private (dedicated) devices** and **Real Device Access API concurrency** on your account.
+- **Live device sessions** are powered by the [Real Device Access API](/mobile-apps/real-device-access-api/real-device-access-api-introduction) and require **Real Device Access API concurrency** on your account.
 - **AI Test Authoring** requires [Sauce AI for Test Authoring](/sauce-ai/ai-authoring), a paid add-on for Enterprise accounts.
 - Beyond these entitlements, access can also depend on your role and permissions within your Sauce Labs organization. If a feature is missing or returns a permissions error, ask your organization administrator to review your team membership and access settings.
 
