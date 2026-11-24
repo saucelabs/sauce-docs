@@ -220,21 +220,3 @@ Driver 13.0.0 no longer uses `appium-ios-device` and removed the remaining JSONW
 * **Script timeout is now honored by `execute`.** A client that sets `script` to `0`, or shorter than its scripts run, now gets a script timeout. `GET /timeouts` reports `script: null` for a new session instead of `0`.
 
 The full list is in the driver's [13.0.0 changelog](https://github.com/appium/appium-xcuitest-driver/blob/master/CHANGELOG.md#1300-2026-11-01).
-
----
-
-### 6. Migration Checklist
-
-- [ ] Set `appiumVersion` to `appium4-2026-11`. Keep Flutter tests on `appium3-2026-11`.
-
-- [ ] Update your Appium client library to a current release.
-
-- [ ] Remove `appium:eventTimings` and any code that reads `GET /session/:sessionId`.
-
-- [ ] Check capability names for exact casing and remove sessions that set both `appium:noReset` and `appium:fullReset`.
-
-- [ ] Update error handling that expects HTTP `408` on command timeouts.
-
-- [ ] iOS: replace `launchApp`, `closeApp` and `mobile: killApp` with their `mobile:` replacements, and remove the capabilities and settings listed in section 5.
-
-- [ ] Run your full test suite against Appium 4 and address any failures.

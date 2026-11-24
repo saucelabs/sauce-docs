@@ -36,7 +36,7 @@ On Android Emulators and iOS Simulators, Appium 3 is available as version `3.8.0
 
 ### 1. Select an Appium 3 Version
 
-Set the `appiumVersion` capability in your `sauce:options` object to an Appium 3 version: `appium3-2026-11` for Real Devices, or `3.8.0` for Emulators and Simulators. Everything else in your capabilities stays as it was for Appium 2: W3C capabilities with the `appium:` prefix, an explicit `appium:automationName`, and Sauce Labs options inside `sauce:options`.
+Set the `appiumVersion` capability in your `sauce:options` object to an Appium 3 version: `appium3-2026-11` for Real Devices, or `3.8.0` for Emulators and Simulators. Everything else in your capabilities stays as it was for Appium 2.
 
 <Tabs
 groupId="capability-ex"
@@ -191,18 +191,3 @@ A few endpoints only changed their parameters: `POST /session` accepts `capabili
 
 `appium3-2026-11` contains the Flutter driver `4.1.0` and the Flutter Integration driver `2.0.3`. Their changelogs list no command or capability changes for Appium 3 beyond the Appium 3 requirement itself. Keep `appium:automationName` set to `Flutter` or `FlutterIntegration` as before.
 
----
-
-### 6. Migration Checklist
-
-- [ ] Set `appiumVersion` to `appium3-2026-11` (Real Devices) or `3.8.0` (Emulators and Simulators).
-
-- [ ] Update your Appium client library to a current release.
-
-- [ ] Search your test suite for `TouchAction`, `MultiTouchAction` and the removed commands in section 2. Replace them with W3C Actions or `mobile:` commands.
-
-- [ ] Android: check that your target devices run Android 8.0 or newer. Update code that parses `mobile: listApps`.
-
-- [ ] iOS: remove the capabilities listed in section 4 and review tests that depend on `getWindowRect`.
-
-- [ ] Run your full test suite against Appium 3 and address any failures.
