@@ -234,7 +234,6 @@ When cleaning policies are on, the **Cleaning** column of the **DEVICES** tab sh
 
 The **App Allowlist**, **System App Allowlist**, **Account Allowlist**, **Skip Cleaning Folders/Files** and **Apple Pay** columns show the values of the policy the device follows.
 
-### Setting a Device Policy
 
 A device policy replaces the organization policy for one device. The device keeps its own policy when the organization policy changes later.
 
