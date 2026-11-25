@@ -33,7 +33,7 @@ implementation 'com.testfairy:testfairy-android-sdk:1.+@aar'
 implementation 'com.testfairy:testfairy-android-ndk:1.+@aar'
 ```
 
-If the project declared `https://maven.testfairy.com` only for the TestFairy SDK 1.x, keep the repository. The Sauce Mobile Beta artifact is served from it as well. If the declaration has a `content { includeGroup 'com.testfairy' }` filter, change the group to `com.saucelabs.mobilebeta` as shown in step 2, or Gradle will not look up the new artifact there.
+If the project declared `https://maven.testfairy.com` only for the TestFairy SDK 1.x, you can keep it: the Sauce Mobile Beta artifact is served from it as well, and `https://maven.saucelabs.com` serves the same repository. If the declaration has a `content { includeGroup 'com.testfairy' }` filter, change the group to `com.saucelabs.mobilebeta` as shown in step 2, or Gradle will not look up the new artifact there.
 
 **Verify.** The following command prints nothing from the `com.testfairy` group:
 
@@ -45,7 +45,7 @@ Repeat it for every module that declared the dependency.
 
 ## 2. Add the Sauce Mobile Beta Artifact
 
-The Sauce Mobile Beta SDK for Android is `com.saucelabs.mobilebeta:sauce-mobile-beta-android`, served from `https://maven.testfairy.com`. It is not on Maven Central or jcenter. It supports API level 16 or later on its own, and API level 21 or later with Backtrace (see step 4).
+The Sauce Mobile Beta SDK for Android is `com.saucelabs.mobilebeta:sauce-mobile-beta-android`, served from `https://maven.saucelabs.com`. It is not on Maven Central or jcenter. It supports API level 16 or later on its own, and API level 21 or later with Backtrace (see step 4).
 
 Make sure the repository is declared in `settings.gradle` (or in the root `build.gradle` for older project layouts). The `content` filter is optional and limits the repository to the `com.saucelabs.mobilebeta` group:
 
@@ -66,7 +66,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url 'https://maven.testfairy.com'
+            url 'https://maven.saucelabs.com'
             content { includeGroup 'com.saucelabs.mobilebeta' }
         }
     }
@@ -84,7 +84,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url = uri("https://maven.testfairy.com")
+            url = uri("https://maven.saucelabs.com")
             content { includeGroup("com.saucelabs.mobilebeta") }
         }
     }
@@ -305,7 +305,7 @@ Do not use the deprecated `setCorrelationId` or `identify` methods for the corre
 
 ## Troubleshooting
 
-**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`** or a `Could not GET` error for a `jcenter.bintray.com` URL. The SDK is served from `https://maven.testfairy.com`, not from jcenter or Maven Central. Add the repository as shown in step 2.
+**`Could not find com.saucelabs.mobilebeta:sauce-mobile-beta-android:2.3.0`** or a `Could not GET` error for a `jcenter.bintray.com` URL. The SDK is served from `https://maven.saucelabs.com` (`https://maven.testfairy.com` serves the same repository), not from jcenter or Maven Central. Add the repository as shown in step 2.
 
 **`Duplicate class` errors for `com.testfairy` classes.** A TestFairy SDK 1.x artifact (`com.testfairy:testfairy-android-sdk` or `com.testfairy:testfairy-android-ndk`) is still on the classpath, possibly through another module. Run the dependency graph command from step 1 for every module and remove it.
 

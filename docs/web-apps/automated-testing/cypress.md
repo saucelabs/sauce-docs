@@ -37,6 +37,19 @@ Sauce Labs supports the following test configurations for Cypress:
   </tr>
   <tbody>
      <tr>
+      <td rowspan='2'>16.1.1</td>
+      <td rowspan='2'>24</td>
+      <td rowspan='2'>✅</td>
+      <td><b>macOS:</b> 13, 14*, 15*†, 26*†</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>October 23rd, 2027</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+     <tr>
       <td rowspan='2'>15.21.1</td>
       <td rowspan='2'>22</td>
       <td rowspan='2'>✅</td>
@@ -144,6 +157,8 @@ Sauce Labs supports the following test configurations for Cypress:
 *macOS 14+ requires an appropriate subscription. For additional details see [macOS Browser Tests on Apple Silicon](/web-apps/macos-apple-silicon).
 
 † On macOS 15 and macOS 26, Cypress supports Chrome, Microsoft Edge, and Webkit (Experimental); Firefox is not available (on macOS 15 this is due to a macOS firewall issue). Chrome, Firefox, Microsoft Edge, and Webkit (Experimental) all remain available on macOS 11.00, 12, 13, and 14.
+
+Cypress 16.1.1 and later run on macOS 13 and later. To test on macOS 11.00 or 12, use Cypress 15.21.1 or earlier.
 
 ## How to Get Started
 

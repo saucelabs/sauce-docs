@@ -240,6 +240,19 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Error Processing',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/attributes',
+                        'error-reporting/project-setup/object-reprocessing',
+                        'error-reporting/project-setup/submission-actions',
+                        'error-reporting/project-setup/deduplication',
+                        'error-reporting/project-setup/deduplication-rules',
+                        'error-reporting/security-compliance/privacy-control',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
@@ -303,29 +316,33 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Alerts Setup',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/alerts',
+                        'error-reporting/project-setup/error-threshold-alerts',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Scheduled Reports',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/project-setup/scheduled-reports',
+                        'error-reporting/project-setup/manage-scheduled-reports',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Project Settings',
                     collapsed: true,
                     items: [
                         {
                             type: 'category',
-                            label: 'Error Processing',
-                            collapsed: true,
-                            items: [
-                                'error-reporting/project-setup/attributes',
-                                'error-reporting/project-setup/deduplication',
-                                'error-reporting/project-setup/deduplication-rules',
-                                'error-reporting/project-setup/submission-actions',
-                                'error-reporting/project-setup/object-reprocessing',
-                            ],
-                        },
-                        {
-                            type: 'category',
                             label: 'Workflow',
                             collapsed: true,
                             items: [
-                                'error-reporting/project-setup/alerts',
                                 'error-reporting/project-setup/connections',
-                                'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
                                 'error-reporting/project-setup/metric-export',
@@ -365,7 +382,6 @@ module.exports = {
                     items: [
                         'error-reporting/security-compliance/audit-logs',
                         'error-reporting/security-compliance/common-questions',
-                        'error-reporting/security-compliance/privacy-control',
                     ],
                 },
                 {
