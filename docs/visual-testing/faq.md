@@ -30,10 +30,6 @@ Yes, Sauce Visual is 100% API-based and natively utilizes the same tools as the 
 
 Sauce Visual will support the following languages/frameworks at launch: Selenium/Appium/Cypress, WebDriverIO, Java JUnit/TestNG, and JavaScript. You can find examples of some of these at [https://github.com/saucelabs/visual-examples](https://github.com/saucelabs/visual-examples).
 
-### What subsequent languages/frameworks will be supported?
-
-Support for additional languages/frameworks will be determined based on demand. Frameworks like Playwright, TestCafe, etc., are currently under consideration. Contributions are encouraged. Check out the [examples project](https://github.com/saucelabs/visual-examples). If you create your own public library or binding, feel free to add another example to that project.
-
 ### When will it support "my favorite framework"?
 
 The support for any framework depends on the client-side implementation using the underlying API. If you require an SDK, submit a new idea at [Productboard](https://portal.productboard.com/sauceprod/2-sauce-labs-portal/tabs/4-under-consideration/submit-idea).
