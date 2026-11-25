@@ -293,7 +293,7 @@ The exceptions are kept only while their step runs. For example, the App Allowli
 
 #### Other Settings
 
-These settings are not cleaning steps. You can find them under **Other settings** in the policy:
+You can find your old device settings in the device modal under **Other settings**.
 
 - **Account Allowlist** (Android): see [Account Allow List](#account-allow-list).
 - **System App Allowlist** (iOS): see [System App Allow List (iOS)](#system-app-allow-list-ios).
