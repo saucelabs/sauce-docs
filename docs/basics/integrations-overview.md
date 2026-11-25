@@ -214,6 +214,27 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
 </div>
 
+## Issue Tracking and Notifications
+
+Create Jira tickets from your test results, and send test result notifications to your Slack channels.
+
+<div className="box-wrapper" markdown="1">
+  <div className="box box1 card">
+    <div className="container">
+        <a href="/basics/integrations/jira/"> <img src={useBaseUrl('img/integrations/jira.png')} alt="Jira logo" width="50" />
+        <h3>Jira (Beta)</h3>
+        </a>
+    </div>
+  </div>
+  <div className="box box2 card">
+    <div className="container">
+        <a href="/basics/integrations/slack/"> <img src={useBaseUrl('img/integrations/slack.svg')} alt="Slack logo" width="50" />
+        <h3>Slack</h3>
+        </a>
+    </div>
+  </div>
+</div>
+
 ## Webhooks
 
 Push test result events from Sauce Labs to any endpoint as they become available, instead of polling for updates.
