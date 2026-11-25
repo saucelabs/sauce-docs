@@ -186,7 +186,7 @@ Every policy starts from a preset. The presets are shown as three cards at the t
 
 | Preset | Steps that run |
 | --- | --- |
-| **Full clean** | Every cleaning step. |
+| **Full clean** | Every cleaning step. Slowest. |
 | **Fast cleaning** | Only the steps that are on by default: it removes the apps from the last session, signs out of accounts, and deletes files. Sauce Labs recommends this preset. |
 | **Custom** | The steps you turn on individually. Changing any step of Full clean or Fast cleaning selects **Custom**. |
 
