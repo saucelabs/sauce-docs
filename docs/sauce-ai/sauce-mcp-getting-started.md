@@ -41,11 +41,11 @@ Authentication uses HTTP Basic Auth. The credential is your `username:access_key
 
 Sauce MCP uses a single endpoint (`https://mcp.saucelabs.com`) for all data centers. The data center your requests are routed to is selected per connection through the optional `X-Sauce-Region` request header.
 
-Accepted values are the canonical region keys `US_WEST`, `US_EAST`, and `EU_CENTRAL` (case-insensitive). If the header is missing or unrecognized, the server falls back to its default region (`US_WEST`) and logs a warning.
+Accepted values are the canonical region keys `US_WEST`, `US_EAST`, `EU_CENTRAL`, and `ASIA_SOUTH` (case-insensitive). The API host names (`us-west-1`, `us-east-4`, `eu-central-1`, `asia-south-2`) are also accepted. If the header is missing or unrecognized, the server falls back to its default region (`US_WEST`) and logs a warning.
 
 To switch regions, update the `X-Sauce-Region` header in your client config and reconnect. Switching mid-session is not supported. If a listing tool returns empty results unexpectedly, ask the agent to call `get_active_region` to confirm which data center it is connected to.
 
-The configuration examples below include the `X-Sauce-Region` header. Replace `<REGION>` with `US_WEST`, `US_EAST`, or `EU_CENTRAL`. You can omit the header entirely to use the default (`US_WEST`).
+The configuration examples below include the `X-Sauce-Region` header. Replace `<REGION>` with `US_WEST`, `US_EAST`, `EU_CENTRAL`, or `ASIA_SOUTH`. You can omit the header entirely to use the default (`US_WEST`).
 
 ## Configure your client
 

@@ -779,6 +779,8 @@ module.exports = {
                                 'basics/integrations/wonderproxy',
                                 'basics/integrations/appdome',
                                 'basics/integrations/testrail',
+                                'basics/integrations/jira',
+                                'basics/integrations/slack',
                                 'basics/integrations/webhooks',
                             ],
                         },
@@ -1747,6 +1749,7 @@ module.exports = {
                         'espresso',
                         'figma',
                         'pdf',
+                        'xcuitest',
                     ]
                         .sort()
                         .map((el) => `visual-testing/integrations/${el}`),
