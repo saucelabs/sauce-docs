@@ -7,7 +7,7 @@ description: Connect Sauce Labs to Jira Cloud to create Jira tickets from your t
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Jira is an issue and project tracking tool that teams use to plan, track, and resolve work. The Sauce Labs integration with Jira lets you create Jira tickets directly from your Sauce Labs test results, so you can log a defect where you find it without copying details between tools. 
+Jira is an issue and project tracking tool that teams use to plan, track, and resolve work. The Sauce Labs integration with Jira lets you create Jira tickets directly from your Sauce Labs test results, so you can log a defect where you find it without copying details between tools.
 
 Each ticket includes the test context you choose and a link back to the result in Sauce Labs, and stays linked to the test result, so you can see which tickets were already created for it.
 
@@ -159,6 +159,10 @@ Create a ticket from a visual snapshot to report a visual change that is a defec
 **Step 4:** Select the **&#8943;** (More options) menu in the upper-right corner, and then select **Create Jira Ticket**.
 
 <img src={useBaseUrl('/img/integrations/jira/jira-13.png')} alt="Create Jira Ticket option in the More options menu of the visual snapshot review, with the baseline and current snapshots side by side"/>
+
+:::note
+The **Create Jira Ticket** option appears only when both the snapshot and its baseline are available. For example, it does not appear for a new snapshot that doesn't have a baseline yet.
+:::
 
 **Step 5:** Complete the **Create Jira Ticket** dialog. See [Fill In the Create Jira Ticket Dialog](#fill-in-the-create-jira-ticket-dialog).
 
