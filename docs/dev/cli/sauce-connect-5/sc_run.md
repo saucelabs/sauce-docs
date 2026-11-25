@@ -663,6 +663,54 @@ Here are some guidelines to follow when formatting domain regular expressions:
 - Escape special characters, such as `.` to ensure they are not parsed
 	- Not escaping dot character doesn't result in error, dot matches every single character except a newline. For example, `example.com` will match `example.com` and also `examplescom`, while `example\.com` will match `example.com` only.
 
+## Default Direct Domains
+
+Sauce Connect treats the following domains as direct domains by default. Requests to them are forwarded to their origin server over the public internet, not through the Sauce Connect Proxy connection, and are not resigned.
+
+The domain and all its subdomains:
+
+- `mzstatic.com`
+- `apple.news`
+- `apple.com`
+- `google.com`
+- `azureedge.net`
+- `mozilla.net`
+- `mozilla.com`
+- `gvt1.com`
+- `goog`
+- `cdn-apple.com`
+- `tenor.com`
+- `appcenter.ms`
+- `backtrace.io`
+- `gstatic.com`
+- `msn.com`
+- `microsoft.com`
+- `skype.com`
+- `facebook.com`
+- `facebook.net`
+- `icloud.com`
+- `googleapis.com`
+
+The exact domain only:
+
+- `assets.adobedtm.com`
+- `ciscobinary.openh264.org`
+- `googleadservices.com`
+
+Domains specified with [`--direct-domains`](#direct-domains) are added to this list.
+
+If you want requests to any of these domains to go through your infrastructure, use [`--tunnel-domains`](#tunnel-domains). It can't be combined with [`--direct-domains`](#direct-domains).
+With `--tunnel-domains`, only matching requests go through the tunnel, and all other requests are forwarded directly, including the default direct domains and any of your own domains you don't list.
+Make sure to include every domain that must be tunnelled, such as your internal domains, not only the default direct domains you want to tunnel.
+
+The following example tunnels requests to *.myorg.dev and *.google.com, and forwards all other requests directly:
+
+```
+--tunnel-domains .*\.myorg\.dev,.*\.google\.com
+```
+
+Note that requests to `localhost` and to Sauce Labs domains (*.saucelabs.com, *.saucelabs.net, *.saucelabs.org) always go through the Sauce Connect Proxy connection, even if they match `--direct-domains`.
+
 ## Additional Resources
 
 - [Sauce Connect Proxy Installation](/secure-connections/sauce-connect-5/installation/).
