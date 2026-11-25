@@ -223,7 +223,7 @@ The organization policy is the default policy that applies to every private devi
 
 ### Cleaning Column
 
-When cleaning policies are on, the **Cleaning** column of the **DEVICES** tab shows which policy each device follows:
+Individual private devices can either inherit the configured organization cleaning policy or have a custom policy set. The **Cleaning** column of the **DEVICES** tab shows which policy each device follows:
 
 | Cleaning column | Meaning |
 | --- | --- |
