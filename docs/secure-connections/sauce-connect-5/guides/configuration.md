@@ -171,11 +171,13 @@ and their usage.
 
 # tunnel-connections <count>
 #
-# Number of connections to the Sauce Connect server. By default it is set to the
-# number of CPUs on the machine. Total number of concurrent requests that can be
-# handled is limited by the number of connections multiplied by the number of
-# streams, see --tunnel-max-concurrent-streams flag. For example with 4
-# connections and 256 streams, the total number of concurrent requests is 1024.
+# Number of connections to the Sauce Connect server. By default it is set to 4
+# times the number of CPU cores on the machine, clamped to a minimum of 4 and a
+# maximum of 16. On any machine with 4 or more CPU cores the default is 16.
+# Total number of concurrent requests that can be handled is limited by the
+# number of connections multiplied by the number of streams, see
+# --tunnel-max-concurrent-streams flag. For example with 16 connections and 256
+# streams, the total number of concurrent requests is 4096.
 #tunnel-connections: 16
 
 # tunnel-max-concurrent-streams <count>
