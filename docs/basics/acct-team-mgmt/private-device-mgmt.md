@@ -70,7 +70,7 @@ Any new team assignments will override the existing ones.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit-modal.png')} alt="Private device management modal view" width="450" height="600"/>
 
 :::note
-If cleaning policies are turned on for your organization, the Pencil icon opens the cleaning policy of the device instead, and these settings are part of the policy. See [Cleaning Policies](#cleaning-policies).
+Configurable cleaning policies is an experimental feature that will be rolled out progressively. You will be able to see an extended list of options in the device modal if the feature is enabled for you.
 :::
 
 ### App Allow List
