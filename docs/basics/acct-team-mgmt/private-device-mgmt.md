@@ -70,7 +70,7 @@ Any new team assignments will override the existing ones.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit-modal.png')} alt="Private device management modal view" width="450" height="600"/>
 
 :::note
-Configurable cleaning policies is an experimental feature that will be rolled out progressively. You will be able to see an extended list of options in the device modal if the feature is enabled for you.
+Configurable Cleaning is an experimental feature that will be rolled out progressively. You will be able to see an extended list of options in the device modal if the feature is enabled for you. See [Cleaning Policies](#cleaning-policies).
 :::
 
 ### App Allow List
@@ -203,7 +203,7 @@ The numbers in the image match the table below.
 | 1 | **Preset cards** | **Full clean**, **Fast cleaning** and **Custom**. The selected card is highlighted. See [Presets](#presets). |
 | 2 | **CLEANING STEPS AFTER EACH SESSION** | The list of cleaning steps for the selected operating system. The counter next to the heading, for example **3 of 10 running**, shows how many steps are turned on. Hover over the info icon next to a step name to see what the step does. For the full list, see [Cleaning Steps](#cleaning-steps). |
 | 3 | **Turn all on** | Turns on every step in the list. |
-| 4 | **EXCEPTIONS KEPT ON DEVICE** | For steps that can keep data, a field for the entries the step leaves on the device, for example the package names or bundle IDs of the apps to keep. Type an entry and press **Enter** to add it. To remove an entry, click the **X** next to it. A dash (**—**) means the step has no exceptions. |
+| 4 | **EXCEPTIONS KEPT ON DEVICE** | For steps that can keep data, a field for the entries the step leaves on the device, for example the package names or bundle IDs of the apps to keep. Type one or more entries, separated by commas, and press **Enter** to add them. Each list holds up to 100 entries. To remove an entry, click the **X** next to it. A dash (**—**) means the step has no exceptions, or is turned off. |
 | 5 | **RUN AFTER SESSION** | A toggle for each step. When the toggle is on, the step runs after every session. |
 | 6 | **Cancel** / **Apply** | **Apply** saves the policy. **Cancel** or the **X** in the upper-right corner closes the dialog without saving. |
 
@@ -234,6 +234,7 @@ Individual private devices can either inherit the configured organization cleani
 
 The **App Allowlist**, **System App Allowlist**, **Account Allowlist**, **Skip Cleaning Folders/Files** and **Apple Pay** columns show the values of the policy the device follows.
 
+### Setting a Device Policy
 
 A device policy replaces the organization policy for one device. The device keeps its own policy when the organization policy changes later.
 
