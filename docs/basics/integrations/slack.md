@@ -3,7 +3,6 @@ id: slack
 title: Slack (Beta)
 sidebar_label: Slack (Beta)
 description: Connect Sauce Labs to Slack to send test results and alerts to your Slack channels.
-unlisted: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
