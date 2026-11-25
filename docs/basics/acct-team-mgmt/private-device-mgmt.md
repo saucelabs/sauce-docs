@@ -211,7 +211,7 @@ Below the steps, **Other settings** lists the settings that are not cleaning ste
 
 ### Setting the Organization Policy
 
-The organization policy applies to every private device of that operating system that doesn't have its own policy, including devices added to your organization later.
+The organization policy is the default policy that applies to every private device of that operating system, including devices added to your organization later. This will allow you to propagate the same configuration to all your private devices in a few clicks.
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. Click the **DEVICES** tab.
