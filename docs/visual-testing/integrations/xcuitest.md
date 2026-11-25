@@ -465,6 +465,7 @@ The build with this `customId` is already finished. Use a new `customId` for eac
 
 ## Next Steps
 
+- [XCUITest example project](https://github.com/saucelabs/visual-examples/tree/main/xcuitest)
 - [XCUITest SDK integration projects](https://github.com/saucelabs/visual-apple/tree/main/Tests/Integration)
 - [Baseline Matching](../../visual-testing.md#baseline-matching)
 - [Selective Diffing](../selective-diffing.md)
