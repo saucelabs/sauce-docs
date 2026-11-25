@@ -158,7 +158,7 @@ Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for 
 After every session, Sauce Labs cleans the device to an initial state to ensure deterministic test runs (see [Real Device Cleaning Process](/mobile-apps/real-device-cleaning)). Cleaning policies let organization admins choose which cleaning steps run on their private devices. Skipping the steps you don't need gets devices ready for the next session sooner, and keeps data you want to reuse between sessions.
 
 :::note
-Configurable cleaning policies is an experimental feature that is being rolled out progressively. Until your organization is enrolled, your private devices will be cleaned as usual according to [Real Device Cleaning Process](/mobile-apps/real-device-cleaning). Once enrolled, the settings in [Customizing Private Devices](#customizing-private-devices) apply. To opt-in, please contact your Sauce Labs account team.
+Configurable cleaning policies is an experimental feature that is being rolled out progressively. Until your organization is enrolled, your private devices will be cleaned as usual according to [Real Device Cleaning Process](/mobile-apps/real-device-cleaning). Once enrolled, the settings in [Customizing Private Devices](#customizing-private-devices) apply. Contact your Sauce Labs account team to opt-in.
 :::
 
 Each policy applies to one operating system, Android or iOS. After a session, a private device is cleaned with:
