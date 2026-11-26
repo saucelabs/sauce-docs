@@ -1954,6 +1954,7 @@ components:
           additionalProperties: true
     ApplicationSummary:
       type: object
+      nullable: true
       description: An app file in App Storage.
       properties:
         appStorageId:
