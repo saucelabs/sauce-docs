@@ -93,7 +93,7 @@ Your test was manually interrupted using the Sauce Labs **Cancel** or **Breakpoi
 
 **Real Devices**
 
-Your test was manually interrupted using the Sauce Labs [Real Device API](/dev/api/rdc/#tag/jobs/PUT/v1/rdc/jobs/%7Bjob_id%7D/stop). The usual post-processing is triggered and test assets like screenshots, video, or logs will be made available.
+Your test was manually interrupted using the Sauce Labs [Real Device API](pathname:///dev/api/rdc/#tag/jobs/PUT/v1/rdc/jobs/%7Bjob_id%7D/stop). The usual post-processing is triggered and test assets like screenshots, video, or logs will be made available.
 
 **How to Resolve**
 
