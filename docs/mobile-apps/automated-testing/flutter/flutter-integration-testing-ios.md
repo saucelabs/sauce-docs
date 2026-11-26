@@ -92,9 +92,9 @@ If you prefer not to use saucectl, you can directly integrate with our APIs.
 
 **Second**, upload your `.ipa` and `.xctestrun` files to our AppStorage backend, see [AppStorage APIs](/docs/mobile-apps/app-storage.md#upload-apps-via-rest-api).
 
-**Third**, call our native testing API with the AppStorage IDs of the two files you just uploaded. See [RDC native /test API](/docs/dev/api/rdc.md#start-a-xctest-xcuitest-or-espresso-job).
+**Third**, call our native testing API with the AppStorage IDs of the two files you just uploaded. See [RDC native /test API](/dev/api/rdc/#tag/jobs/POST/v1/rdc/native-composer/tests).
 
-**Fourth**, poll the state of the job and wait until the `status` is `passed|failed|error|complete`. You can do this through the [Jobs API](/docs/dev/api/rdc.md#get-a-specific-real-device-job).
+**Fourth**, poll the state of the job and wait until the `status` is `passed|failed|error|complete`. You can do this through the [Jobs API](/dev/api/rdc/#tag/jobs/GET/v1/rdc/jobs/%7Bjob_id%7D).
 
 
 ## Example Implementation
