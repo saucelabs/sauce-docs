@@ -1822,21 +1822,25 @@ components:
           description: "The OS version of the device, or `null` while no device is assigned."
           example: "14"
         device_descriptor:
+          type: object
           allOf:
             - $ref: "#/components/schemas/DeviceDescriptor"
           nullable: true
           description: "The device the test ran on, or `null` while no device is assigned."
         application_summary:
+          type: object
           allOf:
             - $ref: "#/components/schemas/ApplicationSummary"
           nullable: true
           description: "The app under test, from App Storage. `null` when the test did not use an app from App Storage."
         app_settings:
+          type: object
           allOf:
             - $ref: "#/components/schemas/AppSettings"
           nullable: true
           description: "The settings the app ran with. `null` when `application_summary` is `null`."
         xctestrunfile_info:
+          type: object
           allOf:
             - $ref: "#/components/schemas/ApplicationSummary"
           nullable: true
@@ -2081,7 +2085,7 @@ components:
         build:
           type: string
           description: "The build to assign the test to; an existing build name or a new one. 1 to 255 characters: letters, digits, underscores and punctuation, no spaces."
-          pattern: "^[\\w\\p{P}]{1,255}$"
+          pattern: '^[\w!-/:-@\[-`{-~]{1,255}$'
           example: "release-4.2.0"
         passed:
           type: boolean
@@ -2093,7 +2097,7 @@ components:
           maxItems: 10
           items:
             type: string
-            pattern: "^[\\w\\p{P}]{1,255}$"
+            pattern: '^[\w!-/:-@\[-`{-~]{1,255}$'
           example: ["smoke", "checkout"]
     ApiError:
       type: object

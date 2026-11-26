@@ -192,7 +192,7 @@ _Static Allocation_ allows you to specify a known device by its unique ID. This 
 "appium:deviceName" : "HTC_One_M8_real";
 ```
 
-You can obtain a list of available devices, including their IDs, using the [Get Devices](https://docs.saucelabs.com/dev/api/rdc/#tag/real-devices/GET/v1/rdc/devices) API request.
+You can obtain a list of available devices, including their IDs, using the [Get Devices](/dev/api/rdc/#tag/real-devices/GET/v1/rdc/devices) API request.
 
 Alternatively, you can find a device's ID in the Sauce Labs app:
 
