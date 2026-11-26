@@ -1800,7 +1800,7 @@ components:
         creation_time:
           type: integer
           format: int64
-          description: "When the test started, as Unix time in milliseconds (what `Date.now()` returns in JavaScript) (same value as `start_time` in a list entry)."
+          description: "In a list entry this is the start time, not the request time: the same value as `start_time`. Use Get a Specific Real Device Job for the request time. Unix time in milliseconds (what `Date.now()` returns in JavaScript)."
           example: 1764160800000
         start_time:
           type: integer
