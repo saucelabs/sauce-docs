@@ -35,8 +35,8 @@ info:
 
     Failed requests return the HTTP status codes listed with each endpoint. Wrong or missing credentials return `401`
     with `{"detail": "Authorization failed"}`. Most other errors return a JSON body with a `code` and a `message`
-    that says what to fix; a few validation errors use the `application/problem+json` format with a `title` and
-    `detail`. Each endpoint documents the exact bodies it returns.
+    that says what to fix; a few validation errors return a `title` and a `detail` instead. Each endpoint documents
+    the exact bodies it returns.
 
 servers:
   - url: https://api.us-west-1.saucelabs.com
@@ -82,8 +82,9 @@ paths:
           in: query
           required: false
           description: |
-            Return only the devices whose id is exactly this value, or whose display name matches this regular
-            expression as a whole (`Samsung Galaxy S2[0-9].*`, `iPhone 1[5-6].*`). Leave it out to get all devices.
+            Return only the devices whose id is exactly this value, or whose display name matches this pattern
+            (a regular expression that must match the full name: `Samsung Galaxy S2[0-9].*`, `iPhone 1[5-6].*`).
+            Leave it out to get all devices.
           schema:
             type: string
           example: "Samsung Galaxy S2[0-9].*"
@@ -254,7 +255,7 @@ paths:
         | `IN_USE` | Every device of this model is running a test or a Live Testing session. |
         | `CLEANING` | The device is being reset after a session (private devices only). |
         | `REBOOTING` | The device is rebooting (private devices only). |
-        | `MAINTENANCE` | The device is being checked by Sauce Labs or has a low battery (private devices only). |
+        | `MAINTENANCE` | The device is temporarily unavailable for maintenance (private devices only). |
         | `OFFLINE` | The device is not connected (private devices only). |
 
         **Who is using a private device.** For a private device that is `IN_USE`, `inUseBy` holds the username of the
@@ -289,8 +290,8 @@ paths:
           in: query
           required: false
           description: |
-            Return only the devices whose id is exactly this value, or whose display name matches this regular
-            expression as a whole (`Samsung Galaxy S2[0-9].*`, `iPhone 1[5-6].*`).
+            Return only the devices whose id is exactly this value, or whose display name matches this pattern
+            (a regular expression that must match the full name: `Samsung Galaxy S2[0-9].*`, `iPhone 1[5-6].*`).
           schema:
             type: string
           example: "iPhone 1[5-6].*"
@@ -352,7 +353,7 @@ paths:
         runs are listed as XCUITest) and Real Device Access API sessions. Pass `type` to pick other types, for example
         `type=LIVE` for Live Testing sessions.
 
-        **Paging.** `limit` sets the page size and `offset` the 1-based position of the first entry. The response's
+        **Paging.** `limit` sets the page size and `offset` the position of the first entry, starting at 1. The response's
         `metaData.moreAvailable` tells you whether another page follows: request it with
         `offset = offset + limit`.
       tags:
@@ -371,7 +372,7 @@ paths:
         - name: offset
           in: query
           required: false
-          description: "The 1-based position of the first test to return. `0` is treated as `1`; a negative value returns `400`."
+          description: "The position of the first test to return, starting at 1. `0` is treated as `1`; a negative value returns `400`."
           schema:
             type: integer
             minimum: 0
@@ -584,7 +585,7 @@ paths:
                     code: "INVALID_REQUEST_PAYLOAD"
                     message: "Test Report Build ID must be less than 255 characters, only latin chars, numbers, punctuations are accepted"
                 tags:
-                  summary: more than 10 tags, or a tag with spaces or other characters that are not letters, digits or punctuation
+                  summary: more than 10 tags, or a tag with spaces or other characters that are not letters, digits or punctuation (the message says 30 characters; the real limit is 255)
                   value:
                     code: "INVALID_REQUEST_PAYLOAD"
                     message: "Test Report Tags must be less than 30 characters, only latin chars, numbers, punctuations are accepted, maximum number of tags is 10"
@@ -1602,7 +1603,7 @@ components:
           enum: [PORTRAIT, LANDSCAPE]
         internalOrientation:
           type: string
-          description: "The orientation of the device's screen hardware."
+          description: "Internal, used by Sauce Labs support; you can ignore it."
           enum: [PORTRAIT, LANDSCAPE]
         hasOnScreenButtons:
           type: boolean
@@ -1616,7 +1617,7 @@ components:
           description: "Always `false`: Sauce Labs no longer offers rooted or jailbroken devices. Kept for compatibility."
         isKeyGuardDisabled:
           type: boolean
-          description: "Whether the lock screen is disabled."
+          description: "Internal, used by Sauce Labs support; you can ignore it."
         isAlternativeIoEnabled:
           type: boolean
           deprecated: true
@@ -1644,7 +1645,7 @@ components:
           description: "Whether a device-wide HTTP proxy can be set."
         supportsMinicapSocketConnection:
           type: boolean
-          description: "Whether the device supports the minicap screen streaming connection."
+          description: "Internal, used by Sauce Labs support; you can ignore it."
     DeviceState:
       type: string
       description: The state of a device.
@@ -1732,7 +1733,7 @@ components:
           properties:
             offset:
               type: integer
-              description: "The 1-based position of the first test in this page."
+              description: "The position of the first test in this page, starting at 1."
               example: 1
             limit:
               type: integer
@@ -1799,17 +1800,17 @@ components:
         creation_time:
           type: integer
           format: int64
-          description: "When the test started, in milliseconds since the Unix epoch (same value as `start_time` in a list entry)."
+          description: "When the test started, as Unix time in milliseconds (what `Date.now()` returns in JavaScript) (same value as `start_time` in a list entry)."
           example: 1764160800000
         start_time:
           type: integer
           format: int64
-          description: "When the test started on the device, in milliseconds since the Unix epoch."
+          description: "When the test started on the device, as Unix time in milliseconds (what `Date.now()` returns in JavaScript)."
           example: 1764160800000
         end_time:
           type: integer
           format: int64
-          description: "When the test ended, in milliseconds since the Unix epoch. Equal to `start_time` while the test is running."
+          description: "When the test ended, as Unix time in milliseconds (what `Date.now()` returns in JavaScript). Equal to `start_time` while the test is running."
           example: 1764160859000
         assigned_tunnel_id:
           type: string
@@ -1885,17 +1886,17 @@ components:
         creation_time:
           type: integer
           format: int64
-          description: "When the test was requested, in milliseconds since the Unix epoch."
+          description: "When the test was requested, as Unix time in milliseconds (what `Date.now()` returns in JavaScript)."
           example: 1764160790000
         start_time:
           type: integer
           format: int64
-          description: "When the test started on the device, in milliseconds since the Unix epoch."
+          description: "When the test started on the device, as Unix time in milliseconds (what `Date.now()` returns in JavaScript)."
           example: 1764160800000
         end_time:
           type: integer
           format: int64
-          description: "When the test ended, in milliseconds since the Unix epoch. Equal to `start_time` while the test is running."
+          description: "When the test ended, as Unix time in milliseconds (what `Date.now()` returns in JavaScript). Equal to `start_time` while the test is running."
           example: 1764160859000
         modification_time:
           type: integer
@@ -1988,7 +1989,7 @@ components:
           type: string
           format: uri
           nullable: true
-          description: "Download link for the device vitals, when vitals were on. `null` otherwise."
+          description: "Device vitals (field name kept for compatibility): download link, when vitals were on. `null` otherwise."
         crash_log_url:
           type: string
           format: uri
@@ -2022,10 +2023,10 @@ components:
           description: "Whether a video was recorded. Always `true` except for Access API sessions that opted out."
         record_screenshots:
           type: boolean
-          description: "Always `true`."
+          description: "Always `true`. Kept for compatibility."
         collects_automator_log:
           type: boolean
-          description: "Always `true`."
+          description: "Always `true`. Kept for compatibility."
         assigned_tunnel_id:
           type: string
           nullable: true
@@ -2051,19 +2052,19 @@ components:
         device_session_id:
           type: string
           nullable: true
-          description: "The id of the shared Live View of an Appium test, when one was opened. `null` otherwise."
+          description: "Internal, used by Sauce Labs support; you can ignore it."
         device_context_id:
           type: string
           nullable: true
-          description: "The id of the device session the test ran in. `null` while no device is assigned."
+          description: "Quote this id when contacting Sauce Labs support about the test. `null` while no device is assigned."
           example: "9e8d7c6b-5a49-4f38-b2c1-0d9e8f7a6b5c"
         used_cached_device:
           type: boolean
           nullable: true
-          description: "For Appium tests, whether the device was reused from a previous session of the same test. `null` for other test types."
+          description: "Internal, used by Sauce Labs support; you can ignore it."
         base_config:
           type: object
-          description: "Reserved; always empty."
+          description: "Always empty. Kept for compatibility."
         custom-data:
           type: object
           nullable: true
@@ -2179,7 +2180,7 @@ components:
           type: boolean
         testfairyEnabled:
           type: boolean
-          description: "Same as `vitalsEnabled`."
+          description: "Device vitals (field name kept for compatibility). Same as `vitalsEnabled`."
         backtraceEnabled:
           type: boolean
         bypassScreenshotRestrictionEnabled:
