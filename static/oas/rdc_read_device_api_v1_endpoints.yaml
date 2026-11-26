@@ -72,7 +72,7 @@ paths:
         are listed once.
 
         Use this list to find the device id for an exact device, to check an OS version or screen size, and to see
-        whether a model supports what your test needs (`supportsXcuiTest`, `supportsMockLocations`, …). It does not
+        whether a model supports what your test needs (`supportsMockLocations`, `supportsGlobalProxy`, …). It does not
         tell you whether a device is free right now: use [Get Devices Status](#tag/Real-Devices/operation/getDevicesStatus)
         for that.
       tags:
@@ -112,13 +112,9 @@ paths:
                       dpiName: "xxhdpi"
                       hasOnScreenButtons: true
                       id: "Samsung_Galaxy_S24_real"
-                      internalOrientation: "PORTRAIT"
                       internalStorageSize: 131072
-                      isAlternativeIoEnabled: true
                       isArm: true
-                      isKeyGuardDisabled: false
                       isPrivate: false
-                      isRooted: false
                       isTablet: false
                       manufacturer: ["Samsung"]
                       modelNumber: "SM-S921B"
@@ -133,11 +129,7 @@ paths:
                       sdCardSize: 0
                       supportsAppiumWebAppTesting: true
                       supportsGlobalProxy: false
-                      supportsManualWebTesting: true
-                      supportsMinicapSocketConnection: false
                       supportsMockLocations: true
-                      supportsMultiTouch: true
-                      supportsXcuiTest: true
                     - abiType: "arm64"
                       apiLevel: 0
                       cpuCores: 8
@@ -149,13 +141,9 @@ paths:
                       dpiName: "hdpi"
                       hasOnScreenButtons: true
                       id: "iPad_Pro_11_2024_real"
-                      internalOrientation: "LANDSCAPE"
                       internalStorageSize: 262144
-                      isAlternativeIoEnabled: true
                       isArm: true
-                      isKeyGuardDisabled: false
                       isPrivate: false
-                      isRooted: false
                       isTablet: true
                       manufacturer: ["Apple"]
                       modelNumber: "iPad16,3"
@@ -170,11 +158,7 @@ paths:
                       sdCardSize: 0
                       supportsAppiumWebAppTesting: true
                       supportsGlobalProxy: false
-                      supportsManualWebTesting: true
-                      supportsMinicapSocketConnection: true
                       supportsMockLocations: true
-                      supportsMultiTouch: true
-                      supportsXcuiTest: true
         "401":
           $ref: "#/components/responses/NotAuthorized"
 
@@ -433,7 +417,6 @@ paths:
                   value:
                     entities:
                       - assigned_tunnel_id: null
-                        device_type: "real_device"
                         test_report_type: "ANDROID_INSTRUMENTATION"
                         owner_sauce: "your-username"
                         consolidated_status: "passed"
@@ -450,7 +433,6 @@ paths:
                         manual: false
                         has_crashed: false
                       - assigned_tunnel_id: null
-                        device_type: "real_device"
                         test_report_type: "APPIUM"
                         owner_sauce: "teammate-username"
                         consolidated_status: "failed"
@@ -1249,7 +1231,11 @@ components:
     NotOrgAdmin:
       description: Forbidden, with an empty body. You are not an organization admin.
     NativeTestBadRequest:
-      description: Bad Request. Something in the request is invalid; no test was started. `detail` or `violations` says what to fix.
+      description: |
+        Bad Request. Something in the request is invalid; no test was started. `violations` lists the missing or invalid
+        fields; otherwise `detail` names the problem, for example an app reference that is not a file id or a
+        `storage:filename=` reference, a `test_framework` or `device_query.type` that is not one of the documented
+        values (they are case sensitive), or a `network_profile` that is not one of the predefined profiles.
       content:
         application/problem+json:
           schema:
@@ -1281,34 +1267,6 @@ components:
                 violations:
                   - field: "otherApps"
                     message: "size must be between 0 and 7"
-            invalidAppReference:
-              summary: An app reference that is not a file id or a storage:filename= reference
-              value:
-                title: "Bad Request"
-                status: 400
-                instance: "/tests"
-                detail: "JSON parse error: Cannot construct instance of `com.saucelabs.rdcnativecomposerservice.api.resource.AppStorageReference`, problem: Invalid app reference: 'not-an-app'"
-            unknownTestFramework:
-              summary: test_framework is not ANDROID_INSTRUMENTATION, XCUITEST or XCTEST (the value is case sensitive)
-              value:
-                title: "Bad Request"
-                status: 400
-                instance: "/tests"
-                detail: "JSON parse error: Could not resolve type id 'xcuitest' as a subtype of `com.saucelabs.rdcnativecomposerservice.api.resource.TestExecutionRequest`: known type ids = []"
-            unknownDeviceQueryType:
-              summary: device_query.type is not DynamicDeviceQuery or HardcodedDeviceQuery
-              value:
-                title: "Bad Request"
-                status: 400
-                instance: "/tests"
-                detail: "JSON parse error: Could not resolve type id 'SomethingElse' as a subtype of `com.saucelabs.rdcnativecomposerservice.api.resource.DeviceRequest`: known type ids = [] (for POJO property 'device_query')"
-            unknownNetworkProfile:
-              summary: network_profile is not one of the predefined profiles
-              value:
-                title: "Bad Request"
-                status: 400
-                instance: "/tests"
-                detail: "JSON parse error: Cannot construct instance of `com.saucelabs.rdcnativecomposerservice.model.job.NetworkProfile`, problem: Unknown network profile: 5G"
             malformedJson:
               summary: The body is not valid JSON
               value:
@@ -1372,12 +1330,9 @@ components:
           audioSupportEnabled: false
           testfairyEnabled: true
         assigned_tunnel_id: null
-        device_type: "real_device"
         owner_sauce: "your-username"
         automation_backend: "espresso"
-        base_config: {}
         build: "release-4.2.0"
-        collects_automator_log: true
         consolidated_status: "passed"
         creation_time: 1764160790000
         device_descriptor:
@@ -1392,13 +1347,9 @@ components:
           dpiName: "xxhdpi"
           hasOnScreenButtons: true
           id: "Samsung_Galaxy_S24_real"
-          internalOrientation: "PORTRAIT"
           internalStorageSize: 131072
-          isAlternativeIoEnabled: true
           isArm: true
-          isKeyGuardDisabled: false
           isPrivate: false
-          isRooted: false
           isTablet: false
           manufacturer: ["Samsung"]
           modelNumber: "SM-S921B"
@@ -1413,11 +1364,7 @@ components:
           sdCardSize: 0
           supportsAppiumWebAppTesting: true
           supportsGlobalProxy: false
-          supportsManualWebTesting: true
-          supportsMinicapSocketConnection: false
           supportsMockLocations: true
-          supportsMultiTouch: true
-          supportsXcuiTest: true
         end_time: 1764160859000
         error: null
         id: "0123456789abcdef0123456789abcdef"
@@ -1428,14 +1375,12 @@ components:
         test_cases_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/testCases"
         junit_log_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/junit.xml"
         manual: false
-        modification_time: 1764160859000
         name: "Checkout flow — release 4.2"
         os: "Android"
         os_version: "14"
         device_name: "Samsung Galaxy S24"
         passed: true
         proxied: false
-        record_screenshots: true
         screenshots:
           - id: "screenshot_first"
             url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/screenshots/screenshot_first"
@@ -1444,11 +1389,9 @@ components:
         status: "passed"
         tags: ["smoke", "checkout"]
         video_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/video.mp4"
-        remote_app_file_url: null
         appium_session_id: null
         api_session_id: null
         appium_version: null
-        device_session_id: null
         client: "curl/8.7.1"
         network_log_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/network.har"
         testfairy_log_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/insights.json"
@@ -1456,7 +1399,6 @@ components:
         backtrace_url: null
         device_events_url: null
         test_report_type: "ANDROID_INSTRUMENTATION"
-        used_cached_device: null
         has_network_conditioning: false
         xctestrunfile_info: null
         device_context_id: "9e8d7c6b-5a49-4f38-b2c1-0d9e8f7a6b5c"
@@ -1502,7 +1444,7 @@ components:
     # ---------------------------------------------------------------- Real Devices
     DeviceDescriptor:
       type: object
-      description: One device model and OS version, with its specifications and capabilities.
+      description: One device model and OS version, with its specifications and capabilities. Responses can contain additional fields that are internal to Sauce Labs; ignore them.
       properties:
         id:
           type: string
@@ -1601,51 +1543,21 @@ components:
           type: string
           description: "The orientation the device starts a test in."
           enum: [PORTRAIT, LANDSCAPE]
-        internalOrientation:
-          type: string
-          description: "Internal, used by Sauce Labs support; you can ignore it."
-          enum: [PORTRAIT, LANDSCAPE]
         hasOnScreenButtons:
           type: boolean
           description: "Whether the navigation buttons are on screen rather than physical."
         isPrivate:
           type: boolean
           description: "`true` for a private device of your organization, `false` for a public device."
-        isRooted:
-          type: boolean
-          deprecated: true
-          description: "Always `false`: Sauce Labs no longer offers rooted or jailbroken devices. Kept for compatibility."
-        isKeyGuardDisabled:
-          type: boolean
-          description: "Internal, used by Sauce Labs support; you can ignore it."
-        isAlternativeIoEnabled:
-          type: boolean
-          deprecated: true
-          description: "Always `true`. Kept for compatibility; do not rely on it."
         supportsAppiumWebAppTesting:
           type: boolean
           description: "Whether Appium can test web apps in the device's browser."
-        supportsManualWebTesting:
-          type: boolean
-          deprecated: true
-          description: "Always `true`. Kept for compatibility; do not rely on it."
-        supportsXcuiTest:
-          type: boolean
-          deprecated: true
-          description: "Always `true`, also on Android devices. Kept for compatibility; do not rely on it. Use `os` to tell iOS and Android devices apart."
-        supportsMultiTouch:
-          type: boolean
-          deprecated: true
-          description: "Always `true`. Kept for compatibility; do not rely on it."
         supportsMockLocations:
           type: boolean
           description: "Whether the GPS location can be mocked."
         supportsGlobalProxy:
           type: boolean
           description: "Whether a device-wide HTTP proxy can be set."
-        supportsMinicapSocketConnection:
-          type: boolean
-          description: "Internal, used by Sauce Labs support; you can ignore it."
     DeviceState:
       type: string
       description: The state of a device.
@@ -1748,7 +1660,7 @@ components:
               enum: [DESCENDING]
     JobSummary:
       type: object
-      description: One test in a list.
+      description: One test in a list. Responses can contain additional fields that are internal to Sauce Labs; ignore them.
       properties:
         id:
           type: string
@@ -1778,10 +1690,6 @@ components:
           type: string
           description: "The username of the user who started the test."
           example: "your-username"
-        device_type:
-          type: string
-          description: "Always `real_device`."
-          enum: [real_device]
         device_name:
           type: string
           nullable: true
@@ -1821,7 +1729,7 @@ components:
           description: "`true` when a crash report was captured for the test."
     Job:
       type: object
-      description: One test in full.
+      description: One test in full. Responses can contain additional fields that are internal to Sauce Labs; ignore them.
       properties:
         id:
           type: string
@@ -1898,15 +1806,6 @@ components:
           format: int64
           description: "When the test ended, as Unix time in milliseconds (what `Date.now()` returns in JavaScript). Equal to `start_time` while the test is running."
           example: 1764160859000
-        modification_time:
-          type: integer
-          format: int64
-          description: "Same as `end_time`."
-          example: 1764160859000
-        device_type:
-          type: string
-          description: "Always `real_device`."
-          enum: [real_device]
         device_name:
           type: string
           nullable: true
@@ -1942,10 +1841,6 @@ components:
             - $ref: "#/components/schemas/ApplicationSummary"
           nullable: true
           description: "For an XCTest test, the `.xctestrun` file from App Storage. `null` otherwise."
-        remote_app_file_url:
-          type: string
-          nullable: true
-          description: "The app reference the test was started with, when it was not an App Storage file. `null` otherwise."
         video_url:
           type: string
           format: uri
@@ -2021,12 +1916,6 @@ components:
         record_video:
           type: boolean
           description: "Whether a video was recorded. Always `true` except for Access API sessions that opted out."
-        record_screenshots:
-          type: boolean
-          description: "Always `true`. Kept for compatibility."
-        collects_automator_log:
-          type: boolean
-          description: "Always `true`. Kept for compatibility."
         assigned_tunnel_id:
           type: string
           nullable: true
@@ -2049,22 +1938,11 @@ components:
           type: string
           nullable: true
           description: "The session id of a Real Device Access API session. `null` otherwise."
-        device_session_id:
-          type: string
-          nullable: true
-          description: "Internal, used by Sauce Labs support; you can ignore it."
         device_context_id:
           type: string
           nullable: true
           description: "Quote this id when contacting Sauce Labs support about the test. `null` while no device is assigned."
           example: "9e8d7c6b-5a49-4f38-b2c1-0d9e8f7a6b5c"
-        used_cached_device:
-          type: boolean
-          nullable: true
-          description: "Internal, used by Sauce Labs support; you can ignore it."
-        base_config:
-          type: object
-          description: "Always empty. Kept for compatibility."
         custom-data:
           type: object
           nullable: true
@@ -2227,7 +2105,7 @@ components:
         code:
           type: string
           description: "The error code."
-          enum: [BAD_REQUEST, INVALID_REQUEST_PAYLOAD, JOB_NOT_FOUND, SCREENSHOT_NOT_FOUND, FORBIDDEN, INTERNAL_SERVER_ERROR, AUTH_INFO_ISSUE]
+          enum: [BAD_REQUEST, INVALID_REQUEST_PAYLOAD, JOB_NOT_FOUND, SCREENSHOT_NOT_FOUND, FORBIDDEN, INTERNAL_SERVER_ERROR]
           example: "JOB_NOT_FOUND"
         message:
           type: string
