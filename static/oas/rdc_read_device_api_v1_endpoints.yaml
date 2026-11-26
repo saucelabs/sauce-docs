@@ -1612,25 +1612,30 @@ components:
           description: "`true` for a private device of your organization, `false` for a public device."
         isRooted:
           type: boolean
-          description: "Whether the device is rooted or jailbroken."
+          deprecated: true
+          description: "Always `false`: Sauce Labs no longer offers rooted or jailbroken devices. Kept for compatibility."
         isKeyGuardDisabled:
           type: boolean
           description: "Whether the lock screen is disabled."
         isAlternativeIoEnabled:
           type: boolean
-          description: "Whether the device uses the alternative input/output path for screen streaming and input."
+          deprecated: true
+          description: "Always `true`. Kept for compatibility; do not rely on it."
         supportsAppiumWebAppTesting:
           type: boolean
           description: "Whether Appium can test web apps in the device's browser."
         supportsManualWebTesting:
           type: boolean
-          description: "Whether Live Testing can open web pages on the device."
+          deprecated: true
+          description: "Always `true`. Kept for compatibility; do not rely on it."
         supportsXcuiTest:
           type: boolean
-          description: "Whether XCUITest tests can run on the device."
+          deprecated: true
+          description: "Always `true`, also on Android devices. Kept for compatibility; do not rely on it. Use `os` to tell iOS and Android devices apart."
         supportsMultiTouch:
           type: boolean
-          description: "Whether multi-touch gestures are supported."
+          deprecated: true
+          description: "Always `true`. Kept for compatibility; do not rely on it."
         supportsMockLocations:
           type: boolean
           description: "Whether the GPS location can be mocked."
