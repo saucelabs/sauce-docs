@@ -18,6 +18,8 @@ servers:
     description: EU Central
   - url: https://api.us-east-4.saucelabs.com/rdc/v2
     description: US East
+  - url: https://api.asia-south-2.saucelabs.com/rdc/v2
+    description: Asia South
 security:
   - basicAuth: []
 
