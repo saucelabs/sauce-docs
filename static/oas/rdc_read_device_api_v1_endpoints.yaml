@@ -73,7 +73,7 @@ paths:
 
         Use this list to find the device id for an exact device, to check an OS version or screen size, and to see
         whether a model supports what your test needs (`supportsMockLocations`, `supportsGlobalProxy`, …). It does not
-        tell you whether a device is free right now: use [Get Devices Status](#tag/Real-Devices/operation/getDevicesStatus)
+        tell you whether a device is free right now: use [Get Devices Status](#tag/real-devices/GET/v1/rdc/devices/status)
         for that.
       tags:
         - "Real Devices"
@@ -168,7 +168,7 @@ paths:
       summary: Get a Specific Device
       description: |
         Returns the specifications and capabilities of one device model, by its device id. The device id is the `id`
-        field of [Get Devices](#tag/Real-Devices/operation/getDevices) and the `device_descriptor.id` of a job.
+        field of [Get Devices](#tag/real-devices/GET/v1/rdc/devices) and the `device_descriptor.id` of a job.
       tags:
         - "Real Devices"
       parameters:
@@ -199,7 +199,7 @@ paths:
       description: |
         Returns the ids of the device models that have at least one device free for testing right now.
 
-        **Deprecated.** Use [Get Devices Status](#tag/Real-Devices/operation/getDevicesStatus) instead: it returns the
+        **Deprecated.** Use [Get Devices Status](#tag/real-devices/GET/v1/rdc/devices/status) instead: it returns the
         same information as `state: "AVAILABLE"` and adds the devices that are busy, cleaning or offline.
       tags:
         - "Real Devices"
@@ -327,7 +327,7 @@ paths:
       summary: Get Real Device Jobs
       description: |
         Returns your organization's real device tests of the last 60 days, newest first, one page at a time. Each entry
-        is a summary; use [Get a Specific Real Device Job](#tag/Jobs/operation/getJob) with the `id` for the full
+        is a summary; use [Get a Specific Real Device Job](#tag/jobs/GET/v1/rdc/jobs/%7Bjob_id%7D) with the `id` for the full
         details and the links to the video and logs.
 
         **Which tests you see.** Tests of your own team. Organization admins, and every user of an organization with
@@ -488,7 +488,7 @@ paths:
         **Links.** A `*_url` field is `null` when the test has no such result: Appium tests have `framework_log_url`
         (the Appium log) and `requests_url`; Espresso and XCUITest tests have `test_cases_url` and `junit_log_url`;
         `network_log_url`, `testfairy_log_url` (device vitals) and `crash_log_url` are set only when the feature was
-        on for the test. All links are [asset downloads](#tag/Jobs/operation/getJobAsset) of this test.
+        on for the test. All links are [asset downloads](#tag/jobs/GET/v1/rdc/jobs/%7Bjob_id%7D/%7Basset%7D) of this test.
       tags:
         - "Jobs"
       parameters:
@@ -517,7 +517,7 @@ paths:
         fields you send are changed; a field you leave out keeps its value. A field you send replaces the old value
         entirely: to add a tag, send the whole list of tags you want.
 
-        The response is the updated test, in the same shape as [Get a Specific Real Device Job](#tag/Jobs/operation/getJob).
+        The response is the updated test, in the same shape as [Get a Specific Real Device Job](#tag/jobs/GET/v1/rdc/jobs/%7Bjob_id%7D).
       tags:
         - "Jobs"
       parameters:
@@ -788,7 +788,7 @@ paths:
            variables, a Sauce Connect tunnel, network throttling, device language and orientation.
         3. The response gives you the test id and a link to the test in the Sauce Labs UI, immediately. The test then
            runs on the device in the background: watch it live in the Sauce Labs UI, or poll
-           [Get a Specific Real Device Job](#tag/Jobs/operation/getJob) with the same id until `status` is `passed`,
+           [Get a Specific Real Device Job](#tag/jobs/GET/v1/rdc/jobs/%7Bjob_id%7D) with the same id until `status` is `passed`,
            `failed`, `error` or `complete`, and download the results from there.
 
         **Choosing the framework.** `test_framework` decides which test bundle field and which options apply:
@@ -810,7 +810,7 @@ paths:
         - Anything that can only be checked once the files and a device are involved — a file that does not exist, an
           app built for the wrong platform or for a simulator, no device matching your query, an invalid `device_name`
           pattern — makes the test end with status `error` after it was accepted. The reason is shown on the test in
-          the UI and in the `error` field of [Get a Specific Real Device Job](#tag/Jobs/operation/getJob).
+          the UI and in the `error` field of [Get a Specific Real Device Job](#tag/jobs/GET/v1/rdc/jobs/%7Bjob_id%7D).
 
         **New to native testing on Sauce Labs?** The [Espresso](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/espresso/),
         [XCUITest](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/) and
@@ -1089,7 +1089,7 @@ paths:
         Each list holds at most 100 entries.
 
         The response is the full list of your private devices, as returned by
-        [Get Private Devices](#tag/Private-Real-Device-Management/operation/getPrivateDevices), with the new settings
+        [Get Private Devices](#tag/private-real-device-management/GET/v1/rdc/device-management/devices), with the new settings
         applied.
       tags:
         - "Private Real Device Management"
@@ -1175,7 +1175,7 @@ components:
       name: device_id
       in: path
       required: true
-      description: "The device id, as listed by [Get Devices](#tag/Real-Devices/operation/getDevices)."
+      description: "The device id, as listed by [Get Devices](#tag/real-devices/GET/v1/rdc/devices)."
       schema:
         type: string
       example: "Samsung_Galaxy_S24_real"
@@ -1183,7 +1183,7 @@ components:
       name: device_id
       in: path
       required: true
-      description: "The id of one of your private devices, as listed by [Get Private Devices](#tag/Private-Real-Device-Management/operation/getPrivateDevices)."
+      description: "The id of one of your private devices, as listed by [Get Private Devices](#tag/private-real-device-management/GET/v1/rdc/device-management/devices)."
       schema:
         type: string
       example: "iPhone_15_Pro_private"
@@ -1191,7 +1191,7 @@ components:
       name: job_id
       in: path
       required: true
-      description: "The id of the test, as listed by [Get Real Device Jobs](#tag/Jobs/operation/getJobs) or shown in the test's URL in the Sauce Labs UI."
+      description: "The id of the test, as listed by [Get Real Device Jobs](#tag/jobs/GET/v1/rdc/jobs) or shown in the test's URL in the Sauce Labs UI."
       schema:
         type: string
         pattern: "^[a-f0-9]{32}$"
@@ -2343,7 +2343,7 @@ components:
           enum: [HardcodedDeviceQuery]
         device_descriptor_id:
           type: string
-          description: "The device id, as listed by [Get Devices](#tag/Real-Devices/operation/getDevices) or shown in the Sauce Labs UI, for example `iPhone_16_real`."
+          description: "The device id, as listed by [Get Devices](#tag/real-devices/GET/v1/rdc/devices) or shown in the Sauce Labs UI, for example `iPhone_16_real`."
           example: "iPhone_16_real"
         private_devices_only:
           type: boolean
