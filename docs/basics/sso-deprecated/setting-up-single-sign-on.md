@@ -74,8 +74,9 @@ This is a required attribute within the SAML assertion that indicates the specif
 
 ## Configuration Information for SSO
 
-The Signing/Encryption Certificate and Entity AssertionConsumeURLs required for configuring Sauce Labs SSO vary based on your data center. For details, see [Data Center Endpoints](/basics/data-center-endpoints/#single-sign-on-sso-configuration). Here are some things to be aware of:
+The Entity ID and Assertion Consumer Service URLs required for configuring Sauce Labs SSO vary based on your data center. For details, see [Data Center Endpoints](/basics/data-center-endpoints/#single-sign-on-sso-configuration). Here are some things to be aware of:
 
 - The Assertion/Issuer Name is **Sauce Labs**
 - Sauce Labs does not provide a staging environment for pre-integration testing of SSO
 - Single logout is not supported, but all sessions time out after 30 minutes of inactivity
+- Encrypted SAML assertions are not supported. Do not configure an encryption certificate for Sauce Labs in your Identity Provider. If you need encryption, [migrate to the new SSO](/basics/sso/migration-from-deprecated-sso/), which [supports it](/basics/sso/setting-up-sso/#encryption).

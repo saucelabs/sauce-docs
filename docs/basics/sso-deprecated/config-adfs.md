@@ -33,7 +33,7 @@ Microsoft has an extensive library of how-to and step-by-step guides for AD FS i
 4. In the **Select Data Source** screen, select **Enter Data about the Relying Party Manually**, and then click **Next**.
 5. On the **Specify Display Name** screen, enter **Sauce Labs**, and then click **Next**.
 6. On the **Choose Profile** screen, select **AD FS profile**, and then click **Next**.
-7. On the **Configure Certificate** screen, click **Next**, as this is an optional step.
+7. On the **Configure Certificate** screen, click **Next** without adding a certificate. The deprecated SSO does not support encrypted assertions.
 8. On the **Configure URL** screen, select **Enable Support** for the SAML 2.0 WebSSO Protocol.
 9. On the **Configure URL** screen, in the **Relying Party SAML 2.0 SSO Service URL** field, enter **https<span></span>://saucelabs<span></span>.com/sso/acs**, and then click **Next**.
 10. On the **Configure Identifiers** screen, select **www.<span></span>saucelabs.com**, click **Add**, and then click **Next**.

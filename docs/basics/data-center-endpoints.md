@@ -174,26 +174,26 @@ If you have previously implemented the deprecated SSO integration and wish to mi
 
 If you're using SSO with Sauce Labs, your data center determines the appropriate URLs for:
 
-- Signing/Encryption Certificate - This URL shows the certificate metadata you need to provide to your service provider to authenticate with Sauce Labs.
+- Entity ID - This URL is the Sauce Labs entity ID and serves the Sauce Labs SAML metadata. The deprecated SSO does not sign requests and does not support encrypted assertions, so the metadata has no certificate.
 - Entity AssertionConsumeURL - This URL is the endpoint where your service provider gets SAML assertions from Sauce Labs.
 
 For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On (Deprecated Flow)](/basics/sso-deprecated/setting-up-single-sign-on).
 
 #### US West Data Center
 
-| Signing/Encryption Certificate/Entity ID | Entity AssertionConsumeURL    |
-| ---------------------------------------- | ----------------------------- |
-| https://saucelabs.com/sso/metadata       | https://saucelabs.com/sso/acs |
+| Entity ID / Metadata URL           | Entity AssertionConsumeURL    |
+| ---------------------------------- | ----------------------------- |
+| https://saucelabs.com/sso/metadata | https://saucelabs.com/sso/acs |
 
 #### US East Data Center
 
-| Signing/Encryption Certificate/Entity ID        | Entity AssertionConsumeURL                 |
+| Entity ID / Metadata URL                        | Entity AssertionConsumeURL                 |
 | ----------------------------------------------- | ------------------------------------------ |
 | https://us-east-4.saucelabs.com/sso/metadata    | https://us-east-4.saucelabs.com/sso/acs    |
 
 #### EU Central Data Center
 
-| Signing/Encryption Certificate/Entity ID        | Entity AssertionConsumeURL                 |
+| Entity ID / Metadata URL                        | Entity AssertionConsumeURL                 |
 | ----------------------------------------------- | ------------------------------------------ |
 | https://eu-central-1.saucelabs.com/sso/metadata | https://eu-central-1.saucelabs.com/sso/acs |
 
