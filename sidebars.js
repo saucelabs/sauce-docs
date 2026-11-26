@@ -469,6 +469,7 @@ module.exports = {
                     ],
                 },
                 'dev/api/rdc', // Real Devices
+                'dev/api/rdc-v1-new', // Real Devices New docs (OpenAPI, Scalar)
                 'dev/api/connect', // Sauce Connect
                 'dev/api/storage', // Storage
                 'dev/api/test-authoring', // Test Authoring

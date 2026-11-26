@@ -1,0 +1,2839 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Real Devices API Reference"
+  x-last-modified: "2026-11-26"
+  x-beta: false
+  description: |
+    The Real Devices API gives you programmatic access to the real iOS and Android devices in the Sauce Labs cloud and
+    to the tests that run on them. Use it to:
+
+    - **Real Devices** — look up the devices in a data center, their specifications and whether they are free right now.
+    - **Jobs** — list your real device tests, read one test's details, download its video, logs and other results,
+      start an Espresso, XCUITest or XCTest run, stop a running test, rename or tag a test, or delete it.
+    - **Private Real Device Management** — for organization admins: list your private devices, assign them to teams
+      and set which apps, accounts and files persist on them between sessions.
+
+    **Authentication and regions**
+
+    Every request uses HTTP Basic Authentication with your Sauce Labs username and access key (find both under
+    **Account > User Settings** in the Sauce Labs UI). Call the API of the data center your devices and tests are in:
+    `api.us-west-1.saucelabs.com` (US West), `api.eu-central-1.saucelabs.com` (EU Central),
+    `api.us-east-4.saucelabs.com` (US East) or `api.asia-south-2.saucelabs.com` (Asia South). A test exists only in the
+    data center it ran in. See
+    [Getting Started](https://docs.saucelabs.com/dev/api/) for details on authentication and servers.
+
+    **Ids you will meet**
+
+    - A **device id** (also called device descriptor) names a device model and OS version, for example
+      `Samsung_Galaxy_S24_real`. Several physical devices can share one id. Get Devices lists them.
+    - A **job id** (also called test id or test report id) is a 32-character hexadecimal string that identifies one
+      test run, for example `0123456789abcdef0123456789abcdef`. It is the last part of a test's URL in the Sauce Labs
+      UI (`https://app.saucelabs.com/tests/<job id>`).
+
+    **Errors**
+
+    Failed requests return the HTTP status codes listed with each endpoint. Wrong or missing credentials return `401`
+    with `{"detail": "Authorization failed"}`. Most other errors return a JSON body with a `code` and a `message`
+    that says what to fix; a few validation errors use the `application/problem+json` format with a `title` and
+    `detail`. Each endpoint documents the exact bodies it returns.
+
+servers:
+  - url: https://api.us-west-1.saucelabs.com
+    description: US West
+  - url: https://api.eu-central-1.saucelabs.com
+    description: EU Central
+  - url: https://api.us-east-4.saucelabs.com
+    description: US East
+  - url: https://api.asia-south-2.saucelabs.com
+    description: Asia South
+security:
+  - basicAuth: []
+
+tags:
+  - name: Real Devices
+    description: Look up the real devices available to your account in a data center, their specifications and their current state.
+  - name: Jobs
+    description: List, inspect, start, stop, update and delete tests on real devices, and download their results.
+  - name: Private Real Device Management
+    description: |
+      Manage the private devices of your organization. These endpoints are available to organization admins only;
+      other users get `403`. Learn more about [managing your private devices](https://docs.saucelabs.com/basics/acct-team-mgmt/private-device-mgmt/).
+
+paths:
+  /v1/rdc/devices:
+    get:
+      operationId: getDevices
+      summary: Get Devices
+      description: |
+        Returns every real device model you can test on in this data center — the public devices of the cloud plus the
+        private devices of your organization — with its specifications and capabilities. Each entry describes one
+        device model and OS version (one device id), not one physical device; several identical devices behind an id
+        are listed once.
+
+        Use this list to find the device id for an exact device, to check an OS version or screen size, and to see
+        whether a model supports what your test needs (`supportsXcuiTest`, `supportsMockLocations`, …). It does not
+        tell you whether a device is free right now: use [Get Devices Status](#tag/Real-Devices/operation/getDevicesStatus)
+        for that.
+      tags:
+        - "Real Devices"
+      parameters:
+        - name: deviceId
+          in: query
+          required: false
+          description: |
+            Return only the devices whose id is exactly this value, or whose display name matches this regular
+            expression as a whole (`Samsung Galaxy S2[0-9].*`, `iPhone 1[5-6].*`). Leave it out to get all devices.
+          schema:
+            type: string
+          example: "Samsung Galaxy S2[0-9].*"
+      responses:
+        "200":
+          description: The list of devices. Empty when nothing matches `deviceId`.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DeviceDescriptor"
+              examples:
+                devices:
+                  summary: One Android phone and one iPad
+                  value:
+                    - abiType: "arm64-v8a"
+                      apiLevel: 34
+                      cpuCores: 8
+                      cpuFrequency: 3300
+                      cpuType: "ARM"
+                      defaultOrientation: "PORTRAIT"
+                      deviceFamily: "ANY"
+                      dpi: 500
+                      dpiName: "xxhdpi"
+                      hasOnScreenButtons: true
+                      id: "Samsung_Galaxy_S24_real"
+                      internalOrientation: "PORTRAIT"
+                      internalStorageSize: 131072
+                      isAlternativeIoEnabled: true
+                      isArm: true
+                      isKeyGuardDisabled: false
+                      isPrivate: false
+                      isRooted: false
+                      isTablet: false
+                      manufacturer: ["Samsung"]
+                      modelNumber: "SM-S921B"
+                      name: "Samsung Galaxy S24"
+                      os: "ANDROID"
+                      osVersion: "14"
+                      pixelsPerPoint: 1
+                      ramSize: 8192
+                      resolutionHeight: 2340
+                      resolutionWidth: 1080
+                      screenSize: 6.2
+                      sdCardSize: 0
+                      supportsAppiumWebAppTesting: true
+                      supportsGlobalProxy: false
+                      supportsManualWebTesting: true
+                      supportsMinicapSocketConnection: false
+                      supportsMockLocations: true
+                      supportsMultiTouch: true
+                      supportsXcuiTest: true
+                    - abiType: "arm64"
+                      apiLevel: 0
+                      cpuCores: 8
+                      cpuFrequency: 3700
+                      cpuType: "ARM"
+                      defaultOrientation: "LANDSCAPE"
+                      deviceFamily: "IPAD"
+                      dpi: 264
+                      dpiName: "hdpi"
+                      hasOnScreenButtons: true
+                      id: "iPad_Pro_11_2024_real"
+                      internalOrientation: "LANDSCAPE"
+                      internalStorageSize: 262144
+                      isAlternativeIoEnabled: true
+                      isArm: true
+                      isKeyGuardDisabled: false
+                      isPrivate: false
+                      isRooted: false
+                      isTablet: true
+                      manufacturer: ["Apple"]
+                      modelNumber: "iPad16,3"
+                      name: "iPad Pro 11 2024"
+                      os: "IOS"
+                      osVersion: "18.0"
+                      pixelsPerPoint: 2
+                      ramSize: 8192
+                      resolutionHeight: 2420
+                      resolutionWidth: 1668
+                      screenSize: 11.0
+                      sdCardSize: 0
+                      supportsAppiumWebAppTesting: true
+                      supportsGlobalProxy: false
+                      supportsManualWebTesting: true
+                      supportsMinicapSocketConnection: true
+                      supportsMockLocations: true
+                      supportsMultiTouch: true
+                      supportsXcuiTest: true
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+
+  /v1/rdc/devices/{device_id}:
+    get:
+      operationId: getDevice
+      summary: Get a Specific Device
+      description: |
+        Returns the specifications and capabilities of one device model, by its device id. The device id is the `id`
+        field of [Get Devices](#tag/Real-Devices/operation/getDevices) and the `device_descriptor.id` of a job.
+      tags:
+        - "Real Devices"
+      parameters:
+        - $ref: "#/components/parameters/DeviceId"
+      responses:
+        "200":
+          description: The device.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeviceDescriptor"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "404":
+          description: Not Found. No device with this id is available to your account in this data center. The body is the plain text `DEVICE_DESCRIPTOR_NOT_FOUND`.
+          content:
+            text/plain:
+              schema:
+                type: string
+                enum: ["DEVICE_DESCRIPTOR_NOT_FOUND"]
+              example: "DEVICE_DESCRIPTOR_NOT_FOUND"
+
+  /v1/rdc/devices/available:
+    get:
+      operationId: getAvailableDevices
+      summary: Get Available Devices
+      deprecated: true
+      description: |
+        Returns the ids of the device models that have at least one device free for testing right now.
+
+        **Deprecated.** Use [Get Devices Status](#tag/Real-Devices/operation/getDevicesStatus) instead: it returns the
+        same information as `state: "AVAILABLE"` and adds the devices that are busy, cleaning or offline.
+      tags:
+        - "Real Devices"
+      responses:
+        "200":
+          description: The ids of the device models with a free device.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  description: A device id.
+              example:
+                - "Samsung_Galaxy_S24_real"
+                - "iPhone_16_real"
+                - "iPad_Pro_11_2024_real"
+                - "Google_Pixel_9_real"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+
+  /v1/rdc/devices/status:
+    get:
+      operationId: getDevicesStatus
+      summary: Get Devices Status
+      description: |
+        Returns every device model you can test on with its current state — free, in use, or (private devices only)
+        cleaning, rebooting, in maintenance or offline — and whether it is a private device of your organization.
+        Call it before starting a test to pick a device that is free, or to see what your team is using.
+
+        A device model with several physical devices behind it gets one entry: it is `AVAILABLE` when at least one of
+        them is free, otherwise `IN_USE` when they are in different busy states.
+
+        | `state` | Meaning |
+        |---|---|
+        | `AVAILABLE` | At least one device of this model is free and can be allocated to a test. |
+        | `IN_USE` | Every device of this model is running a test or a Live Testing session. |
+        | `CLEANING` | The device is being reset after a session (private devices only). |
+        | `REBOOTING` | The device is rebooting (private devices only). |
+        | `MAINTENANCE` | The device is being checked by Sauce Labs or has a low battery (private devices only). |
+        | `OFFLINE` | The device is not connected (private devices only). |
+
+        **Who is using a private device.** For a private device that is `IN_USE`, `inUseBy` holds the username of the
+        person using it — if you are allowed to see it: you are an organization admin, cross-team job sharing is
+        enabled for your organization, you are on the same team as that person, or it is you. Otherwise, and for
+        every public device, `inUseBy` is an empty list.
+      tags:
+        - "Real Devices"
+      parameters:
+        - name: state
+          in: query
+          required: false
+          description: |
+            Return only devices in these states. Repeat the parameter for several states
+            (`?state=AVAILABLE&state=IN_USE`). Values are matched regardless of case. A value that is not one of the
+            six states returns `400`.
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/DeviceState"
+          example: ["AVAILABLE"]
+        - name: privateOnly
+          in: query
+          required: false
+          description: "`true` returns only the private devices of your organization."
+          schema:
+            type: boolean
+            default: false
+        - name: deviceName
+          in: query
+          required: false
+          description: |
+            Return only the devices whose id is exactly this value, or whose display name matches this regular
+            expression as a whole (`Samsung Galaxy S2[0-9].*`, `iPhone 1[5-6].*`).
+          schema:
+            type: string
+          example: "iPhone 1[5-6].*"
+      responses:
+        "200":
+          description: The devices and their states.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DevicesStatusResponse"
+              examples:
+                mixed:
+                  summary: Public and private devices in different states
+                  value:
+                    devices:
+                      - descriptor: "Samsung_Galaxy_S24_real"
+                        state: "AVAILABLE"
+                        inUseBy: []
+                        isPrivateDevice: false
+                      - descriptor: "iPhone_16_real"
+                        state: "IN_USE"
+                        inUseBy: []
+                        isPrivateDevice: false
+                      - descriptor: "iPhone_15_Pro_private"
+                        state: "IN_USE"
+                        inUseBy:
+                          - username: "teammate-username"
+                        isPrivateDevice: true
+                      - descriptor: "Google_Pixel_9_private"
+                        state: "CLEANING"
+                        inUseBy: []
+                        isPrivateDevice: true
+        "400":
+          description: Bad Request. A `state` value is not one of the six states.
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+              example:
+                type: "about:blank"
+                title: "Invalid device state."
+                detail: "The query parameter 'state' has an invalid value: 'busy'. Allowed values are: IN_USE, AVAILABLE, REBOOTING, CLEANING, MAINTENANCE, OFFLINE."
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+
+  /v1/rdc/jobs:
+    get:
+      operationId: getJobs
+      summary: Get Real Device Jobs
+      description: |
+        Returns your organization's real device tests of the last 60 days, newest first, one page at a time. Each entry
+        is a summary; use [Get a Specific Real Device Job](#tag/Jobs/operation/getJob) with the `id` for the full
+        details and the links to the video and logs.
+
+        **Which tests you see.** Tests of your own team. Organization admins, and every user of an organization with
+        cross-team job sharing enabled, see the tests of all teams and can narrow them with `team_id`.
+
+        **Which test types.** Without `type`, the list holds the automated tests: Appium, Espresso, XCUITest (XCTest
+        runs are listed as XCUITest) and Real Device Access API sessions. Pass `type` to pick other types, for example
+        `type=LIVE` for Live Testing sessions.
+
+        **Paging.** `limit` sets the page size and `offset` the 1-based position of the first entry. The response's
+        `metaData.moreAvailable` tells you whether another page follows: request it with
+        `offset = offset + limit`.
+      tags:
+        - "Jobs"
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          description: "The number of tests per page, from 1 to 1000. A larger value is reduced to 1000; a value below 1 returns `400`."
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+            default: 20
+          example: 20
+        - name: offset
+          in: query
+          required: false
+          description: "The 1-based position of the first test to return. `0` is treated as `1`; a negative value returns `400`."
+          schema:
+            type: integer
+            minimum: 0
+            default: 1
+          example: 1
+        - name: type
+          in: query
+          required: false
+          description: |
+            Return only tests of these types. Repeat the parameter for several types (`?type=ESPRESSO&type=XCUITEST`).
+            Values must be upper case exactly as listed; any other value returns `404` with an empty body. Without
+            `type`, the list holds `APPIUM`, `ESPRESSO`, `XCUITEST` and `API` tests.
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+              enum: [APPIUM, ESPRESSO, XCUITEST, LIVE, VIRTUAL_USB, API]
+          example: ["ESPRESSO"]
+        - name: status
+          in: query
+          required: false
+          description: |
+            Return only tests with these statuses (see the `status` field of a test). Repeat the parameter for several
+            statuses; a value that is not a status is ignored. `in progress` must be URL-encoded (`in%20progress`).
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/JobStatus"
+          example: ["failed", "error"]
+        - name: owner
+          in: query
+          required: false
+          description: "Return only the tests started by this Sauce Labs username."
+          schema:
+            type: string
+          example: "your-username"
+        - name: team_id
+          in: query
+          required: false
+          description: "Return only the tests of this team, by team id. Honoured for organization admins and in organizations with cross-team job sharing; other users always get their own team's tests."
+          schema:
+            type: string
+          example: "8f0444d7762548bd81ae46722a14e1c6"
+      responses:
+        "200":
+          description: One page of tests.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobList"
+              examples:
+                page:
+                  summary: Two tests, one Espresso and one Appium
+                  value:
+                    entities:
+                      - assigned_tunnel_id: null
+                        device_type: "real_device"
+                        test_report_type: "ANDROID_INSTRUMENTATION"
+                        owner_sauce: "your-username"
+                        consolidated_status: "passed"
+                        end_time: 1764160859000
+                        id: "0123456789abcdef0123456789abcdef"
+                        name: "Checkout flow — release 4.2"
+                        os: "Android"
+                        os_version: "14"
+                        device_name: "Samsung Galaxy S24"
+                        start_time: 1764160800000
+                        status: "passed"
+                        creation_time: 1764160800000
+                        automation_backend: "ESPRESSO"
+                        manual: false
+                        has_crashed: false
+                      - assigned_tunnel_id: null
+                        device_type: "real_device"
+                        test_report_type: "APPIUM"
+                        owner_sauce: "teammate-username"
+                        consolidated_status: "failed"
+                        end_time: 1764157320000
+                        id: "fedcba9876543210fedcba9876543210"
+                        name: "Login with wrong password"
+                        os: "iOS"
+                        os_version: "18.0"
+                        device_name: "iPhone 16"
+                        start_time: 1764157200000
+                        status: "failed"
+                        creation_time: 1764157200000
+                        automation_backend: "APPIUM"
+                        manual: false
+                        has_crashed: false
+                    metaData:
+                      moreAvailable: true
+                      offset: 1
+                      limit: 2
+                      sortDirection: "DESCENDING"
+        "400":
+          description: Bad Request. `limit` is below 1 or `offset` is negative.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                limit:
+                  value:
+                    code: "INVALID_REQUEST_PAYLOAD"
+                    message: "limit must be >= 1"
+                offset:
+                  value:
+                    code: "INVALID_REQUEST_PAYLOAD"
+                    message: "offset must be >= 0"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "404":
+          description: Not Found, with an empty body. A query parameter has a value of the wrong kind, for example a `type` that is not one of the listed values or a `limit` that is not a number.
+
+  /v1/rdc/jobs/{job_id}:
+    get:
+      operationId: getJob
+      summary: Get a Specific Real Device Job
+      description: |
+        Returns everything about one test: its status and result, the device it ran on, the app under test, when it
+        was created, started and finished, and the links to download its video, logs, screenshots and other results.
+
+        **Following a running test.** `status` is `in progress` while the test runs and becomes `passed`, `failed`,
+        `error` or `complete` when it ends; `passed` is `null` until there is a result. Poll this endpoint until the
+        status changes, then download the results from the `*_url` links.
+
+        **Links.** A `*_url` field is `null` when the test has no such result: Appium tests have `framework_log_url`
+        (the Appium log) and `requests_url`; Espresso and XCUITest tests have `test_cases_url` and `junit_log_url`;
+        `network_log_url`, `testfairy_log_url` (device vitals) and `crash_log_url` are set only when the feature was
+        on for the test. All links are [asset downloads](#tag/Jobs/operation/getJobAsset) of this test.
+      tags:
+        - "Jobs"
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: The test.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+              examples:
+                espresso:
+                  $ref: "#/components/examples/EspressoJob"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/JobForbidden"
+        "404":
+          $ref: "#/components/responses/JobNotFound"
+    put:
+      operationId: updateJob
+      summary: Update a Job
+      description: |
+        Changes the name, build, tags or pass/fail result of a test, at any time — also while it is running. Only the
+        fields you send are changed; a field you leave out keeps its value. A field you send replaces the old value
+        entirely: to add a tag, send the whole list of tags you want.
+
+        The response is the updated test, in the same shape as [Get a Specific Real Device Job](#tag/Jobs/operation/getJob).
+      tags:
+        - "Jobs"
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobUpdateRequest"
+            examples:
+              rename:
+                summary: Rename the test, assign it to a build and tag it
+                value:
+                  name: "Checkout flow — release 4.2"
+                  build: "release-4.2.0"
+                  tags: ["smoke", "checkout"]
+              markFailed:
+                summary: Mark the test as failed
+                value:
+                  passed: false
+      responses:
+        "200":
+          description: The updated test.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+              examples:
+                updated:
+                  $ref: "#/components/examples/EspressoJob"
+        "400":
+          description: Bad Request. A field has an invalid value; nothing was changed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                name:
+                  summary: name is blank, longer than 255 characters or contains emojis
+                  value:
+                    code: "INVALID_REQUEST_PAYLOAD"
+                    message: "Test Report Name must be less than 255 characters and must not include emojis"
+                build:
+                  summary: build contains spaces or other characters that are not letters, digits or punctuation
+                  value:
+                    code: "INVALID_REQUEST_PAYLOAD"
+                    message: "Test Report Build ID must be less than 255 characters, only latin chars, numbers, punctuations are accepted"
+                tags:
+                  summary: more than 10 tags, or a tag with spaces or other characters that are not letters, digits or punctuation
+                  value:
+                    code: "INVALID_REQUEST_PAYLOAD"
+                    message: "Test Report Tags must be less than 30 characters, only latin chars, numbers, punctuations are accepted, maximum number of tags is 10"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/JobForbidden"
+        "404":
+          $ref: "#/components/responses/JobNotFound"
+        "500":
+          description: Internal Server Error. The body could not be read — it is not valid JSON, it is empty, or `passed` is not a boolean. Fix the body and retry.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenericError"
+    delete:
+      operationId: deleteJob
+      summary: Delete a Job
+      description: |
+        Deletes a test and all of its results — video, screenshots, logs — from your test history. This cannot be
+        undone.
+
+        Only the user who started the test, an admin of that user's team, or an organization admin can delete it.
+      tags:
+        - "Jobs"
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: The test was deleted. The body is empty.
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          description: Forbidden. You are neither the owner of the test, nor an admin of its team, nor an organization admin.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example:
+                code: "FORBIDDEN"
+                message: "Only team/org administrators and job owners can delete test results"
+        "404":
+          $ref: "#/components/responses/JobNotFound"
+
+  /v1/rdc/jobs/{job_id}/{asset}:
+    get:
+      operationId: getJobAsset
+      summary: Download a Specific Real Device Job's Asset
+      description: |
+        Downloads one result file of a test: the video, the device log, the framework log, the list of test cases,
+        screenshots, the network capture and so on. Which files exist depends on the test framework and on the
+        features that were on during the test; a test's `*_url` fields point at the files it has.
+
+        | Asset | `asset` path | Test types | Needs |
+        |---|---|---|---|
+        | Device log | `deviceLogs` | all | — |
+        | Appium log | `appiumLogs` | Appium, Access API (when Appium logs were requested) | — |
+        | Appium requests | `appiumRequests` | Appium | — |
+        | WebDriverAgent log | `wdaLogs` | Appium on iOS | — |
+        | XCUITest log | `xcuitestLogs` | XCUITest, XCTest | — |
+        | Test cases | `testCases` | Espresso, XCUITest, XCTest | — |
+        | JUnit report | `junit.xml` | Espresso, XCUITest, XCTest (finished tests only) | — |
+        | Video | `video.mp4` | all | — |
+        | Screenshots | `screenshots.zip` | tests that took screenshots | [Espresso screenshot capture](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/espresso-capture/) for Espresso |
+        | Network capture | `network.har` | all | [Network capture](https://docs.saucelabs.com/mobile-apps/features/network-capture/) |
+        | Device vitals | `insights.json` | all | [Device vitals](https://docs.saucelabs.com/mobile-apps/features/mobile-app-diagnostics/device-vitals/) |
+        | Crash report | `crash.json` | Appium | [Crash and error reporting](https://docs.saucelabs.com/mobile-apps/features/mobile-app-diagnostics/crash-error-reporting/) |
+        | Device events | `deviceEvents.json` | Appium | — |
+
+        For tests started through the [Real Device Access API](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-introduction/),
+        the files depend on the artifact toggles you chose when starting the session; see
+        [Test Results for the Access API](https://docs.saucelabs.com/mobile-apps/real-device-access-api/real-device-access-api-test-results/).
+
+        **Good to know**
+
+        - The logs (`deviceLogs`, `appiumLogs`, `xcuitestLogs`, `wdaLogs`) are returned as plain text, one line per
+          entry. Send `Accept: application/json` to get them as a JSON array of entries instead. A log the test does
+          not have comes back as `200` with an empty body.
+        - Every file is sent as an attachment (`Content-Disposition: attachment; filename=…`). Send
+          `Accept-Encoding: gzip` to receive it compressed.
+        - `video.mp4` supports HTTP range requests (`Range: bytes=…`), so players can seek; a range request is answered
+          with `206`.
+        - A single screenshot is available at `/v1/rdc/jobs/{job_id}/screenshots/{screenshot_id}` as a PNG; the test's
+          `screenshots` field lists these links.
+      tags:
+        - "Jobs"
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+        - name: asset
+          in: path
+          required: true
+          description: "The file to download, from the table above."
+          schema:
+            type: string
+            enum:
+              - deviceLogs
+              - appiumLogs
+              - appiumRequests
+              - wdaLogs
+              - xcuitestLogs
+              - testCases
+              - junit.xml
+              - video.mp4
+              - screenshots.zip
+              - network.har
+              - insights.json
+              - crash.json
+              - deviceEvents.json
+          example: "deviceLogs"
+        - name: download
+          in: query
+          required: false
+          description: "Any value (for example `true`) returns a log as plain text even when the request asks for `application/json`. Has no effect on other assets."
+          schema:
+            type: boolean
+          example: true
+      responses:
+        "200":
+          description: The file. The media type depends on the asset.
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: "A log (`deviceLogs`, `appiumLogs`, `xcuitestLogs`, `wdaLogs`): one JSON entry per line."
+              example: |
+                {"level":"INFO","message":"ActivityManager : Start proc 12345:com.example.app/u0a123 for activity","tag":"ActivityManager","processId":1234,"timestamp":"2026-11-26 10:00:00.123"}
+            application/json:
+              schema:
+                description: "`testCases`, `appiumRequests`, `network.har`, `insights.json`, `crash.json`, `deviceEvents.json`, or a log requested with `Accept: application/json`."
+              examples:
+                testCases:
+                  summary: testCases of an Espresso test
+                  value:
+                    - className: "CheckoutTest"
+                      testCases:
+                        - className: "CheckoutTest"
+                          methodName: "guestCheckoutSucceeds"
+                          startTime: 1410
+                          duration: 7370
+                          status: "SUCCESS"
+            application/xml:
+              schema:
+                type: string
+                description: "`junit.xml`"
+              example: |
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <testsuite name="Checkout flow — release 4.2" tests="1" failures="0" skipped="0" timestamp="2026-11-26T10:00:00.000Z" time="10.063" package="com.example.app">
+                    <testcase name="guestCheckoutSucceeds" classname="CheckoutTest" time="7.37"/>
+                </testsuite>
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+                description: "`video.mp4`"
+            application/x-zip-compressed:
+              schema:
+                type: string
+                format: binary
+                description: "`screenshots.zip`: one PNG per screenshot."
+        "206":
+          description: Partial Content. The requested byte range of `video.mp4`.
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+        "400":
+          description: Bad Request. `junit.xml` was requested for a test that is still running.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example:
+                code: "JOB_NOT_FOUND"
+                message: "Test report '0123456789abcdef0123456789abcdef' is still running."
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/JobForbidden"
+        "404":
+          description: |
+            Not Found. The test does not exist, or the test has no such file: `junit.xml` or `testCases` for a test
+            that is not an Espresso, XCUITest or XCTest test; `screenshots.zip` for a test without screenshots;
+            `video.mp4` for a test without a video (empty body); or an `asset` that is not in the table (empty body).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                jobNotFound:
+                  value:
+                    code: "JOB_NOT_FOUND"
+                    message: "Job '0123456789abcdef0123456789abcdef' not found"
+                notNative:
+                  summary: junit.xml or testCases for an Appium or Live Testing test
+                  value:
+                    code: "JOB_NOT_FOUND"
+                    message: "Test report '0123456789abcdef0123456789abcdef' with type 'APPIUM' is not a native framework test."
+                noScreenshots:
+                  value:
+                    code: "SCREENSHOT_NOT_FOUND"
+                    message: "No screenshots found for job '0123456789abcdef0123456789abcdef'"
+
+  /v1/rdc/native-composer/tests:
+    post:
+      operationId: startNativeTest
+      summary: Start a XCTest, XCUITest or Espresso Job
+      description: |
+        Runs your Espresso, XCUITest or XCTest tests on a real device — the same test runs you can start with
+        [`saucectl`](https://docs.saucelabs.com/dev/cli/saucectl/), from any HTTP client.
+
+        **How it works**
+
+        1. Upload your app and your test bundle to [App Storage](https://docs.saucelabs.com/mobile-apps/app-storage/)
+           (an `.apk` and an `androidTest` `.apk` for Espresso; an `.ipa` and a `-Runner.ipa` for XCUITest; an `.ipa`
+           and an `.xctestrun` file for XCTest).
+        2. Call this endpoint with the two files, the device you want, and any options — test selection, environment
+           variables, a Sauce Connect tunnel, network throttling, device language and orientation.
+        3. The response gives you the test id and a link to the test in the Sauce Labs UI, immediately. The test then
+           runs on the device in the background: watch it live in the Sauce Labs UI, or poll
+           [Get a Specific Real Device Job](#tag/Jobs/operation/getJob) with the same id until `status` is `passed`,
+           `failed`, `error` or `complete`, and download the results from there.
+
+        **Choosing the framework.** `test_framework` decides which test bundle field and which options apply:
+
+        | `test_framework` | Platform | Your test bundle | Framework options |
+        |---|---|---|---|
+        | `ANDROID_INSTRUMENTATION` (Espresso) | Android | `test_app_id` — the `androidTest` APK | `use_test_orchestrator`, `test_options` |
+        | `XCUITEST` | iOS | `test_app_id` — the `<Target>-Runner.ipa` | `tests_to_run`, `tests_to_skip`, `env` |
+        | `XCTEST` | iOS | `xc_test_run_file` — the `.xctestrun` file | none (the file carries the test plan) |
+
+        The app, the test bundle and every app in `other_apps` must be built for the platform of that framework, and
+        iOS builds must target a real device, not a simulator.
+
+        **Good to know**
+
+        - Field names are `snake_case`. Enum values are case sensitive unless a field says otherwise.
+        - Requests with a malformed body, an unknown `test_framework` or `device_query.type`, an invalid app reference,
+          a missing required field or more than seven `other_apps` are rejected with `400` and no test is started.
+        - Anything that can only be checked once the files and a device are involved — a file that does not exist, an
+          app built for the wrong platform or for a simulator, no device matching your query, an invalid `device_name`
+          pattern — makes the test end with status `error` after it was accepted. The reason is shown on the test in
+          the UI and in the `error` field of [Get a Specific Real Device Job](#tag/Jobs/operation/getJob).
+
+        **New to native testing on Sauce Labs?** The [Espresso](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/espresso/),
+        [XCUITest](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/) and
+        [XCTest](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/xctest/) guides explain how
+        to build and upload the test bundles.
+      tags:
+        - "Jobs"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "#/components/schemas/EspressoTestRequest"
+                - $ref: "#/components/schemas/XcuiTestRequest"
+                - $ref: "#/components/schemas/XcTestRequest"
+              discriminator:
+                propertyName: test_framework
+                mapping:
+                  ANDROID_INSTRUMENTATION: "#/components/schemas/EspressoTestRequest"
+                  XCUITEST: "#/components/schemas/XcuiTestRequest"
+                  XCTEST: "#/components/schemas/XcTestRequest"
+            examples:
+              espressoMinimal:
+                summary: Espresso — run all tests on any available Android device
+                value:
+                  test_framework: "ANDROID_INSTRUMENTATION"
+                  app_id: "storage:filename=app-debug.apk"
+                  test_app_id: "storage:filename=app-debug-androidTest.apk"
+                  device_query:
+                    type: "DynamicDeviceQuery"
+              espressoFull:
+                summary: Espresso — choose the device, run one test class, use a tunnel, throttle the network, capture network traffic
+                value:
+                  test_framework: "ANDROID_INSTRUMENTATION"
+                  test_name: "Checkout flow — release 4.2"
+                  build: "release-4.2.0"
+                  tags: ["smoke", "checkout"]
+                  app_id: "4f3a2d1c-8b7e-4c6d-9a5f-1e2d3c4b5a69"
+                  test_app_id: "8e7d6c5b-4a39-4f28-b1c0-d9e8f7a6b5c4"
+                  other_apps: ["storage:filename=companion-app.apk"]
+                  device_query:
+                    type: "DynamicDeviceQuery"
+                    device_name: "Samsung Galaxy S2[0-9].*"
+                    platform_version: "14"
+                    requested_device_type: "PHONE"
+                    private_devices_only: false
+                    carrier_connectivity_requested: false
+                  use_test_orchestrator: true
+                  test_options: { "class": "com.example.CheckoutTest", "clearPackageData": "true" }
+                  tunnel_name: "my-tunnel"
+                  tunnel_owner: "tunnel-owner-username"
+                  network_profile: "4G-slow"
+                  settings_overwrite:
+                    instrumentation_enabled: true
+                    instrumentation:
+                      network_capture: true
+                      vitals: true
+                    orientation: "PORTRAIT"
+                    lang: "en_GB"
+              xcuitest:
+                summary: XCUITest — run one test class on a specific iPhone with environment variables and custom network conditions
+                value:
+                  test_framework: "XCUITEST"
+                  test_name: "Login tests on iPhone 16"
+                  app_id: "storage:filename=MyApp.ipa"
+                  test_app_id: "storage:filename=MyAppUITests-Runner.ipa"
+                  device_query:
+                    type: "HardcodedDeviceQuery"
+                    device_descriptor_id: "iPhone_16_real"
+                  tests_to_run: ["MyAppUITests.LoginTests"]
+                  env:
+                    BASE_URL: "https://staging.example.com"
+                  network_conditions:
+                    download_speed: 5000
+                    upload_speed: 3000
+                    latency: 200
+                    loss: 2
+              xctest:
+                summary: XCTest — run a test plan from an .xctestrun file on any iPhone running iOS 26
+                value:
+                  test_framework: "XCTEST"
+                  test_name: "XCTest plan — nightly"
+                  app_id: "storage:filename=Runner.ipa"
+                  xc_test_run_file: "2c1b0a9f-8e7d-4c6b-a5f4-e3d2c1b0a9f8"
+                  device_query:
+                    type: "DynamicDeviceQuery"
+                    device_name: "iPhone.*"
+                    platform_version: "26"
+      responses:
+        "200":
+          description: The test was started. Use `test_report.url` to open it, or `test_report.id` with the other Jobs endpoints.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestExecutionResponse"
+        "400":
+          $ref: "#/components/responses/NativeTestBadRequest"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/NativeTestForbidden"
+
+  /v1/rdc/jobs/{job_id}/stop:
+    put:
+      operationId: stopJob
+      summary: Stop a Job
+      description: |
+        Stops a test that is `in progress`: an Appium, Espresso, XCUITest, XCTest or Live Testing test. The test ends
+        with status `error` and the message `User Abandoned Test -- User terminated` in its `error` field; the video
+        and logs recorded up to that point stay available, and an Espresso or XCUITest test keeps a JUnit report with
+        one cancelled test case.
+
+        A test that has already ended (`status` is `passed`, `failed`, `error` or `complete`) cannot be stopped: the
+        call returns `400` and the test keeps its result.
+
+        An Appium test that is still waiting for a device is cancelled before it starts. One that has a device but no
+        Appium session yet cannot be stopped at that moment: retry a little later.
+      tags:
+        - "Jobs"
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: The test was stopped. The body is empty.
+        "400":
+          description: Bad Request. The test cannot be stopped in its current state.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                alreadyFinished:
+                  summary: A test that has already ended (any type)
+                  value:
+                    code: "BAD_REQUEST"
+                    message: "The test cannot be stopped because the test execution has already finished. Only tests in progress can be stopped"
+                liveSetup:
+                  summary: A Live Testing session that has no device yet
+                  value:
+                    code: "BAD_REQUEST"
+                    message: "Cannot stop test in the setup phase. Test needs to be in progress before it can be stopped"
+                appiumNotStarted:
+                  summary: An Appium test that has a device but whose test has not started
+                  value:
+                    code: "BAD_REQUEST"
+                    message: "Cannot stop test, a device was already assigned to the job. \nPlease try again later and contact your Sauce Labs representative if you continue to see this message."
+                appiumNoSession:
+                  summary: An Appium test whose Appium session is not set up yet
+                  value:
+                    code: "BAD_REQUEST"
+                    message: "Appium Session was not yet setup, while a device was already assigned to your test.  \nPlease try again later and contact your Sauce Labs representative if you continue to see this message."
+                appiumSessionGone:
+                  summary: An Appium test whose session is no longer open
+                  value:
+                    code: "BAD_REQUEST"
+                    message: "Only in progress appium session can be stopped"
+                unsupportedType:
+                  summary: A test type that cannot be stopped through this endpoint
+                  value:
+                    code: "BAD_REQUEST"
+                    message: "Session identified as 'VIRTUAL_USB' test. It can't be stopped because it's not part of the allowed test types: Appium, Espresso, XCUITest, Live"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/JobForbidden"
+        "404":
+          $ref: "#/components/responses/JobNotFound"
+        "500":
+          description: Internal Server Error. The device could not be reached to stop the test. Retry.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                appium:
+                  value:
+                    code: "INTERNAL_SERVER_ERROR"
+                    message: "Session could not be closed, try again"
+                appiumRequestFailed:
+                  value:
+                    code: "INTERNAL_SERVER_ERROR"
+                    message: "Failed to stop a session. Please try again"
+                native:
+                  value:
+                    code: "INTERNAL_SERVER_ERROR"
+                    message: "Failed to stop the session. Please try again"
+
+  /v1/rdc/device-management/devices:
+    get:
+      operationId: getPrivateDevices
+      summary: Get Private Devices
+      description: |
+        Returns the private devices of your organization with their current state, the teams they are assigned to and
+        their persistence settings (apps, accounts and folders kept between sessions). Organization admins only.
+      tags:
+        - "Private Real Device Management"
+      responses:
+        "200":
+          description: The private devices.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ManagedDevice"
+              examples:
+                devices:
+                  $ref: "#/components/examples/ManagedDevices"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/NotOrgAdmin"
+
+  /v1/rdc/device-management/devices/{device_id}/teams:
+    put:
+      operationId: assignDeviceTeams
+      summary: Manage Device Assignment to Teams
+      description: |
+        Assigns a private device to one or more teams, so only their members can use it. The list you send replaces the
+        current assignment: send every team the device should belong to, or an empty list to make the device available
+        to the whole organization again. Organization admins only.
+
+        Team ids are the `id` of a team in the
+        [Accounts API](https://docs.saucelabs.com/dev/api/accounts/#lookup-teams) or in the Sauce Labs UI under
+        **Organization Management > Teams**.
+      tags:
+        - "Private Real Device Management"
+      parameters:
+        - $ref: "#/components/parameters/PrivateDeviceId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TeamsUpdateRequest"
+            examples:
+              twoTeams:
+                summary: Assign the device to two teams
+                value:
+                  ids: ["8f0444d7762548bd81ae46722a14e1c6", "1ae46722a14e1c68f0444d7762548bd8"]
+              unassign:
+                summary: Remove every team assignment
+                value:
+                  ids: []
+      responses:
+        "204":
+          description: The assignment was saved. The body is empty.
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          $ref: "#/components/responses/NotOrgAdmin"
+        "404":
+          description: Not Found, with an empty body. The device is not a private device of your organization.
+        "422":
+          description: Unprocessable Entity, with an empty body. One of the team ids does not belong to a team of your organization; nothing was changed.
+        "500":
+          description: Internal Server Error. The body could not be read — it is not valid JSON, it is empty, or `ids` is missing.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenericError"
+
+  /v1/rdc/device-management/devices/{device_id}/settings:
+    put:
+      operationId: updateDeviceSettings
+      summary: Update Device Settings
+      description: |
+        Sets what persists on a private device between sessions: installed apps and their data, Google and Apple
+        account sign-ins, iOS system apps your tests may use, Apple Pay support and, on Android, folders that are not
+        wiped. The settings you send replace the stored ones, so send all of them every time. Organization admins only.
+        See [the available device settings](https://docs.saucelabs.com/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list)
+        for what each setting does.
+
+        `systemAppAllowlist` and `applePaySupportEnabled` apply to iOS devices only and are ignored on Android.
+        Each list holds at most 100 entries.
+
+        The response is the full list of your private devices, as returned by
+        [Get Private Devices](#tag/Private-Real-Device-Management/operation/getPrivateDevices), with the new settings
+        applied.
+      tags:
+        - "Private Real Device Management"
+      parameters:
+        - $ref: "#/components/parameters/PrivateDeviceId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeviceSettings"
+            examples:
+              ios:
+                summary: Keep an app, an Apple ID and the Calculator app on an iPhone
+                value:
+                  id: "iPhone_15_Pro_private"
+                  appWhitelist: ["com.example.app"]
+                  accountWhitelist: ["qa-tester@example.com"]
+                  systemAppAllowlist: ["com.apple.calculator"]
+                  applePaySupportEnabled: false
+                  skipCleaningFolders: []
+              android:
+                summary: Keep an app and the Downloads folder on an Android device
+                value:
+                  id: "Google_Pixel_9_private"
+                  appWhitelist: ["com.example.app"]
+                  accountWhitelist: []
+                  systemAppAllowlist: []
+                  applePaySupportEnabled: false
+                  skipCleaningFolders: ["/sdcard/Download"]
+      responses:
+        "200":
+          description: The settings were saved. The body lists all your private devices with their settings.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ManagedDevice"
+              examples:
+                devices:
+                  $ref: "#/components/examples/ManagedDevices"
+        "401":
+          $ref: "#/components/responses/NotAuthorized"
+        "403":
+          description: Forbidden. You are not an organization admin, or a list has more than 100 entries. Nothing was changed.
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+              examples:
+                notAdmin:
+                  value:
+                    title: "Insufficient Auth to update device settings"
+                    detail: "Could not update device settings! Only Org Admins can update device settings."
+                tooManyEntries:
+                  value:
+                    title: "Insufficient Auth to update device settings"
+                    detail: "Could not update device settings! The maximum size of app allowlist is 100."
+        "404":
+          description: Not Found, with an empty body. The device is not a private device of your organization.
+        "500":
+          description: Internal Server Error. The body could not be read — it is not valid JSON or it is empty.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenericError"
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: |
+        HTTP Basic Authentication using your Sauce Labs credentials.
+        - **Username**: Your Sauce Labs username.
+        - **Password**: Your Sauce Labs access key.
+
+        You can find both your username and access key on the **Account > User Settings** page in the Sauce Labs UI.
+
+  parameters:
+    DeviceId:
+      name: device_id
+      in: path
+      required: true
+      description: "The device id, as listed by [Get Devices](#tag/Real-Devices/operation/getDevices)."
+      schema:
+        type: string
+      example: "Samsung_Galaxy_S24_real"
+    PrivateDeviceId:
+      name: device_id
+      in: path
+      required: true
+      description: "The id of one of your private devices, as listed by [Get Private Devices](#tag/Private-Real-Device-Management/operation/getPrivateDevices)."
+      schema:
+        type: string
+      example: "iPhone_15_Pro_private"
+    JobId:
+      name: job_id
+      in: path
+      required: true
+      description: "The id of the test, as listed by [Get Real Device Jobs](#tag/Jobs/operation/getJobs) or shown in the test's URL in the Sauce Labs UI."
+      schema:
+        type: string
+        pattern: "^[a-f0-9]{32}$"
+      example: "0123456789abcdef0123456789abcdef"
+
+  responses:
+    NotAuthorized:
+      description: Not Authorized. The username or access key is missing or wrong.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              detail:
+                type: string
+                example: Authorization failed
+          example:
+            detail: "Authorization failed"
+    JobNotFound:
+      description: Not Found. No test with this id exists in this data center, or it was deleted.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+          example:
+            code: "JOB_NOT_FOUND"
+            message: "Job '0123456789abcdef0123456789abcdef' not found"
+    JobForbidden:
+      description: Forbidden. The test belongs to another team of your organization and you are not allowed to see it (you are not an organization admin and cross-team job sharing is off), or it belongs to another organization.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ApiError"
+          example:
+            code: "FORBIDDEN"
+            message: "Access not allowed"
+    NotOrgAdmin:
+      description: Forbidden, with an empty body. You are not an organization admin.
+    NativeTestBadRequest:
+      description: Bad Request. Something in the request is invalid; no test was started. `detail` or `violations` says what to fix.
+      content:
+        application/problem+json:
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/ConstraintViolationProblem"
+              - $ref: "#/components/schemas/ProblemDetail"
+          examples:
+            missingRequiredFields:
+              summary: A required field is missing (violations name the fields in camelCase)
+              value:
+                type: "https://zalando.github.io/problem/constraint-violation"
+                title: "Constraint Violation"
+                status: 400
+                instance: "/tests"
+                violations:
+                  - field: "appId"
+                    message: "must not be null"
+                  - field: "deviceQuery"
+                    message: "must not be null"
+                  - field: "testAppId"
+                    message: "must not be null"
+            tooManyOtherApps:
+              summary: More than seven apps in other_apps
+              value:
+                type: "https://zalando.github.io/problem/constraint-violation"
+                title: "Constraint Violation"
+                status: 400
+                instance: "/tests"
+                violations:
+                  - field: "otherApps"
+                    message: "size must be between 0 and 7"
+            invalidAppReference:
+              summary: An app reference that is not a file id or a storage:filename= reference
+              value:
+                title: "Bad Request"
+                status: 400
+                instance: "/tests"
+                detail: "JSON parse error: Cannot construct instance of `com.saucelabs.rdcnativecomposerservice.api.resource.AppStorageReference`, problem: Invalid app reference: 'not-an-app'"
+            unknownTestFramework:
+              summary: test_framework is not ANDROID_INSTRUMENTATION, XCUITEST or XCTEST (the value is case sensitive)
+              value:
+                title: "Bad Request"
+                status: 400
+                instance: "/tests"
+                detail: "JSON parse error: Could not resolve type id 'xcuitest' as a subtype of `com.saucelabs.rdcnativecomposerservice.api.resource.TestExecutionRequest`: known type ids = []"
+            unknownDeviceQueryType:
+              summary: device_query.type is not DynamicDeviceQuery or HardcodedDeviceQuery
+              value:
+                title: "Bad Request"
+                status: 400
+                instance: "/tests"
+                detail: "JSON parse error: Could not resolve type id 'SomethingElse' as a subtype of `com.saucelabs.rdcnativecomposerservice.api.resource.DeviceRequest`: known type ids = [] (for POJO property 'device_query')"
+            unknownNetworkProfile:
+              summary: network_profile is not one of the predefined profiles
+              value:
+                title: "Bad Request"
+                status: 400
+                instance: "/tests"
+                detail: "JSON parse error: Cannot construct instance of `com.saucelabs.rdcnativecomposerservice.model.job.NetworkProfile`, problem: Unknown network profile: 5G"
+            malformedJson:
+              summary: The body is not valid JSON
+              value:
+                title: "Bad Request"
+                status: 400
+                instance: "/tests"
+                detail: "JSON parse error: Unexpected end-of-input within/between Object entries"
+    NativeTestForbidden:
+      description: Forbidden. Your account cannot run native tests on real devices.
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/ProblemDetail"
+          examples:
+            trialExpired:
+              summary: Free trial accounts cannot run native tests
+              value:
+                title: "Forbidden"
+                status: 403
+                instance: "/tests"
+                detail: "Your trial period has ended. Please upgrade to a paid plan."
+
+  examples:
+    EspressoJob:
+      summary: A finished Espresso test
+      value:
+        application_summary:
+          appStorageId: "4f3a2d1c-8b7e-4c6d-9a5f-1e2d3c4b5a69"
+          groupId: 123456
+          filename: "app-debug.apk"
+          name: "My Demo App"
+          packageName: "com.example.app"
+          version: "4.2.0"
+          versionCode: "42"
+          shortVersion: null
+          minSdkLevel: 24
+          targetSdkLevel: 34
+          minOsVersion: null
+          targetOsVersion: null
+          tags: []
+        app_settings:
+          proxy:
+            hostname: ""
+            port: -1
+            enabled: false
+            username: null
+            password: null
+          deviceOrientation: "PORTRAIT"
+          locale: null
+          systemAlertsDelayEnabled: false
+          biometricsInterceptionEnabled: false
+          groupFolderRedirectEnabled: false
+          resigningEnabled: true
+          imageInjectionEnabled: false
+          audioInjectionEnabled: false
+          networkCaptureEnabled: true
+          vitalsEnabled: true
+          backtraceEnabled: false
+          bypassScreenshotRestrictionEnabled: false
+          setupDeviceLock: false
+          audioSupportEnabled: false
+          testfairyEnabled: true
+        assigned_tunnel_id: null
+        device_type: "real_device"
+        owner_sauce: "your-username"
+        automation_backend: "espresso"
+        base_config: {}
+        build: "release-4.2.0"
+        collects_automator_log: true
+        consolidated_status: "passed"
+        creation_time: 1764160790000
+        device_descriptor:
+          abiType: "arm64-v8a"
+          apiLevel: 34
+          cpuCores: 8
+          cpuFrequency: 3300
+          cpuType: "ARM"
+          defaultOrientation: "PORTRAIT"
+          deviceFamily: "ANY"
+          dpi: 500
+          dpiName: "xxhdpi"
+          hasOnScreenButtons: true
+          id: "Samsung_Galaxy_S24_real"
+          internalOrientation: "PORTRAIT"
+          internalStorageSize: 131072
+          isAlternativeIoEnabled: true
+          isArm: true
+          isKeyGuardDisabled: false
+          isPrivate: false
+          isRooted: false
+          isTablet: false
+          manufacturer: ["Samsung"]
+          modelNumber: "SM-S921B"
+          name: "Samsung Galaxy S24"
+          os: "ANDROID"
+          osVersion: "14"
+          pixelsPerPoint: 1
+          ramSize: 8192
+          resolutionHeight: 2340
+          resolutionWidth: 1080
+          screenSize: 6.2
+          sdCardSize: 0
+          supportsAppiumWebAppTesting: true
+          supportsGlobalProxy: false
+          supportsManualWebTesting: true
+          supportsMinicapSocketConnection: false
+          supportsMockLocations: true
+          supportsMultiTouch: true
+          supportsXcuiTest: true
+        end_time: 1764160859000
+        error: null
+        id: "0123456789abcdef0123456789abcdef"
+        framework_log_url: null
+        device_log_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/deviceLogs"
+        requests_url: null
+        wda_log_url: null
+        test_cases_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/testCases"
+        junit_log_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/junit.xml"
+        manual: false
+        modification_time: 1764160859000
+        name: "Checkout flow — release 4.2"
+        os: "Android"
+        os_version: "14"
+        device_name: "Samsung Galaxy S24"
+        passed: true
+        proxied: false
+        record_screenshots: true
+        screenshots:
+          - id: "screenshot_first"
+            url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/screenshots/screenshot_first"
+        record_video: true
+        start_time: 1764160800000
+        status: "passed"
+        tags: ["smoke", "checkout"]
+        video_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/video.mp4"
+        remote_app_file_url: null
+        appium_session_id: null
+        api_session_id: null
+        appium_version: null
+        device_session_id: null
+        client: "curl/8.7.1"
+        network_log_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/network.har"
+        testfairy_log_url: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/insights.json"
+        crash_log_url: null
+        backtrace_url: null
+        device_events_url: null
+        test_report_type: "ANDROID_INSTRUMENTATION"
+        used_cached_device: null
+        has_network_conditioning: false
+        xctestrunfile_info: null
+        device_context_id: "9e8d7c6b-5a49-4f38-b2c1-0d9e8f7a6b5c"
+        custom-data: null
+        warnings: []
+    ManagedDevices:
+      summary: Two private devices
+      value:
+        - id: "iPhone_15_Pro_private"
+          name: "iPhone 15 Pro"
+          os:
+            name: "iOS"
+            version: "18.0"
+          screenSize: 6.1
+          resolutionWidth: 1179
+          resolutionHeight: 2556
+          state: "AVAILABLE"
+          team: "8f0444d7762548bd81ae46722a14e1c6"
+          teams: ["8f0444d7762548bd81ae46722a14e1c6"]
+          appWhitelist: ["com.example.app"]
+          accountWhitelist: ["qa-tester@example.com"]
+          systemAppAllowlist: ["com.apple.calculator"]
+          applePaySupportEnabled: false
+          skipCleaningFolders: []
+        - id: "Google_Pixel_9_private"
+          name: "Google Pixel 9"
+          os:
+            name: "Android"
+            version: "15"
+          screenSize: 6.3
+          resolutionWidth: 1080
+          resolutionHeight: 2424
+          state: "IN_USE"
+          team: null
+          teams: []
+          appWhitelist: ["com.example.app"]
+          accountWhitelist: []
+          systemAppAllowlist: []
+          applePaySupportEnabled: null
+          skipCleaningFolders: ["/sdcard/Download"]
+
+  schemas:
+    # ---------------------------------------------------------------- Real Devices
+    DeviceDescriptor:
+      type: object
+      description: One device model and OS version, with its specifications and capabilities.
+      properties:
+        id:
+          type: string
+          description: "The device id. Use it to refer to this device in other endpoints and in test configurations."
+          example: "Samsung_Galaxy_S24_real"
+        name:
+          type: string
+          description: "The device name shown in the Sauce Labs UI."
+          example: "Samsung Galaxy S24"
+        manufacturer:
+          type: array
+          description: "The manufacturer(s) of the device."
+          items:
+            type: string
+          example: ["Samsung"]
+        modelNumber:
+          type: string
+          description: "The manufacturer's model number."
+          example: "SM-S921B"
+        os:
+          type: string
+          description: "The operating system."
+          enum: [ANDROID, IOS]
+        osVersion:
+          type: string
+          description: "The installed OS version."
+          example: "14"
+        apiLevel:
+          type: integer
+          description: "The Android API level. `0` on iOS."
+          example: 34
+        abiType:
+          type: string
+          description: "The CPU architecture (ABI) apps must be built for, for example `arm64-v8a` on Android or `arm64` on iOS."
+          example: "arm64-v8a"
+        cpuType:
+          type: string
+          description: "The CPU family."
+          enum: [ARM, X86]
+        isArm:
+          type: boolean
+          description: "Whether the CPU is an ARM CPU."
+        cpuCores:
+          type: integer
+          description: "The number of CPU cores."
+          example: 8
+        cpuFrequency:
+          type: integer
+          description: "The CPU frequency in MHz."
+          example: 3300
+        ramSize:
+          type: integer
+          description: "The RAM size in MB."
+          example: 8192
+        internalStorageSize:
+          type: integer
+          description: "The internal storage size in MB."
+          example: 131072
+        sdCardSize:
+          type: integer
+          description: "The SD card size in MB. `0` when the device has none."
+          example: 0
+        screenSize:
+          type: number
+          format: double
+          description: "The screen diagonal in inches."
+          example: 6.2
+        resolutionWidth:
+          type: integer
+          description: "The screen width in pixels."
+          example: 1080
+        resolutionHeight:
+          type: integer
+          description: "The screen height in pixels."
+          example: 2340
+        dpi:
+          type: integer
+          description: "The screen density in dots per inch."
+          example: 500
+        dpiName:
+          type: string
+          description: "The Android density bucket of the screen (`mdpi`, `hdpi`, `xhdpi`, `xxhdpi`, `xxxhdpi`), or `unknown`."
+          example: "xxhdpi"
+        pixelsPerPoint:
+          type: integer
+          description: "The number of pixels per point (iOS scale factor); `1` on Android."
+          example: 1
+        isTablet:
+          type: boolean
+          description: "Whether the device is a tablet."
+        deviceFamily:
+          type: string
+          description: "`IPHONE` or `IPAD` for iOS devices, `ANY` for Android devices."
+          enum: [ANY, IPHONE, IPAD]
+        defaultOrientation:
+          type: string
+          description: "The orientation the device starts a test in."
+          enum: [PORTRAIT, LANDSCAPE]
+        internalOrientation:
+          type: string
+          description: "The orientation of the device's screen hardware."
+          enum: [PORTRAIT, LANDSCAPE]
+        hasOnScreenButtons:
+          type: boolean
+          description: "Whether the navigation buttons are on screen rather than physical."
+        isPrivate:
+          type: boolean
+          description: "`true` for a private device of your organization, `false` for a public device."
+        isRooted:
+          type: boolean
+          description: "Whether the device is rooted or jailbroken."
+        isKeyGuardDisabled:
+          type: boolean
+          description: "Whether the lock screen is disabled."
+        isAlternativeIoEnabled:
+          type: boolean
+          description: "Whether the device uses the alternative input/output path for screen streaming and input."
+        supportsAppiumWebAppTesting:
+          type: boolean
+          description: "Whether Appium can test web apps in the device's browser."
+        supportsManualWebTesting:
+          type: boolean
+          description: "Whether Live Testing can open web pages on the device."
+        supportsXcuiTest:
+          type: boolean
+          description: "Whether XCUITest tests can run on the device."
+        supportsMultiTouch:
+          type: boolean
+          description: "Whether multi-touch gestures are supported."
+        supportsMockLocations:
+          type: boolean
+          description: "Whether the GPS location can be mocked."
+        supportsGlobalProxy:
+          type: boolean
+          description: "Whether a device-wide HTTP proxy can be set."
+        supportsMinicapSocketConnection:
+          type: boolean
+          description: "Whether the device supports the minicap screen streaming connection."
+    DeviceState:
+      type: string
+      description: The state of a device.
+      enum: [AVAILABLE, IN_USE, CLEANING, REBOOTING, MAINTENANCE, OFFLINE]
+    DevicesStatusResponse:
+      type: object
+      required:
+        - devices
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: "#/components/schemas/DeviceStatus"
+    DeviceStatus:
+      type: object
+      description: The current state of one device model.
+      required:
+        - descriptor
+        - state
+        - inUseBy
+        - isPrivateDevice
+      properties:
+        descriptor:
+          type: string
+          description: "The device id."
+          example: "Samsung_Galaxy_S24_real"
+        state:
+          $ref: "#/components/schemas/DeviceState"
+        inUseBy:
+          type: array
+          description: "Who is using the device: the username, for a private device that is `IN_USE` when you are allowed to see it. Empty otherwise."
+          items:
+            type: object
+            required:
+              - username
+            properties:
+              username:
+                type: string
+                example: "teammate-username"
+        isPrivateDevice:
+          type: boolean
+          description: "`true` for a private device of your organization."
+
+    # ---------------------------------------------------------------- Jobs
+    JobStatus:
+      type: string
+      description: |
+        The status of a test.
+        - `in progress` — the test is queued or running.
+        - `passed` — the test ran and passed.
+        - `failed` — the test ran and at least one test case failed, or the test was marked as failed.
+        - `error` — the test could not run or was stopped; the reason is in `error`.
+        - `complete` — the test ended without a pass/fail result, for example a Live Testing session.
+      enum: ["in progress", "passed", "failed", "error", "complete"]
+    JobType:
+      type: string
+      description: |
+        The type of a test.
+        - `APPIUM` — an Appium test.
+        - `ANDROID_INSTRUMENTATION` — an Espresso test.
+        - `XCUITEST` — an XCUITest or XCTest test.
+        - `LIVE` — a Live Testing session.
+        - `API` — a Real Device Access API session.
+        - `VIRTUAL_USB` — a Virtual USB session.
+      enum: [APPIUM, ANDROID_INSTRUMENTATION, XCUITEST, LIVE, API, VIRTUAL_USB]
+    JobList:
+      type: object
+      description: One page of tests.
+      required:
+        - entities
+        - metaData
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: "#/components/schemas/JobSummary"
+        metaData:
+          type: object
+          description: The page you received.
+          required:
+            - offset
+            - limit
+            - moreAvailable
+            - sortDirection
+          properties:
+            offset:
+              type: integer
+              description: "The 1-based position of the first test in this page."
+              example: 1
+            limit:
+              type: integer
+              description: "The page size that was applied."
+              example: 20
+            moreAvailable:
+              type: boolean
+              description: "`true` when more tests follow this page."
+            sortDirection:
+              type: string
+              description: "Always `DESCENDING`: newest tests first."
+              enum: [DESCENDING]
+    JobSummary:
+      type: object
+      description: One test in a list.
+      properties:
+        id:
+          type: string
+          description: "The id of the test."
+          example: "0123456789abcdef0123456789abcdef"
+        name:
+          type: string
+          description: "The name of the test."
+          example: "Checkout flow — release 4.2"
+        status:
+          $ref: "#/components/schemas/JobStatus"
+        consolidated_status:
+          allOf:
+            - $ref: "#/components/schemas/JobStatus"
+          description: "Same as `status`."
+        test_report_type:
+          $ref: "#/components/schemas/JobType"
+        automation_backend:
+          type: string
+          nullable: true
+          description: "The automation framework of an automated test, or `null` for a Live Testing or Virtual USB session."
+          enum: [APPIUM, ESPRESSO, XCUITEST, API, null]
+        manual:
+          type: boolean
+          description: "`true` for a Live Testing or Virtual USB session, `false` for an automated test."
+        owner_sauce:
+          type: string
+          description: "The username of the user who started the test."
+          example: "your-username"
+        device_type:
+          type: string
+          description: "Always `real_device`."
+          enum: [real_device]
+        device_name:
+          type: string
+          nullable: true
+          description: "The name of the device the test ran on, or `null` while no device is assigned."
+          example: "Samsung Galaxy S24"
+        os:
+          type: string
+          nullable: true
+          description: "`Android` or `iOS`, or `null` while no device is assigned."
+          example: "Android"
+        os_version:
+          type: string
+          nullable: true
+          description: "The OS version of the device, or `null` while no device is assigned."
+          example: "14"
+        creation_time:
+          type: integer
+          format: int64
+          description: "When the test started, in milliseconds since the Unix epoch (same value as `start_time` in a list entry)."
+          example: 1764160800000
+        start_time:
+          type: integer
+          format: int64
+          description: "When the test started on the device, in milliseconds since the Unix epoch."
+          example: 1764160800000
+        end_time:
+          type: integer
+          format: int64
+          description: "When the test ended, in milliseconds since the Unix epoch. Equal to `start_time` while the test is running."
+          example: 1764160859000
+        assigned_tunnel_id:
+          type: string
+          nullable: true
+          description: "The name of the Sauce Connect tunnel used by the test, or `null`."
+        has_crashed:
+          type: boolean
+          description: "`true` when a crash report was captured for the test."
+    Job:
+      type: object
+      description: One test in full.
+      properties:
+        id:
+          type: string
+          description: "The id of the test."
+          example: "0123456789abcdef0123456789abcdef"
+        name:
+          type: string
+          description: "The name of the test."
+          example: "Checkout flow — release 4.2"
+        status:
+          $ref: "#/components/schemas/JobStatus"
+        consolidated_status:
+          allOf:
+            - $ref: "#/components/schemas/JobStatus"
+          description: "Same as `status`."
+        passed:
+          type: boolean
+          nullable: true
+          description: "`true` or `false` once the test has a result; `null` while it is running or when it has no pass/fail result."
+        error:
+          type: string
+          nullable: true
+          description: "Why the test ended with status `error`, for example the app could not be installed, no device matched, or the test was stopped. `null` otherwise."
+        warnings:
+          type: array
+          description: "Warnings raised while the test ran that you should know about."
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+        test_report_type:
+          $ref: "#/components/schemas/JobType"
+        automation_backend:
+          type: string
+          nullable: true
+          description: "The automation framework of an automated test, or `null` for a Live Testing or Virtual USB session."
+          enum: [appium, espresso, xcuitest, api, null]
+        manual:
+          type: boolean
+          description: "`true` for a Live Testing or Virtual USB session, `false` for an automated test."
+        owner_sauce:
+          type: string
+          description: "The username of the user who started the test."
+          example: "your-username"
+        client:
+          type: string
+          nullable: true
+          description: "The client that started the test, from its `User-Agent`, for example `saucectl/0.215.0`."
+          example: "saucectl/0.215.0"
+        build:
+          type: string
+          nullable: true
+          description: "The build the test belongs to, or `null`."
+          example: "release-4.2.0"
+        tags:
+          type: array
+          description: "The tags of the test."
+          items:
+            type: string
+          example: ["smoke", "checkout"]
+        creation_time:
+          type: integer
+          format: int64
+          description: "When the test was requested, in milliseconds since the Unix epoch."
+          example: 1764160790000
+        start_time:
+          type: integer
+          format: int64
+          description: "When the test started on the device, in milliseconds since the Unix epoch."
+          example: 1764160800000
+        end_time:
+          type: integer
+          format: int64
+          description: "When the test ended, in milliseconds since the Unix epoch. Equal to `start_time` while the test is running."
+          example: 1764160859000
+        modification_time:
+          type: integer
+          format: int64
+          description: "Same as `end_time`."
+          example: 1764160859000
+        device_type:
+          type: string
+          description: "Always `real_device`."
+          enum: [real_device]
+        device_name:
+          type: string
+          nullable: true
+          description: "The name of the device the test ran on, or `null` while no device is assigned."
+          example: "Samsung Galaxy S24"
+        os:
+          type: string
+          nullable: true
+          description: "`Android` or `iOS`, or `null` while no device is assigned."
+          example: "Android"
+        os_version:
+          type: string
+          nullable: true
+          description: "The OS version of the device, or `null` while no device is assigned."
+          example: "14"
+        device_descriptor:
+          allOf:
+            - $ref: "#/components/schemas/DeviceDescriptor"
+          nullable: true
+          description: "The device the test ran on, or `null` while no device is assigned."
+        application_summary:
+          allOf:
+            - $ref: "#/components/schemas/ApplicationSummary"
+          nullable: true
+          description: "The app under test, from App Storage. `null` when the test did not use an app from App Storage."
+        app_settings:
+          allOf:
+            - $ref: "#/components/schemas/AppSettings"
+          nullable: true
+          description: "The settings the app ran with. `null` when `application_summary` is `null`."
+        xctestrunfile_info:
+          allOf:
+            - $ref: "#/components/schemas/ApplicationSummary"
+          nullable: true
+          description: "For an XCTest test, the `.xctestrun` file from App Storage. `null` otherwise."
+        remote_app_file_url:
+          type: string
+          nullable: true
+          description: "The app reference the test was started with, when it was not an App Storage file. `null` otherwise."
+        video_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the video of the test, or `null` when there is none."
+        device_log_url:
+          type: string
+          format: uri
+          description: "Download link for the device log."
+        framework_log_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the Appium log (Appium tests, and Access API sessions that requested it) or the XCUITest log (XCUITest and XCTest tests). `null` for Espresso tests and Live Testing sessions."
+        requests_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the Appium requests of an Appium test. `null` otherwise."
+        wda_log_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the WebDriverAgent log of an Appium test on iOS, when one was captured. `null` otherwise."
+        test_cases_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the test cases of an Espresso, XCUITest or XCTest test. `null` otherwise."
+        junit_log_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the JUnit report of an Espresso, XCUITest or XCTest test. `null` otherwise."
+        network_log_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the network capture (HAR), when network capture was on. `null` otherwise."
+        testfairy_log_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the device vitals, when vitals were on. `null` otherwise."
+        crash_log_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the crash report, when a crash was captured. `null` otherwise."
+        device_events_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Download link for the device events of an Appium test, when captured. `null` otherwise."
+        backtrace_url:
+          type: string
+          format: uri
+          nullable: true
+          description: "Link to the crash and error reports of the app in Sauce Labs Error Reporting, when enabled. `null` otherwise."
+        screenshots:
+          type: array
+          description: "The screenshots taken during the test, each with its download link."
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: "screenshot_first"
+              url:
+                type: string
+                format: uri
+                example: "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/0123456789abcdef0123456789abcdef/screenshots/screenshot_first"
+        record_video:
+          type: boolean
+          description: "Whether a video was recorded. Always `true` except for Access API sessions that opted out."
+        record_screenshots:
+          type: boolean
+          description: "Always `true`."
+        collects_automator_log:
+          type: boolean
+          description: "Always `true`."
+        assigned_tunnel_id:
+          type: string
+          nullable: true
+          description: "The name of the Sauce Connect tunnel used by the test, or `null`."
+        proxied:
+          type: boolean
+          description: "`true` when the test used a Sauce Connect tunnel."
+        has_network_conditioning:
+          type: boolean
+          description: "`true` when the test ran with a network profile or custom network conditions."
+        appium_session_id:
+          type: string
+          nullable: true
+          description: "The Appium session id of an Appium test. `null` otherwise."
+        appium_version:
+          type: string
+          nullable: true
+          description: "The Appium version of an Appium test, as requested (for example `latest` or `2.11.0`). `null` otherwise."
+        api_session_id:
+          type: string
+          nullable: true
+          description: "The session id of a Real Device Access API session. `null` otherwise."
+        device_session_id:
+          type: string
+          nullable: true
+          description: "The id of the shared Live View of an Appium test, when one was opened. `null` otherwise."
+        device_context_id:
+          type: string
+          nullable: true
+          description: "The id of the device session the test ran in. `null` while no device is assigned."
+          example: "9e8d7c6b-5a49-4f38-b2c1-0d9e8f7a6b5c"
+        used_cached_device:
+          type: boolean
+          nullable: true
+          description: "For Appium tests, whether the device was reused from a previous session of the same test. `null` for other test types."
+        base_config:
+          type: object
+          description: "Reserved; always empty."
+        custom-data:
+          type: object
+          nullable: true
+          description: "The custom data set on an Appium test with the `custom-data` capability. `null` otherwise."
+          additionalProperties: true
+    ApplicationSummary:
+      type: object
+      description: An app file in App Storage.
+      properties:
+        appStorageId:
+          type: string
+          format: uuid
+          description: "The file id in App Storage."
+          example: "4f3a2d1c-8b7e-4c6d-9a5f-1e2d3c4b5a69"
+        groupId:
+          type: integer
+          format: int64
+          description: "The id of the app group in App Storage that the file belongs to."
+          example: 123456
+        filename:
+          type: string
+          example: "app-debug.apk"
+        name:
+          type: string
+          nullable: true
+          description: "The app name read from the file."
+          example: "My Demo App"
+        packageName:
+          type: string
+          nullable: true
+          description: "The Android package name or iOS bundle id."
+          example: "com.example.app"
+        version:
+          type: string
+          nullable: true
+          example: "4.2.0"
+        versionCode:
+          type: string
+          nullable: true
+          description: "The Android version code."
+          example: "42"
+        shortVersion:
+          type: string
+          nullable: true
+          description: "The iOS short version."
+        minSdkLevel:
+          type: integer
+          nullable: true
+          description: "The minimum Android API level. `null` on iOS."
+          example: 24
+        targetSdkLevel:
+          type: integer
+          nullable: true
+          description: "The target Android API level. `null` on iOS."
+          example: 34
+        minOsVersion:
+          type: string
+          nullable: true
+          description: "The minimum iOS version. `null` on Android."
+        targetOsVersion:
+          type: string
+          nullable: true
+          description: "The target iOS version. `null` on Android."
+        tags:
+          type: array
+          description: "The tags of the file in App Storage."
+          items:
+            type: string
+    AppSettings:
+      type: object
+      description: The settings the app ran with (see **App Management > Settings** in the Sauce Labs UI).
+      properties:
+        proxy:
+          type: object
+          description: "The HTTP proxy the device's traffic went through. `enabled: false` with an empty `hostname` and `port: -1` when none was used."
+          properties:
+            enabled:
+              type: boolean
+            hostname:
+              type: string
+            port:
+              type: integer
+            username:
+              type: string
+              nullable: true
+            password:
+              type: string
+              nullable: true
+        deviceOrientation:
+          type: string
+          nullable: true
+          enum: [PORTRAIT, LANDSCAPE, null]
+        locale:
+          type: string
+          nullable: true
+          description: "The device language and region, for example `en_GB`, or `null` for the device default."
+        resigningEnabled:
+          type: boolean
+          description: "Whether the app was re-signed (iOS) or instrumented (Android) by Sauce Labs."
+        systemAlertsDelayEnabled:
+          type: boolean
+        biometricsInterceptionEnabled:
+          type: boolean
+        groupFolderRedirectEnabled:
+          type: boolean
+        imageInjectionEnabled:
+          type: boolean
+        audioInjectionEnabled:
+          type: boolean
+        networkCaptureEnabled:
+          type: boolean
+        vitalsEnabled:
+          type: boolean
+        testfairyEnabled:
+          type: boolean
+          description: "Same as `vitalsEnabled`."
+        backtraceEnabled:
+          type: boolean
+        bypassScreenshotRestrictionEnabled:
+          type: boolean
+        audioSupportEnabled:
+          type: boolean
+          description: "Whether the device audio was recorded."
+        setupDeviceLock:
+          type: boolean
+    JobUpdateRequest:
+      type: object
+      description: The fields of a test you can change. Send only the fields you want to change.
+      properties:
+        name:
+          type: string
+          description: "A new name for the test: 1 to 255 characters, not blank, no emojis. Leading and trailing spaces are removed."
+          minLength: 1
+          maxLength: 255
+          example: "Checkout flow — release 4.2"
+        build:
+          type: string
+          description: "The build to assign the test to; an existing build name or a new one. 1 to 255 characters: letters, digits, underscores and punctuation, no spaces."
+          pattern: "^[\\w\\p{P}]{1,255}$"
+          example: "release-4.2.0"
+        passed:
+          type: boolean
+          description: "`true` marks the test as passed, `false` as failed. This sets the test's status and result as you see them in the UI and in the Jobs API."
+          example: true
+        tags:
+          type: array
+          description: "The complete set of tags for the test; at most 10. Each tag is 1 to 255 characters: letters, digits, underscores and punctuation, no spaces."
+          maxItems: 10
+          items:
+            type: string
+            pattern: "^[\\w\\p{P}]{1,255}$"
+          example: ["smoke", "checkout"]
+    ApiError:
+      type: object
+      description: "Error body: a machine-readable `code` and a `message` that says what was wrong."
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          description: "The error code."
+          enum: [BAD_REQUEST, INVALID_REQUEST_PAYLOAD, JOB_NOT_FOUND, SCREENSHOT_NOT_FOUND, FORBIDDEN, INTERNAL_SERVER_ERROR, AUTH_INFO_ISSUE]
+          example: "JOB_NOT_FOUND"
+        message:
+          type: string
+          example: "Job '0123456789abcdef0123456789abcdef' not found"
+    GenericError:
+      type: object
+      description: Error body for a request the server could not process.
+      properties:
+        message:
+          type: string
+          enum: ["Oops, something went wrong."]
+      example:
+        message: "Oops, something went wrong."
+
+    # ---------------------------------------------------------------- Start a native test
+    NativeTestRequest:
+      type: object
+      description: Fields available for every test framework.
+      required:
+        - test_framework
+        - app_id
+        - device_query
+      properties:
+        test_framework:
+          type: string
+          description: "The test framework your test bundle was built with. Case sensitive."
+          enum: [ANDROID_INSTRUMENTATION, XCUITEST, XCTEST]
+          example: "XCUITEST"
+        app_id:
+          allOf:
+            - $ref: "#/components/schemas/AppStorageReference"
+          description: "Your app under test in App Storage: an `.apk` for Espresso, an `.ipa` built for real devices for XCUITest and XCTest."
+          example: "storage:filename=MyApp.ipa"
+        device_query:
+          $ref: "#/components/schemas/DeviceQuery"
+        test_name:
+          type: string
+          description: "The name shown for this test in the Sauce Labs UI. Defaults to `<test_framework>-test`, for example `XCUITEST-test`."
+          example: "Checkout flow — release 4.2"
+        build:
+          type: string
+          description: "Groups this test with other tests of the same build in the Sauce Labs UI. Use an existing build name or create a new one."
+          default: ""
+          example: "release-4.2.0"
+        tags:
+          type: array
+          description: "Tags for finding and filtering this test in the Sauce Labs UI."
+          default: []
+          items:
+            type: string
+          example: ["smoke", "checkout"]
+        other_apps:
+          type: array
+          description: "Up to seven additional apps to install on the device before your test runs, for example a companion app your test opens. Same reference format as `app_id`; each app must be built for the same platform as `app_id`."
+          maxItems: 7
+          default: []
+          items:
+            $ref: "#/components/schemas/AppStorageReference"
+          example: ["storage:filename=companion-app.apk"]
+        tunnel_name:
+          type: string
+          description: "Name of an active [Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect-5/) tunnel, to let the device reach servers behind your firewall."
+          example: "my-tunnel"
+        tunnel_identifier:
+          type: string
+          deprecated: true
+          description: "Former name of `tunnel_name`. Still accepted; used only when `tunnel_name` is not set."
+          example: "my-tunnel"
+        tunnel_owner:
+          type: string
+          description: "Username of the user who started the tunnel, when it is not you (a teammate's shared tunnel)."
+          example: "tunnel-owner-username"
+        network_profile:
+          allOf:
+            - $ref: "#/components/schemas/NetworkProfile"
+          description: "Simulate a network condition for the whole test with one of the predefined profiles. Case insensitive. Ignored when `network_conditions` is also set."
+          example: "4G-slow"
+        network_conditions:
+          allOf:
+            - $ref: "#/components/schemas/NetworkConditions"
+          description: "Simulate a custom network condition for the whole test. Takes precedence over `network_profile`."
+    EspressoTestRequest:
+      description: Run Espresso tests on an Android device.
+      allOf:
+        - $ref: "#/components/schemas/NativeTestRequest"
+        - type: object
+          required:
+            - test_app_id
+          properties:
+            test_framework:
+              type: string
+              enum: [ANDROID_INSTRUMENTATION]
+            test_app_id:
+              allOf:
+                - $ref: "#/components/schemas/AppStorageReference"
+              description: "Your Espresso test APK (the `androidTest` build) in App Storage."
+              example: "storage:filename=app-debug-androidTest.apk"
+            use_test_orchestrator:
+              type: boolean
+              default: false
+              description: "Run each test in its own `Instrumentation` instance with [Android Test Orchestrator](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/espresso/#usetestorchestrator), so shared state and crashes do not leak between tests. Combine with `test_options.clearPackageData` to also clear the app's data between tests."
+            test_options:
+              type: object
+              description: |
+                Which tests to run and how, as string key/value pairs — the same options as
+                [`testOptions`](https://docs.saucelabs.com/mobile-apps/automated-testing/espresso-xcuitest/espresso/#testoptions)
+                in `saucectl`: `class`, `notClass`, `package`, `notPackage`, `size`, `annotation`, `notAnnotation`,
+                `func`, `unit`, `perf`, `filter`, `runnerBuilder`, `listener`, `newRunListenerMode`, `numShards` /
+                `shardIndex`, `clearPackageData`, plus any custom key your tests read as an instrumentation argument.
+                Values must be strings, so write `"true"` rather than `true`. The keys `testFile`, `notTestFile`,
+                `debug`, `log`, `emma` and `coverageFile` are reserved and ignored.
+              additionalProperties:
+                type: string
+              default: {}
+              example: { "class": "com.example.CheckoutTest", "clearPackageData": "true" }
+            settings_overwrite:
+              $ref: "#/components/schemas/AndroidSettingsOverwrite"
+    XcuiTestRequest:
+      description: Run XCUITest tests on an iOS device.
+      allOf:
+        - $ref: "#/components/schemas/NativeTestRequest"
+        - type: object
+          required:
+            - test_app_id
+          properties:
+            test_framework:
+              type: string
+              enum: [XCUITEST]
+            test_app_id:
+              allOf:
+                - $ref: "#/components/schemas/AppStorageReference"
+              description: "Your XCUITest runner app (`<Target>-Runner.ipa`, built for real devices) in App Storage."
+              example: "storage:filename=MyAppUITests-Runner.ipa"
+            tests_to_run:
+              type: array
+              description: "Run only these tests. Each entry is a test class, `TestTarget.TestClass`, or a single test, `TestTarget.TestClass/testMethod`. Leave the field out to run every test; an empty list runs none."
+              items:
+                type: string
+              example: ["MyAppUITests.LoginTests", "MyAppUITests.CheckoutTests/testGuestCheckout"]
+            tests_to_skip:
+              type: array
+              description: "Run every test except these. Same entry format as `tests_to_run`."
+              items:
+                type: string
+              example: ["MyAppUITests.SlowTests"]
+            env:
+              type: object
+              description: "Environment variables passed to the test runner process, which your tests can read with `ProcessInfo.processInfo.environment`, as string key/value pairs."
+              additionalProperties:
+                type: string
+              default: {}
+              example: { "BASE_URL": "https://staging.example.com" }
+            settings_overwrite:
+              $ref: "#/components/schemas/IosSettingsOverwrite"
+    XcTestRequest:
+      description: Run an XCTest test plan on an iOS device.
+      allOf:
+        - $ref: "#/components/schemas/NativeTestRequest"
+        - type: object
+          required:
+            - xc_test_run_file
+          properties:
+            test_framework:
+              type: string
+              enum: [XCTEST]
+            xc_test_run_file:
+              type: string
+              description: "Your `.xctestrun` file in App Storage, produced by `xcodebuild build-for-testing`. It defines which tests run and with which settings. Reference it by file id — `<id>`, `storage:<id>` or `storage://<id>`; the `storage:filename=` form is only available for `.apk` and `.ipa` files."
+              pattern: "^(storage:(//)?)?[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
+              example: "2c1b0a9f-8e7d-4c6b-a5f4-e3d2c1b0a9f8"
+            settings_overwrite:
+              $ref: "#/components/schemas/IosSettingsOverwrite"
+    AppStorageReference:
+      type: string
+      description: |
+        A file in [App Storage](https://docs.saucelabs.com/mobile-apps/app-storage/), referenced in one of these ways:
+        - by file id, as shown in App Storage or returned by the upload: `1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d`,
+          `storage:1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d` or `storage://1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d`
+        - by file name, for `.apk` and `.ipa` files: `storage:filename=MyApp.ipa` — note the single colon and no slashes.
+          If you uploaded several files with that name, the most recent one is used.
+      pattern: "^((storage:(//)?)?[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|storage:filename=\\S[\\S ]+\\.(ipa|apk))$"
+      example: "storage:filename=MyApp.ipa"
+    DeviceQuery:
+      description: |
+        The device to run on. Either describe the device you want with `DynamicDeviceQuery` and Sauce Labs picks the
+        first available match, or name one exact device with `HardcodedDeviceQuery`. The platform is implied by
+        `test_framework`, so you do not specify Android or iOS here.
+      oneOf:
+        - $ref: "#/components/schemas/DynamicDeviceQuery"
+        - $ref: "#/components/schemas/HardcodedDeviceQuery"
+      discriminator:
+        propertyName: type
+        mapping:
+          DynamicDeviceQuery: "#/components/schemas/DynamicDeviceQuery"
+          HardcodedDeviceQuery: "#/components/schemas/HardcodedDeviceQuery"
+    DynamicDeviceQuery:
+      type: object
+      description: "Describe the device you want and let Sauce Labs pick the first available match. All filters are optional: `{ \"type\": \"DynamicDeviceQuery\" }` alone runs on any available device of the framework's platform."
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum: [DynamicDeviceQuery]
+        device_name:
+          type: string
+          description: "The device model, as a regular expression that must match the whole device name shown in the Sauce Labs UI — `Samsung Galaxy S2[0-9].*` matches `Samsung Galaxy S24`, `iPhone 1[5-6].*` matches `iPhone 16 Pro` — or an exact device id such as `Samsung_Galaxy_S24_real`. A pattern that matches several models gives you a larger pool of available devices ([Dynamic Device Allocation](https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation)). An invalid regular expression is accepted here and fails the test afterwards."
+          example: "Samsung Galaxy S2[0-9].*"
+        platform_version:
+          type: string
+          description: "The OS version, matched by prefix: `12` matches every 12.x.x version, `12.1` every 12.1.x version, `12.1.1` exactly that version. A regular expression over `MAJOR.MINOR.PATCH` is also accepted, for example `^1[3-4|6].*`. Leave it out for any version; the stricter the filter, the fewer devices qualify."
+          example: "14"
+        requested_device_type:
+          type: string
+          description: "Run on a phone, a tablet, or either."
+          enum: [ANY, PHONE, TABLET]
+          default: ANY
+        private_devices_only:
+          type: boolean
+          default: false
+          description: "Use only the private devices of your organization."
+        carrier_connectivity_requested:
+          type: boolean
+          default: false
+          description: "Use only devices with a SIM card and mobile network connectivity."
+    HardcodedDeviceQuery:
+      type: object
+      description: "Run on one exact device."
+      required:
+        - type
+        - device_descriptor_id
+      properties:
+        type:
+          type: string
+          enum: [HardcodedDeviceQuery]
+        device_descriptor_id:
+          type: string
+          description: "The device id, as listed by [Get Devices](#tag/Real-Devices/operation/getDevices) or shown in the Sauce Labs UI, for example `iPhone_16_real`."
+          example: "iPhone_16_real"
+        private_devices_only:
+          type: boolean
+          default: false
+          description: "Use only the private devices of your organization."
+    NetworkProfile:
+      type: string
+      description: "A predefined network condition, from no throttling to no network at all. Case insensitive."
+      enum:
+        - "no-throttling"
+        - "no-network"
+        - "2G-packet-loss"
+        - "2G"
+        - "3G-slow"
+        - "3G-fast"
+        - "4G-slow"
+        - "4G-fast"
+      example: "4G-slow"
+    NetworkConditions:
+      type: object
+      description: A custom network condition. Every field is optional.
+      properties:
+        download_speed:
+          type: integer
+          description: "Download speed in kbps (0 - 50000)."
+          example: 5000
+        upload_speed:
+          type: integer
+          description: "Upload speed in kbps (0 - 50000)."
+          example: 3000
+        latency:
+          type: integer
+          description: "Latency in ms (0 - 3000)."
+          example: 200
+        loss:
+          type: integer
+          description: "Packet loss in percent (0 - 100)."
+          example: 2
+    DeviceSettingsOverwrite:
+      type: object
+      description: |
+        Device settings for this test. Every field is optional. A field you set applies to this test only and takes
+        precedence over the app's settings in App Storage (**App Management > Settings**); a field you leave out is not
+        changed by this request.
+      properties:
+        lang:
+          type: string
+          description: "The language and region to set on the device before the test, as `language_REGION`, for example `en_GB` or `de_DE`."
+          example: "en_GB"
+        orientation:
+          type: string
+          description: "The screen orientation to set before the test. Devices default to portrait on phones and landscape on tablets."
+          enum: [PORTRAIT, LANDSCAPE]
+          example: "PORTRAIT"
+        audio_capture:
+          type: boolean
+          description: "Record the device audio in the test video. Off unless you turn it on here."
+          example: false
+        proxy_enabled:
+          type: boolean
+          description: "Send the device's traffic through the HTTP proxy given in `proxy`. Off unless you turn it on here."
+          example: false
+        proxy:
+          type: object
+          description: "The HTTP proxy to use when `proxy_enabled` is `true`."
+          required:
+            - host
+            - port
+          properties:
+            host:
+              type: string
+              description: "Proxy host name or IP address."
+              example: "proxy.example.com"
+            port:
+              type: integer
+              description: "Proxy port."
+              example: 8080
+    AndroidSettingsOverwrite:
+      description: |
+        Device and app instrumentation settings for this Espresso test — the equivalent of `appSettings` in a
+        `saucectl` configuration (`instrumentation_enabled` is `appSettings.resigningEnabled` there). To use any of the
+        instrumentation features — network capture, image injection, biometrics interception and the others listed
+        under `instrumentation` — send `settings_overwrite` with `instrumentation_enabled: true` and the feature set to
+        `true`. When you leave `settings_overwrite` out entirely, instrumentation, audio capture and the proxy are off
+        for this test, even if they are switched on for the app in App Storage.
+      allOf:
+        - $ref: "#/components/schemas/DeviceSettingsOverwrite"
+        - type: object
+          properties:
+            instrumentation_enabled:
+              type: boolean
+              description: "Let Sauce Labs instrument your app so the features under `instrumentation` work. Your APK is re-packaged and re-signed for this; the test runs against the instrumented copy."
+              example: true
+            instrumentation:
+              type: object
+              description: "The instrumentation features to turn on. Each is off unless set to `true`, and needs `instrumentation_enabled: true`."
+              properties:
+                image_injection:
+                  type: boolean
+                  description: "Let your test provide the image the camera returns, to test QR codes, document scans and similar flows."
+                network_capture:
+                  type: boolean
+                  description: "Capture your app's network traffic as a HAR file, downloadable from the test."
+                vitals:
+                  type: boolean
+                  description: "Record device vitals (CPU, memory, network usage) during the test."
+                group_folder_redirect:
+                  type: boolean
+                  description: "Redirect the app's group folder so the test can read and write shared app data."
+                biometrics:
+                  type: boolean
+                  description: "Intercept fingerprint and face authentication so your test can simulate a successful or failed scan."
+                sys_alerts_delay:
+                  type: boolean
+                  description: "Delay system alerts such as permission dialogs so your test can handle them."
+                bypass_screenshot_restriction:
+                  type: boolean
+                  description: "Record video and screenshots of screens your app marks as secure (`FLAG_SECURE`)."
+    IosSettingsOverwrite:
+      description: |
+        Device and app resigning settings for this XCUITest or XCTest test — the equivalent of `appSettings` in a
+        `saucectl` configuration (`resigning` here is `appSettings.instrumentation` there). Sauce Labs resigns your
+        app to run it on its devices; the resigning step also enables the features listed under `resigning` — network
+        capture, image injection, biometrics interception and the others. To use one, send `settings_overwrite` with
+        `resigning_enabled: true` and the feature set to `true`. When you leave `settings_overwrite` out entirely, the
+        app is resigned with every feature off, and audio capture and the proxy are off, even if they are switched on
+        for the app in App Storage.
+      allOf:
+        - $ref: "#/components/schemas/DeviceSettingsOverwrite"
+        - type: object
+          properties:
+            resigning_enabled:
+              type: boolean
+              description: "Resign the app with the Sauce Labs provisioning profile and inject the Sauce Labs runtime, which the features under `resigning` need. On by default. Set it to `false` only if your app must keep its own signature; it then cannot use any `resigning` feature."
+              example: true
+            resigning:
+              type: object
+              description: "The features to turn on through resigning. Each is off unless set to `true`, and needs `resigning_enabled: true`."
+              properties:
+                image_injection:
+                  type: boolean
+                  description: "Let your test provide the image the camera returns, to test QR codes, document scans and similar flows."
+                network_capture:
+                  type: boolean
+                  description: "Capture your app's network traffic as a HAR file, downloadable from the test."
+                vitals:
+                  type: boolean
+                  description: "Record device vitals (CPU, memory, network usage) during the test."
+                group_directory:
+                  type: boolean
+                  description: "Redirect the app's group directory so the test can read and write shared app data."
+                biometrics:
+                  type: boolean
+                  description: "Intercept Face ID and Touch ID so your test can simulate a successful or failed scan."
+                sys_alerts_delay:
+                  type: boolean
+                  description: "Delay system alerts such as permission dialogs so your test can handle them."
+                bypass_screenshot_restriction:
+                  type: boolean
+                  description: "Record video and screenshots of screens your app marks as secure."
+                group_folder_redirect:
+                  type: boolean
+                  deprecated: true
+                  description: "Accepted for backwards compatibility and ignored on iOS. Use `group_directory`."
+    TestExecutionResponse:
+      type: object
+      required:
+        - test_report
+      properties:
+        test_report:
+          type: object
+          description: "The test that was started."
+          required:
+            - id
+            - url
+          properties:
+            id:
+              type: string
+              description: "The id of the test. Use it with the other Jobs endpoints (`/v1/rdc/jobs/{job_id}`) to read the status and result and to download the video, logs and other results."
+              pattern: "^[a-f0-9]{32}$"
+              example: "0123456789abcdef0123456789abcdef"
+            url:
+              type: string
+              format: uri
+              description: "The test in the Sauce Labs UI — `app.saucelabs.com` for US West, `app.eu-central-1.saucelabs.com` for EU Central, `app.us-east-4.saucelabs.com` for US East, `app.asia-south-2.saucelabs.com` for Asia South."
+              example: "https://app.saucelabs.com/tests/0123456789abcdef0123456789abcdef"
+      example:
+        test_report:
+          id: "0123456789abcdef0123456789abcdef"
+          url: "https://app.saucelabs.com/tests/0123456789abcdef0123456789abcdef"
+    ProblemDetail:
+      type: object
+      description: "Error body in the [problem details](https://www.rfc-editor.org/rfc/rfc9457) format. `detail` says what was wrong."
+      properties:
+        type:
+          type: string
+          description: "Problem type. Absent or `about:blank` for generic errors."
+          example: "about:blank"
+        title:
+          type: string
+          example: "Bad Request"
+        status:
+          type: integer
+          example: 400
+        detail:
+          type: string
+          description: "What was wrong with the request."
+          example: "The query parameter 'state' has an invalid value: 'busy'. Allowed values are: IN_USE, AVAILABLE, REBOOTING, CLEANING, MAINTENANCE, OFFLINE."
+        instance:
+          type: string
+          example: "/tests"
+    ConstraintViolationProblem:
+      type: object
+      description: "Error body when one or more fields fail validation. `violations` lists each field and what is wrong with it; field names are given in camelCase (`appId` for `app_id`)."
+      required:
+        - type
+        - violations
+      properties:
+        type:
+          type: string
+          enum: ["https://zalando.github.io/problem/constraint-violation"]
+        title:
+          type: string
+          example: "Constraint Violation"
+        status:
+          type: integer
+          example: 400
+        instance:
+          type: string
+          example: "/tests"
+        violations:
+          type: array
+          items:
+            type: object
+            required:
+              - field
+              - message
+            properties:
+              field:
+                type: string
+                description: "The field, in camelCase."
+                example: "appId"
+              message:
+                type: string
+                example: "must not be null"
+
+    # ---------------------------------------------------------------- Private Real Device Management
+    ManagedDevice:
+      type: object
+      description: One private device of your organization.
+      properties:
+        id:
+          type: string
+          description: "The device id."
+          example: "iPhone_15_Pro_private"
+        name:
+          type: string
+          description: "The device name shown in the Sauce Labs UI."
+          example: "iPhone 15 Pro"
+        os:
+          type: object
+          properties:
+            name:
+              type: string
+              enum: [Android, iOS]
+            version:
+              type: string
+              example: "18.0"
+        screenSize:
+          type: number
+          format: double
+          description: "The screen diagonal in inches."
+          example: 6.1
+        resolutionWidth:
+          type: integer
+          example: 1179
+        resolutionHeight:
+          type: integer
+          example: 2556
+        state:
+          $ref: "#/components/schemas/DeviceState"
+        team:
+          type: string
+          nullable: true
+          description: "The id of the first team the device is assigned to, or `null`. Kept for compatibility; use `teams`."
+          example: "8f0444d7762548bd81ae46722a14e1c6"
+        teams:
+          type: array
+          description: "The ids of the teams the device is assigned to. Empty when the whole organization can use it."
+          items:
+            type: string
+          example: ["8f0444d7762548bd81ae46722a14e1c6"]
+        appWhitelist:
+          type: array
+          description: "Package names (Android) or bundle ids (iOS) of apps that stay installed, with their data, between sessions."
+          items:
+            type: string
+          example: ["com.example.app"]
+        accountWhitelist:
+          type: array
+          description: "Emails of the Google accounts or Apple IDs that stay signed in between sessions."
+          items:
+            type: string
+          example: ["qa-tester@example.com"]
+        systemAppAllowlist:
+          type: array
+          description: "Bundle ids of iOS system apps your tests may use. Always empty on Android."
+          items:
+            type: string
+          example: ["com.apple.calculator"]
+        applePaySupportEnabled:
+          type: boolean
+          nullable: true
+          description: "Whether Apple Pay testing is enabled on this iOS device. `null` on Android."
+        skipCleaningFolders:
+          type: array
+          description: "Folders on an Android device that are not wiped between sessions."
+          items:
+            type: string
+          example: ["/sdcard/Download"]
+    TeamsUpdateRequest:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: "The ids of the teams the device belongs to. An empty list removes every assignment."
+          items:
+            type: string
+          example: ["8f0444d7762548bd81ae46722a14e1c6"]
+    DeviceSettings:
+      type: object
+      description: The persistence settings of a private device. Send all of them; they replace the stored settings.
+      required:
+        - appWhitelist
+        - accountWhitelist
+        - systemAppAllowlist
+        - applePaySupportEnabled
+        - skipCleaningFolders
+      properties:
+        id:
+          type: string
+          description: "The device id. Optional; the id in the path is used."
+          example: "iPhone_15_Pro_private"
+        appWhitelist:
+          type: array
+          description: "[Persist installed apps](https://docs.saucelabs.com/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) and their data between sessions: package names (Android) or bundle ids (iOS). At most 100 entries."
+          maxItems: 100
+          items:
+            type: string
+          example: ["com.example.app"]
+        accountWhitelist:
+          type: array
+          description: "Preserve [store and payment account sign-ins](https://docs.saucelabs.com/basics/acct-team-mgmt/private-device-mgmt/#account-allow-list) between sessions: the email of each Google account or Apple ID. At most 100 entries."
+          maxItems: 100
+          items:
+            type: string
+          example: ["qa-tester@example.com"]
+        systemAppAllowlist:
+          type: array
+          description: "Allow access to [iOS preinstalled apps](https://docs.saucelabs.com/basics/acct-team-mgmt/private-device-mgmt/#system-app-allow-list-ios): their bundle ids. iOS only; ignored on Android. At most 100 entries."
+          maxItems: 100
+          items:
+            type: string
+          example: ["com.apple.calculator"]
+        applePaySupportEnabled:
+          type: boolean
+          description: "Enable [Apple Pay testing](https://docs.saucelabs.com/basics/acct-team-mgmt/private-device-mgmt/#enable-apple-pay). iOS only; ignored on Android. Contact your Sauce Labs representative or Support for the additional configuration."
+          example: false
+        skipCleaningFolders:
+          type: array
+          description: "[Retain folders](https://docs.saucelabs.com/basics/acct-team-mgmt/private-device-mgmt/#retain-foldersfilepath-android) on an Android device between sessions: absolute paths. At most 100 entries."
+          maxItems: 100
+          items:
+            type: string
+          example: ["/sdcard/Download"]
