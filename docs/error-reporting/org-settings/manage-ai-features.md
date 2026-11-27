@@ -31,11 +31,21 @@ You need the admin role in your Error Reporting instance. For more information, 
 
 ## Turn an AI Feature On or Off
 
-**Step 1:** Click your profile icon in the upper-right corner, and then select **Universe Settings**. In the left menu, click **AI feature settings**.
+**Step 1:** Click your profile icon in the upper-right corner, and then select **Universe Settings**.
 
 <img src={useBaseUrl('img/error-reporting/universe-settings/universe-settings-menu.png')} alt="Universe Settings option in the profile menu" />
 
-**Step 2:** Use the toggle next to the feature to turn it on or off. The change applies to everyone in your organization.
+**Step 2:** In the left menu, click **AI feature settings**.
+
+<img src={useBaseUrl('img/error-reporting/universe-settings/ai-feature-settings-menu.png')} alt="AI feature settings option in the left menu of Universe settings" />
+
+**Step 3:** Turn on the **Enable AI features for your organization** toggle. This toggle must be on before you can use any AI feature.
+
+**Step 4:** Under **Enable specific features**, turn the toggle for each feature on or off, such as **Natural language query**. The change applies to everyone in your organization.
+
+<img src={useBaseUrl('img/error-reporting/sauce-ai-error-reporting/error-reporting-4.png')} alt="AI feature settings page with the Enable AI features for your organization and Natural language query toggles highlighted" />
+
+To turn off all AI features at once, turn off the **Enable AI features for your organization** toggle.
 
 ## Related Topics
 

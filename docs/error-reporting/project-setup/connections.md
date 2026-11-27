@@ -64,6 +64,9 @@ If your Jira site or Slack workspace changes, transfer the integrations to a new
 ## Edit a Connection or an Integration
 
 - **To edit a connection:** Click **Edit** next to the name of the connection. What you can edit depends on the connection type. To change the details of a connection, we recommend that you create a new connection and [transfer the integrations](#transfer-integrations-to-another-connection) to it.
+
+  <img src={useBaseUrl('img/error-reporting/universe-settings/workflow-connections-edit.png')} alt="Edit option next to the name of a Jira connection on the Workflow connections page" />
+
 - **To edit an integration:** Click the **&#8942;** (More options) menu at the end of the integration's row, and then select **Integration settings**.
 
 ## Delete a Connection or an Integration
@@ -73,9 +76,12 @@ Deleting a connection also deletes all the integrations that use it. Error Repor
 :::
 
 - **To delete a connection:** Click **Delete** next to the name of the connection, and then confirm.
+
+  <img src={useBaseUrl('img/error-reporting/universe-settings/workflow-connections-delete.png')} alt="Delete option next to the name of a Jira connection on the Workflow connections page" />
+
 - **To delete one integration:** Click the **&#8942;** (More options) menu at the end of the integration's row, select **Delete integration**, and then confirm.
 
-<img src={useBaseUrl('/img/error-reporting/project-settings/delete-connection.png')} alt="Delete connection confirmation dialog" />
+  <img src={useBaseUrl('img/error-reporting/universe-settings/workflow-connections-delete-integration.png')} alt="Delete integration option in the More options menu of an integration on the Workflow connections page" />
 
 ## Related Topics
 
