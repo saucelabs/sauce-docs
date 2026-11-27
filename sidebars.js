@@ -156,9 +156,19 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Other Integrations',
+                            label: 'Apple Platforms',
                             collapsed: true,
                             items: [
+                                {
+                                    type: 'category',
+                                    label: 'iOS',
+                                    collapsed: true,
+                                    items: [
+                                        'error-reporting/platform-integrations/ios/setup',
+                                        'error-reporting/platform-integrations/ios/configuration',
+                                        'error-reporting/platform-integrations/cocoa/report-delivery',
+                                    ],
+                                },
                                 {
                                     type: 'category',
                                     label: 'macOS',
@@ -170,6 +180,18 @@ module.exports = {
                                         'error-reporting/platform-integrations/macos/troubleshooting',
                                     ],
                                 },
+                                {
+                                    type: 'link',
+                                    label: 'tvOS',
+                                    href: '/error-reporting/platform-integrations/ios/setup/#supported-platforms',
+                                },
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Other Integrations',
+                            collapsed: true,
+                            items: [
                                 'error-reporting/platform-integrations/plcrash-reporter',
                                 'error-reporting/platform-integrations/source-map',
                                 'error-reporting/platform-integrations/session-replay',
