@@ -28,6 +28,26 @@ Integrate Backtrace in your games and apps across languages and platforms with o
   </div>
 
   <div className="container">
+    <div className="box box1 card">
+      <h2>Apple Platforms</h2>
+      <div className="client-grid">
+        <div className="client-tile">
+          <img src={useBaseUrl('img/error-reporting/platform-integrations/apple.svg')} alt="iOS logo" />
+          <Link to="/error-reporting/platform-integrations/ios/setup/">iOS</Link>
+        </div>
+        <div className="client-tile">
+          <img src={useBaseUrl('img/error-reporting/platform-integrations/apple.svg')} alt="macOS logo" />
+          <Link to="/error-reporting/platform-integrations/macos/setup/">macOS</Link>
+        </div>
+        <div className="client-tile">
+          <img src={useBaseUrl('img/error-reporting/platform-integrations/apple.svg')} alt="tvOS logo" />
+          <Link to="/error-reporting/platform-integrations/ios/setup/#supported-platforms">tvOS</Link>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="container">
     <div className="box box2 card">
       <h2>Gaming Consoles & Engines</h2>
       <div className="client-grid">
