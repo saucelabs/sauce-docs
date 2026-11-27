@@ -41,6 +41,13 @@ servers:
     title: US East
     security:
       - $ref: "#/components/securitySchemes/basicAuth"
+  asiaSouth2:
+    host: api.asia-south-2.saucelabs.com
+    pathname: /rdc/v2
+    protocol: wss
+    title: Asia South
+    security:
+      - $ref: "#/components/securitySchemes/basicAuth"
 
 channels:
   companion:

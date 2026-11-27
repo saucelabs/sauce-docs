@@ -33,7 +33,7 @@ Key characteristics:
 - **Team Assignment:** Once created, a service account is tied to a specific team and cannot be reassigned.
 - **Limited Permissions:** Service accounts have limited permissions compared to user accounts, amongst others they **cannot**:
   - manage teams and accounts ([Accounts API](/dev/api/accounts/))
-  - manage private real devices ([Private Real Device API](/dev/api/rdc/#private-real-device-management))
+  - manage private real devices ([Private Real Device API](pathname:///dev/api/rdc/#tag/private-real-device-management/GET/v1/rdc/device-management/devices))
   - submit a crash in the [Crash/Error Reporting](/dev/api/error-reporting/)
   - use the [Virtual USB CLI](/dev/cli/virtual-usb/)
 

@@ -936,7 +936,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](/dev/api/rdc/#get-devices).
+Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](pathname:///dev/api/rdc/#tag/real-devices/GET/v1/rdc/devices).
 
 ```yaml
 suites:

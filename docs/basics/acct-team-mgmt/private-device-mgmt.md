@@ -301,5 +301,5 @@ You can find your old device settings in the device modal under **Other settings
 - **Apple Pay Support** (iOS): see [Enable Apple Pay](#enable-apple-pay).
 
 ## Private Device Management API
-Easily manage your private real devices with our [Device Management API endpoints](/dev/api/rdc/#private-real-device-management) 
+Manage your private real devices with our [Device Management API endpoints](pathname:///dev/api/rdc/#tag/private-real-device-management/GET/v1/rdc/device-management/devices)
 to obtain device information, assign devices to specific teams, and update device settings efficiently. 
